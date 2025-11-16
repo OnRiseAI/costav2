@@ -57,6 +57,17 @@ export function Navigation() {
         {mobileMenuOpen && (
           <div className="md:hidden py-6 border-t border-border animate-slide-in bg-white">
             <div className="flex flex-col space-y-6">
+              {/* Home Link */}
+              <div className="flex justify-center pb-4 border-b border-gray-200">
+                <Link
+                  to="/"
+                  className="text-lg font-semibold text-[#0a1f44] hover:text-primary transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Home
+                </Link>
+              </div>
+
               {/* Homeowner Section */}
               <div className="flex flex-col items-center space-y-4">
                 <h2 className="text-2xl font-bold text-[#0a1f44]">Homeowner</h2>
