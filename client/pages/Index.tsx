@@ -28,14 +28,16 @@ export default function Index() {
   const { t } = useLanguage();
 
   const categories = [
-    { name: t('category.poolMaintenance'), slug: 'pool-maintenance', icon: Droplets, count: 24 },
-    { name: t('category.airConditioning'), slug: 'air-conditioning', icon: Wind, count: 18 },
-    { name: t('category.plumbers'), slug: 'plumbers', icon: Wrench, count: 32 },
-    { name: t('category.electricians'), slug: 'electricians', icon: Zap, count: 28 },
-    { name: t('category.builders'), slug: 'builders', icon: Hammer, count: 21 },
-    { name: t('category.painters'), slug: 'painters', icon: PaintBucket, count: 15 },
-    { name: t('category.locksmiths'), slug: 'locksmiths', icon: Key, count: 12 },
-    { name: t('category.gardeners'), slug: 'gardeners', icon: Leaf, count: 19 },
+    { name: t('category.poolMaintenance'), slug: 'pool-maintenance', icon: Droplets, count: 4 },
+    { name: t('category.airConditioning'), slug: 'air-conditioning', icon: Wind, count: 4 },
+    { name: t('category.plumbers'), slug: 'plumbers', icon: Wrench, count: 4 },
+    { name: t('category.electricians'), slug: 'electricians', icon: Zap, count: 4 },
+    { name: t('category.builders'), slug: 'builders', icon: Hammer, count: 4 },
+    { name: t('category.painters'), slug: 'painters', icon: PaintBucket, count: 3 },
+    { name: t('category.locksmiths'), slug: 'locksmiths', icon: Key, count: 3 },
+    { name: t('category.gardeners'), slug: 'gardeners', icon: Leaf, count: 4 },
+    { name: t('category.pestControl'), slug: 'pest-control', icon: Bug, count: 3 },
+    { name: t('category.propertyMaintenance'), slug: 'property-maintenance', icon: Home, count: 4 },
   ];
 
   const featuredTradespeople = getFeaturedTradespeople(3);
