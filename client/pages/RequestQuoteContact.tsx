@@ -33,20 +33,58 @@ export default function RequestQuoteContact() {
     return null;
   }
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const isFormValid = firstName && lastName && email && phone && postcode;
 
-  const handleSubmit = () => {
-    if (isFormValid) {
-      console.log('Quote request submitted:', {
-        tradesperson: tradesperson.slug,
-        jobDescription,
-        timing,
-        contact: { firstName, lastName, email, phone, postcode }
+  const handleSubmit = async () => {
+    if (!isFormValid || isSubmitting) return;
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/send-quote', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          tradesperson: {
+            businessName: tradesperson.businessName,
+            slug: tradesperson.slug,
+          },
+          customer: {
+            firstName,
+            lastName,
+            email,
+            phone,
+            postcode,
+          },
+          jobDetails: {
+            description: jobDescription,
+            timing,
+          },
+        }),
       });
-      
-      // Show success and redirect
-      alert(`Quote request sent to ${tradesperson.businessName}! They will contact you soon.`);
-      navigate('/');
+
+      const data = await response.json();
+
+      if (data.success) {
+        // Show preview URL in development
+        if (data.previewUrl) {
+          console.log('Email preview:', data.previewUrl);
+        }
+
+        alert(`Quote request sent to ${tradesperson.businessName}! They will contact you soon.`);
+        navigate('/');
+      } else {
+        throw new Error(data.message || 'Failed to send quote request');
+      }
+    } catch (error) {
+      console.error('Error sending quote:', error);
+      alert('Failed to send quote request. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -135,10 +173,10 @@ export default function RequestQuoteContact() {
               <Button
                 size="lg"
                 className="w-full text-lg py-6 bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white rounded-full disabled:opacity-50 disabled:cursor-not-allowed"
-                disabled={!isFormValid}
+                disabled={!isFormValid || isSubmitting}
                 onClick={handleSubmit}
               >
-                Request a quote
+                {isSubmitting ? 'Sending...' : 'Request a quote'}
               </Button>
             </div>
 
