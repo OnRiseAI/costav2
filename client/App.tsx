@@ -13,6 +13,7 @@ import PostJobResults from "@/pages/PostJobResults";
 import RequestQuote from "@/pages/RequestQuote";
 import RequestQuoteContact from "@/pages/RequestQuoteContact";
 import LoginPage from "@/pages/LoginPage";
+import TradesMenu from "@/pages/TradesMenu";
 import PlaceholderPage from "@/pages/PlaceholderPage";
 import NotFound from "@/pages/NotFound";
 import "./global.css";
@@ -46,7 +47,8 @@ function App() {
               <Route path="/blog" element={<PlaceholderPage title="Blog & Resources" description="Tips, guides, and local insights for Costa del Sol homeowners" />} />
 
               {/* For Tradespeople */}
-              <Route path="/for-tradespeople" element={<PlaceholderPage title="Join as a Tradesperson" description="Grow your business with quality leads from TradeFinder" />} />
+              <Route path="/for-tradespeople" element={<TradesMenu />} />
+              <Route path="/trades-menu" element={<TradesMenu />} />
               <Route path="/join-as-tradesperson" element={<PlaceholderPage title="Tradesperson Application" description="Apply to join our verified network of professionals" />} />
 
               {/* Authentication */}
