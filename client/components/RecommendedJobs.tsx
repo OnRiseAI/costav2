@@ -31,8 +31,14 @@ const recommendedJobs: Job[] = [
 
 export function RecommendedJobs() {
   return (
-    <div className="bg-gray-50 py-12">
-      <div className="container-custom">
+    <div className="bg-gray-50 py-12 relative overflow-hidden">
+      {/* Background Enhancement */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-100/50 via-gray-50 to-white"></div>
+        <div className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-tr from-primary/5 to-transparent rounded-full blur-3xl"></div>
+        <div className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-bl from-accent/5 to-transparent rounded-full blur-3xl"></div>
+      </div>
+      <div className="container-custom relative z-10">
         <h2 className="text-2xl md:text-3xl font-bold mb-6">Recommended jobs</h2>
         
         <div className="grid md:grid-cols-3 gap-6">
