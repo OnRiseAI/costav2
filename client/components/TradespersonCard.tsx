@@ -140,7 +140,7 @@ export function TradespersonCard({
 
         {/* CTA Buttons */}
         <div className="flex flex-col gap-3">
-          <Link to={`/post-job?tradesperson=${slug}`} className="w-full">
+          <Link to={`/request-quote?tradesperson=${slug}`} className="w-full">
             <Button className="w-full bg-accent hover:bg-accent/90 text-white text-lg py-6 rounded-xl">
               Request a quote
             </Button>

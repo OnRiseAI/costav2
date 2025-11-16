@@ -10,6 +10,7 @@ import TradeCategory from "@/pages/TradeCategory";
 import SearchResults from "@/pages/SearchResults";
 import PostJob from "@/pages/PostJob";
 import PostJobResults from "@/pages/PostJobResults";
+import RequestQuote from "@/pages/RequestQuote";
 import PlaceholderPage from "@/pages/PlaceholderPage";
 import NotFound from "@/pages/NotFound";
 import "./global.css";
@@ -54,6 +55,7 @@ function App() {
               <Route path="/dashboard" element={<PlaceholderPage title="Dashboard" description="Manage your jobs, quotes, and saved tradespeople" />} />
               <Route path="/post-job" element={<PostJob />} />
               <Route path="/post-job/results" element={<PostJobResults />} />
+              <Route path="/request-quote" element={<RequestQuote />} />
               <Route path="/messages" element={<PlaceholderPage title="Messages" description="Chat with tradespeople and manage quotes" />} />
 
               {/* Tradesperson Dashboard */}
