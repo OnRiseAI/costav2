@@ -136,8 +136,8 @@ export default function Index() {
       <section className="bg-white py-16 md:py-24">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="mb-4">{t('categories.title')}</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="mb-4 text-2xl md:text-3xl lg:text-4xl">{t('categories.title')}</h2>
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
               Find verified professionals for any home improvement or maintenance need
             </p>
           </div>
