@@ -234,6 +234,19 @@
     animation: counter 1s ease-out forwards;
   }
 
+  @keyframes float-slow {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .animate-float {
+    animation: float-slow 8s ease-in-out infinite;
+  }
+
   /* Background Patterns */
   .pattern-dots {
     background-image: radial-gradient(circle, currentColor 1px, transparent 1px);
