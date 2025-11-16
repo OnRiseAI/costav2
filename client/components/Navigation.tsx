@@ -7,20 +7,21 @@ export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-white border-b border-border sticky top-0 z-50 shadow-sm">
-      <div className="container-custom">
-        <div className="flex items-center justify-between h-16 md:h-20 gap-4">
+    <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="flex items-center justify-between h-16 md:h-[72px]">
           {/* Left: Menu + Logo */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-foreground hover:text-primary"
+              className="text-gray-800 hover:text-gray-600 p-1"
+              aria-label="Menu"
             >
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
             <Link to="/" className="flex items-center">
-              <div className="w-10 h-10 md:w-12 md:h-12 bg-[#E31E24] rounded-full flex items-center justify-center">
-                <svg className="w-6 h-6 md:w-7 md:h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+              <div className="w-11 h-11 md:w-12 md:h-12 bg-[#E31E24] rounded-full flex items-center justify-center">
+                <svg className="w-6 h-6 md:w-7 md:h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5">
                   <path d="M20 6L9 17l-5-5" />
                 </svg>
               </div>
@@ -28,26 +29,26 @@ export function Navigation() {
           </div>
 
           {/* Center/Right: Action Buttons */}
-          <div className="flex items-center gap-2 md:gap-3">
+          <div className="flex items-center gap-3">
             <Link to="/join-as-tradesperson" className="hidden sm:block">
-              <Button className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white px-4 md:px-6 py-2 md:py-2.5 text-sm md:text-base rounded-full">
+              <Button className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white px-6 md:px-8 h-10 md:h-11 text-sm md:text-base font-medium rounded-full whitespace-nowrap">
                 Trade sign up
               </Button>
             </Link>
-            <Link to="/download-app" className="hidden md:block">
-              <Button variant="outline" className="border-2 border-[#0a1f44] text-[#0a1f44] hover:bg-gray-50 px-4 md:px-6 py-2 md:py-2.5 text-sm md:text-base rounded-full">
+            <Link to="/download-app" className="hidden lg:block">
+              <Button variant="outline" className="border-2 border-[#0a1f44] text-[#0a1f44] hover:bg-gray-50 px-6 md:px-8 h-10 md:h-11 text-sm md:text-base font-medium rounded-full whitespace-nowrap">
                 Download app
               </Button>
             </Link>
-            <Link to="/saved-trades" className="hidden sm:block">
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <Heart className="h-6 w-6 md:h-7 md:w-7 text-[#E31E24]" fill="#E31E24" />
-              </Button>
+            <Link to="/saved-trades" className="hidden sm:flex items-center justify-center">
+              <div className="p-2 hover:bg-gray-50 rounded-full transition-colors">
+                <Heart className="h-7 w-7 text-[#E31E24]" fill="#E31E24" />
+              </div>
             </Link>
-            <Link to="/login">
-              <Button variant="ghost" size="icon" className="rounded-full bg-[#0a1f44]">
-                <User className="h-5 w-5 md:h-6 md:w-6 text-white" />
-              </Button>
+            <Link to="/login" className="flex items-center justify-center">
+              <div className="w-11 h-11 md:w-12 md:h-12 bg-[#0a1f44] rounded-full flex items-center justify-center hover:bg-[#0a1f44]/90 transition-colors">
+                <User className="h-6 w-6 text-white" />
+              </div>
             </Link>
           </div>
         </div>
