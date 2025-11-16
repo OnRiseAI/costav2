@@ -1,4 +1,4 @@
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, Link } from 'react-router-dom';
 import { MapPin, Star, SlidersHorizontal } from 'lucide-react';
 import { TradespersonCard } from '@/components/TradespersonCard';
 import { useLanguage } from '@/contexts/LanguageContext';

@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { Wrench, MapPin, Star, SlidersHorizontal } from 'lucide-react';
 import { TradespersonCard } from '@/components/TradespersonCard';
 import { useLanguage } from '@/contexts/LanguageContext';
