@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Star, MapPin, CheckCircle } from 'lucide-react';
+import { Star, MapPin, CheckCircle, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -61,6 +61,20 @@ export function TradespersonCard({
             </div>
           </div>
         </div>
+
+        {/* Verification Badges */}
+        {verified && (
+          <div className="flex flex-wrap gap-2 mb-3">
+            <div className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-trust/10 text-trust border border-trust/20">
+              <CheckCircle className="h-3 w-3" />
+              <span>Verified</span>
+            </div>
+            <div className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-accent/10 text-accent border border-accent/20">
+              <Shield className="h-3 w-3" />
+              <span>Guaranteed</span>
+            </div>
+          </div>
+        )}
 
         {/* Rating */}
         <div className="flex items-center gap-2 mb-4">
