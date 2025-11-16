@@ -22,6 +22,7 @@ import { ReviewCard } from '@/components/ReviewCard';
 import { StatsCounter } from '@/components/StatsCounter';
 import { TrustBadges } from '@/components/TrustBadges';
 import { RecentSearches } from '@/components/RecentSearches';
+import { RecommendedJobs } from '@/components/RecommendedJobs';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { getFeaturedTradespeople } from '@/data/tradespeople';
