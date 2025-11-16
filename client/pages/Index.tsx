@@ -118,6 +118,7 @@ export default function Index() {
         'Miguel was fantastic! He diagnosed our pool issue quickly and had it fixed the same day. Very professional and reasonably priced. Highly recommend!',
       date: '2 weeks ago',
       verified: true,
+      avatarUrl: 'https://images.pexels.com/photos/27603433/pexels-photo-27603433.jpeg?auto=compress&cs=tinysrgb&w=100&h=100',
     },
     {
       reviewerName: 'James R.',
@@ -127,6 +128,7 @@ export default function Index() {
         'Cool Air Solutions installed our new AC units. They were punctual, clean, and the installation was perfect. Our house has never been cooler!',
       date: '1 month ago',
       verified: true,
+      avatarUrl: 'https://images.pexels.com/photos/31422830/pexels-photo-31422830.png?auto=compress&cs=tinysrgb&w=100&h=100',
     },
     {
       reviewerName: 'Anna K.',
@@ -136,6 +138,7 @@ export default function Index() {
         'Excellent service from German Precision Electric. They rewired our villa professionally and explained everything clearly. True professionals!',
       date: '3 weeks ago',
       verified: true,
+      avatarUrl: 'https://images.pexels.com/photos/8951408/pexels-photo-8951408.jpeg?auto=compress&cs=tinysrgb&w=100&h=100',
     },
   ];
 
