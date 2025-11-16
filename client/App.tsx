@@ -60,6 +60,11 @@ function App() {
               <Route path="/request-quote" element={<RequestQuote />} />
               <Route path="/request-quote/contact" element={<RequestQuoteContact />} />
               <Route path="/messages" element={<PlaceholderPage title="Messages" description="Chat with tradespeople and manage quotes" />} />
+              <Route path="/review-trade" element={<PlaceholderPage title="Review a Trade" description="Share your experience and help others find trusted tradespeople" />} />
+              <Route path="/homeowner-advice" element={<PlaceholderPage title="Homeowner Advice Centre" description="Expert tips and guides for your home improvement projects" />} />
+              <Route path="/find-expert" element={<PlaceholderPage title="Find Your Expert" description="Connect with verified professionals in Costa del Sol" />} />
+              <Route path="/saved-trades" element={<PlaceholderPage title="Saved Trades" description="Your saved tradespeople and favorite professionals" />} />
+              <Route path="/advice-centre" element={<PlaceholderPage title="Advice Centre" description="Resources and guidance for tradespeople and homeowners" />} />
 
               {/* Tradesperson Dashboard */}
               <Route path="/pro/dashboard" element={<PlaceholderPage title="Pro Dashboard" description="Manage your leads, profile, and business" />} />
