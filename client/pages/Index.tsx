@@ -105,28 +105,28 @@ export default function Index() {
       {/* How It Works Section */}
       <section className="bg-gray-50 py-16 md:py-24">
         <div className="container-custom">
-          <h2 className="text-center mb-16">{t('how.title')}</h2>
+          <h2 className="text-center mb-16 text-2xl md:text-3xl lg:text-4xl">{t('how.title')}</h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="text-center">
               <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6 text-white text-3xl font-bold shadow-lg">
                 1
               </div>
-              <h3 className="text-xl font-semibold mb-3">{t('how.step1.title')}</h3>
-              <p className="text-muted-foreground leading-relaxed">{t('how.step1.desc')}</p>
+              <h3 className="text-lg md:text-xl font-semibold mb-3">{t('how.step1.title')}</h3>
+              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{t('how.step1.desc')}</p>
             </div>
             <div className="text-center">
               <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6 text-white text-3xl font-bold shadow-lg">
                 2
               </div>
-              <h3 className="text-xl font-semibold mb-3">{t('how.step2.title')}</h3>
-              <p className="text-muted-foreground leading-relaxed">{t('how.step2.desc')}</p>
+              <h3 className="text-lg md:text-xl font-semibold mb-3">{t('how.step2.title')}</h3>
+              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{t('how.step2.desc')}</p>
             </div>
             <div className="text-center">
               <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6 text-white text-3xl font-bold shadow-lg">
                 3
               </div>
-              <h3 className="text-xl font-semibold mb-3">{t('how.step3.title')}</h3>
-              <p className="text-muted-foreground leading-relaxed">{t('how.step3.desc')}</p>
+              <h3 className="text-lg md:text-xl font-semibold mb-3">{t('how.step3.title')}</h3>
+              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{t('how.step3.desc')}</p>
             </div>
           </div>
         </div>
@@ -167,8 +167,8 @@ export default function Index() {
       <section className="bg-gray-50 py-16 md:py-24">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="mb-4">Featured Tradespeople</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="mb-4 text-2xl md:text-3xl lg:text-4xl">Featured Tradespeople</h2>
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
               Top-rated professionals ready to help with your next project
             </p>
           </div>
