@@ -2,8 +2,18 @@ import { CheckCircle } from 'lucide-react';
 
 export function TrustBadges() {
   return (
-    <section className="bg-white py-16 md:py-20 border-y border-border">
-      <div className="container-custom">
+    <section className="bg-white py-16 md:py-20 border-y border-border relative overflow-hidden">
+      {/* Subtle Background Enhancement */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-r from-green-50/20 via-blue-50/20 to-green-50/20"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-4xl opacity-5">
+          <div className="w-full h-full" style={{
+            backgroundImage: `radial-gradient(circle at center, currentColor 1px, transparent 1px)`,
+            backgroundSize: '40px 40px'
+          }}></div>
+        </div>
+      </div>
+      <div className="container-custom relative z-10">
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8 md:gap-12">
             {/* Verified */}
