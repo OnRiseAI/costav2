@@ -373,7 +373,7 @@ export default function Index() {
             </Link>
 
             {/* Project 3 - Kitchen */}
-            <div className="group cursor-pointer animate-slide-up" style={{ animationDelay: '0.5s' }}>
+            <Link to="/trades/builders" className="group cursor-pointer animate-slide-up block" style={{ animationDelay: '0.5s' }}>
               <div className="relative overflow-hidden rounded-xl mb-4 aspect-[4/3]">
                 <img
                   src="https://images.pexels.com/photos/8293677/pexels-photo-8293677.jpeg?auto=compress&cs=tinysrgb&w=800"
@@ -394,7 +394,7 @@ export default function Index() {
                 </div>
                 <span className="text-sm text-muted-foreground">5.0 · €12,400</span>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </section>
