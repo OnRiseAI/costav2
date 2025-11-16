@@ -29,13 +29,13 @@ export function Navigation() {
 
           {/* Center/Right: Action Buttons */}
           <div className="flex items-center gap-3">
-            <Link to="/join-as-tradesperson" className="hidden md:block">
-              <Button className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white px-7 h-[44px] text-[15px] font-medium rounded-full whitespace-nowrap shadow-sm">
+            <Link to="/join-as-tradesperson">
+              <Button className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white px-5 md:px-7 h-[44px] text-[14px] md:text-[15px] font-medium rounded-full whitespace-nowrap shadow-sm">
                 Trade sign up
               </Button>
             </Link>
-            <Link to="/download-app" className="hidden md:block">
-              <Button variant="outline" className="border-2 border-[#0a1f44] text-[#0a1f44] hover:bg-gray-50 bg-white px-7 h-[44px] text-[15px] font-medium rounded-full whitespace-nowrap">
+            <Link to="/download-app">
+              <Button variant="outline" className="border-2 border-[#0a1f44] text-[#0a1f44] hover:bg-gray-50 bg-white px-5 md:px-7 h-[44px] text-[14px] md:text-[15px] font-medium rounded-full whitespace-nowrap">
                 Download app
               </Button>
             </Link>
