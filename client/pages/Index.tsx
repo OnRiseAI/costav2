@@ -325,7 +325,7 @@ export default function Index() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {/* Project 1 - Pool & Patio */}
-            <div className="group cursor-pointer animate-slide-up" style={{ animationDelay: '0.1s' }}>
+            <Link to="/trades/pool-maintenance" className="group cursor-pointer animate-slide-up block" style={{ animationDelay: '0.1s' }}>
               <div className="relative overflow-hidden rounded-xl mb-4 aspect-[4/3]">
                 <img
                   src="https://images.pexels.com/photos/3209049/pexels-photo-3209049.jpeg?auto=compress&cs=tinysrgb&w=800"
@@ -346,10 +346,10 @@ export default function Index() {
                 </div>
                 <span className="text-sm text-muted-foreground">5.0 · €8,500</span>
               </div>
-            </div>
+            </Link>
 
             {/* Project 2 - Bathroom */}
-            <div className="group cursor-pointer animate-slide-up" style={{ animationDelay: '0.3s' }}>
+            <Link to="/trades/builders" className="group cursor-pointer animate-slide-up block" style={{ animationDelay: '0.3s' }}>
               <div className="relative overflow-hidden rounded-xl mb-4 aspect-[4/3]">
                 <img
                   src="https://images.pexels.com/photos/7614405/pexels-photo-7614405.jpeg?auto=compress&cs=tinysrgb&w=800"
@@ -370,7 +370,7 @@ export default function Index() {
                 </div>
                 <span className="text-sm text-muted-foreground">5.0 · €6,200</span>
               </div>
-            </div>
+            </Link>
 
             {/* Project 3 - Kitchen */}
             <div className="group cursor-pointer animate-slide-up" style={{ animationDelay: '0.5s' }}>
