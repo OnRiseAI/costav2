@@ -1,3 +1,5 @@
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { Navigation } from "@/components/Navigation";
@@ -6,6 +8,7 @@ import Index from "@/pages/Index";
 import TradeCategory from "@/pages/TradeCategory";
 import PlaceholderPage from "@/pages/PlaceholderPage";
 import NotFound from "@/pages/NotFound";
+import "./global.css";
 
 function App() {
   return (
@@ -69,4 +72,8 @@ function App() {
   );
 }
 
-export default App;
+createRoot(document.getElementById("root")!).render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
