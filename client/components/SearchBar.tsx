@@ -33,7 +33,7 @@ export function SearchBar({ variant = 'hero' }: SearchBarProps) {
             value={trade}
             onChange={(e) => setTrade(e.target.value)}
             placeholder={t('hero.searchPlaceholder')}
-            className={`w-full px-4 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary ${
+            className={`w-full px-4 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-foreground placeholder:text-muted-foreground ${
               isHero ? 'py-4 text-lg' : 'py-3'
             }`}
           />
@@ -44,7 +44,7 @@ export function SearchBar({ variant = 'hero' }: SearchBarProps) {
             value={location}
             onChange={(e) => setLocation(e.target.value)}
             placeholder={t('hero.locationPlaceholder')}
-            className={`w-full px-4 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary ${
+            className={`w-full px-4 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-foreground placeholder:text-muted-foreground ${
               isHero ? 'py-4 text-lg' : 'py-3'
             }`}
           />
