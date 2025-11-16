@@ -133,7 +133,7 @@ export const demoTradespeople: Tradesperson[] = [
     verified: true,
     jobsCompleted: 189,
     yearsInBusiness: 11,
-    services: ['Emergency Plumbing', 'Bathroom Installation', 'Boiler Repair', 'Leak Detection'],
+    services: ['Plumbers', 'Emergency Plumbing', 'Bathroom Installation', 'Boiler Repair'],
     phone: '+34-952-234-567',
   },
   {
