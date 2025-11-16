@@ -10,6 +10,8 @@ export interface Tradesperson {
   verified: boolean;
   jobsCompleted: number;
   yearsInBusiness: number;
+  services?: string[];
+  phone?: string;
 }
 
 export const demoTradespeople: Tradesperson[] = [
@@ -26,6 +28,8 @@ export const demoTradespeople: Tradesperson[] = [
     verified: true,
     jobsCompleted: 156,
     yearsInBusiness: 8,
+    services: ['Pool Maintenance', 'Pool Cleaning', 'Chemical Balancing', 'Equipment Repair'],
+    phone: '+34-952-123-456',
   },
   {
     slug: 'aqua-masters-costa',
@@ -129,6 +133,8 @@ export const demoTradespeople: Tradesperson[] = [
     verified: true,
     jobsCompleted: 189,
     yearsInBusiness: 11,
+    services: ['Emergency Plumbing', 'Bathroom Installation', 'Boiler Repair', 'Leak Detection'],
+    phone: '+34-952-234-567',
   },
   {
     slug: 'costa-plumbing-pros',
@@ -192,6 +198,8 @@ export const demoTradespeople: Tradesperson[] = [
     verified: true,
     jobsCompleted: 145,
     yearsInBusiness: 8,
+    services: ['Rewiring', 'Fuse Box Upgrades', 'Lighting Installation', 'Emergency Repairs'],
+    phone: '+34-952-345-678',
   },
   {
     slug: 'power-solutions-costa',
@@ -281,6 +289,8 @@ export const demoTradespeople: Tradesperson[] = [
     verified: true,
     jobsCompleted: 156,
     yearsInBusiness: 8,
+    services: ['Interior Painting', 'Exterior Painting', 'Wallpapering', 'Commercial Projects'],
+    phone: '+34-952-456-789',
   },
   {
     slug: 'color-perfect-decorators',
