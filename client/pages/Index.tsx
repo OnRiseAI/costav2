@@ -27,6 +27,7 @@ import { WhyChooseUs } from '@/components/WhyChooseUs';
 import { LiveActivity } from '@/components/LiveActivity';
 import { TrustIndicators } from '@/components/TrustIndicators';
 import { Newsletter } from '@/components/Newsletter';
+import { AppStoreBadges } from '@/components/AppStoreBadges';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { getFeaturedTradespeople } from '@/data/tradespeople';
@@ -187,6 +188,11 @@ export default function Index() {
             </div>
             <div className="max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.5s' }}>
               <RecentSearches />
+            </div>
+
+            {/* App Store Badges */}
+            <div className="mt-8 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+              <AppStoreBadges showTitle={false} className="text-center" />
             </div>
           </div>
         </div>
