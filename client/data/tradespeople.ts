@@ -22,6 +22,7 @@ export const demoTradespeople: Tradesperson[] = [
     location: 'Marbella',
     rating: 4.9,
     reviewCount: 87,
+    profilePhoto: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&h=200&fit=crop',
     verified: true,
     jobsCompleted: 156,
     yearsInBusiness: 8,
