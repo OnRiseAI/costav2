@@ -100,7 +100,14 @@ export default function Index() {
     },
   ];
 
-  const featuredTradespeople = getFeaturedTradespeople(3);
+  const featuredTradespeople = getFeaturedTradespeople(3).map((tp, idx) => {
+    const photos = [
+      'https://images.pexels.com/photos/16552856/pexels-photo-16552856.jpeg?auto=compress&cs=tinysrgb&w=200&h=200',
+      'https://images.pexels.com/photos/19987431/pexels-photo-19987431.jpeg?auto=compress&cs=tinysrgb&w=200&h=200',
+      'https://images.pexels.com/photos/16552856/pexels-photo-16552856.jpeg?auto=compress&cs=tinysrgb&w=200&h=200',
+    ];
+    return { ...tp, profilePhoto: photos[idx] };
+  });
 
   const reviews = [
     {
