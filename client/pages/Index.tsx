@@ -16,7 +16,7 @@ import {
   ArrowRight,
 } from 'lucide-react';
 import { SearchBar } from '@/components/SearchBar';
-import { CategoryCard } from '@/components/CategoryCard';
+import { CategoryCardWithImage } from '@/components/CategoryCardWithImage';
 import { TradespersonCard } from '@/components/TradespersonCard';
 import { ReviewCard } from '@/components/ReviewCard';
 import { StatsCounter } from '@/components/StatsCounter';
@@ -28,16 +28,76 @@ export default function Index() {
   const { t } = useLanguage();
 
   const categories = [
-    { name: t('category.poolMaintenance'), slug: 'pool-maintenance', icon: Droplets, count: 4 },
-    { name: t('category.airConditioning'), slug: 'air-conditioning', icon: Wind, count: 4 },
-    { name: t('category.plumbers'), slug: 'plumbers', icon: Wrench, count: 4 },
-    { name: t('category.electricians'), slug: 'electricians', icon: Zap, count: 4 },
-    { name: t('category.builders'), slug: 'builders', icon: Hammer, count: 4 },
-    { name: t('category.painters'), slug: 'painters', icon: PaintBucket, count: 3 },
-    { name: t('category.locksmiths'), slug: 'locksmiths', icon: Key, count: 3 },
-    { name: t('category.gardeners'), slug: 'gardeners', icon: Leaf, count: 4 },
-    { name: t('category.pestControl'), slug: 'pest-control', icon: Bug, count: 3 },
-    { name: t('category.propertyMaintenance'), slug: 'property-maintenance', icon: Home, count: 4 },
+    {
+      name: t('category.poolMaintenance'),
+      slug: 'pool-maintenance',
+      icon: Droplets,
+      count: 4,
+      imageUrl: 'https://images.pexels.com/photos/6684752/pexels-photo-6684752.jpeg?auto=compress&cs=tinysrgb&w=600'
+    },
+    {
+      name: t('category.airConditioning'),
+      slug: 'air-conditioning',
+      icon: Wind,
+      count: 4,
+      imageUrl: 'https://images.pexels.com/photos/32497161/pexels-photo-32497161.jpeg?auto=compress&cs=tinysrgb&w=600'
+    },
+    {
+      name: t('category.plumbers'),
+      slug: 'plumbers',
+      icon: Wrench,
+      count: 4,
+      imageUrl: 'https://images.pexels.com/photos/8486928/pexels-photo-8486928.jpeg?auto=compress&cs=tinysrgb&w=600'
+    },
+    {
+      name: t('category.electricians'),
+      slug: 'electricians',
+      icon: Zap,
+      count: 4,
+      imageUrl: 'https://images.pexels.com/photos/442160/pexels-photo-442160.jpeg?auto=compress&cs=tinysrgb&w=600'
+    },
+    {
+      name: t('category.builders'),
+      slug: 'builders',
+      icon: Hammer,
+      count: 4,
+      imageUrl: 'https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=600'
+    },
+    {
+      name: t('category.painters'),
+      slug: 'painters',
+      icon: PaintBucket,
+      count: 3,
+      imageUrl: 'https://images.pexels.com/photos/7217966/pexels-photo-7217966.jpeg?auto=compress&cs=tinysrgb&w=600'
+    },
+    {
+      name: t('category.locksmiths'),
+      slug: 'locksmiths',
+      icon: Key,
+      count: 3,
+      imageUrl: 'https://images.pexels.com/photos/101808/pexels-photo-101808.jpeg?auto=compress&cs=tinysrgb&w=600'
+    },
+    {
+      name: t('category.gardeners'),
+      slug: 'gardeners',
+      icon: Leaf,
+      count: 4,
+      imageUrl: 'https://images.pexels.com/photos/26827231/pexels-photo-26827231.jpeg?auto=compress&cs=tinysrgb&w=600'
+    },
+    {
+      name: t('category.pestControl'),
+      slug: 'pest-control',
+      icon: Bug,
+      count: 3,
+      imageUrl: 'https://images.pexels.com/photos/5025646/pexels-photo-5025646.jpeg?auto=compress&cs=tinysrgb&w=600'
+    },
+    {
+      name: t('category.propertyMaintenance'),
+      slug: 'property-maintenance',
+      icon: Home,
+      count: 4,
+      imageUrl: 'https://images.pexels.com/photos/7414938/pexels-photo-7414938.jpeg?auto=compress&cs=tinysrgb&w=600'
+    },
   ];
 
   const featuredTradespeople = getFeaturedTradespeople(3);
@@ -75,8 +135,17 @@ export default function Index() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary via-primary-600 to-primary-700 text-white">
-        <div className="container-custom py-16 md:py-24">
+      <section className="relative bg-gradient-to-br from-primary via-primary-600 to-primary-700 text-white overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.pexels.com/photos/5025646/pexels-photo-5025646.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            alt="Professional tradesperson"
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary-600/90 to-primary-700/95"></div>
+        </div>
+        <div className="container-custom py-16 md:py-24 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
               {t('hero.title')}
@@ -141,14 +210,15 @@ export default function Index() {
               Find verified professionals for any home improvement or maintenance need
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8">
             {categories.map((category) => (
-              <CategoryCard
+              <CategoryCardWithImage
                 key={category.slug}
                 name={category.name}
                 slug={category.slug}
                 icon={category.icon}
                 count={category.count}
+                imageUrl={category.imageUrl}
               />
             ))}
           </div>
