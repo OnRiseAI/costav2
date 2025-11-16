@@ -215,9 +215,11 @@ export default function SearchResults() {
           <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
             Post your job and receive quotes from verified professionals in your area
           </p>
-          <Button size="lg" className="bg-accent hover:bg-accent/90">
-            Post a Job Now
-          </Button>
+          <Link to="/post-job">
+            <Button size="lg" className="bg-accent hover:bg-accent/90">
+              Post a Job Now
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
