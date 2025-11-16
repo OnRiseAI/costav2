@@ -191,10 +191,22 @@ export default function Index() {
       </section>
 
       {/* Stats Section */}
-      <section className="bg-gradient-to-b from-gray-50 via-white to-gray-50 border-y border-border relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5 pattern-dots text-primary"></div>
-        <div className="container-custom py-16 md:py-24 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+      <section className="bg-gradient-to-b from-white via-gray-50 to-white border-y border-gray-200 relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 opacity-[0.03]">
+          <div className="absolute top-20 left-10 w-64 h-64 bg-blue-500 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-64 h-64 bg-orange-500 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-green-500 rounded-full blur-3xl"></div>
+        </div>
+        <div className="absolute inset-0 opacity-[0.02] pattern-grid text-gray-900"></div>
+
+        <div className="container-custom py-20 md:py-28 relative z-10">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Trusted by Thousands</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">Join our growing community of satisfied customers and verified professionals</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
             <div className="animate-counter" style={{ animationDelay: '0.1s' }}>
               <StatsCounter icon={Users} value="150+" label={t('stats.tradespeople')} colorScheme="blue" />
             </div>
