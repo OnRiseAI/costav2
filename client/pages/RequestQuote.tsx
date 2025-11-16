@@ -26,11 +26,10 @@ export default function RequestQuote() {
 
   const handleContinue = () => {
     if (jobDescription.length >= 50) {
-      // Navigate to next step or show success message
-      console.log('Quote request submitted:', { tradesperson: tradesperson.slug, jobDescription, timing });
-      // For now, just show an alert
-      alert('Quote request submitted! The tradesperson will contact you soon.');
-      navigate(-1);
+      // Navigate to contact details page with job info
+      navigate(`/request-quote/contact?tradesperson=${tradespersonSlug}`, {
+        state: { jobDescription, timing }
+      });
     }
   };
 
