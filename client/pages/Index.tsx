@@ -258,6 +258,91 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Recent Projects Section */}
+      <section className="bg-white py-16 md:py-24 border-t border-border">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="mb-4 text-2xl md:text-3xl lg:text-4xl">Recent Projects</h2>
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+              Real projects completed by our verified professionals
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Project 1 - Pool & Patio */}
+            <div className="group cursor-pointer">
+              <div className="relative overflow-hidden rounded-xl mb-4 aspect-[4/3]">
+                <img
+                  src="https://images.pexels.com/photos/3209049/pexels-photo-3209049.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="Pool and patio renovation"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-full text-sm font-semibold">
+                  Pool Maintenance
+                </div>
+              </div>
+              <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">Luxury Pool & Patio Renovation</h3>
+              <p className="text-muted-foreground text-sm mb-2">Complete pool restoration and outdoor living space in Marbella</p>
+              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <span className="text-sm text-muted-foreground">5.0 · €8,500</span>
+              </div>
+            </div>
+
+            {/* Project 2 - Bathroom */}
+            <div className="group cursor-pointer">
+              <div className="relative overflow-hidden rounded-xl mb-4 aspect-[4/3]">
+                <img
+                  src="https://images.pexels.com/photos/7614405/pexels-photo-7614405.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="Modern bathroom renovation"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-full text-sm font-semibold">
+                  Builders & Renovations
+                </div>
+              </div>
+              <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">Modern Bathroom Remodel</h3>
+              <p className="text-muted-foreground text-sm mb-2">Complete bathroom renovation with walk-in shower in Fuengirola</p>
+              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <span className="text-sm text-muted-foreground">5.0 · €6,200</span>
+              </div>
+            </div>
+
+            {/* Project 3 - Kitchen */}
+            <div className="group cursor-pointer">
+              <div className="relative overflow-hidden rounded-xl mb-4 aspect-[4/3]">
+                <img
+                  src="https://images.pexels.com/photos/8293677/pexels-photo-8293677.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="Kitchen renovation planning"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-full text-sm font-semibold">
+                  Builders & Renovations
+                </div>
+              </div>
+              <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">Custom Kitchen Design</h3>
+              <p className="text-muted-foreground text-sm mb-2">Full kitchen renovation with custom cabinetry in Málaga</p>
+              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <span className="text-sm text-muted-foreground">5.0 · €12,400</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Reviews Section */}
       <section className="bg-white py-16 md:py-24">
         <div className="container-custom">
