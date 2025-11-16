@@ -150,8 +150,14 @@ export default function Index() {
 
   return (
     <div className="min-h-screen">
+      {/* Live Activity Feed */}
+      <LiveActivity />
+
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary via-primary-600 to-primary-700 text-white overflow-hidden">
+        {/* Animated Background Pattern */}
+        <div className="absolute inset-0 opacity-10 pattern-dots text-white"></div>
+
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img
@@ -163,16 +169,22 @@ export default function Index() {
         </div>
         <div className="container-custom py-16 md:py-24 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-fade-in">
               {t('hero.title')}
             </h1>
-            <p className="text-xl md:text-2xl text-primary-foreground/90 mb-10 leading-relaxed">
+            <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
               {t('hero.subtitle')}
             </p>
-            <div className="bg-white p-4 md:p-6 rounded-2xl shadow-2xl mb-6">
+
+            {/* Trust Indicators */}
+            <div className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
+              <TrustIndicators />
+            </div>
+
+            <div className="bg-white p-4 md:p-6 rounded-2xl shadow-2xl mb-6 mt-10 animate-scale-in" style={{ animationDelay: '0.4s' }}>
               <SearchBar variant="hero" />
             </div>
-            <div className="max-w-2xl mx-auto">
+            <div className="max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.5s' }}>
               <RecentSearches />
             </div>
           </div>
@@ -180,18 +192,28 @@ export default function Index() {
       </section>
 
       {/* Stats Section */}
-      <section className="bg-white border-b border-border">
-        <div className="container-custom py-12 md:py-16">
+      <section className="bg-gradient-to-b from-white to-gray-50 border-b border-border relative">
+        <div className="absolute inset-0 opacity-5 pattern-grid text-gray-400"></div>
+        <div className="container-custom py-12 md:py-16 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <StatsCounter icon={Users} value="150+" label={t('stats.tradespeople')} />
-            <StatsCounter icon={Star} value="2,400+" label={t('stats.reviews')} />
-            <StatsCounter icon={Briefcase} value="5,600+" label={t('stats.jobs')} />
+            <div className="animate-counter" style={{ animationDelay: '0.1s' }}>
+              <StatsCounter icon={Users} value="150+" label={t('stats.tradespeople')} />
+            </div>
+            <div className="animate-counter" style={{ animationDelay: '0.3s' }}>
+              <StatsCounter icon={Star} value="2,400+" label={t('stats.reviews')} />
+            </div>
+            <div className="animate-counter" style={{ animationDelay: '0.5s' }}>
+              <StatsCounter icon={Briefcase} value="5,600+" label={t('stats.jobs')} />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Trust Badges Section */}
       <TrustBadges />
+
+      {/* Why Choose Us Section */}
+      <WhyChooseUs />
 
       {/* How It Works Section */}
       <section className="bg-gray-50 py-16 md:py-24">
