@@ -281,17 +281,20 @@ export default function Index() {
       </section>
 
       {/* Featured Tradespeople Section */}
-      <section className="bg-gray-50 py-16 md:py-24">
-        <div className="container-custom">
-          <div className="text-center mb-12">
+      <section className="bg-gray-50 py-16 md:py-24 relative">
+        <div className="absolute inset-0 opacity-5 pattern-dots text-gray-400"></div>
+        <div className="container-custom relative z-10">
+          <div className="text-center mb-12 animate-fade-in">
             <h2 className="mb-4 text-2xl md:text-3xl lg:text-4xl">Featured Tradespeople</h2>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
               Top-rated professionals ready to help with your next project
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6 mb-8">
-            {featuredTradespeople.map((tradesperson) => (
-              <TradespersonCard key={tradesperson.slug} {...tradesperson} />
+            {featuredTradespeople.map((tradesperson, index) => (
+              <div key={tradesperson.slug} className="animate-slide-up" style={{ animationDelay: `${index * 0.15}s` }}>
+                <TradespersonCard {...tradesperson} />
+              </div>
             ))}
           </div>
           <div className="text-center">
@@ -306,9 +309,10 @@ export default function Index() {
       </section>
 
       {/* Recent Projects Section */}
-      <section className="bg-white py-16 md:py-24 border-t border-border">
-        <div className="container-custom">
-          <div className="text-center mb-12">
+      <section className="bg-gradient-to-b from-white to-gray-50 py-16 md:py-24 border-t border-border relative">
+        <div className="absolute inset-0 opacity-5 pattern-grid text-gray-400"></div>
+        <div className="container-custom relative z-10">
+          <div className="text-center mb-12 animate-fade-in">
             <h2 className="mb-4 text-2xl md:text-3xl lg:text-4xl">Recent Projects</h2>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
               Real projects completed by our verified professionals
@@ -316,7 +320,7 @@ export default function Index() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {/* Project 1 - Pool & Patio */}
-            <div className="group cursor-pointer">
+            <div className="group cursor-pointer animate-slide-up" style={{ animationDelay: '0.1s' }}>
               <div className="relative overflow-hidden rounded-xl mb-4 aspect-[4/3]">
                 <img
                   src="https://images.pexels.com/photos/3209049/pexels-photo-3209049.jpeg?auto=compress&cs=tinysrgb&w=800"
@@ -340,7 +344,7 @@ export default function Index() {
             </div>
 
             {/* Project 2 - Bathroom */}
-            <div className="group cursor-pointer">
+            <div className="group cursor-pointer animate-slide-up" style={{ animationDelay: '0.3s' }}>
               <div className="relative overflow-hidden rounded-xl mb-4 aspect-[4/3]">
                 <img
                   src="https://images.pexels.com/photos/7614405/pexels-photo-7614405.jpeg?auto=compress&cs=tinysrgb&w=800"
@@ -364,7 +368,7 @@ export default function Index() {
             </div>
 
             {/* Project 3 - Kitchen */}
-            <div className="group cursor-pointer">
+            <div className="group cursor-pointer animate-slide-up" style={{ animationDelay: '0.5s' }}>
               <div className="relative overflow-hidden rounded-xl mb-4 aspect-[4/3]">
                 <img
                   src="https://images.pexels.com/photos/8293677/pexels-photo-8293677.jpeg?auto=compress&cs=tinysrgb&w=800"
@@ -391,9 +395,10 @@ export default function Index() {
       </section>
 
       {/* Reviews Section */}
-      <section className="bg-white py-16 md:py-24">
-        <div className="container-custom">
-          <div className="text-center mb-12">
+      <section className="bg-white py-16 md:py-24 relative">
+        <div className="absolute inset-0 opacity-5 pattern-dots text-gray-400"></div>
+        <div className="container-custom relative z-10">
+          <div className="text-center mb-12 animate-fade-in">
             <h2 className="mb-4 text-2xl md:text-3xl lg:text-4xl">{t('reviews.title')}</h2>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
               Real reviews from real customers across Costa del Sol
@@ -401,7 +406,9 @@ export default function Index() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {reviews.map((review, idx) => (
-              <ReviewCard key={idx} {...review} />
+              <div key={idx} className="animate-slide-up" style={{ animationDelay: `${idx * 0.15}s` }}>
+                <ReviewCard {...review} />
+              </div>
             ))}
           </div>
         </div>
