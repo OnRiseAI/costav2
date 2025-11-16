@@ -191,18 +191,18 @@ export default function Index() {
       </section>
 
       {/* Stats Section */}
-      <section className="bg-gradient-to-b from-white to-gray-50 border-b border-border relative">
-        <div className="absolute inset-0 opacity-5 pattern-grid text-gray-400"></div>
-        <div className="container-custom py-12 md:py-16 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <section className="bg-gradient-to-b from-gray-50 via-white to-gray-50 border-y border-border relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5 pattern-dots text-primary"></div>
+        <div className="container-custom py-16 md:py-24 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             <div className="animate-counter" style={{ animationDelay: '0.1s' }}>
-              <StatsCounter icon={Users} value="150+" label={t('stats.tradespeople')} />
+              <StatsCounter icon={Users} value="150+" label={t('stats.tradespeople')} colorScheme="blue" />
             </div>
             <div className="animate-counter" style={{ animationDelay: '0.3s' }}>
-              <StatsCounter icon={Star} value="2,400+" label={t('stats.reviews')} />
+              <StatsCounter icon={Star} value="2,400+" label={t('stats.reviews')} colorScheme="orange" />
             </div>
             <div className="animate-counter" style={{ animationDelay: '0.5s' }}>
-              <StatsCounter icon={Briefcase} value="5,600+" label={t('stats.jobs')} />
+              <StatsCounter icon={Briefcase} value="5,600+" label={t('stats.jobs')} colorScheme="green" />
             </div>
           </div>
         </div>
