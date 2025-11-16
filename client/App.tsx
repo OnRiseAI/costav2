@@ -12,6 +12,7 @@ import PostJob from "@/pages/PostJob";
 import PostJobResults from "@/pages/PostJobResults";
 import RequestQuote from "@/pages/RequestQuote";
 import RequestQuoteContact from "@/pages/RequestQuoteContact";
+import LoginPage from "@/pages/LoginPage";
 import PlaceholderPage from "@/pages/PlaceholderPage";
 import NotFound from "@/pages/NotFound";
 import "./global.css";
@@ -49,7 +50,7 @@ function App() {
               <Route path="/join-as-tradesperson" element={<PlaceholderPage title="Tradesperson Application" description="Apply to join our verified network of professionals" />} />
 
               {/* Authentication */}
-              <Route path="/login" element={<PlaceholderPage title="Login" description="Sign in to your TradeFinder account" />} />
+              <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<PlaceholderPage title="Sign Up" description="Create your TradeFinder account" />} />
 
               {/* Homeowner Dashboard */}
