@@ -14,17 +14,16 @@ export function Navigation() {
           <div className="flex items-center gap-4">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-[#1a1a1a] hover:text-gray-600"
+              className="text-[#0066CC] hover:text-[#0052A3]"
               aria-label="Menu"
             >
               {mobileMenuOpen ? <X className="h-6 w-6" strokeWidth={2} /> : <Menu className="h-6 w-6" strokeWidth={2} />}
             </button>
             <Link to="/" className="flex items-center">
-              <div className="w-[48px] h-[48px] bg-[#E31E24] rounded-full flex items-center justify-center shadow-sm">
-                <svg className="w-[26px] h-[26px] text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M20 6L9 17l-5-5" />
-                </svg>
-              </div>
+              <svg className="w-[48px] h-[48px]" viewBox="0 0 48 48" fill="none">
+                <path d="M40 12L18 34L8 24" stroke="#E31E24" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M40 12L18 34" stroke="#0066CC" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
             </Link>
           </div>
 
