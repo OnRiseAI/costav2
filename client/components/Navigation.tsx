@@ -8,20 +8,20 @@ export function Navigation() {
 
   return (
     <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-16 md:h-[72px]">
+      <div className="max-w-[1400px] mx-auto px-5 lg:px-8">
+        <div className="flex items-center justify-between h-[72px]">
           {/* Left: Menu + Logo */}
           <div className="flex items-center gap-4">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-gray-800 hover:text-gray-600 p-1"
+              className="text-[#1a1a1a] hover:text-gray-600"
               aria-label="Menu"
             >
-              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {mobileMenuOpen ? <X className="h-6 w-6" strokeWidth={2} /> : <Menu className="h-6 w-6" strokeWidth={2} />}
             </button>
             <Link to="/" className="flex items-center">
-              <div className="w-11 h-11 md:w-12 md:h-12 bg-[#E31E24] rounded-full flex items-center justify-center">
-                <svg className="w-6 h-6 md:w-7 md:h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5">
+              <div className="w-[48px] h-[48px] bg-[#E31E24] rounded-full flex items-center justify-center shadow-sm">
+                <svg className="w-[26px] h-[26px] text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M20 6L9 17l-5-5" />
                 </svg>
               </div>
@@ -30,24 +30,24 @@ export function Navigation() {
 
           {/* Center/Right: Action Buttons */}
           <div className="flex items-center gap-3">
-            <Link to="/join-as-tradesperson" className="hidden sm:block">
-              <Button className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white px-6 md:px-8 h-10 md:h-11 text-sm md:text-base font-medium rounded-full whitespace-nowrap">
+            <Link to="/join-as-tradesperson" className="hidden md:block">
+              <Button className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white px-7 h-[44px] text-[15px] font-medium rounded-full whitespace-nowrap shadow-sm">
                 Trade sign up
               </Button>
             </Link>
-            <Link to="/download-app" className="hidden lg:block">
-              <Button variant="outline" className="border-2 border-[#0a1f44] text-[#0a1f44] hover:bg-gray-50 px-6 md:px-8 h-10 md:h-11 text-sm md:text-base font-medium rounded-full whitespace-nowrap">
+            <Link to="/download-app" className="hidden md:block">
+              <Button variant="outline" className="border-2 border-[#0a1f44] text-[#0a1f44] hover:bg-gray-50 bg-white px-7 h-[44px] text-[15px] font-medium rounded-full whitespace-nowrap">
                 Download app
               </Button>
             </Link>
-            <Link to="/saved-trades" className="hidden sm:flex items-center justify-center">
-              <div className="p-2 hover:bg-gray-50 rounded-full transition-colors">
-                <Heart className="h-7 w-7 text-[#E31E24]" fill="#E31E24" />
+            <Link to="/saved-trades" className="hidden md:flex items-center justify-center">
+              <div className="hover:opacity-80 transition-opacity">
+                <Heart className="h-[32px] w-[32px] text-[#E31E24]" fill="#E31E24" strokeWidth={0} />
               </div>
             </Link>
             <Link to="/login" className="flex items-center justify-center">
-              <div className="w-11 h-11 md:w-12 md:h-12 bg-[#0a1f44] rounded-full flex items-center justify-center hover:bg-[#0a1f44]/90 transition-colors">
-                <User className="h-6 w-6 text-white" />
+              <div className="w-[48px] h-[48px] bg-[#0a1f44] rounded-full flex items-center justify-center hover:bg-[#0a1f44]/90 transition-colors shadow-sm">
+                <User className="h-[22px] w-[22px] text-white" strokeWidth={2} />
               </div>
             </Link>
           </div>
