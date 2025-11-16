@@ -156,43 +156,35 @@ export default function Index() {
       <LiveActivity />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary via-primary-600 to-primary-700 text-white overflow-hidden">
+      <section className="relative bg-gradient-to-br from-primary via-primary-600 to-primary-700 text-white overflow-hidden min-h-[600px] md:min-h-[700px] flex items-center">
         {/* Animated Background Pattern */}
         <div className="absolute inset-0 opacity-10 pattern-dots text-white"></div>
 
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.pexels.com/photos/5025646/pexels-photo-5025646.jpeg?auto=compress&cs=tinysrgb&w=1920"
-            alt="Professional tradesperson"
-            className="w-full h-full object-cover opacity-20"
+            src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=2400&h=1600&dpr=2"
+            alt="Professional tradesperson at work"
+            className="w-full h-full object-cover opacity-25"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary-600/90 to-primary-700/95"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary-600/85 to-primary-700/90"></div>
         </div>
-        <div className="container-custom py-16 md:py-24 relative z-10">
+        <div className="container-custom py-20 md:py-28 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-fade-in">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight animate-fade-in">
               {t('hero.title')}
             </h1>
-            <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              {t('hero.subtitle')}
+            <p className="text-xl md:text-2xl text-primary-foreground/95 mb-10 leading-relaxed animate-fade-in font-medium" style={{ animationDelay: '0.2s' }}>
+              Connect with verified professionals
             </p>
 
             {/* Trust Indicators */}
-            <div className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
+            <div className="animate-fade-in mb-10" style={{ animationDelay: '0.3s' }}>
               <TrustIndicators />
             </div>
 
-            <div className="bg-white p-4 md:p-6 rounded-2xl shadow-2xl mb-6 mt-10 animate-scale-in" style={{ animationDelay: '0.4s' }}>
+            <div className="bg-white p-5 md:p-7 rounded-2xl shadow-2xl animate-scale-in max-w-3xl mx-auto" style={{ animationDelay: '0.4s' }}>
               <SearchBar variant="hero" />
-            </div>
-            <div className="max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.5s' }}>
-              <RecentSearches />
-            </div>
-
-            {/* App Store Badges */}
-            <div className="mt-8 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-              <AppStoreBadges showTitle={false} className="text-center" />
             </div>
           </div>
         </div>
