@@ -19,7 +19,7 @@ export function Navigation() {
             >
               {mobileMenuOpen ? <X className="h-6 w-6" strokeWidth={2} /> : <Menu className="h-6 w-6" strokeWidth={2} />}
             </button>
-            <Link to="/" className="flex items-center">
+            <Link to="/" className="hidden md:flex items-center">
               <svg className="w-[48px] h-[48px]" viewBox="0 0 48 48" fill="none">
                 <path d="M40 12L18 34L8 24" stroke="#E31E24" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
                 <path d="M40 12L18 34" stroke="#0066CC" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
