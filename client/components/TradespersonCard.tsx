@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Star, MapPin, CheckCircle, Shield } from 'lucide-react';
+import { Star, MapPin, CheckCircle, Shield, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -14,6 +14,8 @@ interface TradespersonCardProps {
   verified?: boolean;
   jobsCompleted?: number;
   yearsInBusiness?: number;
+  services?: string[];
+  phone?: string;
 }
 
 export function TradespersonCard({
@@ -27,8 +29,18 @@ export function TradespersonCard({
   verified = false,
   jobsCompleted,
   yearsInBusiness,
+  services = [],
+  phone,
 }: TradespersonCardProps) {
   const { t } = useLanguage();
+
+  const handleCall = () => {
+    if (phone) {
+      window.location.href = `tel:${phone}`;
+    }
+  };
+
+  const defaultServices = services.length > 0 ? services : [tradeCategory];
 
   return (
     <div className="bg-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 overflow-hidden">
@@ -36,26 +48,25 @@ export function TradespersonCard({
         <div className="flex items-start gap-4 mb-4">
           {/* Profile Photo */}
           <div className="relative">
-            <div className="w-16 h-16 rounded-full bg-gray-200 overflow-hidden flex-shrink-0">
+            <div className="w-20 h-20 rounded-xl bg-gray-200 overflow-hidden flex-shrink-0">
               {profilePhoto ? (
                 <img src={profilePhoto} alt={businessName} className="w-full h-full object-cover" />
               ) : (
-                <div className="w-full h-full flex items-center justify-center text-2xl font-bold text-gray-400">
+                <div className="w-full h-full flex items-center justify-center text-3xl font-bold text-gray-400">
                   {businessName.charAt(0)}
                 </div>
               )}
             </div>
             {verified && (
-              <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-trust rounded-full flex items-center justify-center border-2 border-white">
+              <div className="absolute -bottom-1 -right-1 w-7 h-7 bg-trust rounded-full flex items-center justify-center border-2 border-white">
                 <CheckCircle className="h-4 w-4 text-white" />
               </div>
             )}
           </div>
 
           <div className="flex-1 min-w-0">
-            <h3 className="font-semibold text-lg text-foreground mb-1 truncate">{businessName}</h3>
-            <p className="text-sm text-muted-foreground mb-2">{tradeCategory}</p>
-            <div className="flex items-center gap-1 text-sm text-muted-foreground">
+            <h3 className="font-bold text-xl text-foreground mb-2">{businessName}</h3>
+            <div className="flex items-center gap-1 text-sm text-muted-foreground mb-2">
               <MapPin className="h-4 w-4" />
               <span>{location}</span>
             </div>
@@ -64,58 +75,85 @@ export function TradespersonCard({
 
         {/* Verification Badges */}
         {verified && (
-          <div className="flex flex-wrap gap-2 mb-3">
-            <div className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-trust/10 text-trust border border-trust/20">
-              <CheckCircle className="h-3 w-3" />
+          <div className="flex flex-wrap gap-2 mb-4">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium bg-trust/10 text-trust border border-trust/20">
+              <CheckCircle className="h-4 w-4" />
               <span>Verified</span>
             </div>
-            <div className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium bg-accent/10 text-accent border border-accent/20">
-              <Shield className="h-3 w-3" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium bg-accent/10 text-accent border border-accent/20">
+              <Shield className="h-4 w-4" />
               <span>Guaranteed</span>
             </div>
           </div>
         )}
 
         {/* Rating */}
-        <div className="flex items-center gap-2 mb-4">
-          <div className="flex items-center gap-1">
-            {[...Array(5)].map((_, i) => (
-              <Star
-                key={i}
-                className={`h-4 w-4 ${
-                  i < Math.floor(rating)
-                    ? 'fill-yellow-400 text-yellow-400'
-                    : 'fill-gray-200 text-gray-200'
-                }`}
-              />
-            ))}
+        <div className="mb-4">
+          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full">
+            <div className="flex items-center gap-1">
+              {[...Array(5)].map((_, i) => (
+                <Star
+                  key={i}
+                  className={`h-4 w-4 ${
+                    i < Math.floor(rating)
+                      ? 'fill-yellow-400 text-yellow-400'
+                      : 'fill-gray-300 text-gray-300'
+                  }`}
+                />
+              ))}
+            </div>
+            <span className="font-bold text-lg">{rating.toFixed(1)}</span>
+            <span className="text-sm">({reviewCount} {t('common.reviews')})</span>
           </div>
-          <span className="font-semibold text-foreground">{rating.toFixed(1)}</span>
-          <span className="text-sm text-muted-foreground">({reviewCount} {t('common.reviews')})</span>
         </div>
 
         {/* Stats */}
         {(jobsCompleted || yearsInBusiness) && (
-          <div className="flex gap-4 mb-4 text-sm">
+          <div className="flex gap-6 mb-4 text-sm text-muted-foreground">
             {jobsCompleted && (
-              <div className="text-muted-foreground">
-                <span className="font-semibold text-foreground">{jobsCompleted}</span> jobs completed
+              <div>
+                <span className="font-bold text-foreground text-lg">{jobsCompleted}</span> jobs completed
               </div>
             )}
             {yearsInBusiness && (
-              <div className="text-muted-foreground">
-                <span className="font-semibold text-foreground">{yearsInBusiness}</span> years
+              <div>
+                <span className="font-bold text-foreground text-lg">{yearsInBusiness}</span> years
               </div>
             )}
           </div>
         )}
 
-        {/* CTA */}
-        <Link to={`/tradesperson/${slug}`}>
-          <Button className="w-full" variant="outline">
-            {t('common.viewProfile')}
+        {/* Services & Skills */}
+        {defaultServices.length > 0 && (
+          <div className="mb-6">
+            <h4 className="font-bold text-base mb-3">Services & skills</h4>
+            <div className="flex flex-wrap gap-2">
+              {defaultServices.map((service, index) => (
+                <div key={index} className="flex items-center gap-1.5 text-sm text-primary">
+                  <CheckCircle className="h-4 w-4 flex-shrink-0" />
+                  <span>{service}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col gap-3">
+          <Link to={`/post-job?tradesperson=${slug}`} className="w-full">
+            <Button className="w-full bg-accent hover:bg-accent/90 text-white text-lg py-6 rounded-xl">
+              Request a quote
+            </Button>
+          </Link>
+          <Button
+            variant="outline"
+            className="w-full text-lg py-6 rounded-xl border-2 border-foreground text-foreground hover:bg-gray-50"
+            onClick={handleCall}
+          >
+            <Phone className="h-5 w-5 mr-2" />
+            Call
           </Button>
-        </Link>
+        </div>
       </div>
     </div>
   );
