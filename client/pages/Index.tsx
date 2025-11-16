@@ -192,8 +192,8 @@ export default function Index() {
       <section className="bg-white py-16 md:py-24">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="mb-4">{t('reviews.title')}</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="mb-4 text-2xl md:text-3xl lg:text-4xl">{t('reviews.title')}</h2>
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
               Real reviews from real customers across Costa del Sol
             </p>
           </div>
@@ -208,8 +208,8 @@ export default function Index() {
       {/* CTA Section - Homeowner */}
       <section className="bg-gradient-to-br from-primary via-primary-600 to-primary-700 text-white py-16 md:py-20">
         <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('cta.homeowner.title')}</h2>
-          <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">{t('cta.homeowner.title')}</h2>
+          <p className="text-base sm:text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
             {t('cta.homeowner.desc')}
           </p>
           <Link to="/post-job">
