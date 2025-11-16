@@ -20,6 +20,8 @@ import { CategoryCardWithImage } from '@/components/CategoryCardWithImage';
 import { TradespersonCard } from '@/components/TradespersonCard';
 import { ReviewCard } from '@/components/ReviewCard';
 import { StatsCounter } from '@/components/StatsCounter';
+import { TrustBadges } from '@/components/TrustBadges';
+import { RecentSearches } from '@/components/RecentSearches';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { getFeaturedTradespeople } from '@/data/tradespeople';
