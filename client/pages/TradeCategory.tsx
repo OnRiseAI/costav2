@@ -4,6 +4,7 @@ import { TradespersonCard } from '@/components/TradespersonCard';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
+import { getTradespeopleByCategory } from '@/data/tradespeople';
 
 export default function TradeCategory() {
   const { category } = useParams();
@@ -55,74 +56,7 @@ export default function TradeCategory() {
 
   const currentCategory = category ? categoryData[category] : null;
 
-  const tradespeople = [
-    {
-      slug: 'miguel-pool-services',
-      businessName: 'Miguel Pool Services',
-      tradeCategory: currentCategory?.title || 'Professional Services',
-      location: 'Marbella',
-      rating: 4.9,
-      reviewCount: 87,
-      verified: true,
-      jobsCompleted: 156,
-      yearsInBusiness: 8,
-    },
-    {
-      slug: 'aqua-masters',
-      businessName: 'Aqua Masters',
-      tradeCategory: currentCategory?.title || 'Professional Services',
-      location: 'Málaga',
-      rating: 4.8,
-      reviewCount: 64,
-      verified: true,
-      jobsCompleted: 142,
-      yearsInBusiness: 6,
-    },
-    {
-      slug: 'costa-pool-experts',
-      businessName: 'Costa Pool Experts',
-      tradeCategory: currentCategory?.title || 'Professional Services',
-      location: 'Fuengirola',
-      rating: 5.0,
-      reviewCount: 52,
-      verified: true,
-      jobsCompleted: 98,
-      yearsInBusiness: 12,
-    },
-    {
-      slug: 'blue-wave-pools',
-      businessName: 'Blue Wave Pools',
-      tradeCategory: currentCategory?.title || 'Professional Services',
-      location: 'Estepona',
-      rating: 4.7,
-      reviewCount: 43,
-      verified: true,
-      jobsCompleted: 87,
-      yearsInBusiness: 5,
-    },
-    {
-      slug: 'precision-pool-care',
-      businessName: 'Precision Pool Care',
-      tradeCategory: currentCategory?.title || 'Professional Services',
-      location: 'Torremolinos',
-      rating: 4.9,
-      reviewCount: 71,
-      verified: true,
-      jobsCompleted: 134,
-      yearsInBusiness: 9,
-    },
-    {
-      slug: 'sun-coast-pools',
-      businessName: 'Sun Coast Pools',
-      tradeCategory: currentCategory?.title || 'Professional Services',
-      location: 'Mijas',
-      rating: 4.8,
-      reviewCount: 58,
-      verified: true,
-      jobsCompleted: 103,
-      yearsInBusiness: 7,
-    },
-  ];
+  const tradespeople = category ? getTradespeopleByCategory(category) : [];
 
   const locations = ['All Locations', 'Marbella', 'Málaga', 'Fuengirola', 'Estepona', 'Torremolinos', 'Mijas', 'Nerja'];
   const ratings = ['All Ratings', '5 Stars', '4+ Stars', '3+ Stars'];

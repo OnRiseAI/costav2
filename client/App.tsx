@@ -6,6 +6,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import Index from "@/pages/Index";
 import TradeCategory from "@/pages/TradeCategory";
+import SearchResults from "@/pages/SearchResults";
 import PlaceholderPage from "@/pages/PlaceholderPage";
 import NotFound from "@/pages/NotFound";
 import "./global.css";
@@ -29,7 +30,7 @@ function App() {
               <Route path="/tradesperson/:slug" element={<PlaceholderPage title="Tradesperson Profile" description="View detailed tradesperson profile, reviews, and gallery" />} />
 
               {/* Search */}
-              <Route path="/search" element={<PlaceholderPage title="Search Results" description="Find the perfect tradesperson for your needs" />} />
+              <Route path="/search" element={<SearchResults />} />
 
               {/* Information Pages */}
               <Route path="/how-it-works" element={<PlaceholderPage title="How It Works" description="Learn how TradeFinder connects you with trusted professionals" />} />

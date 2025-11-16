@@ -22,6 +22,7 @@ import { ReviewCard } from '@/components/ReviewCard';
 import { StatsCounter } from '@/components/StatsCounter';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
+import { getFeaturedTradespeople } from '@/data/tradespeople';
 
 export default function Index() {
   const { t } = useLanguage();
@@ -37,41 +38,7 @@ export default function Index() {
     { name: t('category.gardeners'), slug: 'gardeners', icon: Leaf, count: 19 },
   ];
 
-  const featuredTradespeople = [
-    {
-      slug: 'miguel-pool-services',
-      businessName: 'Miguel Pool Services',
-      tradeCategory: t('category.poolMaintenance'),
-      location: 'Marbella',
-      rating: 4.9,
-      reviewCount: 87,
-      verified: true,
-      jobsCompleted: 156,
-      yearsInBusiness: 8,
-    },
-    {
-      slug: 'cool-air-solutions',
-      businessName: 'Cool Air Solutions',
-      tradeCategory: t('category.airConditioning'),
-      location: 'Málaga',
-      rating: 4.8,
-      reviewCount: 64,
-      verified: true,
-      jobsCompleted: 142,
-      yearsInBusiness: 6,
-    },
-    {
-      slug: 'german-precision-electric',
-      businessName: 'German Precision Electric',
-      tradeCategory: t('category.electricians'),
-      location: 'Fuengirola',
-      rating: 5.0,
-      reviewCount: 52,
-      verified: true,
-      jobsCompleted: 98,
-      yearsInBusiness: 12,
-    },
-  ];
+  const featuredTradespeople = getFeaturedTradespeople(3);
 
   const reviews = [
     {
