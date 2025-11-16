@@ -21,7 +21,7 @@ export const translations = {
     'nav.signup': 'Sign Up',
     
     // Hero
-    'hero.title': 'Find Trusted Tradespeople in Costa del Sol',
+    'hero.title': 'Find Trusted Tradespeople on Costa del Sol',
     'hero.subtitle': 'Connect with verified, reliable professionals for all your home improvement needs. Read reviews, compare quotes, and hire with confidence.',
     'hero.searchPlaceholder': 'What trade do you need?',
     'hero.locationPlaceholder': 'Where in Costa del Sol?',
@@ -92,7 +92,7 @@ export const translations = {
     'nav.signup': 'Registrarse',
     
     // Hero
-    'hero.title': 'Encuentra Profesionales de Confianza en Costa del Sol',
+    'hero.title': 'Encuentra Profesionales de Confianza en la Costa del Sol',
     'hero.subtitle': 'Conecta con profesionales verificados y confiables para todas tus necesidades de mejoras del hogar. Lee reseñas, compara presupuestos y contrata con confianza.',
     'hero.searchPlaceholder': '¿Qué profesional necesitas?',
     'hero.locationPlaceholder': '¿Dónde en Costa del Sol?',
