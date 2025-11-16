@@ -8,6 +8,8 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import Index from "@/pages/Index";
 import TradeCategory from "@/pages/TradeCategory";
 import SearchResults from "@/pages/SearchResults";
+import PostJob from "@/pages/PostJob";
+import PostJobResults from "@/pages/PostJobResults";
 import PlaceholderPage from "@/pages/PlaceholderPage";
 import NotFound from "@/pages/NotFound";
 import "./global.css";
@@ -50,7 +52,8 @@ function App() {
 
               {/* Homeowner Dashboard */}
               <Route path="/dashboard" element={<PlaceholderPage title="Dashboard" description="Manage your jobs, quotes, and saved tradespeople" />} />
-              <Route path="/post-job" element={<PlaceholderPage title="Post a Job" description="Tell us about your project and receive quotes" />} />
+              <Route path="/post-job" element={<PostJob />} />
+              <Route path="/post-job/results" element={<PostJobResults />} />
               <Route path="/messages" element={<PlaceholderPage title="Messages" description="Chat with tradespeople and manage quotes" />} />
 
               {/* Tradesperson Dashboard */}
