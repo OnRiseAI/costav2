@@ -21,7 +21,7 @@ export function Navigation() {
   };
 
   const languageFlags: Record<Language, string> = {
-    en: '🇬🇧',
+    en: '���🇧',
     es: '🇪🇸',
     de: '🇩🇪',
   };
@@ -122,42 +122,60 @@ export function Navigation() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border animate-slide-in">
-            <div className="flex flex-col space-y-4">
-              <Link
-                to="/trades"
-                className="text-foreground hover:text-primary transition-colors font-medium"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {t('nav.findTrades')}
-              </Link>
-              <Link
-                to="/how-it-works"
-                className="text-foreground hover:text-primary transition-colors font-medium"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {t('nav.howItWorks')}
-              </Link>
-              <Link
-                to="/for-tradespeople"
-                className="text-foreground hover:text-primary transition-colors font-medium"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {t('nav.forTradespeople')}
-              </Link>
-              <Link
-                to="/blog"
-                className="text-foreground hover:text-primary transition-colors font-medium"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {t('nav.blog')}
-              </Link>
-              <div className="pt-4 border-t border-border flex flex-col space-y-3">
-                <Link to="/login" onClick={() => setMobileMenuOpen(false)}>
-                  <Button variant="outline" className="w-full">{t('nav.login')}</Button>
+          <div className="md:hidden py-6 border-t border-border animate-slide-in bg-white">
+            <div className="flex flex-col space-y-6">
+              {/* Homeowner Section */}
+              <div className="flex flex-col items-center space-y-4">
+                <h2 className="text-2xl font-bold text-[#0a1f44]">Homeowner</h2>
+                <Link to="/review-trade" onClick={() => setMobileMenuOpen(false)}>
+                  <Button className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white px-12 py-6 text-lg rounded-full">
+                    Review a Trade
+                  </Button>
                 </Link>
-                <Link to="/signup" onClick={() => setMobileMenuOpen(false)}>
-                  <Button className="w-full bg-accent hover:bg-accent/90">{t('nav.signup')}</Button>
+                <Link
+                  to="/homeowner-advice"
+                  className="text-muted-foreground hover:text-foreground transition-colors text-base"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Homeowner Advice Centre
+                </Link>
+                <Link
+                  to="/find-expert"
+                  className="text-muted-foreground hover:text-foreground transition-colors text-base"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Find Your Expert
+                </Link>
+                <Link
+                  to="/saved-trades"
+                  className="text-muted-foreground hover:text-foreground transition-colors text-base"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Saved Trades
+                </Link>
+              </div>
+
+              {/* Trades Section */}
+              <div className="flex flex-col items-center space-y-4 pt-6">
+                <h2 className="text-2xl font-bold text-[#0a1f44]">Trades</h2>
+                <Link to="/join-as-tradesperson" onClick={() => setMobileMenuOpen(false)}>
+                  <Button className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white px-12 py-6 text-lg rounded-full">
+                    Join TradeFinder
+                  </Button>
+                </Link>
+                <Link
+                  to="/advice-centre"
+                  className="text-muted-foreground hover:text-foreground transition-colors text-base"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Advice Centre
+                </Link>
+                <Link
+                  to="/login"
+                  className="text-muted-foreground hover:text-foreground transition-colors text-base"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Login To Members Area
                 </Link>
               </div>
             </div>
