@@ -260,9 +260,18 @@ export default function Index() {
       <WhyChooseUs />
 
       {/* Featured Tradespeople Section */}
-      <section className="bg-gray-50 py-16 md:py-24 relative">
-        <div className="absolute inset-0 opacity-5 pattern-dots text-gray-400"></div>
-        <div className="container-custom relative z-10">
+      <section className="bg-gray-50 py-16 md:py-24 relative overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.pexels.com/photos/5691531/pexels-photo-5691531.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            alt="Professional workspace"
+            className="w-full h-full object-cover opacity-10"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-50/95 via-gray-50/98 to-gray-50/95"></div>
+        </div>
+        <div className="absolute inset-0 opacity-5 pattern-dots text-primary z-10"></div>
+        <div className="container-custom relative z-20">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="mb-4 text-2xl md:text-3xl lg:text-4xl">Featured Tradespeople</h2>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -288,9 +297,20 @@ export default function Index() {
       </section>
 
       {/* Recent Projects Section */}
-      <section className="bg-gradient-to-b from-white to-gray-50 py-16 md:py-24 border-t border-border relative">
-        <div className="absolute inset-0 opacity-5 pattern-grid text-gray-400"></div>
-        <div className="container-custom relative z-10">
+      <section className="bg-gradient-to-b from-white to-gray-50 py-16 md:py-24 border-t border-border relative overflow-hidden">
+        {/* Background with Blueprint Style */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 to-gray-50/30"></div>
+          <div className="absolute top-0 right-0 w-1/2 h-full opacity-5">
+            <img
+              src="https://images.pexels.com/photos/6419128/pexels-photo-6419128.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              alt="Blueprint and tools"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+        <div className="absolute inset-0 opacity-5 pattern-grid text-gray-400 z-10"></div>
+        <div className="container-custom relative z-20">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="mb-4 text-2xl md:text-3xl lg:text-4xl">Recent Projects</h2>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -374,9 +394,15 @@ export default function Index() {
       </section>
 
       {/* Reviews Section */}
-      <section className="bg-white py-16 md:py-24 relative">
-        <div className="absolute inset-0 opacity-5 pattern-dots text-gray-400"></div>
-        <div className="container-custom relative z-10">
+      <section className="bg-white py-16 md:py-24 relative overflow-hidden">
+        {/* Background with Happy Customers Theme */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-50/20 via-white to-blue-50/20"></div>
+          <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-gradient-to-br from-blue-200/20 to-transparent rounded-full blur-3xl"></div>
+          <div className="absolute -top-20 -right-20 w-80 h-80 bg-gradient-to-br from-orange-200/20 to-transparent rounded-full blur-3xl"></div>
+        </div>
+        <div className="absolute inset-0 opacity-5 pattern-dots text-gray-400 z-10"></div>
+        <div className="container-custom relative z-20">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="mb-4 text-2xl md:text-3xl lg:text-4xl">{t('reviews.title')}</h2>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -400,8 +426,18 @@ export default function Index() {
       <Newsletter />
 
       {/* CTA Section - Homeowner */}
-      <section className="bg-gradient-to-br from-primary via-primary-600 to-primary-700 text-white py-16 md:py-20">
-        <div className="container-custom text-center">
+      <section className="bg-gradient-to-br from-primary via-primary-600 to-primary-700 text-white py-16 md:py-20 relative overflow-hidden">
+        {/* Dramatic Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.pexels.com/photos/5691607/pexels-photo-5691607.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            alt="Professional tradesperson"
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary-600/85 to-primary-700/90"></div>
+        </div>
+        <div className="absolute inset-0 opacity-10 pattern-dots text-white z-10"></div>
+        <div className="container-custom text-center relative z-20">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">{t('cta.homeowner.title')}</h2>
           <p className="text-base sm:text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
             {t('cta.homeowner.desc')}
