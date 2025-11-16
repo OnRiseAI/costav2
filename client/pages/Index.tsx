@@ -221,9 +221,15 @@ export default function Index() {
       </section>
 
       {/* Popular Trade Categories Section */}
-      <section className="bg-gradient-to-b from-white via-gray-50 to-white py-16 md:py-24 relative">
-        <div className="absolute inset-0 opacity-5 pattern-grid text-gray-400"></div>
-        <div className="container-custom relative z-10">
+      <section className="bg-gradient-to-b from-white via-gray-50 to-white py-16 md:py-24 relative overflow-hidden">
+        {/* Subtle Geometric Background */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-white to-orange-50/30"></div>
+          <div className="absolute top-1/4 left-0 w-96 h-96 bg-gradient-to-br from-primary/5 to-transparent rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-gradient-to-br from-accent/5 to-transparent rounded-full blur-3xl"></div>
+        </div>
+        <div className="absolute inset-0 opacity-5 pattern-grid text-gray-400 z-10"></div>
+        <div className="container-custom relative z-20">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="mb-4 text-2xl md:text-3xl lg:text-4xl">{t('categories.title')}</h2>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
