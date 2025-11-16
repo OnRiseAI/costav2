@@ -147,6 +147,8 @@ export const demoTradespeople: Tradesperson[] = [
     verified: true,
     jobsCompleted: 156,
     yearsInBusiness: 9,
+    services: ['Plumbers', 'Pipe Installation', 'Water Heater Repair', 'Drain Cleaning'],
+    phone: '+34-952-567-890',
   },
   {
     slug: 'aquafix-plumbers',
@@ -159,6 +161,8 @@ export const demoTradespeople: Tradesperson[] = [
     verified: true,
     jobsCompleted: 134,
     yearsInBusiness: 7,
+    services: ['Plumbers', 'Kitchen Plumbing', 'Bathroom Renovation', 'Emergency Services'],
+    phone: '+34-952-678-901',
   },
   {
     slug: 'express-plumbing-services',
@@ -171,6 +175,8 @@ export const demoTradespeople: Tradesperson[] = [
     verified: true,
     jobsCompleted: 178,
     yearsInBusiness: 10,
+    services: ['Plumbers', '24/7 Emergency', 'Gas Fitting', 'Commercial Plumbing'],
+    phone: '+34-952-789-012',
   },
 
   // Electricians
