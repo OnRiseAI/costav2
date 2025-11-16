@@ -9,25 +9,31 @@ interface StatsCounterProps {
 
 const colorSchemes = {
   blue: {
-    iconBg: 'bg-blue-100',
-    iconColor: 'text-blue-600',
+    iconBg: 'bg-gradient-to-br from-blue-500 to-blue-600',
+    iconColor: 'text-white',
     numberColor: 'text-blue-600',
-    cardHover: 'hover:border-blue-200',
-    cardBg: 'bg-gradient-to-br from-blue-50/50 to-white',
+    cardHover: 'hover:border-blue-300 hover:shadow-blue-200/50',
+    cardBg: 'bg-gradient-to-br from-blue-50 via-white to-blue-50/30',
+    decorCircle: 'bg-blue-200/30',
+    glowBg: 'group-hover:shadow-blue-100',
   },
   green: {
-    iconBg: 'bg-green-100',
-    iconColor: 'text-green-600',
+    iconBg: 'bg-gradient-to-br from-green-500 to-green-600',
+    iconColor: 'text-white',
     numberColor: 'text-green-600',
-    cardHover: 'hover:border-green-200',
-    cardBg: 'bg-gradient-to-br from-green-50/50 to-white',
+    cardHover: 'hover:border-green-300 hover:shadow-green-200/50',
+    cardBg: 'bg-gradient-to-br from-green-50 via-white to-green-50/30',
+    decorCircle: 'bg-green-200/30',
+    glowBg: 'group-hover:shadow-green-100',
   },
   orange: {
-    iconBg: 'bg-orange-100',
-    iconColor: 'text-orange-600',
+    iconBg: 'bg-gradient-to-br from-orange-500 to-orange-600',
+    iconColor: 'text-white',
     numberColor: 'text-orange-600',
-    cardHover: 'hover:border-orange-200',
-    cardBg: 'bg-gradient-to-br from-orange-50/50 to-white',
+    cardHover: 'hover:border-orange-300 hover:shadow-orange-200/50',
+    cardBg: 'bg-gradient-to-br from-orange-50 via-white to-orange-50/30',
+    decorCircle: 'bg-orange-200/30',
+    glowBg: 'group-hover:shadow-orange-100',
   },
 };
 
@@ -35,12 +41,29 @@ export function StatsCounter({ icon: Icon, value, label, colorScheme = 'blue' }:
   const colors = colorSchemes[colorScheme];
 
   return (
-    <div className={`flex flex-col items-center text-center p-8 rounded-2xl border-2 border-gray-100 ${colors.cardBg} ${colors.cardHover} shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group`}>
-      <div className={`w-20 h-20 ${colors.iconBg} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-        <Icon className={`h-10 w-10 ${colors.iconColor}`} />
+    <div className={`relative flex flex-col items-center text-center p-10 rounded-3xl border-2 border-gray-200 ${colors.cardBg} ${colors.cardHover} shadow-xl hover:shadow-2xl ${colors.glowBg} transition-all duration-500 hover:-translate-y-2 group overflow-hidden`}>
+      {/* Decorative circles */}
+      <div className={`absolute -top-10 -right-10 w-32 h-32 ${colors.decorCircle} rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700`}></div>
+      <div className={`absolute -bottom-10 -left-10 w-32 h-32 ${colors.decorCircle} rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700`}></div>
+
+      {/* Icon with glow effect */}
+      <div className="relative mb-6">
+        <div className={`absolute inset-0 ${colors.iconBg} rounded-2xl blur-lg opacity-50 group-hover:opacity-70 transition-opacity`}></div>
+        <div className={`relative w-24 h-24 ${colors.iconBg} rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg`}>
+          <Icon className={`h-12 w-12 ${colors.iconColor} drop-shadow-sm`} />
+        </div>
       </div>
-      <div className={`text-5xl md:text-6xl font-bold ${colors.numberColor} mb-3`}>{value}</div>
-      <div className="text-base md:text-lg text-gray-600 font-semibold">{label}</div>
+
+      {/* Number with gradient text effect */}
+      <div className={`text-6xl md:text-7xl font-black ${colors.numberColor} mb-3 tracking-tight group-hover:scale-105 transition-transform duration-300`}>
+        {value}
+      </div>
+
+      {/* Label */}
+      <div className="text-lg md:text-xl text-gray-700 font-bold uppercase tracking-wide">{label}</div>
+
+      {/* Bottom accent line */}
+      <div className={`absolute bottom-0 left-0 right-0 h-1 ${colors.iconBg} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`}></div>
     </div>
   );
 }
