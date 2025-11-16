@@ -20,10 +20,19 @@ export function Newsletter() {
 
   return (
     <section className="py-16 md:py-20 bg-gradient-to-br from-primary via-primary-600 to-primary-700 text-white relative overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="https://images.pexels.com/photos/7031601/pexels-photo-7031601.jpeg?auto=compress&cs=tinysrgb&w=1920"
+          alt="Newsletter background"
+          className="w-full h-full object-cover opacity-15"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary-600/90 to-primary-700/90"></div>
+      </div>
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10 pattern-dots text-white"></div>
-      
-      <div className="container-custom relative z-10">
+      <div className="absolute inset-0 opacity-10 pattern-dots text-white z-10"></div>
+
+      <div className="container-custom relative z-20">
         <div className="max-w-3xl mx-auto text-center">
           <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6">
             <Mail className="h-8 w-8 text-white" />
