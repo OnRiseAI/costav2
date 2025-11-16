@@ -191,6 +191,8 @@ export const demoTradespeople: Tradesperson[] = [
     verified: true,
     jobsCompleted: 98,
     yearsInBusiness: 12,
+    services: ['Electricians', 'Solar Panel Installation', 'Smart Home Systems', 'Electrical Inspections'],
+    phone: '+34-952-890-123',
   },
   {
     slug: 'bright-spark-electrical',
@@ -310,6 +312,8 @@ export const demoTradespeople: Tradesperson[] = [
     verified: true,
     jobsCompleted: 134,
     yearsInBusiness: 7,
+    services: ['Painters & Decorators', 'Interior Design Consultation', 'Color Matching', 'Texture Finishes'],
+    phone: '+34-952-901-234',
   },
   {
     slug: 'pristine-painting-services',
