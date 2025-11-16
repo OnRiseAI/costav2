@@ -216,29 +216,30 @@ export default function Index() {
       <WhyChooseUs />
 
       {/* How It Works Section */}
-      <section className="bg-gray-50 py-16 md:py-24">
-        <div className="container-custom">
-          <h2 className="text-center mb-16 text-2xl md:text-3xl lg:text-4xl">{t('how.title')}</h2>
+      <section className="bg-gray-50 py-16 md:py-24 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5 pattern-dots text-gray-400"></div>
+        <div className="container-custom relative z-10">
+          <h2 className="text-center mb-16 text-2xl md:text-3xl lg:text-4xl animate-fade-in">{t('how.title')}</h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="text-center">
-              <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6 text-white text-3xl font-bold shadow-lg">
+            <div className="text-center group animate-slide-up" style={{ animationDelay: '0.1s' }}>
+              <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6 text-white text-3xl font-bold shadow-lg group-hover:scale-110 group-hover:shadow-xl transition-all duration-300">
                 1
               </div>
-              <h3 className="text-lg md:text-xl font-semibold mb-3">{t('how.step1.title')}</h3>
+              <h3 className="text-lg md:text-xl font-semibold mb-3 group-hover:text-primary transition-colors">{t('how.step1.title')}</h3>
               <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{t('how.step1.desc')}</p>
             </div>
-            <div className="text-center">
-              <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6 text-white text-3xl font-bold shadow-lg">
+            <div className="text-center group animate-slide-up" style={{ animationDelay: '0.3s' }}>
+              <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6 text-white text-3xl font-bold shadow-lg group-hover:scale-110 group-hover:shadow-xl transition-all duration-300">
                 2
               </div>
-              <h3 className="text-lg md:text-xl font-semibold mb-3">{t('how.step2.title')}</h3>
+              <h3 className="text-lg md:text-xl font-semibold mb-3 group-hover:text-primary transition-colors">{t('how.step2.title')}</h3>
               <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{t('how.step2.desc')}</p>
             </div>
-            <div className="text-center">
-              <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6 text-white text-3xl font-bold shadow-lg">
+            <div className="text-center group animate-slide-up" style={{ animationDelay: '0.5s' }}>
+              <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6 text-white text-3xl font-bold shadow-lg group-hover:scale-110 group-hover:shadow-xl transition-all duration-300">
                 3
               </div>
-              <h3 className="text-lg md:text-xl font-semibold mb-3">{t('how.step3.title')}</h3>
+              <h3 className="text-lg md:text-xl font-semibold mb-3 group-hover:text-primary transition-colors">{t('how.step3.title')}</h3>
               <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{t('how.step3.desc')}</p>
             </div>
           </div>
@@ -246,9 +247,10 @@ export default function Index() {
       </section>
 
       {/* Categories Section */}
-      <section className="bg-white py-16 md:py-24">
-        <div className="container-custom">
-          <div className="text-center mb-12">
+      <section className="bg-gradient-to-b from-white via-gray-50 to-white py-16 md:py-24 relative">
+        <div className="absolute inset-0 opacity-5 pattern-grid text-gray-400"></div>
+        <div className="container-custom relative z-10">
+          <div className="text-center mb-12 animate-fade-in">
             <h2 className="mb-4 text-2xl md:text-3xl lg:text-4xl">{t('categories.title')}</h2>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
               Find verified professionals for any home improvement or maintenance need
