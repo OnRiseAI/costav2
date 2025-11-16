@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
+import { saveRecentSearch } from '@/components/RecentSearches';
 
 interface SearchBarProps {
   variant?: 'hero' | 'compact';
@@ -16,6 +17,12 @@ export function SearchBar({ variant = 'hero' }: SearchBarProps) {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Save to recent searches
+    if (trade) {
+      saveRecentSearch(trade, location);
+    }
+
     const params = new URLSearchParams();
     if (trade) params.set('trade', trade);
     if (location) params.set('location', location);

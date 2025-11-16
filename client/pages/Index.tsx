@@ -165,8 +165,11 @@ export default function Index() {
             <p className="text-xl md:text-2xl text-primary-foreground/90 mb-10 leading-relaxed">
               {t('hero.subtitle')}
             </p>
-            <div className="bg-white p-4 md:p-6 rounded-2xl shadow-2xl">
+            <div className="bg-white p-4 md:p-6 rounded-2xl shadow-2xl mb-6">
               <SearchBar variant="hero" />
+            </div>
+            <div className="max-w-2xl mx-auto">
+              <RecentSearches />
             </div>
           </div>
         </div>
@@ -182,6 +185,9 @@ export default function Index() {
           </div>
         </div>
       </section>
+
+      {/* Trust Badges Section */}
+      <TrustBadges />
 
       {/* How It Works Section */}
       <section className="bg-gray-50 py-16 md:py-24">
