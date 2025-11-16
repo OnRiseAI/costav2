@@ -280,39 +280,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Categories Section */}
-      <section className="bg-gradient-to-b from-white via-gray-50 to-white py-16 md:py-24 relative">
-        <div className="absolute inset-0 opacity-5 pattern-grid text-gray-400"></div>
-        <div className="container-custom relative z-10">
-          <div className="text-center mb-12 animate-fade-in">
-            <h2 className="mb-4 text-2xl md:text-3xl lg:text-4xl">{t('categories.title')}</h2>
-            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-              Find verified professionals for any home improvement or maintenance need
-            </p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8">
-            {categories.map((category) => (
-              <CategoryCardWithImage
-                key={category.slug}
-                name={category.name}
-                slug={category.slug}
-                icon={category.icon}
-                count={category.count}
-                imageUrl={category.imageUrl}
-              />
-            ))}
-          </div>
-          <div className="text-center">
-            <Link to="/trades">
-              <Button variant="outline" size="lg" className="gap-2">
-                {t('categories.viewAll')}
-                <ArrowRight className="h-4 w-4" />
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* Featured Tradespeople Section */}
       <section className="bg-gray-50 py-16 md:py-24 relative">
         <div className="absolute inset-0 opacity-5 pattern-dots text-gray-400"></div>
