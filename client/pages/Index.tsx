@@ -26,6 +26,7 @@ import { RecommendedJobs } from '@/components/RecommendedJobs';
 import { WhyChooseUs } from '@/components/WhyChooseUs';
 import { LiveActivity } from '@/components/LiveActivity';
 import { TrustIndicators } from '@/components/TrustIndicators';
+import { Newsletter } from '@/components/Newsletter';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { getFeaturedTradespeople } from '@/data/tradespeople';
@@ -408,6 +409,9 @@ export default function Index() {
 
       {/* Recommended Jobs Section */}
       <RecommendedJobs />
+
+      {/* Newsletter Section */}
+      <Newsletter />
 
       {/* CTA Section - Homeowner */}
       <section className="bg-gradient-to-br from-primary via-primary-600 to-primary-700 text-white py-16 md:py-20">
