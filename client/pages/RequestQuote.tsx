@@ -124,7 +124,7 @@ export default function RequestQuote() {
             {/* Continue Button */}
             <Button
               size="lg"
-              className="w-full text-lg py-6 bg-primary hover:bg-primary/90 rounded-xl"
+              className="w-full text-lg py-6 bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white rounded-xl disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={jobDescription.length < 50}
               onClick={handleContinue}
             >
