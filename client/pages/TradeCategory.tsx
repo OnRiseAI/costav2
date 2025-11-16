@@ -52,6 +52,16 @@ export default function TradeCategory() {
       description: 'Expert gardeners and landscaping professionals in Costa del Sol. Create and maintain beautiful outdoor spaces.',
       icon: '🌿',
     },
+    'pest-control': {
+      title: t('category.pestControl'),
+      description: 'Professional pest control services across Costa del Sol. Safe, effective solutions for all pest problems.',
+      icon: '🐛',
+    },
+    'property-maintenance': {
+      title: t('category.propertyMaintenance'),
+      description: 'Comprehensive property maintenance services in Costa del Sol. All-in-one solutions for your property needs.',
+      icon: '🏠',
+    },
   };
 
   const currentCategory = category ? categoryData[category] : null;
