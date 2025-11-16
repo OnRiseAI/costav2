@@ -379,6 +379,9 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Recommended Jobs Section */}
+      <RecommendedJobs />
+
       {/* CTA Section - Homeowner */}
       <section className="bg-gradient-to-br from-primary via-primary-600 to-primary-700 text-white py-16 md:py-20">
         <div className="container-custom text-center">
