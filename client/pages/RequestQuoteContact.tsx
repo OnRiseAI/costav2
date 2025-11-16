@@ -24,10 +24,10 @@ export default function RequestQuoteContact() {
   const timing = location.state?.timing || '';
 
   useEffect(() => {
-    if (!tradesperson || !jobDescription) {
+    if (!tradesperson) {
       navigate('/');
     }
-  }, [tradesperson, jobDescription, navigate]);
+  }, [tradesperson, navigate]);
 
   if (!tradesperson) {
     return null;
