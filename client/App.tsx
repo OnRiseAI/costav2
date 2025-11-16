@@ -76,6 +76,7 @@ function App() {
               <Route path="/terms" element={<PlaceholderPage title="Terms of Service" description="Terms and conditions for using TradeFinder" />} />
               <Route path="/privacy" element={<PlaceholderPage title="Privacy Policy" description="How we protect and use your data" />} />
               <Route path="/help" element={<PlaceholderPage title="Help Center" description="Get answers to common questions" />} />
+              <Route path="/download-app" element={<PlaceholderPage title="Download App" description="Get the TradeFinder app on iOS and Android" />} />
 
               {/* 404 */}
               <Route path="*" element={<NotFound />} />

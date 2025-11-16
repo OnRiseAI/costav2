@@ -1,122 +1,54 @@
 import { Link } from 'react-router-dom';
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X, Heart, User } from 'lucide-react';
 import { useState } from 'react';
-import { useLanguage, Language } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { language, setLanguage, t } = useLanguage();
-
-  const languageNames: Record<Language, string> = {
-    en: 'English',
-    es: 'Español',
-    de: 'Deutsch',
-  };
-
-  const languageFlags: Record<Language, string> = {
-    en: '���🇧',
-    es: '🇪🇸',
-    de: '🇩🇪',
-  };
 
   return (
     <nav className="bg-white border-b border-border sticky top-0 z-50 shadow-sm">
       <div className="container-custom">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">TF</span>
-            </div>
-            <div className="hidden sm:block">
-              <div className="font-bold text-lg text-foreground">TradeFinder</div>
-              <div className="text-xs text-muted-foreground">Costa del Sol</div>
-            </div>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link to="/trades" className="text-foreground hover:text-primary transition-colors font-medium">
-              {t('nav.findTrades')}
-            </Link>
-            <Link to="/how-it-works" className="text-foreground hover:text-primary transition-colors font-medium">
-              {t('nav.howItWorks')}
-            </Link>
-            <Link to="/for-tradespeople" className="text-foreground hover:text-primary transition-colors font-medium">
-              {t('nav.forTradespeople')}
-            </Link>
-            <Link to="/blog" className="text-foreground hover:text-primary transition-colors font-medium">
-              {t('nav.blog')}
-            </Link>
-          </div>
-
-          {/* Desktop Actions */}
-          <div className="hidden md:flex items-center space-x-4">
-            {/* Language Switcher */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="gap-2">
-                  <Globe className="h-4 w-4" />
-                  <span className="hidden lg:inline">{languageFlags[language]} {languageNames[language]}</span>
-                  <span className="lg:hidden">{languageFlags[language]}</span>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => setLanguage('en')} className="gap-2">
-                  {languageFlags.en} English
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setLanguage('es')} className="gap-2">
-                  {languageFlags.es} Español
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setLanguage('de')} className="gap-2">
-                  {languageFlags.de} Deutsch
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-
-            <Link to="/login">
-              <Button variant="ghost">{t('nav.login')}</Button>
-            </Link>
-            <Link to="/signup">
-              <Button className="bg-accent hover:bg-accent/90">{t('nav.signup')}</Button>
-            </Link>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center space-x-2">
-            {/* Mobile Language Switcher */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm">
-                  {languageFlags[language]}
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => setLanguage('en')}>
-                  {languageFlags.en} English
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setLanguage('es')}>
-                  {languageFlags.es} Español
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setLanguage('de')}>
-                  {languageFlags.de} Deutsch
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-
+        <div className="flex items-center justify-between h-16 md:h-20 gap-4">
+          {/* Left: Menu + Logo */}
+          <div className="flex items-center gap-3">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="text-foreground hover:text-primary"
             >
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
+            <Link to="/" className="flex items-center">
+              <div className="w-10 h-10 md:w-12 md:h-12 bg-[#E31E24] rounded-full flex items-center justify-center">
+                <svg className="w-6 h-6 md:w-7 md:h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+              </div>
+            </Link>
+          </div>
+
+          {/* Center/Right: Action Buttons */}
+          <div className="flex items-center gap-2 md:gap-3">
+            <Link to="/join-as-tradesperson" className="hidden sm:block">
+              <Button className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white px-4 md:px-6 py-2 md:py-2.5 text-sm md:text-base rounded-full">
+                Trade sign up
+              </Button>
+            </Link>
+            <Link to="/download-app" className="hidden md:block">
+              <Button variant="outline" className="border-2 border-[#0a1f44] text-[#0a1f44] hover:bg-gray-50 px-4 md:px-6 py-2 md:py-2.5 text-sm md:text-base rounded-full">
+                Download app
+              </Button>
+            </Link>
+            <Link to="/saved-trades" className="hidden sm:block">
+              <Button variant="ghost" size="icon" className="rounded-full">
+                <Heart className="h-6 w-6 md:h-7 md:w-7 text-[#E31E24]" fill="#E31E24" />
+              </Button>
+            </Link>
+            <Link to="/login">
+              <Button variant="ghost" size="icon" className="rounded-full bg-[#0a1f44]">
+                <User className="h-5 w-5 md:h-6 md:w-6 text-white" />
+              </Button>
+            </Link>
           </div>
         </div>
 
