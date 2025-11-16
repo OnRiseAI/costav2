@@ -1,4 +1,5 @@
 import { LucideIcon } from 'lucide-react';
+import { useEffect, useState, useRef } from 'react';
 
 interface StatsCounterProps {
   icon: LucideIcon;
@@ -39,6 +40,60 @@ const colorSchemes = {
 
 export function StatsCounter({ icon: Icon, value, label, colorScheme = 'blue' }: StatsCounterProps) {
   const colors = colorSchemes[colorScheme];
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const countRef = useRef<HTMLDivElement>(null);
+
+  // Extract number from value string (e.g., "150+" -> 150)
+  const targetNumber = parseInt(value.replace(/[^0-9]/g, ''));
+  const suffix = value.replace(/[0-9]/g, '');
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (countRef.current) {
+      observer.observe(countRef.current);
+    }
+
+    return () => {
+      if (countRef.current) {
+        observer.unobserve(countRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    let startTime: number | null = null;
+    const duration = 2000; // 2 seconds animation
+
+    const animate = (currentTime: number) => {
+      if (!startTime) startTime = currentTime;
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+
+      // Easing function for smooth animation
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+      const currentCount = Math.floor(easeOutQuart * targetNumber);
+
+      setCount(currentCount);
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        setCount(targetNumber);
+      }
+    };
+
+    requestAnimationFrame(animate);
+  }, [isVisible, targetNumber]);
 
   return (
     <div className={`relative flex flex-col items-center text-center p-10 rounded-3xl border-2 border-gray-200 ${colors.cardBg} ${colors.cardHover} shadow-xl hover:shadow-2xl ${colors.glowBg} transition-all duration-500 hover:-translate-y-2 group overflow-hidden`}>
@@ -55,8 +110,11 @@ export function StatsCounter({ icon: Icon, value, label, colorScheme = 'blue' }:
       </div>
 
       {/* Number with gradient text effect */}
-      <div className={`text-6xl md:text-7xl font-black ${colors.numberColor} mb-3 tracking-tight group-hover:scale-105 transition-transform duration-300`}>
-        {value}
+      <div
+        ref={countRef}
+        className={`text-6xl md:text-7xl font-black ${colors.numberColor} mb-3 tracking-tight group-hover:scale-105 transition-transform duration-300`}
+      >
+        {count.toLocaleString()}{suffix}
       </div>
 
       {/* Label */}
