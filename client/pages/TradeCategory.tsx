@@ -3,13 +3,17 @@ import { Wrench, MapPin, Star, SlidersHorizontal } from 'lucide-react';
 import { TradespersonCard } from '@/components/TradespersonCard';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { getTradespeopleByCategory } from '@/data/tradespeople';
+import { TrustSection } from '@/components/TrustSection';
 
 export default function TradeCategory() {
   const { category } = useParams();
   const { t } = useLanguage();
   const [showFilters, setShowFilters] = useState(false);
+  const [selectedLocations, setSelectedLocations] = useState<string[]>([]);
+  const [selectedRating, setSelectedRating] = useState<string>('All Ratings');
+  const [sortBy, setSortBy] = useState<string>('recommended');
 
   const categoryData: Record<string, { title: string; description: string; icon: string }> = {
     'pool-maintenance': {
@@ -66,7 +70,55 @@ export default function TradeCategory() {
 
   const currentCategory = category ? categoryData[category] : null;
 
-  const tradespeople = category ? getTradespeopleByCategory(category) : [];
+  const allTradespeople = category ? getTradespeopleByCategory(category) : [];
+
+  const filteredAndSortedTradespeople = useMemo(() => {
+    let filtered = [...allTradespeople];
+
+    if (selectedLocations.length > 0 && !selectedLocations.includes('All Locations')) {
+      filtered = filtered.filter(tp => selectedLocations.includes(tp.location));
+    }
+
+    if (selectedRating !== 'All Ratings') {
+      const minRating = selectedRating === '5 Stars' ? 5 :
+                        selectedRating === '4+ Stars' ? 4 :
+                        selectedRating === '3+ Stars' ? 3 : 0;
+      filtered = filtered.filter(tp => tp.rating >= minRating);
+    }
+
+    switch (sortBy) {
+      case 'highest-rated':
+        filtered.sort((a, b) => b.rating - a.rating);
+        break;
+      case 'most-reviews':
+        filtered.sort((a, b) => b.reviewCount - a.reviewCount);
+        break;
+      case 'newest':
+        filtered.reverse();
+        break;
+      default:
+        break;
+    }
+
+    return filtered;
+  }, [allTradespeople, selectedLocations, selectedRating, sortBy]);
+
+  const handleLocationChange = (location: string) => {
+    if (location === 'All Locations') {
+      setSelectedLocations([]);
+    } else {
+      setSelectedLocations(prev =>
+        prev.includes(location)
+          ? prev.filter(l => l !== location)
+          : [...prev, location]
+      );
+    }
+  };
+
+  const handleClearFilters = () => {
+    setSelectedLocations([]);
+    setSelectedRating('All Ratings');
+  };
 
   const locations = ['All Locations', 'Marbella', 'Málaga', 'Fuengirola', 'Estepona', 'Torremolinos', 'Mijas', 'Nerja'];
   const ratings = ['All Ratings', '5 Stars', '4+ Stars', '3+ Stars'];
@@ -128,7 +180,12 @@ export default function TradeCategory() {
                   <div className="space-y-2">
                     {locations.map((location) => (
                       <label key={location} className="flex items-center gap-2 cursor-pointer">
-                        <input type="checkbox" className="rounded border-gray-300" />
+                        <input
+                          type="checkbox"
+                          className="rounded border-gray-300"
+                          checked={location === 'All Locations' ? selectedLocations.length === 0 : selectedLocations.includes(location)}
+                          onChange={() => handleLocationChange(location)}
+                        />
                         <span className="text-sm text-muted-foreground">{location}</span>
                       </label>
                     ))}
@@ -144,14 +201,20 @@ export default function TradeCategory() {
                   <div className="space-y-2">
                     {ratings.map((rating) => (
                       <label key={rating} className="flex items-center gap-2 cursor-pointer">
-                        <input type="radio" name="rating" className="border-gray-300" />
+                        <input
+                          type="radio"
+                          name="rating"
+                          className="border-gray-300"
+                          checked={selectedRating === rating}
+                          onChange={() => setSelectedRating(rating)}
+                        />
                         <span className="text-sm text-muted-foreground">{rating}</span>
                       </label>
                     ))}
                   </div>
                 </div>
 
-                <Button variant="outline" className="w-full">
+                <Button variant="outline" className="w-full" onClick={handleClearFilters}>
                   Clear Filters
                 </Button>
               </div>
@@ -162,20 +225,28 @@ export default function TradeCategory() {
           <div className="flex-1">
             <div className="mb-6 flex items-center justify-between">
               <p className="text-muted-foreground">
-                Showing <span className="font-semibold text-foreground">{tradespeople.length}</span> professionals
+                Showing <span className="font-semibold text-foreground">{filteredAndSortedTradespeople.length}</span> professionals
               </p>
-              <select className="border border-input rounded-lg px-4 py-2 text-sm">
-                <option>Sort by: Recommended</option>
-                <option>Highest Rated</option>
-                <option>Most Reviews</option>
-                <option>Newest</option>
+              <select
+                className="border border-input rounded-lg px-4 py-2 text-sm"
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+              >
+                <option value="recommended">Sort by: Recommended</option>
+                <option value="highest-rated">Highest Rated</option>
+                <option value="most-reviews">Most Reviews</option>
+                <option value="newest">Newest</option>
               </select>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              {tradespeople.map((tradesperson) => (
-                <TradespersonCard key={tradesperson.slug} {...tradesperson} />
-              ))}
+            <div className="space-y-8">
+              <TrustSection />
+
+              <div className="grid md:grid-cols-2 gap-6">
+                {filteredAndSortedTradespeople.map((tradesperson) => (
+                  <TradespersonCard key={tradesperson.slug} {...tradesperson} />
+                ))}
+              </div>
             </div>
 
             {/* Pagination */}
