@@ -13,7 +13,7 @@ export function StatsCounter({ icon: Icon, value, label }: StatsCounterProps) {
         <Icon className="h-8 w-8 text-primary" />
       </div>
       <div className="text-4xl md:text-5xl font-bold text-primary mb-2">{value}</div>
-      <div className="text-muted-foreground font-medium">{label}</div>
+      <div className="text-sm md:text-base text-muted-foreground font-medium">{label}</div>
     </div>
   );
 }
