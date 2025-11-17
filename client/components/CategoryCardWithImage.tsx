@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { LucideIcon } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -8,13 +7,20 @@ interface CategoryCardWithImageProps {
   icon: LucideIcon;
   count: number;
   imageUrl: string;
+  onClick?: (slug: string) => void;
 }
 
-export function CategoryCardWithImage({ name, slug, icon: Icon, count, imageUrl }: CategoryCardWithImageProps) {
+export function CategoryCardWithImage({ name, slug, icon: Icon, count, imageUrl, onClick }: CategoryCardWithImageProps) {
   const { t } = useLanguage();
 
+  const handleClick = () => {
+    if (onClick) {
+      onClick(slug);
+    }
+  };
+
   return (
-    <Link to={`/trades/${slug}`}>
+    <button onClick={handleClick} className="w-full">
       <div className="relative bg-white rounded-xl overflow-hidden border border-border hover:border-primary hover:shadow-xl transition-all duration-300 group cursor-pointer h-48">
         {/* Background Image */}
         <div className="absolute inset-0">
@@ -39,6 +45,6 @@ export function CategoryCardWithImage({ name, slug, icon: Icon, count, imageUrl 
           </p>
         </div>
       </div>
-    </Link>
+    </button>
   );
 }
