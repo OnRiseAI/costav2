@@ -207,36 +207,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="bg-gradient-to-b from-white via-gray-50 to-white border-y border-gray-200 relative overflow-hidden">
-        {/* Animated background elements */}
-        <div className="absolute inset-0 opacity-[0.03]">
-          <div className="absolute top-20 left-10 w-64 h-64 bg-blue-500 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-64 h-64 bg-orange-500 rounded-full blur-3xl"></div>
-          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-green-500 rounded-full blur-3xl"></div>
-        </div>
-        <div className="absolute inset-0 opacity-[0.02] pattern-grid text-gray-900"></div>
-
-        <div className="container-custom py-20 md:py-28 relative z-10">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Trusted by Thousands</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">Join our growing community of satisfied customers and verified professionals</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
-            <div className="animate-counter" style={{ animationDelay: '0.1s' }}>
-              <StatsCounter icon={Users} value="150+" label={t('stats.tradespeople')} colorScheme="blue" />
-            </div>
-            <div className="animate-counter" style={{ animationDelay: '0.3s' }}>
-              <StatsCounter icon={Star} value="2,400+" label={t('stats.reviews')} colorScheme="orange" />
-            </div>
-            <div className="animate-counter" style={{ animationDelay: '0.5s' }}>
-              <StatsCounter icon={Briefcase} value="5,600+" label={t('stats.jobs')} colorScheme="green" />
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Popular Trade Categories Section */}
       <section className="bg-gradient-to-b from-white via-gray-50 to-white py-16 md:py-24 relative overflow-hidden">
         {/* Subtle Geometric Background */}
@@ -272,6 +242,36 @@ export default function Index() {
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="bg-gradient-to-b from-white via-gray-50 to-white border-y border-gray-200 relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 opacity-[0.03]">
+          <div className="absolute top-20 left-10 w-64 h-64 bg-blue-500 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-64 h-64 bg-orange-500 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-green-500 rounded-full blur-3xl"></div>
+        </div>
+        <div className="absolute inset-0 opacity-[0.02] pattern-grid text-gray-900"></div>
+
+        <div className="container-custom py-20 md:py-28 relative z-10">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Trusted by Thousands</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">Join our growing community of satisfied customers and verified professionals</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+            <div className="animate-counter" style={{ animationDelay: '0.1s' }}>
+              <StatsCounter icon={Users} value="150+" label={t('stats.tradespeople')} colorScheme="blue" />
+            </div>
+            <div className="animate-counter" style={{ animationDelay: '0.3s' }}>
+              <StatsCounter icon={Star} value="2,400+" label={t('stats.reviews')} colorScheme="orange" />
+            </div>
+            <div className="animate-counter" style={{ animationDelay: '0.5s' }}>
+              <StatsCounter icon={Briefcase} value="5,600+" label={t('stats.jobs')} colorScheme="green" />
+            </div>
           </div>
         </div>
       </section>
