@@ -108,6 +108,20 @@ export default function Index() {
       count: 4,
       imageUrl: 'https://images.pexels.com/photos/7414938/pexels-photo-7414938.jpeg?auto=compress&cs=tinysrgb&w=600'
     },
+    {
+      name: t('category.cleaning'),
+      slug: 'cleaning',
+      icon: Sparkles,
+      count: 4,
+      imageUrl: 'https://images.pexels.com/photos/3970132/pexels-photo-3970132.jpeg?auto=compress&cs=tinysrgb&w=600'
+    },
+    {
+      name: t('category.handyman'),
+      slug: 'handyman',
+      icon: Wand2,
+      count: 3,
+      imageUrl: 'https://images.pexels.com/photos/3957336/pexels-photo-3957336.jpeg?auto=compress&cs=tinysrgb&w=600'
+    },
   ];
 
   const featuredTradespeople = getFeaturedTradespeople(3).map((tp, idx) => {
