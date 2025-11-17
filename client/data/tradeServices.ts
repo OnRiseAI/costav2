@@ -19,7 +19,33 @@ export const tradeServices: TradeServices = {
       {
         id: 'boilers',
         label: 'Boilers, heating & radiators',
-        description: 'e.g. installation, repairs, maintenance'
+        description: 'e.g. installation, repairs, maintenance',
+        subServices: [
+          {
+            id: 'boiler',
+            label: 'Boilers',
+          },
+          {
+            id: 'radiators',
+            label: 'Radiators',
+          },
+          {
+            id: 'gas-central-heating',
+            label: 'Gas central heating',
+          },
+          {
+            id: 'unvented-cylinders',
+            label: 'Unvented hot water cylinders',
+          },
+          {
+            id: 'underfloor-heating',
+            label: 'Underfloor heating',
+          },
+          {
+            id: 'thermal-dynamics',
+            label: 'Thermal dynamics',
+          },
+        ]
       },
       {
         id: 'bathroom',
