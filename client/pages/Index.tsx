@@ -212,6 +212,11 @@ export default function Index() {
             <div className="bg-white p-5 md:p-7 rounded-2xl shadow-2xl animate-scale-in max-w-3xl mx-auto" style={{ animationDelay: '0.4s' }}>
               <SearchBar variant="hero" />
             </div>
+
+            {/* Recent Searches */}
+            <div className="max-w-3xl mx-auto mt-6 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+              <RecentSearches />
+            </div>
           </div>
         </div>
       </section>
