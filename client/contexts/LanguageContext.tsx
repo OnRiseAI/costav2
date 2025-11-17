@@ -49,7 +49,9 @@ export const translations = {
     'category.gardeners': 'Gardeners & Landscaping',
     'category.pestControl': 'Pest Control',
     'category.propertyMaintenance': 'Property Maintenance',
-    
+    'category.cleaning': 'Cleaning Services',
+    'category.handyman': 'Handyman Services',
+
     // Stats
     'stats.tradespeople': 'Verified Tradespeople',
     'stats.reviews': 'Customer Reviews',
@@ -120,7 +122,9 @@ export const translations = {
     'category.gardeners': 'Jardineros y Paisajismo',
     'category.pestControl': 'Control de Plagas',
     'category.propertyMaintenance': 'Mantenimiento de Propiedades',
-    
+    'category.cleaning': 'Servicios de Limpieza',
+    'category.handyman': 'Servicios de Mantenimiento General',
+
     // Stats
     'stats.tradespeople': 'Profesionales Verificados',
     'stats.reviews': 'Reseñas de Clientes',
@@ -191,7 +195,9 @@ export const translations = {
     'category.gardeners': 'Gärtner & Landschaftsbau',
     'category.pestControl': 'Schädlingsbekämpfung',
     'category.propertyMaintenance': 'Immobilienwartung',
-    
+    'category.cleaning': 'Reinigungsdienste',
+    'category.handyman': 'Handyman-Dienste',
+
     // Stats
     'stats.tradespeople': 'Verifizierte Handwerker',
     'stats.reviews': 'Kundenbewertungen',
