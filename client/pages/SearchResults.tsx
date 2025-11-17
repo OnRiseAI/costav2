@@ -79,6 +79,7 @@ export default function SearchResults() {
         <div className="container-custom py-8 md:py-12">
           <h1 className="text-3xl md:text-4xl font-bold mb-6">Search Results</h1>
           <SearchBar variant="compact" />
+          <RecentSearches />
           {(trade || location) && (
             <div className="mt-4 flex flex-wrap gap-2">
               {trade && (
