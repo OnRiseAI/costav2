@@ -1,0 +1,74 @@
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
+
+export function CTACards() {
+  const { t } = useLanguage();
+
+  const cards = [
+    {
+      title: 'Leave a review',
+      description: 'Have you completed a project recently? Let your tradesperson know how they did.',
+      buttonText: 'Leave a review',
+      buttonLink: '/review-trade',
+      imageUrl: 'https://images.pexels.com/photos/6461881/pexels-photo-6461881.jpeg?auto=compress&cs=tinysrgb&w=600&h=400',
+    },
+    {
+      title: 'Tradesperson sign up',
+      description: 'Over 1 million homeowners visit our site looking for approved and quality tradespeople like you.',
+      buttonText: 'Join today',
+      buttonLink: '/join-as-tradesperson',
+      imageUrl: 'https://images.pexels.com/photos/3767517/pexels-photo-3767517.jpeg?auto=compress&cs=tinysrgb&w=600&h=400',
+    },
+    {
+      title: 'Request a quote',
+      description: 'Tell us what you\'re looking for and we\'ll pass your request on to three approved tradespeople.',
+      buttonText: 'Request a quote',
+      buttonLink: '/post-job',
+      imageUrl: 'https://images.pexels.com/photos/3992212/pexels-photo-3992212.jpeg?auto=compress&cs=tinysrgb&w=600&h=400',
+    },
+  ];
+
+  return (
+    <section className="py-16 md:py-24 bg-white relative overflow-hidden">
+      <div className="container-custom">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {cards.map((card, index) => (
+            <div
+              key={index}
+              className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col h-full animate-fade-in"
+              style={{ animationDelay: `${index * 0.15}s` }}
+            >
+              {/* Image Container */}
+              <div className="relative h-48 md:h-56 overflow-hidden">
+                <img
+                  src={card.imageUrl}
+                  alt={card.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+              </div>
+
+              {/* Content Container */}
+              <div className="flex flex-col flex-grow p-8">
+                <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">
+                  {card.title}
+                </h3>
+                <p className="text-muted-foreground text-base mb-6 flex-grow leading-relaxed">
+                  {card.description}
+                </p>
+
+                {/* Button */}
+                <Link to={card.buttonLink} className="w-full">
+                  <Button className="w-full bg-[#E31E24] hover:bg-[#C41A1F] text-white text-base font-semibold py-3 rounded-full">
+                    {card.buttonText}
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
