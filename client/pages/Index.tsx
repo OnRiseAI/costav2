@@ -31,6 +31,7 @@ import { WhyChooseUs } from '@/components/WhyChooseUs';
 import { CTACards } from '@/components/CTACards';
 import { LiveActivity } from '@/components/LiveActivity';
 import { TrustIndicators } from '@/components/TrustIndicators';
+import { PromotionalCards } from '@/components/PromotionalCards';
 import { Newsletter } from '@/components/Newsletter';
 import { AppStoreBadges } from '@/components/AppStoreBadges';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -462,6 +463,9 @@ export default function Index() {
 
       {/* Recommended Jobs Section */}
       <RecommendedJobs />
+
+      {/* Promotional Cards Section */}
+      <PromotionalCards />
 
       {/* Newsletter Section */}
       <Newsletter />
