@@ -232,6 +232,11 @@ export default function Index() {
         </div>
         <div className="absolute inset-0 opacity-5 pattern-grid text-gray-400 z-10"></div>
         <div className="container-custom relative z-20">
+          <div className="text-center mb-12 animate-fade-in">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+              Find verified professionals for any home improvement or maintenance need
+            </p>
+          </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8">
             {categories.map((category) => (
               <CategoryCardWithImage
