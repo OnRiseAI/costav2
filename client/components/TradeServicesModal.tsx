@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import { X, ChevronLeft } from 'lucide-react';
 import { getTradeServices, TradeService } from '@/data/tradeServices';
 import { useNavigate } from 'react-router-dom';
+import { SubServiceModal } from './SubServiceModal';
+import { PostcodeModal } from './PostcodeModal';
 
 interface TradeServicesModalProps {
   isOpen: boolean;
@@ -11,14 +14,41 @@ interface TradeServicesModalProps {
 export function TradeServicesModal({ isOpen, tradeSlug, onClose }: TradeServicesModalProps) {
   const navigate = useNavigate();
   const tradeInfo = getTradeServices(tradeSlug);
+  const [selectedService, setSelectedService] = useState<TradeService | null>(null);
+  const [showSubServices, setShowSubServices] = useState(false);
+  const [showPostcode, setShowPostcode] = useState(false);
 
   if (!isOpen || !tradeInfo) {
     return null;
   }
 
-  const handleServiceClick = (serviceId: string) => {
-    navigate(`/trades/${tradeSlug}?service=${serviceId}`);
-    onClose();
+  const handleServiceClick = (service: TradeService) => {
+    setSelectedService(service);
+
+    // If service has sub-services, show sub-service modal
+    if (service.subServices && service.subServices.length > 0) {
+      setShowSubServices(true);
+    } else {
+      // Otherwise, go directly to postcode
+      setShowPostcode(true);
+    }
+  };
+
+  const handleSubServiceClick = (subServiceId: string) => {
+    // Navigate with both service and sub-service
+    setShowSubServices(false);
+    setShowPostcode(true);
+  };
+
+  const handlePostcodeSubmit = (postcode: string) => {
+    const service = selectedService;
+    if (service) {
+      navigate(`/trades/${tradeSlug}?service=${service.id}&postcode=${postcode}`);
+      onClose();
+      setSelectedService(null);
+      setShowSubServices(false);
+      setShowPostcode(false);
+    }
   };
 
   return (
