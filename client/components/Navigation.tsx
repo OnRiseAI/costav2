@@ -20,9 +20,10 @@ export function Navigation() {
               {mobileMenuOpen ? <X className="h-6 w-6" strokeWidth={2} /> : <Menu className="h-6 w-6" strokeWidth={2} />}
             </button>
             <Link to="/" className="hidden md:flex items-center">
-              <svg className="w-[48px] h-[48px]" viewBox="0 0 48 48" fill="none">
-                <path d="M40 12L18 34L8 24" stroke="#E31E24" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M40 12L18 34" stroke="#0066CC" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg className="w-[48px] h-[48px]" viewBox="0 0 1024 1024" fill="none">
+                <rect width="1024" height="1024" rx="226" fill="#1e40af"/>
+                <text x="512" y="560" fontFamily="Arial, sans-serif" fontSize="400" fontWeight="900" fill="white" textAnchor="middle" letterSpacing="-20">CT</text>
+                <path d="M 320 700 Q 420 680, 512 700 T 704 700" stroke="#f97316" strokeWidth="32" fill="none" strokeLinecap="round"/>
               </svg>
             </Link>
           </div>
