@@ -71,7 +71,7 @@ export function TradeServicesModal({ isOpen, tradeSlug, onClose }: TradeServices
           {tradeInfo.services.map((service: TradeService) => (
             <button
               key={service.id}
-              onClick={() => handleServiceClick(service.id)}
+              onClick={() => handleServiceClick(service)}
               className="w-full text-left p-4 border-2 border-gray-200 rounded-xl hover:border-primary hover:bg-primary/5 transition-all duration-200 group"
             >
               <div className="flex items-center justify-between">
@@ -104,6 +104,31 @@ export function TradeServicesModal({ isOpen, tradeSlug, onClose }: TradeServices
           </button>
         </div>
       </div>
+
+      {/* Sub-Service Modal */}
+      {selectedService && (
+        <SubServiceModal
+          isOpen={showSubServices}
+          subServices={selectedService.subServices || []}
+          parentService={selectedService.label}
+          onClose={onClose}
+          onSelectSubService={handleSubServiceClick}
+          onBack={() => setShowSubServices(false)}
+        />
+      )}
+
+      {/* Postcode Modal */}
+      <PostcodeModal
+        isOpen={showPostcode}
+        onClose={onClose}
+        onSubmit={handlePostcodeSubmit}
+        onBack={() => {
+          setShowPostcode(false);
+          if (selectedService?.subServices && selectedService.subServices.length > 0) {
+            setShowSubServices(true);
+          }
+        }}
+      />
     </div>
   );
 }
