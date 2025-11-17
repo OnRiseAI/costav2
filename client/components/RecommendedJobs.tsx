@@ -45,6 +45,18 @@ const recommendedJobs: Job[] = [
     description: 'Reduce energy costs with renewable solar',
     slug: 'solar-panels',
   },
+  {
+    tag: 'Popular',
+    title: 'Kitchen Renovation',
+    description: 'Transform your kitchen with modern upgrades',
+    slug: 'kitchen-renovation',
+  },
+  {
+    tag: 'Trending',
+    title: 'Bathroom Remodel',
+    description: 'Create your dream bathroom retreat',
+    slug: 'bathroom-remodel',
+  },
 ];
 
 export function RecommendedJobs() {
