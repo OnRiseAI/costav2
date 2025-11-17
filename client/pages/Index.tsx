@@ -485,6 +485,13 @@ export default function Index() {
           </Link>
         </div>
       </section>
+
+      {/* Trade Services Modal */}
+      <TradeServicesModal
+        isOpen={isModalOpen}
+        tradeSlug={selectedTradeSlug}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 }
