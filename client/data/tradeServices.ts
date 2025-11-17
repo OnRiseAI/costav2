@@ -50,7 +50,33 @@ export const tradeServices: TradeServices = {
       {
         id: 'bathroom',
         label: 'Bathroom appliances & fixtures',
-        description: 'e.g. showers, baths, sinks, toilets'
+        description: 'e.g. showers, baths, sinks, toilets',
+        subServices: [
+          {
+            id: 'bathroom-leak',
+            label: 'I have a leak',
+          },
+          {
+            id: 'bathroom-replaced',
+            label: 'I need an item replaced',
+          },
+          {
+            id: 'bathroom-repair',
+            label: 'I need an item repaired',
+          },
+          {
+            id: 'bathroom-install',
+            label: 'I need an item installed',
+          },
+          {
+            id: 'bathroom-sealant',
+            label: 'I need sealant replaced',
+          },
+          {
+            id: 'bathroom-fitted',
+            label: 'I need my whole bathroom fitted',
+          },
+        ]
       },
       {
         id: 'kitchen',
