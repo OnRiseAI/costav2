@@ -17,9 +17,11 @@ import {
   Sparkles,
   Wand2,
 } from 'lucide-react';
+import { useState } from 'react';
 import { SearchBar } from '@/components/SearchBar';
 import { CategoryCardWithImage } from '@/components/CategoryCardWithImage';
 import { TradespersonCard } from '@/components/TradespersonCard';
+import { TradeServicesModal } from '@/components/TradeServicesModal';
 import { ReviewCard } from '@/components/ReviewCard';
 import { StatsCounter } from '@/components/StatsCounter';
 import { TrustBadges } from '@/components/TrustBadges';
@@ -37,6 +39,13 @@ import { getFeaturedTradespeople } from '@/data/tradespeople';
 
 export default function Index() {
   const { t } = useLanguage();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedTradeSlug, setSelectedTradeSlug] = useState('');
+
+  const handleCategoryClick = (slug: string) => {
+    setSelectedTradeSlug(slug);
+    setIsModalOpen(true);
+  };
 
   const categories = [
     {
