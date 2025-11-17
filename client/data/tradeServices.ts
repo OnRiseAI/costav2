@@ -148,7 +148,33 @@ export const tradeServices: TradeServices = {
       {
         id: 'blockages',
         label: 'Blockages & power flushing',
-        description: 'e.g. drains, toilets'
+        description: 'e.g. drains, toilets',
+        subServices: [
+          {
+            id: 'blocked-toilets',
+            label: 'Blocked toilets',
+          },
+          {
+            id: 'drain-sewer',
+            label: 'Drain or sewer clearance',
+          },
+          {
+            id: 'power-flushing',
+            label: 'Power flushing',
+          },
+          {
+            id: 'blocked-sinks',
+            label: 'Blocked sinks',
+          },
+          {
+            id: 'blocked-drains',
+            label: 'Blocked drains',
+          },
+          {
+            id: 'blocked-baths',
+            label: 'Blocked baths',
+          },
+        ]
       },
       {
         id: 'taps',
