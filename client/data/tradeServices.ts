@@ -2,6 +2,7 @@ export interface TradeService {
   id: string;
   label: string;
   description?: string;
+  subServices?: TradeService[];
 }
 
 export interface TradeServices {
@@ -28,7 +29,29 @@ export const tradeServices: TradeServices = {
       {
         id: 'kitchen',
         label: 'Kitchen appliances & fixtures',
-        description: 'e.g. cookers, dishwashers, washing machines'
+        description: 'e.g. cookers, dishwashers, washing machines',
+        subServices: [
+          {
+            id: 'kitchen-leak',
+            label: 'I have a leak',
+          },
+          {
+            id: 'kitchen-install',
+            label: 'I need an item installed',
+          },
+          {
+            id: 'kitchen-replace',
+            label: 'I need an item replaced',
+          },
+          {
+            id: 'kitchen-repair',
+            label: 'I need an appliance repaired',
+          },
+          {
+            id: 'kitchen-fitted',
+            label: 'I need my entire kitchen fitted',
+          },
+        ]
       },
       {
         id: 'leaks',
