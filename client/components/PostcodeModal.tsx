@@ -31,7 +31,7 @@ export function PostcodeModal({ isOpen, onClose, onSubmit, onBack }: PostcodeMod
         {/* Header */}
         <div className="border-b border-gray-200 p-6 flex items-center justify-between">
           <div className="flex-1">
-            <h2 className="text-2xl font-bold text-foreground">What's your postcode?</h2>
+            <h2 className="text-2xl font-bold text-foreground">What's your town?</h2>
             <p className="text-sm text-muted-foreground mt-2">We use this to make sure the tradesperson operates in your area.</p>
           </div>
           <button
@@ -50,8 +50,8 @@ export function PostcodeModal({ isOpen, onClose, onSubmit, onBack }: PostcodeMod
               <input
                 type={showPostcode ? 'text' : 'text'}
                 value={postcode}
-                onChange={(e) => setPostcode(e.target.value.toUpperCase())}
-                placeholder="Postcode (of your project)"
+                onChange={(e) => setPostcode(e.target.value)}
+                placeholder="Town name"
                 className="w-full px-4 py-3 pr-12 border-2 border-gray-200 rounded-lg focus:border-primary focus:outline-none text-base"
               />
               <button
