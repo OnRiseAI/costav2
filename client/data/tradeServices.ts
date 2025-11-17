@@ -108,7 +108,25 @@ export const tradeServices: TradeServices = {
       {
         id: 'leaks',
         label: 'Leaks, pipework & water pumps',
-        description: 'e.g. burst pipes, water pressure'
+        description: 'e.g. burst pipes, water pressure',
+        subServices: [
+          {
+            id: 'leak',
+            label: 'A leak',
+          },
+          {
+            id: 'pipes',
+            label: 'Pipes',
+          },
+          {
+            id: 'drainage',
+            label: 'Drainage investigation',
+          },
+          {
+            id: 'water-pumps',
+            label: 'Water pumps',
+          },
+        ]
       },
       {
         id: 'emergency',
