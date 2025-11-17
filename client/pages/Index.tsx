@@ -14,6 +14,8 @@ import {
   Star,
   Briefcase,
   ArrowRight,
+  Sparkles,
+  Wand2,
 } from 'lucide-react';
 import { SearchBar } from '@/components/SearchBar';
 import { CategoryCardWithImage } from '@/components/CategoryCardWithImage';
