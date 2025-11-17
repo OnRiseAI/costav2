@@ -131,7 +131,19 @@ export const tradeServices: TradeServices = {
       {
         id: 'emergency',
         label: 'An emergency',
-        description: 'e.g. urgent repairs needed'
+        description: 'e.g. urgent repairs needed',
+        subServices: [
+          {
+            id: 'emergency-boiler',
+            label: 'Boiler/Central heating',
+            description: 'e.g. boiler fault, central heating not working'
+          },
+          {
+            id: 'emergency-plumbing',
+            label: 'Plumbing',
+            description: 'e.g. emergency leaks, water issues'
+          },
+        ]
       },
       {
         id: 'blockages',
