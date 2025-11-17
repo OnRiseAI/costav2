@@ -7,6 +7,7 @@ import { useState, useMemo } from 'react';
 import { searchTradespeople } from '@/data/tradespeople';
 import { SearchBar } from '@/components/SearchBar';
 import { TrustSection } from '@/components/TrustSection';
+import { RecentSearches } from '@/components/RecentSearches';
 
 export default function SearchResults() {
   const [searchParams] = useSearchParams();
