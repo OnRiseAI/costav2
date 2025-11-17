@@ -241,6 +241,7 @@ export default function Index() {
                 icon={category.icon}
                 count={category.count}
                 imageUrl={category.imageUrl}
+                onClick={handleCategoryClick}
               />
             ))}
           </div>
