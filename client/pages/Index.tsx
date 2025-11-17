@@ -26,6 +26,7 @@ import { TrustBadges } from '@/components/TrustBadges';
 import { RecentSearches } from '@/components/RecentSearches';
 import { RecommendedJobs } from '@/components/RecommendedJobs';
 import { WhyChooseUs } from '@/components/WhyChooseUs';
+import { CTACards } from '@/components/CTACards';
 import { LiveActivity } from '@/components/LiveActivity';
 import { TrustIndicators } from '@/components/TrustIndicators';
 import { Newsletter } from '@/components/Newsletter';
@@ -280,6 +281,9 @@ export default function Index() {
 
       {/* Why Choose Us Section */}
       <WhyChooseUs />
+
+      {/* CTA Cards Section */}
+      <CTACards />
 
       {/* Featured Tradespeople Section */}
       <section className="bg-gray-50 py-16 md:py-24 relative overflow-hidden">
