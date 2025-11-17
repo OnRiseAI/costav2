@@ -68,20 +68,20 @@ export function RecommendedJobs() {
         <div className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-tr from-primary/5 to-transparent rounded-full blur-3xl"></div>
         <div className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-bl from-accent/5 to-transparent rounded-full blur-3xl"></div>
       </div>
-      <div className="container-custom relative z-10">
-        <div className="flex items-center justify-between mb-6">
+      <div className="relative z-10">
+        <div className="container-custom flex items-center justify-between mb-6">
           <h2 className="text-2xl md:text-3xl font-bold">Recommended jobs</h2>
           <button className="hidden md:block text-muted-foreground hover:text-foreground">
             <X className="h-5 w-5" />
           </button>
         </div>
 
-        <div className="overflow-x-auto scrollbar-hide">
-          <div className="flex gap-6 pb-4 min-w-min">
+        <div className="overflow-x-auto scrollbar-hide -mx-4 sm:-mx-6 lg:-mx-8">
+          <div className="flex gap-4 pb-4 px-4 sm:px-6 lg:px-8 min-w-min">
             {recommendedJobs.map((job, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow relative flex-shrink-0 w-72"
+                className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow relative flex-shrink-0 w-60"
               >
                 <button className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors">
                   <X className="h-5 w-5" />
