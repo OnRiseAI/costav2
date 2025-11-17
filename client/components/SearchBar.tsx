@@ -63,7 +63,6 @@ export function SearchBar({ variant = 'hero' }: SearchBarProps) {
             value={trade}
             onChange={(e) => setTrade(e.target.value)}
             placeholder={isHero ? jobExamples[placeholderIndex] : t('hero.searchPlaceholder')}
-            key={isHero ? placeholderIndex : 'static'}
             className={`w-full px-4 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-foreground placeholder:text-muted-foreground ${
               isHero ? 'py-4 text-lg placeholder:animate-pulse' : 'py-3'
             }`}
