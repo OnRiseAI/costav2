@@ -50,21 +50,21 @@ export default function Index() {
       slug: 'pool-maintenance',
       icon: Droplets,
       count: 4,
-      imageUrl: 'https://images.pexels.com/photos/6684752/pexels-photo-6684752.jpeg?auto=compress&cs=tinysrgb&w=600'
+      imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2F472a57c41adc4a9dab40a028acb89f8a?format=webp&width=800'
     },
     {
       name: 'Air Conditioning',
       slug: 'air-conditioning',
       icon: Wind,
       count: 4,
-      imageUrl: 'https://images.pexels.com/photos/32497161/pexels-photo-32497161.jpeg?auto=compress&cs=tinysrgb&w=600'
+      imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2F3c8ea03238e344a8b4e99d8e1522bea7?format=webp&width=800'
     },
     {
       name: 'Plumbers',
       slug: 'plumbers',
       icon: Wrench,
       count: 4,
-      imageUrl: 'https://images.pexels.com/photos/8486928/pexels-photo-8486928.jpeg?auto=compress&cs=tinysrgb&w=600'
+      imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2F214ada80d910470d885f9d5054d532ae?format=webp&width=800'
     },
     {
       name: 'Electricians',
