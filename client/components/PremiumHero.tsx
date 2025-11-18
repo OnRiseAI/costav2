@@ -13,6 +13,22 @@ export function PremiumHero() {
     'I need to fit a kitchen',
     'I have a problem with my toilet',
     'I need a wall building',
+    'My roof needs repairs',
+    'I want to renovate my bathroom',
+    'Air conditioning installation',
+    'Pool maintenance needed',
+    'I need an electrician',
+    'Garden landscaping services',
+    'Paint my exterior walls',
+    'Tile work for my terrace',
+    'Solar panels installation',
+    'Boiler servicing required',
+    'Pest control needed',
+    'I need a handyman',
+    'Patio decking installation',
+    'Window replacement',
+    'Swimming pool restoration',
+    'General home maintenance',
   ];
 
   useEffect(() => {
