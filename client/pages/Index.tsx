@@ -45,84 +45,84 @@ export default function Index() {
 
   const categories = [
     {
-      name: t('category.poolMaintenance'),
+      name: 'Pool Maintenance & Repair',
       slug: 'pool-maintenance',
       icon: Droplets,
       count: 4,
       imageUrl: 'https://images.pexels.com/photos/6684752/pexels-photo-6684752.jpeg?auto=compress&cs=tinysrgb&w=600'
     },
     {
-      name: t('category.airConditioning'),
+      name: 'Air Conditioning',
       slug: 'air-conditioning',
       icon: Wind,
       count: 4,
       imageUrl: 'https://images.pexels.com/photos/32497161/pexels-photo-32497161.jpeg?auto=compress&cs=tinysrgb&w=600'
     },
     {
-      name: t('category.plumbers'),
+      name: 'Plumbers',
       slug: 'plumbers',
       icon: Wrench,
       count: 4,
       imageUrl: 'https://images.pexels.com/photos/8486928/pexels-photo-8486928.jpeg?auto=compress&cs=tinysrgb&w=600'
     },
     {
-      name: t('category.electricians'),
+      name: 'Electricians',
       slug: 'electricians',
       icon: Zap,
       count: 4,
       imageUrl: 'https://images.pexels.com/photos/442160/pexels-photo-442160.jpeg?auto=compress&cs=tinysrgb&w=600'
     },
     {
-      name: t('category.builders'),
+      name: 'Builders & Renovations',
       slug: 'builders',
       icon: Hammer,
       count: 4,
       imageUrl: 'https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=600'
     },
     {
-      name: t('category.painters'),
+      name: 'Painters',
       slug: 'painters',
       icon: PaintBucket,
       count: 3,
       imageUrl: 'https://images.pexels.com/photos/7217966/pexels-photo-7217966.jpeg?auto=compress&cs=tinysrgb&w=600'
     },
     {
-      name: t('category.locksmiths'),
+      name: 'Locksmiths',
       slug: 'locksmiths',
       icon: Key,
       count: 3,
       imageUrl: 'https://images.pexels.com/photos/101808/pexels-photo-101808.jpeg?auto=compress&cs=tinysrgb&w=600'
     },
     {
-      name: t('category.gardeners'),
+      name: 'Gardeners & Landscaping',
       slug: 'gardeners',
       icon: Leaf,
       count: 4,
       imageUrl: 'https://images.pexels.com/photos/26827231/pexels-photo-26827231.jpeg?auto=compress&cs=tinysrgb&w=600'
     },
     {
-      name: t('category.pestControl'),
+      name: 'Pest Control',
       slug: 'pest-control',
       icon: Bug,
       count: 3,
       imageUrl: 'https://images.pexels.com/photos/5025646/pexels-photo-5025646.jpeg?auto=compress&cs=tinysrgb&w=600'
     },
     {
-      name: t('category.propertyMaintenance'),
+      name: 'Property Maintenance',
       slug: 'property-maintenance',
       icon: Home,
       count: 4,
       imageUrl: 'https://images.pexels.com/photos/7414938/pexels-photo-7414938.jpeg?auto=compress&cs=tinysrgb&w=600'
     },
     {
-      name: t('category.cleaning'),
+      name: 'Cleaning Services',
       slug: 'cleaning',
       icon: Sparkles,
       count: 4,
       imageUrl: 'https://images.pexels.com/photos/3970132/pexels-photo-3970132.jpeg?auto=compress&cs=tinysrgb&w=600'
     },
     {
-      name: t('category.handyman'),
+      name: 'Handyman',
       slug: 'handyman',
       icon: Wand2,
       count: 3,
