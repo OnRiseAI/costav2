@@ -184,9 +184,6 @@ export default function Index() {
       {/* How It Works Section */}
       <HowItWorks />
 
-      {/* Most Booked This Month Section */}
-      <MostBookedCarousel />
-
       {/* Why Trust CostaTrade Section */}
       <WhyTrustCostaTrade />
 
@@ -228,9 +225,6 @@ export default function Index() {
           </div>
         </div>
       </section>
-
-      {/* Random Categories Carousel Section */}
-      <RandomCategoriesCarousel />
 
       {/* Trust Badges Section */}
       <TrustBadges />
