@@ -64,7 +64,7 @@ export function PromotionalCards() {
           </div>
 
           {/* Products Promotion Card */}
-          <div className="bg-gradient-to-br from-orange-500 via-orange-600 to-red-600 text-white rounded-2xl p-8 md:p-12 relative overflow-hidden group">
+          <div className="bg-gradient-to-br from-orange-500 via-orange-600 to-red-600 text-white rounded-2xl p-8 md:p-12 relative overflow-hidden group shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
             {/* Background image overlay */}
             <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity">
               <img
