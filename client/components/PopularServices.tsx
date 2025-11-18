@@ -90,23 +90,36 @@ export function PopularServices() {
                 className="group"
               >
                 <div
-                  className="h-full flex flex-col items-center text-center p-8 md:p-10 bg-white rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 border border-white/80 group-hover:border-primary/20 animate-slide-up"
+                  className="h-full flex flex-col bg-white rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 border border-white/80 group-hover:border-primary/20 overflow-hidden animate-slide-up"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  {/* Icon Container */}
-                  <div className={`w-16 h-16 ${service.bgColor} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500`}>
-                    <Icon className={`w-8 h-8 ${service.color}`} strokeWidth={1.5} />
+                  {/* Image Container */}
+                  <div className="relative h-48 md:h-56 overflow-hidden bg-gray-100">
+                    <img
+                      src={service.imageUrl}
+                      alt={service.heading}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
                   </div>
 
-                  {/* Heading */}
-                  <h3 className="text-lg md:text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
-                    {service.heading}
-                  </h3>
+                  {/* Content Container */}
+                  <div className="flex flex-col flex-grow p-6 md:p-8 items-center text-center">
+                    {/* Icon Container */}
+                    <div className={`w-14 h-14 ${service.bgColor} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500`}>
+                      <Icon className={`w-7 h-7 ${service.color}`} strokeWidth={1.5} />
+                    </div>
 
-                  {/* Description */}
-                  <p className="text-sm md:text-base text-muted-foreground font-light leading-relaxed flex-grow">
-                    {service.text}
-                  </p>
+                    {/* Heading */}
+                    <h3 className="text-lg md:text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+                      {service.heading}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-sm md:text-base text-muted-foreground font-light leading-relaxed">
+                      {service.text}
+                    </p>
+                  </div>
                 </div>
               </Link>
             );
