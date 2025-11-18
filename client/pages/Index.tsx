@@ -28,6 +28,7 @@ import { TrustBadges } from '@/components/TrustBadges';
 import { HowItWorks } from '@/components/HowItWorks';
 import { WhyTrustCostaTrade } from '@/components/WhyTrustCostaTrade';
 import { MostBookedCarousel } from '@/components/MostBookedCarousel';
+import { RandomCategoriesCarousel } from '@/components/RandomCategoriesCarousel';
 import { RecommendedJobs } from '@/components/RecommendedJobs';
 import { CTACards } from '@/components/CTACards';
 import { LiveActivity } from '@/components/LiveActivity';
@@ -229,6 +230,9 @@ export default function Index() {
           </div>
         </div>
       </section>
+
+      {/* Random Categories Carousel Section */}
+      <RandomCategoriesCarousel />
 
       {/* Stats Section */}
       <section className="bg-gradient-to-b from-white via-gray-50 to-white border-y border-gray-200 relative overflow-hidden">
