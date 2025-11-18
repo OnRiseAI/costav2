@@ -43,8 +43,8 @@ export function TradespersonCard({
   const defaultServices = services.length > 0 ? services : [tradeCategory];
 
   return (
-    <div className="bg-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 overflow-hidden">
-      <div className="p-6">
+    <div className="bg-white rounded-xl border border-border hover:shadow-lg transition-all duration-300 overflow-hidden h-full flex flex-col">
+      <div className="p-6 flex-1 flex flex-col">
         <div className="flex items-start gap-4 mb-4">
           {/* Profile Photo */}
           <div className="relative">
@@ -139,7 +139,7 @@ export function TradespersonCard({
         )}
 
         {/* CTA Buttons */}
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 mt-auto pt-6 border-t border-border">
           <Link to={`/request-quote?tradesperson=${slug}`} className="w-full">
             <Button className="w-full bg-accent hover:bg-accent/90 text-white text-lg py-6 rounded-xl">
               Request a quote

@@ -272,7 +272,7 @@ export default function Index() {
               Top-rated professionals ready to help with your next project
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
+          <div className="grid md:grid-cols-3 gap-6 mb-8">
             {featuredTradespeople.map((tradesperson, index) => (
               <div
                 key={tradesperson.slug}
