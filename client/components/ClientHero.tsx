@@ -111,7 +111,7 @@ export function ClientHero() {
               {/* Subtle inner glow */}
               <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-              <div className="relative flex items-center px-7 md:px-8 py-5 md:py-6 gap-4">
+              <div className="relative flex items-center px-4 md:px-8 py-3 md:py-6 gap-2 md:gap-4">
                 <Search
                   className="h-5 w-5 text-muted-foreground flex-shrink-0"
                   strokeWidth={1.5}
@@ -121,11 +121,11 @@ export function ClientHero() {
                   value={searchValue}
                   onChange={(e) => setSearchValue(e.target.value)}
                   placeholder={displayedPlaceholder}
-                  className="flex-1 bg-transparent text-lg text-foreground placeholder-muted-foreground focus:outline-none font-light transition-opacity duration-500"
+                  className="flex-1 bg-transparent text-base md:text-lg text-foreground placeholder-muted-foreground focus:outline-none font-light transition-opacity duration-500 min-w-0"
                 />
                 <Button
                   type="submit"
-                  className="ml-2 bg-gradient-to-r from-primary to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white px-7 md:px-8 py-2.5 rounded-full font-semibold text-base transition-all duration-300 flex-shrink-0 shadow-sm hover:shadow-md"
+                  className="ml-1 md:ml-2 bg-gradient-to-r from-primary to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white px-4 md:px-8 py-2 md:py-2.5 rounded-full font-semibold text-sm md:text-base transition-all duration-300 flex-shrink-0 shadow-sm hover:shadow-md whitespace-nowrap"
                 >
                   Search
                 </Button>
