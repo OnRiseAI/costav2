@@ -226,6 +226,9 @@ export default function Index() {
       {/* Premium Hero Section - Testing */}
       <PremiumHero />
 
+      {/* Client Hero Section - Testing */}
+      <ClientHero />
+
       {/* Popular Trade Categories Section */}
       <section className="bg-gradient-to-b from-white via-gray-50 to-white py-16 md:py-24 relative overflow-hidden">
         {/* Subtle Geometric Background */}
