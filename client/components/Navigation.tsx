@@ -55,7 +55,7 @@ export function Navigation() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="fixed top-[72px] left-0 right-0 w-full max-h-[calc(100vh-72px)] bg-white border-t border-gray-200 overflow-y-auto z-40 md:hidden">
+          <div className="fixed top-[72px] left-0 right-0 w-full max-h-[calc(100vh-72px)] bg-white border-t border-gray-200 overflow-y-auto z-40">
             <div className="px-5 lg:px-8 py-6 flex flex-col space-y-6">
               {/* Home Link */}
               <div className="flex justify-center pb-4 border-b border-gray-200">
