@@ -26,6 +26,7 @@ import { ReviewCard } from '@/components/ReviewCard';
 import { StatsCounter } from '@/components/StatsCounter';
 import { TrustBadges } from '@/components/TrustBadges';
 import { HowItWorks } from '@/components/HowItWorks';
+import { WhyTrustCostaTrade } from '@/components/WhyTrustCostaTrade';
 import { RecommendedJobs } from '@/components/RecommendedJobs';
 import { CTACards } from '@/components/CTACards';
 import { LiveActivity } from '@/components/LiveActivity';
