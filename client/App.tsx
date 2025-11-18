@@ -14,7 +14,7 @@ import PostJobResults from "@/pages/PostJobResults";
 import RequestQuote from "@/pages/RequestQuote";
 import RequestQuoteContact from "@/pages/RequestQuoteContact";
 import LoginPage from "@/pages/LoginPage";
-import { SignupPage } from "@/pages/SignupPage";
+import SignupPage from "@/pages/SignupPage";
 import { CustomerDashboard } from "@/pages/CustomerDashboard";
 import { Tradespeople } from "@/pages/Tradespeople";
 import TradesMenu from "@/pages/TradesMenu";

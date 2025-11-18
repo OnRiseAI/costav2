@@ -4,7 +4,7 @@ import { Mail, Lock, User, Briefcase, AlertCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/contexts/AuthContext';
 
-export function SignupPage() {
+export default function SignupPage() {
   const navigate = useNavigate();
   const { signUp, loading } = useAuth();
 
