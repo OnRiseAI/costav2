@@ -25,7 +25,7 @@ export function CTACards() {
       description: 'Tell us what you\'re looking for and we\'ll pass your request on to three approved tradespeople.',
       buttonText: 'Request a quote',
       buttonLink: '/post-job',
-      imageUrl: 'https://images.pexels.com/photos/3992212/pexels-photo-3992212.jpeg?auto=compress&cs=tinysrgb&w=600&h=400',
+      imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2F07b6aa67fdfa415a8633ef29743a7bb1?format=webp&width=800',
     },
   ];
 
