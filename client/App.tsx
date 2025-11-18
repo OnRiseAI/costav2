@@ -30,6 +30,7 @@ function AppContent() {
           <Routes>
             {/* Homepage */}
             <Route path="/" element={<Index />} />
+            <Route path="/home" element={<Index />} />
 
             {/* Trade Category Pages */}
             <Route path="/trades" element={<PlaceholderPage title="All Trade Categories" description="Browse all available trade categories in Costa del Sol" />} />
