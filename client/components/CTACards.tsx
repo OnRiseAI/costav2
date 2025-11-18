@@ -11,7 +11,7 @@ export function CTACards() {
       description: 'Have you completed a project recently? Let your tradesperson know how they did.',
       buttonText: 'Leave a review',
       buttonLink: '/review-trade',
-      imageUrl: 'https://images.pexels.com/photos/6461881/pexels-photo-6461881.jpeg?auto=compress&cs=tinysrgb&w=600&h=400',
+      imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2Fd10edb94fb5b4d71a29cfe934130da94?format=webp&width=800',
     },
     {
       title: 'Tradesperson sign up',
