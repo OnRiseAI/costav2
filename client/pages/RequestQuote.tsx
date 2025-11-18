@@ -46,9 +46,20 @@ export default function RequestQuote() {
             <span>Back</span>
           </button>
 
-          <div className="bg-white rounded-xl p-8 shadow-sm">
-            {/* Tradesperson Header */}
-            <div className="flex items-center gap-4 mb-8">
+          <div className="bg-white rounded-xl overflow-hidden shadow-sm">
+            {/* Hero Image */}
+            <div className="relative w-full h-40 md:h-48 overflow-hidden">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2F9b0e75d583354db2bff6b7a9a1992f92?format=webp&width=800"
+                alt="Construction tools"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white"></div>
+            </div>
+
+            <div className="p-8">
+              {/* Tradesperson Header */}
+              <div className="flex items-center gap-4 mb-8">
               <div className="w-16 h-16 rounded-xl bg-gray-200 overflow-hidden flex-shrink-0">
                 {tradesperson.profilePhoto ? (
                   <img 
@@ -129,6 +140,7 @@ export default function RequestQuote() {
             >
               Continue
             </Button>
+            </div>
           </div>
         </div>
       </div>
