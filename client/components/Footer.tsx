@@ -97,9 +97,9 @@ export function Footer() {
             <div className="col-span-2 md:col-span-1">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">TF</span>
+                  <span className="text-white font-bold text-lg">CT</span>
                 </div>
-                <span className="font-bold text-lg text-foreground">TradeFinder</span>
+                <span className="font-bold text-lg text-foreground">CostaTrade</span>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed mb-6">
                 Costa del Sol's most trusted platform connecting homeowners with verified professionals
@@ -311,7 +311,7 @@ export function Footer() {
         <div className="container-custom">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
             <div className="text-gray-300">
-              © 2024 TradeFinder Costa del Sol. {t('footer.allRights')}
+              © 2024 CostaTrade. {t('footer.allRights')}
             </div>
             <div className="flex items-center gap-6 text-gray-400">
               <a href="#" className="hover:text-white transition-colors text-xs">Accessibility</a>
