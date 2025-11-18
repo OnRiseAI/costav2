@@ -31,12 +31,10 @@ import { CTACards } from '@/components/CTACards';
 import { LiveActivity } from '@/components/LiveActivity';
 import { PromotionalCards } from '@/components/PromotionalCards';
 import { AppStoreBadges } from '@/components/AppStoreBadges';
-import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { getFeaturedTradespeople } from '@/data/tradespeople';
 
 export default function Index() {
-  const { t } = useLanguage();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedTradeSlug, setSelectedTradeSlug] = useState('');
 
