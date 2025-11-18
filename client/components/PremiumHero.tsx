@@ -1,10 +1,31 @@
 import { Search, Shield, FileCheck, Star } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
 export function PremiumHero() {
   const [searchValue, setSearchValue] = useState('');
+  const [currentPlaceholderIndex, setCurrentPlaceholderIndex] = useState(0);
+  const [displayedPlaceholder, setDisplayedPlaceholder] = useState('');
+
+  const placeholders = [
+    'I need a plumber',
+    'I need to fit a kitchen',
+    'I have a problem with my toilet',
+    'I need a wall building',
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentPlaceholderIndex((prev) => (prev + 1) % placeholders.length);
+    }, 4000); // Change every 4 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    setDisplayedPlaceholder(placeholders[currentPlaceholderIndex]);
+  }, [currentPlaceholderIndex]);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
