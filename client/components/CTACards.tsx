@@ -18,7 +18,7 @@ export function CTACards() {
       description: 'Over 1 million homeowners visit our site looking for approved and quality tradespeople like you.',
       buttonText: 'Join today',
       buttonLink: '/join-as-tradesperson',
-      imageUrl: 'https://images.pexels.com/photos/3767517/pexels-photo-3767517.jpeg?auto=compress&cs=tinysrgb&w=600&h=400',
+      imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2Fe42240bb83e345c9b7832aa1df5a51fe?format=webp&width=800',
     },
     {
       title: 'Request a quote',
