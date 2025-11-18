@@ -32,7 +32,6 @@ import { CTACards } from '@/components/CTACards';
 import { LiveActivity } from '@/components/LiveActivity';
 import { TrustIndicators } from '@/components/TrustIndicators';
 import { PromotionalCards } from '@/components/PromotionalCards';
-import { Newsletter } from '@/components/Newsletter';
 import { AppStoreBadges } from '@/components/AppStoreBadges';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
