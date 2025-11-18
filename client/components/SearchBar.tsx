@@ -70,13 +70,13 @@ export function SearchBar({ variant = 'hero' }: SearchBarProps) {
           />
         </div>
         {!isHero && (
-          <div className="flex-1">
+          <div className="flex-1 group">
             <input
               type="text"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
               placeholder={t('hero.locationPlaceholder')}
-              className={`w-full px-4 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-foreground placeholder:text-muted-foreground ${
+              className={`w-full px-4 border-2 border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-foreground placeholder:text-muted-foreground group-hover:border-primary/50 transition-all duration-300 ${
                 isHero ? 'py-4 text-lg' : 'py-3'
               }`}
             />
