@@ -1,34 +1,34 @@
-import { Star, User, MapPin, Globe } from 'lucide-react';
+import { Star, User, MapPin, Globe } from "lucide-react";
 
 export function WhyTrustCostaTrade() {
   const trustPillars = [
     {
       icon: Star,
-      heading: 'Real customer reviews',
-      text: 'See honest feedback from homeowners across the Costa del Sol.',
-      color: 'text-blue-600',
-      bgColor: 'bg-blue-50',
+      heading: "Real customer reviews",
+      text: "See honest feedback from homeowners across the Costa del Sol.",
+      color: "text-blue-600",
+      bgColor: "bg-blue-50",
     },
     {
       icon: User,
-      heading: 'Transparent profiles',
-      text: 'View experience, photos, areas covered and languages spoken before choosing.',
-      color: 'text-emerald-600',
-      bgColor: 'bg-emerald-50',
+      heading: "Transparent profiles",
+      text: "View experience, photos, areas covered and languages spoken before choosing.",
+      color: "text-emerald-600",
+      bgColor: "bg-emerald-50",
     },
     {
       icon: MapPin,
-      heading: 'Local professionals',
-      text: 'Find tradespeople who understand the region and deliver reliable workmanship.',
-      color: 'text-orange-600',
-      bgColor: 'bg-orange-50',
+      heading: "Local professionals",
+      text: "Find tradespeople who understand the region and deliver reliable workmanship.",
+      color: "text-orange-600",
+      bgColor: "bg-orange-50",
     },
     {
       icon: Globe,
-      heading: 'Multilingual support',
-      text: 'Many professionals offer communication in English, Spanish, German and French.',
-      color: 'text-purple-600',
-      bgColor: 'bg-purple-50',
+      heading: "Multilingual support",
+      text: "Many professionals offer communication in English, Spanish, German and French.",
+      color: "text-purple-600",
+      bgColor: "bg-purple-50",
     },
   ];
 
@@ -60,8 +60,13 @@ export function WhyTrustCostaTrade() {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {/* Icon Container */}
-                <div className={`w-20 h-20 ${pillar.bgColor} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500`}>
-                  <Icon className={`w-10 h-10 ${pillar.color}`} strokeWidth={1.5} />
+                <div
+                  className={`w-20 h-20 ${pillar.bgColor} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500`}
+                >
+                  <Icon
+                    className={`w-10 h-10 ${pillar.color}`}
+                    strokeWidth={1.5}
+                  />
                 </div>
 
                 {/* Heading */}

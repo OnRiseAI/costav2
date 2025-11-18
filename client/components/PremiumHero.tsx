@@ -1,34 +1,34 @@
-import { Search, Shield, FileCheck, Star } from 'lucide-react';
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
+import { Search, Shield, FileCheck, Star } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 export function PremiumHero() {
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState("");
   const [currentPlaceholderIndex, setCurrentPlaceholderIndex] = useState(0);
-  const [displayedPlaceholder, setDisplayedPlaceholder] = useState('');
+  const [displayedPlaceholder, setDisplayedPlaceholder] = useState("");
 
   const placeholders = [
-    'I need a plumber',
-    'I need to fit a kitchen',
-    'I have a problem with my toilet',
-    'I need a wall building',
-    'My roof needs repairs',
-    'I want to renovate my bathroom',
-    'Air conditioning installation',
-    'Pool maintenance needed',
-    'I need an electrician',
-    'Garden landscaping services',
-    'Paint my exterior walls',
-    'Tile work for my terrace',
-    'Solar panels installation',
-    'Boiler servicing required',
-    'Pest control needed',
-    'I need a handyman',
-    'Patio decking installation',
-    'Window replacement',
-    'Swimming pool restoration',
-    'General home maintenance',
+    "I need a plumber",
+    "I need to fit a kitchen",
+    "I have a problem with my toilet",
+    "I need a wall building",
+    "My roof needs repairs",
+    "I want to renovate my bathroom",
+    "Air conditioning installation",
+    "Pool maintenance needed",
+    "I need an electrician",
+    "Garden landscaping services",
+    "Paint my exterior walls",
+    "Tile work for my terrace",
+    "Solar panels installation",
+    "Boiler servicing required",
+    "Pest control needed",
+    "I need a handyman",
+    "Patio decking installation",
+    "Window replacement",
+    "Swimming pool restoration",
+    "General home maintenance",
   ];
 
   useEffect(() => {
@@ -76,22 +76,35 @@ export function PremiumHero() {
         <div className="max-w-3xl mx-auto">
           {/* Heading */}
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-center leading-tight tracking-tight animate-fade-in">
-            Find verified English and Spanish speaking tradespeople across the Costa del Sol
+            Find verified English and Spanish speaking tradespeople across the
+            Costa del Sol
           </h2>
 
           {/* Subheading */}
-          <p className="text-lg md:text-xl text-muted-foreground text-center mb-12 leading-relaxed font-light max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.1s' }}>
-            Local professionals who pass ID, NIE and insurance checks. Real reviews from homeowners. A simple and trusted way to get your project done.
+          <p
+            className="text-lg md:text-xl text-muted-foreground text-center mb-12 leading-relaxed font-light max-w-2xl mx-auto animate-fade-in"
+            style={{ animationDelay: "0.1s" }}
+          >
+            Local professionals who pass ID, NIE and insurance checks. Real
+            reviews from homeowners. A simple and trusted way to get your
+            project done.
           </p>
 
           {/* Premium Search Bar */}
-          <form onSubmit={handleSearch} className="mb-8 animate-scale-in" style={{ animationDelay: '0.2s' }}>
+          <form
+            onSubmit={handleSearch}
+            className="mb-8 animate-scale-in"
+            style={{ animationDelay: "0.2s" }}
+          >
             <div className="relative bg-white rounded-full shadow-sm hover:shadow-lg transition-all duration-500 overflow-hidden border border-white/80">
               {/* Inner subtle shadow for depth */}
               <div className="absolute inset-0 bg-gradient-to-b from-white/50 via-transparent to-transparent pointer-events-none rounded-full"></div>
 
               <div className="relative flex items-center px-8 py-5 md:py-6">
-                <Search className="h-5 w-5 text-muted-foreground mr-4 flex-shrink-0" strokeWidth={1.5} />
+                <Search
+                  className="h-5 w-5 text-muted-foreground mr-4 flex-shrink-0"
+                  strokeWidth={1.5}
+                />
                 <input
                   type="text"
                   value={searchValue}
@@ -122,40 +135,63 @@ export function PremiumHero() {
           {/* Trust Row - Three Badges */}
           <div className="grid md:grid-cols-3 gap-8 mb-12 px-4 md:px-0">
             {/* Badge 1 - Fully Verified */}
-            <div className="text-center animate-slide-up" style={{ animationDelay: '0.3s' }}>
+            <div
+              className="text-center animate-slide-up"
+              style={{ animationDelay: "0.3s" }}
+            >
               <div className="flex justify-center mb-4">
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-100/60 to-blue-50/40 rounded-2xl flex items-center justify-center shadow-sm hover:shadow-md transition-shadow duration-300">
                   <Shield className="h-8 w-8 text-blue-600" strokeWidth={1.5} />
                 </div>
               </div>
-              <p className="text-base font-medium text-foreground">Fully verified professionals</p>
+              <p className="text-base font-medium text-foreground">
+                Fully verified professionals
+              </p>
             </div>
 
             {/* Badge 2 - NIE and Insurance */}
-            <div className="text-center animate-slide-up" style={{ animationDelay: '0.4s' }}>
+            <div
+              className="text-center animate-slide-up"
+              style={{ animationDelay: "0.4s" }}
+            >
               <div className="flex justify-center mb-4">
                 <div className="w-16 h-16 bg-gradient-to-br from-emerald-100/60 to-emerald-50/40 rounded-2xl flex items-center justify-center shadow-sm hover:shadow-md transition-shadow duration-300">
-                  <FileCheck className="h-8 w-8 text-emerald-600" strokeWidth={1.5} />
+                  <FileCheck
+                    className="h-8 w-8 text-emerald-600"
+                    strokeWidth={1.5}
+                  />
                 </div>
               </div>
-              <p className="text-base font-medium text-foreground">NIE and insurance checked</p>
+              <p className="text-base font-medium text-foreground">
+                NIE and insurance checked
+              </p>
             </div>
 
             {/* Badge 3 - Star Rating */}
-            <div className="text-center animate-slide-up" style={{ animationDelay: '0.5s' }}>
+            <div
+              className="text-center animate-slide-up"
+              style={{ animationDelay: "0.5s" }}
+            >
               <div className="flex justify-center mb-4">
                 <div className="w-16 h-16 bg-gradient-to-br from-orange-100/60 to-orange-50/40 rounded-2xl flex items-center justify-center shadow-sm hover:shadow-md transition-shadow duration-300">
-                  <Star className="h-8 w-8 text-orange-600" strokeWidth={1.5} fill="currentColor" />
+                  <Star
+                    className="h-8 w-8 text-orange-600"
+                    strokeWidth={1.5}
+                    fill="currentColor"
+                  />
                 </div>
               </div>
-              <p className="text-base font-medium text-foreground">Average rating 4.8 out of 5</p>
+              <p className="text-base font-medium text-foreground">
+                Average rating 4.8 out of 5
+              </p>
             </div>
           </div>
 
           {/* Service Areas Micro Line */}
           <div className="text-center pt-8 border-t border-gray-200/50">
             <p className="text-sm text-muted-foreground font-light">
-              Serving homeowners across Málaga, Marbella, Mijas, Fuengirola and Estepona
+              Serving homeowners across Málaga, Marbella, Mijas, Fuengirola and
+              Estepona
             </p>
           </div>
         </div>

@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
-import { Menu, X, Heart, User } from 'lucide-react';
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
+import { Link } from "react-router-dom";
+import { Menu, X, Heart, User } from "lucide-react";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -18,13 +18,38 @@ export function Navigation() {
                 className="text-[#0066CC] hover:text-[#0052A3]"
                 aria-label="Menu"
               >
-                {mobileMenuOpen ? <X className="h-6 w-6" strokeWidth={2} /> : <Menu className="h-6 w-6" strokeWidth={2} />}
+                {mobileMenuOpen ? (
+                  <X className="h-6 w-6" strokeWidth={2} />
+                ) : (
+                  <Menu className="h-6 w-6" strokeWidth={2} />
+                )}
               </button>
               <Link to="/" className="hidden md:flex items-center">
-                <svg className="w-[48px] h-[48px]" viewBox="0 0 1024 1024" fill="none">
-                  <rect width="1024" height="1024" rx="226" fill="#1e40af"/>
-                  <text x="512" y="560" fontFamily="Arial, sans-serif" fontSize="400" fontWeight="900" fill="white" textAnchor="middle" letterSpacing="-20">CT</text>
-                  <path d="M 320 700 Q 420 680, 512 700 T 704 700" stroke="#f97316" strokeWidth="32" fill="none" strokeLinecap="round"/>
+                <svg
+                  className="w-[48px] h-[48px]"
+                  viewBox="0 0 1024 1024"
+                  fill="none"
+                >
+                  <rect width="1024" height="1024" rx="226" fill="#1e40af" />
+                  <text
+                    x="512"
+                    y="560"
+                    fontFamily="Arial, sans-serif"
+                    fontSize="400"
+                    fontWeight="900"
+                    fill="white"
+                    textAnchor="middle"
+                    letterSpacing="-20"
+                  >
+                    CT
+                  </text>
+                  <path
+                    d="M 320 700 Q 420 680, 512 700 T 704 700"
+                    stroke="#f97316"
+                    strokeWidth="32"
+                    fill="none"
+                    strokeLinecap="round"
+                  />
                 </svg>
               </Link>
             </div>
@@ -37,18 +62,31 @@ export function Navigation() {
                 </Button>
               </Link>
               <Link to="/download-app">
-                <Button variant="outline" className="border-2 border-[#0a1f44] text-[#0a1f44] hover:bg-gray-50 bg-white px-5 md:px-7 h-[44px] text-[14px] md:text-[15px] font-medium rounded-full whitespace-nowrap">
+                <Button
+                  variant="outline"
+                  className="border-2 border-[#0a1f44] text-[#0a1f44] hover:bg-gray-50 bg-white px-5 md:px-7 h-[44px] text-[14px] md:text-[15px] font-medium rounded-full whitespace-nowrap"
+                >
                   Download app
                 </Button>
               </Link>
-              <Link to="/saved-trades" className="hidden md:flex items-center justify-center">
+              <Link
+                to="/saved-trades"
+                className="hidden md:flex items-center justify-center"
+              >
                 <div className="hover:opacity-80 transition-opacity">
-                  <Heart className="h-[32px] w-[32px] text-[#E31E24]" fill="#E31E24" strokeWidth={0} />
+                  <Heart
+                    className="h-[32px] w-[32px] text-[#E31E24]"
+                    fill="#E31E24"
+                    strokeWidth={0}
+                  />
                 </div>
               </Link>
               <Link to="/login" className="flex items-center justify-center">
                 <div className="w-[48px] h-[48px] bg-[#0a1f44] rounded-full flex items-center justify-center hover:bg-[#0a1f44]/90 transition-colors shadow-sm">
-                  <User className="h-[22px] w-[22px] text-white" strokeWidth={2} />
+                  <User
+                    className="h-[22px] w-[22px] text-white"
+                    strokeWidth={2}
+                  />
                 </div>
               </Link>
             </div>
@@ -82,7 +120,10 @@ export function Navigation() {
               {/* Homeowner Section */}
               <div className="flex flex-col space-y-4">
                 <h2 className="text-xl font-bold text-[#0a1f44]">Homeowner</h2>
-                <Link to="/review-trade" onClick={() => setMobileMenuOpen(false)}>
+                <Link
+                  to="/review-trade"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
                   <Button className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white px-6 py-3 text-base rounded-lg w-full">
                     Review a Trade
                   </Button>
@@ -116,7 +157,10 @@ export function Navigation() {
               {/* Trades Section */}
               <div className="flex flex-col space-y-4 pb-6">
                 <h2 className="text-xl font-bold text-[#0a1f44]">Trades</h2>
-                <Link to="/join-as-tradesperson" onClick={() => setMobileMenuOpen(false)}>
+                <Link
+                  to="/join-as-tradesperson"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
                   <Button className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white px-6 py-3 text-base rounded-lg w-full">
                     Join CostaTrade
                   </Button>

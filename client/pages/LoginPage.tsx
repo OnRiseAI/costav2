@@ -1,37 +1,37 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { Eye, EyeOff, AlertCircle } from 'lucide-react';
-import { useAuth } from '@/contexts/AuthContext';
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Eye, EyeOff, AlertCircle } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
 
 export default function LoginPage() {
   const navigate = useNavigate();
   const { signIn, loading } = useAuth();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const isFormValid = email && password;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
+    setError("");
     setIsLoading(true);
 
     if (isFormValid) {
       const { error: signInError } = await signIn(email, password);
 
       if (signInError) {
-        setError(signInError.message || 'Failed to sign in');
+        setError(signInError.message || "Failed to sign in");
         setIsLoading(false);
         return;
       }
 
       // Determine user type and redirect
-      navigate('/customer-dashboard');
+      navigate("/customer-dashboard");
     }
   };
 
@@ -60,7 +60,10 @@ export default function LoginPage() {
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Email */}
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-foreground mb-2"
+              >
                 Email address
               </label>
               <input
@@ -76,13 +79,16 @@ export default function LoginPage() {
 
             {/* Password */}
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-foreground mb-2">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-foreground mb-2"
+              >
                 Password
               </label>
               <div className="relative">
                 <input
                   id="password"
-                  type={showPassword ? 'text' : 'password'}
+                  type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter your password"
@@ -94,7 +100,11 @@ export default function LoginPage() {
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+                  {showPassword ? (
+                    <EyeOff className="h-5 w-5" />
+                  ) : (
+                    <Eye className="h-5 w-5" />
+                  )}
                 </button>
               </div>
             </div>
@@ -108,9 +118,14 @@ export default function LoginPage() {
                   onChange={(e) => setRememberMe(e.target.checked)}
                   className="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary cursor-pointer"
                 />
-                <span className="ml-2 text-sm text-foreground">Remember me</span>
+                <span className="ml-2 text-sm text-foreground">
+                  Remember me
+                </span>
               </label>
-              <Link to="/forgot-password" className="text-sm text-primary hover:underline">
+              <Link
+                to="/forgot-password"
+                className="text-sm text-primary hover:underline"
+              >
                 Forgot password?
               </Link>
             </div>
@@ -122,7 +137,7 @@ export default function LoginPage() {
               className="w-full text-lg py-6 bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white rounded-full disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={!isFormValid || isLoading || loading}
             >
-              {isLoading || loading ? 'Signing in...' : 'Sign in'}
+              {isLoading || loading ? "Signing in..." : "Sign in"}
             </Button>
           </form>
 
@@ -142,7 +157,7 @@ export default function LoginPage() {
               type="button"
               variant="outline"
               className="w-full py-6 rounded-xl border-2"
-              onClick={() => alert('Google login will be implemented soon')}
+              onClick={() => alert("Google login will be implemented soon")}
             >
               <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
                 <path
@@ -169,9 +184,13 @@ export default function LoginPage() {
               type="button"
               variant="outline"
               className="w-full py-6 rounded-xl border-2"
-              onClick={() => alert('Apple login will be implemented soon')}
+              onClick={() => alert("Apple login will be implemented soon")}
             >
-              <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <svg
+                className="w-5 h-5 mr-2"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
               </svg>
               Continue with Apple
@@ -180,21 +199,32 @@ export default function LoginPage() {
 
           {/* Sign Up Link */}
           <div className="mt-8 text-center text-sm text-muted-foreground">
-            Don't have an account?{' '}
-            <Link to="/signup" className="text-primary hover:underline font-semibold">
+            Don't have an account?{" "}
+            <Link
+              to="/signup"
+              className="text-primary hover:underline font-semibold"
+            >
               Sign up
             </Link>
           </div>
 
           {/* Account Type Selection */}
           <div className="mt-6 text-center">
-            <p className="text-sm text-muted-foreground mb-3">Looking for a different account type?</p>
+            <p className="text-sm text-muted-foreground mb-3">
+              Looking for a different account type?
+            </p>
             <div className="flex gap-3 justify-center">
-              <Link to="/login?type=homeowner" className="text-sm text-primary hover:underline">
+              <Link
+                to="/login?type=homeowner"
+                className="text-sm text-primary hover:underline"
+              >
                 Homeowner
               </Link>
               <span className="text-muted-foreground">|</span>
-              <Link to="/login?type=tradesperson" className="text-sm text-primary hover:underline">
+              <Link
+                to="/login?type=tradesperson"
+                className="text-sm text-primary hover:underline"
+              >
                 Tradesperson
               </Link>
             </div>
@@ -203,11 +233,11 @@ export default function LoginPage() {
 
         {/* Help Text */}
         <div className="mt-6 text-center text-xs text-muted-foreground">
-          By signing in, you agree to our{' '}
+          By signing in, you agree to our{" "}
           <Link to="/terms" className="text-primary hover:underline">
             Terms of Service
-          </Link>
-          {' '}and{' '}
+          </Link>{" "}
+          and{" "}
           <Link to="/privacy" className="text-primary hover:underline">
             Privacy Policy
           </Link>

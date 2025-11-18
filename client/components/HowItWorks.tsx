@@ -1,40 +1,43 @@
-import { Search, Handshake, MessageSquare, Shield } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
+import { Search, Handshake, MessageSquare, Shield } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 export function HowItWorks() {
   const steps = [
     {
-      number: '01',
-      title: 'Tell us what you need',
-      description: 'Search by trade or describe your project in English or Spanish.',
+      number: "01",
+      title: "Tell us what you need",
+      description:
+        "Search by trade or describe your project in English or Spanish.",
       icon: Search,
-      color: 'text-blue-600',
-      bgColor: 'bg-blue-50',
+      color: "text-blue-600",
+      bgColor: "bg-blue-50",
     },
     {
-      number: '02',
-      title: 'Get quotes from verified trades',
-      description: 'We connect you with a small number of local trades who match your job.',
+      number: "02",
+      title: "Get quotes from verified trades",
+      description:
+        "We connect you with a small number of local trades who match your job.",
       icon: Handshake,
-      color: 'text-emerald-600',
-      bgColor: 'bg-emerald-50',
+      color: "text-emerald-600",
+      bgColor: "bg-emerald-50",
     },
     {
-      number: '03',
-      title: 'Compare, chat and choose',
-      description: 'Review profiles, ratings, photos and prices, then message directly.',
+      number: "03",
+      title: "Compare, chat and choose",
+      description:
+        "Review profiles, ratings, photos and prices, then message directly.",
       icon: MessageSquare,
-      color: 'text-purple-600',
-      bgColor: 'bg-purple-50',
+      color: "text-purple-600",
+      bgColor: "bg-purple-50",
     },
     {
-      number: '04',
-      title: 'Job done with peace of mind',
-      description: 'Work backed by written quotes and verified insurance.',
+      number: "04",
+      title: "Job done with peace of mind",
+      description: "Work backed by written quotes and verified insurance.",
       icon: Shield,
-      color: 'text-orange-600',
-      bgColor: 'bg-orange-50',
+      color: "text-orange-600",
+      bgColor: "bg-orange-50",
     },
   ];
 
@@ -54,7 +57,8 @@ export function HowItWorks() {
             How CostaTrade Works
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed">
-            A simple, guided process for finding trusted and verified tradespeople across Costa del Sol.
+            A simple, guided process for finding trusted and verified
+            tradespeople across Costa del Sol.
           </p>
         </div>
 
@@ -79,8 +83,13 @@ export function HowItWorks() {
                 {/* Card Content */}
                 <div className="relative p-8 md:p-10 h-full flex flex-col">
                   {/* Icon Container */}
-                  <div className={`w-16 h-16 ${step.bgColor} rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500`}>
-                    <Icon className={`w-8 h-8 ${step.color}`} strokeWidth={1.5} />
+                  <div
+                    className={`w-16 h-16 ${step.bgColor} rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500`}
+                  >
+                    <Icon
+                      className={`w-8 h-8 ${step.color}`}
+                      strokeWidth={1.5}
+                    />
                   </div>
 
                   {/* Heading */}

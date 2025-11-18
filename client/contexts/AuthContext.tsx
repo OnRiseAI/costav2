@@ -1,8 +1,15 @@
-import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
-import { createClient, Session, User } from '@supabase/supabase-js';
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  ReactNode,
+} from "react";
+import { createClient, Session, User } from "@supabase/supabase-js";
 
-const SUPABASE_URL = 'https://tyzydfqfffxwvrrfhsdm.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR5enlkZnFmZmZ4d3ZycmZoc2RtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM0NDQ3NjAsImV4cCI6MjA3OTAyMDc2MH0.F3oEdidvOP6ORwhjWLkYHfdkogY2isIW2IH10Wt7rjY';
+const SUPABASE_URL = "https://tyzydfqfffxwvrrfhsdm.supabase.co";
+const SUPABASE_ANON_KEY =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR5enlkZnFmZmZ4d3ZycmZoc2RtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM0NDQ3NjAsImV4cCI6MjA3OTAyMDc2MH0.F3oEdidvOP6ORwhjWLkYHfdkogY2isIW2IH10Wt7rjY";
 
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
@@ -54,22 +61,20 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
       // Create user profile in database
       if (data.user) {
-        const { error: profileError } = await supabase
-          .from('users')
-          .insert({
-            id: data.user.id,
-            email,
-            full_name: userData.full_name,
-            phone: userData.phone,
-            user_type: userData.user_type,
-          });
+        const { error: profileError } = await supabase.from("users").insert({
+          id: data.user.id,
+          email,
+          full_name: userData.full_name,
+          phone: userData.phone,
+          user_type: userData.user_type,
+        });
 
         if (profileError) throw profileError;
 
         // If tradesperson, create tradesperson profile
-        if (userData.user_type === 'tradesperson') {
+        if (userData.user_type === "tradesperson") {
           const { error: tradeError } = await supabase
-            .from('tradespeople')
+            .from("tradespeople")
             .insert({
               user_id: data.user.id,
               trade_category: userData.trade_category,
@@ -126,7 +131,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 export function useAuth() {
   const context = useContext(AuthContext);
   if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider');
+    throw new Error("useAuth must be used within an AuthProvider");
   }
   return context;
 }

@@ -1,8 +1,17 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Star, CheckCircle, MapPin, Phone, Mail, Briefcase, Award, LogOut } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { useAuth, supabase } from '@/contexts/AuthContext';
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  Star,
+  CheckCircle,
+  MapPin,
+  Phone,
+  Mail,
+  Briefcase,
+  Award,
+  LogOut,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useAuth, supabase } from "@/contexts/AuthContext";
 
 interface TradesPersonProfile {
   id: string;
@@ -33,14 +42,14 @@ export function Tradespeople() {
   const [loading, setLoading] = useState(true);
   const [editing, setEditing] = useState(false);
   const [formData, setFormData] = useState({
-    business_name: '',
-    description: '',
-    service_areas: '',
+    business_name: "",
+    description: "",
+    service_areas: "",
   });
 
   useEffect(() => {
     if (!isAuthenticated) {
-      navigate('/login');
+      navigate("/login");
       return;
     }
 
@@ -52,9 +61,9 @@ export function Tradespeople() {
 
     // Fetch user data
     const { data: userRes, error: userError } = await supabase
-      .from('users')
-      .select('*')
-      .eq('id', user.id)
+      .from("users")
+      .select("*")
+      .eq("id", user.id)
       .single();
 
     if (!userError) {
@@ -63,17 +72,17 @@ export function Tradespeople() {
 
     // Fetch tradesperson profile
     const { data: tradeRes, error: tradeError } = await supabase
-      .from('tradespeople')
-      .select('*')
-      .eq('user_id', user.id)
+      .from("tradespeople")
+      .select("*")
+      .eq("user_id", user.id)
       .single();
 
     if (!tradeError) {
       setProfile(tradeRes);
       setFormData({
-        business_name: tradeRes.business_name || '',
-        description: tradeRes.description || '',
-        service_areas: tradeRes.service_areas?.join(', ') || '',
+        business_name: tradeRes.business_name || "",
+        description: tradeRes.description || "",
+        service_areas: tradeRes.service_areas?.join(", ") || "",
       });
     }
 
@@ -84,13 +93,13 @@ export function Tradespeople() {
     if (!profile) return;
 
     const { error } = await supabase
-      .from('tradespeople')
+      .from("tradespeople")
       .update({
         business_name: formData.business_name,
         description: formData.description,
-        service_areas: formData.service_areas.split(',').map(s => s.trim()),
+        service_areas: formData.service_areas.split(",").map((s) => s.trim()),
       })
-      .eq('id', profile.id);
+      .eq("id", profile.id);
 
     if (!error) {
       setEditing(false);
@@ -100,7 +109,7 @@ export function Tradespeople() {
 
   const handleSignOut = async () => {
     await signOut();
-    navigate('/');
+    navigate("/");
   };
 
   if (loading) {
@@ -118,8 +127,12 @@ export function Tradespeople() {
         <div className="container-custom py-6">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-foreground">Tradesperson Profile</h1>
-              <p className="text-muted-foreground">Manage your profile and view opportunities</p>
+              <h1 className="text-3xl font-bold text-foreground">
+                Tradesperson Profile
+              </h1>
+              <p className="text-muted-foreground">
+                Manage your profile and view opportunities
+              </p>
             </div>
             <Button
               onClick={handleSignOut}
@@ -154,7 +167,9 @@ export function Tradespeople() {
                     {profile.is_verified ? (
                       <div className="flex items-center justify-center gap-2 text-green-600 mb-4">
                         <CheckCircle className="h-5 w-5" />
-                        <span className="font-semibold">Verified Professional</span>
+                        <span className="font-semibold">
+                          Verified Professional
+                        </span>
                       </div>
                     ) : (
                       <div className="text-yellow-600 text-sm mb-4">
@@ -166,17 +181,27 @@ export function Tradespeople() {
                   {/* Stats */}
                   <div className="border-t border-gray-200 pt-6 space-y-4">
                     <div>
-                      <p className="text-xs text-muted-foreground mb-1">Years in Business</p>
-                      <p className="text-2xl font-bold">{profile.years_in_business || '-'}</p>
+                      <p className="text-xs text-muted-foreground mb-1">
+                        Years in Business
+                      </p>
+                      <p className="text-2xl font-bold">
+                        {profile.years_in_business || "-"}
+                      </p>
                     </div>
                     <div>
-                      <p className="text-xs text-muted-foreground mb-1">Jobs Completed</p>
-                      <p className="text-2xl font-bold">{profile.total_jobs_completed}</p>
+                      <p className="text-xs text-muted-foreground mb-1">
+                        Jobs Completed
+                      </p>
+                      <p className="text-2xl font-bold">
+                        {profile.total_jobs_completed}
+                      </p>
                     </div>
                     <div>
                       <div className="flex items-center gap-2 mb-2">
                         <Star className="h-4 w-4 text-yellow-400 fill-yellow-400" />
-                        <span className="font-bold">{profile.avg_rating.toFixed(1)}</span>
+                        <span className="font-bold">
+                          {profile.avg_rating.toFixed(1)}
+                        </span>
                         <span className="text-muted-foreground text-sm">
                           ({profile.total_reviews} reviews)
                         </span>
@@ -207,9 +232,9 @@ export function Tradespeople() {
                   <Button
                     onClick={() => setEditing(!editing)}
                     className="w-full mt-4"
-                    variant={editing ? 'outline' : 'default'}
+                    variant={editing ? "outline" : "default"}
                   >
-                    {editing ? 'Cancel' : 'Edit Profile'}
+                    {editing ? "Cancel" : "Edit Profile"}
                   </Button>
                 </div>
               </div>
@@ -223,7 +248,9 @@ export function Tradespeople() {
                   <Briefcase className="h-5 w-5 text-primary" />
                   <h3 className="text-lg font-bold">Trade Category</h3>
                 </div>
-                <p className="text-foreground capitalize">{profile.trade_category}</p>
+                <p className="text-foreground capitalize">
+                  {profile.trade_category}
+                </p>
               </div>
 
               {/* Description */}
@@ -235,14 +262,16 @@ export function Tradespeople() {
                 {editing ? (
                   <textarea
                     value={formData.description}
-                    onChange={e => setFormData({ ...formData, description: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, description: e.target.value })
+                    }
                     className="w-full px-4 py-3 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                     rows={4}
                     placeholder="Tell customers about your experience and services"
                   />
                 ) : (
                   <p className="text-muted-foreground">
-                    {profile.description || 'No description added yet'}
+                    {profile.description || "No description added yet"}
                   </p>
                 )}
               </div>
@@ -257,13 +286,19 @@ export function Tradespeople() {
                   <input
                     type="text"
                     value={formData.service_areas}
-                    onChange={e => setFormData({ ...formData, service_areas: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        service_areas: e.target.value,
+                      })
+                    }
                     className="w-full px-4 py-3 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                     placeholder="e.g., Marbella, Estepona, Malaga (comma separated)"
                   />
                 ) : (
                   <div className="flex flex-wrap gap-2">
-                    {profile.service_areas && profile.service_areas.length > 0 ? (
+                    {profile.service_areas &&
+                    profile.service_areas.length > 0 ? (
                       profile.service_areas.map((area, i) => (
                         <span
                           key={i}
@@ -273,7 +308,9 @@ export function Tradespeople() {
                         </span>
                       ))
                     ) : (
-                      <p className="text-muted-foreground">No service areas added</p>
+                      <p className="text-muted-foreground">
+                        No service areas added
+                      </p>
                     )}
                   </div>
                 )}
@@ -286,7 +323,12 @@ export function Tradespeople() {
                   <input
                     type="text"
                     value={formData.business_name}
-                    onChange={e => setFormData({ ...formData, business_name: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        business_name: e.target.value,
+                      })
+                    }
                     className="w-full px-4 py-3 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                     placeholder="Your business name"
                   />
@@ -317,7 +359,7 @@ export function Tradespeople() {
               <div className="bg-white rounded-lg p-6 shadow-sm">
                 <h3 className="text-lg font-bold mb-4">Recent Opportunities</h3>
                 <Button
-                  onClick={() => navigate('/view-jobs')}
+                  onClick={() => navigate("/view-jobs")}
                   className="w-full bg-primary hover:bg-primary/90"
                 >
                   View Available Jobs
@@ -330,7 +372,7 @@ export function Tradespeople() {
             <p className="text-muted-foreground mb-6">
               No tradesperson profile found. Please contact support.
             </p>
-            <Button onClick={() => navigate('/')}>Go Home</Button>
+            <Button onClick={() => navigate("/")}>Go Home</Button>
           </div>
         )}
       </div>

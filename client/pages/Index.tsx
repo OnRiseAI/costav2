@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import {
   Droplets,
   Wind,
@@ -16,28 +16,28 @@ import {
   ArrowRight,
   Sparkles,
   Wand2,
-} from 'lucide-react';
-import { useState } from 'react';
-import { ClientHero } from '@/components/ClientHero';
-import { CategoryCardWithImage } from '@/components/CategoryCardWithImage';
-import { TradespersonCard } from '@/components/TradespersonCard';
-import { TradeServicesModal } from '@/components/TradeServicesModal';
-import { ReviewCard } from '@/components/ReviewCard';
-import { StatsCounter } from '@/components/StatsCounter';
-import { TrustBadges } from '@/components/TrustBadges';
-import { HowItWorks } from '@/components/HowItWorks';
-import { WhyTrustCostaTrade } from '@/components/WhyTrustCostaTrade';
-import { RecommendedJobs } from '@/components/RecommendedJobs';
-import { CTACards } from '@/components/CTACards';
-import { LiveActivity } from '@/components/LiveActivity';
-import { PromotionalCards } from '@/components/PromotionalCards';
-import { AppStoreBadges } from '@/components/AppStoreBadges';
-import { Button } from '@/components/ui/button';
-import { getFeaturedTradespeople } from '@/data/tradespeople';
+} from "lucide-react";
+import { useState } from "react";
+import { ClientHero } from "@/components/ClientHero";
+import { CategoryCardWithImage } from "@/components/CategoryCardWithImage";
+import { TradespersonCard } from "@/components/TradespersonCard";
+import { TradeServicesModal } from "@/components/TradeServicesModal";
+import { ReviewCard } from "@/components/ReviewCard";
+import { StatsCounter } from "@/components/StatsCounter";
+import { TrustBadges } from "@/components/TrustBadges";
+import { HowItWorks } from "@/components/HowItWorks";
+import { WhyTrustCostaTrade } from "@/components/WhyTrustCostaTrade";
+import { RecommendedJobs } from "@/components/RecommendedJobs";
+import { CTACards } from "@/components/CTACards";
+import { LiveActivity } from "@/components/LiveActivity";
+import { PromotionalCards } from "@/components/PromotionalCards";
+import { AppStoreBadges } from "@/components/AppStoreBadges";
+import { Button } from "@/components/ui/button";
+import { getFeaturedTradespeople } from "@/data/tradespeople";
 
 export default function Index() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedTradeSlug, setSelectedTradeSlug] = useState('');
+  const [selectedTradeSlug, setSelectedTradeSlug] = useState("");
 
   const handleCategoryClick = (slug: string) => {
     setSelectedTradeSlug(slug);
@@ -46,130 +46,145 @@ export default function Index() {
 
   const categories = [
     {
-      name: 'Pool Maintenance & Repair',
-      slug: 'pool-maintenance',
+      name: "Pool Maintenance & Repair",
+      slug: "pool-maintenance",
       icon: Droplets,
       count: 4,
-      imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2F472a57c41adc4a9dab40a028acb89f8a?format=webp&width=800'
+      imageUrl:
+        "https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2F472a57c41adc4a9dab40a028acb89f8a?format=webp&width=800",
     },
     {
-      name: 'Air Conditioning',
-      slug: 'air-conditioning',
+      name: "Air Conditioning",
+      slug: "air-conditioning",
       icon: Wind,
       count: 4,
-      imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2F3c8ea03238e344a8b4e99d8e1522bea7?format=webp&width=800'
+      imageUrl:
+        "https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2F3c8ea03238e344a8b4e99d8e1522bea7?format=webp&width=800",
     },
     {
-      name: 'Plumbers',
-      slug: 'plumbers',
+      name: "Plumbers",
+      slug: "plumbers",
       icon: Wrench,
       count: 4,
-      imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2F214ada80d910470d885f9d5054d532ae?format=webp&width=800'
+      imageUrl:
+        "https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2F214ada80d910470d885f9d5054d532ae?format=webp&width=800",
     },
     {
-      name: 'Electricians',
-      slug: 'electricians',
+      name: "Electricians",
+      slug: "electricians",
       icon: Zap,
       count: 4,
-      imageUrl: 'https://images.pexels.com/photos/442160/pexels-photo-442160.jpeg?auto=compress&cs=tinysrgb&w=600'
+      imageUrl:
+        "https://images.pexels.com/photos/442160/pexels-photo-442160.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
-      name: 'Builders & Renovations',
-      slug: 'builders',
+      name: "Builders & Renovations",
+      slug: "builders",
       icon: Hammer,
       count: 4,
-      imageUrl: 'https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=600'
+      imageUrl:
+        "https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
-      name: 'Painters',
-      slug: 'painters',
+      name: "Painters",
+      slug: "painters",
       icon: PaintBucket,
       count: 3,
-      imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2F982af9470e6c4906a7a0976f156cae66?format=webp&width=800'
+      imageUrl:
+        "https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2F982af9470e6c4906a7a0976f156cae66?format=webp&width=800",
     },
     {
-      name: 'Locksmiths',
-      slug: 'locksmiths',
+      name: "Locksmiths",
+      slug: "locksmiths",
       icon: Key,
       count: 3,
-      imageUrl: 'https://images.pexels.com/photos/101808/pexels-photo-101808.jpeg?auto=compress&cs=tinysrgb&w=600'
+      imageUrl:
+        "https://images.pexels.com/photos/101808/pexels-photo-101808.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
-      name: 'Gardeners & Landscaping',
-      slug: 'gardeners',
+      name: "Gardeners & Landscaping",
+      slug: "gardeners",
       icon: Leaf,
       count: 4,
-      imageUrl: 'https://images.pexels.com/photos/26827231/pexels-photo-26827231.jpeg?auto=compress&cs=tinysrgb&w=600'
+      imageUrl:
+        "https://images.pexels.com/photos/26827231/pexels-photo-26827231.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
-      name: 'Pest Control',
-      slug: 'pest-control',
+      name: "Pest Control",
+      slug: "pest-control",
       icon: Bug,
       count: 3,
-      imageUrl: 'https://images.pexels.com/photos/5025646/pexels-photo-5025646.jpeg?auto=compress&cs=tinysrgb&w=600'
+      imageUrl:
+        "https://images.pexels.com/photos/5025646/pexels-photo-5025646.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
-      name: 'Property Maintenance',
-      slug: 'property-maintenance',
+      name: "Property Maintenance",
+      slug: "property-maintenance",
       icon: Home,
       count: 4,
-      imageUrl: 'https://images.pexels.com/photos/7414938/pexels-photo-7414938.jpeg?auto=compress&cs=tinysrgb&w=600'
+      imageUrl:
+        "https://images.pexels.com/photos/7414938/pexels-photo-7414938.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
-      name: 'Cleaning Services',
-      slug: 'cleaning',
+      name: "Cleaning Services",
+      slug: "cleaning",
       icon: Sparkles,
       count: 4,
-      imageUrl: 'https://images.pexels.com/photos/3970132/pexels-photo-3970132.jpeg?auto=compress&cs=tinysrgb&w=600'
+      imageUrl:
+        "https://images.pexels.com/photos/3970132/pexels-photo-3970132.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
-      name: 'Handyman',
-      slug: 'handyman',
+      name: "Handyman",
+      slug: "handyman",
       icon: Wand2,
       count: 3,
-      imageUrl: 'https://images.pexels.com/photos/3957336/pexels-photo-3957336.jpeg?auto=compress&cs=tinysrgb&w=600'
+      imageUrl:
+        "https://images.pexels.com/photos/3957336/pexels-photo-3957336.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
   ];
 
   const featuredTradespeople = getFeaturedTradespeople(3).map((tp, idx) => {
     const photos = [
-      'https://images.pexels.com/photos/16552856/pexels-photo-16552856.jpeg?auto=compress&cs=tinysrgb&w=200&h=200',
-      'https://images.pexels.com/photos/19987431/pexels-photo-19987431.jpeg?auto=compress&cs=tinysrgb&w=200&h=200',
-      'https://images.pexels.com/photos/16552856/pexels-photo-16552856.jpeg?auto=compress&cs=tinysrgb&w=200&h=200',
+      "https://images.pexels.com/photos/16552856/pexels-photo-16552856.jpeg?auto=compress&cs=tinysrgb&w=200&h=200",
+      "https://images.pexels.com/photos/19987431/pexels-photo-19987431.jpeg?auto=compress&cs=tinysrgb&w=200&h=200",
+      "https://images.pexels.com/photos/16552856/pexels-photo-16552856.jpeg?auto=compress&cs=tinysrgb&w=200&h=200",
     ];
     return { ...tp, profilePhoto: photos[idx] };
   });
 
   const reviews = [
     {
-      reviewerName: 'Sarah M.',
+      reviewerName: "Sarah M.",
       rating: 5,
-      jobType: 'Pool Repair',
+      jobType: "Pool Repair",
       reviewText:
-        'Miguel was fantastic! He diagnosed our pool issue quickly and had it fixed the same day. Very professional and reasonably priced. Highly recommend!',
-      date: '2 weeks ago',
+        "Miguel was fantastic! He diagnosed our pool issue quickly and had it fixed the same day. Very professional and reasonably priced. Highly recommend!",
+      date: "2 weeks ago",
       verified: true,
-      avatarUrl: 'https://images.pexels.com/photos/27603433/pexels-photo-27603433.jpeg?auto=compress&cs=tinysrgb&w=100&h=100',
+      avatarUrl:
+        "https://images.pexels.com/photos/27603433/pexels-photo-27603433.jpeg?auto=compress&cs=tinysrgb&w=100&h=100",
     },
     {
-      reviewerName: 'James R.',
+      reviewerName: "James R.",
       rating: 5,
-      jobType: 'AC Installation',
+      jobType: "AC Installation",
       reviewText:
-        'Cool Air Solutions installed our new AC units. They were punctual, clean, and the installation was perfect. Our house has never been cooler!',
-      date: '1 month ago',
+        "Cool Air Solutions installed our new AC units. They were punctual, clean, and the installation was perfect. Our house has never been cooler!",
+      date: "1 month ago",
       verified: true,
-      avatarUrl: 'https://images.pexels.com/photos/31422830/pexels-photo-31422830.png?auto=compress&cs=tinysrgb&w=100&h=100',
+      avatarUrl:
+        "https://images.pexels.com/photos/31422830/pexels-photo-31422830.png?auto=compress&cs=tinysrgb&w=100&h=100",
     },
     {
-      reviewerName: 'Anna K.',
+      reviewerName: "Anna K.",
       rating: 5,
-      jobType: 'Electrical Rewiring',
+      jobType: "Electrical Rewiring",
       reviewText:
-        'Excellent service from German Precision Electric. They rewired our villa professionally and explained everything clearly. True professionals!',
-      date: '3 weeks ago',
+        "Excellent service from German Precision Electric. They rewired our villa professionally and explained everything clearly. True professionals!",
+      date: "3 weeks ago",
       verified: true,
-      avatarUrl: 'https://images.pexels.com/photos/8951408/pexels-photo-8951408.jpeg?auto=compress&cs=tinysrgb&w=100&h=100',
+      avatarUrl:
+        "https://images.pexels.com/photos/8951408/pexels-photo-8951408.jpeg?auto=compress&cs=tinysrgb&w=100&h=100",
     },
   ];
 
@@ -199,7 +214,8 @@ export default function Index() {
         <div className="container-custom relative z-20">
           <div className="text-center mb-12 animate-fade-in">
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-              Find verified professionals for any home improvement or maintenance need
+              Find verified professionals for any home improvement or
+              maintenance need
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-8">
@@ -249,14 +265,20 @@ export default function Index() {
         <div className="absolute inset-0 opacity-5 pattern-dots text-primary z-10"></div>
         <div className="container-custom relative z-20">
           <div className="text-center mb-12 animate-fade-in">
-            <h2 className="mb-4 text-2xl md:text-3xl lg:text-4xl">Featured Tradespeople</h2>
+            <h2 className="mb-4 text-2xl md:text-3xl lg:text-4xl">
+              Featured Tradespeople
+            </h2>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
               Top-rated professionals ready to help with your next project
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6 mb-8">
             {featuredTradespeople.map((tradesperson, index) => (
-              <div key={tradesperson.slug} className="animate-slide-up" style={{ animationDelay: `${index * 0.15}s` }}>
+              <div
+                key={tradesperson.slug}
+                className="animate-slide-up"
+                style={{ animationDelay: `${index * 0.15}s` }}
+              >
                 <TradespersonCard {...tradesperson} />
               </div>
             ))}
@@ -283,14 +305,20 @@ export default function Index() {
         <div className="absolute inset-0 opacity-5 pattern-dots text-gray-400 z-10"></div>
         <div className="container-custom relative z-20">
           <div className="text-center mb-12 animate-fade-in">
-            <h2 className="mb-4 text-2xl md:text-3xl lg:text-4xl">Customer Reviews</h2>
+            <h2 className="mb-4 text-2xl md:text-3xl lg:text-4xl">
+              Customer Reviews
+            </h2>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
               Real reviews from real customers across Costa del Sol
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {reviews.map((review, idx) => (
-              <div key={idx} className="animate-slide-up" style={{ animationDelay: `${idx * 0.15}s` }}>
+              <div
+                key={idx}
+                className="animate-slide-up"
+                style={{ animationDelay: `${idx * 0.15}s` }}
+              >
                 <ReviewCard {...review} />
               </div>
             ))}
@@ -303,7 +331,6 @@ export default function Index() {
 
       {/* Promotional Cards Section */}
       <PromotionalCards />
-
 
       {/* Trade Services Modal */}
       <TradeServicesModal

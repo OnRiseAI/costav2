@@ -1,8 +1,16 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Plus, LogOut, MapPin, DollarSign, Clock, Briefcase, Star } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { useAuth, supabase } from '@/contexts/AuthContext';
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  Plus,
+  LogOut,
+  MapPin,
+  DollarSign,
+  Clock,
+  Briefcase,
+  Star,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useAuth, supabase } from "@/contexts/AuthContext";
 
 interface Job {
   id: string;
@@ -34,7 +42,7 @@ export function CustomerDashboard() {
 
   useEffect(() => {
     if (!isAuthenticated) {
-      navigate('/login');
+      navigate("/login");
       return;
     }
 
@@ -46,13 +54,13 @@ export function CustomerDashboard() {
     if (!user) return;
 
     const { data, error } = await supabase
-      .from('users')
-      .select('*')
-      .eq('id', user.id)
+      .from("users")
+      .select("*")
+      .eq("id", user.id)
       .single();
 
     if (error) {
-      console.error('Error fetching profile:', error);
+      console.error("Error fetching profile:", error);
       return;
     }
 
@@ -63,13 +71,13 @@ export function CustomerDashboard() {
     if (!user) return;
 
     const { data, error } = await supabase
-      .from('jobs')
-      .select('*')
-      .eq('customer_id', user.id)
-      .order('created_at', { ascending: false });
+      .from("jobs")
+      .select("*")
+      .eq("customer_id", user.id)
+      .order("created_at", { ascending: false });
 
     if (error) {
-      console.error('Error fetching jobs:', error);
+      console.error("Error fetching jobs:", error);
       setLoading(false);
       return;
     }
@@ -80,21 +88,21 @@ export function CustomerDashboard() {
 
   const handleSignOut = async () => {
     await signOut();
-    navigate('/');
+    navigate("/");
   };
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'open':
-        return 'bg-blue-100 text-blue-800';
-      case 'in_progress':
-        return 'bg-yellow-100 text-yellow-800';
-      case 'completed':
-        return 'bg-green-100 text-green-800';
-      case 'cancelled':
-        return 'bg-red-100 text-red-800';
+      case "open":
+        return "bg-blue-100 text-blue-800";
+      case "in_progress":
+        return "bg-yellow-100 text-yellow-800";
+      case "completed":
+        return "bg-green-100 text-green-800";
+      case "cancelled":
+        return "bg-red-100 text-red-800";
       default:
-        return 'bg-gray-100 text-gray-800';
+        return "bg-gray-100 text-gray-800";
     }
   };
 
@@ -105,12 +113,16 @@ export function CustomerDashboard() {
         <div className="container-custom py-6">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-foreground">Customer Dashboard</h1>
-              <p className="text-muted-foreground">Manage your jobs and find tradespeople</p>
+              <h1 className="text-3xl font-bold text-foreground">
+                Customer Dashboard
+              </h1>
+              <p className="text-muted-foreground">
+                Manage your jobs and find tradespeople
+              </p>
             </div>
             <div className="flex items-center gap-4">
               <Button
-                onClick={() => navigate('/post-job')}
+                onClick={() => navigate("/post-job")}
                 className="bg-primary hover:bg-primary/90 text-white flex items-center gap-2"
               >
                 <Plus className="h-5 w-5" />
@@ -136,27 +148,37 @@ export function CustomerDashboard() {
             <div className="bg-white rounded-xl shadow-sm p-6 sticky top-4">
               <div className="text-center mb-6">
                 <div className="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-full mx-auto mb-4 flex items-center justify-center text-white font-bold text-2xl">
-                  {profile?.full_name?.charAt(0).toUpperCase() || 'U'}
+                  {profile?.full_name?.charAt(0).toUpperCase() || "U"}
                 </div>
-                <h3 className="font-bold text-lg">{profile?.full_name || 'User'}</h3>
-                <p className="text-sm text-muted-foreground">{profile?.email}</p>
+                <h3 className="font-bold text-lg">
+                  {profile?.full_name || "User"}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {profile?.email}
+                </p>
               </div>
 
               <div className="border-t border-gray-200 pt-6 space-y-3">
                 <div>
-                  <p className="text-xs text-muted-foreground mb-1">Total Jobs</p>
-                  <p className="text-2xl font-bold text-primary">{jobs.length}</p>
+                  <p className="text-xs text-muted-foreground mb-1">
+                    Total Jobs
+                  </p>
+                  <p className="text-2xl font-bold text-primary">
+                    {jobs.length}
+                  </p>
                 </div>
                 <div>
-                  <p className="text-xs text-muted-foreground mb-1">Active Jobs</p>
+                  <p className="text-xs text-muted-foreground mb-1">
+                    Active Jobs
+                  </p>
                   <p className="text-2xl font-bold text-accent">
-                    {jobs.filter(j => j.status === 'open').length}
+                    {jobs.filter((j) => j.status === "open").length}
                   </p>
                 </div>
               </div>
 
               <Button
-                onClick={() => navigate('/edit-profile')}
+                onClick={() => navigate("/edit-profile")}
                 variant="outline"
                 className="w-full mt-6"
               >
@@ -173,9 +195,11 @@ export function CustomerDashboard() {
                 <div className="bg-white rounded-lg p-5 shadow-sm border-l-4 border-primary">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm text-muted-foreground mb-1">Open Jobs</p>
+                      <p className="text-sm text-muted-foreground mb-1">
+                        Open Jobs
+                      </p>
                       <p className="text-3xl font-bold">
-                        {jobs.filter(j => j.status === 'open').length}
+                        {jobs.filter((j) => j.status === "open").length}
                       </p>
                     </div>
                     <Briefcase className="h-8 w-8 text-primary opacity-20" />
@@ -185,9 +209,11 @@ export function CustomerDashboard() {
                 <div className="bg-white rounded-lg p-5 shadow-sm border-l-4 border-accent">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm text-muted-foreground mb-1">In Progress</p>
+                      <p className="text-sm text-muted-foreground mb-1">
+                        In Progress
+                      </p>
                       <p className="text-3xl font-bold">
-                        {jobs.filter(j => j.status === 'in_progress').length}
+                        {jobs.filter((j) => j.status === "in_progress").length}
                       </p>
                     </div>
                     <Clock className="h-8 w-8 text-accent opacity-20" />
@@ -197,9 +223,11 @@ export function CustomerDashboard() {
                 <div className="bg-white rounded-lg p-5 shadow-sm border-l-4 border-green-500">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm text-muted-foreground mb-1">Completed</p>
+                      <p className="text-sm text-muted-foreground mb-1">
+                        Completed
+                      </p>
                       <p className="text-3xl font-bold">
-                        {jobs.filter(j => j.status === 'completed').length}
+                        {jobs.filter((j) => j.status === "completed").length}
                       </p>
                     </div>
                     <Star className="h-8 w-8 text-green-500 opacity-20" />
@@ -220,10 +248,11 @@ export function CustomerDashboard() {
                     <Briefcase className="h-12 w-12 text-muted-foreground mx-auto mb-4 opacity-50" />
                     <h3 className="font-semibold text-lg mb-2">No jobs yet</h3>
                     <p className="text-muted-foreground mb-6">
-                      Post your first job to get quotes from verified tradespeople
+                      Post your first job to get quotes from verified
+                      tradespeople
                     </p>
                     <Button
-                      onClick={() => navigate('/post-job')}
+                      onClick={() => navigate("/post-job")}
                       className="bg-primary hover:bg-primary/90"
                     >
                       Post a Job
@@ -231,7 +260,7 @@ export function CustomerDashboard() {
                   </div>
                 ) : (
                   <div className="space-y-4">
-                    {jobs.map(job => (
+                    {jobs.map((job) => (
                       <div
                         key={job.id}
                         className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow"
@@ -247,10 +276,10 @@ export function CustomerDashboard() {
                           </div>
                           <span
                             className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap ${getStatusColor(
-                              job.status
+                              job.status,
                             )}`}
                           >
-                            {job.status.replace('_', ' ').toUpperCase()}
+                            {job.status.replace("_", " ").toUpperCase()}
                           </span>
                         </div>
 
@@ -267,7 +296,9 @@ export function CustomerDashboard() {
                           </div>
                           <div className="flex items-center gap-2">
                             <Briefcase className="h-4 w-4 text-muted-foreground" />
-                            <span className="text-sm">{job.trade_category}</span>
+                            <span className="text-sm">
+                              {job.trade_category}
+                            </span>
                           </div>
                           <Button
                             variant="outline"

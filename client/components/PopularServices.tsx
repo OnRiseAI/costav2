@@ -1,62 +1,68 @@
-import { Zap, Wrench, Wind, Hammer, PaintBucket, Droplets } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
+import { Zap, Wrench, Wind, Hammer, PaintBucket, Droplets } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 export function PopularServices() {
   const services = [
     {
       icon: Zap,
-      heading: 'Electrician',
-      text: 'Lighting, wiring and electrical repairs',
-      slug: 'electricians',
-      color: 'text-yellow-600',
-      bgColor: 'bg-yellow-50',
-      imageUrl: 'https://images.pexels.com/photos/4473494/pexels-photo-4473494.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
+      heading: "Electrician",
+      text: "Lighting, wiring and electrical repairs",
+      slug: "electricians",
+      color: "text-yellow-600",
+      bgColor: "bg-yellow-50",
+      imageUrl:
+        "https://images.pexels.com/photos/4473494/pexels-photo-4473494.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
     },
     {
       icon: Wrench,
-      heading: 'Plumber',
-      text: 'Leaks, blockages and installations',
-      slug: 'plumbers',
-      color: 'text-blue-600',
-      bgColor: 'bg-blue-50',
-      imageUrl: 'https://images.pexels.com/photos/8486928/pexels-photo-8486928.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
+      heading: "Plumber",
+      text: "Leaks, blockages and installations",
+      slug: "plumbers",
+      color: "text-blue-600",
+      bgColor: "bg-blue-50",
+      imageUrl:
+        "https://images.pexels.com/photos/8486928/pexels-photo-8486928.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
     },
     {
       icon: Wind,
-      heading: 'Air Conditioning',
-      text: 'Install, service or repair your AC',
-      slug: 'air-conditioning',
-      color: 'text-cyan-600',
-      bgColor: 'bg-cyan-50',
-      imageUrl: 'https://images.pexels.com/photos/6639226/pexels-photo-6639226.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
+      heading: "Air Conditioning",
+      text: "Install, service or repair your AC",
+      slug: "air-conditioning",
+      color: "text-cyan-600",
+      bgColor: "bg-cyan-50",
+      imageUrl:
+        "https://images.pexels.com/photos/6639226/pexels-photo-6639226.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
     },
     {
       icon: Hammer,
-      heading: 'Builder and Renovation',
-      text: 'Home improvements and structural work',
-      slug: 'builders',
-      color: 'text-orange-600',
-      bgColor: 'bg-orange-50',
-      imageUrl: 'https://images.pexels.com/photos/3964048/pexels-photo-3964048.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
+      heading: "Builder and Renovation",
+      text: "Home improvements and structural work",
+      slug: "builders",
+      color: "text-orange-600",
+      bgColor: "bg-orange-50",
+      imageUrl:
+        "https://images.pexels.com/photos/3964048/pexels-photo-3964048.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
     },
     {
       icon: PaintBucket,
-      heading: 'Painter and Decorator',
-      text: 'Refresh or transform your home interior',
-      slug: 'painters',
-      color: 'text-pink-600',
-      bgColor: 'bg-pink-50',
-      imageUrl: 'https://images.pexels.com/photos/7217966/pexels-photo-7217966.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
+      heading: "Painter and Decorator",
+      text: "Refresh or transform your home interior",
+      slug: "painters",
+      color: "text-pink-600",
+      bgColor: "bg-pink-50",
+      imageUrl:
+        "https://images.pexels.com/photos/7217966/pexels-photo-7217966.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
     },
     {
       icon: Droplets,
-      heading: 'Pool Maintenance',
-      text: 'Cleaning, repair and seasonal care',
-      slug: 'pool-maintenance',
-      color: 'text-emerald-600',
-      bgColor: 'bg-emerald-50',
-      imageUrl: 'https://images.pexels.com/photos/6684752/pexels-photo-6684752.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
+      heading: "Pool Maintenance",
+      text: "Cleaning, repair and seasonal care",
+      slug: "pool-maintenance",
+      color: "text-emerald-600",
+      bgColor: "bg-emerald-50",
+      imageUrl:
+        "https://images.pexels.com/photos/6684752/pexels-photo-6684752.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
     },
   ];
 
@@ -106,8 +112,13 @@ export function PopularServices() {
                   {/* Content Container */}
                   <div className="flex flex-col flex-grow p-6 md:p-8 items-center text-center">
                     {/* Icon Container */}
-                    <div className={`w-14 h-14 ${service.bgColor} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500`}>
-                      <Icon className={`w-7 h-7 ${service.color}`} strokeWidth={1.5} />
+                    <div
+                      className={`w-14 h-14 ${service.bgColor} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500`}
+                    >
+                      <Icon
+                        className={`w-7 h-7 ${service.color}`}
+                        strokeWidth={1.5}
+                      />
                     </div>
 
                     {/* Heading */}

@@ -1,30 +1,32 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { Mail, Lock, User, Briefcase, AlertCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { useAuth } from '@/contexts/AuthContext';
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Mail, Lock, User, Briefcase, AlertCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useAuth } from "@/contexts/AuthContext";
 
 export default function SignupPage() {
   const navigate = useNavigate();
   const { signUp, loading } = useAuth();
 
   const [formData, setFormData] = useState({
-    full_name: '',
-    email: '',
-    password: '',
-    confirm_password: '',
-    user_type: 'customer', // customer or tradesperson
-    phone: '',
-    business_name: '',
-    trade_category: '',
+    full_name: "",
+    email: "",
+    password: "",
+    confirm_password: "",
+    user_type: "customer", // customer or tradesperson
+    phone: "",
+    business_name: "",
+    trade_category: "",
   });
 
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
@@ -32,47 +34,51 @@ export default function SignupPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
+    setError("");
     setIsLoading(true);
 
     // Validation
     if (!formData.full_name || !formData.email || !formData.password) {
-      setError('Please fill in all required fields');
+      setError("Please fill in all required fields");
       setIsLoading(false);
       return;
     }
 
     if (formData.password !== formData.confirm_password) {
-      setError('Passwords do not match');
+      setError("Passwords do not match");
       setIsLoading(false);
       return;
     }
 
     if (formData.password.length < 6) {
-      setError('Password must be at least 6 characters');
+      setError("Password must be at least 6 characters");
       setIsLoading(false);
       return;
     }
 
-    if (formData.user_type === 'tradesperson' && !formData.trade_category) {
-      setError('Please select a trade category');
+    if (formData.user_type === "tradesperson" && !formData.trade_category) {
+      setError("Please select a trade category");
       setIsLoading(false);
       return;
     }
 
-    const { error: signupError } = await signUp(formData.email, formData.password, {
-      full_name: formData.full_name,
-      phone: formData.phone,
-      user_type: formData.user_type,
-      business_name: formData.business_name,
-      trade_category: formData.trade_category,
-    });
+    const { error: signupError } = await signUp(
+      formData.email,
+      formData.password,
+      {
+        full_name: formData.full_name,
+        phone: formData.phone,
+        user_type: formData.user_type,
+        business_name: formData.business_name,
+        trade_category: formData.trade_category,
+      },
+    );
 
     if (signupError) {
-      setError(signupError.message || 'Failed to sign up');
+      setError(signupError.message || "Failed to sign up");
       setIsLoading(false);
     } else {
-      navigate('/customer-dashboard');
+      navigate("/customer-dashboard");
     }
   };
 
@@ -81,8 +87,12 @@ export default function SignupPage() {
       <div className="w-full max-w-md">
         <div className="bg-white rounded-2xl shadow-2xl p-8">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-foreground mb-2">Join CostaTrade</h1>
-            <p className="text-muted-foreground">Create your account to get started</p>
+            <h1 className="text-3xl font-bold text-foreground mb-2">
+              Join CostaTrade
+            </h1>
+            <p className="text-muted-foreground">
+              Create your account to get started
+            </p>
           </div>
 
           {error && (
@@ -100,15 +110,17 @@ export default function SignupPage() {
                   type="radio"
                   name="user_type"
                   value="customer"
-                  checked={formData.user_type === 'customer'}
+                  checked={formData.user_type === "customer"}
                   onChange={handleChange}
                   className="sr-only"
                 />
-                <div className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
-                  formData.user_type === 'customer'
-                    ? 'border-primary bg-primary/5'
-                    : 'border-gray-200 hover:border-primary/50'
-                }`}>
+                <div
+                  className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
+                    formData.user_type === "customer"
+                      ? "border-primary bg-primary/5"
+                      : "border-gray-200 hover:border-primary/50"
+                  }`}
+                >
                   <User className="h-5 w-5 mb-2 text-primary" />
                   <p className="font-semibold text-sm">Customer</p>
                   <p className="text-xs text-muted-foreground">Find services</p>
@@ -119,18 +131,22 @@ export default function SignupPage() {
                   type="radio"
                   name="user_type"
                   value="tradesperson"
-                  checked={formData.user_type === 'tradesperson'}
+                  checked={formData.user_type === "tradesperson"}
                   onChange={handleChange}
                   className="sr-only"
                 />
-                <div className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
-                  formData.user_type === 'tradesperson'
-                    ? 'border-primary bg-primary/5'
-                    : 'border-gray-200 hover:border-primary/50'
-                }`}>
+                <div
+                  className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
+                    formData.user_type === "tradesperson"
+                      ? "border-primary bg-primary/5"
+                      : "border-gray-200 hover:border-primary/50"
+                  }`}
+                >
                   <Briefcase className="h-5 w-5 mb-2 text-primary" />
                   <p className="font-semibold text-sm">Tradesperson</p>
-                  <p className="text-xs text-muted-foreground">Offer services</p>
+                  <p className="text-xs text-muted-foreground">
+                    Offer services
+                  </p>
                 </div>
               </label>
             </div>
@@ -184,7 +200,7 @@ export default function SignupPage() {
             </div>
 
             {/* Tradesperson Fields */}
-            {formData.user_type === 'tradesperson' && (
+            {formData.user_type === "tradesperson" && (
               <>
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
@@ -266,17 +282,17 @@ export default function SignupPage() {
               disabled={isLoading || loading}
               className="w-full bg-primary hover:bg-primary/90 text-white py-3 text-lg font-semibold"
             >
-              {isLoading || loading ? 'Creating account...' : 'Create Account'}
+              {isLoading || loading ? "Creating account..." : "Create Account"}
             </Button>
           </form>
 
           {/* Terms */}
           <p className="text-xs text-muted-foreground text-center mt-6">
-            By signing up, you agree to our{' '}
+            By signing up, you agree to our{" "}
             <Link to="/terms" className="text-primary hover:underline">
               Terms of Service
-            </Link>{' '}
-            and{' '}
+            </Link>{" "}
+            and{" "}
             <Link to="/privacy" className="text-primary hover:underline">
               Privacy Policy
             </Link>
@@ -285,8 +301,11 @@ export default function SignupPage() {
           {/* Sign In Link */}
           <div className="mt-6 text-center">
             <p className="text-muted-foreground">
-              Already have an account?{' '}
-              <Link to="/login" className="text-primary font-semibold hover:underline">
+              Already have an account?{" "}
+              <Link
+                to="/login"
+                className="text-primary font-semibold hover:underline"
+              >
                 Sign In
               </Link>
             </p>

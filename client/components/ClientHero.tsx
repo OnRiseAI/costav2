@@ -1,34 +1,34 @@
-import { Search, MessageSquare, CheckCircle, Globe } from 'lucide-react';
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
+import { Search, MessageSquare, CheckCircle, Globe } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 export function ClientHero() {
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState("");
   const [currentPlaceholderIndex, setCurrentPlaceholderIndex] = useState(0);
-  const [displayedPlaceholder, setDisplayedPlaceholder] = useState('');
+  const [displayedPlaceholder, setDisplayedPlaceholder] = useState("");
 
   const placeholders = [
-    'I need a plumber',
-    'I need to fit a kitchen',
-    'I have a problem with my toilet',
-    'I need a wall building',
-    'My roof needs repairs',
-    'I want to renovate my bathroom',
-    'Air conditioning installation',
-    'Pool maintenance needed',
-    'I need an electrician',
-    'Garden landscaping services',
-    'Paint my exterior walls',
-    'Tile work for my terrace',
-    'Solar panels installation',
-    'Boiler servicing required',
-    'Pest control needed',
-    'I need a handyman',
-    'Patio decking installation',
-    'Window replacement',
-    'Swimming pool restoration',
-    'General home maintenance',
+    "I need a plumber",
+    "I need to fit a kitchen",
+    "I have a problem with my toilet",
+    "I need a wall building",
+    "My roof needs repairs",
+    "I want to renovate my bathroom",
+    "Air conditioning installation",
+    "Pool maintenance needed",
+    "I need an electrician",
+    "Garden landscaping services",
+    "Paint my exterior walls",
+    "Tile work for my terrace",
+    "Solar panels installation",
+    "Boiler servicing required",
+    "Pest control needed",
+    "I need a handyman",
+    "Patio decking installation",
+    "Window replacement",
+    "Swimming pool restoration",
+    "General home maintenance",
   ];
 
   useEffect(() => {
@@ -53,21 +53,21 @@ export function ClientHero() {
   const trustBadges = [
     {
       icon: MessageSquare,
-      label: 'Real customer reviews',
-      color: 'text-blue-600',
-      bgColor: 'bg-blue-50',
+      label: "Real customer reviews",
+      color: "text-blue-600",
+      bgColor: "bg-blue-50",
     },
     {
       icon: CheckCircle,
-      label: 'Transparent profiles',
-      color: 'text-emerald-600',
-      bgColor: 'bg-emerald-50',
+      label: "Transparent profiles",
+      color: "text-emerald-600",
+      bgColor: "bg-emerald-50",
     },
     {
       icon: Globe,
-      label: 'Multilingual support',
-      color: 'text-purple-600',
-      bgColor: 'bg-purple-50',
+      label: "Multilingual support",
+      color: "text-purple-600",
+      bgColor: "bg-purple-50",
     },
   ];
 
@@ -92,18 +92,30 @@ export function ClientHero() {
           </h2>
 
           {/* Elegant Subheading */}
-          <p className="text-lg md:text-xl text-muted-foreground text-center mb-12 leading-relaxed font-light max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.1s' }}>
-            Choose from professionals offering multilingual support and transparent customer reviews. Compare profiles, view past work and contact tradespeople directly.
+          <p
+            className="text-lg md:text-xl text-muted-foreground text-center mb-12 leading-relaxed font-light max-w-2xl mx-auto animate-fade-in"
+            style={{ animationDelay: "0.1s" }}
+          >
+            Choose from professionals offering multilingual support and
+            transparent customer reviews. Compare profiles, view past work and
+            contact tradespeople directly.
           </p>
 
           {/* Premium Search Bar */}
-          <form onSubmit={handleSearch} className="mb-10 animate-scale-in" style={{ animationDelay: '0.2s' }}>
+          <form
+            onSubmit={handleSearch}
+            className="mb-10 animate-scale-in"
+            style={{ animationDelay: "0.2s" }}
+          >
             <div className="relative bg-white rounded-full shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden border border-white/80 group">
               {/* Subtle inner glow */}
               <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
               <div className="relative flex items-center px-7 md:px-8 py-5 md:py-6 gap-4">
-                <Search className="h-5 w-5 text-muted-foreground flex-shrink-0" strokeWidth={1.5} />
+                <Search
+                  className="h-5 w-5 text-muted-foreground flex-shrink-0"
+                  strokeWidth={1.5}
+                />
                 <input
                   type="text"
                   value={searchValue}
@@ -122,7 +134,10 @@ export function ClientHero() {
           </form>
 
           {/* Secondary CTA Link */}
-          <div className="text-center mb-12 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+          <div
+            className="text-center mb-12 animate-fade-in"
+            style={{ animationDelay: "0.3s" }}
+          >
             <Link
               to="/post-job"
               className="inline-block text-base text-primary hover:text-primary-600 font-medium transition-colors duration-300"
@@ -144,8 +159,13 @@ export function ClientHero() {
                       style={{ animationDelay: `${0.4 + index * 0.1}s` }}
                     >
                       <div className="flex justify-center mb-3">
-                        <div className={`w-14 h-14 ${badge.bgColor} rounded-2xl flex items-center justify-center shadow-sm hover:shadow-md transition-shadow duration-300`}>
-                          <Icon className={`h-7 w-7 ${badge.color}`} strokeWidth={1.5} />
+                        <div
+                          className={`w-14 h-14 ${badge.bgColor} rounded-2xl flex items-center justify-center shadow-sm hover:shadow-md transition-shadow duration-300`}
+                        >
+                          <Icon
+                            className={`h-7 w-7 ${badge.color}`}
+                            strokeWidth={1.5}
+                          />
                         </div>
                       </div>
                       <p className="text-sm md:text-base font-medium text-foreground whitespace-nowrap md:whitespace-normal">
@@ -159,9 +179,13 @@ export function ClientHero() {
           </div>
 
           {/* Location Microcopy */}
-          <div className="text-center pt-8 border-t border-gray-200/50 animate-fade-in" style={{ animationDelay: '0.7s' }}>
+          <div
+            className="text-center pt-8 border-t border-gray-200/50 animate-fade-in"
+            style={{ animationDelay: "0.7s" }}
+          >
             <p className="text-xs md:text-sm text-muted-foreground font-light tracking-wide">
-              Serving homeowners across Málaga, Marbella, Mijas, Fuengirola and Estepona
+              Serving homeowners across Málaga, Marbella, Mijas, Fuengirola and
+              Estepona
             </p>
           </div>
         </div>

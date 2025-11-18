@@ -1,51 +1,55 @@
-import { Droplets, Zap, Wind, Wrench } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Droplets, Zap, Wind, Wrench } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export function MostBookedCarousel() {
   const bookedServices = [
     {
-      category: 'Pool Maintenance',
-      tag: 'Popular this month',
-      subtext: 'Frequently booked in Marbella and Mijas',
-      imageUrl: 'https://images.pexels.com/photos/6684752/pexels-photo-6684752.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
-      cta: 'View professionals',
-      slug: 'pool-maintenance',
+      category: "Pool Maintenance",
+      tag: "Popular this month",
+      subtext: "Frequently booked in Marbella and Mijas",
+      imageUrl:
+        "https://images.pexels.com/photos/6684752/pexels-photo-6684752.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
+      cta: "View professionals",
+      slug: "pool-maintenance",
       icon: Droplets,
-      color: 'text-blue-600',
-      bgColor: 'bg-blue-50',
+      color: "text-blue-600",
+      bgColor: "bg-blue-50",
     },
     {
-      category: 'Electrician',
-      tag: 'High demand',
-      subtext: 'Trusted help for repairs and installations',
-      imageUrl: 'https://images.pexels.com/photos/4473494/pexels-photo-4473494.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
-      cta: 'View professionals',
-      slug: 'electricians',
+      category: "Electrician",
+      tag: "High demand",
+      subtext: "Trusted help for repairs and installations",
+      imageUrl:
+        "https://images.pexels.com/photos/4473494/pexels-photo-4473494.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
+      cta: "View professionals",
+      slug: "electricians",
       icon: Zap,
-      color: 'text-yellow-600',
-      bgColor: 'bg-yellow-50',
+      color: "text-yellow-600",
+      bgColor: "bg-yellow-50",
     },
     {
-      category: 'Air Conditioning',
-      tag: 'Trending',
-      subtext: 'Seasonal demand across the Costa del Sol',
-      imageUrl: 'https://images.pexels.com/photos/6639226/pexels-photo-6639226.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
-      cta: 'View professionals',
-      slug: 'air-conditioning',
+      category: "Air Conditioning",
+      tag: "Trending",
+      subtext: "Seasonal demand across the Costa del Sol",
+      imageUrl:
+        "https://images.pexels.com/photos/6639226/pexels-photo-6639226.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
+      cta: "View professionals",
+      slug: "air-conditioning",
       icon: Wind,
-      color: 'text-cyan-600',
-      bgColor: 'bg-cyan-50',
+      color: "text-cyan-600",
+      bgColor: "bg-cyan-50",
     },
     {
-      category: 'Plumber',
-      tag: 'Popular',
-      subtext: 'Reliable help for leaks and blockages',
-      imageUrl: 'https://images.pexels.com/photos/8486928/pexels-photo-8486928.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
-      cta: 'View professionals',
-      slug: 'plumbers',
+      category: "Plumber",
+      tag: "Popular",
+      subtext: "Reliable help for leaks and blockages",
+      imageUrl:
+        "https://images.pexels.com/photos/8486928/pexels-photo-8486928.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
+      cta: "View professionals",
+      slug: "plumbers",
       icon: Wrench,
-      color: 'text-blue-600',
-      bgColor: 'bg-blue-50',
+      color: "text-blue-600",
+      bgColor: "bg-blue-50",
     },
   ];
 
@@ -89,20 +93,31 @@ export function MostBookedCarousel() {
                       alt={service.category}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    
+
                     {/* Gradient Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
 
                     {/* Content Overlay */}
                     <div className="absolute inset-0 flex flex-col justify-end p-4">
                       <div className="flex items-center gap-2 mb-1">
-                        <div className={`w-7 h-7 ${service.bgColor} rounded-lg flex items-center justify-center flex-shrink-0`}>
-                          <Icon className={`w-4 h-4 ${service.color}`} strokeWidth={2} />
+                        <div
+                          className={`w-7 h-7 ${service.bgColor} rounded-lg flex items-center justify-center flex-shrink-0`}
+                        >
+                          <Icon
+                            className={`w-4 h-4 ${service.color}`}
+                            strokeWidth={2}
+                          />
                         </div>
-                        <span className="text-xs font-semibold text-white uppercase tracking-wide drop-shadow">{service.tag}</span>
+                        <span className="text-xs font-semibold text-white uppercase tracking-wide drop-shadow">
+                          {service.tag}
+                        </span>
                       </div>
-                      <h3 className="text-base font-bold text-white drop-shadow-lg mb-0.5">{service.category}</h3>
-                      <p className="text-xs text-white/85 drop-shadow leading-tight mb-2 line-clamp-2">{service.subtext}</p>
+                      <h3 className="text-base font-bold text-white drop-shadow-lg mb-0.5">
+                        {service.category}
+                      </h3>
+                      <p className="text-xs text-white/85 drop-shadow leading-tight mb-2 line-clamp-2">
+                        {service.subtext}
+                      </p>
                       <div className="text-xs text-white font-medium underline hover:text-white/90 transition-colors drop-shadow">
                         {service.cta}
                       </div>

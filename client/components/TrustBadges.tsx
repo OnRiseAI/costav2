@@ -1,24 +1,27 @@
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle } from "lucide-react";
 
 export function TrustBadges() {
   const topPillars = [
     {
-      title: 'Verified',
-      description: 'Every tradesperson undergoes ID checks, insurance validation, and business verification',
+      title: "Verified",
+      description:
+        "Every tradesperson undergoes ID checks, insurance validation, and business verification",
       icon: CheckCircle,
-      color: 'text-green-600',
+      color: "text-green-600",
     },
     {
-      title: 'Reviewed',
-      description: 'Over 2,400 verified reviews from real customers across Costa del Sol',
+      title: "Reviewed",
+      description:
+        "Over 2,400 verified reviews from real customers across Costa del Sol",
       icon: CheckCircle,
-      color: 'text-blue-600',
+      color: "text-blue-600",
     },
     {
-      title: 'Local Experts',
-      description: 'Connect with professionals who know Costa del Sol inside out',
+      title: "Local Experts",
+      description:
+        "Connect with professionals who know Costa del Sol inside out",
       icon: CheckCircle,
-      color: 'text-orange-600',
+      color: "text-orange-600",
     },
   ];
 
@@ -30,19 +33,25 @@ export function TrustBadges() {
         <div className="absolute -top-40 left-1/4 w-96 h-96 bg-trust/10 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-40 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-5xl opacity-5">
-          <div className="w-full h-full" style={{
-            backgroundImage: `radial-gradient(circle at center, currentColor 1px, transparent 1px)`,
-            backgroundSize: '40px 40px'
-          }}></div>
+          <div
+            className="w-full h-full"
+            style={{
+              backgroundImage: `radial-gradient(circle at center, currentColor 1px, transparent 1px)`,
+              backgroundSize: "40px 40px",
+            }}
+          ></div>
         </div>
       </div>
       <div className="container-custom relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">Why Choose CostaTrade?</h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+              Why Choose CostaTrade?
+            </h2>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-              Costa del Sol's most trusted platform for finding reliable tradespeople
+              Costa del Sol's most trusted platform for finding reliable
+              tradespeople
             </p>
           </div>
 
@@ -51,11 +60,17 @@ export function TrustBadges() {
             {topPillars.map((pillar, index) => {
               const Icon = pillar.icon;
               return (
-                <div key={index} className="text-center group hover:scale-105 transition-transform duration-300 animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
+                <div
+                  key={index}
+                  className="text-center group hover:scale-105 transition-transform duration-300 animate-slide-up"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
                   <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-trust/20 to-trust/5 rounded-full flex items-center justify-center group-hover:shadow-lg group-hover:from-trust/30 transition-all duration-300">
                     <Icon className="w-12 h-12 text-trust" />
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3 group-hover:text-trust transition-colors">{pillar.title}</h3>
+                  <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3 group-hover:text-trust transition-colors">
+                    {pillar.title}
+                  </h3>
                   <p className="text-muted-foreground leading-relaxed text-base">
                     {pillar.description}
                   </p>
@@ -63,7 +78,6 @@ export function TrustBadges() {
               );
             })}
           </div>
-
         </div>
       </div>
     </section>
