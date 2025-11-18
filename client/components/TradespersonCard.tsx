@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
-import { Star, MapPin, CheckCircle, Shield, Phone } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { Link } from "react-router-dom";
+import { Star, MapPin, CheckCircle, Shield, Phone } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface TradespersonCardProps {
   slug: string;
@@ -50,7 +50,11 @@ export function TradespersonCard({
           <div className="relative">
             <div className="w-20 h-20 rounded-xl bg-gray-200 overflow-hidden flex-shrink-0">
               {profilePhoto ? (
-                <img src={profilePhoto} alt={businessName} className="w-full h-full object-cover" />
+                <img
+                  src={profilePhoto}
+                  alt={businessName}
+                  className="w-full h-full object-cover"
+                />
               ) : (
                 <div className="w-full h-full flex items-center justify-center text-3xl font-bold text-gray-400">
                   {businessName.charAt(0)}
@@ -65,7 +69,9 @@ export function TradespersonCard({
           </div>
 
           <div className="flex-1 min-w-0">
-            <h3 className="font-bold text-xl text-foreground mb-2">{businessName}</h3>
+            <h3 className="font-bold text-xl text-foreground mb-2">
+              {businessName}
+            </h3>
             <div className="flex items-center gap-1 text-sm text-muted-foreground mb-2">
               <MapPin className="h-4 w-4" />
               <span>{location}</span>
@@ -96,14 +102,16 @@ export function TradespersonCard({
                   key={i}
                   className={`h-4 w-4 ${
                     i < Math.floor(rating)
-                      ? 'fill-yellow-400 text-yellow-400'
-                      : 'fill-gray-300 text-gray-300'
+                      ? "fill-yellow-400 text-yellow-400"
+                      : "fill-gray-300 text-gray-300"
                   }`}
                 />
               ))}
             </div>
             <span className="font-bold text-lg">{rating.toFixed(1)}</span>
-            <span className="text-sm">({reviewCount} {t('common.reviews')})</span>
+            <span className="text-sm">
+              ({reviewCount} {t("common.reviews")})
+            </span>
           </div>
         </div>
 
@@ -112,12 +120,18 @@ export function TradespersonCard({
           <div className="flex gap-6 mb-4 text-sm text-muted-foreground">
             {jobsCompleted && (
               <div>
-                <span className="font-bold text-foreground text-lg">{jobsCompleted}</span> jobs completed
+                <span className="font-bold text-foreground text-lg">
+                  {jobsCompleted}
+                </span>{" "}
+                jobs completed
               </div>
             )}
             {yearsInBusiness && (
               <div>
-                <span className="font-bold text-foreground text-lg">{yearsInBusiness}</span> years
+                <span className="font-bold text-foreground text-lg">
+                  {yearsInBusiness}
+                </span>{" "}
+                years
               </div>
             )}
           </div>
@@ -129,7 +143,10 @@ export function TradespersonCard({
             <h4 className="font-bold text-base mb-3">Services & skills</h4>
             <div className="flex flex-wrap gap-2">
               {defaultServices.map((service, index) => (
-                <div key={index} className="flex items-center gap-1.5 text-sm text-primary">
+                <div
+                  key={index}
+                  className="flex items-center gap-1.5 text-sm text-primary"
+                >
                   <CheckCircle className="h-4 w-4 flex-shrink-0" />
                   <span>{service}</span>
                 </div>

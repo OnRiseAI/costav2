@@ -1,48 +1,58 @@
-import { useSearchParams, Link } from 'react-router-dom';
-import { MapPin, Star, SlidersHorizontal } from 'lucide-react';
-import { TradespersonCard } from '@/components/TradespersonCard';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { Button } from '@/components/ui/button';
-import { useState, useMemo } from 'react';
-import { searchTradespeople } from '@/data/tradespeople';
-import { SearchBar } from '@/components/SearchBar';
-import { TrustSection } from '@/components/TrustSection';
-import { RecentSearches } from '@/components/RecentSearches';
+import { useSearchParams, Link } from "react-router-dom";
+import { MapPin, Star, SlidersHorizontal } from "lucide-react";
+import { TradespersonCard } from "@/components/TradespersonCard";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { Button } from "@/components/ui/button";
+import { useState, useMemo } from "react";
+import { searchTradespeople } from "@/data/tradespeople";
+import { SearchBar } from "@/components/SearchBar";
+import { TrustSection } from "@/components/TrustSection";
+import { RecentSearches } from "@/components/RecentSearches";
 
 export default function SearchResults() {
   const [searchParams] = useSearchParams();
-  const trade = searchParams.get('trade') || '';
-  const location = searchParams.get('location') || '';
+  const trade = searchParams.get("trade") || "";
+  const location = searchParams.get("location") || "";
   const { t } = useLanguage();
   const [showFilters, setShowFilters] = useState(false);
   const [selectedLocations, setSelectedLocations] = useState<string[]>([]);
-  const [selectedRating, setSelectedRating] = useState<string>('All Ratings');
-  const [sortBy, setSortBy] = useState<string>('recommended');
+  const [selectedRating, setSelectedRating] = useState<string>("All Ratings");
+  const [sortBy, setSortBy] = useState<string>("recommended");
 
   const allTradespeople = searchTradespeople(trade, location);
 
   const filteredAndSortedTradespeople = useMemo(() => {
     let filtered = [...allTradespeople];
 
-    if (selectedLocations.length > 0 && !selectedLocations.includes('All Locations')) {
-      filtered = filtered.filter(tp => selectedLocations.includes(tp.location));
+    if (
+      selectedLocations.length > 0 &&
+      !selectedLocations.includes("All Locations")
+    ) {
+      filtered = filtered.filter((tp) =>
+        selectedLocations.includes(tp.location),
+      );
     }
 
-    if (selectedRating !== 'All Ratings') {
-      const minRating = selectedRating === '5 Stars' ? 5 :
-                        selectedRating === '4+ Stars' ? 4 :
-                        selectedRating === '3+ Stars' ? 3 : 0;
-      filtered = filtered.filter(tp => tp.rating >= minRating);
+    if (selectedRating !== "All Ratings") {
+      const minRating =
+        selectedRating === "5 Stars"
+          ? 5
+          : selectedRating === "4+ Stars"
+            ? 4
+            : selectedRating === "3+ Stars"
+              ? 3
+              : 0;
+      filtered = filtered.filter((tp) => tp.rating >= minRating);
     }
 
     switch (sortBy) {
-      case 'highest-rated':
+      case "highest-rated":
         filtered.sort((a, b) => b.rating - a.rating);
         break;
-      case 'most-reviews':
+      case "most-reviews":
         filtered.sort((a, b) => b.reviewCount - a.reviewCount);
         break;
-      case 'newest':
+      case "newest":
         filtered.reverse();
         break;
       default:
@@ -53,31 +63,43 @@ export default function SearchResults() {
   }, [allTradespeople, selectedLocations, selectedRating, sortBy]);
 
   const handleLocationChange = (location: string) => {
-    if (location === 'All Locations') {
+    if (location === "All Locations") {
       setSelectedLocations([]);
     } else {
-      setSelectedLocations(prev =>
+      setSelectedLocations((prev) =>
         prev.includes(location)
-          ? prev.filter(l => l !== location)
-          : [...prev, location]
+          ? prev.filter((l) => l !== location)
+          : [...prev, location],
       );
     }
   };
 
   const handleClearFilters = () => {
     setSelectedLocations([]);
-    setSelectedRating('All Ratings');
+    setSelectedRating("All Ratings");
   };
 
-  const locations = ['All Locations', 'Marbella', 'Málaga', 'Fuengirola', 'Estepona', 'Torremolinos', 'Mijas', 'Nerja', 'Benalmádena'];
-  const ratings = ['All Ratings', '5 Stars', '4+ Stars', '3+ Stars'];
+  const locations = [
+    "All Locations",
+    "Marbella",
+    "Málaga",
+    "Fuengirola",
+    "Estepona",
+    "Torremolinos",
+    "Mijas",
+    "Nerja",
+    "Benalmádena",
+  ];
+  const ratings = ["All Ratings", "5 Stars", "4+ Stars", "3+ Stars"];
 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <div className="bg-white border-b border-border">
         <div className="container-custom py-8 md:py-12">
-          <h1 className="text-3xl md:text-4xl font-bold mb-6">Search Results</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-6">
+            Search Results
+          </h1>
           <SearchBar variant="compact" />
           <RecentSearches />
           {(trade || location) && (
@@ -112,11 +134,13 @@ export default function SearchResults() {
                   onClick={() => setShowFilters(!showFilters)}
                   className="lg:hidden text-primary"
                 >
-                  {showFilters ? 'Hide' : 'Show'}
+                  {showFilters ? "Hide" : "Show"}
                 </button>
               </div>
 
-              <div className={`space-y-6 ${showFilters ? 'block' : 'hidden lg:block'}`}>
+              <div
+                className={`space-y-6 ${showFilters ? "block" : "hidden lg:block"}`}
+              >
                 {/* Location Filter */}
                 <div>
                   <label className="text-sm font-medium text-foreground mb-3 flex items-center gap-2">
@@ -125,14 +149,23 @@ export default function SearchResults() {
                   </label>
                   <div className="space-y-2">
                     {locations.map((loc) => (
-                      <label key={loc} className="flex items-center gap-2 cursor-pointer">
+                      <label
+                        key={loc}
+                        className="flex items-center gap-2 cursor-pointer"
+                      >
                         <input
                           type="checkbox"
                           className="rounded border-gray-300"
-                          checked={loc === 'All Locations' ? selectedLocations.length === 0 : selectedLocations.includes(loc)}
+                          checked={
+                            loc === "All Locations"
+                              ? selectedLocations.length === 0
+                              : selectedLocations.includes(loc)
+                          }
                           onChange={() => handleLocationChange(loc)}
                         />
-                        <span className="text-sm text-muted-foreground">{loc}</span>
+                        <span className="text-sm text-muted-foreground">
+                          {loc}
+                        </span>
                       </label>
                     ))}
                   </div>
@@ -146,7 +179,10 @@ export default function SearchResults() {
                   </label>
                   <div className="space-y-2">
                     {ratings.map((rating) => (
-                      <label key={rating} className="flex items-center gap-2 cursor-pointer">
+                      <label
+                        key={rating}
+                        className="flex items-center gap-2 cursor-pointer"
+                      >
                         <input
                           type="radio"
                           name="rating"
@@ -154,13 +190,19 @@ export default function SearchResults() {
                           checked={selectedRating === rating}
                           onChange={() => setSelectedRating(rating)}
                         />
-                        <span className="text-sm text-muted-foreground">{rating}</span>
+                        <span className="text-sm text-muted-foreground">
+                          {rating}
+                        </span>
                       </label>
                     ))}
                   </div>
                 </div>
 
-                <Button variant="outline" className="w-full" onClick={handleClearFilters}>
+                <Button
+                  variant="outline"
+                  className="w-full"
+                  onClick={handleClearFilters}
+                >
                   Clear Filters
                 </Button>
               </div>
@@ -173,7 +215,8 @@ export default function SearchResults() {
               <div className="bg-white rounded-xl border border-border p-12 text-center">
                 <h3 className="text-xl font-semibold mb-2">No Results Found</h3>
                 <p className="text-muted-foreground mb-6">
-                  We couldn't find any tradespeople matching your search criteria.
+                  We couldn't find any tradespeople matching your search
+                  criteria.
                 </p>
                 <Button>Browse All Categories</Button>
               </div>
@@ -181,7 +224,11 @@ export default function SearchResults() {
               <>
                 <div className="mb-6 flex items-center justify-between">
                   <p className="text-muted-foreground">
-                    Showing <span className="font-semibold text-foreground">{filteredAndSortedTradespeople.length}</span> professionals
+                    Showing{" "}
+                    <span className="font-semibold text-foreground">
+                      {filteredAndSortedTradespeople.length}
+                    </span>{" "}
+                    professionals
                   </p>
                   <select
                     className="border border-input rounded-lg px-4 py-2 text-sm"
@@ -198,7 +245,10 @@ export default function SearchResults() {
                 <div className="space-y-8">
                   <div className="grid md:grid-cols-3 gap-6">
                     {filteredAndSortedTradespeople.map((tradesperson) => (
-                      <TradespersonCard key={tradesperson.slug} {...tradesperson} />
+                      <TradespersonCard
+                        key={tradesperson.slug}
+                        {...tradesperson}
+                      />
                     ))}
                   </div>
 
@@ -213,9 +263,12 @@ export default function SearchResults() {
       {/* CTA Section */}
       <div className="bg-primary text-white py-16 mt-16">
         <div className="container-custom text-center">
-          <h2 className="text-3xl font-bold mb-4">Can't Find What You're Looking For?</h2>
+          <h2 className="text-3xl font-bold mb-4">
+            Can't Find What You're Looking For?
+          </h2>
           <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-            Post your job and receive quotes from verified professionals in your area
+            Post your job and receive quotes from verified professionals in your
+            area
           </p>
           <Link to="/post-job">
             <Button size="lg" className="bg-accent hover:bg-accent/90">

@@ -1,70 +1,83 @@
-import { useParams, Link } from 'react-router-dom';
-import { Wrench, MapPin, Star, SlidersHorizontal } from 'lucide-react';
-import { TradespersonCard } from '@/components/TradespersonCard';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { Button } from '@/components/ui/button';
-import { useState, useMemo } from 'react';
-import { getTradespeopleByCategory } from '@/data/tradespeople';
-import { TrustSection } from '@/components/TrustSection';
+import { useParams, Link } from "react-router-dom";
+import { Wrench, MapPin, Star, SlidersHorizontal } from "lucide-react";
+import { TradespersonCard } from "@/components/TradespersonCard";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { Button } from "@/components/ui/button";
+import { useState, useMemo } from "react";
+import { getTradespeopleByCategory } from "@/data/tradespeople";
+import { TrustSection } from "@/components/TrustSection";
 
 export default function TradeCategory() {
   const { category } = useParams();
   const { t } = useLanguage();
   const [showFilters, setShowFilters] = useState(false);
   const [selectedLocations, setSelectedLocations] = useState<string[]>([]);
-  const [selectedRating, setSelectedRating] = useState<string>('All Ratings');
-  const [sortBy, setSortBy] = useState<string>('recommended');
+  const [selectedRating, setSelectedRating] = useState<string>("All Ratings");
+  const [sortBy, setSortBy] = useState<string>("recommended");
 
-  const categoryData: Record<string, { title: string; description: string; icon: string }> = {
-    'pool-maintenance': {
-      title: t('category.poolMaintenance'),
-      description: 'Find expert pool maintenance and repair professionals in Costa del Sol. Our verified specialists handle cleaning, repairs, chemical balancing, and equipment installation.',
-      icon: '💧',
+  const categoryData: Record<
+    string,
+    { title: string; description: string; icon: string }
+  > = {
+    "pool-maintenance": {
+      title: t("category.poolMaintenance"),
+      description:
+        "Find expert pool maintenance and repair professionals in Costa del Sol. Our verified specialists handle cleaning, repairs, chemical balancing, and equipment installation.",
+      icon: "💧",
     },
-    'air-conditioning': {
-      title: t('category.airConditioning'),
-      description: 'Professional air conditioning installation, repair, and maintenance services across Costa del Sol. Beat the heat with certified AC specialists.',
-      icon: '❄️',
+    "air-conditioning": {
+      title: t("category.airConditioning"),
+      description:
+        "Professional air conditioning installation, repair, and maintenance services across Costa del Sol. Beat the heat with certified AC specialists.",
+      icon: "❄️",
     },
     plumbers: {
-      title: t('category.plumbers'),
-      description: 'Reliable plumbing services for homes and businesses in Costa del Sol. From emergency repairs to full installations, our verified plumbers are ready to help.',
-      icon: '🔧',
+      title: t("category.plumbers"),
+      description:
+        "Reliable plumbing services for homes and businesses in Costa del Sol. From emergency repairs to full installations, our verified plumbers are ready to help.",
+      icon: "🔧",
     },
     electricians: {
-      title: t('category.electricians'),
-      description: 'Certified electricians serving Costa del Sol. Safe, professional electrical work including installations, repairs, and rewiring projects.',
-      icon: '⚡',
+      title: t("category.electricians"),
+      description:
+        "Certified electricians serving Costa del Sol. Safe, professional electrical work including installations, repairs, and rewiring projects.",
+      icon: "⚡",
     },
     builders: {
-      title: t('category.builders'),
-      description: 'Trusted builders and renovation specialists in Costa del Sol. Transform your property with experienced construction professionals.',
-      icon: '🏗️',
+      title: t("category.builders"),
+      description:
+        "Trusted builders and renovation specialists in Costa del Sol. Transform your property with experienced construction professionals.",
+      icon: "🏗️",
     },
     painters: {
-      title: t('category.painters'),
-      description: 'Professional painters and decorators across Costa del Sol. High-quality interior and exterior painting services.',
-      icon: '🎨',
+      title: t("category.painters"),
+      description:
+        "Professional painters and decorators across Costa del Sol. High-quality interior and exterior painting services.",
+      icon: "🎨",
     },
     locksmiths: {
-      title: t('category.locksmiths'),
-      description: 'Emergency and standard locksmith services in Costa del Sol. Fast response times and professional security solutions.',
-      icon: '🔑',
+      title: t("category.locksmiths"),
+      description:
+        "Emergency and standard locksmith services in Costa del Sol. Fast response times and professional security solutions.",
+      icon: "🔑",
     },
     gardeners: {
-      title: t('category.gardeners'),
-      description: 'Expert gardeners and landscaping professionals in Costa del Sol. Create and maintain beautiful outdoor spaces.',
-      icon: '🌿',
+      title: t("category.gardeners"),
+      description:
+        "Expert gardeners and landscaping professionals in Costa del Sol. Create and maintain beautiful outdoor spaces.",
+      icon: "🌿",
     },
-    'pest-control': {
-      title: t('category.pestControl'),
-      description: 'Professional pest control services across Costa del Sol. Safe, effective solutions for all pest problems.',
-      icon: '🐛',
+    "pest-control": {
+      title: t("category.pestControl"),
+      description:
+        "Professional pest control services across Costa del Sol. Safe, effective solutions for all pest problems.",
+      icon: "🐛",
     },
-    'property-maintenance': {
-      title: t('category.propertyMaintenance'),
-      description: 'Comprehensive property maintenance services in Costa del Sol. All-in-one solutions for your property needs.',
-      icon: '🏠',
+    "property-maintenance": {
+      title: t("category.propertyMaintenance"),
+      description:
+        "Comprehensive property maintenance services in Costa del Sol. All-in-one solutions for your property needs.",
+      icon: "🏠",
     },
   };
 
@@ -75,25 +88,35 @@ export default function TradeCategory() {
   const filteredAndSortedTradespeople = useMemo(() => {
     let filtered = [...allTradespeople];
 
-    if (selectedLocations.length > 0 && !selectedLocations.includes('All Locations')) {
-      filtered = filtered.filter(tp => selectedLocations.includes(tp.location));
+    if (
+      selectedLocations.length > 0 &&
+      !selectedLocations.includes("All Locations")
+    ) {
+      filtered = filtered.filter((tp) =>
+        selectedLocations.includes(tp.location),
+      );
     }
 
-    if (selectedRating !== 'All Ratings') {
-      const minRating = selectedRating === '5 Stars' ? 5 :
-                        selectedRating === '4+ Stars' ? 4 :
-                        selectedRating === '3+ Stars' ? 3 : 0;
-      filtered = filtered.filter(tp => tp.rating >= minRating);
+    if (selectedRating !== "All Ratings") {
+      const minRating =
+        selectedRating === "5 Stars"
+          ? 5
+          : selectedRating === "4+ Stars"
+            ? 4
+            : selectedRating === "3+ Stars"
+              ? 3
+              : 0;
+      filtered = filtered.filter((tp) => tp.rating >= minRating);
     }
 
     switch (sortBy) {
-      case 'highest-rated':
+      case "highest-rated":
         filtered.sort((a, b) => b.rating - a.rating);
         break;
-      case 'most-reviews':
+      case "most-reviews":
         filtered.sort((a, b) => b.reviewCount - a.reviewCount);
         break;
-      case 'newest':
+      case "newest":
         filtered.reverse();
         break;
       default:
@@ -104,31 +127,42 @@ export default function TradeCategory() {
   }, [allTradespeople, selectedLocations, selectedRating, sortBy]);
 
   const handleLocationChange = (location: string) => {
-    if (location === 'All Locations') {
+    if (location === "All Locations") {
       setSelectedLocations([]);
     } else {
-      setSelectedLocations(prev =>
+      setSelectedLocations((prev) =>
         prev.includes(location)
-          ? prev.filter(l => l !== location)
-          : [...prev, location]
+          ? prev.filter((l) => l !== location)
+          : [...prev, location],
       );
     }
   };
 
   const handleClearFilters = () => {
     setSelectedLocations([]);
-    setSelectedRating('All Ratings');
+    setSelectedRating("All Ratings");
   };
 
-  const locations = ['All Locations', 'Marbella', 'Málaga', 'Fuengirola', 'Estepona', 'Torremolinos', 'Mijas', 'Nerja'];
-  const ratings = ['All Ratings', '5 Stars', '4+ Stars', '3+ Stars'];
+  const locations = [
+    "All Locations",
+    "Marbella",
+    "Málaga",
+    "Fuengirola",
+    "Estepona",
+    "Torremolinos",
+    "Mijas",
+    "Nerja",
+  ];
+  const ratings = ["All Ratings", "5 Stars", "4+ Stars", "3+ Stars"];
 
   if (!currentCategory) {
     return (
       <div className="min-h-screen bg-gray-50 py-16">
         <div className="container-custom text-center">
           <h1>Category Not Found</h1>
-          <p className="text-muted-foreground mt-4">The requested trade category could not be found.</p>
+          <p className="text-muted-foreground mt-4">
+            The requested trade category could not be found.
+          </p>
         </div>
       </div>
     );
@@ -142,7 +176,9 @@ export default function TradeCategory() {
           <div className="flex items-start gap-4 mb-4">
             <div className="text-5xl">{currentCategory.icon}</div>
             <div className="flex-1">
-              <h1 className="text-3xl md:text-4xl font-bold mb-3">{currentCategory.title}</h1>
+              <h1 className="text-3xl md:text-4xl font-bold mb-3">
+                {currentCategory.title}
+              </h1>
               <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl">
                 {currentCategory.description}
               </p>
@@ -166,11 +202,13 @@ export default function TradeCategory() {
                   onClick={() => setShowFilters(!showFilters)}
                   className="lg:hidden text-primary"
                 >
-                  {showFilters ? 'Hide' : 'Show'}
+                  {showFilters ? "Hide" : "Show"}
                 </button>
               </div>
 
-              <div className={`space-y-6 ${showFilters ? 'block' : 'hidden lg:block'}`}>
+              <div
+                className={`space-y-6 ${showFilters ? "block" : "hidden lg:block"}`}
+              >
                 {/* Location Filter */}
                 <div>
                   <label className="text-sm font-medium text-foreground mb-3 flex items-center gap-2">
@@ -179,14 +217,23 @@ export default function TradeCategory() {
                   </label>
                   <div className="space-y-2">
                     {locations.map((location) => (
-                      <label key={location} className="flex items-center gap-2 cursor-pointer">
+                      <label
+                        key={location}
+                        className="flex items-center gap-2 cursor-pointer"
+                      >
                         <input
                           type="checkbox"
                           className="rounded border-gray-300"
-                          checked={location === 'All Locations' ? selectedLocations.length === 0 : selectedLocations.includes(location)}
+                          checked={
+                            location === "All Locations"
+                              ? selectedLocations.length === 0
+                              : selectedLocations.includes(location)
+                          }
                           onChange={() => handleLocationChange(location)}
                         />
-                        <span className="text-sm text-muted-foreground">{location}</span>
+                        <span className="text-sm text-muted-foreground">
+                          {location}
+                        </span>
                       </label>
                     ))}
                   </div>
@@ -200,7 +247,10 @@ export default function TradeCategory() {
                   </label>
                   <div className="space-y-2">
                     {ratings.map((rating) => (
-                      <label key={rating} className="flex items-center gap-2 cursor-pointer">
+                      <label
+                        key={rating}
+                        className="flex items-center gap-2 cursor-pointer"
+                      >
                         <input
                           type="radio"
                           name="rating"
@@ -208,13 +258,19 @@ export default function TradeCategory() {
                           checked={selectedRating === rating}
                           onChange={() => setSelectedRating(rating)}
                         />
-                        <span className="text-sm text-muted-foreground">{rating}</span>
+                        <span className="text-sm text-muted-foreground">
+                          {rating}
+                        </span>
                       </label>
                     ))}
                   </div>
                 </div>
 
-                <Button variant="outline" className="w-full" onClick={handleClearFilters}>
+                <Button
+                  variant="outline"
+                  className="w-full"
+                  onClick={handleClearFilters}
+                >
                   Clear Filters
                 </Button>
               </div>
@@ -225,7 +281,11 @@ export default function TradeCategory() {
           <div className="flex-1">
             <div className="mb-6 flex items-center justify-between">
               <p className="text-muted-foreground">
-                Showing <span className="font-semibold text-foreground">{filteredAndSortedTradespeople.length}</span> professionals
+                Showing{" "}
+                <span className="font-semibold text-foreground">
+                  {filteredAndSortedTradespeople.length}
+                </span>{" "}
+                professionals
               </p>
               <select
                 className="border border-input rounded-lg px-4 py-2 text-sm"
@@ -266,9 +326,12 @@ export default function TradeCategory() {
       {/* CTA Section */}
       <div className="bg-primary text-white py-16 mt-16">
         <div className="container-custom text-center">
-          <h2 className="text-3xl font-bold mb-4">Can't Find What You're Looking For?</h2>
+          <h2 className="text-3xl font-bold mb-4">
+            Can't Find What You're Looking For?
+          </h2>
           <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-            Post your job and receive quotes from verified {currentCategory.title.toLowerCase()} in your area
+            Post your job and receive quotes from verified{" "}
+            {currentCategory.title.toLowerCase()} in your area
           </p>
           <Link to="/post-job">
             <Button size="lg" className="bg-accent hover:bg-accent/90">
