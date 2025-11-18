@@ -298,7 +298,7 @@ export function Footer() {
               <div>
                 <h4 className="font-bold text-foreground mb-6 text-sm uppercase tracking-wider">Download Our App</h4>
                 <div className="flex flex-col sm:flex-row gap-3">
-                  <AppStoreBadges />
+                  <AppStoreBadges showTitle={false} />
                 </div>
               </div>
             </div>
