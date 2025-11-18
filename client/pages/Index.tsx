@@ -201,9 +201,29 @@ export default function Index() {
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight animate-fade-in">
               {t('hero.title')}
             </h1>
-            <p className="text-xl md:text-2xl text-primary-foreground/95 mb-10 leading-relaxed animate-fade-in font-medium" style={{ animationDelay: '0.2s' }}>
+            <p className="text-xl md:text-2xl text-primary-foreground/95 mb-12 leading-relaxed animate-fade-in font-medium" style={{ animationDelay: '0.2s' }}>
               Connect with verified professionals
             </p>
+
+            {/* Trust Badges */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.25s' }}>
+              <div className="bg-white/15 backdrop-blur-md rounded-lg p-4 md:p-5 border border-white/20 hover:bg-white/20 transition-all duration-300">
+                <div className="text-2xl md:text-3xl font-bold text-white mb-1">5+</div>
+                <p className="text-xs md:text-sm text-primary-foreground/80 font-medium">Years in Business</p>
+              </div>
+              <div className="bg-white/15 backdrop-blur-md rounded-lg p-4 md:p-5 border border-white/20 hover:bg-white/20 transition-all duration-300">
+                <div className="text-2xl md:text-3xl font-bold text-white mb-1">2K+</div>
+                <p className="text-xs md:text-sm text-primary-foreground/80 font-medium">Happy Customers</p>
+              </div>
+              <div className="bg-white/15 backdrop-blur-md rounded-lg p-4 md:p-5 border border-white/20 hover:bg-white/20 transition-all duration-300">
+                <div className="text-2xl md:text-3xl font-bold text-white mb-1">2.4K</div>
+                <p className="text-xs md:text-sm text-primary-foreground/80 font-medium">Reviews</p>
+              </div>
+              <div className="bg-white/15 backdrop-blur-md rounded-lg p-4 md:p-5 border border-white/20 hover:bg-white/20 transition-all duration-300">
+                <div className="text-2xl md:text-3xl font-bold text-white mb-1">98%</div>
+                <p className="text-xs md:text-sm text-primary-foreground/80 font-medium">Satisfaction</p>
+              </div>
+            </div>
 
             {/* Trust Indicators */}
             <div className="animate-fade-in mb-10" style={{ animationDelay: '0.3s' }}>
