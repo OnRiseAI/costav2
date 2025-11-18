@@ -27,8 +27,6 @@ import { StatsCounter } from '@/components/StatsCounter';
 import { TrustBadges } from '@/components/TrustBadges';
 import { HowItWorks } from '@/components/HowItWorks';
 import { WhyTrustCostaTrade } from '@/components/WhyTrustCostaTrade';
-import { MostBookedCarousel } from '@/components/MostBookedCarousel';
-import { RandomCategoriesCarousel } from '@/components/RandomCategoriesCarousel';
 import { RecommendedJobs } from '@/components/RecommendedJobs';
 import { CTACards } from '@/components/CTACards';
 import { LiveActivity } from '@/components/LiveActivity';
