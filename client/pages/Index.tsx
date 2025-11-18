@@ -292,8 +292,6 @@ export default function Index() {
       {/* Trust Badges Section */}
       <TrustBadges />
 
-      {/* Why Choose Us Section */}
-      <WhyChooseUs />
 
       {/* CTA Cards Section */}
       <CTACards />
