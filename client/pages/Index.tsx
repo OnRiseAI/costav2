@@ -237,13 +237,13 @@ export default function Index() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
             <div className="animate-counter" style={{ animationDelay: '0.1s' }}>
-              <StatsCounter icon={Users} value="150+" label={t('stats.tradespeople')} colorScheme="blue" />
+              <StatsCounter icon={Users} value="150+" label="Verified Tradespeople" colorScheme="blue" />
             </div>
             <div className="animate-counter" style={{ animationDelay: '0.3s' }}>
-              <StatsCounter icon={Star} value="2,400+" label={t('stats.reviews')} colorScheme="orange" />
+              <StatsCounter icon={Star} value="2,400+" label="Customer Reviews" colorScheme="orange" />
             </div>
             <div className="animate-counter" style={{ animationDelay: '0.5s' }}>
-              <StatsCounter icon={Briefcase} value="5,600+" label={t('stats.jobs')} colorScheme="green" />
+              <StatsCounter icon={Briefcase} value="5,600+" label="Jobs Completed" colorScheme="green" />
             </div>
           </div>
         </div>
