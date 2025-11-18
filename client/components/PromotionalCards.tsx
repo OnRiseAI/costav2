@@ -7,7 +7,7 @@ export function PromotionalCards() {
       <div className="container-custom">
         <div className="grid md:grid-cols-2 gap-8">
           {/* App Promotion Card */}
-          <div className="bg-gradient-to-br from-primary via-primary-600 to-primary-700 text-white rounded-2xl p-8 md:p-12 flex items-center justify-between overflow-hidden relative">
+          <div className="bg-gradient-to-br from-primary via-primary-600 to-primary-700 text-white rounded-2xl p-8 md:p-12 flex items-center justify-between overflow-hidden relative shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
             {/* Background decoration */}
             <div className="absolute inset-0 opacity-10">
               <div className="absolute top-0 right-0 w-72 h-72 bg-white rounded-full blur-3xl"></div>
