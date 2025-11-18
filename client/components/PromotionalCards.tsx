@@ -95,7 +95,7 @@ export function PromotionalCards() {
                 href="https://www.amazon.es"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-orange-600 font-semibold px-6 py-3 rounded-lg transition-colors"
+                className="inline-flex items-center gap-2 bg-white hover:bg-white/95 text-orange-600 font-semibold px-8 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
               >
                 Explore home products
                 <ExternalLink className="h-4 w-4" />
