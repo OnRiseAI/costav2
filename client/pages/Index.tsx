@@ -322,9 +322,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Recommended Jobs Section */}
-      <RecommendedJobs />
-
       {/* Promotional Cards Section */}
       <PromotionalCards />
 
