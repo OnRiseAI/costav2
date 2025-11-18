@@ -234,6 +234,9 @@ export default function Index() {
       {/* Random Categories Carousel Section */}
       <RandomCategoriesCarousel />
 
+      {/* Trust Badges Section */}
+      <TrustBadges />
+
       {/* CTA Cards Section */}
       <CTACards />
 
