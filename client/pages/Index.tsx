@@ -206,8 +206,8 @@ export default function Index() {
               Find verified professionals for any home improvement or maintenance need
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8">
-            {categories.map((category) => (
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-8">
+            {categories.slice(0, 6).map((category) => (
               <CategoryCardWithImage
                 key={category.slug}
                 name={category.name}
