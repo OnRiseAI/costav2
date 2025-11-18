@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { useState } from 'react';
 import { SearchBar } from '@/components/SearchBar';
+import { PremiumHero } from '@/components/PremiumHero';
 import { CategoryCardWithImage } from '@/components/CategoryCardWithImage';
 import { TradespersonCard } from '@/components/TradespersonCard';
 import { TradeServicesModal } from '@/components/TradeServicesModal';
