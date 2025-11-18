@@ -27,7 +27,6 @@ import { StatsCounter } from '@/components/StatsCounter';
 import { TrustBadges } from '@/components/TrustBadges';
 import { RecentSearches } from '@/components/RecentSearches';
 import { RecommendedJobs } from '@/components/RecommendedJobs';
-import { WhyChooseUs } from '@/components/WhyChooseUs';
 import { CTACards } from '@/components/CTACards';
 import { LiveActivity } from '@/components/LiveActivity';
 import { TrustIndicators } from '@/components/TrustIndicators';
