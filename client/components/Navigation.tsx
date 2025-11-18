@@ -56,77 +56,89 @@ export function Navigation() {
         </div>
       </nav>
 
-      {/* Mobile Menu - Outside nav to avoid max-width constraint */}
+      {/* Mobile Menu - Sidebar style */}
       {mobileMenuOpen && (
-        <div className="fixed top-[72px] left-0 right-0 w-screen max-h-[calc(100vh-72px)] bg-white border-t border-gray-200 overflow-y-auto z-40">
-          <div className="max-w-[1400px] mx-auto px-5 lg:px-8 py-6 flex flex-col space-y-6">
-            {/* Home Link */}
-            <div className="flex justify-center pb-4 border-b border-gray-200">
-              <Link
-                to="/"
-                className="text-lg font-semibold text-[#0a1f44] hover:text-primary transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Home
-              </Link>
-            </div>
+        <>
+          {/* Backdrop */}
+          <div
+            className="fixed top-[72px] left-0 right-0 bottom-0 bg-black/20 z-30"
+            onClick={() => setMobileMenuOpen(false)}
+          />
 
-            {/* Homeowner Section */}
-            <div className="flex flex-col items-center space-y-4">
-              <h2 className="text-2xl font-bold text-[#0a1f44]">Homeowner</h2>
-              <Link to="/review-trade" onClick={() => setMobileMenuOpen(false)} className="w-full">
-                <Button className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white px-12 py-6 text-lg rounded-full w-full">
-                  Review a Trade
-                </Button>
-              </Link>
-              <Link
-                to="/homeowner-advice"
-                className="text-muted-foreground hover:text-foreground transition-colors text-base"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Homeowner Advice Centre
-              </Link>
-              <Link
-                to="/find-expert"
-                className="text-muted-foreground hover:text-foreground transition-colors text-base"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Find Your Expert
-              </Link>
-              <Link
-                to="/saved-trades"
-                className="text-muted-foreground hover:text-foreground transition-colors text-base"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Saved Trades
-              </Link>
-            </div>
+          {/* Menu Panel */}
+          <div className="fixed top-[72px] left-0 w-80 max-h-[calc(100vh-72px)] bg-white border-r border-gray-200 overflow-y-auto z-40 shadow-lg">
+            <div className="px-6 py-6 flex flex-col space-y-6">
+              {/* Home Link */}
+              <div className="flex justify-center pb-4 border-b border-gray-200">
+                <Link
+                  to="/"
+                  className="text-lg font-semibold text-[#0a1f44] hover:text-primary transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Home
+                </Link>
+              </div>
 
-            {/* Trades Section */}
-            <div className="flex flex-col items-center space-y-4 pt-6 pb-6">
-              <h2 className="text-2xl font-bold text-[#0a1f44]">Trades</h2>
-              <Link to="/join-as-tradesperson" onClick={() => setMobileMenuOpen(false)} className="w-full">
-                <Button className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white px-12 py-6 text-lg rounded-full w-full">
-                  Join CostaTrade
-                </Button>
-              </Link>
-              <Link
-                to="/advice-centre"
-                className="text-muted-foreground hover:text-foreground transition-colors text-base"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Advice Centre
-              </Link>
-              <Link
-                to="/login"
-                className="text-muted-foreground hover:text-foreground transition-colors text-base"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Login To Members Area
-              </Link>
+              {/* Homeowner Section */}
+              <div className="flex flex-col space-y-4">
+                <h2 className="text-xl font-bold text-[#0a1f44]">Homeowner</h2>
+                <Link to="/review-trade" onClick={() => setMobileMenuOpen(false)}>
+                  <Button className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white px-6 py-3 text-base rounded-lg w-full">
+                    Review a Trade
+                  </Button>
+                </Link>
+                <Link
+                  to="/homeowner-advice"
+                  className="text-muted-foreground hover:text-foreground transition-colors text-sm pl-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Homeowner Advice Centre
+                </Link>
+                <Link
+                  to="/find-expert"
+                  className="text-muted-foreground hover:text-foreground transition-colors text-sm pl-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Find Your Expert
+                </Link>
+                <Link
+                  to="/saved-trades"
+                  className="text-muted-foreground hover:text-foreground transition-colors text-sm pl-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Saved Trades
+                </Link>
+              </div>
+
+              {/* Divider */}
+              <div className="border-t border-gray-200" />
+
+              {/* Trades Section */}
+              <div className="flex flex-col space-y-4 pb-6">
+                <h2 className="text-xl font-bold text-[#0a1f44]">Trades</h2>
+                <Link to="/join-as-tradesperson" onClick={() => setMobileMenuOpen(false)}>
+                  <Button className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white px-6 py-3 text-base rounded-lg w-full">
+                    Join CostaTrade
+                  </Button>
+                </Link>
+                <Link
+                  to="/advice-centre"
+                  className="text-muted-foreground hover:text-foreground transition-colors text-sm pl-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Advice Centre
+                </Link>
+                <Link
+                  to="/login"
+                  className="text-muted-foreground hover:text-foreground transition-colors text-sm pl-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Login To Members Area
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
+        </>
       )}
     </>
   );
