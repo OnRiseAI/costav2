@@ -28,12 +28,37 @@ export function PromotionalCards() {
               </div>
             </div>
 
-            {/* Phone mockup placeholder */}
-            <div className="relative z-10 hidden md:flex flex-shrink-0 ml-8">
-              <div className="bg-white rounded-2xl shadow-2xl p-2 w-24 h-40 flex items-center justify-center border-4 border-primary-600">
-                <div className="bg-gradient-to-b from-primary-100 to-primary-50 w-full h-full rounded-xl flex items-center justify-center">
-                  <span className="text-primary-600 text-[10px] font-bold text-center">App</span>
+            {/* Phone mockup with app UI */}
+            <div className="relative z-10 hidden md:flex flex-shrink-0 ml-8 group">
+              <div className="relative">
+                {/* Phone frame */}
+                <div className="bg-black rounded-3xl shadow-2xl overflow-hidden border-8 border-gray-900 w-28 h-56 flex flex-col">
+                  {/* Notch */}
+                  <div className="h-6 bg-black flex items-center justify-center relative z-10">
+                    <div className="h-5 w-32 bg-black rounded-b-2xl"></div>
+                  </div>
+                  {/* Screen */}
+                  <div className="flex-1 bg-gradient-to-b from-primary via-primary-600 to-primary-700 flex flex-col items-center justify-start p-2 overflow-hidden">
+                    {/* Status bar items */}
+                    <div className="w-full flex justify-between items-center px-2 py-1 text-white text-[6px]">
+                      <span>9:41</span>
+                      <div className="flex gap-0.5">
+                        <div className="w-1 h-1 bg-white rounded-full"></div>
+                        <div className="w-1 h-1 bg-white rounded-full"></div>
+                      </div>
+                    </div>
+                    {/* App UI elements */}
+                    <div className="w-full flex-1 flex flex-col items-center justify-center gap-1 text-white">
+                      <div className="w-6 h-6 rounded-lg bg-white/20 flex items-center justify-center">
+                        <span className="text-[8px] font-bold">CT</span>
+                      </div>
+                      <div className="h-6 w-16 bg-white/10 rounded-md"></div>
+                      <div className="h-1 w-12 bg-white/20 rounded-full"></div>
+                    </div>
+                  </div>
                 </div>
+                {/* Phone shadow */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-primary/50 to-accent/50 rounded-3xl blur-xl -z-10 group-hover:blur-2xl transition-all duration-300 opacity-50 group-hover:opacity-75"></div>
               </div>
             </div>
           </div>
