@@ -245,9 +245,6 @@ export default function Index() {
       {/* Trust Badges Section */}
       <TrustBadges />
 
-      {/* Recommended Jobs Carousel Section */}
-      <RecommendedJobs />
-
       {/* CTA Cards Section */}
       <CTACards />
 
