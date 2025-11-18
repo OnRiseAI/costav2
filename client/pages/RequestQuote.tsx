@@ -52,7 +52,7 @@ export default function RequestQuote() {
             {/* Hero Image */}
             <div className="relative w-full h-40 md:h-48 overflow-hidden">
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2F9b0e75d583354db2bff6b7a9a1992f92?format=webp&width=800"
+                src="https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2F89158a6460c14463b735f35d53a4b21a?format=webp&width=800"
                 alt="Construction tools"
                 className="w-full h-full object-cover"
               />
