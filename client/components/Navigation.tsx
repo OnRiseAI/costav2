@@ -104,7 +104,7 @@ export function Navigation() {
                 <h2 className="text-2xl font-bold text-[#0a1f44]">Trades</h2>
                 <Link to="/join-as-tradesperson" onClick={() => setMobileMenuOpen(false)}>
                   <Button className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white px-12 py-6 text-lg rounded-full">
-                    Join TradeFinder
+                    Join CostaTrade
                   </Button>
                 </Link>
                 <Link

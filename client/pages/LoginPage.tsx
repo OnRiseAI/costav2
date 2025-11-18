@@ -32,7 +32,7 @@ export default function LoginPage() {
               Welcome back
             </h1>
             <p className="text-muted-foreground">
-              Sign in to your TradeFinder account
+              Sign in to your CostaTrade account
             </p>
           </div>
 

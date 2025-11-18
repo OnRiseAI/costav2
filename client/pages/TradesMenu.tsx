@@ -14,7 +14,7 @@ export default function TradesMenu() {
           {/* Join Button */}
           <Link to="/join-as-tradesperson" className="w-full max-w-sm">
             <Button className="w-full bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white px-12 py-7 text-xl font-medium rounded-full shadow-sm">
-              Join TradeFinder
+              Join CostaTrade
             </Button>
           </Link>
 
