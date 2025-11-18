@@ -1,24 +1,37 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Eye, EyeOff } from 'lucide-react';
+import { Eye, EyeOff, AlertCircle } from 'lucide-react';
+import { useAuth } from '@/contexts/AuthContext';
 
 export default function LoginPage() {
   const navigate = useNavigate();
+  const { signIn, loading } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
+  const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const isFormValid = email && password;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError('');
+    setIsLoading(true);
+
     if (isFormValid) {
-      console.log('Login submitted:', { email, rememberMe });
-      // TODO: Implement actual login logic
-      alert('Login functionality will be implemented soon!');
-      navigate('/dashboard');
+      const { error: signInError } = await signIn(email, password);
+
+      if (signInError) {
+        setError(signInError.message || 'Failed to sign in');
+        setIsLoading(false);
+        return;
+      }
+
+      // Determine user type and redirect
+      navigate('/customer-dashboard');
     }
   };
 
@@ -35,6 +48,13 @@ export default function LoginPage() {
               Sign in to your CostaTrade account
             </p>
           </div>
+
+          {error && (
+            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3">
+              <AlertCircle className="h-5 w-5 text-red-600 flex-shrink-0 mt-0.5" />
+              <p className="text-sm text-red-700">{error}</p>
+            </div>
+          )}
 
           {/* Login Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -100,9 +120,9 @@ export default function LoginPage() {
               type="submit"
               size="lg"
               className="w-full text-lg py-6 bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white rounded-full disabled:opacity-50 disabled:cursor-not-allowed"
-              disabled={!isFormValid}
+              disabled={!isFormValid || isLoading || loading}
             >
-              Sign in
+              {isLoading || loading ? 'Signing in...' : 'Sign in'}
             </Button>
           </form>
 
