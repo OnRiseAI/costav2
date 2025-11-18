@@ -84,7 +84,7 @@ export function SearchBar({ variant = 'hero' }: SearchBarProps) {
         )}
         <Button
           type="submit"
-          className={`bg-accent hover:bg-accent/90 ${isHero ? 'py-6 px-8 text-lg' : 'px-6'}`}
+          className={`bg-accent hover:bg-accent/90 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 ${isHero ? 'py-6 px-8 text-lg' : 'px-6'}`}
         >
           <Search className={`${isHero ? 'mr-2 h-5 w-5' : 'mr-2 h-4 w-4'}`} />
           {t('hero.searchButton')}
