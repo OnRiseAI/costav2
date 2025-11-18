@@ -403,7 +403,7 @@ export default function Index() {
         <div className="absolute inset-0 opacity-5 pattern-dots text-gray-400 z-10"></div>
         <div className="container-custom relative z-20">
           <div className="text-center mb-12 animate-fade-in">
-            <h2 className="mb-4 text-2xl md:text-3xl lg:text-4xl">{t('reviews.title')}</h2>
+            <h2 className="mb-4 text-2xl md:text-3xl lg:text-4xl">Customer Reviews</h2>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
               Real reviews from real customers across Costa del Sol
             </p>
