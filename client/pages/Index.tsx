@@ -27,6 +27,7 @@ import { StatsCounter } from '@/components/StatsCounter';
 import { TrustBadges } from '@/components/TrustBadges';
 import { HowItWorks } from '@/components/HowItWorks';
 import { WhyTrustCostaTrade } from '@/components/WhyTrustCostaTrade';
+import { MostBookedCarousel } from '@/components/MostBookedCarousel';
 import { RecommendedJobs } from '@/components/RecommendedJobs';
 import { CTACards } from '@/components/CTACards';
 import { LiveActivity } from '@/components/LiveActivity';
@@ -183,6 +184,9 @@ export default function Index() {
 
       {/* How It Works Section */}
       <HowItWorks />
+
+      {/* Most Booked This Month Section */}
+      <MostBookedCarousel />
 
       {/* Why Trust CostaTrade Section */}
       <WhyTrustCostaTrade />
