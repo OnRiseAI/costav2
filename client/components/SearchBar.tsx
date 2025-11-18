@@ -57,14 +57,14 @@ export function SearchBar({ variant = 'hero' }: SearchBarProps) {
   return (
     <form onSubmit={handleSearch} className="w-full">
       <div className={`flex flex-col ${isHero ? 'md:flex-row gap-4' : 'sm:flex-row gap-2'}`}>
-        <div className="flex-1 relative">
+        <div className="flex-1 relative group">
           <input
             type="text"
             value={trade}
             onChange={(e) => setTrade(e.target.value)}
             placeholder={isHero ? jobExamples[placeholderIndex] : t('hero.searchPlaceholder')}
-            className={`w-full px-4 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-foreground placeholder:text-muted-foreground ${
-              isHero ? 'py-4 text-lg placeholder:animate-pulse' : 'py-3'
+            className={`w-full px-4 border-2 border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-foreground placeholder:text-muted-foreground group-hover:border-primary/50 transition-all duration-300 ${
+              isHero ? 'py-4 text-lg placeholder:font-medium' : 'py-3'
             }`}
             style={isHero ? { transition: 'all 0.3s ease-in-out' } : {}}
           />
