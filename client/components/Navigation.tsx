@@ -55,8 +55,8 @@ export function Navigation() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-6 border-t border-border animate-slide-in bg-white">
-            <div className="flex flex-col space-y-6">
+          <div className="fixed top-[72px] left-0 right-0 w-full max-h-[calc(100vh-72px)] bg-white border-t border-gray-200 overflow-y-auto z-40 md:hidden">
+            <div className="px-5 lg:px-8 py-6 flex flex-col space-y-6">
               {/* Home Link */}
               <div className="flex justify-center pb-4 border-b border-gray-200">
                 <Link
@@ -71,8 +71,8 @@ export function Navigation() {
               {/* Homeowner Section */}
               <div className="flex flex-col items-center space-y-4">
                 <h2 className="text-2xl font-bold text-[#0a1f44]">Homeowner</h2>
-                <Link to="/review-trade" onClick={() => setMobileMenuOpen(false)}>
-                  <Button className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white px-12 py-6 text-lg rounded-full">
+                <Link to="/review-trade" onClick={() => setMobileMenuOpen(false)} className="w-full">
+                  <Button className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white px-12 py-6 text-lg rounded-full w-full">
                     Review a Trade
                   </Button>
                 </Link>
@@ -100,10 +100,10 @@ export function Navigation() {
               </div>
 
               {/* Trades Section */}
-              <div className="flex flex-col items-center space-y-4 pt-6">
+              <div className="flex flex-col items-center space-y-4 pt-6 pb-6">
                 <h2 className="text-2xl font-bold text-[#0a1f44]">Trades</h2>
-                <Link to="/join-as-tradesperson" onClick={() => setMobileMenuOpen(false)}>
-                  <Button className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white px-12 py-6 text-lg rounded-full">
+                <Link to="/join-as-tradesperson" onClick={() => setMobileMenuOpen(false)} className="w-full">
+                  <Button className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white px-12 py-6 text-lg rounded-full w-full">
                     Join CostaTrade
                   </Button>
                 </Link>
