@@ -187,9 +187,6 @@ export default function Index() {
       {/* Why Trust CostaTrade Section */}
       <WhyTrustCostaTrade />
 
-      {/* Popular Services Section */}
-      <PopularServices />
-
       {/* Popular Trade Categories Section */}
       <section className="bg-gradient-to-b from-white via-gray-50 to-white py-16 md:py-24 relative overflow-hidden">
         {/* Subtle Geometric Background */}
