@@ -53,10 +53,11 @@ function App() {
 
               {/* Authentication */}
               <Route path="/login" element={<LoginPage />} />
-              <Route path="/signup" element={<PlaceholderPage title="Sign Up" description="Create your TradeFinder account" />} />
+              <Route path="/signup" element={<SignupPage />} />
 
               {/* Homeowner Dashboard */}
-              <Route path="/dashboard" element={<PlaceholderPage title="Dashboard" description="Manage your jobs, quotes, and saved tradespeople" />} />
+              <Route path="/customer-dashboard" element={<CustomerDashboard />} />
+              <Route path="/dashboard" element={<CustomerDashboard />} />
               <Route path="/post-job" element={<PostJob />} />
               <Route path="/post-job/results" element={<PostJobResults />} />
               <Route path="/request-quote" element={<RequestQuote />} />
@@ -69,8 +70,9 @@ function App() {
               <Route path="/advice-centre" element={<PlaceholderPage title="Advice Centre" description="Resources and guidance for tradespeople and homeowners" />} />
 
               {/* Tradesperson Dashboard */}
-              <Route path="/pro/dashboard" element={<PlaceholderPage title="Pro Dashboard" description="Manage your leads, profile, and business" />} />
-              <Route path="/pro/profile" element={<PlaceholderPage title="Manage Profile" description="Update your business information and portfolio" />} />
+              <Route path="/pro/dashboard" element={<Tradespeople />} />
+              <Route path="/pro/profile" element={<Tradespeople />} />
+              <Route path="/tradesperson-profile" element={<Tradespeople />} />
               <Route path="/pro/leads" element={<PlaceholderPage title="Leads" description="Browse and quote on available jobs" />} />
               <Route path="/pro/reviews" element={<PlaceholderPage title="Reviews" description="Manage and respond to customer reviews" />} />
 
