@@ -466,33 +466,6 @@ export default function Index() {
       {/* Promotional Cards Section */}
       <PromotionalCards />
 
-      {/* Newsletter Section */}
-      <Newsletter />
-
-      {/* CTA Section - Homeowner */}
-      <section className="bg-gradient-to-br from-primary via-primary-600 to-primary-700 text-white py-16 md:py-20 relative overflow-hidden">
-        {/* Dramatic Background Image */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="https://images.pexels.com/photos/5691607/pexels-photo-5691607.jpeg?auto=compress&cs=tinysrgb&w=1920"
-            alt="Professional tradesperson"
-            className="w-full h-full object-cover opacity-20"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary-600/85 to-primary-700/90"></div>
-        </div>
-        <div className="absolute inset-0 opacity-10 pattern-dots text-white z-10"></div>
-        <div className="container-custom text-center relative z-20">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">{t('cta.homeowner.title')}</h2>
-          <p className="text-base sm:text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-            {t('cta.homeowner.desc')}
-          </p>
-          <Link to="/post-job">
-            <Button size="lg" className="bg-accent hover:bg-accent/90 text-lg px-8 py-6">
-              {t('cta.homeowner.button')}
-            </Button>
-          </Link>
-        </div>
-      </section>
 
       {/* Trade Services Modal */}
       <TradeServicesModal
