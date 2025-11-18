@@ -85,7 +85,7 @@ export default function Index() {
       slug: 'painters',
       icon: PaintBucket,
       count: 3,
-      imageUrl: 'https://images.pexels.com/photos/7217966/pexels-photo-7217966.jpeg?auto=compress&cs=tinysrgb&w=600'
+      imageUrl: 'https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2F982af9470e6c4906a7a0976f156cae66?format=webp&width=800'
     },
     {
       name: 'Locksmiths',
