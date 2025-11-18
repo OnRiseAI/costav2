@@ -18,8 +18,6 @@ import {
   Wand2,
 } from 'lucide-react';
 import { useState } from 'react';
-import { SearchBar } from '@/components/SearchBar';
-import { PremiumHero } from '@/components/PremiumHero';
 import { ClientHero } from '@/components/ClientHero';
 import { CategoryCardWithImage } from '@/components/CategoryCardWithImage';
 import { TradespersonCard } from '@/components/TradespersonCard';
@@ -28,11 +26,9 @@ import { ReviewCard } from '@/components/ReviewCard';
 import { StatsCounter } from '@/components/StatsCounter';
 import { TrustBadges } from '@/components/TrustBadges';
 import { HowItWorks } from '@/components/HowItWorks';
-import { RecentSearches } from '@/components/RecentSearches';
 import { RecommendedJobs } from '@/components/RecommendedJobs';
 import { CTACards } from '@/components/CTACards';
 import { LiveActivity } from '@/components/LiveActivity';
-import { TrustIndicators } from '@/components/TrustIndicators';
 import { PromotionalCards } from '@/components/PromotionalCards';
 import { AppStoreBadges } from '@/components/AppStoreBadges';
 import { useLanguage } from '@/contexts/LanguageContext';
