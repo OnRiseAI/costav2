@@ -1,0 +1,121 @@
+import { Zap, Wrench, Wind, Hammer, PaintBucket, Droplets } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+
+export function PopularServices() {
+  const services = [
+    {
+      icon: Zap,
+      heading: 'Electrician',
+      text: 'Lighting, wiring and electrical repairs',
+      slug: 'electricians',
+      color: 'text-yellow-600',
+      bgColor: 'bg-yellow-50',
+    },
+    {
+      icon: Wrench,
+      heading: 'Plumber',
+      text: 'Leaks, blockages and installations',
+      slug: 'plumbers',
+      color: 'text-blue-600',
+      bgColor: 'bg-blue-50',
+    },
+    {
+      icon: Wind,
+      heading: 'Air Conditioning',
+      text: 'Install, service or repair your AC',
+      slug: 'air-conditioning',
+      color: 'text-cyan-600',
+      bgColor: 'bg-cyan-50',
+    },
+    {
+      icon: Hammer,
+      heading: 'Builder and Renovation',
+      text: 'Home improvements and structural work',
+      slug: 'builders',
+      color: 'text-orange-600',
+      bgColor: 'bg-orange-50',
+    },
+    {
+      icon: PaintBucket,
+      heading: 'Painter and Decorator',
+      text: 'Refresh or transform your home interior',
+      slug: 'painters',
+      color: 'text-pink-600',
+      bgColor: 'bg-pink-50',
+    },
+    {
+      icon: Droplets,
+      heading: 'Pool Maintenance',
+      text: 'Cleaning, repair and seasonal care',
+      slug: 'pool-maintenance',
+      color: 'text-emerald-600',
+      bgColor: 'bg-emerald-50',
+    },
+  ];
+
+  return (
+    <section className="relative py-20 md:py-28 overflow-hidden bg-gradient-to-b from-white via-blue-50/10 to-white">
+      {/* Subtle Background Orbs */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-1/3 right-0 w-80 h-80 bg-gradient-to-bl from-blue-100/20 to-transparent rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-gradient-to-tr from-cyan-100/15 to-transparent rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container-custom relative z-10">
+        {/* Section Header */}
+        <div className="max-w-2xl mx-auto text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
+            Popular Services
+          </h2>
+          <p className="text-lg md:text-xl text-muted-foreground font-light">
+            Your most requested trades across the Costa del Sol
+          </p>
+        </div>
+
+        {/* Services Grid - 3 columns on desktop, 2 on tablet, 1 on mobile */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mb-12">
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <Link
+                key={index}
+                to={`/trades/${service.slug}`}
+                className="group"
+              >
+                <div
+                  className="h-full flex flex-col items-center text-center p-8 md:p-10 bg-white rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 border border-white/80 group-hover:border-primary/20 animate-slide-up"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  {/* Icon Container */}
+                  <div className={`w-16 h-16 ${service.bgColor} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500`}>
+                    <Icon className={`w-8 h-8 ${service.color}`} strokeWidth={1.5} />
+                  </div>
+
+                  {/* Heading */}
+                  <h3 className="text-lg md:text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+                    {service.heading}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-sm md:text-base text-muted-foreground font-light leading-relaxed flex-grow">
+                    {service.text}
+                  </p>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* View All Link */}
+        <div className="text-center">
+          <Link to="/trades">
+            <Button variant="outline" className="text-base font-medium">
+              View all categories
+            </Button>
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
