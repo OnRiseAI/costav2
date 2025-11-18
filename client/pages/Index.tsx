@@ -211,7 +211,7 @@ export default function Index() {
           <div className="text-center">
             <Link to="/trades">
               <Button variant="outline" size="lg" className="gap-2">
-                {t('categories.viewAll')}
+                View All Categories
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
