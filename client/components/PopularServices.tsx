@@ -11,6 +11,7 @@ export function PopularServices() {
       slug: 'electricians',
       color: 'text-yellow-600',
       bgColor: 'bg-yellow-50',
+      imageUrl: 'https://images.pexels.com/photos/4473494/pexels-photo-4473494.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
     },
     {
       icon: Wrench,
@@ -19,6 +20,7 @@ export function PopularServices() {
       slug: 'plumbers',
       color: 'text-blue-600',
       bgColor: 'bg-blue-50',
+      imageUrl: 'https://images.pexels.com/photos/8486928/pexels-photo-8486928.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
     },
     {
       icon: Wind,
@@ -27,6 +29,7 @@ export function PopularServices() {
       slug: 'air-conditioning',
       color: 'text-cyan-600',
       bgColor: 'bg-cyan-50',
+      imageUrl: 'https://images.pexels.com/photos/6639226/pexels-photo-6639226.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
     },
     {
       icon: Hammer,
@@ -35,6 +38,7 @@ export function PopularServices() {
       slug: 'builders',
       color: 'text-orange-600',
       bgColor: 'bg-orange-50',
+      imageUrl: 'https://images.pexels.com/photos/3964048/pexels-photo-3964048.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
     },
     {
       icon: PaintBucket,
@@ -43,6 +47,7 @@ export function PopularServices() {
       slug: 'painters',
       color: 'text-pink-600',
       bgColor: 'bg-pink-50',
+      imageUrl: 'https://images.pexels.com/photos/7217966/pexels-photo-7217966.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
     },
     {
       icon: Droplets,
@@ -51,6 +56,7 @@ export function PopularServices() {
       slug: 'pool-maintenance',
       color: 'text-emerald-600',
       bgColor: 'bg-emerald-50',
+      imageUrl: 'https://images.pexels.com/photos/6684752/pexels-photo-6684752.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
     },
   ];
 
