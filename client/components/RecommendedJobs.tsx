@@ -112,8 +112,8 @@ export function RecommendedJobs() {
           </button>
         </div>
 
-        <div className="overflow-x-auto scrollbar-hide -mx-4 sm:-mx-6 lg:-mx-8">
-          <div className="flex gap-4 pb-4 px-4 sm:px-6 lg:px-8 min-w-min">
+        <div className="overflow-x-auto scrollbar-hide -mx-4 sm:-mx-6 lg:-mx-8" dir="rtl">
+          <div className="flex gap-4 pb-4 px-4 sm:px-6 lg:px-8 min-w-min" dir="ltr">
             {recommendedJobs.map((job, index) => {
               const colors = tagColors[job.tag as keyof typeof tagColors] || tagColors.Popular;
               return (
