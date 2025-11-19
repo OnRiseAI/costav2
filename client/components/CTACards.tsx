@@ -18,8 +18,8 @@ export function CTACards() {
     {
       title: "Tradesperson sign up",
       description:
-        "Over 1 million homeowners visit our site looking for approved and quality tradespeople like you.",
-      buttonText: "Join today",
+        "Join our network for free. We're here to help you find more work and grow your business.",
+      buttonText: "Add your business for free",
       buttonLink: "/join-as-tradesperson",
       imageUrl:
         "https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2Fe42240bb83e345c9b7832aa1df5a51fe?format=webp&width=800",

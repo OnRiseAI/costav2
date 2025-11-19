@@ -30,6 +30,7 @@ import { WhyTrustCostaTrade } from "@/components/WhyTrustCostaTrade";
 import { CTACards } from "@/components/CTACards";
 import { LiveActivity } from "@/components/LiveActivity";
 import { PromotionalCards } from "@/components/PromotionalCards";
+import { TradespersonPromo } from "@/components/TradespersonPromo";
 import { AppStoreBadges } from "@/components/AppStoreBadges";
 import { Button } from "@/components/ui/button";
 import { getFeaturedTradespeople } from "@/data/tradespeople";
@@ -324,6 +325,9 @@ export default function Index() {
 
       {/* Promotional Cards Section */}
       <PromotionalCards />
+
+      {/* Tradesperson Promo Section */}
+      <TradespersonPromo />
 
       {/* Trade Services Modal */}
       <TradeServicesModal
