@@ -13,6 +13,8 @@ import RequestQuote from "@/pages/RequestQuote";
 import RequestQuoteContact from "@/pages/RequestQuoteContact";
 import LoginPage from "@/pages/LoginPage";
 import SignupPage from "@/pages/SignupPage";
+import JoinAsTradesperson from "@/pages/JoinAsTradesperson";
+import TradespersonDetails from "@/pages/TradespersonDetails";
 import { CustomerDashboard } from "@/pages/CustomerDashboard";
 import { Tradespeople } from "@/pages/Tradespeople";
 import TradesMenu from "@/pages/TradesMenu";
@@ -101,12 +103,11 @@ function AppContent() {
             <Route path="/trades-menu" element={<TradesMenu />} />
             <Route
               path="/join-as-tradesperson"
-              element={
-                <PlaceholderPage
-                  title="Tradesperson Application"
-                  description="Apply to join our verified network of professionals"
-                />
-              }
+              element={<JoinAsTradesperson />}
+            />
+            <Route
+              path="/tradesperson/details"
+              element={<TradespersonDetails />}
             />
 
             {/* Authentication */}
