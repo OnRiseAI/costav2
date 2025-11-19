@@ -26,6 +26,7 @@ type TradespersonApplication = {
   website?: string;
   postcode?: string;
   selectedAreas?: string[];
+  yearsInBusiness?: string;
   businessType?: string;
   employeeRange?: string;
   firstName?: string;
@@ -192,6 +193,7 @@ export default function TradespersonReview() {
                 <ul className="text-sm text-muted-foreground space-y-1">
                   <li>Business name: {formatValue(application?.businessName)}</li>
                   <li>Website: {formatValue(application?.website)}</li>
+                  <li>Time in business: {formatValue(application?.yearsInBusiness)}</li>
                   <li>Business type: {formatValue(application?.businessType)}</li>
                   <li>Employees: {formatValue(application?.employeeRange)}</li>
                 </ul>
