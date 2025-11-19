@@ -147,10 +147,10 @@ export function Footer() {
                 <div className="flex items-start gap-3">
                   <Mail className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                   <a
-                    href="mailto:info@tradefinder.es"
+                    href="mailto:hi@costatrades.com"
                     className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
-                    info@tradefinder.es
+                    hi@costatrades.com
                   </a>
                 </div>
               </div>
