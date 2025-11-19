@@ -87,13 +87,13 @@ export function ClientHero() {
         {/* Main Content Container */}
         <div className="max-w-3xl mx-auto">
           {/* Premium Headline */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground text-center mb-6 leading-tight tracking-tight animate-fade-in">
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-foreground text-center mb-8 leading-tight tracking-tighter animate-fade-in">
             Trusted local tradespeople for your Costa del Sol home
           </h2>
 
           {/* Elegant Subheading */}
           <p
-            className="text-lg md:text-xl text-muted-foreground text-center mb-12 leading-relaxed font-light max-w-2xl mx-auto animate-fade-in"
+            className="text-xl md:text-2xl text-muted-foreground text-center mb-12 leading-relaxed font-light max-w-2xl mx-auto animate-fade-in"
             style={{ animationDelay: "0.1s" }}
           >
             Choose from professionals offering multilingual support and
@@ -104,10 +104,10 @@ export function ClientHero() {
           {/* Premium Search Bar */}
           <form
             onSubmit={handleSearch}
-            className="mb-10 animate-scale-in"
+            className="mb-16 animate-scale-in max-w-2xl mx-auto"
             style={{ animationDelay: "0.2s" }}
           >
-            <div className="relative bg-white rounded-full shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden border border-white/80 group">
+            <div className="relative bg-white rounded-full shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 group">
               {/* Subtle inner glow */}
               <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
