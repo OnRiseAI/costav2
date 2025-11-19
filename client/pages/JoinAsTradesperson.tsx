@@ -8,7 +8,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Card } from "@/components/ui/card";
-import { CheckCircle2, ChevronDown, ArrowRight, Quote } from "lucide-react";
+import { CheckCircle2, ChevronDown, ArrowRight, Quote, ChevronRight } from "lucide-react";
 
 const HERO_TRADES = [
   { slug: "electrician", label: "Electrician" },
@@ -155,20 +155,22 @@ export default function JoinAsTradesperson() {
 
                 <DialogContent className="max-w-2xl w-full max-h-[85vh] overflow-y-auto sm:rounded-2xl">
                   <DialogHeader>
-                    <DialogTitle>Select your trade</DialogTitle>
+                    <DialogTitle>Select your main trade</DialogTitle>
                   </DialogHeader>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-2">
+                  <div className="mt-2 space-y-3">
                     {HERO_TRADES.map((trade) => (
                       <button
                         key={trade.slug}
                         type="button"
                         onClick={() => handleTradeSelect(trade.slug)}
-                        className="border border-gray-200 rounded-xl px-3 py-3 sm:py-4 text-sm sm:text-base text-foreground bg-white hover:border-primary hover:bg-primary/5 transition-colors flex items-center justify-between gap-2"
+                        className="w-full border-2 border-gray-200 rounded-xl p-4 hover:border-primary transition-colors flex items-center justify-between group text-left bg-white"
                       >
-                        <span>{trade.label}</span>
-                        {selectedTradeSlug === trade.slug && (
-                          <CheckCircle2 className="h-4 w-4 text-primary" />
-                        )}
+                        <div>
+                          <div className="font-medium text-base text-foreground group-hover:text-primary">
+                            {trade.label}
+                          </div>
+                        </div>
+                        <ChevronRight className="h-5 w-5 text-muted-foreground group-hover:text-primary" />
                       </button>
                     ))}
                   </div>
