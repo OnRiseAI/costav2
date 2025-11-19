@@ -228,95 +228,107 @@ export default function TradespersonDetails() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 font-sans">
       <TradespersonProgress currentStep={2} />
 
-      <div className="container-custom py-8 md:py-10 max-w-3xl">
+      <div className="container-custom py-12 md:py-16 max-w-4xl">
         <button
           type="button"
           onClick={() => navigate(-1)}
-          className="flex items-center gap-2 text-muted-foreground hover:text-foreground mb-6 text-sm"
+          className="group flex items-center gap-2 text-muted-foreground hover:text-[#0a1f44] mb-8 text-sm font-medium transition-colors"
         >
-          <ChevronLeft className="h-4 w-4" />
-          <span>Back</span>
+          <div className="p-1 rounded-full bg-white border border-gray-200 group-hover:border-[#0a1f44] transition-colors">
+            <ChevronLeft className="h-4 w-4" />
+          </div>
+          <span>Back to previous step</span>
         </button>
 
-        <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
-          Tell us about your business
-        </h1>
-        <p className="text-sm md:text-base text-muted-foreground mb-6">
-          You selected <span className="font-semibold">{tradeLabel}</span>. We
-          use these details to create your CostaTrade profile and match you with
-          local homeowners.
-        </p>
+        <div className="mb-10">
+          <h1 className="text-3xl md:text-4xl font-bold text-[#0a1f44] mb-4 tracking-tight">
+            Tell us about your business
+          </h1>
+          <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
+            You selected <span className="font-semibold text-[#0a1f44]">{tradeLabel}</span>. We
+            use these details to create your CostaTrade profile and match you with
+            local homeowners.
+          </p>
+        </div>
 
-        <form onSubmit={handleSubmit} className="space-y-10">
-          <section className="space-y-4">
-            <h2 className="text-lg md:text-xl font-semibold text-foreground">
+        <form onSubmit={handleSubmit} className="space-y-12">
+          <section className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100">
+            <h2 className="text-xl md:text-2xl font-bold text-[#0a1f44] mb-8 flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-50 text-blue-600 text-sm font-bold">1</span>
               Business details
             </h2>
 
-            <div className="grid gap-4 md:grid-cols-3">
-              <div className="space-y-1.5">
-                <label className="text-sm font-medium text-foreground">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-gray-700">
                   Business name*
                 </label>
                 <Input
                   value={businessName}
                   onChange={(event) => setBusinessName(event.target.value)}
                   placeholder="Enter your business name"
-                  className="h-11 md:h-12 bg-white border-gray-300"
+                  className="h-12 bg-gray-50 border-gray-200 focus:bg-white focus:border-[#0a1f44] transition-all rounded-xl"
                   required
                 />
               </div>
 
-              <div className="space-y-1.5">
-                <label className="text-sm font-medium text-foreground">
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-gray-700">
                   Business website (optional)
                 </label>
                 <Input
                   type="text"
                   value={website}
                   onChange={(event) => setWebsite(event.target.value)}
-                  placeholder="onrise.ai or https://www.onrise.ai"
-                  className="h-11 md:h-12 bg-white border-gray-300"
+                  placeholder="e.g. www.mybusiness.com"
+                  className="h-12 bg-gray-50 border-gray-200 focus:bg-white focus:border-[#0a1f44] transition-all rounded-xl"
                 />
               </div>
 
-              <div className="space-y-1.5">
-                <label className="text-sm font-medium text-foreground">
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-gray-700">
                   Business postcode*
                 </label>
                 <Input
                   value={postcode}
                   onChange={(event) => setPostcode(event.target.value)}
                   onBlur={handlePostcodeBlur}
-                  placeholder="Business postcode"
-                  className="h-11 md:h-12 bg-white border-gray-300"
+                  placeholder="Enter postcode"
+                  className="h-12 bg-gray-50 border-gray-200 focus:bg-white focus:border-[#0a1f44] transition-all rounded-xl"
                   required
                 />
               </div>
             </div>
 
-            <div className="mt-6 space-y-3">
-              <Card className="overflow-hidden rounded-2xl border-gray-200 bg-white">
-                <div className="relative w-full h-64 md:h-72 bg-gray-100">
+            <div className="mt-8 space-y-4">
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-gray-700">
+                  Service areas
+                </label>
+                <p className="text-sm text-muted-foreground">
+                  Select the areas you cover on the Costa del Sol.
+                </p>
+              </div>
+
+              <Card className="overflow-hidden rounded-2xl border-gray-200 bg-white shadow-none ring-1 ring-gray-200">
+                <div className="relative w-full h-64 md:h-80 bg-gray-100">
                   <iframe
                     title="Costa del Sol map"
                     src={mapUrl}
-                    className="w-full h-full border-0"
+                    className="w-full h-full border-0 grayscale-[20%]"
                     loading="lazy"
                   />
                   <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-blue-600/70 border-4 border-blue-400/70 shadow-lg" />
+                    <div className="w-12 h-12 rounded-full bg-[#0a1f44]/90 border-4 border-white shadow-xl flex items-center justify-center">
+                      <div className="w-3 h-3 bg-white rounded-full animate-pulse" />
+                    </div>
                   </div>
                 </div>
-                <div className="p-4 border-t border-gray-200 space-y-2">
-                  <p className="text-xs md:text-sm text-muted-foreground">
-                    Select the areas you cover on the Costa del Sol. You can
-                    choose more than one.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
+                <div className="p-6 border-t border-gray-100 bg-gray-50/50">
+                  <div className="flex flex-wrap gap-2.5">
                     {AREA_OPTIONS.map((area) => {
                       const isSelected = selectedAreas.includes(area);
 
@@ -340,200 +352,202 @@ export default function TradespersonDetails() {
                           key={area}
                           type="button"
                           onClick={handleClick}
-                          className={`px-3 py-1.5 rounded-full text-xs md:text-sm border ${isSelected ? "bg-primary text-primary-foreground border-primary" : "bg-white text-foreground border-gray-300 hover:border-primary/70"}`}
+                          className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                            isSelected
+                              ? "bg-[#0a1f44] text-white shadow-md transform scale-105"
+                              : "bg-white text-gray-600 border border-gray-200 hover:border-[#0a1f44] hover:text-[#0a1f44]"
+                          }`}
                         >
                           {area}
                         </button>
                       );
                     })}
                   </div>
-                  <p className="text-xs text-muted-foreground">
-                    Selected area{selectedAreas.length === 1 ? "" : "s"}:{" "}
-                    <span className="font-medium">
-                      {selectedAreas.length === 0
-                        ? "None selected yet"
-                        : selectedAreas.join(", ")}
-                    </span>
-                  </p>
+                  <div className="mt-4 pt-4 border-t border-gray-200 flex items-center gap-2 text-sm text-muted-foreground">
+                    <span className="font-semibold text-[#0a1f44]">Selected:</span>
+                    {selectedAreas.length === 0 ? (
+                      <span className="italic">None selected yet</span>
+                    ) : (
+                      <span>{selectedAreas.join(", ")}</span>
+                    )}
+                  </div>
                 </div>
               </Card>
             </div>
           </section>
 
-          <section className="space-y-4">
-            <h2 className="text-lg md:text-xl font-semibold text-foreground">
-              Tell us more about your business
+          <section className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100">
+            <h2 className="text-xl md:text-2xl font-bold text-[#0a1f44] mb-8 flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-50 text-blue-600 text-sm font-bold">2</span>
+              Business profile
             </h2>
 
-            <div className="space-y-3">
-              <p className="text-sm font-medium text-foreground">
-                Business type
-              </p>
-              <div className="grid gap-3 md:grid-cols-3">
-                <label className="flex items-center justify-between gap-3 border rounded-xl px-4 py-3 bg-white cursor-pointer hover:border-primary/70 transition-colors">
-                  <div className="flex flex-col">
-                    <span className="text-sm font-medium">Self employed</span>
-                  </div>
-                  <input
-                    type="radio"
-                    name="businessType"
-                    value="self-employed"
-                    checked={businessType === "self-employed"}
-                    onChange={(event) => setBusinessType(event.target.value)}
-                    className="h-4 w-4 border-gray-300 text-primary focus:ring-primary"
-                  />
-                </label>
-                <label className="flex items-center justify-between gap-3 border rounded-xl px-4 py-3 bg-white cursor-pointer hover:border-primary/70 transition-colors">
-                  <div className="flex flex-col">
-                    <span className="text-sm font-medium">SL company</span>
-                  </div>
-                  <input
-                    type="radio"
-                    name="businessType"
-                    value="limited-company"
-                    checked={businessType === "limited-company"}
-                    onChange={(event) => setBusinessType(event.target.value)}
-                    className="h-4 w-4 border-gray-300 text-primary focus:ring-primary"
-                  />
-                </label>
-                <label className="flex items-center justify-between gap-3 border rounded-xl px-4 py-3 bg-white cursor-pointer hover:border-primary/70 transition-colors">
-                  <div className="flex flex-col">
-                    <span className="text-sm font-medium">
-                      Looking to start a business
-                    </span>
-                  </div>
-                  <input
-                    type="radio"
-                    name="businessType"
-                    value="starting-business"
-                    checked={businessType === "starting-business"}
-                    onChange={(event) => setBusinessType(event.target.value)}
-                    className="h-4 w-4 border-gray-300 text-primary focus:ring-primary"
-                  />
-                </label>
+            <div className="space-y-8">
+              <div className="space-y-3">
+                <p className="text-sm font-semibold text-gray-700">
+                  Business type
+                </p>
+                <div className="grid gap-4 md:grid-cols-3">
+                  {[
+                    { value: "self-employed", label: "Self employed" },
+                    { value: "limited-company", label: "SL company" },
+                    { value: "starting-business", label: "Starting a business" }
+                  ].map((type) => (
+                    <label
+                      key={type.value}
+                      className={`relative flex items-center justify-between gap-3 border-2 rounded-2xl px-5 py-4 cursor-pointer transition-all duration-200 ${
+                        businessType === type.value
+                          ? "border-[#0a1f44] bg-blue-50/30"
+                          : "border-gray-100 bg-white hover:border-gray-300"
+                      }`}
+                    >
+                      <span className={`text-sm font-medium ${businessType === type.value ? "text-[#0a1f44]" : "text-gray-600"}`}>
+                        {type.label}
+                      </span>
+                      <input
+                        type="radio"
+                        name="businessType"
+                        value={type.value}
+                        checked={businessType === type.value}
+                        onChange={(event) => setBusinessType(event.target.value)}
+                        className="h-5 w-5 border-gray-300 text-[#0a1f44] focus:ring-[#0a1f44]"
+                      />
+                    </label>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            <div className="mt-4 space-y-3">
-              <p className="text-sm font-medium text-foreground">
-                How many employees do you have?
-              </p>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                {["1", "2-5", "6-9", "10+"].map((range) => (
-                  <button
-                    key={range}
-                    type="button"
-                    onClick={() => setEmployeeRange(range)}
-                    className={`flex flex-col items-center justify-center border rounded-xl px-4 py-3 text-sm bg-white ${employeeRange === range ? "border-primary bg-primary/5 text-foreground" : "border-gray-300 hover:border-primary/70"}`}
-                  >
-                    <span className="font-medium">{range}</span>
-                    <span className="text-xs text-muted-foreground mt-1">
-                      {range === "1" ? "Employee" : "Employees"}
-                    </span>
-                  </button>
-                ))}
+              <div className="space-y-3">
+                <p className="text-sm font-semibold text-gray-700">
+                  Number of employees
+                </p>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  {["1", "2-5", "6-9", "10+"].map((range) => (
+                    <button
+                      key={range}
+                      type="button"
+                      onClick={() => setEmployeeRange(range)}
+                      className={`flex flex-col items-center justify-center border-2 rounded-2xl px-4 py-3 text-sm transition-all duration-200 ${
+                        employeeRange === range
+                          ? "border-[#0a1f44] bg-blue-50/30 text-[#0a1f44]"
+                          : "border-gray-100 bg-white text-gray-600 hover:border-gray-300"
+                      }`}
+                    >
+                      <span className="font-bold text-lg">{range}</span>
+                      <span className="text-xs opacity-80">
+                        {range === "1" ? "Employee" : "Employees"}
+                      </span>
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            <div className="mt-4 space-y-3">
-              <p className="text-sm font-medium text-foreground">
-                How long have you been in business?
-              </p>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                {YEARS_IN_BUSINESS_OPTIONS.map((option) => (
-                  <button
-                    key={option}
-                    type="button"
-                    onClick={() => setYearsInBusiness(option)}
-                    className={`flex items-center justify-center border rounded-xl px-4 py-3 text-sm bg-white ${yearsInBusiness === option ? "border-primary bg-primary/5 text-foreground" : "border-gray-300 hover:border-primary/70"}`}
-                  >
-                    <span className="text-sm font-medium text-center">
+              <div className="space-y-3">
+                <p className="text-sm font-semibold text-gray-700">
+                  Years in business
+                </p>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  {YEARS_IN_BUSINESS_OPTIONS.map((option) => (
+                    <button
+                      key={option}
+                      type="button"
+                      onClick={() => setYearsInBusiness(option)}
+                      className={`flex items-center justify-center border-2 rounded-2xl px-4 py-4 text-sm transition-all duration-200 ${
+                        yearsInBusiness === option
+                          ? "border-[#0a1f44] bg-blue-50/30 text-[#0a1f44] font-medium"
+                          : "border-gray-100 bg-white text-gray-600 hover:border-gray-300"
+                      }`}
+                    >
                       {option}
-                    </span>
-                  </button>
-                ))}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           </section>
 
-          <section className="space-y-4">
-            <h2 className="text-lg md:text-xl font-semibold text-foreground">
-              Final details
+          <section className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100">
+            <h2 className="text-xl md:text-2xl font-bold text-[#0a1f44] mb-8 flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-50 text-blue-600 text-sm font-bold">3</span>
+              Contact information
             </h2>
 
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="space-y-1.5">
-                <label className="text-sm font-medium text-foreground">
-                  Your first name*
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-gray-700">
+                  First name*
                 </label>
                 <Input
                   value={firstName}
                   onChange={(event) => setFirstName(event.target.value)}
-                  className="h-11 md:h-12 bg-white border-gray-300"
+                  className="h-12 bg-gray-50 border-gray-200 focus:bg-white focus:border-[#0a1f44] transition-all rounded-xl"
                   required
                 />
               </div>
-              <div className="space-y-1.5">
-                <label className="text-sm font-medium text-foreground">
-                  Your surname*
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-gray-700">
+                  Surname*
                 </label>
                 <Input
                   value={lastName}
                   onChange={(event) => setLastName(event.target.value)}
-                  className="h-11 md:h-12 bg-white border-gray-300"
+                  className="h-12 bg-gray-50 border-gray-200 focus:bg-white focus:border-[#0a1f44] transition-all rounded-xl"
                   required
                 />
               </div>
             </div>
 
-            <div className="grid gap-4 md:grid-cols-3">
-              <div className="space-y-1.5">
-                <label className="text-sm font-medium text-foreground">
-                  Your business email*
+            <div className="grid gap-6 md:grid-cols-3 mb-8">
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-gray-700">
+                  Business email*
                 </label>
                 <Input
                   type="email"
                   value={businessEmail}
                   onChange={(event) => setBusinessEmail(event.target.value)}
-                  className="h-11 md:h-12 bg-white border-gray-300"
+                  className="h-12 bg-gray-50 border-gray-200 focus:bg-white focus:border-[#0a1f44] transition-all rounded-xl"
                   required
                 />
               </div>
 
-              <div className="space-y-1.5">
-                <label className="text-sm font-medium text-foreground">
-                  Your business phone*
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-gray-700">
+                  Business phone*
                 </label>
                 <Input
                   type="tel"
                   value={businessPhone}
                   onChange={(event) => setBusinessPhone(event.target.value)}
-                  className="h-11 md:h-12 bg-white border-gray-300"
+                  className="h-12 bg-gray-50 border-gray-200 focus:bg-white focus:border-[#0a1f44] transition-all rounded-xl"
                   required
                 />
               </div>
 
-              <div className="space-y-1.5">
-                <label className="text-sm font-medium text-foreground">
-                  Your mobile phone (optional)
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-gray-700">
+                  Mobile phone (optional)
                 </label>
                 <Input
                   type="tel"
                   value={mobilePhone}
                   onChange={(event) => setMobilePhone(event.target.value)}
-                  className="h-11 md:h-12 bg-white border-gray-300"
+                  className="h-12 bg-gray-50 border-gray-200 focus:bg-white focus:border-[#0a1f44] transition-all rounded-xl"
                 />
               </div>
             </div>
 
-            <div className="space-y-3">
-              <p className="text-sm font-medium text-foreground">
-                Languages you speak
-              </p>
-              <p className="text-xs text-muted-foreground">
-                Homeowners can filter by language. Choose all that apply.
-              </p>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+            <div className="space-y-4">
+              <div className="space-y-1">
+                <p className="text-sm font-semibold text-gray-700">
+                  Languages you speak
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  Select all languages you can communicate in.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
                 {LANGUAGE_OPTIONS.map((language) => {
                   const isSelected = languages.includes(language.value);
 
@@ -554,17 +568,14 @@ export default function TradespersonDetails() {
                       key={language.value}
                       type="button"
                       onClick={handleClick}
-                      className={`px-3 py-1.5 rounded-full text-xs md:text-sm border ${isSelected ? "bg-primary text-primary-foreground border-primary" : "bg-white text-foreground border-gray-300 hover:border-primary/70"}`}
+                      className={`px-3 py-2.5 rounded-xl text-sm border-2 transition-all duration-200 flex items-center justify-center gap-2 ${
+                        isSelected
+                          ? "border-[#0a1f44] bg-blue-50/30 text-[#0a1f44] font-medium"
+                          : "border-gray-100 bg-white text-gray-600 hover:border-gray-300"
+                      }`}
                     >
-                      <span className="flex items-center gap-2">
-                        <span
-                          className="text-base md:text-lg"
-                          aria-hidden="true"
-                        >
-                          {language.flag}
-                        </span>
-                        <span>{language.label}</span>
-                      </span>
+                      <span className="text-lg" aria-hidden="true">{language.flag}</span>
+                      <span>{language.label}</span>
                     </button>
                   );
                 })}
@@ -572,12 +583,12 @@ export default function TradespersonDetails() {
             </div>
           </section>
 
-          <div className="pt-2">
+          <div className="pt-4 flex justify-end">
             <Button
               type="submit"
-              className="w-full md:w-auto px-10 py-3 md:py-3.5 bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white rounded-full text-sm md:text-base font-semibold"
+              className="w-full md:w-auto px-12 py-6 bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white rounded-full text-lg font-bold shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1"
             >
-              Continue
+              Review application
             </Button>
           </div>
         </form>
