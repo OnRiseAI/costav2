@@ -126,6 +126,7 @@ export default function TradespersonDetails() {
       if (parsed.selectedAreas) setSelectedAreas(parsed.selectedAreas);
       if (parsed.businessType) setBusinessType(parsed.businessType);
       if (parsed.employeeRange) setEmployeeRange(parsed.employeeRange);
+      if (parsed.yearsInBusiness) setYearsInBusiness(parsed.yearsInBusiness);
       if (parsed.firstName) setFirstName(parsed.firstName);
       if (parsed.lastName) setLastName(parsed.lastName);
       if (parsed.businessEmail) setBusinessEmail(parsed.businessEmail);
