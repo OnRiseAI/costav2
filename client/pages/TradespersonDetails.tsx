@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -50,6 +50,26 @@ const AREA_COORDINATES: Record<string, { lat: number; lon: number }> = {
   "Rincón de la Victoria": { lat: 36.7176, lon: -4.275 },
 };
 
+const LANGUAGE_OPTIONS = ["English", "Spanish", "German", "French", "Arabic"] as const;
+
+type StoredApplication = {
+  tradeSlug?: string;
+  tradeLabel?: string;
+  businessName?: string;
+  postcode?: string;
+  selectedAreas?: string[];
+  businessType?: string;
+  employeeRange?: string;
+  firstName?: string;
+  lastName?: string;
+  businessEmail?: string;
+  businessPhone?: string;
+  mobilePhone?: string;
+  languages?: string[];
+};
+
+const APPLICATION_STORAGE_KEY = "costatrade.tradespersonApplication";
+
 export default function TradespersonDetails() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -72,6 +92,32 @@ export default function TradespersonDetails() {
   const [businessEmail, setBusinessEmail] = useState("");
   const [businessPhone, setBusinessPhone] = useState("");
   const [mobilePhone, setMobilePhone] = useState("");
+  const [languages, setLanguages] = useState<string[]>([]);
+
+  useEffect(() => {
+    try {
+      const stored = window.sessionStorage.getItem(APPLICATION_STORAGE_KEY);
+      if (!stored) {
+        return;
+      }
+
+      const parsed = JSON.parse(stored) as StoredApplication;
+
+      if (parsed.businessName) setBusinessName(parsed.businessName);
+      if (parsed.postcode) setPostcode(parsed.postcode);
+      if (parsed.selectedAreas) setSelectedAreas(parsed.selectedAreas);
+      if (parsed.businessType) setBusinessType(parsed.businessType);
+      if (parsed.employeeRange) setEmployeeRange(parsed.employeeRange);
+      if (parsed.firstName) setFirstName(parsed.firstName);
+      if (parsed.lastName) setLastName(parsed.lastName);
+      if (parsed.businessEmail) setBusinessEmail(parsed.businessEmail);
+      if (parsed.businessPhone) setBusinessPhone(parsed.businessPhone);
+      if (parsed.mobilePhone) setMobilePhone(parsed.mobilePhone);
+      if (parsed.languages) setLanguages(parsed.languages);
+    } catch {
+      // If reading stored data fails, continue with empty defaults
+    }
+  }, []);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -93,6 +139,7 @@ export default function TradespersonDetails() {
       businessEmail,
       businessPhone,
       mobilePhone,
+      languages,
     };
 
     window.sessionStorage.setItem(
@@ -390,6 +437,39 @@ export default function TradespersonDetails() {
                 onChange={(event) => setMobilePhone(event.target.value)}
                 className="h-11 md:h-12 bg-white border-gray-300"
               />
+            </div>
+
+            <div className="space-y-3">
+              <p className="text-sm font-medium text-foreground">Languages you speak</p>
+              <p className="text-xs text-muted-foreground">
+                Homeowners can filter by language. Choose all that apply.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {LANGUAGE_OPTIONS.map((language) => {
+                  const isSelected = languages.includes(language);
+
+                  const handleClick = () => {
+                    setLanguages((current) => {
+                      if (current.includes(language)) {
+                        return current.filter((item) => item !== language);
+                      }
+
+                      return [...current, language];
+                    });
+                  };
+
+                  return (
+                    <button
+                      key={language}
+                      type="button"
+                      onClick={handleClick}
+                      className={`px-3 py-1.5 rounded-full text-xs md:text-sm border ${isSelected ? "bg-primary text-primary-foreground border-primary" : "bg-white text-foreground border-gray-300 hover:border-primary/70"}`}
+                    >
+                      {language}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           </section>
 
