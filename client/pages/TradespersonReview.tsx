@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { TradespersonProgress } from "@/components/TradespersonProgress";
 import {
   Wrench,
   User,
@@ -13,7 +14,6 @@ import {
   ListChecks,
   FileText,
   Languages,
-  CheckCircle2,
   ArrowLeft,
 } from "lucide-react";
 
@@ -112,27 +112,7 @@ export default function TradespersonReview() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="border-b border-gray-200 bg-white">
-        <div className="container-custom py-4">
-          <p className="text-xs text-muted-foreground mb-2">Change type of work</p>
-          <div className="flex flex-wrap items-center gap-4 text-xs md:text-sm">
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-              <span className="font-medium text-foreground">Your business</span>
-            </div>
-            <span className="h-px w-8 md:w-12 bg-gray-200" />
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-              <span className="font-medium text-foreground">Your details</span>
-            </div>
-            <span className="h-px w-8 md:w-12 bg-gray-200" />
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-              <span className="font-medium text-foreground">Review &amp; confirm</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <TradespersonProgress currentStep={3} />
 
       <div className="container-custom py-8 md:py-10 max-w-5xl">
         <button
