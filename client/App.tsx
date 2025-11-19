@@ -15,6 +15,8 @@ import LoginPage from "@/pages/LoginPage";
 import SignupPage from "@/pages/SignupPage";
 import JoinAsTradesperson from "@/pages/JoinAsTradesperson";
 import TradespersonDetails from "@/pages/TradespersonDetails";
+import TradespersonReview from "@/pages/TradespersonReview";
+import TradespersonSubmitted from "@/pages/TradespersonSubmitted";
 import { CustomerDashboard } from "@/pages/CustomerDashboard";
 import { Tradespeople } from "@/pages/Tradespeople";
 import TradesMenu from "@/pages/TradesMenu";
@@ -108,6 +110,14 @@ function AppContent() {
             <Route
               path="/tradesperson/details"
               element={<TradespersonDetails />}
+            />
+            <Route
+              path="/tradesperson/review"
+              element={<TradespersonReview />}
+            />
+            <Route
+              path="/tradesperson/submitted"
+              element={<TradespersonSubmitted />}
             />
 
             {/* Authentication */}

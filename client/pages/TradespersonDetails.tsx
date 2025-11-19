@@ -79,7 +79,27 @@ export default function TradespersonDetails() {
       return;
     }
 
-    navigate("/pro/dashboard");
+    const application = {
+      tradeSlug,
+      tradeLabel,
+      businessName,
+      postcode,
+      selectedAreas,
+      businessType,
+      employeeRange,
+      firstName,
+      lastName,
+      businessEmail,
+      businessPhone,
+      mobilePhone,
+    };
+
+    window.sessionStorage.setItem(
+      "costatrade.tradespersonApplication",
+      JSON.stringify(application),
+    );
+
+    navigate("/tradesperson/review");
   };
 
   const mapUrl = useMemo(() => {
