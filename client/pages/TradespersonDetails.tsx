@@ -19,7 +19,8 @@ const TRADE_LABELS: Record<string, string> = {
 const COSTA_DEL_SOL_MAP_URL =
   "https://www.openstreetmap.org/export/embed.html?bbox=-5.6,35.9,-3.8,37.0&layer=mapnik";
 
-const AREAS = [
+const AREA_OPTIONS = [
+  "Whole Costa del Sol",
   "Marbella",
   "Málaga",
   "Fuengirola",
@@ -28,6 +29,8 @@ const AREAS = [
   "Benalmádena",
   "Torremolinos",
   "Nerja",
+  "Coín",
+  "Alhaurín el Grande",
 ];
 
 export default function TradespersonDetails() {
@@ -43,7 +46,7 @@ export default function TradespersonDetails() {
 
   const [businessName, setBusinessName] = useState("");
   const [postcode, setPostcode] = useState("");
-  const [selectedArea, setSelectedArea] = useState<string>(AREAS[0]);
+  const [selectedAreas, setSelectedAreas] = useState<string[]>([]);
   const [businessType, setBusinessType] = useState<string>("self-employed");
   const [employeeRange, setEmployeeRange] = useState<string>("1");
   const [firstName, setFirstName] = useState("");
@@ -137,22 +140,55 @@ export default function TradespersonDetails() {
                 </div>
                 <div className="p-4 border-t border-gray-200 space-y-2">
                   <p className="text-xs md:text-sm text-muted-foreground">
-                    Select the main area you cover on the Costa del Sol.
+                    Select the areas you cover on the Costa del Sol. You can choose more than one.
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {AREAS.map((area) => (
-                      <button
-                        key={area}
-                        type="button"
-                        onClick={() => setSelectedArea(area)}
-                        className={`px-3 py-1.5 rounded-full text-xs md:text-sm border ${selectedArea === area ? "bg-primary text-primary-foreground border-primary" : "bg-white text-foreground border-gray-300 hover:border-primary/70"}`}
-                      >
-                        {area}
-                      </button>
-                    ))}
+                    {AREA_OPTIONS.map((area) => {
+                      const isAllCostaDelSol = area === "Whole Costa del Sol";
+                      const isSelected = selectedAreas.includes(area);
+
+                      const handleClick = () => {
+                        if (isAllCostaDelSol) {
+                          if (isSelected) {
+                            setSelectedAreas((current) =>
+                              current.filter((item) => item !== area),
+                            );
+                          } else {
+                            setSelectedAreas([area]);
+                          }
+                          return;
+                        }
+
+                        setSelectedAreas((current) => {
+                          const withoutAll = current.filter(
+                            (item) => item !== "Whole Costa del Sol",
+                          );
+
+                          return withoutAll.includes(area)
+                            ? withoutAll.filter((item) => item !== area)
+                            : [...withoutAll, area];
+                        });
+                      };
+
+                      return (
+                        <button
+                          key={area}
+                          type="button"
+                          onClick={handleClick}
+                          className={`px-3 py-1.5 rounded-full text-xs md:text-sm border ${isSelected ? "bg-primary text-primary-foreground border-primary" : "bg-white text-foreground border-gray-300 hover:border-primary/70"}`}
+                        >
+                          {area}
+                        </button>
+                      );
+                    })}
                   </div>
                   <p className="text-xs text-muted-foreground">
-                    Selected area: <span className="font-medium">{selectedArea}</span>
+                    Selected area{selectedAreas.length === 1 ? "" : "s"}: {" "}
+                    <span className="font-medium">
+                      {selectedAreas.length === 0
+                        ? "None selected yet"
+                        : selectedAreas.join(", ")}
+                    </span>
                   </p>
                 </div>
               </Card>
