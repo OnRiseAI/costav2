@@ -23,6 +23,7 @@ type TradespersonApplication = {
   tradeSlug?: string;
   tradeLabel?: string;
   businessName?: string;
+  website?: string;
   postcode?: string;
   selectedAreas?: string[];
   businessType?: string;
@@ -190,6 +191,7 @@ export default function TradespersonReview() {
                 </div>
                 <ul className="text-sm text-muted-foreground space-y-1">
                   <li>Business name: {formatValue(application?.businessName)}</li>
+                  <li>Website: {formatValue(application?.website)}</li>
                   <li>Business type: {formatValue(application?.businessType)}</li>
                   <li>Employees: {formatValue(application?.employeeRange)}</li>
                 </ul>
