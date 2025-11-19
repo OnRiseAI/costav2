@@ -255,64 +255,6 @@ export default function TradespersonReview() {
             </div>
           </Card>
 
-          <Card className="rounded-2xl border-gray-200 bg-white shadow-sm relative overflow-hidden">
-            <div className="p-5 flex items-start justify-between gap-4">
-              <div>
-                <div className="flex items-center gap-2 mb-2">
-                  <Info className="h-4 w-4 text-primary" />
-                  <h2 className="font-semibold text-sm md:text-base">About your business</h2>
-                </div>
-                <p className="text-sm text-muted-foreground">
-                  You&apos;ll be able to add a full description once your account has been approved.
-                </p>
-              </div>
-              <div className="flex flex-col items-end gap-1">
-                <span className="inline-flex items-center rounded-full bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 text-[11px] font-medium">
-                  After account approval
-                </span>
-              </div>
-            </div>
-          </Card>
-
-
-          <Card className="rounded-2xl border-gray-200 bg-white shadow-sm relative overflow-hidden">
-            <div className="p-5 flex items-start justify-between gap-4">
-              <div>
-                <div className="flex items-center gap-2 mb-2">
-                  <FileText className="h-4 w-4 text-primary" />
-                  <h2 className="font-semibold text-sm md:text-base">Documents / images</h2>
-                </div>
-                <p className="text-sm text-muted-foreground">
-                  You&apos;ll be able to upload documents and images once your account has been approved.
-                </p>
-              </div>
-              <div className="flex flex-col items-end gap-1">
-                <span className="inline-flex items-center rounded-full bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 text-[11px] font-medium">
-                  After account approval
-                </span>
-              </div>
-            </div>
-          </Card>
-
-          <Card className="rounded-2xl border-gray-200 bg-white shadow-sm relative overflow-hidden">
-            <div className="p-5 flex items-start justify-between gap-4">
-              <div>
-                <div className="flex items-center gap-2 mb-2">
-                  <Phone className="h-4 w-4 text-primary" />
-                  <h2 className="font-semibold text-sm md:text-base">Pricing information</h2>
-                </div>
-                <p className="text-sm text-muted-foreground">
-                  You&apos;ll be able to add pricing details once your account has been approved.
-                </p>
-              </div>
-              <div className="flex flex-col items-end gap-1">
-                <span className="inline-flex items-center rounded-full bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 text-[11px] font-medium">
-                  After account approval
-                </span>
-              </div>
-            </div>
-          </Card>
-
           <Card className="rounded-2xl border-gray-200 bg-white shadow-sm">
             <div className="p-5 flex items-start justify-between gap-4">
               <div>
@@ -331,6 +273,60 @@ export default function TradespersonReview() {
               >
                 Edit
               </button>
+            </div>
+          </Card>
+
+          <Card className="rounded-2xl border-gray-200 bg-white shadow-sm">
+            <div className="p-5 flex flex-col gap-3">
+              <div>
+                <div className="flex items-center gap-2 mb-2">
+                  <Info className="h-4 w-4 text-primary" />
+                  <h2 className="font-semibold text-sm md:text-base">About your business</h2>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  You&apos;ll be able to add a full description once your account has been approved.
+                </p>
+              </div>
+              <div className="flex items-center gap-2 rounded-lg border border-dashed border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-600">
+                <span className="h-2 w-2 rounded-full bg-slate-400" aria-hidden="true" />
+                <span>Available after your account is approved.</span>
+              </div>
+            </div>
+          </Card>
+
+          <Card className="rounded-2xl border-gray-200 bg-white shadow-sm">
+            <div className="p-5 flex flex-col gap-3">
+              <div>
+                <div className="flex items-center gap-2 mb-2">
+                  <FileText className="h-4 w-4 text-primary" />
+                  <h2 className="font-semibold text-sm md:text-base">Documents / images</h2>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  You&apos;ll be able to upload documents and images once your account has been approved.
+                </p>
+              </div>
+              <div className="flex items-center gap-2 rounded-lg border border-dashed border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-600">
+                <span className="h-2 w-2 rounded-full bg-slate-400" aria-hidden="true" />
+                <span>Available after your account is approved.</span>
+              </div>
+            </div>
+          </Card>
+
+          <Card className="rounded-2xl border-gray-200 bg-white shadow-sm">
+            <div className="p-5 flex flex-col gap-3">
+              <div>
+                <div className="flex items-center gap-2 mb-2">
+                  <Phone className="h-4 w-4 text-primary" />
+                  <h2 className="font-semibold text-sm md:text-base">Pricing information</h2>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  You&apos;ll be able to add pricing details once your account has been approved.
+                </p>
+              </div>
+              <div className="flex items-center gap-2 rounded-lg border border-dashed border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-600">
+                <span className="h-2 w-2 rounded-full bg-slate-400" aria-hidden="true" />
+                <span>Available after your account is approved.</span>
+              </div>
             </div>
           </Card>
         </div>
