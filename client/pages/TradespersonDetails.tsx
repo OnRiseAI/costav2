@@ -259,10 +259,10 @@ export default function TradespersonDetails() {
                   Business website (optional)
                 </label>
                 <Input
-                  type="url"
+                  type="text"
                   value={website}
                   onChange={(event) => setWebsite(event.target.value)}
-                  placeholder="https://www.your-business.com"
+                  placeholder="onrise.ai or https://www.onrise.ai"
                   className="h-11 md:h-12 bg-white border-gray-300"
                 />
               </div>
