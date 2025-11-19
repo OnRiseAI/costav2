@@ -153,6 +153,7 @@ export default function TradespersonDetails() {
       selectedAreas,
       businessType,
       employeeRange,
+      yearsInBusiness,
       firstName,
       lastName,
       businessEmail,
