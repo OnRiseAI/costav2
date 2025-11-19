@@ -16,11 +16,10 @@ const TRADE_LABELS: Record<string, string> = {
   mechanic: "Mechanic",
 };
 
-const COSTA_DEL_SOL_MAP_URL =
+const DEFAULT_MAP_URL =
   "https://www.openstreetmap.org/export/embed.html?bbox=-5.6,35.9,-3.8,37.0&layer=mapnik";
 
 const AREA_OPTIONS = [
-  "Whole Costa del Sol",
   "Marbella",
   "Málaga",
   "Fuengirola",
@@ -31,7 +30,24 @@ const AREA_OPTIONS = [
   "Nerja",
   "Coín",
   "Alhaurín el Grande",
+  "San Pedro de Alcántara",
+  "Rincón de la Victoria",
 ];
+
+const AREA_COORDINATES: Record<string, { lat: number; lon: number }> = {
+  Marbella: { lat: 36.5099, lon: -4.8854 },
+  "Málaga": { lat: 36.7213, lon: -4.4214 },
+  Fuengirola: { lat: 36.5396, lon: -4.6247 },
+  Mijas: { lat: 36.595, lon: -4.6374 },
+  Estepona: { lat: 36.4256, lon: -5.151 },
+  "Benalmádena": { lat: 36.5951, lon: -4.5734 },
+  Torremolinos: { lat: 36.6203, lon: -4.4998 },
+  Nerja: { lat: 36.746, lon: -3.88 },
+  "Coín": { lat: 36.6588, lon: -4.7556 },
+  "Alhaurín el Grande": { lat: 36.6428, lon: -4.6913 },
+  "San Pedro de Alcántara": { lat: 36.4823, lon: -4.9903 },
+  "Rincón de la Victoria": { lat: 36.7176, lon: -4.275 },
+};
 
 export default function TradespersonDetails() {
   const navigate = useNavigate();
@@ -47,6 +63,7 @@ export default function TradespersonDetails() {
   const [businessName, setBusinessName] = useState("");
   const [postcode, setPostcode] = useState("");
   const [selectedAreas, setSelectedAreas] = useState<string[]>([]);
+  const [mapCenter, setMapCenter] = useState<{ lat: number; lon: number } | null>(null);
   const [businessType, setBusinessType] = useState<string>("self-employed");
   const [employeeRange, setEmployeeRange] = useState<string>("1");
   const [firstName, setFirstName] = useState("");
@@ -63,6 +80,46 @@ export default function TradespersonDetails() {
     }
 
     navigate("/pro/dashboard");
+  };
+
+  const mapUrl = useMemo(() => {
+    if (!mapCenter) {
+      return DEFAULT_MAP_URL;
+    }
+
+    const deltaLat = 0.18;
+    const deltaLon = 0.3;
+    const minLat = mapCenter.lat - deltaLat;
+    const maxLat = mapCenter.lat + deltaLat;
+    const minLon = mapCenter.lon - deltaLon;
+    const maxLon = mapCenter.lon + deltaLon;
+
+    return `https://www.openstreetmap.org/export/embed.html?bbox=${minLon},${minLat},${maxLon},${maxLat}&layer=mapnik&marker=${mapCenter.lat},${mapCenter.lon}`;
+  }, [mapCenter]);
+
+  const handlePostcodeBlur = async () => {
+    const query = postcode.trim();
+    if (!query) {
+      return;
+    }
+
+    try {
+      const response = await fetch(
+        `https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=es&q=${encodeURIComponent(query + " costa del sol")}`,
+      );
+      const results: Array<{ lat: string; lon: string }> = await response.json();
+
+      if (results.length > 0) {
+        const first = results[0];
+        const lat = parseFloat(first.lat);
+        const lon = parseFloat(first.lon);
+        if (!Number.isNaN(lat) && !Number.isNaN(lon)) {
+          setMapCenter({ lat, lon });
+        }
+      }
+    } catch {
+      // If geocoding fails, keep the existing map centre
+    }
   };
 
   return (
@@ -124,19 +181,23 @@ export default function TradespersonDetails() {
               <Input
                 value={postcode}
                 onChange={(event) => setPostcode(event.target.value)}
+                onBlur={handlePostcodeBlur}
                 placeholder="Business postcode*"
                 className="h-11 md:h-12 bg-white border-gray-300"
                 required
               />
 
               <Card className="mt-4 overflow-hidden rounded-2xl border-gray-200 bg-white">
-                <div className="w-full h-64 md:h-72 bg-gray-100">
+                <div className="relative w-full h-64 md:h-72 bg-gray-100">
                   <iframe
                     title="Costa del Sol map"
-                    src={COSTA_DEL_SOL_MAP_URL}
+                    src={mapUrl}
                     className="w-full h-full border-0"
                     loading="lazy"
                   />
+                  <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-blue-600/70 border-4 border-blue-400/70 shadow-lg" />
+                  </div>
                 </div>
                 <div className="p-4 border-t border-gray-200 space-y-2">
                   <p className="text-xs md:text-sm text-muted-foreground">
@@ -144,30 +205,21 @@ export default function TradespersonDetails() {
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {AREA_OPTIONS.map((area) => {
-                      const isAllCostaDelSol = area === "Whole Costa del Sol";
                       const isSelected = selectedAreas.includes(area);
 
                       const handleClick = () => {
-                        if (isAllCostaDelSol) {
-                          if (isSelected) {
-                            setSelectedAreas((current) =>
-                              current.filter((item) => item !== area),
-                            );
-                          } else {
-                            setSelectedAreas([area]);
-                          }
-                          return;
-                        }
-
                         setSelectedAreas((current) => {
-                          const withoutAll = current.filter(
-                            (item) => item !== "Whole Costa del Sol",
-                          );
+                          if (current.includes(area)) {
+                            return current.filter((item) => item !== area);
+                          }
 
-                          return withoutAll.includes(area)
-                            ? withoutAll.filter((item) => item !== area)
-                            : [...withoutAll, area];
+                          return [...current, area];
                         });
+
+                        const coordinates = AREA_COORDINATES[area];
+                        if (coordinates) {
+                          setMapCenter(coordinates);
+                        }
                       };
 
                       return (
