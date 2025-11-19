@@ -127,7 +127,8 @@ export function HowItWorks() {
             </Button>
           </Link>
           <p className="text-center text-sm text-muted-foreground font-light max-w-2xl">
-            Verified professionals with proven credentials and real customer reviews.
+            Verified professionals with proven credentials and real customer
+            reviews.
           </p>
         </div>
       </div>
