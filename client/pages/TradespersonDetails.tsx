@@ -74,6 +74,7 @@ type StoredApplication = {
   selectedAreas?: string[];
   businessType?: string;
   employeeRange?: string;
+  yearsInBusiness?: string;
   firstName?: string;
   lastName?: string;
   businessEmail?: string;
