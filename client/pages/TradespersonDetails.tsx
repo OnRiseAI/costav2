@@ -103,6 +103,7 @@ export default function TradespersonDetails() {
   const [mapCenter, setMapCenter] = useState<{ lat: number; lon: number } | null>(null);
   const [businessType, setBusinessType] = useState<string>("self-employed");
   const [employeeRange, setEmployeeRange] = useState<string>("1");
+  const [yearsInBusiness, setYearsInBusiness] = useState<string>("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [businessEmail, setBusinessEmail] = useState("");
