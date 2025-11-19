@@ -15,9 +15,6 @@ export function TradespersonProgress({ currentStep }: TradespersonProgressProps)
   return (
     <div className="border-b border-gray-200 bg-white">
       <div className="container-custom py-4 md:py-5 lg:py-6 md:max-w-5xl">
-        <p className="text-xs md:text-sm text-muted-foreground mb-2 md:mb-3">
-          Change type of work
-        </p>
         <div className="flex flex-wrap items-center gap-3 md:gap-6 text-xs md:text-base">
           {STEPS.map((step, index) => {
             const stepNumber = index + 1;
