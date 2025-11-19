@@ -202,7 +202,7 @@ export default function Index() {
       <WhyTrustCostaTrade />
 
       {/* Popular Trade Categories Section */}
-      <section className="bg-gradient-to-b from-white via-gray-50 to-white py-16 md:py-24 relative overflow-hidden">
+      <section className="bg-gradient-to-b from-white via-gray-50 to-white py-20 md:py-32 relative overflow-hidden">
         {/* Subtle Geometric Background */}
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-white to-orange-50/30"></div>
@@ -248,7 +248,7 @@ export default function Index() {
       <CTACards />
 
       {/* Featured Tradespeople Section */}
-      <section className="bg-gray-50 py-16 md:py-24 relative overflow-hidden">
+      <section className="bg-gray-50 py-20 md:py-32 relative overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img
@@ -291,7 +291,7 @@ export default function Index() {
       </section>
 
       {/* Reviews Section */}
-      <section className="bg-white py-16 md:py-24 relative overflow-hidden">
+      <section className="bg-white py-20 md:py-32 relative overflow-hidden">
         {/* Background with Happy Customers Theme */}
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-br from-orange-50/20 via-white to-blue-50/20"></div>

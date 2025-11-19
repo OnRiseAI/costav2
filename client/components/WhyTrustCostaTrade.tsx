@@ -56,7 +56,7 @@ export function WhyTrustCostaTrade() {
             return (
               <div
                 key={index}
-                className="flex flex-col items-center text-center group animate-slide-up"
+                className="flex flex-col items-center text-center group animate-slide-up bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {/* Icon Container */}
