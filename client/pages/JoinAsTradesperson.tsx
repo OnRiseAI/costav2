@@ -14,6 +14,14 @@ import {
   ArrowRight,
   Quote,
   ChevronRight,
+  ShieldCheck,
+  TrendingUp,
+  Clock,
+  Star,
+  Users,
+  Search,
+  Briefcase,
+  Award,
 } from "lucide-react";
 
 const HERO_TRADES = [
@@ -38,16 +46,19 @@ const HOW_IT_WORKS_STEPS = [
     title: "Create your free profile",
     description:
       "Tell us about your business, services and the areas you cover in Costa del Sol.",
+    icon: Users,
   },
   {
     title: "Get enquiries from local homeowners",
     description:
       "We show your profile to homeowners looking for your trade and location.",
+    icon: Search,
   },
   {
     title: "Build a trusted reputation",
     description:
       "Collect reviews and build a track record that helps you win more of the right work.",
+    icon: Star,
   },
 ];
 
@@ -56,20 +67,24 @@ const KEY_BENEFITS = [
     title: "Improve your visibility",
     description:
       "Appear in local searches when homeowners are actively looking for your trade.",
+    icon: Search,
   },
   {
     title: "Save time on admin",
     description: "Spend less time chasing work and more time on paid jobs.",
+    icon: Clock,
   },
   {
     title: "Get featured in local searches",
     description:
       "Stand out with a rich profile, photos of your work and verified reviews.",
+    icon: Award,
   },
   {
     title: "Build your reputation",
     description:
       "Showcase your experience, qualifications and feedback from real customers.",
+    icon: ShieldCheck,
   },
 ];
 
@@ -105,114 +120,257 @@ export default function JoinAsTradesperson() {
   };
 
   return (
-    <div className="bg-gray-50">
+    <div className="bg-white font-sans">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-orange-50">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-[-120px] right-[-80px] w-80 h-80 bg-blue-200/30 rounded-full blur-3xl" />
-          <div className="absolute bottom-[-160px] left-[-40px] w-96 h-96 bg-orange-200/30 rounded-full blur-3xl" />
+      <section className="relative overflow-hidden bg-[#0a1f44] text-white py-20 md:py-32">
+        {/* Background Effects */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-500 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2"></div>
+          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-purple-500 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4"></div>
+          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-soft-light"></div>
         </div>
 
-        <div className="container-custom relative z-10 py-12 md:py-20">
-          <div className="grid md:grid-cols-2 gap-10 items-center">
-            <div>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0a1f44] mb-4 leading-tight">
-                Get free qualified leads when you join CostaTrade
+        <div className="container-custom relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div className="animate-fade-in">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm mb-8">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                <span className="text-sm font-medium text-blue-100">Join for free today</span>
+              </div>
+
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight">
+                Get free qualified leads when you join <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-blue-100 to-white">CostaTrade</span>
               </h1>
-              <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-xl">
-                Join for free and receive genuine enquiries from local
-                homeowners.
+              
+              <p className="text-lg md:text-xl text-blue-100/80 mb-10 leading-relaxed max-w-xl font-light">
+                Join for free and receive genuine enquiries from local homeowners. 
+                Grow your business with verified leads and tools to manage your reputation.
               </p>
 
               <Dialog open={tradeDialogOpen} onOpenChange={setTradeDialogOpen}>
-                <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-4 md:p-5 max-w-xl">
-                  <div className="flex flex-col md:flex-row md:items-center gap-3">
+                <div className="bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 p-2 md:p-3 max-w-xl">
+                  <div className="flex flex-col sm:flex-row gap-2">
                     <button
                       type="button"
                       onClick={() => setTradeDialogOpen(true)}
-                      className="flex-1 flex items-center justify-between rounded-xl border-2 border-gray-200 px-4 py-3 md:py-4 text-left hover:border-primary transition-colors bg-white"
+                      className="flex-1 flex items-center justify-between rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 px-5 py-4 text-left transition-all duration-300 group"
                     >
                       <div>
-                        <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+                        <p className="text-xs font-medium text-blue-200 uppercase tracking-wider mb-1">
                           Your trade
                         </p>
-                        <p className="text-base md:text-lg text-foreground mt-1">
+                        <p className="text-lg font-medium text-white group-hover:text-blue-100 transition-colors">
                           {selectedTradeLabel || "Select your main trade"}
                         </p>
                       </div>
-                      <ChevronDown className="h-5 w-5 text-muted-foreground" />
+                      <ChevronDown className="h-5 w-5 text-blue-200 group-hover:text-white transition-colors" />
                     </button>
 
                     <Button
                       type="button"
                       size="lg"
-                      className="w-full md:w-auto bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white rounded-xl px-6 md:px-7 py-3 md:py-4 text-base font-semibold"
+                      className="w-full sm:w-auto bg-white text-[#0a1f44] hover:bg-blue-50 rounded-xl px-8 py-4 h-auto text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300"
                       disabled={!selectedTradeSlug}
                       onClick={handleGoClick}
                     >
-                      Go
-                      <ArrowRight className="h-4 w-4" />
+                      Get Started
+                      <ArrowRight className="h-5 w-5 ml-2" />
                     </Button>
                   </div>
-                  <p className="mt-3 text-xs md:text-sm text-muted-foreground">
-                    Free to join. No risk. Real qualified leads.
-                  </p>
                 </div>
 
-                <DialogContent className="max-w-2xl w-full max-h-[85vh] overflow-y-auto sm:rounded-2xl">
+                <DialogContent className="max-w-2xl w-full max-h-[85vh] overflow-y-auto sm:rounded-2xl border-none shadow-2xl">
                   <DialogHeader>
-                    <DialogTitle>Select your main trade</DialogTitle>
+                    <DialogTitle className="text-2xl font-bold">Select your main trade</DialogTitle>
                   </DialogHeader>
-                  <div className="mt-2 space-y-3">
+                  <div className="mt-4 grid sm:grid-cols-2 gap-3">
                     {HERO_TRADES.map((trade) => (
                       <button
                         key={trade.slug}
                         type="button"
                         onClick={() => handleTradeSelect(trade.slug)}
-                        className="w-full border-2 border-gray-200 rounded-xl p-4 hover:border-primary transition-colors flex items-center justify-between group text-left bg-white"
+                        className="w-full border border-gray-100 rounded-xl p-4 hover:border-primary hover:bg-blue-50/50 transition-all flex items-center justify-between group text-left bg-white shadow-sm hover:shadow-md"
                       >
-                        <div>
-                          <div className="font-medium text-base text-foreground group-hover:text-primary">
-                            {trade.label}
-                          </div>
-                        </div>
-                        <ChevronRight className="h-5 w-5 text-muted-foreground group-hover:text-primary" />
+                        <span className="font-medium text-base text-gray-700 group-hover:text-primary">
+                          {trade.label}
+                        </span>
+                        <ChevronRight className="h-5 w-5 text-gray-400 group-hover:text-primary transition-colors" />
                       </button>
                     ))}
                   </div>
                 </DialogContent>
               </Dialog>
 
-              <div className="mt-6 flex flex-wrap gap-3">
+              <div className="mt-8 flex flex-wrap gap-4">
                 {TRUST_BADGES.map((badge) => (
                   <div
                     key={badge}
-                    className="inline-flex items-center gap-2 rounded-full bg-white/70 backdrop-blur-sm border border-gray-200 px-3 py-1 text-xs md:text-sm text-[#0a1f44]"
+                    className="inline-flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-4 py-1.5 text-sm text-blue-100"
                   >
-                    <CheckCircle2 className="h-4 w-4 text-green-500" />
+                    <CheckCircle2 className="h-4 w-4 text-green-400" />
                     <span>{badge}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="relative flex justify-center md:justify-end">
-              <div className="relative w-full max-w-md">
-                <div className="absolute inset-0 bg-gradient-to-tr from-orange-400 via-orange-500 to-red-500 rounded-3xl blur-2xl opacity-40" />
-                <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden border border-orange-100">
+            <div className="relative hidden lg:block animate-fade-in-up">
+              <div className="relative w-full max-w-md mx-auto">
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500 to-purple-500 rounded-[40px] blur-2xl opacity-30 transform rotate-6"></div>
+                <div className="relative bg-white rounded-[32px] shadow-2xl overflow-hidden border-4 border-white/10">
                   <img
-                    src="https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=800"
-                    alt="Tradesperson working on a home in Costa del Sol"
-                    className="w-full h-64 object-cover"
+                    src="https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=800"
+                    alt="Tradesperson working"
+                    className="w-full h-[500px] object-cover"
                   />
-                  <div className="p-5">
-                    <p className="text-xs font-semibold text-orange-600 uppercase tracking-wide mb-1">
-                      CostaTrade for trades
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-8">
+                    <div className="flex items-center gap-4 mb-2">
+                      <div className="flex -space-x-2">
+                        {[1,2,3].map(i => (
+                          <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-gray-200 overflow-hidden">
+                            <img src={`https://i.pravatar.cc/100?img=${i + 20}`} alt="User" className="w-full h-full object-cover" />
+                          </div>
+                        ))}
+                      </div>
+                      <span className="text-white font-medium text-sm">+2k homeowners joined this month</span>
+                    </div>
+                    <p className="text-white/90 text-sm">
+                      "Since joining CostaTrade, my calendar has been full with quality jobs."
                     </p>
-                    <p className="text-sm text-muted-foreground">
-                      Join a growing directory of verified professionals trusted
-                      by homeowners across Costa del Sol.
+                  </div>
+                </div>
+                
+                {/* Floating Stats Card */}
+                <div className="absolute -right-8 top-12 bg-white p-5 rounded-2xl shadow-xl max-w-[200px] animate-bounce-slow">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="p-2 bg-green-100 rounded-lg">
+                      <TrendingUp className="h-5 w-5 text-green-600" />
+                    </div>
+                    <span className="text-xs font-bold text-green-600">+15% Growth</span>
+                  </div>
+                  <p className="text-gray-900 font-bold text-lg">150+ Leads</p>
+                  <p className="text-gray-500 text-xs">Generated last month</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section className="py-20 md:py-32 bg-gray-50">
+        <div className="container-custom">
+          <div className="text-center mb-16 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0a1f44] mb-6 tracking-tight">
+              How it works
+            </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Join for free, create a strong profile and start receiving leads
+              from homeowners who need your skills.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {HOW_IT_WORKS_STEPS.map((step, index) => {
+              const Icon = step.icon;
+              return (
+                <div
+                  key={step.title}
+                  className="group bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 relative overflow-hidden"
+                >
+                  <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500">
+                    <Icon className="w-32 h-32 text-[#0a1f44]" />
+                  </div>
+                  
+                  <div className="relative z-10">
+                    <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#0a1f44] transition-colors duration-300">
+                      <Icon className="w-7 h-7 text-[#0a1f44] group-hover:text-white transition-colors duration-300" />
+                    </div>
+                    
+                    <div className="inline-block px-3 py-1 rounded-full bg-gray-100 text-xs font-bold text-gray-600 mb-4">
+                      Step 0{index + 1}
+                    </div>
+                    
+                    <h3 className="text-xl font-bold text-[#0a1f44] mb-3">
+                      {step.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {step.description}
                     </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Key benefits */}
+      <section className="py-20 md:py-32 bg-white">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#0a1f44] mb-6 tracking-tight">
+                Why tradespeople choose CostaTrade
+              </h2>
+              <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
+                Built for busy professionals who want a steady flow of the right kind of work without the hassle.
+              </p>
+              
+              <div className="grid sm:grid-cols-2 gap-6">
+                {KEY_BENEFITS.map((benefit) => {
+                  const Icon = benefit.icon;
+                  return (
+                    <div key={benefit.title} className="flex gap-4">
+                      <div className="flex-shrink-0 w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center">
+                        <Icon className="w-6 h-6 text-green-600" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-[#0a1f44] mb-2">{benefit.title}</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{benefit.description}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              
+              <div className="mt-10">
+                <Button 
+                  onClick={() => setTradeDialogOpen(true)}
+                  size="lg" 
+                  className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white rounded-full px-8 h-14 text-base font-semibold shadow-lg hover:shadow-xl transition-all"
+                >
+                  Start growing your business
+                </Button>
+              </div>
+            </div>
+            
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-purple-100 rounded-[40px] transform rotate-3"></div>
+              <img 
+                src="https://images.pexels.com/photos/5493691/pexels-photo-5493691.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                alt="Happy tradesperson" 
+                className="relative rounded-[40px] shadow-2xl w-full object-cover transform -rotate-3 hover:rotate-0 transition-transform duration-500"
+              />
+              
+              {/* Testimonial Card Overlay */}
+              <div className="absolute -bottom-10 -left-10 bg-white p-6 rounded-2xl shadow-xl max-w-sm hidden md:block">
+                <div className="flex gap-1 text-orange-400 mb-3">
+                  {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-current" />)}
+                </div>
+                <p className="text-[#0a1f44] font-medium italic mb-4">
+                  "CostaTrade sends me regular enquiries from homeowners in my area. I spend less time looking for work."
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-gray-200 rounded-full overflow-hidden">
+                    <img src="https://i.pravatar.cc/100?img=33" alt="Miguel" className="w-full h-full object-cover" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold text-[#0a1f44]">Miguel Rodriguez</p>
+                    <p className="text-xs text-muted-foreground">Electrician in Marbella</p>
                   </div>
                 </div>
               </div>
@@ -221,201 +379,65 @@ export default function JoinAsTradesperson() {
         </div>
       </section>
 
-      {/* Trust Bar */}
-      <section className="bg-white border-b border-gray-100">
-        <div className="container-custom py-6">
-          <div className="flex flex-wrap items-center justify-center gap-6">
-            {TRUST_BADGES.map((badge) => (
-              <div
-                key={badge}
-                className="flex items-center gap-2 text-sm text-muted-foreground"
-              >
-                <CheckCircle2 className="h-4 w-4 text-green-500" />
-                <span>{badge}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* How it works */}
-      <section className="bg-gray-50">
-        <div className="container-custom py-12 md:py-16">
-          <div className="text-center mb-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-              How it works
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Join for free, create a strong profile and start receiving leads
-              from homeowners who need your skills.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {HOW_IT_WORKS_STEPS.map((step) => (
-              <Card
-                key={step.title}
-                className="h-full rounded-2xl border-gray-100 shadow-sm bg-white"
-              >
-                <div className="p-6">
-                  <h3 className="font-semibold text-lg mb-3 text-foreground">
-                    {step.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Key benefits */}
-      <section className="bg-white border-y border-gray-100">
-        <div className="container-custom py-12 md:py-16">
-          <div className="text-center mb-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-              Why tradespeople choose CostaTrade
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Built for busy professionals who want a steady flow of the right
-              kind of work.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {KEY_BENEFITS.map((benefit) => (
-              <Card
-                key={benefit.title}
-                className="h-full rounded-2xl border-gray-100 bg-gray-50/60"
-              >
-                <div className="p-5">
-                  <h3 className="font-semibold text-base mb-2 text-foreground">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {benefit.description}
-                  </p>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Trades grid */}
-      <section className="bg-gray-50">
-        <div className="container-custom py-12 md:py-16">
-          <div className="flex items-center justify-between gap-4 mb-8 flex-wrap">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
-                Trades we specialise in
-              </h2>
-              <p className="text-muted-foreground text-sm md:text-base">
-                Select your trade to start your free profile.
-              </p>
-            </div>
+      <section className="py-20 md:py-32 bg-gray-50">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0a1f44] mb-4">
+              Trades we specialise in
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              Select your trade to start your free profile.
+            </p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
             {TRADES_GRID.map((trade) => (
               <button
                 key={trade.slug}
                 type="button"
                 onClick={() => goToDetails(trade.slug)}
-                className="group bg-white rounded-2xl border border-gray-200 hover:border-primary hover:shadow-md transition-all px-4 py-5 text-left flex flex-col justify-between min-h-[120px]"
+                className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-blue-200 text-left flex flex-col justify-between min-h-[140px]"
               >
-                <span className="font-semibold text-sm md:text-base text-foreground mb-2">
-                  {trade.label}
-                </span>
-                <span className="text-xs text-primary flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                  Create my free profile
-                  <ArrowRight className="h-3 w-3" />
-                </span>
+                <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#0a1f44] transition-colors duration-300">
+                  <Briefcase className="w-5 h-5 text-[#0a1f44] group-hover:text-white transition-colors" />
+                </div>
+                <div>
+                  <span className="block font-bold text-lg text-[#0a1f44] mb-1">
+                    {trade.label}
+                  </span>
+                  <span className="text-sm text-blue-600 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0 duration-300">
+                    Join now <ArrowRight className="h-3 w-3" />
+                  </span>
+                </div>
               </button>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonial */}
-      <section className="bg-white">
-        <div className="container-custom py-12 md:py-16">
-          <div className="max-w-3xl mx-auto">
-            <div className="relative bg-gradient-to-br from-[#0a1f44] via-[#0a1f44] to-sky-700 text-white rounded-3xl p-8 md:p-10 overflow-hidden">
-              <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top,_#ffffff,_transparent_60%)]" />
-              <div className="relative flex flex-col md:flex-row items-start md:items-center gap-6">
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-white/80 shadow-lg">
-                    <img
-                      src="https://images.pexels.com/photos/3760529/pexels-photo-3760529.jpeg?auto=compress&cs=tinysrgb&w=400"
-                      alt="Smiling tradesperson who uses CostaTrade"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <Quote className="h-8 w-8 text-orange-300 mb-3" />
-                  <p className="text-base md:text-lg font-medium mb-4 leading-relaxed">
-                    "CostaTrade sends me regular enquiries from homeowners in my
-                    area. I spend less time looking for work and more time on
-                    the jobs that suit my business."
-                  </p>
-                  <p className="text-sm font-semibold">
-                    Miguel, electrician in Marbella
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Getting started steps */}
-      <section className="bg-gray-50">
-        <div className="container-custom py-12 md:py-16">
-          <div className="text-center mb-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-              Getting started is simple
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Follow four straightforward steps and you will be ready to receive
-              enquiries from homeowners.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-4 gap-5">
-            {GETTING_STARTED_STEPS.map((step, index) => (
-              <Card
-                key={step}
-                className="rounded-2xl border-gray-100 bg-white flex flex-col items-start justify-between h-full"
-              >
-                <div className="p-5 flex flex-col gap-2">
-                  <div className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-primary/10 text-primary font-semibold text-sm mb-1">
-                    {index + 1}
-                  </div>
-                  <p className="font-semibold text-sm md:text-base text-foreground">
-                    {step}
-                  </p>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Final CTA */}
-      <section className="bg-white border-t border-gray-100">
-        <div className="container-custom py-12 md:py-16">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              Ready to start winning work?
-            </h2>
-            <p className="text-muted-foreground mb-6">
-              Join CostaTrade today, create your free profile and start
-              receiving genuine enquiries from local homeowners.
-            </p>
+      <section className="py-20 md:py-32 bg-[#0a1f44] relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-blue-500 rounded-full blur-[100px]"></div>
+          <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-purple-500 rounded-full blur-[100px]"></div>
+          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-soft-light"></div>
+        </div>
+        
+        <div className="container-custom relative z-10 text-center">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">
+            Ready to start winning work?
+          </h2>
+          <p className="text-xl text-blue-100/80 mb-10 max-w-2xl mx-auto font-light">
+            Join CostaTrade today, create your free profile and start
+            receiving genuine enquiries from local homeowners.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button
               type="button"
               size="lg"
-              className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white rounded-full px-8 md:px-10 py-3 md:py-4 text-base md:text-lg font-semibold"
+              className="w-full sm:w-auto bg-white text-[#0a1f44] hover:bg-blue-50 rounded-full px-10 h-16 text-lg font-bold shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1"
               onClick={() => {
                 if (selectedTradeSlug) {
                   goToDetails(selectedTradeSlug);
@@ -425,12 +447,13 @@ export default function JoinAsTradesperson() {
               }}
             >
               Create my free profile
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-5 w-5 ml-2" />
             </Button>
-            <p className="mt-3 text-xs md:text-sm text-muted-foreground">
-              Free to join. You only pay when you choose to quote on work.
-            </p>
           </div>
+          
+          <p className="mt-6 text-sm text-blue-200/60">
+            Free to join. No credit card required.
+          </p>
         </div>
       </section>
     </div>
