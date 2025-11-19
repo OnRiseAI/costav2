@@ -413,6 +413,24 @@ export default function TradespersonDetails() {
                 ))}
               </div>
             </div>
+
+            <div className="mt-4 space-y-3">
+              <p className="text-sm font-medium text-foreground">
+                How long have you been in business?
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                {YEARS_IN_BUSINESS_OPTIONS.map((option) => (
+                  <button
+                    key={option}
+                    type="button"
+                    onClick={() => setYearsInBusiness(option)}
+                    className={`flex items-center justify-center border rounded-xl px-4 py-3 text-sm bg-white ${yearsInBusiness === option ? "border-primary bg-primary/5 text-foreground" : "border-gray-300 hover:border-primary/70"}`}
+                  >
+                    <span className="text-sm font-medium text-center">{option}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
           </section>
 
           <section className="space-y-4">
