@@ -3,7 +3,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, CheckCircle2 } from "lucide-react";
 
 const TRADE_LABELS: Record<string, string> = {
   electrician: "Electrician",
@@ -127,17 +127,21 @@ export default function TradespersonDetails() {
       <div className="border-b border-gray-200 bg-white">
         <div className="container-custom py-4">
           <p className="text-xs text-muted-foreground mb-2">Change type of work</p>
-          <div className="flex items-center gap-3 text-xs md:text-sm text-muted-foreground">
-            <div className="flex flex-col items-start">
-              <span className="font-medium text-foreground">About your business</span>
-              <div className="mt-1 h-1 rounded-full bg-primary w-24" />
+          <div className="flex flex-wrap items-center gap-4 text-xs md:text-sm">
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+              <span className="font-medium text-foreground">Your business</span>
             </div>
-            <span className="h-px flex-1 bg-gray-200" />
-            <span>Select lead plan</span>
-            <span className="h-px flex-1 bg-gray-200" />
-            <span>Your details</span>
-            <span className="h-px flex-1 bg-gray-200" />
-            <span>Review &amp; confirm</span>
+            <span className="h-px w-8 md:w-12 bg-gray-200" />
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+              <span className="font-medium text-foreground">Your details</span>
+            </div>
+            <span className="h-px w-8 md:w-12 bg-gray-200" />
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+              <span className="font-medium text-foreground">Review &amp; confirm</span>
+            </div>
           </div>
         </div>
       </div>
