@@ -8,7 +8,13 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Card } from "@/components/ui/card";
-import { CheckCircle2, ChevronDown, ArrowRight, Quote, ChevronRight } from "lucide-react";
+import {
+  CheckCircle2,
+  ChevronDown,
+  ArrowRight,
+  Quote,
+  ChevronRight,
+} from "lucide-react";
 
 const HERO_TRADES = [
   { slug: "electrician", label: "Electrician" },
@@ -53,8 +59,7 @@ const KEY_BENEFITS = [
   },
   {
     title: "Save time on admin",
-    description:
-      "Spend less time chasing work and more time on paid jobs.",
+    description: "Spend less time chasing work and more time on paid jobs.",
   },
   {
     title: "Get featured in local searches",
@@ -115,7 +120,8 @@ export default function JoinAsTradesperson() {
                 Get free qualified leads when you join CostaTrade
               </h1>
               <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-xl">
-                Join for free and receive genuine enquiries from local homeowners.
+                Join for free and receive genuine enquiries from local
+                homeowners.
               </p>
 
               <Dialog open={tradeDialogOpen} onOpenChange={setTradeDialogOpen}>
@@ -204,7 +210,8 @@ export default function JoinAsTradesperson() {
                       CostaTrade for trades
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      Join a growing directory of verified professionals trusted by homeowners across Costa del Sol.
+                      Join a growing directory of verified professionals trusted
+                      by homeowners across Costa del Sol.
                     </p>
                   </div>
                 </div>
@@ -219,7 +226,10 @@ export default function JoinAsTradesperson() {
         <div className="container-custom py-6">
           <div className="flex flex-wrap items-center justify-center gap-6">
             {TRUST_BADGES.map((badge) => (
-              <div key={badge} className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div
+                key={badge}
+                className="flex items-center gap-2 text-sm text-muted-foreground"
+              >
                 <CheckCircle2 className="h-4 w-4 text-green-500" />
                 <span>{badge}</span>
               </div>
@@ -236,7 +246,8 @@ export default function JoinAsTradesperson() {
               How it works
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Join for free, create a strong profile and start receiving leads from homeowners who need your skills.
+              Join for free, create a strong profile and start receiving leads
+              from homeowners who need your skills.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
@@ -267,7 +278,8 @@ export default function JoinAsTradesperson() {
               Why tradespeople choose CostaTrade
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Built for busy professionals who want a steady flow of the right kind of work.
+              Built for busy professionals who want a steady flow of the right
+              kind of work.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -343,9 +355,13 @@ export default function JoinAsTradesperson() {
                 <div className="flex-1">
                   <Quote className="h-8 w-8 text-orange-300 mb-3" />
                   <p className="text-base md:text-lg font-medium mb-4 leading-relaxed">
-                    "CostaTrade sends me regular enquiries from homeowners in my area. I spend less time looking for work and more time on the jobs that suit my business."
+                    "CostaTrade sends me regular enquiries from homeowners in my
+                    area. I spend less time looking for work and more time on
+                    the jobs that suit my business."
                   </p>
-                  <p className="text-sm font-semibold">Miguel, electrician in Marbella</p>
+                  <p className="text-sm font-semibold">
+                    Miguel, electrician in Marbella
+                  </p>
                 </div>
               </div>
             </div>
@@ -361,7 +377,8 @@ export default function JoinAsTradesperson() {
               Getting started is simple
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Follow four straightforward steps and you will be ready to receive enquiries from homeowners.
+              Follow four straightforward steps and you will be ready to receive
+              enquiries from homeowners.
             </p>
           </div>
           <div className="grid md:grid-cols-4 gap-5">
@@ -392,7 +409,8 @@ export default function JoinAsTradesperson() {
               Ready to start winning work?
             </h2>
             <p className="text-muted-foreground mb-6">
-              Join CostaTrade today, create your free profile and start receiving genuine enquiries from local homeowners.
+              Join CostaTrade today, create your free profile and start
+              receiving genuine enquiries from local homeowners.
             </p>
             <Button
               type="button"

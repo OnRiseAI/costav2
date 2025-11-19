@@ -16,7 +16,8 @@ export default function TradespersonSubmitted() {
             Application submitted
           </h1>
           <p className="text-sm md:text-base text-muted-foreground mb-6">
-            Thank you for applying to join CostaTrade. Our team will review your details and let you know as soon as your profile is live.
+            Thank you for applying to join CostaTrade. Our team will review your
+            details and let you know as soon as your profile is live.
           </p>
           <Button
             type="button"

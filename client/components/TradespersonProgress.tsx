@@ -11,7 +11,9 @@ const STEPS: Array<{ id: number; label: string }> = [
   { id: 3, label: "Review & confirm" },
 ];
 
-export function TradespersonProgress({ currentStep }: TradespersonProgressProps) {
+export function TradespersonProgress({
+  currentStep,
+}: TradespersonProgressProps) {
   return (
     <div className="border-b border-gray-200 bg-white">
       <div className="container-custom py-4 md:py-5 lg:py-6 md:max-w-5xl">

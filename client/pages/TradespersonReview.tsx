@@ -54,16 +54,17 @@ function formatValue(value?: string): string {
 
 export default function TradespersonReview() {
   const navigate = useNavigate();
-  const [application, setApplication] = useState<TradespersonApplication | null>(
-    null,
-  );
+  const [application, setApplication] =
+    useState<TradespersonApplication | null>(null);
   const [error, setError] = useState<string>("");
 
   useEffect(() => {
     try {
       const stored = window.sessionStorage.getItem(APPLICATION_STORAGE_KEY);
       if (!stored) {
-        setError("We could not find your application details. Please go back and enter your information again.");
+        setError(
+          "We could not find your application details. Please go back and enter your information again.",
+        );
         return;
       }
       const parsed = JSON.parse(stored) as TradespersonApplication;
@@ -77,7 +78,9 @@ export default function TradespersonReview() {
     setError("");
 
     if (!application) {
-      setError("Your application details are missing. Please go back and try again.");
+      setError(
+        "Your application details are missing. Please go back and try again.",
+      );
       return;
     }
 
@@ -90,7 +93,9 @@ export default function TradespersonReview() {
       !application.businessEmail ||
       !application.businessPhone
     ) {
-      setError("Some required information is missing. Please edit your details before submitting.");
+      setError(
+        "Some required information is missing. Please edit your details before submitting.",
+      );
       return;
     }
 
@@ -145,7 +150,9 @@ export default function TradespersonReview() {
               <div>
                 <div className="flex items-center gap-2 mb-2">
                   <Wrench className="h-4 w-4 text-primary" />
-                  <h2 className="font-semibold text-sm md:text-base">Trade chosen</h2>
+                  <h2 className="font-semibold text-sm md:text-base">
+                    Trade chosen
+                  </h2>
                 </div>
                 <p className="text-sm text-muted-foreground">
                   {formatValue(application?.tradeLabel)}
@@ -166,7 +173,9 @@ export default function TradespersonReview() {
               <div>
                 <div className="flex items-center gap-2 mb-2">
                   <User className="h-4 w-4 text-primary" />
-                  <h2 className="font-semibold text-sm md:text-base">Full name</h2>
+                  <h2 className="font-semibold text-sm md:text-base">
+                    Full name
+                  </h2>
                 </div>
                 <ul className="text-sm text-muted-foreground space-y-1">
                   <li>First name: {formatValue(application?.firstName)}</li>
@@ -188,13 +197,22 @@ export default function TradespersonReview() {
               <div>
                 <div className="flex items-center gap-2 mb-2">
                   <Building2 className="h-4 w-4 text-primary" />
-                  <h2 className="font-semibold text-sm md:text-base">Business details</h2>
+                  <h2 className="font-semibold text-sm md:text-base">
+                    Business details
+                  </h2>
                 </div>
                 <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>Business name: {formatValue(application?.businessName)}</li>
+                  <li>
+                    Business name: {formatValue(application?.businessName)}
+                  </li>
                   <li>Website: {formatValue(application?.website)}</li>
-                  <li>Time in business: {formatValue(application?.yearsInBusiness)}</li>
-                  <li>Business type: {formatValue(application?.businessType)}</li>
+                  <li>
+                    Time in business:{" "}
+                    {formatValue(application?.yearsInBusiness)}
+                  </li>
+                  <li>
+                    Business type: {formatValue(application?.businessType)}
+                  </li>
                   <li>Employees: {formatValue(application?.employeeRange)}</li>
                 </ul>
               </div>
@@ -213,13 +231,18 @@ export default function TradespersonReview() {
               <div>
                 <div className="flex items-center gap-2 mb-2">
                   <Mail className="h-4 w-4 text-primary" />
-                  <h2 className="font-semibold text-sm md:text-base">Contact details</h2>
+                  <h2 className="font-semibold text-sm md:text-base">
+                    Contact details
+                  </h2>
                 </div>
                 <ul className="text-sm text-muted-foreground space-y-1">
                   <li>Email: {formatValue(application?.businessEmail)}</li>
-                  <li>Business phone: {formatValue(application?.businessPhone)}</li>
                   <li>
-                    Mobile phone: {formatValue(application?.mobilePhone || "Not provided")}
+                    Business phone: {formatValue(application?.businessPhone)}
+                  </li>
+                  <li>
+                    Mobile phone:{" "}
+                    {formatValue(application?.mobilePhone || "Not provided")}
                   </li>
                 </ul>
               </div>
@@ -238,7 +261,9 @@ export default function TradespersonReview() {
               <div>
                 <div className="flex items-center gap-2 mb-2">
                   <MapPin className="h-4 w-4 text-primary" />
-                  <h2 className="font-semibold text-sm md:text-base">Service areas / postcode</h2>
+                  <h2 className="font-semibold text-sm md:text-base">
+                    Service areas / postcode
+                  </h2>
                 </div>
                 <ul className="text-sm text-muted-foreground space-y-1">
                   <li>Postcode: {formatValue(application?.postcode)}</li>
@@ -260,7 +285,9 @@ export default function TradespersonReview() {
               <div>
                 <div className="flex items-center gap-2 mb-2">
                   <Languages className="h-4 w-4 text-primary" />
-                  <h2 className="font-semibold text-sm md:text-base">Languages spoken</h2>
+                  <h2 className="font-semibold text-sm md:text-base">
+                    Languages spoken
+                  </h2>
                 </div>
                 <p className="text-sm text-muted-foreground">
                   {formatList(application?.languages)}
@@ -281,14 +308,20 @@ export default function TradespersonReview() {
               <div>
                 <div className="flex items-center gap-2 mb-2">
                   <Info className="h-4 w-4 text-primary" />
-                  <h2 className="font-semibold text-sm md:text-base">About your business</h2>
+                  <h2 className="font-semibold text-sm md:text-base">
+                    About your business
+                  </h2>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  You&apos;ll be able to add a full description once your account has been approved.
+                  You&apos;ll be able to add a full description once your
+                  account has been approved.
                 </p>
               </div>
               <div className="flex items-center gap-2 rounded-lg border border-dashed border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-600">
-                <span className="h-2 w-2 rounded-full bg-slate-400" aria-hidden="true" />
+                <span
+                  className="h-2 w-2 rounded-full bg-slate-400"
+                  aria-hidden="true"
+                />
                 <span>Available after your account is approved.</span>
               </div>
             </div>
@@ -299,14 +332,20 @@ export default function TradespersonReview() {
               <div>
                 <div className="flex items-center gap-2 mb-2">
                   <FileText className="h-4 w-4 text-primary" />
-                  <h2 className="font-semibold text-sm md:text-base">Documents / images</h2>
+                  <h2 className="font-semibold text-sm md:text-base">
+                    Documents / images
+                  </h2>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  You&apos;ll be able to upload documents and images once your account has been approved.
+                  You&apos;ll be able to upload documents and images once your
+                  account has been approved.
                 </p>
               </div>
               <div className="flex items-center gap-2 rounded-lg border border-dashed border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-600">
-                <span className="h-2 w-2 rounded-full bg-slate-400" aria-hidden="true" />
+                <span
+                  className="h-2 w-2 rounded-full bg-slate-400"
+                  aria-hidden="true"
+                />
                 <span>Available after your account is approved.</span>
               </div>
             </div>
@@ -317,14 +356,20 @@ export default function TradespersonReview() {
               <div>
                 <div className="flex items-center gap-2 mb-2">
                   <Phone className="h-4 w-4 text-primary" />
-                  <h2 className="font-semibold text-sm md:text-base">Pricing information</h2>
+                  <h2 className="font-semibold text-sm md:text-base">
+                    Pricing information
+                  </h2>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  You&apos;ll be able to add pricing details once your account has been approved.
+                  You&apos;ll be able to add pricing details once your account
+                  has been approved.
                 </p>
               </div>
               <div className="flex items-center gap-2 rounded-lg border border-dashed border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-600">
-                <span className="h-2 w-2 rounded-full bg-slate-400" aria-hidden="true" />
+                <span
+                  className="h-2 w-2 rounded-full bg-slate-400"
+                  aria-hidden="true"
+                />
                 <span>Available after your account is approved.</span>
               </div>
             </div>
@@ -336,7 +381,8 @@ export default function TradespersonReview() {
             Ready to send your application
           </h2>
           <p className="text-sm md:text-base text-muted-foreground mb-4">
-            Once submitted, our team will review your information and activate your profile.
+            Once submitted, our team will review your information and activate
+            your profile.
           </p>
           <div className="flex flex-wrap gap-3">
             <Button

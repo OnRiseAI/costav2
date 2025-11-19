@@ -37,14 +37,14 @@ const AREA_OPTIONS = [
 
 const AREA_COORDINATES: Record<string, { lat: number; lon: number }> = {
   Marbella: { lat: 36.5099, lon: -4.8854 },
-  "Málaga": { lat: 36.7213, lon: -4.4214 },
+  Málaga: { lat: 36.7213, lon: -4.4214 },
   Fuengirola: { lat: 36.5396, lon: -4.6247 },
   Mijas: { lat: 36.595, lon: -4.6374 },
   Estepona: { lat: 36.4256, lon: -5.151 },
-  "Benalmádena": { lat: 36.5951, lon: -4.5734 },
+  Benalmádena: { lat: 36.5951, lon: -4.5734 },
   Torremolinos: { lat: 36.6203, lon: -4.4998 },
   Nerja: { lat: 36.746, lon: -3.88 },
-  "Coín": { lat: 36.6588, lon: -4.7556 },
+  Coín: { lat: 36.6588, lon: -4.7556 },
   "Alhaurín el Grande": { lat: 36.6428, lon: -4.6913 },
   "San Pedro de Alcántara": { lat: 36.4823, lon: -4.9903 },
   "Rincón de la Victoria": { lat: 36.7176, lon: -4.275 },
@@ -100,7 +100,10 @@ export default function TradespersonDetails() {
   const [website, setWebsite] = useState("");
   const [postcode, setPostcode] = useState("");
   const [selectedAreas, setSelectedAreas] = useState<string[]>([]);
-  const [mapCenter, setMapCenter] = useState<{ lat: number; lon: number } | null>(null);
+  const [mapCenter, setMapCenter] = useState<{
+    lat: number;
+    lon: number;
+  } | null>(null);
   const [businessType, setBusinessType] = useState<string>("self-employed");
   const [employeeRange, setEmployeeRange] = useState<string>("1");
   const [yearsInBusiness, setYearsInBusiness] = useState<string>("");
@@ -141,7 +144,14 @@ export default function TradespersonDetails() {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
 
-    if (!businessName || !postcode || !firstName || !lastName || !businessEmail || !businessPhone) {
+    if (
+      !businessName ||
+      !postcode ||
+      !firstName ||
+      !lastName ||
+      !businessEmail ||
+      !businessPhone
+    ) {
       return;
     }
 
@@ -201,7 +211,8 @@ export default function TradespersonDetails() {
       const response = await fetch(
         `https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=es&q=${encodeURIComponent(query + " costa del sol")}`,
       );
-      const results: Array<{ lat: string; lon: string }> = await response.json();
+      const results: Array<{ lat: string; lon: string }> =
+        await response.json();
 
       if (results.length > 0) {
         const first = results[0];
@@ -234,8 +245,8 @@ export default function TradespersonDetails() {
           Tell us about your business
         </h1>
         <p className="text-sm md:text-base text-muted-foreground mb-6">
-          You selected <span className="font-semibold">{tradeLabel}</span>. We use
-          these details to create your CostaTrade profile and match you with
+          You selected <span className="font-semibold">{tradeLabel}</span>. We
+          use these details to create your CostaTrade profile and match you with
           local homeowners.
         </p>
 
@@ -302,7 +313,8 @@ export default function TradespersonDetails() {
                 </div>
                 <div className="p-4 border-t border-gray-200 space-y-2">
                   <p className="text-xs md:text-sm text-muted-foreground">
-                    Select the areas you cover on the Costa del Sol. You can choose more than one.
+                    Select the areas you cover on the Costa del Sol. You can
+                    choose more than one.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {AREA_OPTIONS.map((area) => {
@@ -336,7 +348,7 @@ export default function TradespersonDetails() {
                     })}
                   </div>
                   <p className="text-xs text-muted-foreground">
-                    Selected area{selectedAreas.length === 1 ? "" : "s"}: {" "}
+                    Selected area{selectedAreas.length === 1 ? "" : "s"}:{" "}
                     <span className="font-medium">
                       {selectedAreas.length === 0
                         ? "None selected yet"
@@ -354,7 +366,9 @@ export default function TradespersonDetails() {
             </h2>
 
             <div className="space-y-3">
-              <p className="text-sm font-medium text-foreground">Business type</p>
+              <p className="text-sm font-medium text-foreground">
+                Business type
+              </p>
               <div className="grid gap-3 md:grid-cols-3">
                 <label className="flex items-center justify-between gap-3 border rounded-xl px-4 py-3 bg-white cursor-pointer hover:border-primary/70 transition-colors">
                   <div className="flex flex-col">
@@ -384,7 +398,9 @@ export default function TradespersonDetails() {
                 </label>
                 <label className="flex items-center justify-between gap-3 border rounded-xl px-4 py-3 bg-white cursor-pointer hover:border-primary/70 transition-colors">
                   <div className="flex flex-col">
-                    <span className="text-sm font-medium">Looking to start a business</span>
+                    <span className="text-sm font-medium">
+                      Looking to start a business
+                    </span>
                   </div>
                   <input
                     type="radio"
@@ -431,7 +447,9 @@ export default function TradespersonDetails() {
                     onClick={() => setYearsInBusiness(option)}
                     className={`flex items-center justify-center border rounded-xl px-4 py-3 text-sm bg-white ${yearsInBusiness === option ? "border-primary bg-primary/5 text-foreground" : "border-gray-300 hover:border-primary/70"}`}
                   >
-                    <span className="text-sm font-medium text-center">{option}</span>
+                    <span className="text-sm font-medium text-center">
+                      {option}
+                    </span>
                   </button>
                 ))}
               </div>
@@ -509,7 +527,9 @@ export default function TradespersonDetails() {
             </div>
 
             <div className="space-y-3">
-              <p className="text-sm font-medium text-foreground">Languages you speak</p>
+              <p className="text-sm font-medium text-foreground">
+                Languages you speak
+              </p>
               <p className="text-xs text-muted-foreground">
                 Homeowners can filter by language. Choose all that apply.
               </p>
@@ -520,7 +540,9 @@ export default function TradespersonDetails() {
                   const handleClick = () => {
                     setLanguages((current) => {
                       if (current.includes(language.value)) {
-                        return current.filter((item) => item !== language.value);
+                        return current.filter(
+                          (item) => item !== language.value,
+                        );
                       }
 
                       return [...current, language.value];
@@ -535,7 +557,10 @@ export default function TradespersonDetails() {
                       className={`px-3 py-1.5 rounded-full text-xs md:text-sm border ${isSelected ? "bg-primary text-primary-foreground border-primary" : "bg-white text-foreground border-gray-300 hover:border-primary/70"}`}
                     >
                       <span className="flex items-center gap-2">
-                        <span className="text-base md:text-lg" aria-hidden="true">
+                        <span
+                          className="text-base md:text-lg"
+                          aria-hidden="true"
+                        >
                           {language.flag}
                         </span>
                         <span>{language.label}</span>
