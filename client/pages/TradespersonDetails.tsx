@@ -50,7 +50,13 @@ const AREA_COORDINATES: Record<string, { lat: number; lon: number }> = {
   "Rincón de la Victoria": { lat: 36.7176, lon: -4.275 },
 };
 
-const LANGUAGE_OPTIONS = ["English", "Spanish", "German", "French", "Arabic"] as const;
+const LANGUAGE_OPTIONS = [
+  { value: "English", label: "English", flag: "🇬🇧" },
+  { value: "Spanish", label: "Spanish", flag: "🇪🇸" },
+  { value: "German", label: "German", flag: "🇩🇪" },
+  { value: "French", label: "French", flag: "🇫🇷" },
+  { value: "Arabic", label: "Arabic", flag: "🇦🇪" },
+] as const;
 
 type StoredApplication = {
   tradeSlug?: string;
@@ -401,42 +407,44 @@ export default function TradespersonDetails() {
               </div>
             </div>
 
-            <div className="space-y-1.5">
-              <label className="text-sm font-medium text-foreground">
-                Your business email*
-              </label>
-              <Input
-                type="email"
-                value={businessEmail}
-                onChange={(event) => setBusinessEmail(event.target.value)}
-                className="h-11 md:h-12 bg-white border-gray-300"
-                required
-              />
-            </div>
+            <div className="grid gap-4 md:grid-cols-3">
+              <div className="space-y-1.5">
+                <label className="text-sm font-medium text-foreground">
+                  Your business email*
+                </label>
+                <Input
+                  type="email"
+                  value={businessEmail}
+                  onChange={(event) => setBusinessEmail(event.target.value)}
+                  className="h-11 md:h-12 bg-white border-gray-300"
+                  required
+                />
+              </div>
 
-            <div className="space-y-1.5">
-              <label className="text-sm font-medium text-foreground">
-                Your business phone*
-              </label>
-              <Input
-                type="tel"
-                value={businessPhone}
-                onChange={(event) => setBusinessPhone(event.target.value)}
-                className="h-11 md:h-12 bg-white border-gray-300"
-                required
-              />
-            </div>
+              <div className="space-y-1.5">
+                <label className="text-sm font-medium text-foreground">
+                  Your business phone*
+                </label>
+                <Input
+                  type="tel"
+                  value={businessPhone}
+                  onChange={(event) => setBusinessPhone(event.target.value)}
+                  className="h-11 md:h-12 bg-white border-gray-300"
+                  required
+                />
+              </div>
 
-            <div className="space-y-1.5">
-              <label className="text-sm font-medium text-foreground">
-                Your mobile phone (optional)
-              </label>
-              <Input
-                type="tel"
-                value={mobilePhone}
-                onChange={(event) => setMobilePhone(event.target.value)}
-                className="h-11 md:h-12 bg-white border-gray-300"
-              />
+              <div className="space-y-1.5">
+                <label className="text-sm font-medium text-foreground">
+                  Your mobile phone (optional)
+                </label>
+                <Input
+                  type="tel"
+                  value={mobilePhone}
+                  onChange={(event) => setMobilePhone(event.target.value)}
+                  className="h-11 md:h-12 bg-white border-gray-300"
+                />
+              </div>
             </div>
 
             <div className="space-y-3">
@@ -444,28 +452,33 @@ export default function TradespersonDetails() {
               <p className="text-xs text-muted-foreground">
                 Homeowners can filter by language. Choose all that apply.
               </p>
-              <div className="flex flex-wrap gap-2">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
                 {LANGUAGE_OPTIONS.map((language) => {
-                  const isSelected = languages.includes(language);
+                  const isSelected = languages.includes(language.value);
 
                   const handleClick = () => {
                     setLanguages((current) => {
-                      if (current.includes(language)) {
-                        return current.filter((item) => item !== language);
+                      if (current.includes(language.value)) {
+                        return current.filter((item) => item !== language.value);
                       }
 
-                      return [...current, language];
+                      return [...current, language.value];
                     });
                   };
 
                   return (
                     <button
-                      key={language}
+                      key={language.value}
                       type="button"
                       onClick={handleClick}
                       className={`px-3 py-1.5 rounded-full text-xs md:text-sm border ${isSelected ? "bg-primary text-primary-foreground border-primary" : "bg-white text-foreground border-gray-300 hover:border-primary/70"}`}
                     >
-                      {language}
+                      <span className="flex items-center gap-2">
+                        <span className="text-base md:text-lg" aria-hidden="true">
+                          {language.flag}
+                        </span>
+                        <span>{language.label}</span>
+                      </span>
                     </button>
                   );
                 })}
