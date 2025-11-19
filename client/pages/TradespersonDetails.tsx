@@ -145,6 +145,11 @@ export default function TradespersonDetails() {
       return;
     }
 
+    if (selectedAreas.length === 0) {
+      window.alert("Please select at least one area you work in.");
+      return;
+    }
+
     const application = {
       tradeSlug,
       tradeLabel,
