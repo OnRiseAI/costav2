@@ -226,43 +226,53 @@ export default function TradespersonDetails() {
         <form onSubmit={handleSubmit} className="space-y-10">
           <section className="space-y-4">
             <h2 className="text-lg md:text-xl font-semibold text-foreground">
-              What is your business called?
+              Business details
             </h2>
-            <Input
-              value={businessName}
-              onChange={(event) => setBusinessName(event.target.value)}
-              placeholder="Enter your business name*"
-              className="h-11 md:h-12 bg-white border-gray-300"
-              required
-            />
 
-            <div className="mt-4 space-y-1.5">
-              <label className="text-sm font-medium text-foreground">
-                Business website (optional)
-              </label>
-              <Input
-                type="url"
-                value={website}
-                onChange={(event) => setWebsite(event.target.value)}
-                placeholder="https://www.your-business.com"
-                className="h-11 md:h-12 bg-white border-gray-300"
-              />
+            <div className="grid gap-4 md:grid-cols-3">
+              <div className="space-y-1.5">
+                <label className="text-sm font-medium text-foreground">
+                  Business name*
+                </label>
+                <Input
+                  value={businessName}
+                  onChange={(event) => setBusinessName(event.target.value)}
+                  placeholder="Enter your business name"
+                  className="h-11 md:h-12 bg-white border-gray-300"
+                  required
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-sm font-medium text-foreground">
+                  Business website (optional)
+                </label>
+                <Input
+                  type="url"
+                  value={website}
+                  onChange={(event) => setWebsite(event.target.value)}
+                  placeholder="https://www.your-business.com"
+                  className="h-11 md:h-12 bg-white border-gray-300"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-sm font-medium text-foreground">
+                  Business postcode*
+                </label>
+                <Input
+                  value={postcode}
+                  onChange={(event) => setPostcode(event.target.value)}
+                  onBlur={handlePostcodeBlur}
+                  placeholder="Business postcode"
+                  className="h-11 md:h-12 bg-white border-gray-300"
+                  required
+                />
+              </div>
             </div>
 
             <div className="mt-6 space-y-3">
-              <h2 className="text-lg md:text-xl font-semibold text-foreground">
-                Where is your business based?
-              </h2>
-              <Input
-                value={postcode}
-                onChange={(event) => setPostcode(event.target.value)}
-                onBlur={handlePostcodeBlur}
-                placeholder="Business postcode*"
-                className="h-11 md:h-12 bg-white border-gray-300"
-                required
-              />
-
-              <Card className="mt-4 overflow-hidden rounded-2xl border-gray-200 bg-white">
+              <Card className="overflow-hidden rounded-2xl border-gray-200 bg-white">
                 <div className="relative w-full h-64 md:h-72 bg-gray-100">
                   <iframe
                     title="Costa del Sol map"
