@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
@@ -97,10 +97,42 @@ const GETTING_STARTED_STEPS = [
   "Start receiving enquiries",
 ];
 
+const TESTIMONIALS = [
+  {
+    quote:
+      "CostaTrade sends me regular enquiries from homeowners in my area. I spend less time looking for work.",
+    name: "Miguel Rodriguez",
+    role: "Electrician in Marbella",
+    image: "https://i.pravatar.cc/100?img=33",
+  },
+  {
+    quote:
+      "The best platform for finding quality leads on the coast. My business has grown 40% since joining.",
+    name: "Sarah Jenkins",
+    role: "Interior Designer in Mijas",
+    image: "https://i.pravatar.cc/100?img=5",
+  },
+  {
+    quote:
+      "Finally a site that actually verifies tradespeople. It makes homeowners trust us more from day one.",
+    name: "David Mueller",
+    role: "Plumber in Fuengirola",
+    image: "https://i.pravatar.cc/100?img=11",
+  },
+];
+
 export default function JoinAsTradesperson() {
   const navigate = useNavigate();
   const [tradeDialogOpen, setTradeDialogOpen] = useState(false);
   const [selectedTradeSlug, setSelectedTradeSlug] = useState<string>("");
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % TESTIMONIALS.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   const selectedTradeLabel =
     HERO_TRADES.find((trade) => trade.slug === selectedTradeSlug)?.label || "";
@@ -357,20 +389,57 @@ export default function JoinAsTradesperson() {
               />
               
               {/* Testimonial Card Overlay */}
-              <div className="absolute -bottom-10 -left-10 bg-white p-6 rounded-2xl shadow-xl max-w-sm hidden md:block">
+              <div className="absolute -bottom-10 -left-10 bg-white p-6 rounded-2xl shadow-xl max-w-sm hidden md:block transition-all duration-500">
                 <div className="flex gap-1 text-orange-400 mb-3">
-                  {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-current" />)}
+                  {[1, 2, 3, 4, 5].map((i) => (
+                    <Star key={i} className="w-4 h-4 fill-current" />
+                  ))}
                 </div>
-                <p className="text-[#0a1f44] font-medium italic mb-4">
-                  "CostaTrade sends me regular enquiries from homeowners in my area. I spend less time looking for work."
-                </p>
+                <div className="h-24 relative overflow-hidden mb-4">
+                  {TESTIMONIALS.map((testimonial, index) => (
+                    <p
+                      key={index}
+                      className={`text-[#0a1f44] font-medium italic absolute top-0 left-0 w-full transition-all duration-500 ${
+                        index === currentTestimonial
+                          ? "opacity-100 translate-y-0"
+                          : "opacity-0 translate-y-4"
+                      }`}
+                    >
+                      "{testimonial.quote}"
+                    </p>
+                  ))}
+                </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gray-200 rounded-full overflow-hidden">
-                    <img src="https://i.pravatar.cc/100?img=33" alt="Miguel" className="w-full h-full object-cover" />
+                  <div className="w-10 h-10 bg-gray-200 rounded-full overflow-hidden relative">
+                    {TESTIMONIALS.map((testimonial, index) => (
+                      <img
+                        key={index}
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-500 ${
+                          index === currentTestimonial ? "opacity-100" : "opacity-0"
+                        }`}
+                      />
+                    ))}
                   </div>
-                  <div>
-                    <p className="text-sm font-bold text-[#0a1f44]">Miguel Rodriguez</p>
-                    <p className="text-xs text-muted-foreground">Electrician in Marbella</p>
+                  <div className="relative h-10 w-48 overflow-hidden">
+                    {TESTIMONIALS.map((testimonial, index) => (
+                      <div
+                        key={index}
+                        className={`absolute top-0 left-0 w-full transition-all duration-500 ${
+                          index === currentTestimonial
+                            ? "opacity-100 translate-y-0"
+                            : "opacity-0 translate-y-4"
+                        }`}
+                      >
+                        <p className="text-sm font-bold text-[#0a1f44]">
+                          {testimonial.name}
+                        </p>
+                        <p className="text-xs text-muted-foreground">
+                          {testimonial.role}
+                        </p>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
