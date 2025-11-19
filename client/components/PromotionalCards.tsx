@@ -1,5 +1,5 @@
-import { QrCode, ExternalLink } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { QrCode, ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export function PromotionalCards() {
   return (
@@ -14,16 +14,25 @@ export function PromotionalCards() {
             </div>
 
             <div className="relative z-10 flex-1">
-              <h3 className="text-2xl md:text-3xl font-bold mb-3">Simplify your home improvements with our app</h3>
-              <p className="text-primary-foreground/90 mb-6">Search, message and book with real-time updates from tradespeople</p>
-              
+              <h3 className="text-2xl md:text-3xl font-bold mb-3">
+                Simplify your home improvements with our app
+              </h3>
+              <p className="text-primary-foreground/90 mb-6">
+                Search, message and book with real-time updates from
+                tradespeople
+              </p>
+
               <div className="flex items-center gap-4">
                 <div className="bg-white rounded-lg p-3 shadow-lg">
                   <QrCode className="h-12 w-12 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm text-primary-foreground/80">Scan to download</p>
-                  <p className="text-xs text-primary-foreground/70">From Google Play & App Store</p>
+                  <p className="text-sm text-primary-foreground/80">
+                    Scan to download
+                  </p>
+                  <p className="text-xs text-primary-foreground/70">
+                    From Google Play & App Store
+                  </p>
                 </div>
               </div>
             </div>
@@ -75,15 +84,22 @@ export function PromotionalCards() {
             </div>
 
             <div className="relative z-10">
-              <h3 className="text-2xl md:text-3xl font-bold mb-3">Upgrade your home, your way</h3>
+              <h3 className="text-2xl md:text-3xl font-bold mb-3">
+                Upgrade your home, your way
+              </h3>
               <ul className="space-y-2 mb-6 text-sm md:text-base">
                 <li className="flex items-start gap-2">
                   <span className="text-yellow-300 font-bold">•</span>
-                  <span>From EV chargers to air con, find the right products to power your home</span>
+                  <span>
+                    From EV chargers to air con, find the right products to
+                    power your home
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-yellow-300 font-bold">•</span>
-                  <span>Solar panels, batteries, boilers and more — all in one place</span>
+                  <span>
+                    Solar panels, batteries, boilers and more — all in one place
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-yellow-300 font-bold">•</span>
