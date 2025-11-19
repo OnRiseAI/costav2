@@ -62,6 +62,7 @@ type StoredApplication = {
   tradeSlug?: string;
   tradeLabel?: string;
   businessName?: string;
+  website?: string;
   postcode?: string;
   selectedAreas?: string[];
   businessType?: string;
@@ -88,6 +89,7 @@ export default function TradespersonDetails() {
   );
 
   const [businessName, setBusinessName] = useState("");
+  const [website, setWebsite] = useState("");
   const [postcode, setPostcode] = useState("");
   const [selectedAreas, setSelectedAreas] = useState<string[]>([]);
   const [mapCenter, setMapCenter] = useState<{ lat: number; lon: number } | null>(null);
@@ -110,6 +112,7 @@ export default function TradespersonDetails() {
       const parsed = JSON.parse(stored) as StoredApplication;
 
       if (parsed.businessName) setBusinessName(parsed.businessName);
+      if (parsed.website) setWebsite(parsed.website);
       if (parsed.postcode) setPostcode(parsed.postcode);
       if (parsed.selectedAreas) setSelectedAreas(parsed.selectedAreas);
       if (parsed.businessType) setBusinessType(parsed.businessType);
@@ -146,6 +149,7 @@ export default function TradespersonDetails() {
       businessPhone,
       mobilePhone,
       languages,
+      website,
     };
 
     window.sessionStorage.setItem(
@@ -231,6 +235,19 @@ export default function TradespersonDetails() {
               className="h-11 md:h-12 bg-white border-gray-300"
               required
             />
+
+            <div className="mt-4 space-y-1.5">
+              <label className="text-sm font-medium text-foreground">
+                Business website (optional)
+              </label>
+              <Input
+                type="url"
+                value={website}
+                onChange={(event) => setWebsite(event.target.value)}
+                placeholder="https://www.your-business.com"
+                className="h-11 md:h-12 bg-white border-gray-300"
+              />
+            </div>
 
             <div className="mt-6 space-y-3">
               <h2 className="text-lg md:text-xl font-semibold text-foreground">
