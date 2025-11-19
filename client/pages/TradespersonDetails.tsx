@@ -58,6 +58,13 @@ const LANGUAGE_OPTIONS = [
   { value: "Arabic", label: "Arabic", flag: "🇦🇪" },
 ] as const;
 
+const YEARS_IN_BUSINESS_OPTIONS = [
+  "Under 1 year",
+  "1-3 years",
+  "3-5 years",
+  "5+ years",
+] as const;
+
 type StoredApplication = {
   tradeSlug?: string;
   tradeLabel?: string;
