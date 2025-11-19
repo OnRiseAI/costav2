@@ -350,7 +350,7 @@ export default function TradespersonDetails() {
 
             <div className="space-y-3">
               <p className="text-sm font-medium text-foreground">Business type</p>
-              <div className="grid gap-3">
+              <div className="grid gap-3 md:grid-cols-3">
                 <label className="flex items-center justify-between gap-3 border rounded-xl px-4 py-3 bg-white cursor-pointer hover:border-primary/70 transition-colors">
                   <div className="flex flex-col">
                     <span className="text-sm font-medium">Self employed</span>
@@ -366,7 +366,7 @@ export default function TradespersonDetails() {
                 </label>
                 <label className="flex items-center justify-between gap-3 border rounded-xl px-4 py-3 bg-white cursor-pointer hover:border-primary/70 transition-colors">
                   <div className="flex flex-col">
-                    <span className="text-sm font-medium">Limited company</span>
+                    <span className="text-sm font-medium">SL company</span>
                   </div>
                   <input
                     type="radio"
