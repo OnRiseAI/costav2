@@ -21,6 +21,7 @@ import { CustomerDashboard } from "@/pages/CustomerDashboard";
 import { Tradespeople } from "@/pages/Tradespeople";
 import TradesMenu from "@/pages/TradesMenu";
 import AboutPage from "@/pages/AboutPage";
+import HowItWorksPage from "@/pages/HowItWorksPage";
 import ContactPage from "@/pages/ContactPage";
 import SEOTradePage from "@/pages/SEOTradePage";
 import PlaceholderPage from "@/pages/PlaceholderPage";
@@ -70,15 +71,7 @@ function AppContent() {
             <Route path="/search" element={<SearchResults />} />
 
             {/* Information Pages */}
-            <Route
-              path="/how-it-works"
-              element={
-                <PlaceholderPage
-                  title="How It Works"
-                  description="Learn how CostaTrade connects you with trusted professionals"
-                />
-              }
-            />
+            <Route path="/how-it-works" element={<HowItWorksPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route
