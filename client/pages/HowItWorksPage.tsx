@@ -23,6 +23,22 @@ export default function HowItWorksPage() {
     {
       question: "What if I don't like the quotes?",
       answer: "There is absolutely no obligation to hire. If the quotes or professionals don't feel like the right fit, you can simply decline and post again later or look elsewhere."
+    },
+    {
+      question: "How do you verify tradespeople?",
+      answer: "We perform rigorous checks including ID verification, business registration status, and insurance coverage. We also collect real reviews from homeowners like you to ensure ongoing quality."
+    },
+    {
+      question: "What areas of Costa del Sol do you cover?",
+      answer: "We cover the entire Costa del Sol region, including major hubs like Marbella, Estepona, Mijas, Fuengirola, Benalmadena, and Sotogrande, as well as inland areas."
+    },
+    {
+      question: "Do the tradespeople speak English?",
+      answer: "Yes, many of our professionals are multilingual. You can filter for English-speaking tradespeople when you post your job or review their profiles."
+    },
+    {
+      question: "Can I see examples of previous work?",
+      answer: "Absolutely. Tradesperson profiles feature photo galleries of their past projects, so you can see the quality of their craftsmanship before you hire."
     }
   ];
 
