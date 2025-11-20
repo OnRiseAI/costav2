@@ -64,7 +64,7 @@ export function Navigation() {
               <Link to="/download-app">
                 <Button
                   variant="outline"
-                  className="border-2 border-[#0a1f44] text-[#0a1f44] hover:bg-gray-50 bg-white px-5 md:px-7 h-[44px] text-[14px] md:text-[15px] font-medium rounded-full whitespace-nowrap"
+                  className="border-2 border-[#0a1f44] text-[#0a1f44] hover:bg-gray-50 hover:text-[#0a1f44] bg-white px-5 md:px-7 h-[44px] text-[14px] md:text-[15px] font-medium rounded-full whitespace-nowrap"
                 >
                   Download app
                 </Button>
