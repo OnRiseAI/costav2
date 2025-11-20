@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Eye, EyeOff, AlertCircle } from "lucide-react";
+import { Eye, EyeOff, AlertCircle, CheckCircle2, Star } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 
 export default function LoginPage() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const { signIn, loading } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -13,6 +14,8 @@ export default function LoginPage() {
   const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
+  const loginType = searchParams.get("type"); // 'tradesperson' or 'homeowner' (optional)
 
   const isFormValid = email && password;
 
@@ -36,33 +39,34 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4">
-      <div className="max-w-md w-full">
-        <div className="bg-white rounded-xl p-8 shadow-sm">
-          {/* Header */}
-          <div className="mb-8 text-center">
-            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
+    <div className="min-h-screen bg-white grid lg:grid-cols-2">
+      {/* Left Side - Form */}
+      <div className="flex flex-col justify-center px-4 sm:px-6 lg:px-20 xl:px-24 py-12">
+        <div className="w-full max-w-sm mx-auto lg:w-96">
+          <div className="mb-10">
+            <Link to="/" className="inline-block mb-8">
+              <span className="text-2xl font-bold text-[#0a1f44]">CostaTrade</span>
+            </Link>
+            <h1 className="text-3xl md:text-4xl font-bold text-[#0a1f44] mb-3 tracking-tight">
               Welcome back
             </h1>
-            <p className="text-muted-foreground">
-              Sign in to your CostaTrade account
+            <p className="text-muted-foreground text-lg">
+              Sign in to manage your {loginType === 'tradesperson' ? 'business' : 'projects'} and account.
             </p>
           </div>
 
           {error && (
-            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3">
+            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-start gap-3 animate-in fade-in slide-in-from-top-2">
               <AlertCircle className="h-5 w-5 text-red-600 flex-shrink-0 mt-0.5" />
-              <p className="text-sm text-red-700">{error}</p>
+              <p className="text-sm text-red-700 font-medium">{error}</p>
             </div>
           )}
 
-          {/* Login Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Email */}
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-foreground mb-2"
+                className="block text-sm font-semibold text-gray-700 mb-2"
               >
                 Email address
               </label>
@@ -71,20 +75,27 @@ export default function LoginPage() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
-                className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-base focus:border-primary focus:outline-none transition-colors"
+                placeholder="name@example.com"
+                className="w-full h-12 px-4 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-[#0a1f44] focus:ring-0 transition-all outline-none"
                 required
               />
             </div>
 
-            {/* Password */}
             <div>
-              <label
-                htmlFor="password"
-                className="block text-sm font-medium text-foreground mb-2"
-              >
-                Password
-              </label>
+              <div className="flex items-center justify-between mb-2">
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-semibold text-gray-700"
+                >
+                  Password
+                </label>
+                <Link
+                  to="/forgot-password"
+                  className="text-sm font-medium text-[#0a1f44] hover:underline"
+                >
+                  Forgot password?
+                </Link>
+              </div>
               <div className="relative">
                 <input
                   id="password"
@@ -92,13 +103,13 @@ export default function LoginPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter your password"
-                  className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-base focus:border-primary focus:outline-none transition-colors pr-12"
+                  className="w-full h-12 px-4 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-[#0a1f44] focus:ring-0 transition-all outline-none pr-12"
                   required
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
                 >
                   {showPassword ? (
                     <EyeOff className="h-5 w-5" />
@@ -109,54 +120,50 @@ export default function LoginPage() {
               </div>
             </div>
 
-            {/* Remember Me & Forgot Password */}
-            <div className="flex items-center justify-between">
-              <label className="flex items-center cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={rememberMe}
-                  onChange={(e) => setRememberMe(e.target.checked)}
-                  className="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary cursor-pointer"
-                />
-                <span className="ml-2 text-sm text-foreground">
-                  Remember me
-                </span>
+            <div className="flex items-center">
+              <input
+                id="remember-me"
+                type="checkbox"
+                checked={rememberMe}
+                onChange={(e) => setRememberMe(e.target.checked)}
+                className="h-4 w-4 rounded border-gray-300 text-[#0a1f44] focus:ring-[#0a1f44]"
+              />
+              <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-600">
+                Remember me for 30 days
               </label>
-              <Link
-                to="/forgot-password"
-                className="text-sm text-primary hover:underline"
-              >
-                Forgot password?
-              </Link>
             </div>
 
-            {/* Submit Button */}
             <Button
               type="submit"
               size="lg"
-              className="w-full text-lg py-6 bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white rounded-full disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full h-12 bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white rounded-full text-base font-bold shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
               disabled={!isFormValid || isLoading || loading}
             >
-              {isLoading || loading ? "Signing in..." : "Sign in"}
+              {isLoading || loading ? (
+                <span className="flex items-center gap-2">
+                  <span className="h-4 w-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  Signing in...
+                </span>
+              ) : (
+                "Sign in"
+              )}
             </Button>
           </form>
 
-          {/* Divider */}
           <div className="relative my-8">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-gray-200"></div>
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-4 bg-white text-muted-foreground">or</span>
+              <span className="px-4 bg-white text-gray-500 font-medium">Or continue with</span>
             </div>
           </div>
 
-          {/* Social Login Options */}
-          <div className="space-y-3">
+          <div className="grid grid-cols-2 gap-4">
             <Button
               type="button"
               variant="outline"
-              className="w-full py-6 rounded-xl border-2"
+              className="h-12 rounded-xl border-gray-200 hover:bg-gray-50 hover:border-gray-300 font-medium"
               onClick={() => alert("Google login will be implemented soon")}
             >
               <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
@@ -177,13 +184,13 @@ export default function LoginPage() {
                   d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
                 />
               </svg>
-              Continue with Google
+              Google
             </Button>
 
             <Button
               type="button"
               variant="outline"
-              className="w-full py-6 rounded-xl border-2"
+              className="h-12 rounded-xl border-gray-200 hover:bg-gray-50 hover:border-gray-300 font-medium"
               onClick={() => alert("Apple login will be implemented soon")}
             >
               <svg
@@ -193,54 +200,76 @@ export default function LoginPage() {
               >
                 <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
               </svg>
-              Continue with Apple
+              Apple
             </Button>
           </div>
 
-          {/* Sign Up Link */}
-          <div className="mt-8 text-center text-sm text-muted-foreground">
-            Don't have an account?{" "}
-            <Link
-              to="/signup"
-              className="text-primary hover:underline font-semibold"
-            >
-              Sign up
-            </Link>
-          </div>
-
-          {/* Account Type Selection */}
-          <div className="mt-6 text-center">
-            <p className="text-sm text-muted-foreground mb-3">
-              Looking for a different account type?
+          <div className="mt-8 text-center">
+            <p className="text-sm text-gray-600">
+              Don't have an account?{" "}
+              <Link
+                to="/signup"
+                className="font-semibold text-[#0a1f44] hover:underline"
+              >
+                Sign up for free
+              </Link>
             </p>
-            <div className="flex gap-3 justify-center">
-              <Link
-                to="/login?type=homeowner"
-                className="text-sm text-primary hover:underline"
-              >
-                Homeowner
-              </Link>
-              <span className="text-muted-foreground">|</span>
-              <Link
-                to="/login?type=tradesperson"
-                className="text-sm text-primary hover:underline"
-              >
-                Tradesperson
-              </Link>
-            </div>
           </div>
         </div>
+      </div>
 
-        {/* Help Text */}
-        <div className="mt-6 text-center text-xs text-muted-foreground">
-          By signing in, you agree to our{" "}
-          <Link to="/terms" className="text-primary hover:underline">
-            Terms of Service
-          </Link>{" "}
-          and{" "}
-          <Link to="/privacy" className="text-primary hover:underline">
-            Privacy Policy
-          </Link>
+      {/* Right Side - Image & Testimonial */}
+      <div className="hidden lg:block relative bg-[#0a1f44] overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-500 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2"></div>
+          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-purple-500 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4"></div>
+        </div>
+
+        <img
+          src="https://images.pexels.com/photos/3797991/pexels-photo-3797991.jpeg?auto=compress&cs=tinysrgb&w=1600"
+          alt="Modern home interior"
+          className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-overlay"
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f44] via-[#0a1f44]/60 to-transparent"></div>
+
+        <div className="relative z-10 h-full flex flex-col justify-end p-16 text-white">
+          <div className="mb-8">
+            <div className="flex gap-1 text-orange-400 mb-4">
+              {[1, 2, 3, 4, 5].map((i) => (
+                <Star key={i} className="w-5 h-5 fill-current" />
+              ))}
+            </div>
+            <blockquote className="text-2xl font-medium leading-relaxed mb-6">
+              "CostaTrade has completely transformed how I manage my business. The quality of leads is unmatched, and the platform is so easy to use."
+            </blockquote>
+            <div className="flex items-center gap-4">
+              <img
+                src="https://i.pravatar.cc/100?img=33"
+                alt="Miguel Rodriguez"
+                className="w-12 h-12 rounded-full border-2 border-white/20"
+              />
+              <div>
+                <p className="font-bold text-lg">Miguel Rodriguez</p>
+                <p className="text-blue-200">Electrician in Marbella</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-3 gap-8 border-t border-white/10 pt-8">
+            <div>
+              <p className="text-3xl font-bold mb-1">2k+</p>
+              <p className="text-sm text-blue-200">Active Trades</p>
+            </div>
+            <div>
+              <p className="text-3xl font-bold mb-1">15k+</p>
+              <p className="text-sm text-blue-200">Jobs Posted</p>
+            </div>
+            <div>
+              <p className="text-3xl font-bold mb-1">4.9/5</p>
+              <p className="text-sm text-blue-200">Average Rating</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
