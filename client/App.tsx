@@ -22,25 +22,11 @@ import { Tradespeople } from "@/pages/Tradespeople";
 import TradesMenu from "@/pages/TradesMenu";
 import AboutPage from "@/pages/AboutPage";
 import NotFound from "@/pages/NotFound";
-import { SchemaMarkup } from "@/components/SchemaMarkup";
 import "./global.css";
 
 function AppContent() {
-  const websiteSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "CostaTrade",
-    "url": "https://costatrade.com",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://costatrade.com/search?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  };
-
   return (
     <>
-      <SchemaMarkup schema={websiteSchema} />
       <ScrollToTop />
       <div className="flex flex-col min-h-screen">
         <Navigation />
