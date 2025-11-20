@@ -17,8 +17,8 @@ export default function AboutPage() {
       <section className="relative h-[600px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?auto=compress&cs=tinysrgb&w=1600"
-            alt="Beautiful Costa del Sol villa with pool"
+            src="https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2F964f2a624f4c449f9c4ca390ffab21c8?format=webp&width=800"
+            alt="Sunny Mediterranean city pier view"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
