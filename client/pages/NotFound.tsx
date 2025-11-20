@@ -1,35 +1,92 @@
 import { Link } from 'react-router-dom';
-import { Home, Search, AlertCircle } from 'lucide-react';
+import { Home, Search, Wrench, Hammer, AlertTriangle, ArrowRight, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function NotFound() {
   return (
-    <div className="min-h-[70vh] flex items-center justify-center bg-gray-50">
-      <div className="container-custom">
-        <div className="max-w-2xl mx-auto text-center">
-          <div className="w-24 h-24 bg-destructive/10 rounded-full flex items-center justify-center mx-auto mb-6">
-            <AlertCircle className="h-12 w-12 text-destructive" />
+    <div className="min-h-[80vh] flex items-center justify-center bg-slate-50 px-4 py-12">
+      <div className="container-custom max-w-3xl mx-auto text-center">
+        
+        {/* 1. The Visual (Humor) */}
+        <div className="relative w-40 h-40 mx-auto mb-8">
+          {/* Background blob */}
+          <div className="absolute inset-0 bg-yellow-100 rounded-full animate-pulse"></div>
+          
+          {/* Icons composition */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <Wrench className="w-16 h-16 text-slate-400 -rotate-45 transform translate-x-2" />
+            <Hammer className="w-16 h-16 text-slate-400 rotate-12 transform -translate-x-2" />
           </div>
-          <h1 className="text-6xl font-bold mb-4">404</h1>
-          <h2 className="text-3xl font-semibold mb-4">Page Not Found</h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            Sorry, we couldn't find the page you're looking for. It might have been moved or doesn't exist.
-          </p>
+          
+          {/* Warning badge */}
+          <div className="absolute -top-2 -right-2 bg-yellow-400 text-yellow-900 p-3 rounded-full shadow-lg border-4 border-white animate-bounce">
+            <AlertTriangle className="w-8 h-8" />
+          </div>
+        </div>
+
+        {/* 2. The Joke (Brand Voice) */}
+        <h1 className="text-4xl md:text-5xl font-bold text-[#0a1f44] mb-6 tracking-tight">
+          Whoops! Looks like a broken link.
+        </h1>
+        
+        <p className="text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+          We can't fix this page... but we <span className="italic font-medium text-blue-600">can</span> help you fix that broken pipe, flickering light, or leaky roof.
+        </p>
+
+        {/* 3. The Recovery (Navigation) */}
+        <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 mb-12">
+          <p className="text-slate-500 font-medium mb-6 uppercase tracking-wide text-sm">Let's get you back on track</p>
+          
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/">
-              <Button size="lg" className="gap-2">
-                <Home className="h-5 w-5" />
-                Back to Homepage
+            <Link to="/search">
+              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg shadow-blue-900/20 w-full sm:w-auto flex items-center gap-2">
+                <Search className="w-5 h-5" />
+                Find a Tradesperson
               </Button>
             </Link>
-            <Link to="/search">
-              <Button size="lg" variant="outline" className="gap-2">
-                <Search className="h-5 w-5" />
-                Find Tradespeople
+            <Link to="/">
+              <Button variant="outline" size="lg" className="px-8 py-6 text-lg rounded-xl w-full sm:w-auto flex items-center gap-2">
+                <Home className="w-5 h-5" />
+                Go to Homepage
               </Button>
             </Link>
           </div>
         </div>
+
+        {/* 4. "Popular Destinations" (SEO Recovery) */}
+        <div className="text-left max-w-2xl mx-auto">
+          <h3 className="text-center text-slate-400 font-medium mb-6 uppercase tracking-wide text-sm">Were you looking for?</h3>
+          
+          <div className="grid sm:grid-cols-3 gap-4">
+            <Link to="/trades/plumbers/marbella" className="group bg-white p-4 rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all flex items-center gap-3">
+              <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600 group-hover:scale-110 transition-transform">
+                <MapPin className="w-5 h-5" />
+              </div>
+              <div className="text-sm font-medium text-slate-700 group-hover:text-blue-700">
+                Plumbers in <br/>Marbella
+              </div>
+            </Link>
+
+            <Link to="/trades/electricians/estepona" className="group bg-white p-4 rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all flex items-center gap-3">
+              <div className="w-10 h-10 bg-yellow-50 rounded-lg flex items-center justify-center text-yellow-600 group-hover:scale-110 transition-transform">
+                <MapPin className="w-5 h-5" />
+              </div>
+              <div className="text-sm font-medium text-slate-700 group-hover:text-blue-700">
+                Electricians in <br/>Estepona
+              </div>
+            </Link>
+
+            <Link to="/post-job" className="group bg-white p-4 rounded-xl border border-slate-200 hover:border-green-300 hover:shadow-md transition-all flex items-center gap-3">
+              <div className="w-10 h-10 bg-green-50 rounded-lg flex items-center justify-center text-green-600 group-hover:scale-110 transition-transform">
+                <ArrowRight className="w-5 h-5" />
+              </div>
+              <div className="text-sm font-medium text-slate-700 group-hover:text-green-700">
+                Post a Job <br/>for Free
+              </div>
+            </Link>
+          </div>
+        </div>
+
       </div>
     </div>
   );
