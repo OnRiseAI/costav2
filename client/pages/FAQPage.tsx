@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Search, MessageCircle, ChevronDown } from "lucide-react";
+import { Search, MessageCircle, ChevronDown, Home, Briefcase, Scale, HelpCircle } from "lucide-react";
 import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 export default function FAQPage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -8,6 +9,9 @@ export default function FAQPage() {
   const categories = [
     {
       title: "For Homeowners",
+      icon: Home,
+      color: "text-blue-600",
+      bgColor: "bg-blue-50",
       questions: [
         {
           q: "Is CostaTrades free to use?",
@@ -29,6 +33,9 @@ export default function FAQPage() {
     },
     {
       title: "For Tradespeople",
+      icon: Briefcase,
+      color: "text-emerald-600",
+      bgColor: "bg-emerald-50",
       questions: [
         {
           q: "How much does it cost to join?",
@@ -46,6 +53,9 @@ export default function FAQPage() {
     },
     {
       title: "Costs & Regulations",
+      icon: Scale,
+      color: "text-purple-600",
+      bgColor: "bg-purple-50",
       questions: [
         {
           q: "How much does a plumber cost in Marbella?",
@@ -58,6 +68,15 @@ export default function FAQPage() {
       ]
     }
   ];
+
+  // Filter questions based on search
+  const filteredCategories = categories.map(cat => ({
+    ...cat,
+    questions: cat.questions.filter(q => 
+      q.q.toLowerCase().includes(searchQuery.toLowerCase()) || 
+      q.a.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+  })).filter(cat => cat.questions.length > 0);
 
   // Generate FAQ Schema
   const faqSchema = {
@@ -76,32 +95,43 @@ export default function FAQPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white font-sans">
+    <div className="min-h-screen bg-slate-50 font-sans">
       {/* Schema Markup */}
       <script type="application/ld+json">
         {JSON.stringify(faqSchema)}
       </script>
 
       {/* 1. Hero Section */}
-      <section className="bg-[#0a1f44] py-20 md:py-28 px-4 text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none"></div>
+      <section className="relative py-24 md:py-32 px-4 text-center overflow-hidden bg-[#0a1f44]">
+        {/* Background Effects */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a1f44] to-[#0d2550]"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent"></div>
+          <div className="absolute bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-emerald-500/5 via-transparent to-transparent"></div>
+        </div>
+
         <div className="container-custom max-w-4xl relative z-10">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm mb-8 animate-fade-in">
+            <HelpCircle className="w-4 h-4 text-blue-300" />
+            <span className="text-sm font-medium tracking-wide uppercase text-blue-100">Help Center</span>
+          </div>
+
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8 tracking-tight animate-slide-up">
             How can we help you?
           </h1>
-          <p className="text-xl text-blue-100 mb-10 font-light max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-blue-100 mb-12 font-light max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: "0.1s" }}>
             Find answers about hiring tradespeople, costs, and our verification process.
           </p>
           
           {/* Search Bar */}
-          <div className="max-w-xl mx-auto relative">
-            <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
-              <Search className="h-5 w-5 text-gray-400" />
+          <div className="max-w-2xl mx-auto relative animate-scale-in" style={{ animationDelay: "0.2s" }}>
+            <div className="absolute inset-y-0 left-5 flex items-center pointer-events-none">
+              <Search className="h-6 w-6 text-slate-400" />
             </div>
             <input
               type="text"
               placeholder="Search for answers..."
-              className="w-full pl-12 pr-4 py-4 rounded-full bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-blue-500/30 shadow-xl text-lg"
+              className="w-full pl-14 pr-6 py-5 rounded-2xl bg-white text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-blue-500/30 shadow-2xl text-lg transition-all duration-300 hover:shadow-blue-900/20"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
@@ -110,57 +140,82 @@ export default function FAQPage() {
       </section>
 
       {/* 2. The "AEO Answer Bank" */}
-      <section className="py-20 bg-gray-50">
-        <div className="container-custom max-w-3xl mx-auto">
-          <div className="space-y-12">
-            {categories.map((category, idx) => (
-              <div key={idx} className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
-                <h2 className="text-2xl font-bold text-[#0a1f44] mb-6 border-b border-gray-100 pb-4">
-                  {category.title}
-                </h2>
-                <div className="space-y-4">
-                  {category.questions.map((item, qIdx) => (
-                    <details 
-                      key={qIdx} 
-                      className="group [&_summary::-webkit-details-marker]:hidden"
-                    >
-                      <summary className="flex cursor-pointer items-center justify-between gap-1.5 rounded-lg bg-gray-50 p-4 text-gray-900 transition-colors hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
-                        <h3 className="font-semibold text-lg text-[#0a1f44]">
-                          {item.q}
-                        </h3>
-                        <ChevronDown className="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-180 text-gray-500" />
-                      </summary>
-                      <div className="mt-4 px-4 leading-relaxed text-gray-600 text-lg">
-                        <p>{item.a}</p>
+      <section className="py-24 -mt-10 relative z-20">
+        <div className="container-custom max-w-4xl mx-auto">
+          <div className="space-y-8">
+            {filteredCategories.length > 0 ? (
+              filteredCategories.map((category, idx) => {
+                const Icon = category.icon;
+                return (
+                  <div key={idx} className="bg-white rounded-[2rem] p-8 md:p-10 shadow-xl shadow-slate-200/50 border border-white animate-fade-in" style={{ animationDelay: `${0.3 + idx * 0.1}s` }}>
+                    <div className="flex items-center gap-4 mb-8 border-b border-slate-100 pb-6">
+                      <div className={`w-12 h-12 ${category.bgColor} rounded-xl flex items-center justify-center`}>
+                        <Icon className={`w-6 h-6 ${category.color}`} />
                       </div>
-                    </details>
-                  ))}
-                </div>
+                      <h2 className="text-2xl md:text-3xl font-bold text-[#0a1f44]">
+                        {category.title}
+                      </h2>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      {category.questions.map((item, qIdx) => (
+                        <details 
+                          key={qIdx} 
+                          className="group [&_summary::-webkit-details-marker]:hidden bg-slate-50 rounded-xl overflow-hidden transition-all duration-300 hover:bg-slate-100 open:bg-white open:shadow-md open:ring-1 open:ring-slate-200/50"
+                        >
+                          <summary className="flex cursor-pointer items-center justify-between gap-4 p-5 text-slate-900 transition-colors focus:outline-none">
+                            <h3 className="font-semibold text-lg text-[#0a1f44] leading-snug">
+                              {item.q}
+                            </h3>
+                            <div className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-open:bg-blue-50 group-open:border-blue-100 group-open:rotate-180">
+                              <ChevronDown className="h-5 w-5 text-slate-400 group-open:text-blue-600" />
+                            </div>
+                          </summary>
+                          <div className="px-5 pb-6 pt-2 leading-relaxed text-slate-600 text-lg border-t border-transparent group-open:border-slate-100">
+                            <p>{item.a}</p>
+                          </div>
+                        </details>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })
+            ) : (
+              <div className="text-center py-20 bg-white rounded-[2rem] shadow-sm">
+                <p className="text-xl text-slate-500">No answers found for "{searchQuery}"</p>
+                <Button 
+                  variant="link" 
+                  onClick={() => setSearchQuery("")}
+                  className="mt-2 text-blue-600 font-semibold"
+                >
+                  Clear search
+                </Button>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </section>
 
       {/* 3. "Still have questions?" CTA */}
-      <section className="py-20 bg-white text-center border-t border-gray-100">
+      <section className="py-24 bg-white text-center border-t border-slate-100">
         <div className="container-custom max-w-2xl">
-          <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-8">
-            <MessageCircle className="w-10 h-10 text-green-600" />
+          <div className="w-24 h-24 bg-green-50 rounded-[2rem] flex items-center justify-center mx-auto mb-8 rotate-3 hover:rotate-6 transition-transform duration-300">
+            <MessageCircle className="w-12 h-12 text-green-600" />
           </div>
-          <h2 className="text-3xl font-bold text-[#0a1f44] mb-4">
+          <h2 className="text-4xl font-bold text-[#0a1f44] mb-6 tracking-tight">
             Still have questions?
           </h2>
-          <p className="text-xl text-gray-600 mb-8 font-light">
-            Can't find what you're looking for? Message us on WhatsApp.
+          <p className="text-xl text-slate-600 mb-10 font-light leading-relaxed">
+            Can't find what you're looking for? Our support team is here to help you via WhatsApp.
           </p>
           <a 
             href="https://wa.me/34123456789" 
             target="_blank" 
             rel="noopener noreferrer"
+            className="inline-block hover:-translate-y-1 transition-transform duration-300"
           >
-            <Button className="bg-[#25D366] hover:bg-[#128C7E] text-white px-8 py-6 text-lg rounded-full font-bold shadow-lg hover:shadow-xl transition-all flex items-center gap-2 mx-auto">
-              <MessageCircle className="w-5 h-5" />
+            <Button className="bg-[#25D366] hover:bg-[#128C7E] text-white px-10 py-7 text-xl rounded-full font-bold shadow-xl hover:shadow-2xl hover:shadow-green-500/20 transition-all flex items-center gap-3">
+              <MessageCircle className="w-6 h-6" />
               Chat with Support
             </Button>
           </a>
