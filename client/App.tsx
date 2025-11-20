@@ -23,6 +23,7 @@ import TradesMenu from "@/pages/TradesMenu";
 import AboutPage from "@/pages/AboutPage";
 import HowItWorksPage from "@/pages/HowItWorksPage";
 import VerificationPromisePage from "@/pages/VerificationPromisePage";
+import FAQPage from "@/pages/FAQPage";
 import ContactPage from "@/pages/ContactPage";
 import SEOTradePage from "@/pages/SEOTradePage";
 import PlaceholderPage from "@/pages/PlaceholderPage";
@@ -75,6 +76,7 @@ function AppContent() {
             <Route path="/how-it-works" element={<HowItWorksPage />} />
             <Route path="/verification-promise" element={<VerificationPromisePage />} />
             <Route path="/why-us" element={<VerificationPromisePage />} />
+            <Route path="/faq" element={<FAQPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route
