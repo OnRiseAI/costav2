@@ -80,6 +80,21 @@ const blogPosts = {
             </tbody>
           </table>
         </div>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6">The Application Process</h2>
+        <p>
+          For a minor permit, the process is increasingly digital. Most Town Halls on the Costa del Sol now allow for online submissions via their "Sede Electrónica". You will typically need:
+        </p>
+        <ul className="list-disc pl-5 space-y-2 marker:text-blue-500">
+          <li>Detailed quote from your contractor.</li>
+          <li>Photos of the current state.</li>
+          <li>Payment of the administrative fee (Tasa).</li>
+          <li>Payment of the construction tax (ICIO).</li>
+        </ul>
+        
+        <p className="mt-8">
+          Need help navigating the process? <Link to="/search" className="text-blue-600 hover:underline font-semibold">Find a local architect or builder</Link> who can handle the paperwork for you.
+        </p>
       </>
     )
   },
@@ -90,7 +105,7 @@ const blogPosts = {
     authorRole: "Local News Editor",
     date: "May 15, 2025",
     readTime: "5 min read",
-    image: "https://images.unsplash.com/photo-1572331165267-854da2b00cc6?q=80&w=2940&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=2940&auto=format&fit=crop",
     keyTakeaways: [
       "The ban on filling private pools has been lifted as of May 2025.",
       "Strict limits are set at 250 litres per day per property.",
@@ -99,18 +114,47 @@ const blogPosts = {
     content: (
       <>
         <p className="text-xl leading-relaxed text-slate-600 mb-8 font-sans font-light">
-          Good news for villa owners! As of May 2025, the Junta de Andalucía has officially lifted the ban on filling private pools. However, before you reach for the hose, there are strict new limitations you need to be aware of.
+          Good news for villa owners! As of May 2025, the Junta de Andalucía has officially lifted the ban on filling private pools. However, before you reach for the hose, there are strict new limitations you need to be aware of. The drought situation remains critical, and responsible usage is not just encouraged—it's mandated by law.
         </p>
         <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6">The New Rules Explained</h2>
         <p>
-          While the total ban is gone, we are still in a drought alert phase. The new regulations allow for the refilling of swimming pools but cap water usage at <strong>250 litres per person per day</strong>.
+          While the total ban is gone, we are still in a drought alert phase. The new regulations allow for the refilling of swimming pools but cap water usage at <strong>250 litres per person per day</strong>. This limit applies to all domestic usage, including showers, washing machines, and garden irrigation.
         </p>
+        <p>
+          Local police are conducting spot checks, particularly in high-consumption urbanizations. Exceeding your quota can result in fines ranging from €600 to €3,000 depending on the severity of the infraction.
+        </p>
+        
         <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6">How to Save Water (and Avoid Fines)</h2>
-        <ul className="list-disc pl-5 space-y-2 marker:text-blue-500">
-          <li><strong>Check for leaks:</strong> A dropping water line isn't always evaporation. A small crack can waste thousands of litres.</li>
-          <li><strong>Install a pool cover:</strong> This can reduce evaporation by up to 70%, saving you money and water.</li>
-          <li><strong>Recycle filter water:</strong> Modern filtration systems can clean and reuse backwash water.</li>
+        <p>
+          Maintaining a pool in a drought-prone region requires a shift in mindset. Here are the most effective ways to keep your pool full without breaking the law:
+        </p>
+        <ul className="list-disc pl-5 space-y-4 marker:text-blue-500">
+          <li>
+            <strong>Check for leaks:</strong> A dropping water line isn't always evaporation. A small crack can waste thousands of litres a week. If you suspect a leak, <Link to="/trades/plumbers" className="text-blue-600 hover:underline font-semibold">hire a leak detection specialist</Link> immediately.
+          </li>
+          <li>
+            <strong>Install a pool cover:</strong> This is the single most effective water-saving measure. A good cover can reduce evaporation by up to 70%, saving you money and water. It also keeps the pool warmer and cleaner.
+          </li>
+          <li>
+            <strong>Recycle filter water:</strong> Modern filtration systems can clean and reuse backwash water, rather than dumping it into the drain.
+          </li>
+          <li>
+            <strong>Lower the water level:</strong> Keeping the water level slightly lower reduces splash-out from swimming, which can account for significant water loss over a summer.
+          </li>
         </ul>
+        
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6">The Future of Pools in Andalucia</h2>
+        <p>
+          Experts predict that water restrictions will become the new normal. Investing in water-saving technology now will future-proof your property. Consider converting to a saltwater system, which requires less backwashing, or installing a rainwater harvesting system for topping up.
+        </p>
+        
+        <div className="bg-blue-50 p-6 rounded-xl border border-blue-100 mt-8">
+          <h3 className="font-bold text-[#0a1f44] mb-2">Need a Pool Specialist?</h3>
+          <p className="mb-4 text-slate-600">Don't risk fines or damage to your pool. Find verified pool maintenance professionals who understand the new regulations.</p>
+          <Link to="/trades/pool-maintenance">
+            <Button className="bg-blue-600 hover:bg-blue-700 text-white">Find Pool Maintenance</Button>
+          </Link>
+        </div>
       </>
     )
   },
@@ -121,7 +165,7 @@ const blogPosts = {
     authorRole: "Property Lawyer",
     date: "April 10, 2025",
     readTime: "6 min read",
-    image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=2940&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=2940&auto=format&fit=crop",
     keyTakeaways: [
       "Community of Owners can now vote to ban holiday rentals with a 3/5ths majority.",
       "The new National Registry (VUD) goes live in July 2025.",
@@ -130,18 +174,52 @@ const blogPosts = {
     content: (
       <>
         <p className="text-xl leading-relaxed text-slate-600 mb-8 font-sans font-light">
-          The landscape for holiday rentals in Spain is shifting. The new Horizontal Property Law reform has empowered communities, and a new national registry is on the horizon. Here is what every Airbnb host needs to know.
+          The landscape for holiday rentals in Spain is shifting. The new Horizontal Property Law reform has empowered communities, and a new national registry is on the horizon. Here is what every Airbnb host needs to know to protect their investment.
         </p>
-        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6">The 3/5ths Rule</h2>
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6">The 3/5ths Rule: A Game Changer</h2>
         <p>
-          Previously, banning holiday rentals required a unanimous vote. Now, a simple <strong>3/5ths majority</strong> of owners can vote to prohibit vacation rentals in the building.
+          Previously, banning holiday rentals in a community of owners required a unanimous vote—a nearly impossible threshold to meet. Now, the law has changed. A simple <strong>3/5ths majority</strong> of owners (representing 3/5ths of the participation quotas) can vote to prohibit vacation rentals in the building.
         </p>
-        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6">Action Plan for Hosts</h2>
+        <p>
+          This vote is not retroactive, meaning existing licenses are generally safe, but it can prevent new licenses from being issued. However, some legal experts warn that communities may try to impose higher community fees (up to 20% more) on holiday rental properties, which also requires a 3/5ths vote.
+        </p>
+        
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6">The New National Registry (VUD)</h2>
+        <p>
+          Starting in July 2025, Spain will implement a single "Ventanilla Única Digital" (VUD) for short-term rentals. This national registry aims to crack down on illegal listings. Platforms like Airbnb and Booking.com will be required to share data directly with the tax authorities.
+        </p>
+        <p>
+          If your property is not correctly registered or does not meet the requirements, you risk being delisted from these major platforms overnight.
+        </p>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6">New Habitability Standards</h2>
+        <p>
+          The Junta de Andalucía has also updated the quality standards for tourist apartments. Key requirements now include:
+        </p>
         <ul className="list-disc pl-5 space-y-2 marker:text-blue-500">
-          <li>Check your community statutes immediately.</li>
-          <li>Ensure your property meets the new habitability standards (AC in all rooms is now mandatory).</li>
-          <li>Register with the upcoming VUD system to avoid being delisted from platforms.</li>
+          <li><strong>Air Conditioning:</strong> Mandatory in all living areas and bedrooms for properties rented between May and September.</li>
+          <li><strong>Heating:</strong> Mandatory for properties rented between October and April.</li>
+          <li><strong>Ventilation:</strong> Direct ventilation to the exterior or a patio is required for all bedrooms.</li>
+          <li><strong>First Aid Kit:</strong> Must be available in the property.</li>
+          <li><strong>Complaint Forms:</strong> Official "Hojas de Quejas y Reclamaciones" must be available to guests.</li>
         </ul>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6">Action Plan for Hosts</h2>
+        <ul className="list-disc pl-5 space-y-4 marker:text-blue-500">
+          <li>
+            <strong>Check your community statutes:</strong> Attend the next AGM and ensure you are aware of any proposed votes.
+          </li>
+          <li>
+            <strong>Upgrade your climate control:</strong> If you lack AC or heating, <Link to="/trades/air-conditioning" className="text-blue-600 hover:underline font-semibold">get a quote for installation</Link> immediately to meet the new standards.
+          </li>
+          <li>
+            <strong>Verify your license:</strong> Ensure your "Licencia de Primera Ocupación" and tourist license are up to date and correctly filed.
+          </li>
+        </ul>
+        
+        <p className="mt-8">
+          Worried about compliance? <Link to="/landlords" className="text-blue-600 hover:underline font-semibold">Connect with property management professionals</Link> who can handle the legalities for you.
+        </p>
       </>
     )
   },
@@ -152,7 +230,7 @@ const blogPosts = {
     authorRole: "Real Estate Analyst",
     date: "March 22, 2025",
     readTime: "7 min read",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2940&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2940&auto=format&fit=crop",
     keyTakeaways: [
       "New build supply is limited and prices are rising.",
       "Older villas in prime locations offer better value per square meter.",
@@ -161,16 +239,47 @@ const blogPosts = {
     content: (
       <>
         <p className="text-xl leading-relaxed text-slate-600 mb-8 font-sans font-light">
-          With new build prices in the 'Golden Triangle' rising by 12% this year, savvy investors are turning their attention to older stock. Here is why buying a fixer-upper might be your best move in 2025.
+          With new build prices in the 'Golden Triangle' (Marbella, Estepona, Benahavís) rising by 12% this year, savvy investors are turning their attention to older stock. Here is why buying a fixer-upper might be your best move in 2025.
         </p>
         <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6">The 'Good Bones' Strategy</h2>
         <p>
-          Look for properties in established areas like Elviria and Nueva Andalucia. These plots are often larger and in better locations than new developments.
+          The best plots on the Costa del Sol were built on decades ago. Older villas in established areas like Elviria, Nueva Andalucia, and Nagüeles often boast larger gardens, better views, and more privacy than modern developments where density is maximized.
         </p>
+        <p>
+          By buying an older property, you are paying for the location and the land, rather than the developer's premium. With the right renovation, you can create a modern luxury home for significantly less than the cost of a new build.
+        </p>
+        
         <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6">Budgeting for Success</h2>
         <p>
-          A full modernization typically costs between <strong>€800 and €1,200 per square meter</strong>. This includes new electrics, plumbing, windows, and finishes.
+          Renovation costs have stabilized after the post-pandemic spike, but budgeting correctly is crucial. For a full modernization of a 1980s or 1990s villa, you should budget between <strong>€800 and €1,200 per square meter</strong>.
         </p>
+        <p>This budget typically covers:</p>
+        <ul className="list-disc pl-5 space-y-2 marker:text-blue-500">
+          <li><strong>Structural changes:</strong> Opening up living spaces and removing partition walls.</li>
+          <li><strong>New systems:</strong> Complete rewiring and new plumbing (essential for older homes).</li>
+          <li><strong>Windows:</strong> Upgrading to double or triple glazing for energy efficiency.</li>
+          <li><strong>Finishes:</strong> New flooring (microcement or large format tiles), kitchen, and bathrooms.</li>
+        </ul>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6">Hidden Costs to Watch For</h2>
+        <p>
+          When renovating in Spain, always set aside a contingency fund of 10-15%. Common surprises in older villas include:
+        </p>
+        <ul className="list-disc pl-5 space-y-2 marker:text-blue-500">
+          <li><strong>Damp issues:</strong> Often caused by poor original waterproofing or bridging of the damp proof course.</li>
+          <li><strong>Illegal extensions:</strong> Check that all parts of the building are registered in the Property Registry.</li>
+          <li><strong>Outdated septic tanks:</strong> You may need to connect to the mains sewage system if available.</li>
+        </ul>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6">Finding the Right Team</h2>
+        <p>
+          A successful renovation relies on a trusted team of builders and architects. Don't rely on "a guy at the bar". You need verified professionals with a track record of delivering projects on time and on budget.
+        </p>
+        <div className="mt-8">
+          <Link to="/post-job">
+            <Button className="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white">Find Verified Builders</Button>
+          </Link>
+        </div>
       </>
     )
   },
@@ -181,7 +290,7 @@ const blogPosts = {
     authorRole: "Senior Plumber",
     date: "February 15, 2025",
     readTime: "4 min read",
-    image: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?q=80&w=2940&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1521207418485-99c705420785?q=80&w=2940&auto=format&fit=crop",
     keyTakeaways: [
       "Malaga has some of the highest calcium levels in Europe.",
       "Electric boilers can fail after just 2 years without maintenance.",
@@ -190,18 +299,39 @@ const blogPosts = {
     content: (
       <>
         <p className="text-xl leading-relaxed text-slate-600 mb-8 font-sans font-light">
-          If you've noticed white scale on your taps or your shower pressure dropping, you're a victim of Malaga's hard water. It's not just an annoyance; it's a boiler killer.
+          If you've noticed white scale on your taps, your shower pressure dropping, or your skin feeling dry after a wash, you're a victim of Malaga's hard water. It's not just an annoyance; it's a boiler killer that costs homeowners thousands in premature replacements.
         </p>
         <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6">Why Calcium is the Enemy</h2>
         <p>
-          When water is heated, calcium precipitates and forms a rock-hard layer on heating elements. This acts as insulation, forcing your boiler to work harder and eventually burn out.
+          The water in Malaga province is rich in calcium and magnesium, picked up as it flows through the region's limestone bedrock. When this water is heated, the minerals precipitate and form limescale—a rock-hard layer that coats heating elements.
         </p>
+        <p>
+          This scale acts as insulation, forcing your boiler to work harder and longer to heat the same amount of water. This not only increases your electricity bill but eventually causes the element to overheat and burn out. We often see electric boilers fail after just 2-3 years in areas like Marbella and Mijas.
+        </p>
+        
         <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6">Prevention Tips</h2>
-        <ul className="list-disc pl-5 space-y-2 marker:text-blue-500">
-          <li>Install a Water Softener (Descalcificador) at the mains.</li>
-          <li>Replace the sacrificial anode in your electric boiler annually.</li>
-          <li>Use vinegar to descale taps and showerheads regularly.</li>
+        <ul className="list-disc pl-5 space-y-4 marker:text-blue-500">
+          <li>
+            <strong>Install a Water Softener (Descalcificador):</strong> This is the gold standard. Installed at the mains entry point, it removes minerals before they enter your home's pipework. It protects your boiler, washing machine, dishwasher, and taps. <Link to="/trades/plumbers" className="text-blue-600 hover:underline">Get a quote for installation here.</Link>
+          </li>
+          <li>
+            <strong>Replace the Anode:</strong> Every electric boiler has a "sacrificial anode"—a metal rod designed to corrode instead of the tank. In Malaga, this should be checked and replaced annually.
+          </li>
+          <li>
+            <strong>Lower the Temperature:</strong> Limescale forms faster at higher temperatures. Setting your boiler to 55°C or 60°C instead of 70°C can significantly reduce scale buildup.
+          </li>
+          <li>
+            <strong>Regular Descaling:</strong> Use vinegar or specialized descaling solutions to clean taps and showerheads regularly to maintain flow.
+          </li>
         </ul>
+        
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6">Signs You Need a Plumber</h2>
+        <p>
+          If your boiler is making banging noises (kettling), taking longer to heat up, or leaking, it's likely full of scale. Don't wait for it to burst.
+        </p>
+        <Link to="/trades/plumbers">
+          <Button className="mt-4 bg-blue-600 hover:bg-blue-700 text-white">Find a Plumber Near You</Button>
+        </Link>
       </>
     )
   },
@@ -212,7 +342,7 @@ const blogPosts = {
     authorRole: "Cleaning Specialist",
     date: "March 05, 2025",
     readTime: "3 min read",
-    image: "https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?q=80&w=2940&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2940&auto=format&fit=crop",
     keyTakeaways: [
       "Do NOT pressure wash immediately; it turns dust into mud.",
       "Wash down gently with a hose first to remove loose particles.",
@@ -221,15 +351,38 @@ const blogPosts = {
     content: (
       <>
         <p className="text-xl leading-relaxed text-slate-600 mb-8 font-sans font-light">
-          Another dust storm from the Sahara has turned the Costa del Sol orange. While it looks dramatic, the 'Calima' can cause permanent damage to your villa's facade if cleaned incorrectly.
+          Another dust storm from the Sahara has turned the Costa del Sol orange. While the eerie skies make for great photos, the 'Calima' leaves behind a fine, sticky red dust that can cause permanent damage to your villa's facade if cleaned incorrectly.
         </p>
         <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6">The Golden Rule: No Pressure</h2>
         <p>
-          <strong>Never</strong> use a high-pressure washer on dry Calima dust. The pressure drives the fine red particles deep into the pores of your render, creating permanent stains.
+          <strong>Never</strong> use a high-pressure washer (Karcher) directly on dry Calima dust. The high pressure drives the fine red particles deep into the pores of your render or paintwork, creating permanent stains that are almost impossible to remove without repainting.
         </p>
-        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6">The Correct Method</h2>
         <p>
-          Start by gently rinsing the facade with a garden hose from the top down. Only once the bulk of the mud is gone should you consider using a pressure washer on a low setting.
+          It also turns the dust into a thick mud that runs down the walls, staining terraces and pool decks below.
+        </p>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6">The Correct Method</h2>
+        <ol className="list-decimal pl-5 space-y-4 marker:text-blue-500 font-medium text-slate-700">
+          <li>
+            <strong>Wait for it to pass:</strong> There is no point cleaning if more rain/dust is forecast for tomorrow. Check the weather report.
+          </li>
+          <li>
+            <strong>The Gentle Rinse:</strong> Start by gently rinsing the facade with a garden hose from the top down. Use a wide spray setting, not a jet. The goal is to lift the loose dust and wash it away.
+          </li>
+          <li>
+            <strong>Soft Wash:</strong> For stubborn areas, use a soft brush and a mild detergent. Avoid harsh chemicals that can react with the minerals in the dust.
+          </li>
+          <li>
+            <strong>Pressure Wash (Last Resort):</strong> Only once the bulk of the mud is gone should you consider using a pressure washer, and only on a low setting to clean the floor or hard surfaces—not the painted walls.
+          </li>
+        </ol>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6">Long-Term Protection</h2>
+        <p>
+          If your villa is prone to staining, consider repainting with a high-quality "elastic" or silicone-based exterior paint. These paints seal the pores of the render, making it much easier to wash off the dust in the future.
+        </p>
+        <p>
+          Need a professional refresh? <Link to="/trades/painters" className="text-blue-600 hover:underline font-semibold">Find exterior painters</Link> who specialize in weather-resistant coatings.
         </p>
       </>
     )
@@ -241,7 +394,7 @@ const blogPosts = {
     authorRole: "Security Consultant",
     date: "January 20, 2025",
     readTime: "6 min read",
-    image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=2940&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1485217988980-11786ced9454?q=80&w=2940&auto=format&fit=crop",
     keyTakeaways: [
       "Prevention is far cheaper and faster than eviction.",
       "Install an 'Anti-Bumping' lock cylinder to prevent easy entry.",
@@ -250,16 +403,39 @@ const blogPosts = {
     content: (
       <>
         <p className="text-xl leading-relaxed text-slate-600 mb-8 font-sans font-light">
-          With new housing laws making headlines, non-resident owners are understandably worried about squatters. The key to peace of mind is proactive prevention.
+          With new housing laws making headlines, non-resident owners are understandably worried about squatters ('okupas'). While the media stories can be alarming, the reality is that squatters target easy targets. The key to peace of mind is proactive prevention.
         </p>
         <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6">Hardening Your Defenses</h2>
         <p>
-          Most illegal entries happen through the front door using a technique called 'bumping'. Upgrading to a high-security anti-bump cylinder is your first line of defense.
+          Squatters rarely break windows to enter; they prefer to walk in through the front door. Most illegal entries happen using a technique called 'bumping', which opens older locks without leaving signs of forced entry.
         </p>
+        <p>
+          <strong>Upgrade your locks:</strong> Replacing your standard cylinder with a high-security "Anti-Bumping, Anti-Drill, Anti-Pick" cylinder is your first and most important line of defense. <Link to="/trades/locksmiths" className="text-blue-600 hover:underline">Find a locksmith to upgrade your door security.</Link>
+        </p>
+
         <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6">The 48-Hour Rule</h2>
         <p>
-          Having an alarm system connected to a central monitoring station allows police to act immediately if a break-in is detected, treating it as a burglary rather than a civil squatting matter.
+          Spanish law distinguishes between a "burglary" (allanamiento de morada) and "usurpation" (usurpación). If police catch intruders in the act or within the first 48 hours, they can often evict them immediately. After that, it becomes a civil matter that can take months.
         </p>
+        <p>
+          <strong>Install an Alarm:</strong> Having an alarm system connected to a central monitoring station (CRA) provides immediate proof of the time of entry. This allows police to act immediately, treating the incident as a break-in rather than a squatting case.
+        </p>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6">The Human Element</h2>
+        <p>
+          An empty house is a target. Making the property look lived-in is crucial.
+        </p>
+        <ul className="list-disc pl-5 space-y-2 marker:text-blue-500">
+          <li><strong>Hire a Key Holder:</strong> Have someone visit the property weekly to collect mail, open blinds, and check for signs of tampering.</li>
+          <li><strong>Smart Lighting:</strong> Use smart plugs to turn lights on and off on a schedule.</li>
+          <li><strong>Garden Maintenance:</strong> An overgrown garden is a clear sign of an empty home. <Link to="/trades/gardeners" className="text-blue-600 hover:underline">Keep your garden maintained</Link> year-round.</li>
+        </ul>
+        
+        <div className="mt-8">
+          <Link to="/holiday-homes">
+            <Button className="w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white">Find Property Management Services</Button>
+          </Link>
+        </div>
       </>
     )
   },
@@ -270,7 +446,7 @@ const blogPosts = {
     authorRole: "Energy Engineer",
     date: "April 02, 2025",
     readTime: "5 min read",
-    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2942&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=2942&auto=format&fit=crop",
     keyTakeaways: [
       "Andalucia gets over 320 days of sun per year.",
       "ROI for a standard system is now typically 4-5 years.",
@@ -279,15 +455,36 @@ const blogPosts = {
     content: (
       <>
         <p className="text-xl leading-relaxed text-slate-600 mb-8 font-sans font-light">
-          With electricity prices stabilizing but still high, and new EU grants available, 2025 might be the tipping point for solar adoption on the Costa del Sol.
+          With electricity prices stabilizing but still high, and new EU grants available, 2025 might be the tipping point for solar adoption on the Costa del Sol. If you have a roof in Andalucia, you are sitting on a goldmine of potential energy.
         </p>
         <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6">The Numbers Don't Lie</h2>
         <p>
-          A typical 3kW system costs around €5,000 installed. With current energy prices, most households save €1,000-€1,200 per year, meaning the system pays for itself in under 5 years.
+          The cost of solar panels has dropped significantly in the last decade. A typical 3kW to 5kW system for a villa costs between <strong>€5,000 and €8,000 installed</strong>.
         </p>
+        <p>
+          With current energy prices, most households save €1,000-€1,500 per year on their bills. This means the system pays for itself in just 4-5 years. After that, you are essentially generating free electricity for the remaining 20+ year lifespan of the panels.
+        </p>
+
         <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6">Selling Back to the Grid</h2>
         <p>
-          The 'Compensación de Excedentes' allows you to offset your nighttime usage with the excess energy you produced during the day, further lowering your bill.
+          Spain's "Compensación de Excedentes" (Surplus Compensation) allows you to sell the excess energy you produce during the day back to your energy provider. While they won't pay you cash, they will deduct this value from your bill, often reducing it to near zero (you still pay the fixed access charges).
+        </p>
+        <p>
+          For even greater independence, consider adding a battery system. While this increases the upfront cost, it allows you to use your solar power at night, further insulating you from price hikes.
+        </p>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6">Grants and Tax Breaks</h2>
+        <p>
+          There are still incentives available in 2025:
+        </p>
+        <ul className="list-disc pl-5 space-y-2 marker:text-blue-500">
+          <li><strong>IBI Reduction:</strong> Many town halls (like Marbella and Estepona) offer a reduction in IBI tax (up to 50% for 3 years) for homes with solar panels.</li>
+          <li><strong>ICIO Reduction:</strong> A reduction in the construction tax for the installation works.</li>
+          <li><strong>NextGen Funds:</strong> EU subsidies are still available but are often oversubscribed. It's best to check with your installer.</li>
+        </ul>
+        
+        <p className="mt-8">
+          Ready to switch to solar? <Link to="/trades/electricians" className="text-blue-600 hover:underline font-semibold">Get quotes from certified solar installers</Link> today.
         </p>
       </>
     )
@@ -299,7 +496,7 @@ const blogPosts = {
     authorRole: "Legal Consultant",
     date: "February 28, 2025",
     readTime: "4 min read",
-    image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2940&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?q=80&w=2940&auto=format&fit=crop",
     keyTakeaways: [
       "Yes, even for tiling, you often need a 'Declaración Responsable'.",
       "Town halls are cracking down on unpermitted skips (cubas).",
@@ -308,15 +505,30 @@ const blogPosts = {
     content: (
       <>
         <p className="text-xl leading-relaxed text-slate-600 mb-8 font-sans font-light">
-          It's a common question: "I'm just changing the tiles and the toilet, do I really need a permit?" The answer might surprise you.
+          It's a common question: "I'm just changing the tiles and the toilet, do I really need a permit?" The answer might surprise you. In the eyes of the Town Hall, almost any work is "Obra".
         </p>
         <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6">The 'Declaración Responsable'</h2>
         <p>
-          For minor works like bathroom reforms, you don't need a full project, but you do need to file a 'Responsible Declaration'. This notifies the Town Hall of your intent and ensures you pay the small construction tax (ICIO).
+          For minor works like bathroom reforms, kitchen upgrades, or tiling, you generally don't need a full "Licencia de Obra Menor" which can take months to approve. Instead, most Town Halls now use the <strong>Declaración Responsable</strong> (Responsible Declaration).
         </p>
+        <p>
+          This is a fast-track process. You submit the form, pay the taxes (usually around 4-5% of the budget), and you can start work immediately. You are essentially declaring that you comply with regulations and accept responsibility.
+        </p>
+
         <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6">The Skip Trap</h2>
         <p>
-          The most common way homeowners get caught is the skip (cuba) on the street. Police check the skip's license against the property address. If there's no permit on file, expect a visit and a fine.
+          The most common way homeowners get caught doing unpermitted work is the skip (cuba) on the street. Local police regularly check the license of every skip they see. They will check the skip permit against the property address.
+        </p>
+        <p>
+          If there is a skip but no building permit on file for that address, expect a knock on the door. The fines for working without a permit can start at €600 and go up to €3,000 or more, plus you will be forced to stop work until the paperwork is legalized (which costs more).
+        </p>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6">Don't Risk It</h2>
+        <p>
+          The cost of the permit is a small percentage of your renovation budget. It buys you peace of mind and ensures you have no issues when you eventually sell the property.
+        </p>
+        <p>
+          Always ask your builder if they will handle the permits for you. <Link to="/search" className="text-blue-600 hover:underline font-semibold">Find builders who handle the paperwork</Link> on CostaTrades.
         </p>
       </>
     )
