@@ -540,140 +540,173 @@ export default function BlogPostPage() {
   const post = blogPosts[slug as keyof typeof blogPosts] || blogPosts["renovation-permits-andalucia-2025"];
 
   return (
-    <div className="min-h-screen bg-white font-sans">
-      {/* 1. Article Header */}
-      <header className="bg-[#0a1f44] text-white pt-32 pb-20 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-20">
-           <img src={post.image} alt="" className="w-full h-full object-cover blur-sm" />
-           <div className="absolute inset-0 bg-[#0a1f44]/80"></div>
+    <div className="min-h-screen bg-white font-sans selection:bg-blue-100 selection:text-blue-900">
+      {/* Article Header */}
+      <header className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+        {/* Background Image with Parallax-like feel */}
+        <div className="absolute inset-0 z-0">
+           <img src={post.image} alt="" className="w-full h-full object-cover" />
+           <div className="absolute inset-0 bg-gradient-to-b from-[#0a1f44]/70 via-[#0a1f44]/60 to-[#0a1f44]/90"></div>
         </div>
         
-        <div className="container-custom max-w-4xl mx-auto relative z-10 text-center">
+        <div className="container-custom max-w-4xl mx-auto relative z-10 text-center px-4 mt-10">
           {/* Breadcrumb */}
-          <div className="flex items-center justify-center gap-2 text-sm text-blue-200 mb-6 overflow-x-auto whitespace-nowrap">
+          <div className="flex items-center justify-center gap-2 text-sm font-medium text-blue-200/80 mb-8 animate-fade-in">
             <Link to="/" className="hover:text-white transition-colors">Home</Link>
             <ChevronRight className="w-3 h-3" />
             <Link to="/blog" className="hover:text-white transition-colors">Blog</Link>
             <ChevronRight className="w-3 h-3" />
-            <span className="text-blue-400">{post.category}</span>
+            <span className="text-white bg-white/10 px-2 py-0.5 rounded-md backdrop-blur-sm">{post.category}</span>
           </div>
 
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight tracking-tight">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-[1.1] tracking-tight drop-shadow-lg animate-slide-up">
             {post.title}
           </h1>
 
-          <div className="flex flex-wrap items-center justify-center gap-6 text-sm md:text-base text-blue-100">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center font-bold text-white">
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm md:text-base text-white/90 animate-slide-up" style={{animationDelay: '0.1s'}}>
+            <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
+              <div className="w-8 h-8 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center font-bold text-white shadow-inner">
                 {post.author.split(' ').map(n => n[0]).join('')}
               </div>
               <div className="text-left leading-tight">
-                <div className="font-semibold">{post.author}</div>
-                <div className="text-xs text-blue-300">{post.authorRole}</div>
+                <div className="font-bold">{post.author}</div>
+                <div className="text-xs text-blue-200">{post.authorRole}</div>
               </div>
             </div>
-            <div className="w-1 h-1 bg-blue-400 rounded-full hidden md:block"></div>
-            <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4" />
-              {post.date}
-            </div>
-            <div className="w-1 h-1 bg-blue-400 rounded-full hidden md:block"></div>
-            <div className="flex items-center gap-2">
-              <Clock className="w-4 h-4" />
-              {post.readTime}
+            
+            <div className="flex items-center gap-6 px-4 py-2">
+                <div className="flex items-center gap-2">
+                <Calendar className="w-4 h-4 text-blue-300" />
+                {post.date}
+                </div>
+                <div className="w-1 h-1 bg-blue-400 rounded-full"></div>
+                <div className="flex items-center gap-2">
+                <Clock className="w-4 h-4 text-blue-300" />
+                {post.readTime}
+                </div>
             </div>
           </div>
         </div>
       </header>
 
-      <div className="container-custom max-w-7xl mx-auto px-4 py-12 grid lg:grid-cols-[1fr_350px] gap-12">
-        {/* 2. The Content Area */}
-        <article className="max-w-[700px] mx-auto lg:mx-0">
+      <div className="container-custom max-w-7xl mx-auto px-4 py-16 grid lg:grid-cols-[1fr_380px] gap-16">
+        {/* Content Area */}
+        <article className="max-w-[720px] mx-auto lg:mx-0">
           
-          {/* Key Takeaways (AEO Element) */}
-          <div className="bg-blue-50 rounded-2xl p-8 mb-10 border border-blue-100">
-            <h3 className="font-bold text-[#0a1f44] text-lg mb-4 flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-blue-600" />
+          {/* Key Takeaways */}
+          <div className="bg-gradient-to-br from-blue-50 to-indigo-50/50 rounded-3xl p-8 mb-12 border border-blue-100 shadow-sm relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-200/20 rounded-full blur-3xl -mr-10 -mt-10"></div>
+            <h3 className="font-bold text-[#0a1f44] text-xl mb-6 flex items-center gap-3 relative z-10">
+              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white shadow-md">
+                <CheckCircle2 className="w-5 h-5" />
+              </div>
               Key Takeaways
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-4 relative z-10">
               {post.keyTakeaways.map((item, idx) => (
-                <li key={idx} className="flex gap-3 items-start text-slate-700">
-                  <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
-                  <span>{item}</span>
+                <li key={idx} className="flex gap-4 items-start text-slate-700">
+                  <span className="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5">{idx + 1}</span>
+                  <span className="font-medium leading-relaxed">{item}</span>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Main Content */}
-          <div className="prose prose-lg prose-slate max-w-none font-serif text-slate-700 leading-loose">
+          <div className="prose prose-lg prose-slate max-w-none font-serif text-slate-700 leading-loose 
+            prose-headings:font-sans prose-headings:font-bold prose-headings:text-[#0a1f44] 
+            prose-a:text-blue-600 prose-a:no-underline prose-a:border-b-2 prose-a:border-blue-200 hover:prose-a:border-blue-600 prose-a:transition-colors
+            prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:bg-slate-50 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-blockquote:not-italic
+            prose-img:rounded-2xl prose-img:shadow-lg prose-img:my-10
+            prose-strong:text-[#0a1f44] prose-strong:font-bold">
             {post.content}
           </div>
 
           {/* Share / Tags */}
-          <div className="mt-12 pt-8 border-t border-slate-100 flex flex-wrap gap-4 justify-between items-center">
-            <div className="flex gap-2">
-              <span className="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-sm font-medium">#{post.category.split('/')[0]}</span>
-              <span className="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-sm font-medium">#Spain</span>
+          <div className="mt-16 pt-10 border-t border-slate-100 flex flex-wrap gap-6 justify-between items-center">
+            <div className="flex gap-3">
+              <span className="bg-slate-100 text-slate-600 px-4 py-1.5 rounded-full text-sm font-semibold hover:bg-slate-200 transition-colors cursor-pointer">#{post.category.split('/')[0]}</span>
+              <span className="bg-slate-100 text-slate-600 px-4 py-1.5 rounded-full text-sm font-semibold hover:bg-slate-200 transition-colors cursor-pointer">#Spain</span>
+              <span className="bg-slate-100 text-slate-600 px-4 py-1.5 rounded-full text-sm font-semibold hover:bg-slate-200 transition-colors cursor-pointer">#CostaDelSol</span>
             </div>
-            <div className="flex gap-2">
-              <Button variant="outline" size="sm" className="gap-2 rounded-full">
-                <Share2 className="w-4 h-4" /> Share
-              </Button>
-              <Button variant="outline" size="sm" className="gap-2 rounded-full">
-                <Bookmark className="w-4 h-4" /> Save
+            <div className="flex gap-3">
+              <Button variant="outline" size="sm" className="gap-2 rounded-full border-slate-200 hover:border-blue-300 hover:text-blue-600">
+                <Share2 className="w-4 h-4" /> Share Article
               </Button>
             </div>
           </div>
         </article>
 
-        {/* 4. The Sidebar (Conversion) */}
-        <aside className="hidden lg:block space-y-8">
+        {/* Sidebar */}
+        <aside className="hidden lg:block space-y-10">
           {/* Sticky Widget */}
-          <div className="sticky top-24">
-            <div className="bg-[#0a1f44] text-white rounded-2xl p-8 shadow-xl text-center relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/20 rounded-full blur-3xl -mr-10 -mt-10"></div>
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-purple-500/20 rounded-full blur-3xl -ml-10 -mb-10"></div>
+          <div className="sticky top-28 space-y-10">
+            {/* CTA Card */}
+            <div className="bg-[#0a1f44] text-white rounded-[2rem] p-8 shadow-2xl shadow-blue-900/20 text-center relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-blue-500/20 rounded-full blur-3xl -mr-10 -mt-10 group-hover:bg-blue-500/30 transition-colors duration-500"></div>
+              <div className="absolute bottom-0 left-0 w-40 h-40 bg-purple-500/20 rounded-full blur-3xl -ml-10 -mb-10 group-hover:bg-purple-500/30 transition-colors duration-500"></div>
               
-              <h3 className="text-2xl font-bold mb-4 relative z-10">Need a Pro?</h3>
-              <p className="text-blue-100 mb-8 relative z-10">
-                Don't DIY it. Get 3 free quotes from verified local professionals for your project.
-              </p>
-              <Link to="/post-job" className="relative z-10 block">
-                <Button size="lg" className="w-full bg-white text-[#0a1f44] hover:bg-blue-50 font-bold">
-                  Post a Job
-                </Button>
-              </Link>
-              <p className="text-xs text-blue-300 mt-4 relative z-10">
-                No obligation. 100% Free.
-              </p>
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mx-auto mb-6 border border-white/10">
+                    <CheckCircle2 className="w-8 h-8 text-blue-300" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4">Need a Pro?</h3>
+                <p className="text-blue-100/80 mb-8 leading-relaxed">
+                    Don't DIY it. Get 3 free quotes from verified local professionals for your project.
+                </p>
+                <Link to="/post-job" className="block">
+                    <Button size="lg" className="w-full bg-white text-[#0a1f44] hover:bg-blue-50 font-bold h-14 text-lg shadow-lg">
+                    Post a Job for Free
+                    </Button>
+                </Link>
+                <p className="text-xs text-blue-300/60 mt-4 font-medium uppercase tracking-wider">
+                    No obligation • 100% Free
+                </p>
+              </div>
+            </div>
+
+            {/* Newsletter (Optional addition for polish) */}
+            <div className="bg-slate-50 rounded-[2rem] p-8 border border-slate-200">
+                <h4 className="font-bold text-[#0a1f44] mb-2">Weekly Insights</h4>
+                <p className="text-sm text-slate-500 mb-4">Join 5,000+ homeowners getting local tips.</p>
+                <div className="flex gap-2">
+                    <input type="email" placeholder="Email address" className="flex-1 bg-white border border-slate-200 rounded-xl px-4 py-2 text-sm outline-none focus:border-blue-500 transition-colors" />
+                    <Button size="sm" className="rounded-xl bg-blue-600 hover:bg-blue-700">Join</Button>
+                </div>
             </div>
           </div>
         </aside>
       </div>
 
-      {/* 5. Related Articles */}
-      <section className="bg-slate-50 py-20 px-4 border-t border-slate-200">
+      {/* Related Articles */}
+      <section className="bg-slate-50 py-24 px-4 border-t border-slate-200">
         <div className="container-custom max-w-7xl mx-auto">
-          <h3 className="text-2xl font-bold text-[#0a1f44] mb-8">You might also like...</h3>
+          <div className="flex items-center justify-between mb-12">
+            <h3 className="text-3xl font-bold text-[#0a1f44]">You might also like...</h3>
+            <Link to="/blog" className="text-blue-600 font-semibold hover:underline flex items-center gap-1">
+                View all articles <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+          
           <div className="grid md:grid-cols-3 gap-8">
             {Object.entries(blogPosts).slice(0, 3).map(([slug, p], i) => (
-              <Link to={`/blog/${slug}`} key={i} className="bg-white rounded-xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-md transition-all group cursor-pointer block">
-                <div className="h-48 bg-slate-200 relative overflow-hidden">
+              <Link to={`/blog/${slug}`} key={i} className="bg-white rounded-[2rem] overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-500 group cursor-pointer block hover:-translate-y-2">
+                <div className="h-56 bg-slate-200 relative overflow-hidden">
                   <img 
                     src={p.image} 
                     alt={p.title} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
+                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-[#0a1f44] text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+                    {p.category}
+                  </div>
                 </div>
-                <div className="p-6">
-                  <div className="text-xs font-bold text-blue-600 mb-2 uppercase tracking-wide">{p.category}</div>
-                  <h4 className="font-bold text-[#0a1f44] mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
+                <div className="p-8">
+                  <h4 className="font-bold text-[#0a1f44] text-lg mb-3 group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug">
                     {p.title}
                   </h4>
-                  <div className="flex items-center text-sm text-slate-400 mt-4">
-                    <Clock className="w-3 h-3 mr-1" /> {p.readTime}
+                  <div className="flex items-center text-sm text-slate-400 mt-4 font-medium">
+                    <Clock className="w-4 h-4 mr-1.5" /> {p.readTime}
                   </div>
                 </div>
               </Link>
