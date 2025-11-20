@@ -2,10 +2,7 @@ import { StrictMode, Component, ErrorInfo, ReactNode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
 
-class ErrorBoundary extends Component<
-  { children: ReactNode },
-  { hasError: boolean; error: Error | null }
-> {
+class ErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean; error: Error | null }> {
   constructor(props: { children: ReactNode }) {
     super(props);
     this.state = { hasError: false, error: null };
@@ -39,11 +36,27 @@ const rootElement = document.getElementById("root");
 if (!rootElement) {
   console.error("Failed to find the root element");
 } else {
-  createRoot(rootElement).render(
-    <StrictMode>
-      <ErrorBoundary>
-        <App />
-      </ErrorBoundary>
-    </StrictMode>,
-  );
+  // Handle HMR by checking if root already exists
+  const container = rootElement as any;
+  
+  if (!container._reactRoot) {
+    const root = createRoot(rootElement);
+    container._reactRoot = root;
+    root.render(
+      <StrictMode>
+        <ErrorBoundary>
+          <App />
+        </ErrorBoundary>
+      </StrictMode>,
+    );
+  } else {
+    // Reuse existing root
+    container._reactRoot.render(
+      <StrictMode>
+        <ErrorBoundary>
+          <App />
+        </ErrorBoundary>
+      </StrictMode>,
+    );
+  }
 }
