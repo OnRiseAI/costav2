@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { 
-  MessageCircle, 
-  Key, 
-  Languages, 
-  ThermometerSun, 
-  Umbrella, 
+import {
+  MessageCircle,
+  Key,
+  Languages,
+  Sun,
+  Umbrella,
   Paintbrush,
   Quote,
   ArrowRight
@@ -91,7 +91,7 @@ export default function HolidayHomesPage() {
             <div className="group p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-blue-200 hover:bg-blue-50/50 transition-all cursor-pointer">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-orange-500 shadow-sm group-hover:scale-110 transition-transform">
-                  <ThermometerSun className="w-6 h-6" />
+                  <Sun className="w-6 h-6" />
                 </div>
                 <h3 className="font-bold text-lg text-[#0a1f44]">Pre-Season Checks</h3>
               </div>

@@ -1,13 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { 
-  Clock, 
-  Euro, 
-  FileText, 
-  Key, 
-  Sparkles, 
-  Wrench, 
-  PaintBucket,
+import {
+  Clock,
+  Banknote,
+  FileText,
+  Key,
+  Sparkles,
+  Wrench,
+  Paintbrush,
   ArrowRight,
   Building2
 } from "lucide-react";
@@ -62,7 +62,7 @@ export default function LandlordsPage() {
 
             <div className="bg-white p-8 rounded-[2rem] shadow-xl shadow-slate-200/50 border border-slate-100 text-center hover:-translate-y-1 transition-transform duration-300">
               <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-6 text-blue-600">
-                <Euro className="w-8 h-8" />
+                <Banknote className="w-8 h-8" />
               </div>
               <h3 className="text-xl font-bold text-[#0a1f44] mb-3">Fair Pricing</h3>
               <p className="text-slate-600 leading-relaxed">
@@ -115,7 +115,7 @@ export default function LandlordsPage() {
 
             <div className="group p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-blue-200 hover:bg-blue-50/50 transition-all cursor-pointer text-center">
               <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-purple-500 shadow-sm mx-auto mb-4 group-hover:scale-110 transition-transform">
-                <PaintBucket className="w-6 h-6" />
+                <Paintbrush className="w-6 h-6" />
               </div>
               <h3 className="font-bold text-lg text-[#0a1f44] mb-2">Painting & Decorating</h3>
               <p className="text-sm text-slate-600">Refresh walls and fix wear and tear.</p>
