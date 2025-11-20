@@ -4,8 +4,6 @@ import {
   Globe,
   Wallet,
   Info,
-  CheckCircle2,
-  Users,
   Home,
   Building2,
   ArrowRight,
@@ -23,20 +21,20 @@ export default function AboutPage() {
             alt="Beautiful Costa del Sol villa with pool"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
+          <div className="absolute inset-0 bg-black/50"></div>
         </div>
 
         <div className="container-custom relative z-10 text-center text-white max-w-4xl px-4">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm mb-8 animate-fade-in">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm mb-8">
             <span className="w-2 h-2 rounded-full bg-green-400"></span>
             <span className="text-sm font-medium">Part of the OnRiseDigital network</span>
           </div>
           
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight tracking-tight animate-slide-up">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight tracking-tight">
             Connecting residents and holiday home owners to trusted tradespeople you can rely on.
           </h1>
           
-          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto font-light leading-relaxed animate-slide-up opacity-0" style={{ animationDelay: "0.2s" }}>
+          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto font-light leading-relaxed">
             CostaTrades was created by a small team who live on the Costa del Sol and understand the real challenges of finding dependable tradespeople.
           </p>
         </div>
