@@ -201,7 +201,7 @@ export default function FAQPage() {
                 );
               })
             ) : (
-              <div className="text-center py-20 bg-white rounded-[2rem] shadow-sm">
+              <div className="md:col-span-2 text-center py-20 bg-white rounded-[2rem] shadow-sm">
                 <p className="text-xl text-slate-500">No answers found for "{searchQuery}"</p>
                 <Button 
                   variant="link" 
