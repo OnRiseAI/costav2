@@ -21,6 +21,7 @@ import { CustomerDashboard } from "@/pages/CustomerDashboard";
 import { Tradespeople } from "@/pages/Tradespeople";
 import TradesMenu from "@/pages/TradesMenu";
 import AboutPage from "@/pages/AboutPage";
+import ContactPage from "@/pages/ContactPage";
 import PlaceholderPage from "@/pages/PlaceholderPage";
 import NotFound from "@/pages/NotFound";
 import "./global.css";
