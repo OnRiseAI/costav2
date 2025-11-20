@@ -1,93 +1,116 @@
 import { Button } from "@/components/ui/button";
-import { HowItWorks as HowItWorksSection } from "@/components/HowItWorks";
-import { WhyTrustCostaTrade } from "@/components/WhyTrustCostaTrade";
 import { Link } from "react-router-dom";
-import { Image } from "lucide-react";
+import { Image, CheckCircle, Shield, MapPin, ChevronDown, ChevronUp } from "lucide-react";
+import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 export default function HowItWorksPage() {
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+
+  const toggleFaq = (index: number) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      question: "Is it really free?",
+      answer: "Yes. Using CostaTrades is 100% free for homeowners. There are no sign-up fees, hidden charges or mark-ups on quotes. You only pay the tradesperson directly for the work done."
+    },
+    {
+      question: "How many quotes will I get?",
+      answer: "For most jobs you will receive between 3–5 quotes from available tradespeople. Sometimes more, sometimes fewer, depending on the type of work and your location."
+    },
+    {
+      question: "What if I don't like the quotes?",
+      answer: "There is absolutely no obligation to hire. If the quotes or professionals don't feel like the right fit, you can simply decline and post again later or look elsewhere."
+    }
+  ];
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white font-sans">
       {/* Hero Section */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
+      <section className="relative py-20 md:py-32 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50/25 to-cyan-50/10" />
-          <div className="absolute top-10 right-1/4 w-80 h-80 bg-gradient-to-bl from-blue-100/30 to-transparent rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-gradient-to-tr from-cyan-100/25 to-transparent rounded-full blur-3xl" />
+          <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50/30 to-cyan-50/10" />
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-blue-100/20 to-transparent rounded-full blur-3xl -translate-y-1/4 translate-x-1/4" />
         </div>
 
         <div className="container-custom relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Copy */}
-            <div className="max-w-xl">
-              <p className="text-sm font-semibold tracking-[0.2em] text-primary/80 uppercase mb-4">
-                HOW IT WORKS
-              </p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight tracking-tight">
+            <div className="max-w-xl animate-fade-in">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-bold tracking-wider uppercase mb-6">
+                <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+                How It Works
+              </div>
+              
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#0a1f44] mb-6 leading-[1.1] tracking-tight">
                 The Easiest Way to Find Trusted Tradespeople.
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground mb-8 font-light leading-relaxed">
-                From posting a job to getting it donehere is how CostaTrades makes home improvement stress-free.
+              
+              <p className="text-xl text-slate-600 mb-10 font-light leading-relaxed">
+                From posting a job to getting it done—here is how CostaTrades makes home improvement stress-free.
               </p>
 
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <div className="mt-1 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                    <span className="text-sm font-semibold">1</span>
+              <div className="space-y-6 mb-10">
+                {[
+                  "Post your job once and let interested local professionals come to you.",
+                  "Compare quotes, ratings and past work so you can choose with confidence.",
+                  "Sit back while a verified tradesperson gets the job done."
+                ].map((text, i) => (
+                  <div key={i} className="flex items-start gap-4 group">
+                    <div className="mt-1 w-8 h-8 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600 font-bold text-sm group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300 shadow-sm">
+                      {i + 1}
+                    </div>
+                    <p className="text-slate-600 text-lg group-hover:text-slate-900 transition-colors">
+                      {text}
+                    </p>
                   </div>
-                  <p className="text-sm text-muted-foreground">
-                    Post your job once and let interested local professionals come to you.
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="mt-1 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                    <span className="text-sm font-semibold">2</span>
-                  </div>
-                  <p className="text-sm text-muted-foreground">
-                    Compare quotes, ratings and past work so you can choose with confidence.
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="mt-1 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                    <span className="text-sm font-semibold">3</span>
-                  </div>
-                  <p className="text-sm text-muted-foreground">
-                    Sit back while a verified tradesperson gets the job done.
-                  </p>
-                </div>
+                ))}
               </div>
 
-              <div className="mt-10 flex flex-col sm:flex-row gap-3 sm:items-center">
+              <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
                 <Link to="/post-job">
-                  <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 text-base md:text-lg rounded-2xl shadow-lg hover:shadow-xl transition-all">
+                  <Button className="bg-[#E31E24] hover:bg-[#C41218] text-white px-10 py-7 text-lg rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 font-bold">
                     Post a Job Now
                   </Button>
                 </Link>
-                <p className="text-xs md:text-sm text-muted-foreground max-w-xs">
-                  No fees for homeowners. Get multiple quotes without any obligation to hire.
+                <p className="text-sm text-slate-500 max-w-[200px] leading-tight">
+                  No fees for homeowners. No obligation to hire.
                 </p>
               </div>
             </div>
 
             {/* Visual */}
-            <div className="relative">
-              <div className="absolute -top-6 -left-6 w-20 h-20 rounded-3xl bg-blue-100/60" />
-              <div className="absolute -bottom-10 -right-4 w-32 h-32 rounded-full bg-cyan-100/50" />
-
-              <div className="relative bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
-                <div className="aspect-[4/3] bg-gradient-to-br from-blue-500 via-blue-400 to-cyan-400 flex items-center justify-center p-8">
-                  <div className="bg-white/10 border border-white/30 rounded-3xl p-6 md:p-8 max-w-md text-white backdrop-blur-sm">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 rounded-2xl bg-white/15 flex items-center justify-center">
-                        <Image className="w-5 h-5" />
-                      </div>
-                      <p className="text-sm font-medium tracking-wide uppercase text-white/80">
-                        Relax, we19ve got this
-                      </p>
+            <div className="relative lg:h-[600px] flex items-center justify-center animate-scale-in delay-100">
+              <div className="absolute inset-0 bg-gradient-to-tr from-blue-100/50 to-cyan-50/50 rounded-[3rem] rotate-3 transform scale-95 opacity-70"></div>
+              
+              <div className="relative w-full h-full max-h-[500px] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white">
+                <img 
+                  src="https://images.pexels.com/photos/7415126/pexels-photo-7415126.jpeg" 
+                  alt="Happy family in their new home" 
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                />
+                
+                {/* Floating Testimonial Card */}
+                <div className="absolute bottom-8 left-8 right-8 bg-white/95 backdrop-blur-md p-6 rounded-2xl shadow-lg border border-white/50 transform hover:-translate-y-1 transition-transform duration-300">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 text-blue-600">
+                      <Image className="w-6 h-6" />
                     </div>
-                    <p className="text-lg md:text-xl font-semibold mb-3">
-                      "I posted my job in minutes and had three quotes from local pros by the afternoon."
-                    </p>
-                    <p className="text-xs text-white/80">Sarah, homeowner in Marbella</p>
+                    <div>
+                      <p className="text-slate-800 font-medium text-lg leading-snug mb-2">
+                        "I posted my job in minutes and had three quotes from local pros by the afternoon."
+                      </p>
+                      <div className="flex items-center gap-2">
+                        <div className="flex text-yellow-400">
+                          {[...Array(5)].map((_, i) => (
+                            <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                          ))}
+                        </div>
+                        <span className="text-sm text-slate-500 font-medium">— Sarah, Marbella</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -97,185 +120,183 @@ export default function HowItWorksPage() {
       </section>
 
       {/* 3-Step Process (Core) */}
-      <section className="relative py-12 md:py-16 border-t border-gray-100 bg-white">
+      <section className="relative py-24 bg-white">
         <div className="container-custom relative z-10">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight">
+          <div className="max-w-3xl mx-auto text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#0a1f44] mb-6 tracking-tight">
               How it works in 3 simple steps
             </h2>
-            <p className="text-base md:text-lg text-muted-foreground font-light">
-              Show, don19t just tell. Here19s exactly what happens when you use CostaTrades.
+            <p className="text-xl text-slate-600 font-light">
+              Show, don't just tell. Here's exactly what happens when you use CostaTrades.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 md:gap-10 items-stretch">
+          <div className="relative grid md:grid-cols-3 gap-12">
+            {/* Connecting Line (Desktop) */}
+            <div className="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-gradient-to-r from-blue-100 via-blue-200 to-blue-100 -z-10"></div>
+
             {/* Step 1 */}
-            <div className="relative group">
-              <div className="absolute inset-0 bg-white rounded-3xl border border-gray-100 shadow-sm group-hover:shadow-xl transition-all duration-500" />
-              <div className="relative p-8 h-full flex flex-col">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-4xl font-bold text-primary">1</span>
-                  <p className="text-sm font-medium tracking-[0.2em] uppercase text-primary/70">
-                    Post your job
-                  </p>
-                </div>
-                <h3 className="text-xl font-semibold mb-3 text-foreground">
-                  Tell us what you need
-                </h3>
-                <p className="text-sm text-muted-foreground mb-4 flex-grow">
-                  Describe your project in plain language, add optional photos
-                  and set your preferred timeline. It19s free and takes less than 2 minutes.
-                </p>
+            <div className="relative group text-center">
+              <div className="w-24 h-24 mx-auto bg-white rounded-full border-4 border-blue-50 shadow-xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:border-blue-100 transition-all duration-300 relative z-10">
+                <span className="text-4xl font-bold text-blue-600">1</span>
               </div>
+              <h3 className="text-2xl font-bold mb-4 text-[#0a1f44]">
+                Tell us what you need
+              </h3>
+              <p className="text-slate-600 leading-relaxed px-4">
+                Describe your project in plain language, add optional photos
+                and set your preferred timeline. It's free and takes less than 2 minutes.
+              </p>
             </div>
 
             {/* Step 2 */}
-            <div className="relative group">
-              <div className="absolute inset-0 bg-white rounded-3xl border border-gray-100 shadow-sm group-hover:shadow-xl transition-all duration-500" />
-              <div className="relative p-8 h-full flex flex-col">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-4xl font-bold text-primary">2</span>
-                  <p className="text-sm font-medium tracking-[0.2em] uppercase text-primary/70">
-                    Get quotes
-                  </p>
-                </div>
-                <h3 className="text-xl font-semibold mb-3 text-foreground">
-                  Receive interest from locals
-                </h3>
-                <p className="text-sm text-muted-foreground mb-4 flex-grow">
-                  Available tradespeople in your area review your job and send
-                  you quotes or request a quick visit if they need more details.
-                </p>
+            <div className="relative group text-center">
+              <div className="w-24 h-24 mx-auto bg-white rounded-full border-4 border-blue-50 shadow-xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:border-blue-100 transition-all duration-300 relative z-10">
+                <span className="text-4xl font-bold text-blue-600">2</span>
               </div>
+              <h3 className="text-2xl font-bold mb-4 text-[#0a1f44]">
+                Receive interest from locals
+              </h3>
+              <p className="text-slate-600 leading-relaxed px-4">
+                Available tradespeople in your area review your job and send
+                you quotes or request a quick visit if they need more details.
+              </p>
             </div>
 
             {/* Step 3 */}
-            <div className="relative group">
-              <div className="absolute inset-0 bg-white rounded-3xl border border-gray-100 shadow-sm group-hover:shadow-xl transition-all duration-500" />
-              <div className="relative p-8 h-full flex flex-col">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-4xl font-bold text-primary">3</span>
-                  <p className="text-sm font-medium tracking-[0.2em] uppercase text-primary/70">
-                    Hire with confidence
-                  </p>
-                </div>
-                <h3 className="text-xl font-semibold mb-3 text-foreground">
-                  Choose the best fit
-                </h3>
-                <p className="text-sm text-muted-foreground mb-4 flex-grow">
-                  Compare profiles, read real reviews and see past work. Hire
-                  the professional who suits your budget and gives you peace of mind.
-                </p>
+            <div className="relative group text-center">
+              <div className="w-24 h-24 mx-auto bg-white rounded-full border-4 border-blue-50 shadow-xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:border-blue-100 transition-all duration-300 relative z-10">
+                <span className="text-4xl font-bold text-blue-600">3</span>
               </div>
+              <h3 className="text-2xl font-bold mb-4 text-[#0a1f44]">
+                Choose the best fit
+              </h3>
+              <p className="text-slate-600 leading-relaxed px-4">
+                Compare profiles, read real reviews and see past work. Hire
+                the professional who suits your budget and gives you peace of mind.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Why Use CostaTrades? */}
-      <section className="py-16 md:py-24 bg-gray-50 border-t border-gray-100">
+      <section className="py-24 bg-slate-50 border-y border-slate-200/60">
         <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight">
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#0a1f44] mb-6 tracking-tight">
               Why use CostaTrades?
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 md:gap-10">
-            <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8">
-              <h3 className="text-xl font-semibold mb-3 text-foreground">
-                Verified professionals
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                We check IDs and key details so you don19t have to, helping keep
-                doorstep scams and time-wasters away.
-              </p>
-            </div>
-            <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8">
-              <h3 className="text-xl font-semibold mb-3 text-foreground">
-                Local expertise
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                Tradespeople who actually know Costa del Sol homes14from
-                terraces and pools to old town apartments.
-              </p>
-            </div>
-            <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8">
-              <h3 className="text-xl font-semibold mb-3 text-foreground">
-                Zero cost to you
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                CostaTrades is completely free for homeowners. You only pay the
-                professional you choose.
-              </p>
-            </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: Shield,
+                title: "Verified professionals",
+                desc: "We check IDs and key details so you don't have to, helping keep doorstep scams and time-wasters away.",
+                color: "text-emerald-600",
+                bg: "bg-emerald-50"
+              },
+              {
+                icon: MapPin,
+                title: "Local expertise",
+                desc: "Tradespeople who actually know Costa del Sol homes—from terraces and pools to old town apartments.",
+                color: "text-blue-600",
+                bg: "bg-blue-50"
+              },
+              {
+                icon: CheckCircle,
+                title: "Zero cost to you",
+                desc: "CostaTrades is completely free for homeowners. You only pay the professional you choose.",
+                color: "text-purple-600",
+                bg: "bg-purple-50"
+              }
+            ].map((item, i) => (
+              <div key={i} className="bg-white rounded-[2rem] p-10 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 group">
+                <div className={`w-16 h-16 ${item.bg} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <item.icon className={`w-8 h-8 ${item.color}`} strokeWidth={1.5} />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-[#0a1f44]">
+                  {item.title}
+                </h3>
+                <p className="text-slate-600 leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 md:py-24 bg-white border-t border-gray-100">
+      <section className="py-24 bg-white">
         <div className="container-custom max-w-3xl">
-          <div className="mb-10 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight">
+          <div className="mb-16 text-center">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#0a1f44] mb-6 tracking-tight">
               Frequently asked questions
             </h2>
-            <p className="text-sm md:text-base text-muted-foreground">
+            <p className="text-xl text-slate-600 font-light">
               Straightforward answers so you know exactly what to expect.
             </p>
           </div>
 
-          <div className="space-y-6">
-            <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
-              <h3 className="text-base md:text-lg font-semibold mb-2 text-foreground">
-                Is it really free?
-              </h3>
-              <p className="text-sm md:text-base text-muted-foreground">
-                Yes. Using CostaTrades is 100% free for homeowners. There are no
-                sign-up fees, hidden charges or mark-ups on quotes.
-              </p>
-            </div>
-
-            <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
-              <h3 className="text-base md:text-lg font-semibold mb-2 text-foreground">
-                How many quotes will I get?
-              </h3>
-              <p className="text-sm md:text-base text-muted-foreground">
-                For most jobs you will receive between 3115 quotes from
-                available tradespeople. Sometimes more, sometimes fewer,
-                depending on the type of work and your location.
-              </p>
-            </div>
-
-            <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
-              <h3 className="text-base md:text-lg font-semibold mb-2 text-foreground">
-                What if I don19t like the quotes?
-              </h3>
-              <p className="text-sm md:text-base text-muted-foreground">
-                There is absolutely no obligation to hire. If the quotes or
-                professionals don19t feel like the right fit, you can simply
-                decline and post again later.
-              </p>
-            </div>
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div 
+                key={index} 
+                className="bg-white rounded-2xl border border-slate-200 overflow-hidden transition-all duration-300 hover:border-blue-200 hover:shadow-md"
+              >
+                <button
+                  onClick={() => toggleFaq(index)}
+                  className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
+                >
+                  <span className="text-lg md:text-xl font-bold text-[#0a1f44]">
+                    {faq.question}
+                  </span>
+                  {openFaq === index ? (
+                    <ChevronUp className="w-5 h-5 text-blue-600" />
+                  ) : (
+                    <ChevronDown className="w-5 h-5 text-slate-400" />
+                  )}
+                </button>
+                <div 
+                  className={cn(
+                    "px-6 text-slate-600 leading-relaxed overflow-hidden transition-all duration-300 ease-in-out",
+                    openFaq === index ? "max-h-48 pb-6 opacity-100" : "max-h-0 opacity-0"
+                  )}
+                >
+                  {faq.answer}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 md:py-24 bg-[#0a1f44] text-white text-center">
-        <div className="container-custom max-w-3xl">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+      <section className="py-24 bg-[#0a1f44] text-white text-center relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px]"></div>
+        </div>
+        
+        <div className="container-custom max-w-4xl relative z-10">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 tracking-tight">
             Ready to get started?
           </h2>
-          <p className="text-base md:text-lg text-blue-100 mb-8 font-light">
+          <p className="text-xl md:text-2xl text-blue-100 mb-12 font-light max-w-2xl mx-auto">
             Post your first job in minutes and start receiving quotes from
             trusted local professionals.
           </p>
           <Link to="/post-job">
-            <Button className="bg-[#E31E24] hover:bg-[#C41218] text-white px-10 py-6 text-base md:text-lg rounded-full font-semibold shadow-lg hover:shadow-xl transition-all">
+            <Button className="bg-[#E31E24] hover:bg-[#C41218] text-white px-12 py-8 text-xl rounded-full font-bold shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300">
               Post a Job Now
             </Button>
           </Link>
+          <p className="mt-6 text-sm text-blue-300/60">
+            Join thousands of happy homeowners on the Costa del Sol
+          </p>
         </div>
       </section>
     </div>
