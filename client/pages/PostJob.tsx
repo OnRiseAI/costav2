@@ -9,20 +9,35 @@ import {
   DialogTitle,
   DialogDescription
 } from '@/components/ui/dialog';
-import { ChevronRight, MapPin, Search, ArrowRight } from 'lucide-react';
+import {
+  ChevronRight,
+  MapPin,
+  Search,
+  ArrowRight,
+  Wrench,
+  Zap,
+  Hammer,
+  Paintbrush,
+  Shovel,
+  Droplets,
+  Snowflake,
+  Key,
+  Sparkles,
+  PenTool
+} from 'lucide-react';
 import { getTradeServices } from '@/data/tradeServices';
 
 const categories = [
-  { slug: 'plumbers', name: 'Plumber', icon: '🔧', color: 'bg-blue-50 hover:bg-blue-100 border-blue-100' },
-  { slug: 'electricians', name: 'Electrician', icon: '⚡', color: 'bg-amber-50 hover:bg-amber-100 border-amber-100' },
-  { slug: 'builders', name: 'Builder', icon: '🏗️', color: 'bg-orange-50 hover:bg-orange-100 border-orange-100' },
-  { slug: 'painters', name: 'Painter', icon: '🎨', color: 'bg-purple-50 hover:bg-purple-100 border-purple-100' },
-  { slug: 'gardeners', name: 'Gardener', icon: '🌿', color: 'bg-green-50 hover:bg-green-100 border-green-100' },
-  { slug: 'pool-maintenance', name: 'Pool Maintenance', icon: '💧', color: 'bg-cyan-50 hover:bg-cyan-100 border-cyan-100' },
-  { slug: 'air-conditioning', name: 'Air Conditioning', icon: '❄️', color: 'bg-sky-50 hover:bg-sky-100 border-sky-100' },
-  { slug: 'locksmiths', name: 'Locksmith', icon: '🔑', color: 'bg-slate-50 hover:bg-slate-100 border-slate-100' },
-  { slug: 'cleaning', name: 'Cleaning', icon: '✨', color: 'bg-rose-50 hover:bg-rose-100 border-rose-100' },
-  { slug: 'handyman', name: 'Handyman', icon: '🔨', color: 'bg-indigo-50 hover:bg-indigo-100 border-indigo-100' },
+  { slug: 'plumbers', name: 'Plumber', icon: Wrench, color: 'text-blue-600', bg: 'bg-blue-50' },
+  { slug: 'electricians', name: 'Electrician', icon: Zap, color: 'text-amber-600', bg: 'bg-amber-50' },
+  { slug: 'builders', name: 'Builder', icon: Hammer, color: 'text-orange-600', bg: 'bg-orange-50' },
+  { slug: 'painters', name: 'Painter', icon: Paintbrush, color: 'text-purple-600', bg: 'bg-purple-50' },
+  { slug: 'gardeners', name: 'Gardener', icon: Shovel, color: 'text-green-600', bg: 'bg-green-50' },
+  { slug: 'pool-maintenance', name: 'Pool Maintenance', icon: Droplets, color: 'text-cyan-600', bg: 'bg-cyan-50' },
+  { slug: 'air-conditioning', name: 'Air Conditioning', icon: Snowflake, color: 'text-sky-600', bg: 'bg-sky-50' },
+  { slug: 'locksmiths', name: 'Locksmith', icon: Key, color: 'text-slate-600', bg: 'bg-slate-50' },
+  { slug: 'cleaning', name: 'Cleaning', icon: Sparkles, color: 'text-rose-600', bg: 'bg-rose-50' },
+  { slug: 'handyman', name: 'Handyman', icon: PenTool, color: 'text-indigo-600', bg: 'bg-indigo-50' },
 ];
 
 export default function PostJob() {
@@ -94,25 +109,28 @@ export default function PostJob() {
         </h2>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
-          {categories.map((category) => (
-            <button
-              key={category.slug}
-              onClick={() => handleCategorySelect(category.slug)}
-              className={`group relative overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:shadow-lg border ${category.color} flex flex-col items-center justify-center gap-4 min-h-[160px] text-center`}
-            >
-              <div className="text-4xl transform group-hover:scale-110 transition-transform duration-300">
-                {category.icon}
-              </div>
-              <span className="font-semibold text-gray-900 group-hover:text-[#0a1f44]">
-                {category.name}
-              </span>
-              <div className="absolute bottom-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="bg-white/50 p-1.5 rounded-full">
-                  <ArrowRight className="h-4 w-4 text-[#0a1f44]" />
+          {categories.map((category) => {
+            const Icon = category.icon;
+            return (
+              <button
+                key={category.slug}
+                onClick={() => handleCategorySelect(category.slug)}
+                className="group relative bg-white rounded-2xl p-6 transition-all duration-300 hover:shadow-xl border border-gray-100 hover:border-blue-100 flex flex-col items-center justify-center gap-4 min-h-[160px] text-center"
+              >
+                <div className={`w-16 h-16 rounded-full ${category.bg} flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300`}>
+                  <Icon className={`w-8 h-8 ${category.color}`} />
                 </div>
-              </div>
-            </button>
-          ))}
+                <span className="font-bold text-gray-700 group-hover:text-[#0a1f44] text-lg">
+                  {category.name}
+                </span>
+                <div className="absolute bottom-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+                  <div className="flex items-center gap-1 text-sm font-medium text-blue-600">
+                    Select <ArrowRight className="h-3 w-3" />
+                  </div>
+                </div>
+              </button>
+            );
+          })}
         </div>
       </div>
 
