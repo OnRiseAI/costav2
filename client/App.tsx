@@ -26,6 +26,8 @@ import VerificationPromisePage from "@/pages/VerificationPromisePage";
 import FAQPage from "@/pages/FAQPage";
 import CostGuidesPage from "@/pages/CostGuidesPage";
 import ContactPage from "@/pages/ContactPage";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import TermsOfService from "@/pages/TermsOfService";
 import SEOTradePage from "@/pages/SEOTradePage";
 import PlaceholderPage from "@/pages/PlaceholderPage";
 import NotFound from "@/pages/NotFound";
@@ -206,21 +208,15 @@ function AppContent() {
             {/* Legal */}
             <Route
               path="/terms"
-              element={
-                <PlaceholderPage
-                  title="Terms of Service"
-                  description="Terms and conditions for using CostaTrade"
-                />
-              }
+              element={<TermsOfService />}
             />
             <Route
               path="/privacy"
-              element={
-                <PlaceholderPage
-                  title="Privacy Policy"
-                  description="How we protect and use your data"
-                />
-              }
+              element={<PrivacyPolicy />}
+            />
+            <Route
+              path="/privacy-policy"
+              element={<PrivacyPolicy />}
             />
             <Route
               path="/help"
