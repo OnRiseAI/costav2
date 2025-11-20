@@ -208,7 +208,7 @@ export default function PostJob() {
                 placeholder={PLACEHOLDERS[placeholderIndex]}
                 className={`w-full h-14 text-lg text-gray-900 placeholder:text-gray-400 focus:outline-none bg-transparent transition-opacity duration-500 ${fade ? 'opacity-100' : 'opacity-0'}`}
               />
-              <button className="bg-[#0a1f44] text-white px-8 h-14 rounded-full font-bold text-lg hover:bg-blue-900 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 active:translate-y-0">
+              <button className="bg-[#0a1f44] text-white px-8 h-14 rounded-full font-bold text-lg hover:bg-blue-900 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center">
                 Search
               </button>
             </div>
