@@ -1,6 +1,28 @@
 import { useParams, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Shield, MapPin, CheckCircle, Clock, AlertCircle, Info } from "lucide-react";
+import { useEffect } from "react";
+
+// Image mapping for different trades
+const TRADE_IMAGES: Record<string, string> = {
+  plumber: "https://images.pexels.com/photos/7220892/pexels-photo-7220892.jpeg",
+  electrician: "https://images.pexels.com/photos/17842832/pexels-photo-17842832.jpeg",
+  "ac-repair": "https://images.pexels.com/photos/32497161/pexels-photo-32497161.jpeg",
+  builder: "https://images.pexels.com/photos/33497138/pexels-photo-33497138.jpeg",
+  "pool-maintenance": "https://images.pexels.com/photos/17568095/pexels-photo-17568095.jpeg",
+  painter: "https://images.pexels.com/photos/7217966/pexels-photo-7217966.jpeg",
+  locksmith: "https://images.pexels.com/photos/101808/pexels-photo-101808.jpeg",
+  handyman: "https://images.pexels.com/photos/7482641/pexels-photo-7482641.jpeg",
+  "solar-panel-installer": "https://images.pexels.com/photos/8853537/pexels-photo-8853537.jpeg",
+  "leak-detection": "https://images.pexels.com/photos/7220892/pexels-photo-7220892.jpeg", // Using plumber image as fallback/related
+  roofer: "https://images.pexels.com/photos/8853472/pexels-photo-8853472.jpeg",
+  tiler: "https://images.pexels.com/photos/12924578/pexels-photo-12924578.jpeg",
+  "bathroom-fitter": "https://images.pexels.com/photos/34794658/pexels-photo-34794658.jpeg",
+  "kitchen-installer": "https://images.pexels.com/photos/34803106/pexels-photo-34803106.jpeg",
+  "pest-control": "https://images.pexels.com/photos/16851694/pexels-photo-16851694.jpeg",
+  // Fallback
+  default: "https://images.pexels.com/photos/2244746/pexels-photo-2244746.jpeg"
+};
 
 // This would typically come from a data source/API
 const MOCK_DATA = {
@@ -18,6 +40,31 @@ export default function SEOTradePage() {
   const tradeName = trade ? trade.charAt(0).toUpperCase() + trade.slice(1).replace(/-/g, ' ') : MOCK_DATA.trade;
   const locationName = location ? location.charAt(0).toUpperCase() + location.slice(1).replace(/-/g, ' ') : MOCK_DATA.location;
 
+  // Determine hero image
+  const normalizedTrade = trade?.toLowerCase() || "default";
+  // Try exact match, then singular/plural variations, then default
+  const heroImage = TRADE_IMAGES[normalizedTrade] || 
+                    TRADE_IMAGES[normalizedTrade.replace(/s$/, '')] || 
+                    TRADE_IMAGES[normalizedTrade + 's'] || 
+                    TRADE_IMAGES.default;
+
+  // Update Page Title and Meta Description
+  useEffect(() => {
+    if (tradeName && locationName) {
+      const title = `Top Rated ${tradeName} in ${locationName} | CostaTrades`;
+      document.title = title;
+
+      // Update meta description
+      let metaDescription = document.querySelector('meta[name="description"]');
+      if (!metaDescription) {
+        metaDescription = document.createElement('meta');
+        metaDescription.setAttribute('name', 'description');
+        document.head.appendChild(metaDescription);
+      }
+      metaDescription.setAttribute('content', `Find the best ${tradeName} in ${locationName}. Verified professionals, fair pricing, and local expertise. Get a free quote today.`);
+    }
+  }, [tradeName, locationName]);
+
   return (
     <div className="min-h-screen bg-white font-sans">
       {/* 1. Hero Section */}
@@ -25,7 +72,7 @@ export default function SEOTradePage() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.pexels.com/photos/2244746/pexels-photo-2244746.jpeg?auto=compress&cs=tinysrgb&w=1600" 
+            src={heroImage}
             alt={`${tradeName} in ${locationName}`} 
             className="w-full h-full object-cover"
           />
