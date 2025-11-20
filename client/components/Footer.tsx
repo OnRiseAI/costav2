@@ -266,6 +266,51 @@ export function Footer() {
               </ul>
             </div>
 
+            {/* For Owners */}
+            <div>
+              <h4 className="font-bold text-foreground mb-5 text-sm uppercase tracking-wider">
+                For Owners
+              </h4>
+              <ul className="space-y-3">
+                <li>
+                  <Link
+                    to="/holiday-homes"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group"
+                  >
+                    <span className="inline-block w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    Holiday Home Owners
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/landlords"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group"
+                  >
+                    <span className="inline-block w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    Landlords & Managers
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/cost-guides"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group"
+                  >
+                    <span className="inline-block w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    Price Guides
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/post-job"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group"
+                  >
+                    <span className="inline-block w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    Post a Job
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
             {/* Popular Trades */}
             <div>
               <h4 className="font-bold text-foreground mb-5 text-sm uppercase tracking-wider">

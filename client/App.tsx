@@ -29,6 +29,8 @@ import ContactPage from "@/pages/ContactPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import CookiePolicy from "@/pages/CookiePolicy";
+import HolidayHomesPage from "@/pages/HolidayHomesPage";
+import LandlordsPage from "@/pages/LandlordsPage";
 import SEOTradePage from "@/pages/SEOTradePage";
 import { CookieConsent } from "@/components/CookieConsent";
 import PlaceholderPage from "@/pages/PlaceholderPage";
@@ -83,6 +85,8 @@ function AppContent() {
             <Route path="/why-us" element={<VerificationPromisePage />} />
             <Route path="/faq" element={<FAQPage />} />
             <Route path="/cost-guides" element={<CostGuidesPage />} />
+            <Route path="/holiday-homes" element={<HolidayHomesPage />} />
+            <Route path="/landlords" element={<LandlordsPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route
