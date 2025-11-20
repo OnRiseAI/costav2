@@ -29,6 +29,8 @@ import ContactPage from "@/pages/ContactPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import CookiePolicy from "@/pages/CookiePolicy";
+import BlogPage from "@/pages/BlogPage";
+import BlogPostPage from "@/pages/BlogPostPage";
 import HolidayHomesPage from "@/pages/HolidayHomesPage";
 import LandlordsPage from "@/pages/LandlordsPage";
 import SEOTradePage from "@/pages/SEOTradePage";
@@ -89,15 +91,8 @@ function AppContent() {
             <Route path="/landlords" element={<LandlordsPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
-            <Route
-              path="/blog"
-              element={
-                <PlaceholderPage
-                  title="Blog & Resources"
-                  description="Tips, guides, and local insights for Costa del Sol homeowners"
-                />
-              }
-            />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:slug" element={<BlogPostPage />} />
 
             {/* For Tradespeople */}
             <Route path="/for-tradespeople" element={<TradesMenu />} />
