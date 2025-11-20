@@ -75,15 +75,7 @@ function AppContent() {
               }
             />
             <Route path="/about" element={<AboutPage />} />
-            <Route
-              path="/contact"
-              element={
-                <PlaceholderPage
-                  title="Contact Us"
-                  description="Get in touch with our team"
-                />
-              }
-            />
+            <Route path="/contact" element={<ContactPage />} />
             <Route
               path="/blog"
               element={
