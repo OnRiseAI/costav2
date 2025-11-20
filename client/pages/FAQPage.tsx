@@ -28,6 +28,14 @@ export default function FAQPage() {
         {
           q: "Can I get a quote without posting a job?",
           a: "Yes. You can browse our directory and contact tradespeople directly via phone or WhatsApp to request a quote."
+        },
+        {
+          q: "How do I leave a review?",
+          a: "After a job is completed, you can leave a review on the tradesperson's profile. Your feedback helps maintain our high standards of quality and trust."
+        },
+        {
+          q: "What if I'm not satisfied with the work?",
+          a: "We recommend first discussing the issue with the tradesperson. If unresolved, please contact our support team. While we don't directly manage jobs, we investigate all reports of poor service."
         }
       ]
     },
@@ -38,16 +46,28 @@ export default function FAQPage() {
       bgColor: "bg-emerald-50",
       questions: [
         {
-          q: "How much does it cost to join?",
-          a: "We offer a free trial period. After that, we have simple, transparent pricing with zero commission on jobs."
+          q: "Is it free to join CostaTrades?",
+          a: "Yes, CostaTrades is completely free for tradespeople. There are no subscription fees, lead fees, or commissions on the jobs you secure."
         },
         {
           q: "Do you take a commission on my earnings?",
-          a: "No. You keep 100% of what you earn. We are a subscription-based directory, not a commission-based agency."
+          a: "No. You keep 100% of what you earn. We are a free directory designed to connect you with local homeowners."
         },
         {
           q: "How do I get verified?",
-          a: "Simply create your profile and complete the verification steps, which include confirming your identity and business details."
+          a: "Simply create your profile and complete the verification steps, which include confirming your identity and business details to build trust with clients."
+        },
+        {
+          q: "How do I get more leads?",
+          a: "Complete your profile with a professional photo, detailed description of services, and photos of past work. Verified profiles with positive reviews also rank higher in search results."
+        },
+        {
+          q: "Can I list multiple services?",
+          a: "Yes, you can select multiple trade categories that match your skills, such as plumbing, electrical work, and general maintenance, ensuring you appear in all relevant searches."
+        },
+        {
+          q: "Do I need to be a Spanish resident?",
+          a: "You need to be legally allowed to work in Spain. We may ask for your NIE/NIF during the verification process to ensure compliance with local regulations."
         }
       ]
     },
@@ -64,6 +84,22 @@ export default function FAQPage() {
         {
           q: "Do I need a permit for renovation in Spain?",
           a: "Yes, most renovations require a 'Licencia de Obra' (Building Permit) from your local Town Hall (Ayuntamiento). Minor works need a 'Licencia de Obra Menor'."
+        },
+        {
+          q: "What is the average hourly rate for an electrician?",
+          a: "Electricians on the Costa del Sol typically charge between €40 and €70 per hour, depending on the complexity of the work and urgency."
+        },
+        {
+          q: "Do I need an architect for a small extension?",
+          a: "For structural changes or extensions, you generally need an architect ('Arquitecto') to prepare the project for the Town Hall building permit."
+        },
+        {
+          q: "What is IVA and do I have to pay it?",
+          a: "IVA is the Spanish VAT. Standard rate is 21% for most goods and services. Renovation works may qualify for a reduced rate of 10% under specific conditions."
+        },
+        {
+          q: "How much does a painter charge per square meter?",
+          a: "Painters typically charge between €8 and €15 per square meter for interior walls, including materials. Exterior painting may cost more depending on access and surface condition."
         }
       ]
     },
@@ -84,6 +120,18 @@ export default function FAQPage() {
         {
           q: "Is my personal data safe?",
           a: "Absolutely. We use industry-standard encryption and strictly adhere to GDPR regulations to ensure your personal data is protected at all times."
+        },
+        {
+          q: "How do I delete my account?",
+          a: "You can request account deletion from your profile settings or by contacting our support team. We will process your request in accordance with GDPR guidelines."
+        },
+        {
+          q: "Is there a mobile app?",
+          a: "We are currently developing our mobile app. For now, our website is fully responsive and works perfectly on all mobile devices and tablets."
+        },
+        {
+          q: "How can I contact customer support?",
+          a: "You can reach our support team via the 'Contact Us' page, email, or directly through WhatsApp for urgent inquiries. We aim to respond within 24 hours."
         }
       ]
     }
