@@ -16,70 +16,57 @@ export function MegaFooter() {
     {
       title: "POPULAR TRADES",
       links: [
-        { name: "Plumbers", href: "/trades/plumbers" },
-        { name: "Electricians", href: "/trades/electricians" },
-        { name: "Air Conditioning", href: "/trades/air-conditioning" },
-        { name: "Builders", href: "/trades/builders" },
-        { name: "Pool Maintenance", href: "/trades/pool-maintenance" },
-        { name: "Painters", href: "/trades/painters" },
-        { name: "Locksmiths", href: "/trades/locksmiths" },
-        { name: "Handyman Services", href: "/trades/handyman" },
-        { name: "Gardeners", href: "/trades/gardeners" },
-        { name: "Cleaners", href: "/trades/cleaning" },
+        { name: "Plumbers in Marbella", href: "/trades/plumber/marbella" },
+        { name: "Electricians in Marbella", href: "/trades/electrician/marbella" },
+        { name: "AC Repair in Marbella", href: "/trades/ac-repair/marbella" },
+        { name: "Builders in Marbella", href: "/trades/builder/marbella" },
+        { name: "Pool Maintenance", href: "/trades/pool-maintenance/marbella" },
+        { name: "Painters", href: "/trades/painter/marbella" },
+        { name: "Locksmiths", href: "/trades/locksmith/marbella" },
+        { name: "Handyman", href: "/trades/handyman/marbella" },
       ],
     },
     {
       title: "SPECIALIST SERVICES",
       links: [
-        { name: "Solar Panel Installers", href: "/trades/solar" },
-        { name: "Leak Detection", href: "/trades/leak-detection" },
-        { name: "Roofing & Guttering", href: "/trades/roofing" },
-        { name: "Tilers & Plasterers", href: "/trades/tilers" },
-        { name: "Bathroom Fitters", href: "/trades/bathroom" },
-        { name: "Kitchen Installers", href: "/trades/kitchen" },
-        { name: "Window Cleaners", href: "/trades/window-cleaning" },
-        { name: "Pest Control", href: "/trades/pest-control" },
-        { name: "Rubbish Removal", href: "/trades/rubbish-removal" },
-        { name: "Appliance Repair", href: "/trades/appliance-repair" },
+        { name: "Solar Panels", href: "/trades/solar-panel-installer/marbella" },
+        { name: "Leak Detection", href: "/trades/leak-detection/marbella" },
+        { name: "Roofers", href: "/trades/roofer/marbella" },
+        { name: "Tilers", href: "/trades/tiler/marbella" },
+        { name: "Bathroom Fitters", href: "/trades/bathroom-fitter/marbella" },
+        { name: "Kitchens", href: "/trades/kitchen-installer/marbella" },
+        { name: "Pest Control", href: "/trades/pest-control/marbella" },
       ],
     },
     {
       title: "AREAS COVERED",
       links: [
-        { name: "Marbella", href: "/areas/marbella" },
-        { name: "Estepona", href: "/areas/estepona" },
-        { name: "Mijas Costa", href: "/areas/mijas-costa" },
-        { name: "Fuengirola", href: "/areas/fuengirola" },
-        { name: "Benalmadena", href: "/areas/benalmadena" },
-        { name: "Torremolinos", href: "/areas/torremolinos" },
-        { name: "Sotogrande", href: "/areas/sotogrande" },
-        { name: "Manilva", href: "/areas/manilva" },
-        { name: "Casares", href: "/areas/casares" },
-        { name: "Malaga", href: "/areas/malaga" },
+        { name: "Trades in Marbella", href: "/trades/plumber/marbella" },
+        { name: "Trades in Estepona", href: "/trades/plumber/estepona" },
+        { name: "Trades in Mijas", href: "/trades/plumber/mijas" },
+        { name: "Trades in Fuengirola", href: "/trades/plumber/fuengirola" },
+        { name: "Trades in Benalmadena", href: "/trades/plumber/benalmadena" },
+        { name: "Trades in Sotogrande", href: "/trades/plumber/sotogrande" },
+        { name: "Trades in Manilva", href: "/trades/plumber/manilva" },
       ],
     },
     {
       title: "LOCAL AREAS",
       links: [
-        { name: "Puerto Banus", href: "/areas/puerto-banus" },
-        { name: "Nueva Andalucia", href: "/areas/nueva-andalucia" },
-        { name: "San Pedro de Alcantara", href: "/areas/san-pedro" },
-        { name: "La Cala de Mijas", href: "/areas/la-cala" },
-        { name: "Calahonda", href: "/areas/calahonda" },
-        { name: "Riviera del Sol", href: "/areas/riviera" },
-        { name: "Elviria", href: "/areas/elviria" },
-        { name: "Guadalmina", href: "/areas/guadalmina" },
-        { name: "Los Monteros", href: "/areas/los-monteros" },
-        { name: "Benahavis", href: "/areas/benahavis" },
+        { name: "Puerto Banus", href: "/trades/plumber/puerto-banus" },
+        { name: "Nueva Andalucia", href: "/trades/plumber/nueva-andalucia" },
+        { name: "San Pedro", href: "/trades/plumber/san-pedro" },
+        { name: "La Cala", href: "/trades/plumber/la-cala" },
+        { name: "Calahonda", href: "/trades/plumber/calahonda" },
+        { name: "Elviria", href: "/trades/plumber/elviria" },
       ],
     },
     {
       title: "URGENT HELP",
       links: [
-        { name: "24/7 Emergency Plumber", href: "/trades/emergency-plumber" },
-        { name: "Emergency Electrician", href: "/trades/emergency-electrician" },
-        { name: "Emergency Locksmith", href: "/trades/emergency-locksmith" },
-        { name: "Burst Pipe Repair", href: "/trades/burst-pipe" },
+        { name: "24/7 Emergency Plumber", href: "/trades/plumber/marbella" },
+        { name: "Emergency Electrician", href: "/trades/electrician/marbella" },
+        { name: "Emergency Locksmith", href: "/trades/locksmith/marbella" },
       ],
       extra: (
         <div className="mt-4 flex items-center gap-2 text-green-400">
@@ -121,7 +108,7 @@ export function MegaFooter() {
                   <li key={link.name}>
                     <Link
                       to={link.href}
-                      className="text-[13px] hover:text-white transition-colors block py-1 md:py-0"
+                      className="text-[13px] hover:text-[#F3F4F6] transition-colors block py-1 md:py-0"
                     >
                       {link.name}
                     </Link>
@@ -136,7 +123,7 @@ export function MegaFooter() {
         {/* AEO Context Block */}
         <div className="mt-12 pt-8 border-t border-gray-800 text-center">
           <p className="text-sm text-gray-500 max-w-3xl mx-auto">
-            CostaTrades connects homeowners on the Costa del Sol with verified local tradespeople. Serving Marbella, Estepona, Mijas, and beyond since 2024.
+            CostaTrades connects homeowners on the Costa del Sol with verified local tradespeople. Serving Marbella, Estepona, Mijas, and beyond.
           </p>
         </div>
       </div>
