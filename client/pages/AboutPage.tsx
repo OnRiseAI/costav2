@@ -213,15 +213,15 @@ export default function AboutPage() {
             </div>
             <div className="relative hidden lg:block">
               <div className="grid grid-cols-2 gap-4">
-                <img 
-                  src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=600" 
-                  alt="Modern home" 
-                  className="rounded-2xl shadow-lg translate-y-8"
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2Fa37c88abad5c48feb45d83e5b15c60fc?format=webp&width=800"
+                  alt="Luxury villa terrace with ocean view"
+                  className="rounded-2xl shadow-lg translate-y-8 w-full h-auto object-cover"
                 />
-                <img 
-                  src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=600" 
-                  alt="Apartment complex" 
-                  className="rounded-2xl shadow-lg"
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2F9cecb7dfb8784f9aa6451e19d5a3ce79?format=webp&width=800"
+                  alt="Modern minimalist apartment buildings"
+                  className="rounded-2xl shadow-lg w-full h-auto object-cover"
                 />
               </div>
             </div>
