@@ -1,0 +1,185 @@
+import { useParams, Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Shield, MapPin, CheckCircle, Clock, AlertCircle, Info } from "lucide-react";
+
+// This would typically come from a data source/API
+const MOCK_DATA = {
+  trade: "Plumbers",
+  location: "Marbella",
+  average_price: "€150",
+  emergency_price: "€250",
+  local_insight_text: "In Marbella, plumbing systems often face unique challenges due to historic infrastructure in the Old Town and high mineral content in the water supply, which can lead to faster pipe corrosion.",
+};
+
+export default function SEOTradePage() {
+  const { trade, location } = useParams();
+  
+  // Fallback to mock data if params are missing (for template preview)
+  const tradeName = trade ? trade.charAt(0).toUpperCase() + trade.slice(1).replace(/-/g, ' ') : MOCK_DATA.trade;
+  const locationName = location ? location.charAt(0).toUpperCase() + location.slice(1).replace(/-/g, ' ') : MOCK_DATA.location;
+
+  return (
+    <div className="min-h-screen bg-white font-sans">
+      {/* 1. Hero Section */}
+      <section className="relative py-24 md:py-32 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.pexels.com/photos/2244746/pexels-photo-2244746.jpeg?auto=compress&cs=tinysrgb&w=1600" 
+            alt={`${tradeName} in ${locationName}`} 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0a1f44]/90 to-[#0a1f44]/40"></div>
+        </div>
+
+        <div className="container-custom relative z-10 text-white">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm mb-6">
+              <CheckCircle className="w-4 h-4 text-green-400" />
+              <span className="text-sm font-medium">Verified Local Professionals</span>
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              Top Rated {tradeName} in {locationName}
+            </h1>
+            <p className="text-xl text-blue-100 mb-8 max-w-2xl font-light">
+              Verified, local professionals available for {tradeName} services. Get fair quotes and quality work guaranteed.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link to="/post-job">
+                <Button size="lg" className="w-full sm:w-auto bg-[#E31E24] hover:bg-[#C41218] text-white h-14 px-8 text-lg font-bold rounded-full shadow-lg hover:shadow-xl transition-all">
+                  Get a Quote Now
+                </Button>
+              </Link>
+              <Link to="/search">
+                <Button size="lg" variant="outline" className="w-full sm:w-auto bg-white/10 border-white/30 text-white hover:bg-white/20 h-14 px-8 text-lg font-medium rounded-full backdrop-blur-sm">
+                  Browse Professionals
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. Market Rates Section */}
+      <section className="py-16 -mt-16 relative z-20">
+        <div className="container-custom">
+          <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+            <div className="bg-[#0a1f44] p-6 text-white text-center md:text-left">
+              <h2 className="text-2xl font-bold">Average Costs for {tradeName} in {locationName}</h2>
+              <p className="text-blue-200 text-sm mt-1">Based on recent jobs completed in your area</p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gray-100">
+              {/* Standard Rate */}
+              <div className="p-8 text-center hover:bg-blue-50/30 transition-colors">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 text-blue-600 rounded-full mb-4">
+                  <Clock className="w-6 h-6" />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-600 mb-2">Standard Weekday Rate</h3>
+                <div className="text-4xl font-bold text-[#0a1f44] mb-2">{MOCK_DATA.average_price}</div>
+                <p className="text-sm text-muted-foreground">Includes first hour of labor</p>
+              </div>
+
+              {/* Emergency Rate */}
+              <div className="p-8 text-center hover:bg-red-50/30 transition-colors">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-red-100 text-red-600 rounded-full mb-4">
+                  <AlertCircle className="w-6 h-6" />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-600 mb-2">Emergency / Weekend</h3>
+                <div className="text-4xl font-bold text-[#E31E24] mb-2">{MOCK_DATA.emergency_price}</div>
+                <p className="text-sm text-muted-foreground">For urgent 24/7 call-outs</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Local Insights Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-start gap-6">
+              <div className="hidden md:flex w-16 h-16 bg-[#0a1f44] text-white rounded-2xl items-center justify-center flex-shrink-0 shadow-lg rotate-3">
+                <Info className="w-8 h-8" />
+              </div>
+              <div>
+                <h2 className="text-3xl font-bold text-[#0a1f44] mb-6">
+                  Local Advice for {locationName}
+                </h2>
+                <div className="prose prose-lg text-gray-600 leading-relaxed">
+                  <p className="text-xl font-light mb-4">
+                    {MOCK_DATA.local_insight_text}
+                  </p>
+                  <p>
+                    When hiring a {tradeName.toLowerCase()} in {locationName}, it's important to check if they are familiar with the specific building regulations in your urbanization. Many properties in this area have specific requirements for external modifications.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Why Hire Local? */}
+      <section className="py-20 bg-white">
+        <div className="container-custom">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-[#0a1f44] mb-4">Why Hire Through CostaTrades?</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              We take the stress out of finding reliable professionals on the Costa del Sol.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="p-8 rounded-2xl border border-gray-100 hover:border-blue-100 hover:shadow-lg transition-all duration-300 text-center group">
+              <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                <Shield className="w-8 h-8" />
+              </div>
+              <h3 className="text-xl font-bold text-[#0a1f44] mb-3">Verified ID</h3>
+              <p className="text-muted-foreground">
+                We check every tradesperson's identity and credentials so you can book with confidence.
+              </p>
+            </div>
+
+            <div className="p-8 rounded-2xl border border-gray-100 hover:border-blue-100 hover:shadow-lg transition-all duration-300 text-center group">
+              <div className="w-16 h-16 bg-green-50 text-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                <MapPin className="w-8 h-8" />
+              </div>
+              <h3 className="text-xl font-bold text-[#0a1f44] mb-3">Local Knowledge</h3>
+              <p className="text-muted-foreground">
+                Our professionals know the local regulations, suppliers, and common property issues in {locationName}.
+              </p>
+            </div>
+
+            <div className="p-8 rounded-2xl border border-gray-100 hover:border-blue-100 hover:shadow-lg transition-all duration-300 text-center group">
+              <div className="w-16 h-16 bg-orange-50 text-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                <CheckCircle className="w-8 h-8" />
+              </div>
+              <h3 className="text-xl font-bold text-[#0a1f44] mb-3">Fair Pricing</h3>
+              <p className="text-muted-foreground">
+                Transparent rates and no hidden fees. Get quotes upfront before any work begins.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Final CTA */}
+      <section className="py-20 bg-[#0a1f44] text-white text-center">
+        <div className="container-custom max-w-3xl">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Need a {tradeName} in {locationName} today?
+          </h2>
+          <p className="text-xl text-blue-100 mb-10 font-light">
+            Don't wait for small problems to become big issues. Connect with a verified professional now.
+          </p>
+          <Link to="/post-job">
+            <Button size="lg" className="bg-[#E31E24] hover:bg-[#C41218] text-white h-16 px-10 text-xl font-bold rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+              Book a Professional
+            </Button>
+          </Link>
+        </div>
+      </section>
+    </div>
+  );
+}
