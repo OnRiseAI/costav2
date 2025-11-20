@@ -14,6 +14,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { AppStoreBadges } from "@/components/AppStoreBadges";
 import { Button } from "@/components/ui/button";
 
+import { MegaFooter } from "@/components/MegaFooter";
+
 export function Footer() {
   const { t } = useLanguage();
 
