@@ -39,6 +39,10 @@ export default function HowItWorksPage() {
     {
       question: "Can I see examples of previous work?",
       answer: "Absolutely. Tradesperson profiles feature photo galleries of their past projects, so you can see the quality of their craftsmanship before you hire."
+    },
+    {
+      question: "How quickly can I get a job done?",
+      answer: "Many tradespeople offer same-day or next-day availability for urgent tasks. When you post your job, you can specify your timeline, and we'll match you with professionals who are available when you need them."
     }
   ];
 
