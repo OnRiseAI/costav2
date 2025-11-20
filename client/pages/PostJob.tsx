@@ -188,7 +188,7 @@ export default function PostJob() {
                 <span className="font-bold text-gray-700 group-hover:text-[#0a1f44] text-lg">
                   {category.name}
                 </span>
-                <div className="absolute bottom-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+                <div className="absolute bottom-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
                   <div className="flex items-center gap-1 text-sm font-medium text-blue-600">
                     Select <ArrowRight className="h-3 w-3" />
                   </div>
