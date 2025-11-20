@@ -19,49 +19,58 @@ const categories = [
 
 const recentPosts = [
   {
+    id: 1,
+    title: "Costa del Sol Water Update 2025: Can I Finally Fill My Pool?",
+    excerpt: "Good news! As of May 2025, the Junta de Andalucía has lifted the ban on filling private pools. However, with limits set at 250 litres/day, wasting water is still a crime.",
+    image: "https://images.unsplash.com/photo-1572331165267-854da2b00cc6?q=80&w=2940&auto=format&fit=crop",
+    category: "Maintenance",
+    readTime: "5 min read",
+    slug: "pool-water-update-2025"
+  },
+  {
     id: 2,
-    title: "How Much Does a Kitchen Renovation Cost in Marbella?",
-    excerpt: "From budget refreshes to luxury Italian designs, we break down the costs of upgrading your kitchen on the Costa del Sol.",
-    image: "https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&w=2768&auto=format&fit=crop",
-    category: "Cost Guides",
+    title: "New Rental Laws April 2025: Can Your Neighbors Ban Your Airbnb?",
+    excerpt: "The new Horizontal Property Law reform allows Community of Owners to vote on banning holiday rentals with a 3/5ths majority.",
+    image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=2940&auto=format&fit=crop",
+    category: "Legal/Permits",
     readTime: "6 min read",
-    slug: "kitchen-renovation-cost-marbella"
+    slug: "new-rental-laws-2025"
   },
   {
     id: 3,
-    title: "5 Essential Pre-Summer Maintenance Checks for Your Villa",
-    excerpt: "Don't let a broken AC or green pool ruin your holiday. Here's your checklist for getting your property summer-ready.",
-    image: "https://images.unsplash.com/photo-1572331165267-854da2b00cc6?q=80&w=2940&auto=format&fit=crop",
-    category: "Maintenance",
-    readTime: "4 min read",
-    slug: "pre-summer-maintenance-checks"
+    title: "Why Renovating an Older Villa is the Smartest Investment in 2025",
+    excerpt: "With new build supply limited and prices in the 'Golden Triangle' rising by 12%, buying older stock in prime locations is the new strategy.",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2940&auto=format&fit=crop",
+    category: "Renovation",
+    readTime: "7 min read",
+    slug: "renovating-older-villa-2025"
   },
   {
     id: 4,
-    title: "Understanding the 'Boletín Eléctrico' (Electrical Certificate)",
-    excerpt: "Why you need it, how to get it, and why it's crucial for selling your property or upgrading your power supply.",
-    image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2938&auto=format&fit=crop",
-    category: "Legal/Permits",
-    readTime: "5 min read",
-    slug: "understanding-boletin-electrico"
+    title: "The Silent Boiler Killer: Dealing with Malaga's Hard Water",
+    excerpt: "Malaga has some of the highest calcium levels in Europe. We are seeing boilers fail after just 2 years. Here is how to protect your home.",
+    image: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?q=80&w=2940&auto=format&fit=crop",
+    category: "Maintenance",
+    readTime: "4 min read",
+    slug: "malaga-hard-water-boiler"
   },
   {
     id: 5,
-    title: "Microcement vs. Tiles: Which is Best for Spanish Homes?",
-    excerpt: "Comparing durability, cost, and aesthetics of the two most popular flooring choices for modern Andalusian homes.",
-    image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2940&auto=format&fit=crop",
-    category: "Renovation",
-    readTime: "5 min read",
-    slug: "microcement-vs-tiles"
+    title: "Cleaning Up After the Calima: Don't Ruin Your Facade",
+    excerpt: "Another dust storm from the Sahara has turned the Costa orange. Here is how to clean it correctly without damaging your paintwork.",
+    image: "https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?q=80&w=2940&auto=format&fit=crop",
+    category: "Maintenance",
+    readTime: "3 min read",
+    slug: "cleaning-calima-dust"
   },
   {
     id: 6,
-    title: "The Hidden Costs of Buying a Fixer-Upper in Spain",
-    excerpt: "Beyond the purchase price: ITP tax, notary fees, and the reality of renovation budgets in 2025.",
-    image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2938&auto=format&fit=crop",
-    category: "Cost Guides",
-    readTime: "7 min read",
-    slug: "hidden-costs-fixer-upper"
+    title: "Protecting Your Holiday Home from 'Okupas' (Squatters) in 2025",
+    excerpt: "With the new housing laws, non-resident owners are worried. Prevention is cheaper than eviction. Learn about anti-bumping locks and alarms.",
+    image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=2940&auto=format&fit=crop",
+    category: "Legal/Permits",
+    readTime: "6 min read",
+    slug: "protecting-home-squatters-2025"
   }
 ];
 
