@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -24,6 +24,9 @@ import {
   Key,
   Sparkles,
   PenTool,
+  HardHat,
+  Ruler,
+  Truck,
 } from "lucide-react";
 import { getTradeServices } from "@/data/tradeServices";
 
@@ -100,6 +103,14 @@ const categories = [
   },
 ];
 
+const PLACEHOLDERS = [
+  "What trade are you looking for? (e.g. Plumber)",
+  "Need a leak fixed? Try 'Plumber'",
+  "Wiring issues? Search for 'Electrician'",
+  "Time for a renovation? Find a 'Builder'",
+  "Garden needs care? Look for a 'Gardener'",
+];
+
 export default function PostJob() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -107,6 +118,20 @@ export default function PostJob() {
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [selectedSubTask, setSelectedSubTask] = useState<string>("");
   const [postcode, setPostcode] = useState<string>("");
+  const [placeholderIndex, setPlaceholderIndex] = useState(0);
+  const [fade, setFade] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFade(false);
+      setTimeout(() => {
+        setPlaceholderIndex((prev) => (prev + 1) % PLACEHOLDERS.length);
+        setFade(true);
+      }, 500); // Wait for fade out before changing text
+    }, 4000); // Change every 4 seconds
+
+    return () => clearInterval(interval);
+  }, []);
 
   const handleCategorySelect = (categorySlug: string) => {
     setSelectedCategory(categorySlug);
@@ -135,32 +160,66 @@ export default function PostJob() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="bg-[#0a1f44] text-white py-16 md:py-24 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-500 rounded-full blur-[80px] translate-y-1/3 -translate-x-1/4"></div>
+      <div className="bg-[#0a1f44] text-white py-20 md:py-32 relative overflow-hidden">
+        {/* Animated Background Icons */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-10 left-10 opacity-10 animate-float-slow">
+            <Wrench className="w-24 h-24 text-blue-300" />
+          </div>
+          <div className="absolute top-20 right-20 opacity-10 animate-float-medium">
+            <Hammer className="w-32 h-32 text-purple-300" />
+          </div>
+          <div className="absolute bottom-10 left-1/4 opacity-5 animate-float-fast">
+            <Paintbrush className="w-20 h-20 text-green-300" />
+          </div>
+          <div className="absolute top-1/3 right-1/4 opacity-5 animate-pulse-slow">
+            <Zap className="w-16 h-16 text-yellow-300" />
+          </div>
+          <div className="absolute bottom-20 right-10 opacity-10 animate-float-slow">
+            <HardHat className="w-28 h-28 text-orange-300" />
+          </div>
+          <div className="absolute top-1/2 left-10 opacity-5 animate-float-medium">
+            <Ruler className="w-20 h-20 text-cyan-300" />
+          </div>
+           <div className="absolute bottom-1/3 right-1/3 opacity-5 animate-float-fast">
+            <Truck className="w-24 h-24 text-red-300" />
+          </div>
         </div>
 
-        <div className="container-custom relative z-10 text-center max-w-3xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
-            Find the right tradesperson for your job
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a1f44]/50 to-[#0a1f44] pointer-events-none"></div>
+
+        <div className="container-custom relative z-10 text-center max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight leading-tight">
+            Find the right <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-cyan-200">tradesperson</span> for your job
           </h1>
-          <p className="text-xl text-blue-100 mb-10 font-light">
+          <p className="text-xl md:text-2xl text-blue-100/90 mb-12 font-light max-w-2xl mx-auto">
             Get quotes from trusted local professionals in minutes.
           </p>
 
-          <div className="relative max-w-xl mx-auto">
-            <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
-              <Search className="h-5 w-5 text-gray-400" />
+          <div className="relative max-w-2xl mx-auto group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-20 group-hover:opacity-40 blur transition duration-500"></div>
+            <div className="relative bg-white rounded-full shadow-2xl flex items-center p-2 transition-transform duration-300 hover:scale-[1.01]">
+              <div className="pl-6 pr-4 text-gray-400">
+                <Search className="h-6 w-6" />
+              </div>
+              <input
+                type="text"
+                placeholder={PLACEHOLDERS[placeholderIndex]}
+                className={`w-full h-14 text-lg text-gray-900 placeholder:text-gray-400 focus:outline-none bg-transparent transition-opacity duration-500 ${fade ? 'opacity-100' : 'opacity-0'}`}
+              />
+              <button className="bg-[#0a1f44] text-white px-8 h-14 rounded-full font-bold text-lg hover:bg-blue-900 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 active:translate-y-0">
+                Search
+              </button>
             </div>
-            <input
-              type="text"
-              placeholder="What trade are you looking for? (e.g. Plumber)"
-              className="w-full h-14 pl-12 pr-4 rounded-full text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-lg"
-            />
-            <button className="absolute right-2 top-2 bottom-2 bg-[#0a1f44] text-white px-6 rounded-full font-medium hover:bg-blue-900 transition-colors">
-              Search
-            </button>
+          </div>
+
+          <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm text-blue-200/60">
+            <span className="flex items-center gap-1"><Sparkles className="w-3 h-3" /> Free to post</span>
+            <span className="w-1 h-1 rounded-full bg-blue-200/30"></span>
+            <span className="flex items-center gap-1"><Sparkles className="w-3 h-3" /> No obligation</span>
+            <span className="w-1 h-1 rounded-full bg-blue-200/30"></span>
+            <span className="flex items-center gap-1"><Sparkles className="w-3 h-3" /> Verified trades</span>
           </div>
         </div>
       </div>
