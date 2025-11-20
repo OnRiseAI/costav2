@@ -1,17 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Mail, Phone, MessageCircle, ArrowRight, HelpCircle } from "lucide-react";
+import { Mail, Phone, MessageCircle, ArrowRight, HelpCircle, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 
@@ -205,22 +198,26 @@ export default function ContactPage() {
 
             <div className="space-y-2">
               <Label htmlFor="subject">Subject</Label>
-              <Select
-                value={formData.subject}
-                onValueChange={(value) =>
-                  setFormData({ ...formData, subject: value })
-                }
-              >
-                <SelectTrigger className="h-12">
-                  <SelectValue placeholder="Select a subject" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="general">General Inquiry</SelectItem>
-                  <SelectItem value="support">Support</SelectItem>
-                  <SelectItem value="feedback">Feedback</SelectItem>
-                  <SelectItem value="partnership">Partnership</SelectItem>
-                </SelectContent>
-              </Select>
+              <div className="relative">
+                <select
+                  id="subject"
+                  value={formData.subject}
+                  onChange={(e) =>
+                    setFormData({ ...formData, subject: e.target.value })
+                  }
+                  className="flex h-12 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 appearance-none"
+                  required
+                >
+                  <option value="" disabled>
+                    Select a subject
+                  </option>
+                  <option value="general">General Inquiry</option>
+                  <option value="support">Support</option>
+                  <option value="feedback">Feedback</option>
+                  <option value="partnership">Partnership</option>
+                </select>
+                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 opacity-50 pointer-events-none" />
+              </div>
             </div>
 
             <div className="space-y-2">
