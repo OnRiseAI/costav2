@@ -21,7 +21,7 @@ import { CustomerDashboard } from "@/pages/CustomerDashboard";
 import { Tradespeople } from "@/pages/Tradespeople";
 import TradesMenu from "@/pages/TradesMenu";
 import AboutPage from "@/pages/AboutPage";
-import HowItWorksPage from "@/pages/HowItWorksPage";
+import VerificationPromisePage from "@/pages/VerificationPromisePage";
 import ContactPage from "@/pages/ContactPage";
 import SEOTradePage from "@/pages/SEOTradePage";
 import PlaceholderPage from "@/pages/PlaceholderPage";
@@ -72,6 +72,8 @@ function AppContent() {
 
             {/* Information Pages */}
             <Route path="/how-it-works" element={<HowItWorksPage />} />
+            <Route path="/verification-promise" element={<VerificationPromisePage />} />
+            <Route path="/why-us" element={<VerificationPromisePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route
