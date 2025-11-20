@@ -1,11 +1,5 @@
 import { Button } from "@/components/ui/button";
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import {
   Shield,
   Globe,
   Wallet,
@@ -246,7 +240,7 @@ export default function AboutPage() {
             </h2>
           </div>
 
-          <Accordion type="single" collapsible className="w-full">
+          <div className="space-y-4">
             {[
               {
                 q: "What areas does CostaTrades cover?",
@@ -265,16 +259,16 @@ export default function AboutPage() {
                 a: "Each listing has clear contact details including phone numbers and a direct messaging option. You can also request a quote directly through the platform.",
               },
             ].map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="border-b border-gray-100">
-                <AccordionTrigger className="text-lg font-semibold text-[#0a1f44] hover:text-blue-600 py-6">
+              <div key={index} className="border-b border-gray-100 py-6">
+                <h3 className="text-lg font-semibold text-[#0a1f44] mb-2">
                   {faq.q}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-base leading-relaxed pb-6">
+                </h3>
+                <p className="text-muted-foreground text-base leading-relaxed">
                   {faq.a}
-                </AccordionContent>
-              </AccordionItem>
+                </p>
+              </div>
             ))}
-          </Accordion>
+          </div>
         </div>
       </section>
 
