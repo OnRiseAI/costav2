@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ChevronRight, Phone, MapPin, Star, CheckCircle, Shield } from 'lucide-react';
+import { ChevronRight, Phone, MapPin, Star, CheckCircle, Shield, Search, Clock, Filter } from 'lucide-react';
 import { searchTradespeople } from '@/data/tradespeople';
 
 export default function PostJobResults() {
@@ -43,8 +43,8 @@ export default function PostJobResults() {
               <div className="flex items-center gap-4 mb-8">
                 <div className="w-16 h-16 rounded-lg bg-gray-200 overflow-hidden flex-shrink-0">
                   {selectedTradesperson.profilePhoto ? (
-                    <img 
-                      src={selectedTradesperson.profilePhoto} 
+                    <img
+                      src={selectedTradesperson.profilePhoto}
                       alt={selectedTradesperson.businessName}
                       className="w-full h-full object-cover"
                     />
@@ -68,7 +68,7 @@ export default function PostJobResults() {
                     value={jobDescription}
                     onChange={(e) => setJobDescription(e.target.value)}
                     placeholder="Tell us a bit about your job! Remember, do not include personal details like your name, phone number, address, or email at this stage."
-                    className="w-full border-2 border-gray-200 rounded-xl p-4 min-h-[150px] focus:border-primary focus:outline-none resize-none"
+                    className="w-full border-2 border-gray-200 rounded-xl p-4 min-h-[150px] focus:border-[#0a1f44] focus:outline-none resize-none"
                   />
                   <div className="flex justify-between text-sm text-muted-foreground mt-2">
                     <span>Min characters: 50</span>
@@ -90,7 +90,7 @@ export default function PostJobResults() {
                     ].map((option) => (
                       <label
                         key={option.value}
-                        className="flex items-center gap-3 border-2 border-gray-200 rounded-xl p-4 cursor-pointer hover:border-primary transition-colors"
+                        className="flex items-center gap-3 border-2 border-gray-200 rounded-xl p-4 cursor-pointer hover:border-[#0a1f44] transition-colors"
                       >
                         <input
                           type="radio"
@@ -98,7 +98,7 @@ export default function PostJobResults() {
                           value={option.value}
                           checked={timing === option.value}
                           onChange={(e) => setTiming(e.target.value)}
-                          className="w-5 h-5 text-primary"
+                          className="w-5 h-5 text-[#0a1f44]"
                         />
                         <span className="text-lg">{option.label}</span>
                       </label>
@@ -108,7 +108,7 @@ export default function PostJobResults() {
 
                 <Button
                   size="lg"
-                  className="w-full text-lg py-6 bg-primary hover:bg-primary/90"
+                  className="w-full text-lg py-6 bg-[#0a1f44] hover:bg-[#0a1f44]/90"
                   disabled={jobDescription.length < 50}
                 >
                   Continue
@@ -123,16 +123,35 @@ export default function PostJobResults() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-accent py-4">
+      {/* Header Bar */}
+      <div className="bg-[#0a1f44] py-6 shadow-md sticky top-0 z-40">
         <div className="container-custom">
-          <div className="flex items-center gap-4">
-            <input
-              type="text"
-              value={`${option} in ${postcode}`}
-              readOnly
-              className="flex-1 bg-white rounded-full px-6 py-3 text-lg"
-            />
-            <Button className="bg-primary hover:bg-primary/90 rounded-full px-8">
+          <div className="flex flex-col md:flex-row items-center gap-4">
+            <div className="flex-1 w-full grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="relative">
+                <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+                  <Search className="h-5 w-5 text-gray-400" />
+                </div>
+                <input
+                  type="text"
+                  defaultValue={option || category}
+                  className="w-full h-12 pl-12 pr-4 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  placeholder="Trade or service"
+                />
+              </div>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+                  <MapPin className="h-5 w-5 text-gray-400" />
+                </div>
+                <input
+                  type="text"
+                  defaultValue={postcode}
+                  className="w-full h-12 pl-12 pr-4 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  placeholder="Postcode"
+                />
+              </div>
+            </div>
+            <Button className="w-full md:w-auto h-12 px-8 bg-white text-[#0a1f44] hover:bg-blue-50 font-bold rounded-lg">
               Search
             </Button>
           </div>
@@ -140,100 +159,153 @@ export default function PostJobResults() {
       </div>
 
       <div className="container-custom py-8">
-        <div className="mb-8">
-          <h1 className="text-2xl font-bold mb-2">
-            {option} in {postcode} ({tradespeople.length})
-          </h1>
-        </div>
-
-        <div className="space-y-6">
-          <div className="bg-white rounded-xl p-6">
-            <h2 className="text-xl font-bold mb-4">Describe your job</h2>
-            <p className="text-muted-foreground mb-4">
-              Give us the details of your job and we'll send it to specialist trades for you
-            </p>
-            <textarea
-              placeholder="When would you like the job to start?"
-              className="w-full border-2 border-gray-200 rounded-xl p-4 min-h-[100px] focus:border-primary focus:outline-none resize-none"
-            />
-          </div>
-
-          <div className="flex items-center gap-3 bg-white rounded-full px-6 py-3 w-fit">
-            <span className="font-medium">Sort by:</span>
-            <select className="bg-transparent border-none focus:outline-none font-semibold">
-              <option>Most relevant</option>
-              <option>Highest rated</option>
-              <option>Most reviews</option>
-            </select>
-          </div>
-
-          {tradespeople.slice(0, 5).map((tradesperson) => (
-            <div key={tradesperson.slug} className="bg-white rounded-xl p-6 shadow-sm">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-20 h-20 rounded-xl bg-gray-200 overflow-hidden flex-shrink-0 relative">
-                  {tradesperson.profilePhoto ? (
-                    <img 
-                      src={tradesperson.profilePhoto} 
-                      alt={tradesperson.businessName}
-                      className="w-full h-full object-cover"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center text-3xl font-bold text-gray-400">
-                      {tradesperson.businessName.charAt(0)}
-                    </div>
-                  )}
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold mb-2">{tradesperson.businessName}</h3>
-                  <div className="flex items-center gap-2 mb-3">
-                    <div className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-semibold flex items-center gap-1">
-                      {tradesperson.rating.toFixed(2)}
-                      <span className="text-xs">({tradesperson.reviewCount} reviews)</span>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <MapPin className="h-4 w-4" />
-                    <span>Operates in {postcode}</span>
-                  </div>
-                </div>
+        <div className="grid lg:grid-cols-4 gap-8">
+          {/* Sidebar Filters */}
+          <div className="lg:col-span-1 space-y-6">
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+              <div className="flex items-center gap-2 mb-4">
+                <Clock className="h-5 w-5 text-[#0a1f44]" />
+                <h3 className="font-bold text-gray-900">When do you need it?</h3>
               </div>
-
-              {tradesperson.verified && (
-                <div className="mb-4">
-                  <h4 className="font-semibold mb-2">Services & skills</h4>
-                  <div className="flex flex-wrap gap-2">
-                    <div className="flex items-center gap-1 text-sm text-primary">
-                      <CheckCircle className="h-4 w-4" />
-                      <span>{tradesperson.tradeCategory}</span>
+              <div className="space-y-3">
+                {[
+                  { value: 'flexible', label: 'Flexible start date' },
+                  { value: 'urgent', label: 'Urgent (< 48 hours)' },
+                  { value: '2weeks', label: 'Within 2 weeks' },
+                  { value: '1month', label: 'Within 1 month' }
+                ].map((t) => (
+                  <label key={t.value} className="flex items-center gap-3 cursor-pointer group">
+                    <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${timing === t.value ? 'border-[#0a1f44]' : 'border-gray-300 group-hover:border-gray-400'}`}>
+                      {timing === t.value && <div className="w-2.5 h-2.5 rounded-full bg-[#0a1f44]" />}
                     </div>
-                    <div className="flex items-center gap-1 text-sm text-primary">
-                      <CheckCircle className="h-4 w-4" />
-                      <span>Extensions / Conversions</span>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              <div className="flex gap-3">
-                <Button
-                  size="lg"
-                  className="flex-1 bg-accent hover:bg-accent/90 text-lg py-6"
-                  onClick={() => handleRequestQuote(tradesperson)}
-                >
-                  Request a quote
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="flex-1 text-lg py-6 border-2"
-                  onClick={() => handleCall('+34-123-456-789')}
-                >
-                  <Phone className="h-5 w-5 mr-2" />
-                  Call
-                </Button>
+                    <input
+                      type="radio"
+                      name="sidebar-timing"
+                      value={t.value}
+                      checked={timing === t.value}
+                      onChange={(e) => setTiming(e.target.value)}
+                      className="hidden"
+                    />
+                    <span className={`text-sm ${timing === t.value ? 'font-medium text-[#0a1f44]' : 'text-gray-600'}`}>
+                      {t.label}
+                    </span>
+                  </label>
+                ))}
               </div>
             </div>
-          ))}
+
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+              <div className="flex items-center gap-2 mb-4">
+                <Filter className="h-5 w-5 text-[#0a1f44]" />
+                <h3 className="font-bold text-gray-900">Filter results</h3>
+              </div>
+              <div className="space-y-3">
+                <label className="flex items-center gap-3 cursor-pointer">
+                  <input type="checkbox" className="w-4 h-4 rounded border-gray-300 text-[#0a1f44] focus:ring-[#0a1f44]" />
+                  <span className="text-sm text-gray-600">Verified Only</span>
+                </label>
+                <label className="flex items-center gap-3 cursor-pointer">
+                  <input type="checkbox" className="w-4 h-4 rounded border-gray-300 text-[#0a1f44] focus:ring-[#0a1f44]" />
+                  <span className="text-sm text-gray-600">With Photos</span>
+                </label>
+                <label className="flex items-center gap-3 cursor-pointer">
+                  <input type="checkbox" className="w-4 h-4 rounded border-gray-300 text-[#0a1f44] focus:ring-[#0a1f44]" />
+                  <span className="text-sm text-gray-600">With Reviews</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          {/* Results List */}
+          <div className="lg:col-span-3 space-y-6">
+            <div className="flex items-center justify-between mb-4">
+              <h1 className="text-xl font-bold text-gray-900">
+                {tradespeople.length} {category} found in {postcode}
+              </h1>
+              <select className="bg-white border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#0a1f44]">
+                <option>Recommended</option>
+                <option>Highest Rated</option>
+                <option>Most Reviews</option>
+              </select>
+            </div>
+
+            {tradespeople.map((tradesperson) => (
+              <div key={tradesperson.slug} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <div className="flex flex-col md:flex-row gap-6">
+                  {/* Left: Avatar */}
+                  <div className="w-full md:w-24 h-24 rounded-xl bg-gray-100 overflow-hidden flex-shrink-0 relative">
+                    {tradesperson.profilePhoto ? (
+                      <img
+                        src={tradesperson.profilePhoto}
+                        alt={tradesperson.businessName}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-3xl font-bold text-gray-400 bg-gray-100">
+                        {tradesperson.businessName.charAt(0)}
+                      </div>
+                    )}
+                    {tradesperson.verified && (
+                      <div className="absolute bottom-0 right-0 bg-green-500 text-white p-1 rounded-tl-lg">
+                        <Shield className="h-3 w-3" />
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Middle: Info */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
+                      <h2 className="text-xl font-bold text-[#0a1f44] truncate pr-4">
+                        {tradesperson.businessName}
+                      </h2>
+                      <div className="flex items-center gap-1 bg-green-50 px-2 py-1 rounded-lg border border-green-100">
+                        <Star className="h-4 w-4 text-green-600 fill-current" />
+                        <span className="font-bold text-green-700">{tradesperson.rating.toFixed(2)}</span>
+                        <span className="text-xs text-green-600">({tradesperson.reviewCount})</span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
+                      <MapPin className="h-4 w-4" />
+                      <span>Operates in {postcode} and surrounding areas</span>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700">
+                        {tradesperson.tradeCategory}
+                      </span>
+                      {tradesperson.verified && (
+                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-50 text-green-700 gap-1">
+                          <CheckCircle className="h-3 w-3" /> Verified
+                        </span>
+                      )}
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
+                        Fast response
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Right: Actions */}
+                  <div className="flex flex-col gap-3 w-full md:w-48 flex-shrink-0">
+                    <Button
+                      className="w-full bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white font-bold py-6 rounded-xl shadow-sm"
+                      onClick={() => handleRequestQuote(tradesperson)}
+                    >
+                      Request a quote
+                    </Button>
+                    <Button
+                      variant="outline"
+                      className="w-full border-2 border-gray-200 hover:bg-gray-50 hover:border-gray-300 text-gray-700 font-semibold py-6 rounded-xl"
+                      onClick={() => handleCall('+34-123-456-789')}
+                    >
+                      <Phone className="h-4 w-4 mr-2" />
+                      Show number
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
