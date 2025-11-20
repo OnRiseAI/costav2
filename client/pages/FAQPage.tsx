@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Search, MessageCircle, ChevronDown, Home, Briefcase, Scale, HelpCircle } from "lucide-react";
+import { Search, MessageCircle, ChevronDown, Home, Briefcase, Scale, HelpCircle, Info } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -64,6 +64,26 @@ export default function FAQPage() {
         {
           q: "Do I need a permit for renovation in Spain?",
           a: "Yes, most renovations require a 'Licencia de Obra' (Building Permit) from your local Town Hall (Ayuntamiento). Minor works need a 'Licencia de Obra Menor'."
+        }
+      ]
+    },
+    {
+      title: "General & Account",
+      icon: Info,
+      color: "text-orange-600",
+      bgColor: "bg-orange-50",
+      questions: [
+        {
+          q: "How do I reset my password?",
+          a: "You can reset your password by clicking 'Forgot Password' on the login page and following the email instructions sent to your registered address."
+        },
+        {
+          q: "Can I change my email address?",
+          a: "Yes, you can update your email address and other personal details in your profile settings dashboard after logging in."
+        },
+        {
+          q: "Is my personal data safe?",
+          a: "Absolutely. We use industry-standard encryption and strictly adhere to GDPR regulations to ensure your personal data is protected at all times."
         }
       ]
     }
@@ -141,8 +161,8 @@ export default function FAQPage() {
 
       {/* 2. The "AEO Answer Bank" */}
       <section className="py-24 -mt-10 relative z-20">
-        <div className="container-custom max-w-4xl mx-auto">
-          <div className="space-y-8">
+        <div className="container-custom max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8">
             {filteredCategories.length > 0 ? (
               filteredCategories.map((category, idx) => {
                 const Icon = category.icon;
