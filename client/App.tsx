@@ -20,7 +20,7 @@ import TradespersonSubmitted from "@/pages/TradespersonSubmitted";
 import { CustomerDashboard } from "@/pages/CustomerDashboard";
 import { Tradespeople } from "@/pages/Tradespeople";
 import TradesMenu from "@/pages/TradesMenu";
-import PlaceholderPage from "@/pages/PlaceholderPage";
+import AboutPage from "@/pages/AboutPage";
 import NotFound from "@/pages/NotFound";
 import { SchemaMarkup } from "@/components/SchemaMarkup";
 import "./global.css";
@@ -86,15 +86,7 @@ function AppContent() {
                 />
               }
             />
-            <Route
-              path="/about"
-              element={
-                <PlaceholderPage
-                  title="About Us"
-                  description="Our mission to connect Costa del Sol with trusted tradespeople"
-                />
-              }
-            />
+            <Route path="/about" element={<AboutPage />} />
             <Route
               path="/contact"
               element={
