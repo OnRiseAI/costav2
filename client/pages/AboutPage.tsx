@@ -27,15 +27,20 @@ export default function AboutPage() {
         <div className="container-custom relative z-10 text-center text-white max-w-4xl px-4">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm mb-8">
             <span className="w-2 h-2 rounded-full bg-green-400"></span>
-            <span className="text-sm font-medium">Part of the OnRiseDigital network</span>
+            <span className="text-sm font-medium">
+              Part of the OnRiseDigital network
+            </span>
           </div>
-          
+
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight tracking-tight">
-            Connecting residents and holiday home owners to trusted tradespeople you can rely on.
+            Connecting residents and holiday home owners to trusted tradespeople
+            you can rely on.
           </h1>
-          
+
           <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto font-light leading-relaxed">
-            CostaTrades was created by a small team who live on the Costa del Sol and understand the real challenges of finding dependable tradespeople.
+            CostaTrades was created by a small team who live on the Costa del
+            Sol and understand the real challenges of finding dependable
+            tradespeople.
           </p>
         </div>
       </section>
@@ -53,13 +58,19 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                 <p>
-                  After years of hiring tradespeople for our own homes and projects, we noticed how difficult it can be to find someone who is reliable, skilled and available.
+                  After years of hiring tradespeople for our own homes and
+                  projects, we noticed how difficult it can be to find someone
+                  who is reliable, skilled and available.
                 </p>
                 <p>
-                  We've all heard the stories of no-shows, poor workmanship, and language barriers. That first hand experience inspired us to build a place where quality comes first.
+                  We've all heard the stories of no-shows, poor workmanship, and
+                  language barriers. That first hand experience inspired us to
+                  build a place where quality comes first.
                 </p>
                 <p>
-                  We wanted to create a platform that brings transparency and trust to the home services market on the Costa del Sol, making it easier for everyone to build and maintain their dream home.
+                  We wanted to create a platform that brings transparency and
+                  trust to the home services market on the Costa del Sol, making
+                  it easier for everyone to build and maintain their dream home.
                 </p>
               </div>
             </div>
@@ -83,17 +94,34 @@ export default function AboutPage() {
               Built by Locals, For Locals
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              We live here. We deal with the same property challenges. That local experience lets us highlight the professionals who genuinely deliver good work.
+              We live here. We deal with the same property challenges. That
+              local experience lets us highlight the professionals who genuinely
+              deliver good work.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { name: "Sarah Jenkins", role: "Co-Founder", image: "https://i.pravatar.cc/300?img=5" },
-              { name: "David Mueller", role: "Head of Operations", image: "https://i.pravatar.cc/300?img=11" },
-              { name: "Elena Rodriguez", role: "Community Manager", image: "https://i.pravatar.cc/300?img=9" },
+              {
+                name: "Sarah Jenkins",
+                role: "Co-Founder",
+                image: "https://i.pravatar.cc/300?img=5",
+              },
+              {
+                name: "David Mueller",
+                role: "Head of Operations",
+                image: "https://i.pravatar.cc/300?img=11",
+              },
+              {
+                name: "Elena Rodriguez",
+                role: "Community Manager",
+                image: "https://i.pravatar.cc/300?img=9",
+              },
             ].map((member, index) => (
-              <div key={index} className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow text-center group">
+              <div
+                key={index}
+                className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow text-center group"
+              >
                 <div className="w-32 h-32 mx-auto rounded-full overflow-hidden mb-6 border-4 border-blue-50 group-hover:border-blue-100 transition-colors">
                   <img
                     src={member.image}
@@ -101,7 +129,9 @@ export default function AboutPage() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-[#0a1f44] mb-2">{member.name}</h3>
+                <h3 className="text-xl font-bold text-[#0a1f44] mb-2">
+                  {member.name}
+                </h3>
                 <p className="text-blue-600 font-medium">{member.role}</p>
               </div>
             ))}
@@ -151,12 +181,21 @@ export default function AboutPage() {
             ].map((item, index) => {
               const Icon = item.icon;
               return (
-                <div key={index} className="p-6 rounded-2xl border border-gray-100 hover:border-gray-200 hover:shadow-lg transition-all duration-300 group">
-                  <div className={`w-14 h-14 rounded-xl ${item.bg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                <div
+                  key={index}
+                  className="p-6 rounded-2xl border border-gray-100 hover:border-gray-200 hover:shadow-lg transition-all duration-300 group"
+                >
+                  <div
+                    className={`w-14 h-14 rounded-xl ${item.bg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}
+                  >
                     <Icon className={`w-7 h-7 ${item.color}`} />
                   </div>
-                  <h3 className="text-xl font-bold text-[#0a1f44] mb-3">{item.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
+                  <h3 className="text-xl font-bold text-[#0a1f44] mb-3">
+                    {item.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {item.desc}
+                  </p>
                 </div>
               );
             })}
@@ -170,7 +209,10 @@ export default function AboutPage() {
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
           <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/20 rounded-full blur-[120px] animate-pulse-slow"></div>
-          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-500/20 rounded-full blur-[100px] animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
+          <div
+            className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-500/20 rounded-full blur-[100px] animate-pulse-slow"
+            style={{ animationDelay: "1s" }}
+          ></div>
         </div>
 
         <div className="container-custom relative z-10">
@@ -183,7 +225,8 @@ export default function AboutPage() {
                 Who We Serve
               </h2>
               <p className="text-xl text-blue-100/90 mb-10 font-light leading-relaxed">
-                Whether you live here full-time or visit occasionally, we help you maintain and improve your property with confidence.
+                Whether you live here full-time or visit occasionally, we help
+                you maintain and improve your property with confidence.
               </p>
               <div className="space-y-4">
                 {[
@@ -205,13 +248,20 @@ export default function AboutPage() {
                 ].map((item, index) => {
                   const Icon = item.icon;
                   return (
-                    <div key={index} className="flex items-start gap-5 p-5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm group hover:translate-x-1">
+                    <div
+                      key={index}
+                      className="flex items-start gap-5 p-5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm group hover:translate-x-1"
+                    >
                       <div className="p-3 bg-blue-500/20 rounded-xl group-hover:bg-blue-500/30 transition-colors">
                         <Icon className="w-6 h-6 text-blue-200 group-hover:text-white transition-colors" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-lg mb-1 text-white group-hover:text-blue-200 transition-colors">{item.title}</h3>
-                        <p className="text-blue-100/70 group-hover:text-blue-100 transition-colors">{item.desc}</p>
+                        <h3 className="font-bold text-lg mb-1 text-white group-hover:text-blue-200 transition-colors">
+                          {item.title}
+                        </h3>
+                        <p className="text-blue-100/70 group-hover:text-blue-100 transition-colors">
+                          {item.desc}
+                        </p>
                       </div>
                     </div>
                   );
@@ -228,7 +278,9 @@ export default function AboutPage() {
                     className="rounded-2xl shadow-2xl w-full h-64 object-cover hover:scale-[1.02] transition-transform duration-500 border border-white/10"
                   />
                   <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
-                    <div className="text-3xl font-bold text-blue-300 mb-1">2,000+</div>
+                    <div className="text-3xl font-bold text-blue-300 mb-1">
+                      2,000+
+                    </div>
                     <div className="text-sm text-blue-100/80">Jobs Posted</div>
                   </div>
                 </div>
@@ -297,17 +349,25 @@ export default function AboutPage() {
             Ready to find a trusted professional?
           </h2>
           <p className="text-xl text-muted-foreground mb-10">
-            Join thousands of homeowners who trust CostaTrades for their home improvement needs.
+            Join thousands of homeowners who trust CostaTrades for their home
+            improvement needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/post-job">
-              <Button size="lg" className="w-full sm:w-auto bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white px-8 py-6 text-lg rounded-full font-bold shadow-lg hover:shadow-xl transition-all">
+              <Button
+                size="lg"
+                className="w-full sm:w-auto bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white px-8 py-6 text-lg rounded-full font-bold shadow-lg hover:shadow-xl transition-all"
+              >
                 Post a Job
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
             <Link to="/search">
-              <Button size="lg" variant="outline" className="w-full sm:w-auto border-2 border-[#0a1f44] text-[#0a1f44] hover:bg-blue-50 hover:text-[#0a1f44] px-8 py-6 text-lg rounded-full font-bold">
+              <Button
+                size="lg"
+                variant="outline"
+                className="w-full sm:w-auto border-2 border-[#0a1f44] text-[#0a1f44] hover:bg-blue-50 hover:text-[#0a1f44] px-8 py-6 text-lg rounded-full font-bold"
+              >
                 Browse Tradespeople
               </Button>
             </Link>

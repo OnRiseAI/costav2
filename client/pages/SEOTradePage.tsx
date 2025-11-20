@@ -1,27 +1,44 @@
 import { useParams, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Shield, MapPin, CheckCircle, Clock, AlertCircle, Info } from "lucide-react";
+import {
+  Shield,
+  MapPin,
+  CheckCircle,
+  Clock,
+  AlertCircle,
+  Info,
+} from "lucide-react";
 import { useEffect } from "react";
 
 // Image mapping for different trades
 const TRADE_IMAGES: Record<string, string> = {
   plumber: "https://images.pexels.com/photos/7220892/pexels-photo-7220892.jpeg",
-  electrician: "https://images.pexels.com/photos/17842832/pexels-photo-17842832.jpeg",
-  "ac-repair": "https://images.pexels.com/photos/32497161/pexels-photo-32497161.jpeg",
-  builder: "https://images.pexels.com/photos/33497138/pexels-photo-33497138.jpeg",
-  "pool-maintenance": "https://images.pexels.com/photos/17568095/pexels-photo-17568095.jpeg",
+  electrician:
+    "https://images.pexels.com/photos/17842832/pexels-photo-17842832.jpeg",
+  "ac-repair":
+    "https://images.pexels.com/photos/32497161/pexels-photo-32497161.jpeg",
+  builder:
+    "https://images.pexels.com/photos/33497138/pexels-photo-33497138.jpeg",
+  "pool-maintenance":
+    "https://images.pexels.com/photos/17568095/pexels-photo-17568095.jpeg",
   painter: "https://images.pexels.com/photos/7217966/pexels-photo-7217966.jpeg",
   locksmith: "https://images.pexels.com/photos/101808/pexels-photo-101808.jpeg",
-  handyman: "https://images.pexels.com/photos/7482641/pexels-photo-7482641.jpeg",
-  "solar-panel-installer": "https://images.pexels.com/photos/8853537/pexels-photo-8853537.jpeg",
-  "leak-detection": "https://images.pexels.com/photos/7220892/pexels-photo-7220892.jpeg", // Using plumber image as fallback/related
+  handyman:
+    "https://images.pexels.com/photos/7482641/pexels-photo-7482641.jpeg",
+  "solar-panel-installer":
+    "https://images.pexels.com/photos/8853537/pexels-photo-8853537.jpeg",
+  "leak-detection":
+    "https://images.pexels.com/photos/7220892/pexels-photo-7220892.jpeg", // Using plumber image as fallback/related
   roofer: "https://images.pexels.com/photos/8853472/pexels-photo-8853472.jpeg",
   tiler: "https://images.pexels.com/photos/12924578/pexels-photo-12924578.jpeg",
-  "bathroom-fitter": "https://images.pexels.com/photos/34794658/pexels-photo-34794658.jpeg",
-  "kitchen-installer": "https://images.pexels.com/photos/34803106/pexels-photo-34803106.jpeg",
-  "pest-control": "https://images.pexels.com/photos/16851694/pexels-photo-16851694.jpeg",
+  "bathroom-fitter":
+    "https://images.pexels.com/photos/34794658/pexels-photo-34794658.jpeg",
+  "kitchen-installer":
+    "https://images.pexels.com/photos/34803106/pexels-photo-34803106.jpeg",
+  "pest-control":
+    "https://images.pexels.com/photos/16851694/pexels-photo-16851694.jpeg",
   // Fallback
-  default: "https://images.pexels.com/photos/2244746/pexels-photo-2244746.jpeg"
+  default: "https://images.pexels.com/photos/2244746/pexels-photo-2244746.jpeg",
 };
 
 // This would typically come from a data source/API
@@ -30,23 +47,29 @@ const MOCK_DATA = {
   location: "Marbella",
   average_price: "€150",
   emergency_price: "€250",
-  local_insight_text: "In Marbella, plumbing systems often face unique challenges due to historic infrastructure in the Old Town and high mineral content in the water supply, which can lead to faster pipe corrosion.",
+  local_insight_text:
+    "In Marbella, plumbing systems often face unique challenges due to historic infrastructure in the Old Town and high mineral content in the water supply, which can lead to faster pipe corrosion.",
 };
 
 export default function SEOTradePage() {
   const { trade, location } = useParams();
-  
+
   // Fallback to mock data if params are missing (for template preview)
-  const tradeName = trade ? trade.charAt(0).toUpperCase() + trade.slice(1).replace(/-/g, ' ') : MOCK_DATA.trade;
-  const locationName = location ? location.charAt(0).toUpperCase() + location.slice(1).replace(/-/g, ' ') : MOCK_DATA.location;
+  const tradeName = trade
+    ? trade.charAt(0).toUpperCase() + trade.slice(1).replace(/-/g, " ")
+    : MOCK_DATA.trade;
+  const locationName = location
+    ? location.charAt(0).toUpperCase() + location.slice(1).replace(/-/g, " ")
+    : MOCK_DATA.location;
 
   // Determine hero image
   const normalizedTrade = trade?.toLowerCase() || "default";
   // Try exact match, then singular/plural variations, then default
-  const heroImage = TRADE_IMAGES[normalizedTrade] || 
-                    TRADE_IMAGES[normalizedTrade.replace(/s$/, '')] || 
-                    TRADE_IMAGES[normalizedTrade + 's'] || 
-                    TRADE_IMAGES.default;
+  const heroImage =
+    TRADE_IMAGES[normalizedTrade] ||
+    TRADE_IMAGES[normalizedTrade.replace(/s$/, "")] ||
+    TRADE_IMAGES[normalizedTrade + "s"] ||
+    TRADE_IMAGES.default;
 
   // Update Page Title and Meta Description
   useEffect(() => {
@@ -57,11 +80,14 @@ export default function SEOTradePage() {
       // Update meta description
       let metaDescription = document.querySelector('meta[name="description"]');
       if (!metaDescription) {
-        metaDescription = document.createElement('meta');
-        metaDescription.setAttribute('name', 'description');
+        metaDescription = document.createElement("meta");
+        metaDescription.setAttribute("name", "description");
         document.head.appendChild(metaDescription);
       }
-      metaDescription.setAttribute('content', `Find the best ${tradeName} in ${locationName}. Verified professionals, fair pricing, and local expertise. Get a free quote today.`);
+      metaDescription.setAttribute(
+        "content",
+        `Find the best ${tradeName} in ${locationName}. Verified professionals, fair pricing, and local expertise. Get a free quote today.`,
+      );
     }
   }, [tradeName, locationName]);
 
@@ -71,9 +97,9 @@ export default function SEOTradePage() {
       <section className="relative py-24 md:py-32 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <img 
+          <img
             src={heroImage}
-            alt={`${tradeName} in ${locationName}`} 
+            alt={`${tradeName} in ${locationName}`}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0a1f44]/90 to-[#0a1f44]/40"></div>
@@ -83,22 +109,32 @@ export default function SEOTradePage() {
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm mb-6">
               <CheckCircle className="w-4 h-4 text-green-400" />
-              <span className="text-sm font-medium">Verified Local Professionals</span>
+              <span className="text-sm font-medium">
+                Verified Local Professionals
+              </span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
               Top Rated {tradeName} in {locationName}
             </h1>
             <p className="text-xl text-blue-100 mb-8 max-w-2xl font-light">
-              Verified, local professionals available for {tradeName} services. Get fair quotes and quality work guaranteed.
+              Verified, local professionals available for {tradeName} services.
+              Get fair quotes and quality work guaranteed.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/post-job">
-                <Button size="lg" className="w-full sm:w-auto bg-[#E31E24] hover:bg-[#C41218] text-white h-14 px-8 text-lg font-bold rounded-full shadow-lg hover:shadow-xl transition-all">
+                <Button
+                  size="lg"
+                  className="w-full sm:w-auto bg-[#E31E24] hover:bg-[#C41218] text-white h-14 px-8 text-lg font-bold rounded-full shadow-lg hover:shadow-xl transition-all"
+                >
                   Get a Quote Now
                 </Button>
               </Link>
               <Link to="/search">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto bg-white/10 border-white/30 text-white hover:bg-white/20 h-14 px-8 text-lg font-medium rounded-full backdrop-blur-sm">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="w-full sm:w-auto bg-white/10 border-white/30 text-white hover:bg-white/20 h-14 px-8 text-lg font-medium rounded-full backdrop-blur-sm"
+                >
                   Browse Professionals
                 </Button>
               </Link>
@@ -112,19 +148,29 @@ export default function SEOTradePage() {
         <div className="container-custom">
           <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
             <div className="bg-[#0a1f44] p-6 text-white text-center md:text-left">
-              <h2 className="text-2xl font-bold">Average Costs for {tradeName} in {locationName}</h2>
-              <p className="text-blue-200 text-sm mt-1">Based on recent jobs completed in your area</p>
+              <h2 className="text-2xl font-bold">
+                Average Costs for {tradeName} in {locationName}
+              </h2>
+              <p className="text-blue-200 text-sm mt-1">
+                Based on recent jobs completed in your area
+              </p>
             </div>
-            
+
             <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gray-100">
               {/* Standard Rate */}
               <div className="p-8 text-center hover:bg-blue-50/30 transition-colors">
                 <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 text-blue-600 rounded-full mb-4">
                   <Clock className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-600 mb-2">Standard Weekday Rate</h3>
-                <div className="text-4xl font-bold text-[#0a1f44] mb-2">{MOCK_DATA.average_price}</div>
-                <p className="text-sm text-muted-foreground">Includes first hour of labor</p>
+                <h3 className="text-lg font-semibold text-gray-600 mb-2">
+                  Standard Weekday Rate
+                </h3>
+                <div className="text-4xl font-bold text-[#0a1f44] mb-2">
+                  {MOCK_DATA.average_price}
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Includes first hour of labor
+                </p>
               </div>
 
               {/* Emergency Rate */}
@@ -132,9 +178,15 @@ export default function SEOTradePage() {
                 <div className="inline-flex items-center justify-center w-12 h-12 bg-red-100 text-red-600 rounded-full mb-4">
                   <AlertCircle className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-600 mb-2">Emergency / Weekend</h3>
-                <div className="text-4xl font-bold text-[#E31E24] mb-2">{MOCK_DATA.emergency_price}</div>
-                <p className="text-sm text-muted-foreground">For urgent 24/7 call-outs</p>
+                <h3 className="text-lg font-semibold text-gray-600 mb-2">
+                  Emergency / Weekend
+                </h3>
+                <div className="text-4xl font-bold text-[#E31E24] mb-2">
+                  {MOCK_DATA.emergency_price}
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  For urgent 24/7 call-outs
+                </p>
               </div>
             </div>
           </div>
@@ -158,7 +210,11 @@ export default function SEOTradePage() {
                     {MOCK_DATA.local_insight_text}
                   </p>
                   <p>
-                    When hiring a {tradeName.toLowerCase()} in {locationName}, it's important to check if they are familiar with the specific building regulations in your urbanization. Many properties in this area have specific requirements for external modifications.
+                    When hiring a {tradeName.toLowerCase()} in {locationName},
+                    it's important to check if they are familiar with the
+                    specific building regulations in your urbanization. Many
+                    properties in this area have specific requirements for
+                    external modifications.
                   </p>
                 </div>
               </div>
@@ -171,9 +227,12 @@ export default function SEOTradePage() {
       <section className="py-20 bg-white">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-[#0a1f44] mb-4">Why Hire Through CostaTrades?</h2>
+            <h2 className="text-3xl font-bold text-[#0a1f44] mb-4">
+              Why Hire Through CostaTrades?
+            </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              We take the stress out of finding reliable professionals on the Costa del Sol.
+              We take the stress out of finding reliable professionals on the
+              Costa del Sol.
             </p>
           </div>
 
@@ -182,9 +241,12 @@ export default function SEOTradePage() {
               <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                 <Shield className="w-8 h-8" />
               </div>
-              <h3 className="text-xl font-bold text-[#0a1f44] mb-3">Verified ID</h3>
+              <h3 className="text-xl font-bold text-[#0a1f44] mb-3">
+                Verified ID
+              </h3>
               <p className="text-muted-foreground">
-                We check every tradesperson's identity and credentials so you can book with confidence.
+                We check every tradesperson's identity and credentials so you
+                can book with confidence.
               </p>
             </div>
 
@@ -192,9 +254,12 @@ export default function SEOTradePage() {
               <div className="w-16 h-16 bg-green-50 text-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                 <MapPin className="w-8 h-8" />
               </div>
-              <h3 className="text-xl font-bold text-[#0a1f44] mb-3">Local Knowledge</h3>
+              <h3 className="text-xl font-bold text-[#0a1f44] mb-3">
+                Local Knowledge
+              </h3>
               <p className="text-muted-foreground">
-                Our professionals know the local regulations, suppliers, and common property issues in {locationName}.
+                Our professionals know the local regulations, suppliers, and
+                common property issues in {locationName}.
               </p>
             </div>
 
@@ -202,9 +267,12 @@ export default function SEOTradePage() {
               <div className="w-16 h-16 bg-orange-50 text-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                 <CheckCircle className="w-8 h-8" />
               </div>
-              <h3 className="text-xl font-bold text-[#0a1f44] mb-3">Fair Pricing</h3>
+              <h3 className="text-xl font-bold text-[#0a1f44] mb-3">
+                Fair Pricing
+              </h3>
               <p className="text-muted-foreground">
-                Transparent rates and no hidden fees. Get quotes upfront before any work begins.
+                Transparent rates and no hidden fees. Get quotes upfront before
+                any work begins.
               </p>
             </div>
           </div>
@@ -218,10 +286,14 @@ export default function SEOTradePage() {
             Need a {tradeName} in {locationName} today?
           </h2>
           <p className="text-xl text-blue-100 mb-10 font-light">
-            Don't wait for small problems to become big issues. Connect with a verified professional now.
+            Don't wait for small problems to become big issues. Connect with a
+            verified professional now.
           </p>
           <Link to="/post-job">
-            <Button size="lg" className="bg-[#E31E24] hover:bg-[#C41218] text-white h-16 px-10 text-xl font-bold rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+            <Button
+              size="lg"
+              className="bg-[#E31E24] hover:bg-[#C41218] text-white h-16 px-10 text-xl font-bold rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
+            >
               Book a Professional
             </Button>
           </Link>

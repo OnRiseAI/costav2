@@ -1,6 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Mail, Phone, MessageCircle, ArrowRight, HelpCircle, ChevronDown, MapPin } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MessageCircle,
+  ArrowRight,
+  HelpCircle,
+  ChevronDown,
+  MapPin,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -50,13 +58,16 @@ export default function ContactPage() {
         <div className="container-custom relative z-10 text-center max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
-            <span className="text-xs font-medium tracking-wider uppercase text-blue-100">Official Contact Channel</span>
+            <span className="text-xs font-medium tracking-wider uppercase text-blue-100">
+              Official Contact Channel
+            </span>
           </div>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight font-serif">
             Get in touch
           </h1>
           <p className="text-xl md:text-2xl text-blue-100/80 font-light max-w-2xl mx-auto leading-relaxed">
-            We are here to serve residents and homeowners across the Costa del Sol with excellence and integrity.
+            We are here to serve residents and homeowners across the Costa del
+            Sol with excellence and integrity.
           </p>
         </div>
       </section>
@@ -70,7 +81,9 @@ export default function ContactPage() {
               <div className="w-16 h-16 mx-auto bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-[#0a1f44] transition-colors duration-300">
                 <Mail className="w-7 h-7 text-[#0a1f44] group-hover:text-white transition-colors duration-300" />
               </div>
-              <h3 className="text-xl font-bold text-[#0a1f44] mb-2 font-serif">Email Us</h3>
+              <h3 className="text-xl font-bold text-[#0a1f44] mb-2 font-serif">
+                Email Us
+              </h3>
               <p className="text-muted-foreground mb-6 text-sm">
                 For general inquiries and official correspondence
               </p>
@@ -87,7 +100,9 @@ export default function ContactPage() {
               <div className="w-16 h-16 mx-auto bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-[#0a1f44] transition-colors duration-300">
                 <Phone className="w-7 h-7 text-[#0a1f44] group-hover:text-white transition-colors duration-300" />
               </div>
-              <h3 className="text-xl font-bold text-[#0a1f44] mb-2 font-serif">Call Us</h3>
+              <h3 className="text-xl font-bold text-[#0a1f44] mb-2 font-serif">
+                Call Us
+              </h3>
               <p className="text-muted-foreground mb-6 text-sm">
                 Available Mon-Fri from 9am to 6pm CET
               </p>
@@ -143,7 +158,8 @@ export default function ContactPage() {
                   Have a quick question?
                 </h2>
                 <p className="text-muted-foreground text-lg font-light">
-                  Our comprehensive FAQ section may have the immediate answer you need.
+                  Our comprehensive FAQ section may have the immediate answer
+                  you need.
                 </p>
               </div>
             </div>
@@ -163,13 +179,16 @@ export default function ContactPage() {
       <section className="py-20 md:py-24 bg-white relative">
         <div className="container-custom max-w-3xl">
           <div className="text-center mb-16">
-            <span className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-3 block">Contact Form</span>
+            <span className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-3 block">
+              Contact Form
+            </span>
             <h2 className="text-4xl font-bold text-[#0a1f44] mb-6 font-serif">
               Send us a message
             </h2>
             <div className="w-24 h-1 bg-blue-600 mx-auto mb-6 rounded-full"></div>
             <p className="text-lg text-muted-foreground font-light">
-              Please fill out the form below. Our team is committed to responding to all inquiries within 24 hours.
+              Please fill out the form below. Our team is committed to
+              responding to all inquiries within 24 hours.
             </p>
           </div>
 
@@ -177,7 +196,12 @@ export default function ContactPage() {
             <form onSubmit={handleSubmit} className="space-y-8">
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="space-y-3">
-                  <Label htmlFor="name" className="text-sm font-semibold text-[#0a1f44] uppercase tracking-wide">Full Name</Label>
+                  <Label
+                    htmlFor="name"
+                    className="text-sm font-semibold text-[#0a1f44] uppercase tracking-wide"
+                  >
+                    Full Name
+                  </Label>
                   <Input
                     id="name"
                     placeholder="e.g. John Doe"
@@ -190,7 +214,12 @@ export default function ContactPage() {
                   />
                 </div>
                 <div className="space-y-3">
-                  <Label htmlFor="email" className="text-sm font-semibold text-[#0a1f44] uppercase tracking-wide">Email Address</Label>
+                  <Label
+                    htmlFor="email"
+                    className="text-sm font-semibold text-[#0a1f44] uppercase tracking-wide"
+                  >
+                    Email Address
+                  </Label>
                   <Input
                     id="email"
                     type="email"
@@ -206,7 +235,12 @@ export default function ContactPage() {
               </div>
 
               <div className="space-y-3">
-                <Label htmlFor="subject" className="text-sm font-semibold text-[#0a1f44] uppercase tracking-wide">Subject</Label>
+                <Label
+                  htmlFor="subject"
+                  className="text-sm font-semibold text-[#0a1f44] uppercase tracking-wide"
+                >
+                  Subject
+                </Label>
                 <div className="relative">
                   <select
                     id="subject"
@@ -223,14 +257,21 @@ export default function ContactPage() {
                     <option value="general">General Inquiry</option>
                     <option value="support">Technical Support</option>
                     <option value="feedback">Feedback & Suggestions</option>
-                    <option value="partnership">Partnership Opportunities</option>
+                    <option value="partnership">
+                      Partnership Opportunities
+                    </option>
                   </select>
                   <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 pointer-events-none" />
                 </div>
               </div>
 
               <div className="space-y-3">
-                <Label htmlFor="message" className="text-sm font-semibold text-[#0a1f44] uppercase tracking-wide">Message</Label>
+                <Label
+                  htmlFor="message"
+                  className="text-sm font-semibold text-[#0a1f44] uppercase tracking-wide"
+                >
+                  Message
+                </Label>
                 <Textarea
                   id="message"
                   placeholder="How can we assist you today?"

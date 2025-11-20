@@ -17,7 +17,10 @@ export function MegaFooter() {
       title: "POPULAR TRADES",
       links: [
         { name: "Plumbers in Marbella", href: "/trades/plumber/marbella" },
-        { name: "Electricians in Marbella", href: "/trades/electrician/marbella" },
+        {
+          name: "Electricians in Marbella",
+          href: "/trades/electrician/marbella",
+        },
         { name: "AC Repair in Marbella", href: "/trades/ac-repair/marbella" },
         { name: "Builders in Marbella", href: "/trades/builder/marbella" },
         { name: "Pool Maintenance", href: "/trades/pool-maintenance/marbella" },
@@ -29,7 +32,10 @@ export function MegaFooter() {
     {
       title: "SPECIALIST SERVICES",
       links: [
-        { name: "Solar Panels", href: "/trades/solar-panel-installer/marbella" },
+        {
+          name: "Solar Panels",
+          href: "/trades/solar-panel-installer/marbella",
+        },
         { name: "Leak Detection", href: "/trades/leak-detection/marbella" },
         { name: "Roofers", href: "/trades/roofer/marbella" },
         { name: "Tilers", href: "/trades/tiler/marbella" },
@@ -82,7 +88,10 @@ export function MegaFooter() {
       <div className="container-custom">
         <div className="grid md:grid-cols-5 gap-8 md:gap-4">
           {sections.map((section) => (
-            <div key={section.title} className="border-b border-gray-800 md:border-none pb-4 md:pb-0">
+            <div
+              key={section.title}
+              className="border-b border-gray-800 md:border-none pb-4 md:pb-0"
+            >
               <button
                 onClick={() => toggleSection(section.title)}
                 className="flex items-center justify-between w-full md:cursor-default group"
@@ -93,15 +102,17 @@ export function MegaFooter() {
                 <ChevronDown
                   className={cn(
                     "w-4 h-4 md:hidden transition-transform duration-200",
-                    openSection === section.title ? "rotate-180" : ""
+                    openSection === section.title ? "rotate-180" : "",
                   )}
                 />
               </button>
-              
+
               <ul
                 className={cn(
                   "space-y-2 overflow-hidden transition-all duration-300 md:block",
-                  openSection === section.title ? "max-h-96 mt-2" : "max-h-0 md:max-h-full"
+                  openSection === section.title
+                    ? "max-h-96 mt-2"
+                    : "max-h-0 md:max-h-full",
                 )}
               >
                 {section.links.map((link) => (
@@ -123,7 +134,8 @@ export function MegaFooter() {
         {/* AEO Context Block */}
         <div className="mt-12 pt-8 border-t border-gray-800 text-center">
           <p className="text-sm text-gray-500 max-w-3xl mx-auto">
-            CostaTrades connects homeowners on the Costa del Sol with verified local tradespeople. Serving Marbella, Estepona, Mijas, and beyond.
+            CostaTrades connects homeowners on the Costa del Sol with verified
+            local tradespeople. Serving Marbella, Estepona, Mijas, and beyond.
           </p>
         </div>
       </div>

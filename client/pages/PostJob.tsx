@@ -181,7 +181,7 @@ export default function PostJob() {
           <div className="absolute top-1/2 left-10 opacity-5 animate-float-medium">
             <Ruler className="w-20 h-20 text-cyan-300" />
           </div>
-           <div className="absolute bottom-1/3 right-1/3 opacity-5 animate-float-fast">
+          <div className="absolute bottom-1/3 right-1/3 opacity-5 animate-float-fast">
             <Truck className="w-24 h-24 text-red-300" />
           </div>
         </div>
@@ -191,7 +191,11 @@ export default function PostJob() {
 
         <div className="container-custom relative z-10 text-center max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight leading-tight">
-            Find the right <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-cyan-200">tradesperson</span> for your job
+            Find the right{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-cyan-200">
+              tradesperson
+            </span>{" "}
+            for your job
           </h1>
           <p className="text-xl md:text-2xl text-blue-100/90 mb-12 font-light max-w-2xl mx-auto">
             Get quotes from trusted local professionals in minutes.
@@ -206,7 +210,7 @@ export default function PostJob() {
               <input
                 type="text"
                 placeholder={PLACEHOLDERS[placeholderIndex]}
-                className={`flex-1 min-w-0 h-14 text-lg text-gray-900 placeholder:text-gray-400 focus:outline-none bg-transparent transition-opacity duration-500 ${fade ? 'opacity-100' : 'opacity-0'}`}
+                className={`flex-1 min-w-0 h-14 text-lg text-gray-900 placeholder:text-gray-400 focus:outline-none bg-transparent transition-opacity duration-500 ${fade ? "opacity-100" : "opacity-0"}`}
               />
               <button className="bg-[#0a1f44] text-white px-8 h-14 rounded-full font-bold text-lg hover:bg-blue-900 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center flex-shrink-0">
                 Search
@@ -215,11 +219,17 @@ export default function PostJob() {
           </div>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm text-blue-200/60">
-            <span className="flex items-center gap-1"><Sparkles className="w-3 h-3" /> Free to post</span>
+            <span className="flex items-center gap-1">
+              <Sparkles className="w-3 h-3" /> Free to post
+            </span>
             <span className="w-1 h-1 rounded-full bg-blue-200/30"></span>
-            <span className="flex items-center gap-1"><Sparkles className="w-3 h-3" /> No obligation</span>
+            <span className="flex items-center gap-1">
+              <Sparkles className="w-3 h-3" /> No obligation
+            </span>
             <span className="w-1 h-1 rounded-full bg-blue-200/30"></span>
-            <span className="flex items-center gap-1"><Sparkles className="w-3 h-3" /> Verified trades</span>
+            <span className="flex items-center gap-1">
+              <Sparkles className="w-3 h-3" /> Verified trades
+            </span>
           </div>
         </div>
       </div>

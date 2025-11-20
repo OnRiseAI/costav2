@@ -47,7 +47,7 @@
     /* Trust/Success - Green for badges */
     --trust: 142 76% 36%;
     --trust-foreground: 0 0% 100%;
-    
+
     --success: 142 76% 36%;
     --success-foreground: 0 0% 100%;
 
@@ -85,7 +85,7 @@
 
     --trust: 142 76% 40%;
     --trust-foreground: 0 0% 100%;
-    
+
     --success: 142 76% 40%;
     --success-foreground: 0 0% 100%;
 
@@ -108,7 +108,9 @@
 
   body {
     @apply bg-background text-foreground font-sans;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
   }
 
   :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {
@@ -235,7 +237,8 @@
   }
 
   @keyframes float-slow {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0px) rotate(0deg);
     }
     50% {
@@ -244,7 +247,8 @@
   }
 
   @keyframes float-medium {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0px) rotate(0deg);
     }
     50% {
@@ -253,7 +257,8 @@
   }
 
   @keyframes float-fast {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0px) rotate(0deg);
     }
     50% {
@@ -262,7 +267,8 @@
   }
 
   @keyframes pulse-slow {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 0.05;
       transform: scale(1);
     }
@@ -294,12 +300,17 @@
 
   /* Background Patterns */
   .pattern-dots {
-    background-image: radial-gradient(circle, currentColor 1px, transparent 1px);
+    background-image: radial-gradient(
+      circle,
+      currentColor 1px,
+      transparent 1px
+    );
     background-size: 20px 20px;
   }
 
   .pattern-grid {
-    background-image: linear-gradient(currentColor 1px, transparent 1px),
+    background-image:
+      linear-gradient(currentColor 1px, transparent 1px),
       linear-gradient(90deg, currentColor 1px, transparent 1px);
     background-size: 40px 40px;
   }
