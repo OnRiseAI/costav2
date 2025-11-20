@@ -247,7 +247,7 @@ export default function HowItWorksPage() {
 
       {/* FAQ Section */}
       <section className="py-24 bg-white">
-        <div className="container-custom max-w-3xl">
+        <div className="container-custom max-w-5xl">
           <div className="mb-16 text-center">
             <h2 className="text-4xl md:text-5xl font-bold text-[#0a1f44] mb-6 tracking-tight">
               Frequently asked questions
@@ -257,26 +257,26 @@ export default function HowItWorksPage() {
             </p>
           </div>
 
-          <div className="space-y-4">
+          <div className="grid md:grid-cols-2 gap-6">
             {faqs.map((faq, index) => (
-              <div 
-                key={index} 
-                className="bg-white rounded-2xl border border-slate-200 overflow-hidden transition-all duration-300 hover:border-blue-200 hover:shadow-md"
+              <div
+                key={index}
+                className="bg-white rounded-2xl border border-slate-200 overflow-hidden transition-all duration-300 hover:border-blue-200 hover:shadow-md h-fit"
               >
                 <button
                   onClick={() => toggleFaq(index)}
                   className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
                 >
-                  <span className="text-lg md:text-xl font-bold text-[#0a1f44]">
+                  <span className="text-lg font-bold text-[#0a1f44] pr-4">
                     {faq.question}
                   </span>
                   {openFaq === index ? (
-                    <ChevronUp className="w-5 h-5 text-blue-600" />
+                    <ChevronUp className="w-5 h-5 text-blue-600 flex-shrink-0" />
                   ) : (
-                    <ChevronDown className="w-5 h-5 text-slate-400" />
+                    <ChevronDown className="w-5 h-5 text-slate-400 flex-shrink-0" />
                   )}
                 </button>
-                <div 
+                <div
                   className={cn(
                     "px-6 text-slate-600 leading-relaxed overflow-hidden transition-all duration-300 ease-in-out",
                     openFaq === index ? "max-h-48 pb-6 opacity-100" : "max-h-0 opacity-0"
