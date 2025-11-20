@@ -22,7 +22,7 @@ const recentPosts = [
     id: 1,
     title: "Costa del Sol Water Update 2025: Can I Finally Fill My Pool?",
     excerpt: "Good news! As of May 2025, the Junta de Andalucía has lifted the ban on filling private pools. However, with limits set at 250 litres/day, wasting water is still a crime.",
-    image: "https://images.unsplash.com/photo-1572331165267-854da2b00cc6?q=80&w=2940&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=2940&auto=format&fit=crop",
     category: "Maintenance",
     readTime: "5 min read",
     slug: "pool-water-update-2025"
