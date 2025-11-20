@@ -1,14 +1,14 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogDescription
-} from '@/components/ui/dialog';
+  DialogDescription,
+} from "@/components/ui/dialog";
 import {
   ChevronRight,
   MapPin,
@@ -23,30 +23,90 @@ import {
   Snowflake,
   Key,
   Sparkles,
-  PenTool
-} from 'lucide-react';
-import { getTradeServices } from '@/data/tradeServices';
+  PenTool,
+} from "lucide-react";
+import { getTradeServices } from "@/data/tradeServices";
 
 const categories = [
-  { slug: 'plumbers', name: 'Plumber', icon: Wrench, color: 'text-blue-600', bg: 'bg-blue-50' },
-  { slug: 'electricians', name: 'Electrician', icon: Zap, color: 'text-amber-600', bg: 'bg-amber-50' },
-  { slug: 'builders', name: 'Builder', icon: Hammer, color: 'text-orange-600', bg: 'bg-orange-50' },
-  { slug: 'painters', name: 'Painter', icon: Paintbrush, color: 'text-purple-600', bg: 'bg-purple-50' },
-  { slug: 'gardeners', name: 'Gardener', icon: Shovel, color: 'text-green-600', bg: 'bg-green-50' },
-  { slug: 'pool-maintenance', name: 'Pool Maintenance', icon: Droplets, color: 'text-cyan-600', bg: 'bg-cyan-50' },
-  { slug: 'air-conditioning', name: 'Air Conditioning', icon: Snowflake, color: 'text-sky-600', bg: 'bg-sky-50' },
-  { slug: 'locksmiths', name: 'Locksmith', icon: Key, color: 'text-slate-600', bg: 'bg-slate-50' },
-  { slug: 'cleaning', name: 'Cleaning', icon: Sparkles, color: 'text-rose-600', bg: 'bg-rose-50' },
-  { slug: 'handyman', name: 'Handyman', icon: PenTool, color: 'text-indigo-600', bg: 'bg-indigo-50' },
+  {
+    slug: "plumbers",
+    name: "Plumber",
+    icon: Wrench,
+    color: "text-blue-600",
+    bg: "bg-blue-50",
+  },
+  {
+    slug: "electricians",
+    name: "Electrician",
+    icon: Zap,
+    color: "text-amber-600",
+    bg: "bg-amber-50",
+  },
+  {
+    slug: "builders",
+    name: "Builder",
+    icon: Hammer,
+    color: "text-orange-600",
+    bg: "bg-orange-50",
+  },
+  {
+    slug: "painters",
+    name: "Painter",
+    icon: Paintbrush,
+    color: "text-purple-600",
+    bg: "bg-purple-50",
+  },
+  {
+    slug: "gardeners",
+    name: "Gardener",
+    icon: Shovel,
+    color: "text-green-600",
+    bg: "bg-green-50",
+  },
+  {
+    slug: "pool-maintenance",
+    name: "Pool Maintenance",
+    icon: Droplets,
+    color: "text-cyan-600",
+    bg: "bg-cyan-50",
+  },
+  {
+    slug: "air-conditioning",
+    name: "Air Conditioning",
+    icon: Snowflake,
+    color: "text-sky-600",
+    bg: "bg-sky-50",
+  },
+  {
+    slug: "locksmiths",
+    name: "Locksmith",
+    icon: Key,
+    color: "text-slate-600",
+    bg: "bg-slate-50",
+  },
+  {
+    slug: "cleaning",
+    name: "Cleaning",
+    icon: Sparkles,
+    color: "text-rose-600",
+    bg: "bg-rose-50",
+  },
+  {
+    slug: "handyman",
+    name: "Handyman",
+    icon: PenTool,
+    color: "text-indigo-600",
+    bg: "bg-indigo-50",
+  },
 ];
 
 export default function PostJob() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [step, setStep] = useState<1 | 2>(1);
-  const [selectedCategory, setSelectedCategory] = useState<string>('');
-  const [selectedSubTask, setSelectedSubTask] = useState<string>('');
-  const [postcode, setPostcode] = useState<string>('');
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const [selectedSubTask, setSelectedSubTask] = useState<string>("");
+  const [postcode, setPostcode] = useState<string>("");
 
   const handleCategorySelect = (categorySlug: string) => {
     setSelectedCategory(categorySlug);
@@ -62,12 +122,15 @@ export default function PostJob() {
   const handleSearch = () => {
     if (postcode) {
       setIsModalOpen(false);
-      navigate(`/post-job/results?category=${selectedCategory}&option=${encodeURIComponent(selectedSubTask)}&postcode=${encodeURIComponent(postcode)}`);
+      navigate(
+        `/post-job/results?category=${selectedCategory}&option=${encodeURIComponent(selectedSubTask)}&postcode=${encodeURIComponent(postcode)}`,
+      );
     }
   };
 
   const tradeData = getTradeServices(selectedCategory);
-  const selectedCategoryName = categories.find(c => c.slug === selectedCategory)?.name || 'Trade';
+  const selectedCategoryName =
+    categories.find((c) => c.slug === selectedCategory)?.name || "Trade";
 
   return (
     <div className="min-h-screen bg-white">
@@ -117,7 +180,9 @@ export default function PostJob() {
                 onClick={() => handleCategorySelect(category.slug)}
                 className="group relative bg-white rounded-2xl p-6 transition-all duration-300 hover:shadow-xl border border-gray-100 hover:border-blue-100 flex flex-col items-center justify-center gap-4 min-h-[160px] text-center"
               >
-                <div className={`w-16 h-16 rounded-full ${category.bg} flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300`}>
+                <div
+                  className={`w-16 h-16 rounded-full ${category.bg} flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300`}
+                >
                   <Icon className={`w-8 h-8 ${category.color}`} />
                 </div>
                 <span className="font-bold text-gray-700 group-hover:text-[#0a1f44] text-lg">
@@ -140,12 +205,14 @@ export default function PostJob() {
           <div className="bg-[#0a1f44] p-6 text-white">
             <DialogHeader>
               <DialogTitle className="text-xl md:text-2xl font-bold text-center">
-                {step === 1 ? `What do you need help with?` : 'Where is the job located?'}
+                {step === 1
+                  ? `What do you need help with?`
+                  : "Where is the job located?"}
               </DialogTitle>
               <DialogDescription className="text-blue-200 text-center">
                 {step === 1
                   ? `Select the type of ${selectedCategoryName.toLowerCase()} work you need`
-                  : 'We need this to find tradespeople in your area'}
+                  : "We need this to find tradespeople in your area"}
               </DialogDescription>
             </DialogHeader>
           </div>
@@ -161,9 +228,13 @@ export default function PostJob() {
                       className="w-full text-left p-4 rounded-xl border border-gray-200 hover:border-[#0a1f44] hover:bg-blue-50 transition-all duration-200 group flex items-center justify-between"
                     >
                       <div>
-                        <div className="font-semibold text-gray-900">{service.label}</div>
+                        <div className="font-semibold text-gray-900">
+                          {service.label}
+                        </div>
                         {service.description && (
-                          <div className="text-sm text-gray-500 mt-0.5">{service.description}</div>
+                          <div className="text-sm text-gray-500 mt-0.5">
+                            {service.description}
+                          </div>
                         )}
                       </div>
                       <ChevronRight className="h-5 w-5 text-gray-300 group-hover:text-[#0a1f44]" />
@@ -173,7 +244,7 @@ export default function PostJob() {
                   <div className="text-center py-8 text-gray-500">
                     <p>No specific services found for this category.</p>
                     <Button
-                      onClick={() => handleSubTaskSelect('General Enquiry')}
+                      onClick={() => handleSubTaskSelect("General Enquiry")}
                       className="mt-4 bg-[#0a1f44] text-white"
                     >
                       Continue with General Enquiry
@@ -196,7 +267,7 @@ export default function PostJob() {
                     placeholder="Enter postcode or town (e.g. 29600)"
                     className="h-14 pl-12 text-lg rounded-xl border-gray-300 focus:border-[#0a1f44] focus:ring-[#0a1f44]"
                     autoFocus
-                    onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+                    onKeyDown={(e) => e.key === "Enter" && handleSearch()}
                   />
                 </div>
 

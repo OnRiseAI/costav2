@@ -33,19 +33,34 @@ export default function TradespersonSubmitted() {
           </p>
 
           <div className="bg-blue-50 rounded-2xl p-6 mb-8 text-left">
-            <h3 className="font-semibold text-[#0a1f44] mb-2">What happens next?</h3>
+            <h3 className="font-semibold text-[#0a1f44] mb-2">
+              What happens next?
+            </h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-sm text-gray-600">
-                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold mt-0.5">1</span>
-                <span>We review your business details and qualifications (usually within 24h)</span>
+                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold mt-0.5">
+                  1
+                </span>
+                <span>
+                  We review your business details and qualifications (usually
+                  within 24h)
+                </span>
               </li>
               <li className="flex items-start gap-3 text-sm text-gray-600">
-                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold mt-0.5">2</span>
-                <span>You'll receive an email when your account is approved</span>
+                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold mt-0.5">
+                  2
+                </span>
+                <span>
+                  You'll receive an email when your account is approved
+                </span>
               </li>
               <li className="flex items-start gap-3 text-sm text-gray-600">
-                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold mt-0.5">3</span>
-                <span>Log in to complete your profile and start receiving leads</span>
+                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold mt-0.5">
+                  3
+                </span>
+                <span>
+                  Log in to complete your profile and start receiving leads
+                </span>
               </li>
             </ul>
           </div>

@@ -170,16 +170,22 @@ export default function JoinAsTradesperson() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                 </span>
-                <span className="text-sm font-medium text-blue-100">Join for free today</span>
+                <span className="text-sm font-medium text-blue-100">
+                  Join for free today
+                </span>
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight">
-                Get free qualified leads when you join <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-blue-100 to-white">CostaTrade</span>
+                Get free qualified leads when you join{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-blue-100 to-white">
+                  CostaTrade
+                </span>
               </h1>
-              
+
               <p className="text-lg md:text-xl text-blue-100/80 mb-10 leading-relaxed max-w-xl font-light">
-                Join for free and receive genuine enquiries from local homeowners. 
-                Grow your business with verified leads and tools to manage your reputation.
+                Join for free and receive genuine enquiries from local
+                homeowners. Grow your business with verified leads and tools to
+                manage your reputation.
               </p>
 
               <Dialog open={tradeDialogOpen} onOpenChange={setTradeDialogOpen}>
@@ -216,7 +222,9 @@ export default function JoinAsTradesperson() {
 
                 <DialogContent className="max-w-2xl w-full max-h-[85vh] overflow-y-auto sm:rounded-2xl border-none shadow-2xl">
                   <DialogHeader>
-                    <DialogTitle className="text-2xl font-bold">Select your main trade</DialogTitle>
+                    <DialogTitle className="text-2xl font-bold">
+                      Select your main trade
+                    </DialogTitle>
                   </DialogHeader>
                   <div className="mt-4 grid sm:grid-cols-2 gap-3">
                     {HERO_TRADES.map((trade) => (
@@ -261,27 +269,39 @@ export default function JoinAsTradesperson() {
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-8">
                     <div className="flex items-center gap-4 mb-2">
                       <div className="flex -space-x-2">
-                        {[1,2,3].map(i => (
-                          <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-gray-200 overflow-hidden">
-                            <img src={`https://i.pravatar.cc/100?img=${i + 20}`} alt="User" className="w-full h-full object-cover" />
+                        {[1, 2, 3].map((i) => (
+                          <div
+                            key={i}
+                            className="w-8 h-8 rounded-full border-2 border-white bg-gray-200 overflow-hidden"
+                          >
+                            <img
+                              src={`https://i.pravatar.cc/100?img=${i + 20}`}
+                              alt="User"
+                              className="w-full h-full object-cover"
+                            />
                           </div>
                         ))}
                       </div>
-                      <span className="text-white font-medium text-sm">+2k homeowners joined this month</span>
+                      <span className="text-white font-medium text-sm">
+                        +2k homeowners joined this month
+                      </span>
                     </div>
                     <p className="text-white/90 text-sm">
-                      "Since joining CostaTrade, my calendar has been full with quality jobs."
+                      "Since joining CostaTrade, my calendar has been full with
+                      quality jobs."
                     </p>
                   </div>
                 </div>
-                
+
                 {/* Floating Stats Card */}
                 <div className="absolute -right-8 top-12 bg-white p-5 rounded-2xl shadow-xl max-w-[200px] animate-bounce-slow">
                   <div className="flex items-center gap-2 mb-2">
                     <div className="p-2 bg-green-100 rounded-lg">
                       <TrendingUp className="h-5 w-5 text-green-600" />
                     </div>
-                    <span className="text-xs font-bold text-green-600">+15% Growth</span>
+                    <span className="text-xs font-bold text-green-600">
+                      +15% Growth
+                    </span>
                   </div>
                   <p className="text-gray-900 font-bold text-lg">150+ Leads</p>
                   <p className="text-gray-500 text-xs">Generated last month</p>
@@ -304,7 +324,7 @@ export default function JoinAsTradesperson() {
               from homeowners who need your skills.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8">
             {HOW_IT_WORKS_STEPS.map((step, index) => {
               const Icon = step.icon;
@@ -316,16 +336,16 @@ export default function JoinAsTradesperson() {
                   <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity transform group-hover:scale-110 duration-500">
                     <Icon className="w-32 h-32 text-[#0a1f44]" />
                   </div>
-                  
+
                   <div className="relative z-10">
                     <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#0a1f44] transition-colors duration-300">
                       <Icon className="w-7 h-7 text-[#0a1f44] group-hover:text-white transition-colors duration-300" />
                     </div>
-                    
+
                     <div className="inline-block px-3 py-1 rounded-full bg-gray-100 text-xs font-bold text-gray-600 mb-4">
                       Step 0{index + 1}
                     </div>
-                    
+
                     <h3 className="text-xl font-bold text-[#0a1f44] mb-3">
                       {step.title}
                     </h3>
@@ -349,9 +369,10 @@ export default function JoinAsTradesperson() {
                 Why tradespeople choose CostaTrade
               </h2>
               <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
-                Built for busy professionals who want a steady flow of the right kind of work without the hassle.
+                Built for busy professionals who want a steady flow of the right
+                kind of work without the hassle.
               </p>
-              
+
               <div className="grid sm:grid-cols-2 gap-6">
                 {KEY_BENEFITS.map((benefit) => {
                   const Icon = benefit.icon;
@@ -361,33 +382,37 @@ export default function JoinAsTradesperson() {
                         <Icon className="w-6 h-6 text-green-600" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-[#0a1f44] mb-2">{benefit.title}</h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed">{benefit.description}</p>
+                        <h3 className="font-bold text-[#0a1f44] mb-2">
+                          {benefit.title}
+                        </h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          {benefit.description}
+                        </p>
                       </div>
                     </div>
                   );
                 })}
               </div>
-              
+
               <div className="mt-10">
-                <Button 
+                <Button
                   onClick={() => setTradeDialogOpen(true)}
-                  size="lg" 
+                  size="lg"
                   className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white rounded-full px-8 h-14 text-base font-semibold shadow-lg hover:shadow-xl transition-all"
                 >
                   Start growing your business
                 </Button>
               </div>
             </div>
-            
+
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-purple-100 rounded-[40px] transform rotate-3"></div>
-              <img 
-                src="https://images.pexels.com/photos/5493691/pexels-photo-5493691.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                alt="Happy tradesperson" 
+              <img
+                src="https://images.pexels.com/photos/5493691/pexels-photo-5493691.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Happy tradesperson"
                 className="relative rounded-[40px] shadow-2xl w-full object-cover transform -rotate-3 hover:rotate-0 transition-transform duration-500"
               />
-              
+
               {/* Testimonial Card Overlay */}
               <div className="absolute -bottom-10 -left-10 bg-white p-6 rounded-2xl shadow-xl max-w-sm hidden md:block transition-all duration-500">
                 <div className="flex gap-1 text-orange-400 mb-3">
@@ -417,7 +442,9 @@ export default function JoinAsTradesperson() {
                         src={testimonial.image}
                         alt={testimonial.name}
                         className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-500 ${
-                          index === currentTestimonial ? "opacity-100" : "opacity-0"
+                          index === currentTestimonial
+                            ? "opacity-100"
+                            : "opacity-0"
                         }`}
                       />
                     ))}
@@ -459,7 +486,7 @@ export default function JoinAsTradesperson() {
               Select your trade to start your free profile.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
             {TRADES_GRID.map((trade) => (
               <button
@@ -492,16 +519,16 @@ export default function JoinAsTradesperson() {
           <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-purple-500 rounded-full blur-[100px]"></div>
           <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-soft-light"></div>
         </div>
-        
+
         <div className="container-custom relative z-10 text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">
             Ready to start winning work?
           </h2>
           <p className="text-xl text-blue-100/80 mb-10 max-w-2xl mx-auto font-light">
-            Join CostaTrade today, create your free profile and start
-            receiving genuine enquiries from local homeowners.
+            Join CostaTrade today, create your free profile and start receiving
+            genuine enquiries from local homeowners.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button
               type="button"
@@ -519,7 +546,7 @@ export default function JoinAsTradesperson() {
               <ArrowRight className="h-5 w-5 ml-2" />
             </Button>
           </div>
-          
+
           <p className="mt-6 text-sm text-blue-200/60">
             Free to join. No credit card required.
           </p>

@@ -45,13 +45,17 @@ export default function LoginPage() {
         <div className="w-full max-w-sm mx-auto lg:w-96">
           <div className="mb-10">
             <Link to="/" className="inline-block mb-8">
-              <span className="text-2xl font-bold text-[#0a1f44]">CostaTrade</span>
+              <span className="text-2xl font-bold text-[#0a1f44]">
+                CostaTrade
+              </span>
             </Link>
             <h1 className="text-3xl md:text-4xl font-bold text-[#0a1f44] mb-3 tracking-tight">
               Welcome back
             </h1>
             <p className="text-muted-foreground text-lg">
-              Sign in to manage your {loginType === 'tradesperson' ? 'business' : 'projects'} and account.
+              Sign in to manage your{" "}
+              {loginType === "tradesperson" ? "business" : "projects"} and
+              account.
             </p>
           </div>
 
@@ -128,7 +132,10 @@ export default function LoginPage() {
                 onChange={(e) => setRememberMe(e.target.checked)}
                 className="h-4 w-4 rounded border-gray-300 text-[#0a1f44] focus:ring-[#0a1f44]"
               />
-              <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-600">
+              <label
+                htmlFor="remember-me"
+                className="ml-2 block text-sm text-gray-600"
+              >
                 Remember me for 30 days
               </label>
             </div>
@@ -155,7 +162,9 @@ export default function LoginPage() {
               <div className="w-full border-t border-gray-200"></div>
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-4 bg-white text-gray-500 font-medium">Or continue with</span>
+              <span className="px-4 bg-white text-gray-500 font-medium">
+                Or continue with
+              </span>
             </div>
           </div>
 
@@ -241,7 +250,9 @@ export default function LoginPage() {
               ))}
             </div>
             <blockquote className="text-2xl font-medium leading-relaxed mb-6">
-              "CostaTrade has completely transformed how I manage my business. The quality of leads is unmatched, and the platform is so easy to use."
+              "CostaTrade has completely transformed how I manage my business.
+              The quality of leads is unmatched, and the platform is so easy to
+              use."
             </blockquote>
             <div className="flex items-center gap-4">
               <img

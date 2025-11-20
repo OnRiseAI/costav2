@@ -193,12 +193,20 @@ export default function TradespersonReview() {
                 </div>
                 <div className="space-y-1">
                   <div className="flex justify-between border-b border-gray-50 pb-2">
-                    <span className="text-sm text-muted-foreground">First name</span>
-                    <span className="text-sm font-medium text-gray-900">{formatValue(application?.firstName)}</span>
+                    <span className="text-sm text-muted-foreground">
+                      First name
+                    </span>
+                    <span className="text-sm font-medium text-gray-900">
+                      {formatValue(application?.firstName)}
+                    </span>
                   </div>
                   <div className="flex justify-between pt-1">
-                    <span className="text-sm text-muted-foreground">Surname</span>
-                    <span className="text-sm font-medium text-gray-900">{formatValue(application?.lastName)}</span>
+                    <span className="text-sm text-muted-foreground">
+                      Surname
+                    </span>
+                    <span className="text-sm font-medium text-gray-900">
+                      {formatValue(application?.lastName)}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -225,24 +233,47 @@ export default function TradespersonReview() {
                 </div>
                 <div className="space-y-2">
                   <div className="flex justify-between border-b border-gray-50 pb-2">
-                    <span className="text-sm text-muted-foreground">Business name</span>
-                    <span className="text-sm font-medium text-gray-900">{formatValue(application?.businessName)}</span>
+                    <span className="text-sm text-muted-foreground">
+                      Business name
+                    </span>
+                    <span className="text-sm font-medium text-gray-900">
+                      {formatValue(application?.businessName)}
+                    </span>
                   </div>
                   <div className="flex justify-between border-b border-gray-50 pb-2">
-                    <span className="text-sm text-muted-foreground">Website</span>
-                    <span className="text-sm font-medium text-gray-900 truncate max-w-[200px]">{formatValue(application?.website)}</span>
+                    <span className="text-sm text-muted-foreground">
+                      Website
+                    </span>
+                    <span className="text-sm font-medium text-gray-900 truncate max-w-[200px]">
+                      {formatValue(application?.website)}
+                    </span>
                   </div>
                   <div className="flex justify-between border-b border-gray-50 pb-2">
-                    <span className="text-sm text-muted-foreground">Time in business</span>
-                    <span className="text-sm font-medium text-gray-900">{formatValue(application?.yearsInBusiness)}</span>
+                    <span className="text-sm text-muted-foreground">
+                      Time in business
+                    </span>
+                    <span className="text-sm font-medium text-gray-900">
+                      {formatValue(application?.yearsInBusiness)}
+                    </span>
                   </div>
                   <div className="flex justify-between border-b border-gray-50 pb-2">
-                    <span className="text-sm text-muted-foreground">Business type</span>
-                    <span className="text-sm font-medium text-gray-900 capitalize">{formatValue(application?.businessType)?.replace('-', ' ')}</span>
+                    <span className="text-sm text-muted-foreground">
+                      Business type
+                    </span>
+                    <span className="text-sm font-medium text-gray-900 capitalize">
+                      {formatValue(application?.businessType)?.replace(
+                        "-",
+                        " ",
+                      )}
+                    </span>
                   </div>
                   <div className="flex justify-between pt-1">
-                    <span className="text-sm text-muted-foreground">Employees</span>
-                    <span className="text-sm font-medium text-gray-900">{formatValue(application?.employeeRange)}</span>
+                    <span className="text-sm text-muted-foreground">
+                      Employees
+                    </span>
+                    <span className="text-sm font-medium text-gray-900">
+                      {formatValue(application?.employeeRange)}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -270,15 +301,25 @@ export default function TradespersonReview() {
                 <div className="space-y-2">
                   <div className="flex justify-between border-b border-gray-50 pb-2">
                     <span className="text-sm text-muted-foreground">Email</span>
-                    <span className="text-sm font-medium text-gray-900 truncate max-w-[200px]">{formatValue(application?.businessEmail)}</span>
+                    <span className="text-sm font-medium text-gray-900 truncate max-w-[200px]">
+                      {formatValue(application?.businessEmail)}
+                    </span>
                   </div>
                   <div className="flex justify-between border-b border-gray-50 pb-2">
-                    <span className="text-sm text-muted-foreground">Business phone</span>
-                    <span className="text-sm font-medium text-gray-900">{formatValue(application?.businessPhone)}</span>
+                    <span className="text-sm text-muted-foreground">
+                      Business phone
+                    </span>
+                    <span className="text-sm font-medium text-gray-900">
+                      {formatValue(application?.businessPhone)}
+                    </span>
                   </div>
                   <div className="flex justify-between pt-1">
-                    <span className="text-sm text-muted-foreground">Mobile phone</span>
-                    <span className="text-sm font-medium text-gray-900">{formatValue(application?.mobilePhone || "Not provided")}</span>
+                    <span className="text-sm text-muted-foreground">
+                      Mobile phone
+                    </span>
+                    <span className="text-sm font-medium text-gray-900">
+                      {formatValue(application?.mobilePhone || "Not provided")}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -305,20 +346,32 @@ export default function TradespersonReview() {
                 </div>
                 <div className="space-y-2">
                   <div className="flex flex-col gap-1 border-b border-gray-50 pb-3">
-                    <span className="text-sm text-muted-foreground">Postcode</span>
-                    <span className="text-sm font-medium text-gray-900">{formatValue(application?.postcode)}</span>
+                    <span className="text-sm text-muted-foreground">
+                      Postcode
+                    </span>
+                    <span className="text-sm font-medium text-gray-900">
+                      {formatValue(application?.postcode)}
+                    </span>
                   </div>
                   <div className="flex flex-col gap-1 pt-1">
-                    <span className="text-sm text-muted-foreground">Areas covered</span>
+                    <span className="text-sm text-muted-foreground">
+                      Areas covered
+                    </span>
                     <div className="flex flex-wrap gap-1.5 mt-1">
-                      {application?.selectedAreas && application.selectedAreas.length > 0 ? (
+                      {application?.selectedAreas &&
+                      application.selectedAreas.length > 0 ? (
                         application.selectedAreas.map((area) => (
-                          <span key={area} className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+                          <span
+                            key={area}
+                            className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
+                          >
                             {area}
                           </span>
                         ))
                       ) : (
-                        <span className="text-sm font-medium text-gray-900">Not provided</span>
+                        <span className="text-sm font-medium text-gray-900">
+                          Not provided
+                        </span>
                       )}
                     </div>
                   </div>
@@ -346,14 +399,20 @@ export default function TradespersonReview() {
                   </h2>
                 </div>
                 <div className="flex flex-wrap gap-1.5">
-                  {application?.languages && application.languages.length > 0 ? (
+                  {application?.languages &&
+                  application.languages.length > 0 ? (
                     application.languages.map((lang) => (
-                      <span key={lang} className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700">
+                      <span
+                        key={lang}
+                        className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700"
+                      >
                         {lang}
                       </span>
                     ))
                   ) : (
-                    <span className="text-sm font-medium text-gray-900">Not provided</span>
+                    <span className="text-sm font-medium text-gray-900">
+                      Not provided
+                    </span>
                   )}
                 </div>
               </div>
@@ -372,10 +431,15 @@ export default function TradespersonReview() {
               <div className="space-y-3">
                 <div className="flex items-center gap-2 mb-1">
                   <Info className="h-4 w-4 text-gray-400" />
-                  <h3 className="font-semibold text-gray-900">About your business</h3>
+                  <h3 className="font-semibold text-gray-900">
+                    About your business
+                  </h3>
                 </div>
                 <div className="flex items-center gap-2 rounded-lg border border-dashed border-gray-300 bg-white px-3 py-2 text-xs text-gray-500">
-                  <span className="h-2 w-2 rounded-full bg-amber-400" aria-hidden="true" />
+                  <span
+                    className="h-2 w-2 rounded-full bg-amber-400"
+                    aria-hidden="true"
+                  />
                   <span>Available after approval</span>
                 </div>
               </div>
@@ -383,10 +447,15 @@ export default function TradespersonReview() {
               <div className="space-y-3">
                 <div className="flex items-center gap-2 mb-1">
                   <FileText className="h-4 w-4 text-gray-400" />
-                  <h3 className="font-semibold text-gray-900">Documents / images</h3>
+                  <h3 className="font-semibold text-gray-900">
+                    Documents / images
+                  </h3>
                 </div>
                 <div className="flex items-center gap-2 rounded-lg border border-dashed border-gray-300 bg-white px-3 py-2 text-xs text-gray-500">
-                  <span className="h-2 w-2 rounded-full bg-amber-400" aria-hidden="true" />
+                  <span
+                    className="h-2 w-2 rounded-full bg-amber-400"
+                    aria-hidden="true"
+                  />
                   <span>Available after approval</span>
                 </div>
               </div>
@@ -394,10 +463,15 @@ export default function TradespersonReview() {
               <div className="space-y-3">
                 <div className="flex items-center gap-2 mb-1">
                   <Phone className="h-4 w-4 text-gray-400" />
-                  <h3 className="font-semibold text-gray-900">Pricing information</h3>
+                  <h3 className="font-semibold text-gray-900">
+                    Pricing information
+                  </h3>
                 </div>
                 <div className="flex items-center gap-2 rounded-lg border border-dashed border-gray-300 bg-white px-3 py-2 text-xs text-gray-500">
-                  <span className="h-2 w-2 rounded-full bg-amber-400" aria-hidden="true" />
+                  <span
+                    className="h-2 w-2 rounded-full bg-amber-400"
+                    aria-hidden="true"
+                  />
                   <span>Available after approval</span>
                 </div>
               </div>
@@ -418,8 +492,9 @@ export default function TradespersonReview() {
                 Ready to submit your application?
               </h2>
               <p className="text-blue-100 text-lg leading-relaxed">
-                Once submitted, our team will review your information and activate
-                your profile. You'll receive an email confirmation shortly.
+                Once submitted, our team will review your information and
+                activate your profile. You'll receive an email confirmation
+                shortly.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">

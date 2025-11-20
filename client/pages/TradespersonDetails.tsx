@@ -248,16 +248,19 @@ export default function TradespersonDetails() {
             Tell us about your business
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
-            You selected <span className="font-semibold text-[#0a1f44]">{tradeLabel}</span>. We
-            use these details to create your CostaTrade profile and match you with
-            local homeowners.
+            You selected{" "}
+            <span className="font-semibold text-[#0a1f44]">{tradeLabel}</span>.
+            We use these details to create your CostaTrade profile and match you
+            with local homeowners.
           </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-12">
           <section className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100">
             <h2 className="text-xl md:text-2xl font-bold text-[#0a1f44] mb-8 flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-50 text-blue-600 text-sm font-bold">1</span>
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-50 text-blue-600 text-sm font-bold">
+                1
+              </span>
               Business details
             </h2>
 
@@ -364,7 +367,9 @@ export default function TradespersonDetails() {
                     })}
                   </div>
                   <div className="mt-4 pt-4 border-t border-gray-200 flex items-center gap-2 text-sm text-muted-foreground">
-                    <span className="font-semibold text-[#0a1f44]">Selected:</span>
+                    <span className="font-semibold text-[#0a1f44]">
+                      Selected:
+                    </span>
                     {selectedAreas.length === 0 ? (
                       <span className="italic">None selected yet</span>
                     ) : (
@@ -378,7 +383,9 @@ export default function TradespersonDetails() {
 
           <section className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100">
             <h2 className="text-xl md:text-2xl font-bold text-[#0a1f44] mb-8 flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-50 text-blue-600 text-sm font-bold">2</span>
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-50 text-blue-600 text-sm font-bold">
+                2
+              </span>
               Business profile
             </h2>
 
@@ -391,7 +398,10 @@ export default function TradespersonDetails() {
                   {[
                     { value: "self-employed", label: "Self employed" },
                     { value: "limited-company", label: "SL company" },
-                    { value: "starting-business", label: "Starting a business" }
+                    {
+                      value: "starting-business",
+                      label: "Starting a business",
+                    },
                   ].map((type) => (
                     <label
                       key={type.value}
@@ -401,7 +411,9 @@ export default function TradespersonDetails() {
                           : "border-gray-100 bg-white hover:border-gray-300"
                       }`}
                     >
-                      <span className={`text-sm font-medium ${businessType === type.value ? "text-[#0a1f44]" : "text-gray-600"}`}>
+                      <span
+                        className={`text-sm font-medium ${businessType === type.value ? "text-[#0a1f44]" : "text-gray-600"}`}
+                      >
                         {type.label}
                       </span>
                       <input
@@ -409,7 +421,9 @@ export default function TradespersonDetails() {
                         name="businessType"
                         value={type.value}
                         checked={businessType === type.value}
-                        onChange={(event) => setBusinessType(event.target.value)}
+                        onChange={(event) =>
+                          setBusinessType(event.target.value)
+                        }
                         className="h-5 w-5 border-gray-300 text-[#0a1f44] focus:ring-[#0a1f44]"
                       />
                     </label>
@@ -468,7 +482,9 @@ export default function TradespersonDetails() {
 
           <section className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100">
             <h2 className="text-xl md:text-2xl font-bold text-[#0a1f44] mb-8 flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-50 text-blue-600 text-sm font-bold">3</span>
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-50 text-blue-600 text-sm font-bold">
+                3
+              </span>
               Contact information
             </h2>
 
@@ -574,7 +590,9 @@ export default function TradespersonDetails() {
                           : "border-gray-100 bg-white text-gray-600 hover:border-gray-300"
                       }`}
                     >
-                      <span className="text-lg" aria-hidden="true">{language.flag}</span>
+                      <span className="text-lg" aria-hidden="true">
+                        {language.flag}
+                      </span>
                       <span>{language.label}</span>
                     </button>
                   );

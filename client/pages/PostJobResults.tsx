@@ -1,21 +1,31 @@
-import { useState } from 'react';
-import { useSearchParams, useNavigate } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { ChevronRight, Phone, MapPin, Star, CheckCircle, Shield, Search, Clock, Filter } from 'lucide-react';
-import { searchTradespeople } from '@/data/tradespeople';
+import { useState } from "react";
+import { useSearchParams, useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import {
+  ChevronRight,
+  Phone,
+  MapPin,
+  Star,
+  CheckCircle,
+  Shield,
+  Search,
+  Clock,
+  Filter,
+} from "lucide-react";
+import { searchTradespeople } from "@/data/tradespeople";
 
 export default function PostJobResults() {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const category = searchParams.get('category') || '';
-  const option = searchParams.get('option') || '';
-  const postcode = searchParams.get('postcode') || '';
-  const [jobDescription, setJobDescription] = useState('');
+  const category = searchParams.get("category") || "";
+  const option = searchParams.get("option") || "";
+  const postcode = searchParams.get("postcode") || "";
+  const [jobDescription, setJobDescription] = useState("");
   const [showQuoteForm, setShowQuoteForm] = useState(false);
   const [selectedTradesperson, setSelectedTradesperson] = useState<any>(null);
-  const [timing, setTiming] = useState('flexible');
+  const [timing, setTiming] = useState("flexible");
 
-  const tradespeople = searchTradespeople(category, '');
+  const tradespeople = searchTradespeople(category, "");
 
   const handleRequestQuote = (tradesperson: any) => {
     setSelectedTradesperson(tradesperson);
@@ -55,15 +65,21 @@ export default function PostJobResults() {
                   )}
                 </div>
                 <div>
-                  <h2 className="text-xl font-bold">{selectedTradesperson.businessName}</h2>
+                  <h2 className="text-xl font-bold">
+                    {selectedTradesperson.businessName}
+                  </h2>
                 </div>
               </div>
 
-              <h1 className="text-3xl font-bold mb-8 text-foreground">Request a quote</h1>
+              <h1 className="text-3xl font-bold mb-8 text-foreground">
+                Request a quote
+              </h1>
 
               <div className="space-y-6">
                 <div>
-                  <label className="block text-lg font-semibold mb-3">Describe your job</label>
+                  <label className="block text-lg font-semibold mb-3">
+                    Describe your job
+                  </label>
                   <textarea
                     value={jobDescription}
                     onChange={(e) => setJobDescription(e.target.value)}
@@ -82,11 +98,20 @@ export default function PostJobResults() {
                   </label>
                   <div className="space-y-3">
                     {[
-                      { value: 'flexible', label: "I'm flexible on the start date" },
-                      { value: 'urgent', label: "It's urgent (within 48 hours)" },
-                      { value: '2weeks', label: 'Within 2 weeks' },
-                      { value: '1month', label: 'Within 1 month' },
-                      { value: 'budgeting', label: "I'm budgeting / researching" },
+                      {
+                        value: "flexible",
+                        label: "I'm flexible on the start date",
+                      },
+                      {
+                        value: "urgent",
+                        label: "It's urgent (within 48 hours)",
+                      },
+                      { value: "2weeks", label: "Within 2 weeks" },
+                      { value: "1month", label: "Within 1 month" },
+                      {
+                        value: "budgeting",
+                        label: "I'm budgeting / researching",
+                      },
                     ].map((option) => (
                       <label
                         key={option.value}
@@ -165,18 +190,27 @@ export default function PostJobResults() {
             <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
               <div className="flex items-center gap-2 mb-4">
                 <Clock className="h-5 w-5 text-[#0a1f44]" />
-                <h3 className="font-bold text-gray-900">When do you need it?</h3>
+                <h3 className="font-bold text-gray-900">
+                  When do you need it?
+                </h3>
               </div>
               <div className="space-y-3">
                 {[
-                  { value: 'flexible', label: 'Flexible start date' },
-                  { value: 'urgent', label: 'Urgent (< 48 hours)' },
-                  { value: '2weeks', label: 'Within 2 weeks' },
-                  { value: '1month', label: 'Within 1 month' }
+                  { value: "flexible", label: "Flexible start date" },
+                  { value: "urgent", label: "Urgent (< 48 hours)" },
+                  { value: "2weeks", label: "Within 2 weeks" },
+                  { value: "1month", label: "Within 1 month" },
                 ].map((t) => (
-                  <label key={t.value} className="flex items-center gap-3 cursor-pointer group">
-                    <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${timing === t.value ? 'border-[#0a1f44]' : 'border-gray-300 group-hover:border-gray-400'}`}>
-                      {timing === t.value && <div className="w-2.5 h-2.5 rounded-full bg-[#0a1f44]" />}
+                  <label
+                    key={t.value}
+                    className="flex items-center gap-3 cursor-pointer group"
+                  >
+                    <div
+                      className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${timing === t.value ? "border-[#0a1f44]" : "border-gray-300 group-hover:border-gray-400"}`}
+                    >
+                      {timing === t.value && (
+                        <div className="w-2.5 h-2.5 rounded-full bg-[#0a1f44]" />
+                      )}
                     </div>
                     <input
                       type="radio"
@@ -186,7 +220,9 @@ export default function PostJobResults() {
                       onChange={(e) => setTiming(e.target.value)}
                       className="hidden"
                     />
-                    <span className={`text-sm ${timing === t.value ? 'font-medium text-[#0a1f44]' : 'text-gray-600'}`}>
+                    <span
+                      className={`text-sm ${timing === t.value ? "font-medium text-[#0a1f44]" : "text-gray-600"}`}
+                    >
                       {t.label}
                     </span>
                   </label>
@@ -201,15 +237,24 @@ export default function PostJobResults() {
               </div>
               <div className="space-y-3">
                 <label className="flex items-center gap-3 cursor-pointer">
-                  <input type="checkbox" className="w-4 h-4 rounded border-gray-300 text-[#0a1f44] focus:ring-[#0a1f44]" />
+                  <input
+                    type="checkbox"
+                    className="w-4 h-4 rounded border-gray-300 text-[#0a1f44] focus:ring-[#0a1f44]"
+                  />
                   <span className="text-sm text-gray-600">Verified Only</span>
                 </label>
                 <label className="flex items-center gap-3 cursor-pointer">
-                  <input type="checkbox" className="w-4 h-4 rounded border-gray-300 text-[#0a1f44] focus:ring-[#0a1f44]" />
+                  <input
+                    type="checkbox"
+                    className="w-4 h-4 rounded border-gray-300 text-[#0a1f44] focus:ring-[#0a1f44]"
+                  />
                   <span className="text-sm text-gray-600">With Photos</span>
                 </label>
                 <label className="flex items-center gap-3 cursor-pointer">
-                  <input type="checkbox" className="w-4 h-4 rounded border-gray-300 text-[#0a1f44] focus:ring-[#0a1f44]" />
+                  <input
+                    type="checkbox"
+                    className="w-4 h-4 rounded border-gray-300 text-[#0a1f44] focus:ring-[#0a1f44]"
+                  />
                   <span className="text-sm text-gray-600">With Reviews</span>
                 </label>
               </div>
@@ -230,7 +275,10 @@ export default function PostJobResults() {
             </div>
 
             {tradespeople.map((tradesperson) => (
-              <div key={tradesperson.slug} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+              <div
+                key={tradesperson.slug}
+                className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
+              >
                 <div className="flex flex-col md:flex-row gap-6">
                   {/* Left: Avatar */}
                   <div className="w-full md:w-24 h-24 rounded-xl bg-gray-100 overflow-hidden flex-shrink-0 relative">
@@ -260,8 +308,12 @@ export default function PostJobResults() {
                       </h2>
                       <div className="flex items-center gap-1 bg-green-50 px-2 py-1 rounded-lg border border-green-100">
                         <Star className="h-4 w-4 text-green-600 fill-current" />
-                        <span className="font-bold text-green-700">{tradesperson.rating.toFixed(2)}</span>
-                        <span className="text-xs text-green-600">({tradesperson.reviewCount})</span>
+                        <span className="font-bold text-green-700">
+                          {tradesperson.rating.toFixed(2)}
+                        </span>
+                        <span className="text-xs text-green-600">
+                          ({tradesperson.reviewCount})
+                        </span>
                       </div>
                     </div>
 
@@ -296,7 +348,7 @@ export default function PostJobResults() {
                     <Button
                       variant="outline"
                       className="w-full border-2 border-gray-200 hover:bg-gray-50 hover:border-gray-300 text-gray-700 font-semibold py-6 rounded-xl"
-                      onClick={() => handleCall('+34-123-456-789')}
+                      onClick={() => handleCall("+34-123-456-789")}
                     >
                       <Phone className="h-4 w-4 mr-2" />
                       Show number

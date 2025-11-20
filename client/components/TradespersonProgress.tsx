@@ -32,14 +32,14 @@ export function TradespersonProgress({
             const labelClassName = cn(
               "font-medium text-sm md:text-lg transition-colors duration-300",
               isActiveOrComplete ? "text-[#0a1f44]" : "text-gray-400",
-              isCurrent && "font-bold"
+              isCurrent && "font-bold",
             );
 
             const circleClassName = cn(
               "flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full border-2 transition-all duration-300",
               isActiveOrComplete
                 ? "border-emerald-500 bg-emerald-50 text-emerald-600"
-                : "border-gray-200 bg-white text-gray-300"
+                : "border-gray-200 bg-white text-gray-300",
             );
 
             const lineClassName = cn(
@@ -48,13 +48,18 @@ export function TradespersonProgress({
             );
 
             return (
-              <div key={step.id} className="flex items-center flex-1 last:flex-none">
+              <div
+                key={step.id}
+                className="flex items-center flex-1 last:flex-none"
+              >
                 <div className="flex items-center gap-3 md:gap-4">
                   <div className={circleClassName}>
                     {isActiveOrComplete ? (
                       <CheckCircle2 className="h-5 w-5 md:h-6 md:w-6" />
                     ) : (
-                      <span className="text-sm md:text-base font-semibold">{stepNumber}</span>
+                      <span className="text-sm md:text-base font-semibold">
+                        {stepNumber}
+                      </span>
                     )}
                   </div>
                   <span className={labelClassName}>{step.label}</span>
