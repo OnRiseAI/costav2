@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Shield, Eye, Star, Award, CheckCircle, XCircle, Quote } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export default function VerificationPromisePage() {
   return (
