@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Mail, Phone, MessageCircle, ArrowRight, HelpCircle, ChevronDown } from "lucide-react";
+import { Mail, Phone, MessageCircle, ArrowRight, HelpCircle, ChevronDown, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -40,104 +40,110 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white font-sans">
+    <div className="min-h-screen bg-white font-sans selection:bg-[#0a1f44] selection:text-white">
       {/* Hero Section */}
-      <section className="bg-gray-50 py-20 md:py-24">
-        <div className="container-custom text-center max-w-4xl">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#0a1f44] mb-6">
-            Get in touch with us
+      <section className="relative bg-[#0a1f44] text-white py-24 md:py-32 overflow-hidden">
+        <div className="absolute inset-0 opacity-10 pattern-grid pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+
+        <div className="container-custom relative z-10 text-center max-w-4xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
+            <span className="text-xs font-medium tracking-wider uppercase text-blue-100">Official Contact Channel</span>
+          </div>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight font-serif">
+            Get in touch
           </h1>
-          <p className="text-xl text-muted-foreground font-light max-w-2xl mx-auto">
-            We are here to help residents and homeowners on the Costa del Sol.
+          <p className="text-xl md:text-2xl text-blue-100/80 font-light max-w-2xl mx-auto leading-relaxed">
+            We are here to serve residents and homeowners across the Costa del Sol with excellence and integrity.
           </p>
         </div>
       </section>
 
       {/* Contact Methods */}
-      <section className="py-12 -mt-16 relative z-10">
+      <section className="py-12 -mt-20 relative z-20">
         <div className="container-custom">
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
             {/* Email Card */}
-            <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <CardContent className="p-8 text-center flex flex-col items-center h-full">
-                <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-6 text-blue-600">
-                  <Mail className="w-8 h-8" />
-                </div>
-                <h3 className="text-xl font-bold text-[#0a1f44] mb-2">Email Us</h3>
-                <p className="text-muted-foreground mb-6">
-                  For general inquiries and support
-                </p>
-                <a
-                  href="mailto:hi@costatrades.com"
-                  className="text-blue-600 font-semibold hover:underline mt-auto text-lg"
-                >
-                  hi@costatrades.com
-                </a>
-              </CardContent>
-            </Card>
+            <div className="group bg-white rounded-xl shadow-xl shadow-blue-900/5 border border-gray-100 p-8 text-center hover:-translate-y-1 transition-all duration-300">
+              <div className="w-16 h-16 mx-auto bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-[#0a1f44] transition-colors duration-300">
+                <Mail className="w-7 h-7 text-[#0a1f44] group-hover:text-white transition-colors duration-300" />
+              </div>
+              <h3 className="text-xl font-bold text-[#0a1f44] mb-2 font-serif">Email Us</h3>
+              <p className="text-muted-foreground mb-6 text-sm">
+                For general inquiries and official correspondence
+              </p>
+              <a
+                href="mailto:hi@costatrades.com"
+                className="inline-flex items-center justify-center text-[#0a1f44] font-semibold hover:text-blue-600 transition-colors text-lg border-b-2 border-transparent hover:border-blue-600 pb-0.5"
+              >
+                hi@costatrades.com
+              </a>
+            </div>
 
             {/* Phone Card */}
-            <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <CardContent className="p-8 text-center flex flex-col items-center h-full">
-                <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-6 text-blue-600">
-                  <Phone className="w-8 h-8" />
-                </div>
-                <h3 className="text-xl font-bold text-[#0a1f44] mb-2">Call Us</h3>
-                <p className="text-muted-foreground mb-6">
-                  Mon-Fri from 9am to 6pm
-                </p>
-                <a
-                  href="tel:+34604288426"
-                  className="text-blue-600 font-semibold hover:underline mt-auto text-lg"
-                >
-                  +34 604 288 426
-                </a>
-              </CardContent>
-            </Card>
+            <div className="group bg-white rounded-xl shadow-xl shadow-blue-900/5 border border-gray-100 p-8 text-center hover:-translate-y-1 transition-all duration-300">
+              <div className="w-16 h-16 mx-auto bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-[#0a1f44] transition-colors duration-300">
+                <Phone className="w-7 h-7 text-[#0a1f44] group-hover:text-white transition-colors duration-300" />
+              </div>
+              <h3 className="text-xl font-bold text-[#0a1f44] mb-2 font-serif">Call Us</h3>
+              <p className="text-muted-foreground mb-6 text-sm">
+                Available Mon-Fri from 9am to 6pm CET
+              </p>
+              <a
+                href="tel:+34604288426"
+                className="inline-flex items-center justify-center text-[#0a1f44] font-semibold hover:text-blue-600 transition-colors text-lg border-b-2 border-transparent hover:border-blue-600 pb-0.5"
+              >
+                +34 604 288 426
+              </a>
+            </div>
 
             {/* WhatsApp Card */}
-            <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 ring-2 ring-green-500/10">
-              <CardContent className="p-8 text-center flex flex-col items-center h-full">
-                <div className="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mb-6 text-green-600">
-                  <MessageCircle className="w-8 h-8" />
-                </div>
-                <h3 className="text-xl font-bold text-[#0a1f44] mb-2">
-                  Chat on WhatsApp
-                </h3>
-                <p className="text-green-600 font-medium mb-6">Fastest response</p>
-                <Button
-                  asChild
-                  className="mt-auto bg-[#25D366] hover:bg-[#25D366]/90 text-white w-full"
+            <div className="group bg-white rounded-xl shadow-xl shadow-blue-900/5 border border-green-100 p-8 text-center hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+              <div className="absolute top-0 right-0 bg-green-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">
+                Fastest Response
+              </div>
+              <div className="w-16 h-16 mx-auto bg-green-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-green-600 transition-colors duration-300">
+                <MessageCircle className="w-7 h-7 text-green-600 group-hover:text-white transition-colors duration-300" />
+              </div>
+              <h3 className="text-xl font-bold text-[#0a1f44] mb-2 font-serif">
+                WhatsApp
+              </h3>
+              <p className="text-muted-foreground mb-6 text-sm">
+                Direct line to our support team
+              </p>
+              <Button
+                asChild
+                className="w-full bg-green-600 hover:bg-green-700 text-white shadow-lg shadow-green-600/20 rounded-full h-12 font-medium tracking-wide"
+              >
+                <a
+                  href="https://wa.me/34604288426"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <a
-                    href="https://wa.me/34604288426"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Open WhatsApp
-                  </a>
-                </Button>
-              </CardContent>
-            </Card>
+                  Open WhatsApp
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
 
       {/* FAQ Redirection */}
-      <section className="py-16 bg-blue-50/50">
+      <section className="py-12">
         <div className="container-custom">
-          <div className="bg-white rounded-2xl p-8 md:p-12 shadow-sm border border-blue-100 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="bg-gradient-to-r from-gray-50 to-white rounded-2xl p-8 md:p-10 border border-gray-100 flex flex-col md:flex-row items-center justify-between gap-8 shadow-sm">
             <div className="flex items-start gap-6">
-              <div className="hidden md:flex w-16 h-16 bg-blue-100 rounded-full items-center justify-center flex-shrink-0 text-blue-600">
-                <HelpCircle className="w-8 h-8" />
+              <div className="hidden md:flex w-14 h-14 bg-[#0a1f44] rounded-full items-center justify-center flex-shrink-0 text-white shadow-lg shadow-blue-900/20">
+                <HelpCircle className="w-6 h-6" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-[#0a1f44] mb-2">
+                <h2 className="text-2xl font-bold text-[#0a1f44] mb-2 font-serif">
                   Have a quick question?
                 </h2>
-                <p className="text-muted-foreground text-lg">
-                  You might find the answer you need instantly in our Frequently
-                  Asked Questions.
+                <p className="text-muted-foreground text-lg font-light">
+                  Our comprehensive FAQ section may have the immediate answer you need.
                 </p>
               </div>
             </div>
@@ -145,7 +151,7 @@ export default function ContactPage() {
               asChild
               variant="outline"
               size="lg"
-              className="border-blue-200 text-blue-700 hover:bg-blue-50 whitespace-nowrap"
+              className="border-[#0a1f44] text-[#0a1f44] hover:bg-[#0a1f44] hover:text-white rounded-full px-8 h-12 font-medium transition-all duration-300"
             >
               <Link to="/about">Visit FAQ Page</Link>
             </Button>
@@ -154,96 +160,100 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form */}
-      <section className="py-20 md:py-24 bg-white">
-        <div className="container-custom max-w-2xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#0a1f44] mb-4">
+      <section className="py-20 md:py-24 bg-white relative">
+        <div className="container-custom max-w-3xl">
+          <div className="text-center mb-16">
+            <span className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-3 block">Contact Form</span>
+            <h2 className="text-4xl font-bold text-[#0a1f44] mb-6 font-serif">
               Send us a message
             </h2>
-            <p className="text-muted-foreground">
-              Fill out the form below and we'll get back to you within 24 hours.
+            <div className="w-24 h-1 bg-blue-600 mx-auto mb-6 rounded-full"></div>
+            <p className="text-lg text-muted-foreground font-light">
+              Please fill out the form below. Our team is committed to responding to all inquiries within 24 hours.
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <Label htmlFor="name">Name</Label>
-                <Input
-                  id="name"
-                  placeholder="Your name"
-                  value={formData.name}
+          <div className="bg-white p-8 md:p-12 rounded-2xl shadow-2xl shadow-gray-200/50 border border-gray-100">
+            <form onSubmit={handleSubmit} className="space-y-8">
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="space-y-3">
+                  <Label htmlFor="name" className="text-sm font-semibold text-[#0a1f44] uppercase tracking-wide">Full Name</Label>
+                  <Input
+                    id="name"
+                    placeholder="e.g. John Doe"
+                    value={formData.name}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
+                    required
+                    className="h-14 bg-gray-50 border-gray-200 focus:border-[#0a1f44] focus:ring-[#0a1f44]/10 rounded-lg transition-all"
+                  />
+                </div>
+                <div className="space-y-3">
+                  <Label htmlFor="email" className="text-sm font-semibold text-[#0a1f44] uppercase tracking-wide">Email Address</Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="e.g. john@example.com"
+                    value={formData.email}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
+                    required
+                    className="h-14 bg-gray-50 border-gray-200 focus:border-[#0a1f44] focus:ring-[#0a1f44]/10 rounded-lg transition-all"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <Label htmlFor="subject" className="text-sm font-semibold text-[#0a1f44] uppercase tracking-wide">Subject</Label>
+                <div className="relative">
+                  <select
+                    id="subject"
+                    value={formData.subject}
+                    onChange={(e) =>
+                      setFormData({ ...formData, subject: e.target.value })
+                    }
+                    className="flex h-14 w-full items-center justify-between rounded-lg border border-gray-200 bg-gray-50 px-4 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:border-[#0a1f44] focus:ring-4 focus:ring-[#0a1f44]/5 disabled:cursor-not-allowed disabled:opacity-50 appearance-none transition-all"
+                    required
+                  >
+                    <option value="" disabled>
+                      Select the nature of your inquiry
+                    </option>
+                    <option value="general">General Inquiry</option>
+                    <option value="support">Technical Support</option>
+                    <option value="feedback">Feedback & Suggestions</option>
+                    <option value="partnership">Partnership Opportunities</option>
+                  </select>
+                  <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 pointer-events-none" />
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <Label htmlFor="message" className="text-sm font-semibold text-[#0a1f44] uppercase tracking-wide">Message</Label>
+                <Textarea
+                  id="message"
+                  placeholder="How can we assist you today?"
+                  value={formData.message}
                   onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
+                    setFormData({ ...formData, message: e.target.value })
                   }
                   required
-                  className="h-12"
+                  className="min-h-[180px] resize-none bg-gray-50 border-gray-200 focus:border-[#0a1f44] focus:ring-[#0a1f44]/10 rounded-lg p-4 transition-all"
                 />
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="your@email.com"
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
-                  required
-                  className="h-12"
-                />
-              </div>
-            </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="subject">Subject</Label>
-              <div className="relative">
-                <select
-                  id="subject"
-                  value={formData.subject}
-                  onChange={(e) =>
-                    setFormData({ ...formData, subject: e.target.value })
-                  }
-                  className="flex h-12 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 appearance-none"
-                  required
-                >
-                  <option value="" disabled>
-                    Select a subject
-                  </option>
-                  <option value="general">General Inquiry</option>
-                  <option value="support">Support</option>
-                  <option value="feedback">Feedback</option>
-                  <option value="partnership">Partnership</option>
-                </select>
-                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 opacity-50 pointer-events-none" />
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="message">Message</Label>
-              <Textarea
-                id="message"
-                placeholder="How can we help you?"
-                value={formData.message}
-                onChange={(e) =>
-                  setFormData({ ...formData, message: e.target.value })
-                }
-                required
-                className="min-h-[150px] resize-none"
-              />
-            </div>
-
-            <Button
-              type="submit"
-              size="lg"
-              className="w-full bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white h-12 text-lg"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? "Sending..." : "Send Message"}
-              {!isSubmitting && <ArrowRight className="ml-2 h-5 w-5" />}
-            </Button>
-          </form>
+              <Button
+                type="submit"
+                size="lg"
+                className="w-full bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white h-14 text-lg font-bold tracking-wide rounded-lg shadow-lg shadow-blue-900/20 transition-all hover:shadow-xl hover:-translate-y-0.5"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Sending Message..." : "Send Message"}
+                {!isSubmitting && <ArrowRight className="ml-2 h-5 w-5" />}
+              </Button>
+            </form>
+          </div>
         </div>
       </section>
     </div>
