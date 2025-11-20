@@ -398,6 +398,9 @@ export function Footer() {
         </div>
       </div>
 
+      {/* Mega Footer for SEO */}
+      <MegaFooter />
+
       {/* Bottom Bar */}
       <div className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-8">
         <div className="container-custom">
