@@ -166,19 +166,26 @@ export default function AboutPage() {
 
       {/* Who We Serve */}
       <section className="py-20 md:py-32 bg-[#0a1f44] text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500 rounded-full blur-[100px]"></div>
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-500 rounded-full blur-[80px]"></div>
+        {/* Enhanced Background */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/20 rounded-full blur-[120px] animate-pulse-slow"></div>
+          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-500/20 rounded-full blur-[100px] animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
         </div>
 
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-8">Who We Serve</h2>
-              <p className="text-xl text-blue-100 mb-10 font-light leading-relaxed">
+              <div className="inline-block px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/20 text-blue-300 font-semibold text-sm mb-6 backdrop-blur-sm">
+                Our Community
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-8 leading-tight">
+                Who We Serve
+              </h2>
+              <p className="text-xl text-blue-100/90 mb-10 font-light leading-relaxed">
                 Whether you live here full-time or visit occasionally, we help you maintain and improve your property with confidence.
               </p>
-              <div className="space-y-6">
+              <div className="space-y-4">
                 {[
                   {
                     icon: Home,
@@ -198,13 +205,13 @@ export default function AboutPage() {
                 ].map((item, index) => {
                   const Icon = item.icon;
                   return (
-                    <div key={index} className="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-                      <div className="p-2 bg-white/10 rounded-lg">
-                        <Icon className="w-6 h-6 text-blue-200" />
+                    <div key={index} className="flex items-start gap-5 p-5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm group hover:translate-x-1">
+                      <div className="p-3 bg-blue-500/20 rounded-xl group-hover:bg-blue-500/30 transition-colors">
+                        <Icon className="w-6 h-6 text-blue-200 group-hover:text-white transition-colors" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-lg mb-1">{item.title}</h3>
-                        <p className="text-blue-100/80">{item.desc}</p>
+                        <h3 className="font-bold text-lg mb-1 text-white group-hover:text-blue-200 transition-colors">{item.title}</h3>
+                        <p className="text-blue-100/70 group-hover:text-blue-100 transition-colors">{item.desc}</p>
                       </div>
                     </div>
                   );
@@ -212,17 +219,30 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="relative hidden lg:block">
-              <div className="grid grid-cols-2 gap-4">
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2Fa37c88abad5c48feb45d83e5b15c60fc?format=webp&width=800"
-                  alt="Luxury villa terrace with ocean view"
-                  className="rounded-2xl shadow-lg translate-y-8 w-full h-auto object-cover"
-                />
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2F9cecb7dfb8784f9aa6451e19d5a3ce79?format=webp&width=800"
-                  alt="Modern minimalist apartment buildings"
-                  className="rounded-2xl shadow-lg w-full h-auto object-cover"
-                />
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-[3rem] blur-2xl -z-10"></div>
+              <div className="grid grid-cols-2 gap-6">
+                <div className="space-y-6 translate-y-12">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2Fa37c88abad5c48feb45d83e5b15c60fc?format=webp&width=800"
+                    alt="Luxury villa terrace with ocean view"
+                    className="rounded-2xl shadow-2xl w-full h-64 object-cover hover:scale-[1.02] transition-transform duration-500 border border-white/10"
+                  />
+                  <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
+                    <div className="text-3xl font-bold text-blue-300 mb-1">2,000+</div>
+                    <div className="text-sm text-blue-100/80">Jobs Posted</div>
+                  </div>
+                </div>
+                <div className="space-y-6">
+                  <div className="p-6 rounded-2xl bg-gradient-to-br from-blue-600/80 to-blue-800/80 border border-white/10 backdrop-blur-md text-white shadow-xl">
+                    <div className="text-3xl font-bold mb-1">500+</div>
+                    <div className="text-sm text-blue-100">Verified Trades</div>
+                  </div>
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2F9cecb7dfb8784f9aa6451e19d5a3ce79?format=webp&width=800"
+                    alt="Modern minimalist apartment buildings"
+                    className="rounded-2xl shadow-2xl w-full h-64 object-cover hover:scale-[1.02] transition-transform duration-500 border border-white/10"
+                  />
+                </div>
               </div>
             </div>
           </div>
