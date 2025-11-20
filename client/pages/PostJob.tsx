@@ -200,15 +200,15 @@ export default function PostJob() {
           <div className="relative max-w-2xl mx-auto group">
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-20 group-hover:opacity-40 blur transition duration-500"></div>
             <div className="relative bg-white rounded-full shadow-2xl flex items-center p-2 transition-transform duration-300 hover:scale-[1.01]">
-              <div className="pl-6 pr-4 text-gray-400">
+              <div className="pl-6 pr-4 text-gray-400 flex-shrink-0">
                 <Search className="h-6 w-6" />
               </div>
               <input
                 type="text"
                 placeholder={PLACEHOLDERS[placeholderIndex]}
-                className={`w-full h-14 text-lg text-gray-900 placeholder:text-gray-400 focus:outline-none bg-transparent transition-opacity duration-500 ${fade ? 'opacity-100' : 'opacity-0'}`}
+                className={`flex-1 min-w-0 h-14 text-lg text-gray-900 placeholder:text-gray-400 focus:outline-none bg-transparent transition-opacity duration-500 ${fade ? 'opacity-100' : 'opacity-0'}`}
               />
-              <button className="bg-[#0a1f44] text-white px-8 h-14 rounded-full font-bold text-lg hover:bg-blue-900 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center">
+              <button className="bg-[#0a1f44] text-white px-8 h-14 rounded-full font-bold text-lg hover:bg-blue-900 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center flex-shrink-0">
                 Search
               </button>
             </div>
