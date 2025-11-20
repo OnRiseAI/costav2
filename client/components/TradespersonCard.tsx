@@ -164,7 +164,7 @@ export function TradespersonCard({
           </Link>
           <Button
             variant="outline"
-            className="w-full text-lg py-6 rounded-xl border-2 border-foreground text-foreground hover:bg-gray-50"
+            className="w-full text-lg py-6 rounded-xl border-2 border-foreground text-foreground hover:bg-gray-50 hover:text-foreground"
             onClick={handleCall}
           >
             <Phone className="h-5 w-5 mr-2" />
