@@ -28,7 +28,9 @@ import CostGuidesPage from "@/pages/CostGuidesPage";
 import ContactPage from "@/pages/ContactPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
+import CookiePolicy from "@/pages/CookiePolicy";
 import SEOTradePage from "@/pages/SEOTradePage";
+import { CookieConsent } from "@/components/CookieConsent";
 import PlaceholderPage from "@/pages/PlaceholderPage";
 import NotFound from "@/pages/NotFound";
 import "./global.css";
@@ -219,6 +221,10 @@ function AppContent() {
               element={<PrivacyPolicy />}
             />
             <Route
+              path="/cookie-policy"
+              element={<CookiePolicy />}
+            />
+            <Route
               path="/help"
               element={
                 <PlaceholderPage
@@ -242,6 +248,7 @@ function AppContent() {
           </Routes>
         </main>
         <Footer />
+        <CookieConsent />
       </div>
     </>
   );
