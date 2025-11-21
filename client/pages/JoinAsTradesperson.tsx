@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/SEO";
 import {
   Dialog,
   DialogContent,
@@ -153,6 +154,17 @@ export default function JoinAsTradesperson() {
 
   return (
     <div className="bg-white font-sans">
+      <SEO
+        title="Join as a Tradesperson | Get More Leads"
+        description="Sign up to CostaTrades. Get verified leads in Marbella & Costa del Sol. 0% commission on jobs."
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Join as a Tradesperson",
+          description:
+            "Join CostaTrades to get verified leads and grow your business across the Costa del Sol.",
+        }}
+      />
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-[#0a1f44] text-white py-20 md:py-32">
         {/* Background Effects */}
