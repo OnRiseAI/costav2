@@ -368,6 +368,51 @@ export const tradeServices: TradeServices = {
       }
     ]
   },
+  'gardeners': {
+    title: 'What gardening services do you need?',
+    services: [
+      {
+        id: 'maintenance',
+        label: 'Garden maintenance',
+        description: 'e.g. mowing, weeding, pruning'
+      },
+      {
+        id: 'landscaping',
+        label: 'Landscaping & design',
+        description: 'e.g. new garden design, planting'
+      },
+      {
+        id: 'trees',
+        label: 'Tree surgery',
+        description: 'e.g. felling, stump removal'
+      },
+      {
+        id: 'fencing',
+        label: 'Fencing & decking',
+        description: 'e.g. installation, repairs'
+      },
+      {
+        id: 'patio',
+        label: 'Patio & driveway cleaning',
+        description: 'e.g. jet washing'
+      },
+      {
+        id: 'irrigation',
+        label: 'Irrigation systems',
+        description: 'e.g. sprinklers, drip systems'
+      },
+      {
+        id: 'waste',
+        label: 'Garden waste removal',
+        description: 'e.g. clearance'
+      },
+      {
+        id: 'other',
+        label: 'Other/I\'m not sure',
+        description: ''
+      }
+    ]
+  },
   'pool-maintenance': {
     title: 'What pool services do you need?',
     services: [
