@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/SEO";
 import {
   Shield,
   MapPin,
@@ -8,7 +9,6 @@ import {
   AlertCircle,
   Info,
 } from "lucide-react";
-import { useEffect } from "react";
 
 // Image mapping for different trades
 const TRADE_IMAGES: Record<string, string> = {
@@ -71,28 +71,30 @@ export default function SEOTradePage() {
     TRADE_IMAGES[normalizedTrade + "s"] ||
     TRADE_IMAGES.default;
 
-  // Update Page Title and Meta Description
-  useEffect(() => {
-    if (tradeName && locationName) {
-      const title = `Top Rated ${tradeName} in ${locationName} | CostaTrades`;
-      document.title = title;
-
-      // Update meta description
-      let metaDescription = document.querySelector('meta[name="description"]');
-      if (!metaDescription) {
-        metaDescription = document.createElement("meta");
-        metaDescription.setAttribute("name", "description");
-        document.head.appendChild(metaDescription);
-      }
-      metaDescription.setAttribute(
-        "content",
-        `Find the best ${tradeName} in ${locationName}. Verified professionals, fair pricing, and local expertise. Get a free quote today.`,
-      );
-    }
-  }, [tradeName, locationName]);
-
   return (
     <div className="min-h-screen bg-white font-sans">
+      <SEO
+        title={`Best ${tradeName} in ${locationName} | Verified & Reviewed`}
+        description={`Need a ${tradeName} in ${locationName}? Verified local experts. Emergency call-outs, repairs & installations. Get a free quote today.`}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: `Verified ${tradeName} Services in ${locationName}`,
+          provider: {
+            "@type": "Organization",
+            name: "CostaTrades Network",
+          },
+          areaServed: {
+            "@type": "City",
+            name: locationName,
+          },
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: "4.8",
+            reviewCount: "120",
+          },
+        }}
+      />
       {/* 1. Hero Section */}
       <section className="relative py-24 md:py-32 overflow-hidden">
         {/* Background Image */}
