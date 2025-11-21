@@ -62,7 +62,7 @@ export function RecentSearches() {
             className="flex items-center justify-between bg-white rounded-lg px-4 py-3 border border-border hover:border-primary transition-colors group"
           >
             <Link
-              to={`/search?trade=${encodeURIComponent(search.trade)}&location=${encodeURIComponent(search.location)}`}
+              to={`/post-job?option=${encodeURIComponent(search.trade)}&postcode=${encodeURIComponent(search.location)}`}
               className="flex-1 flex items-center gap-3"
             >
               <span className="text-foreground font-medium group-hover:text-primary transition-colors">
