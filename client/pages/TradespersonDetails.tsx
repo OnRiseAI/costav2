@@ -55,6 +55,16 @@ const LANGUAGE_OPTIONS = [
   { value: "Spanish", label: "Spanish", flag: "🇪🇸" },
   { value: "German", label: "German", flag: "🇩🇪" },
   { value: "French", label: "French", flag: "🇫🇷" },
+  { value: "Dutch", label: "Dutch", flag: "🇳🇱" },
+  { value: "Swedish", label: "Swedish", flag: "🇸🇪" },
+  { value: "Norwegian", label: "Norwegian", flag: "🇳🇴" },
+  { value: "Danish", label: "Danish", flag: "🇩🇰" },
+  { value: "Russian", label: "Russian", flag: "🇷🇺" },
+  { value: "Italian", label: "Italian", flag: "🇮🇹" },
+  { value: "Portuguese", label: "Portuguese", flag: "🇵🇹" },
+  { value: "Polish", label: "Polish", flag: "🇵🇱" },
+  { value: "Ukrainian", label: "Ukrainian", flag: "🇺🇦" },
+  { value: "Finnish", label: "Finnish", flag: "🇫🇮" },
   { value: "Arabic", label: "Arabic", flag: "🇦🇪" },
 ] as const;
 
