@@ -106,14 +106,14 @@ export function Navigation() {
               <Link to="/join-as-tradesperson" className="hidden md:block">
                 <Button
                   variant="outline"
-                  className="border border-[#0a1f44] text-[#0a1f44] hover:bg-gray-50 bg-white px-5 md:px-7 h-[44px] text-[14px] md:text-[15px] font-medium rounded-full whitespace-nowrap"
+                  className="border border-[#0a1f44] text-[#0a1f44] hover:bg-gray-50 hover:text-[#0a1f44] bg-white px-5 md:px-7 h-[44px] text-[14px] md:text-[15px] font-medium rounded-full whitespace-nowrap"
                 >
                   For tradespeople
                 </Button>
               </Link>
               <Button
                 variant="outline"
-                className="hidden lg:inline-flex border-0 text-[#0a1f44] hover:bg-gray-50 bg-white px-4 h-[40px] text-[13px] font-medium rounded-full whitespace-nowrap"
+                className="hidden lg:inline-flex border-0 text-[#0a1f44] hover:bg-gray-50 hover:text-[#0a1f44] bg-white px-4 h-[40px] text-[13px] font-medium rounded-full whitespace-nowrap"
                 onClick={() => setIsAppModalOpen(true)}
               >
                 Download app
