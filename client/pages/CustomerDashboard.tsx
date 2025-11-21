@@ -168,6 +168,22 @@ export function CustomerDashboard() {
   }, [isAuthenticated, navigate]);
 
   useEffect(() => {
+    try {
+      const prefs: NotificationPreferences = {
+        push: pushEnabled,
+        whatsapp: whatsappEnabled,
+        email: emailEnabled,
+      };
+      window.localStorage.setItem(
+        NOTIFICATION_PREFS_KEY,
+        JSON.stringify(prefs),
+      );
+    } catch {
+      // If persisting preferences fails, continue without blocking the UI
+    }
+  }, [pushEnabled, whatsappEnabled, emailEnabled]);
+
+  useEffect(() => {
     const tab = searchParams.get("tab");
     if (!tab) return;
     const allowedTabs = [
