@@ -221,9 +221,12 @@ export default function LoginPage() {
           <div className="mt-8 text-center">
             <p className="text-sm text-gray-600">
               Don't have an account?{" "}
-              <span className="font-semibold text-[#0a1f44]">
+              <Link
+                to="/signup"
+                className="font-semibold text-[#0a1f44] hover:underline"
+              >
                 Sign up for free
-              </span>
+              </Link>
             </p>
           </div>
         </div>
