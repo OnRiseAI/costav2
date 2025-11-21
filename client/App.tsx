@@ -15,6 +15,7 @@ import RequestQuoteContact from "@/pages/RequestQuoteContact";
 import LoginPage from "@/pages/LoginPage";
 import SignupPage from "@/pages/SignupPage";
 import JoinAsTradesperson from "@/pages/JoinAsTradesperson";
+import TradespersonProfile from "@/pages/TradespersonProfile";
 import TradespersonDetails from "@/pages/TradespersonDetails";
 import TradespersonReview from "@/pages/TradespersonReview";
 import TradespersonSubmitted from "@/pages/TradespersonSubmitted";
@@ -73,12 +74,7 @@ function AppContent() {
             {/* Tradesperson Profile */}
             <Route
               path="/tradesperson/:slug"
-              element={
-                <PlaceholderPage
-                  title="Tradesperson Profile"
-                  description="View detailed tradesperson profile, reviews, and gallery"
-                />
-              }
+              element={<TradespersonProfile />}
             />
 
             {/* Search */}
