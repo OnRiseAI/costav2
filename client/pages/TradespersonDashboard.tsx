@@ -440,6 +440,59 @@ export function TradespersonDashboard() {
     </div>
   );
 
+  const renderReviews = () => (
+    <div className="space-y-6">
+      <h2 className="text-2xl font-bold text-[#0a1f44]">Reviews</h2>
+
+      <div className="space-y-4">
+        {mockReviews.map((review) => (
+          <div
+            key={review.id}
+            className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm"
+          >
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-3">
+              <div>
+                <p className="text-sm text-slate-500 mb-1">
+                  {review.jobTitle}  b7 {review.location}
+                </p>
+                <h3 className="font-semibold text-[#0a1f44]">
+                  {review.clientName}
+                </h3>
+              </div>
+              <div className="flex items-center gap-1 text-amber-500 text-sm">
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <Star
+                    key={index}
+                    className={`w-4 h-4 ${index < Math.round(review.rating) ? "fill-current" : "text-slate-200"}`}
+                  />
+                ))}
+                <span className="font-semibold text-amber-600">
+                  {review.rating.toFixed(1)}
+                </span>
+                <span className="text-xs text-slate-400">{review.date}</span>
+              </div>
+            </div>
+
+            <p className="text-slate-600 text-sm mb-4">"{review.text}"</p>
+
+            <div className="flex flex-wrap gap-3">
+              <Button size="sm" className="gap-2">
+                <MessageSquare className="w-4 h-4" /> Reply
+              </Button>
+              <Button
+                size="sm"
+                variant="outline"
+                className="gap-2 text-red-600 border-red-200 hover:bg-red-50 hover:text-red-700"
+              >
+                <AlertTriangle className="w-4 h-4" /> Report
+              </Button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
   return (
     <div className="min-h-screen bg-slate-50 font-sans pb-20">
       <SEO
