@@ -111,10 +111,13 @@ const mockQuotes = [
 
 export function CustomerDashboard() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const { user, signOut, isAuthenticated } = useAuth();
   const [activeTab, setActiveTab] = useState("jobs");
   const [selectedJob, setSelectedJob] = useState<string | null>(null);
   const [showQuotes, setShowQuotes] = useState(false);
+
+  const savedPros = demoTradespeople.slice(0, 6);
 
   // Notification settings state
   const [pushEnabled, setPushEnabled] = useState(true);
