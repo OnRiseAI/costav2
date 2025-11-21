@@ -472,6 +472,7 @@ export default function PostJob() {
                   </div>
                   <Input
                     type="text"
+                    list="costa-towns"
                     value={postcode}
                     onChange={(e) => setPostcode(e.target.value.toUpperCase())}
                     placeholder="Enter postcode or town (e.g. 29600)"
@@ -479,6 +480,11 @@ export default function PostJob() {
                     autoFocus
                     onKeyDown={(e) => e.key === "Enter" && handleSearch()}
                   />
+                  <datalist id="costa-towns">
+                    {towns.map((t) => (
+                      <option value={t} key={t} />
+                    ))}
+                  </datalist>
                 </div>
 
                 <Button
