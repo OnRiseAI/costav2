@@ -10,8 +10,6 @@ import SearchResults from "@/pages/SearchResults";
 import JobPostedSuccess from "@/pages/JobPostedSuccess";
 import PostJob from "@/pages/PostJob";
 import PostJobResults from "@/pages/PostJobResults";
-import RequestQuote from "@/pages/RequestQuote";
-import RequestQuoteContact from "@/pages/RequestQuoteContact";
 import LoginPage from "@/pages/LoginPage";
 import SignupPage from "@/pages/SignupPage";
 import JoinAsTradesperson from "@/pages/JoinAsTradesperson";
@@ -30,7 +28,6 @@ import VerificationPromisePage from "@/pages/VerificationPromisePage";
 import FAQPage from "@/pages/FAQPage";
 import CostGuidesPage from "@/pages/CostGuidesPage";
 import ContactPage from "@/pages/ContactPage";
-import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import CookiePolicy from "@/pages/CookiePolicy";
 import BlogPage from "@/pages/BlogPage";
@@ -85,7 +82,6 @@ function AppContent() {
             <Route path="/blog/:slug" element={<BlogPostPage />} />
 
             {/* For Tradespeople */}
-            <Route path="/for-tradespeople" element={<TradesMenu />} />
             <Route path="/trades-menu" element={<TradesMenu />} />
             <Route
               path="/join-as-tradesperson"
@@ -114,20 +110,6 @@ function AppContent() {
             <Route path="/post-job" element={<PostJob />} />
             <Route path="/post-job/success" element={<JobPostedSuccess />} />
             <Route path="/post-job/results" element={<PostJobResults />} />
-            <Route path="/request-quote" element={<RequestQuote />} />
-            <Route
-              path="/request-quote/contact"
-              element={<RequestQuoteContact />}
-            />
-            <Route
-              path="/messages"
-              element={
-                <PlaceholderPage
-                  title="Messages"
-                  description="Chat with tradespeople and manage quotes"
-                />
-              }
-            />
             <Route
               path="/review-trade"
               element={
@@ -150,17 +132,7 @@ function AppContent() {
             {/* Tradesperson Dashboard */}
             <Route path="/pro/dashboard" element={<TradespersonDashboard />} />
             <Route path="/pro/job/:id" element={<TradespersonJobDetail />} />
-            <Route path="/pro/profile" element={<Tradespeople />} />
             <Route path="/tradesperson-profile" element={<Tradespeople />} />
-            <Route
-              path="/pro/leads"
-              element={
-                <PlaceholderPage
-                  title="Leads"
-                  description="Browse and quote on available jobs"
-                />
-              }
-            />
             <Route
               path="/pro/reviews"
               element={
@@ -177,25 +149,8 @@ function AppContent() {
               element={<TermsOfService />}
             />
             <Route
-              path="/privacy"
-              element={<PrivacyPolicy />}
-            />
-            <Route
-              path="/privacy-policy"
-              element={<PrivacyPolicy />}
-            />
-            <Route
               path="/cookie-policy"
               element={<CookiePolicy />}
-            />
-            <Route
-              path="/help"
-              element={
-                <PlaceholderPage
-                  title="Help Center"
-                  description="Get answers to common questions"
-                />
-              }
             />
             <Route
               path="/download-app"
