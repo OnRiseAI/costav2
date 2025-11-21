@@ -93,6 +93,36 @@ const mockQuotes = [
   },
 ];
 
+const mockReviews = [
+  {
+    id: 1,
+    clientName: "Sarah M.",
+    jobTitle: "Full villa rewire",
+    location: "Marbella",
+    rating: 5,
+    date: "2 days ago",
+    text: "Fantastic work, very professional and tidy. Would happily recommend to friends.",
+  },
+  {
+    id: 2,
+    clientName: "David R.",
+    jobTitle: "Air conditioning installation",
+    location: "Mijas",
+    rating: 4.8,
+    date: "Last week",
+    text: "Job completed on time and as quoted. Great communication throughout.",
+  },
+  {
+    id: 3,
+    clientName: "Elena C.",
+    jobTitle: "Pool pump replacement",
+    location: "Estepona",
+    rating: 5,
+    date: "3 weeks ago",
+    text: "Solved a problem three other companies could not fix. Highly recommended.",
+  },
+];
+
 export function TradespersonDashboard() {
   const navigate = useNavigate();
   const { user, signOut, isAuthenticated } = useAuth();
