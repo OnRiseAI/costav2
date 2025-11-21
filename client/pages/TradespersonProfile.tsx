@@ -27,6 +27,7 @@ import {
   DialogClose,
 } from "@/components/ui/dialog";
 import { demoTradespeople, Tradesperson } from "@/data/tradespeople";
+import { SEO } from "@/components/SEO";
 
 // Extended interface for the full profile
 interface TradespersonProfileData extends Tradesperson {
@@ -192,6 +193,23 @@ export default function TradespersonProfile() {
 
   return (
     <div className="min-h-screen bg-gray-50 pb-20 md:pb-0">
+      <SEO
+        title={`${profile.businessName} - ${profile.tradeCategory} in ${profile.location} | CostaTrades Reviews`}
+        description={`Read verified reviews for ${profile.businessName}. Verified ${profile.tradeCategory} in ${profile.location}. Request a free quote now. Phone verified.`}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: profile.businessName,
+          image: profile.profilePhoto,
+          telephone: profile.phone || "",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: profile.location,
+            addressCountry: "ES",
+          },
+          priceRange: "€€",
+        }}
+      />
       {/* 1. Trust Hero Section */}
       <div className="bg-white border-b">
         <div className="container mx-auto px-4 py-8">
