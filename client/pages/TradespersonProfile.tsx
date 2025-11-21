@@ -191,6 +191,13 @@ export default function TradespersonProfile() {
     );
   }
 
+  const handleViewAllReviewsClick = () => {
+    const reviewsSection = document.getElementById("reviews-section");
+    if (reviewsSection) {
+      reviewsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 pb-20 md:pb-0">
       <SEO
