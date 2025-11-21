@@ -517,6 +517,13 @@ export function TradespersonDashboard() {
           <span className="text-[10px] font-medium mt-1">Quotes</span>
         </button>
         <button
+          onClick={() => setActiveTab("reviews")}
+          className={`flex flex-col items-center p-2 rounded-lg ${activeTab === "reviews" ? "text-blue-600" : "text-slate-400"}`}
+        >
+          <Star className="w-6 h-6" />
+          <span className="text-[10px] font-medium mt-1">Reviews</span>
+        </button>
+        <button
           onClick={() => setActiveTab("profile")}
           className={`flex flex-col items-center p-2 rounded-lg ${activeTab === "profile" ? "text-blue-600" : "text-slate-400"}`}
         >
