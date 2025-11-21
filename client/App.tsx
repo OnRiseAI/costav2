@@ -20,6 +20,7 @@ import TradespersonReview from "@/pages/TradespersonReview";
 import TradespersonSubmitted from "@/pages/TradespersonSubmitted";
 import { CustomerDashboard } from "@/pages/CustomerDashboard";
 import { TradespersonDashboard } from "@/pages/TradespersonDashboard";
+import TradespersonJobDetail from "@/pages/TradespersonJobDetail";
 import { Tradespeople } from "@/pages/Tradespeople";
 import TradesMenu from "@/pages/TradesMenu";
 import AboutPage from "@/pages/AboutPage";
@@ -188,6 +189,7 @@ function AppContent() {
 
             {/* Tradesperson Dashboard */}
             <Route path="/pro/dashboard" element={<TradespersonDashboard />} />
+            <Route path="/pro/job/:id" element={<TradespersonJobDetail />} />
             <Route path="/pro/profile" element={<Tradespeople />} />
             <Route path="/tradesperson-profile" element={<Tradespeople />} />
             <Route
