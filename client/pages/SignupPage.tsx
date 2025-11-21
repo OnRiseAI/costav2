@@ -1,7 +1,17 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Mail, Lock, User, Briefcase, AlertCircle } from "lucide-react";
+import {
+  Mail,
+  Lock,
+  User,
+  Briefcase,
+  AlertCircle,
+  Bell,
+  MessageCircle,
+  Smartphone,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Switch } from "@/components/ui/switch";
 import { useAuth } from "@/contexts/AuthContext";
 import { SEO } from "@/components/SEO";
 
