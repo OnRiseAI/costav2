@@ -156,20 +156,12 @@ export function TradespersonCard({
         )}
 
         {/* CTA Buttons */}
-        <div className="flex flex-col gap-3 mt-auto pt-6 border-t border-border">
-          <Link to="/post-job" className="w-full">
-            <Button className="w-full bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white text-lg py-6 rounded-xl">
-              Request a quote
+        <div className="mt-auto pt-6 border-t border-border">
+          <Link to={`/tradesperson/${slug}`} className="w-full">
+            <Button className="w-full bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white text-lg py-6 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg">
+              View Profile
             </Button>
           </Link>
-          <Button
-            variant="outline"
-            className="w-full text-lg py-6 rounded-xl border-2 border-[#0a1f44] text-[#0a1f44] hover:bg-blue-50 hover:text-[#0a1f44]"
-            onClick={handleCall}
-          >
-            <Phone className="h-5 w-5 mr-2" />
-            Call
-          </Button>
         </div>
       </div>
     </div>
