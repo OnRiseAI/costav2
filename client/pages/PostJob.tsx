@@ -204,6 +204,41 @@ export default function PostJob() {
     }
   };
 
+  useEffect(() => {
+    const option = searchParams.get("option");
+    if (option && !isModalOpen && searchQuery) {
+      const query = option.toLowerCase();
+
+      // 1. Check for exact or partial category match
+      const matchedCategory = categories.find(
+        (c) =>
+          c.name.toLowerCase().includes(query) || c.slug.includes(query),
+      );
+
+      if (matchedCategory) {
+        handleCategorySelect(matchedCategory.slug);
+        return;
+      }
+
+      // 2. Check for service match
+      for (const [slug, data] of Object.entries(tradeServices)) {
+        const matchedService = data.services.find(
+          (s) =>
+            s.label.toLowerCase().includes(query) ||
+            (s.description && s.description.toLowerCase().includes(query)),
+        );
+
+        if (matchedService) {
+          setSelectedCategory(slug);
+          setSelectedSubTask(matchedService.label);
+          setStep(2);
+          setIsModalOpen(true);
+          return;
+        }
+      }
+    }
+  }, [searchParams, searchQuery]); // Added searchQuery dependency to ensure it runs after state update if needed, though option from params is stable
+
   const tradeData = getTradeServices(selectedCategory);
   const selectedCategoryName =
     categories.find((c) => c.slug === selectedCategory)?.name || "Trade";
