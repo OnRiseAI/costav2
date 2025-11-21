@@ -128,9 +128,39 @@ export function CustomerDashboard() {
   const savedPros = demoTradespeople.slice(0, 6);
 
   // Notification settings state
-  const [pushEnabled, setPushEnabled] = useState(true);
-  const [whatsappEnabled, setWhatsappEnabled] = useState(true);
-  const [emailEnabled, setEmailEnabled] = useState(false);
+  const [pushEnabled, setPushEnabled] = useState<boolean>(() => {
+    if (typeof window === "undefined") return true;
+    try {
+      const stored = window.localStorage.getItem(NOTIFICATION_PREFS_KEY);
+      if (!stored) return true;
+      const parsed = JSON.parse(stored) as NotificationPreferences;
+      return parsed.push ?? true;
+    } catch {
+      return true;
+    }
+  });
+  const [whatsappEnabled, setWhatsappEnabled] = useState<boolean>(() => {
+    if (typeof window === "undefined") return true;
+    try {
+      const stored = window.localStorage.getItem(NOTIFICATION_PREFS_KEY);
+      if (!stored) return true;
+      const parsed = JSON.parse(stored) as NotificationPreferences;
+      return parsed.whatsapp ?? true;
+    } catch {
+      return true;
+    }
+  });
+  const [emailEnabled, setEmailEnabled] = useState<boolean>(() => {
+    if (typeof window === "undefined") return false;
+    try {
+      const stored = window.localStorage.getItem(NOTIFICATION_PREFS_KEY);
+      if (!stored) return false;
+      const parsed = JSON.parse(stored) as NotificationPreferences;
+      return parsed.email ?? false;
+    } catch {
+      return false;
+    }
+  });
 
   useEffect(() => {
     // In a real app, we would check auth here
