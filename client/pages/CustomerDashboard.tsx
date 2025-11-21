@@ -29,6 +29,14 @@ import { SEO } from "@/components/SEO";
 import { TradespersonCard } from "@/components/TradespersonCard";
 import { demoTradespeople } from "@/data/tradespeople";
 
+const NOTIFICATION_PREFS_KEY = "costatrade.notificationPrefs";
+
+interface NotificationPreferences {
+  push: boolean;
+  whatsapp: boolean;
+  email: boolean;
+}
+
 // Mock data for demonstration
 const mockJobs = [
   {
