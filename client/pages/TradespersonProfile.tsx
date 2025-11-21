@@ -400,7 +400,7 @@ export default function TradespersonProfile() {
                     <div className="w-20 h-20 mx-auto rounded-full overflow-hidden mb-2 border-2 border-gray-100">
                       <img
                         src={member.photo}
-                        alt={member.name}
+                        alt={`${member.name}, ${member.role} at ${profile.businessName} in ${profile.location}`}
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -428,7 +428,7 @@ export default function TradespersonProfile() {
                     <div className="group relative aspect-square rounded-lg overflow-hidden cursor-pointer bg-gray-100">
                       <img
                         src={item.image}
-                        alt={item.title}
+                        alt={`${item.title} completed by ${profile.businessName} in ${profile.location}`}
                         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
@@ -440,7 +440,7 @@ export default function TradespersonProfile() {
                     <div className="relative w-full h-[80vh] flex items-center justify-center bg-black">
                       <img
                         src={item.image}
-                        alt={item.title}
+                        alt={`${item.title} project by ${profile.businessName} in ${profile.location}`}
                         className="max-w-full max-h-full object-contain"
                       />
                       <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent text-white">
@@ -454,7 +454,10 @@ export default function TradespersonProfile() {
           </section>
 
           {/* 4. Reviews Wall */}
-          <section className="bg-white rounded-xl p-6 shadow-sm border">
+          <section
+            id="reviews-section"
+            className="bg-white rounded-xl p-6 shadow-sm border"
+          >
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl font-bold">What Customers Say</h2>
               <div className="flex items-center gap-2">
@@ -503,7 +506,11 @@ export default function TradespersonProfile() {
             </div>
 
             <div className="mt-6 text-center">
-              <Button variant="outline" className="w-full md:w-auto">
+              <Button
+                variant="outline"
+                className="w-full md:w-auto"
+                onClick={handleViewAllReviewsClick}
+              >
                 View All {profile.reviewCount} Reviews
               </Button>
             </div>
