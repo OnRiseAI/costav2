@@ -102,7 +102,7 @@ const mockQuotes = [
       rating: 4.7,
       reviews: 12,
     },
-    price: "���180",
+    price: "€180",
     message:
       "I specialize in plumbing repairs. Can guarantee the work for 1 year.",
     date: "2 days ago",
@@ -531,6 +531,7 @@ export function CustomerDashboard() {
           <div className="min-h-[500px]">
             {activeTab === "jobs" && !showQuotes && renderJobsList()}
             {activeTab === "jobs" && showQuotes && renderQuotesDetail()}
+            {activeTab === "saved" && renderSavedPros()}
             {activeTab === "notifications" && renderNotifications()}
             {activeTab === "messages" && (
               <div className="bg-white rounded-2xl p-12 text-center border border-slate-200">
