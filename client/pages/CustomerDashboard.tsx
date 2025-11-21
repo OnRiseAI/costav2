@@ -9,6 +9,7 @@ import {
   Briefcase,
   Star,
   MessageSquare,
+  Heart,
   User,
   Bell,
   Settings,
