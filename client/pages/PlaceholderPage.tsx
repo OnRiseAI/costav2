@@ -27,7 +27,7 @@ export default function PlaceholderPage({ title, description }: PlaceholderPageP
                 Back to Homepage
               </Button>
             </Link>
-            <Link to="/search">
+            <Link to="/post-job">
               <Button size="lg" variant="outline">
                 Find Tradespeople
               </Button>
