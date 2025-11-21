@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/SEO";
 
 export default function PrivacyPolicy() {
   const lastUpdated = "November 2025";
@@ -20,6 +21,17 @@ export default function PrivacyPolicy() {
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans py-12 px-4 md:px-8">
+      <SEO
+        title="Privacy Policy | CostaTrades"
+        description="How we collect, use, and protect your data. GDPR compliant."
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Privacy Policy",
+          description:
+            "How we collect, use, and protect your data on CostaTrades. GDPR compliant.",
+        }}
+      />
       <div className="max-w-3xl mx-auto">
         <div className="mb-8">
           <Link to="/">

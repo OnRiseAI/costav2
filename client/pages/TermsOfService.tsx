@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/SEO";
 
 export default function TermsOfService() {
   const lastUpdated = "November 2025";
@@ -15,6 +16,17 @@ export default function TermsOfService() {
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans py-12 px-4 md:px-8">
+      <SEO
+        title="Terms of Service | CostaTrades Legal"
+        description="User agreement and terms of use for the CostaTrades platform."
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Terms of Service",
+          description:
+            "User agreement and terms of use for the CostaTrades platform.",
+        }}
+      />
       <div className="max-w-3xl mx-auto">
         <div className="mb-8">
           <Link to="/">
