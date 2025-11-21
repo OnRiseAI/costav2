@@ -259,7 +259,7 @@ export default function TradespersonProfile() {
                   <Link to="/post-job">
                     <Button
                       size="lg"
-                      className="bg-primary hover:bg-primary/90 text-white shadow-md"
+                      className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-md rounded-full px-8 h-12 text-base font-semibold"
                     >
                       Request a Quote
                     </Button>
