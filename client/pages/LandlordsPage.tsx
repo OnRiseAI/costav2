@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { SEO } from "@/components/SEO";
 import {
   Clock,
   Banknote,
@@ -15,6 +16,23 @@ import {
 export default function LandlordsPage() {
   return (
     <div className="min-h-screen bg-slate-50 font-sans">
+      <SEO
+        title="Landlord Services Costa del Sol | Rental Maintenance"
+        description="Fast repairs for rental properties. Certified electricians and plumbers for certificates and urgent fixes."
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          serviceType: "Landlord Property Maintenance",
+          provider: {
+            "@type": "Organization",
+            name: "CostaTrades",
+          },
+          areaServed: {
+            "@type": "Place",
+            name: "Costa del Sol",
+          },
+        }}
+      />
       {/* 1. Hero Section */}
       <section className="relative py-20 md:py-32 px-4 text-center overflow-hidden bg-[#0a1f44] text-white">
         <div className="absolute inset-0 z-0">

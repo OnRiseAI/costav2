@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { SEO } from "@/components/SEO";
 import {
   MessageCircle,
   Key,
@@ -14,6 +15,23 @@ import {
 export default function HolidayHomesPage() {
   return (
     <div className="min-h-screen bg-slate-50 font-sans">
+      <SEO
+        title="Property Maintenance for Holiday Homes | Key Holding & Repairs"
+        description="Reliable tradespeople for holiday rentals in Costa del Sol. Emergency repairs for guests and key holding services."
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          serviceType: "Holiday Home Property Maintenance",
+          provider: {
+            "@type": "Organization",
+            name: "CostaTrades",
+          },
+          areaServed: {
+            "@type": "Place",
+            name: "Costa del Sol",
+          },
+        }}
+      />
       {/* 1. Hero Section */}
       <section className="relative py-20 md:py-32 px-4 text-center overflow-hidden bg-[#0a1f44] text-white">
         <div className="absolute inset-0 z-0">
