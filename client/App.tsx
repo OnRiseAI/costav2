@@ -148,6 +148,7 @@ function AppContent() {
 
             {/* Legal */}
             <Route path="/terms" element={<TermsOfService />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/cookie-policy" element={<CookiePolicy />} />
             <Route
               path="/download-app"
@@ -158,6 +159,9 @@ function AppContent() {
                 />
               }
             />
+
+            {/* Signup */}
+            <Route path="/signup" element={<SignupPage />} />
 
             {/* 404 */}
             <Route path="*" element={<NotFound />} />
