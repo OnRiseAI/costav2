@@ -28,7 +28,7 @@ import {
   Ruler,
   Truck,
 } from "lucide-react";
-import { getTradeServices } from "@/data/tradeServices";
+import { getTradeServices, tradeServices } from "@/data/tradeServices";
 
 const categories = [
   {
@@ -120,6 +120,7 @@ export default function PostJob() {
   const [postcode, setPostcode] = useState<string>("");
   const [placeholderIndex, setPlaceholderIndex] = useState(0);
   const [fade, setFade] = useState(true);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -142,6 +143,46 @@ export default function PostJob() {
   const handleSubTaskSelect = (subTaskLabel: string) => {
     setSelectedSubTask(subTaskLabel);
     setStep(2);
+  };
+
+  const handleHeroSearch = () => {
+    if (!searchQuery.trim()) return;
+
+    const query = searchQuery.toLowerCase();
+
+    // 1. Check for exact or partial category match
+    const matchedCategory = categories.find(
+      (c) =>
+        c.name.toLowerCase().includes(query) || c.slug.includes(query),
+    );
+
+    if (matchedCategory) {
+      handleCategorySelect(matchedCategory.slug);
+      return;
+    }
+
+    // 2. Check for service match
+    for (const [slug, data] of Object.entries(tradeServices)) {
+      const matchedService = data.services.find(
+        (s) =>
+          s.label.toLowerCase().includes(query) ||
+          (s.description && s.description.toLowerCase().includes(query)),
+      );
+
+      if (matchedService) {
+        setSelectedCategory(slug);
+        setSelectedSubTask(matchedService.label);
+        setStep(2);
+        setIsModalOpen(true);
+        return;
+      }
+    }
+
+    // 3. Fallback: Scroll to categories
+    const grid = document.getElementById("categories-grid");
+    if (grid) {
+      grid.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   const handleSearch = () => {
@@ -209,10 +250,16 @@ export default function PostJob() {
               </div>
               <input
                 type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && handleHeroSearch()}
                 placeholder={PLACEHOLDERS[placeholderIndex]}
                 className={`flex-1 min-w-0 h-14 text-lg text-gray-900 placeholder:text-gray-400 focus:outline-none bg-transparent transition-opacity duration-500 ${fade ? "opacity-100" : "opacity-0"}`}
               />
-              <button className="bg-[#0a1f44] text-white px-8 h-14 rounded-full font-bold text-lg hover:bg-blue-900 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center flex-shrink-0">
+              <button
+                onClick={handleHeroSearch}
+                className="bg-[#0a1f44] text-white px-8 h-14 rounded-full font-bold text-lg hover:bg-blue-900 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center flex-shrink-0"
+              >
                 Search
               </button>
             </div>
@@ -235,7 +282,7 @@ export default function PostJob() {
       </div>
 
       {/* Categories Grid */}
-      <div className="container-custom py-16">
+      <div id="categories-grid" className="container-custom py-16">
         <h2 className="text-2xl font-bold text-[#0a1f44] mb-8 text-center">
           Or browse by category
         </h2>
