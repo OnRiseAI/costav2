@@ -121,7 +121,9 @@ export default function PostJob() {
   const [postcode, setPostcode] = useState<string>("");
   const [placeholderIndex, setPlaceholderIndex] = useState(0);
   const [fade, setFade] = useState(true);
-  const [searchQuery, setSearchQuery] = useState(searchParams.get("option") || "");
+  const [searchQuery, setSearchQuery] = useState(
+    searchParams.get("option") || "",
+  );
 
   useEffect(() => {
     const option = searchParams.get("option");
@@ -162,8 +164,7 @@ export default function PostJob() {
 
     // 1. Check for exact or partial category match
     const matchedCategory = categories.find(
-      (c) =>
-        c.name.toLowerCase().includes(query) || c.slug.includes(query),
+      (c) => c.name.toLowerCase().includes(query) || c.slug.includes(query),
     );
 
     if (matchedCategory) {
@@ -211,8 +212,7 @@ export default function PostJob() {
 
       // 1. Check for exact or partial category match
       const matchedCategory = categories.find(
-        (c) =>
-          c.name.toLowerCase().includes(query) || c.slug.includes(query),
+        (c) => c.name.toLowerCase().includes(query) || c.slug.includes(query),
       );
 
       if (matchedCategory) {
@@ -327,13 +327,17 @@ export default function PostJob() {
       </div>
 
       {/* Categories Grid */}
-      <div id="categories-grid" className="container-custom py-20 bg-slate-50/50">
+      <div
+        id="categories-grid"
+        className="container-custom py-20 bg-slate-50/50"
+      >
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0a1f44] mb-4">
             What do you need help with?
           </h2>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-            Select a category to get started. We'll ask a few questions to match you with the right professionals.
+            Select a category to get started. We'll ask a few questions to match
+            you with the right professionals.
           </p>
         </div>
 
@@ -349,7 +353,10 @@ export default function PostJob() {
                 <div
                   className={`w-20 h-20 rounded-2xl ${category.bg} flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-sm group-hover:shadow-md`}
                 >
-                  <Icon className={`w-10 h-10 ${category.color}`} strokeWidth={1.5} />
+                  <Icon
+                    className={`w-10 h-10 ${category.color}`}
+                    strokeWidth={1.5}
+                  />
                 </div>
                 <div className="space-y-1">
                   <span className="font-bold text-gray-800 group-hover:text-[#0a1f44] text-lg block">

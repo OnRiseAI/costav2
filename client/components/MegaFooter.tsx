@@ -88,27 +88,33 @@ export function MegaFooter() {
   return (
     <div className="bg-[#111827] text-[#9CA3AF] border-t border-gray-800 transition-all duration-500 ease-in-out">
       {/* Toggle Bar */}
-      <div 
+      <div
         className="container-custom py-4 flex flex-col md:flex-row items-center justify-between gap-4 cursor-pointer hover:bg-gray-900/50 transition-colors"
         onClick={() => setIsOpen(!isOpen)}
       >
         <p className="text-sm font-medium text-gray-400">
           Serving Marbella, Estepona, Mijas, and beyond.
         </p>
-        <Button 
-          variant="ghost" 
+        <Button
+          variant="ghost"
           className="text-gray-300 hover:text-white hover:bg-gray-800 gap-2 text-xs uppercase tracking-wider"
         >
           {isOpen ? "Hide Areas & Services" : "View All Areas & Services"}
-          {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+          {isOpen ? (
+            <Minus className="w-4 h-4" />
+          ) : (
+            <Plus className="w-4 h-4" />
+          )}
         </Button>
       </div>
 
       {/* Expandable Content */}
-      <div className={cn(
-        "overflow-hidden transition-all duration-500 ease-in-out",
-        isOpen ? "max-h-[2000px] opacity-100 pb-12" : "max-h-0 opacity-0"
-      )}>
+      <div
+        className={cn(
+          "overflow-hidden transition-all duration-500 ease-in-out",
+          isOpen ? "max-h-[2000px] opacity-100 pb-12" : "max-h-0 opacity-0",
+        )}
+      >
         <div className="container-custom pt-8 border-t border-gray-800">
           <div className="grid md:grid-cols-5 gap-8 md:gap-4">
             {sections.map((section) => (
@@ -154,7 +160,7 @@ export function MegaFooter() {
               </div>
             ))}
           </div>
-          
+
           {/* AEO Context Block */}
           <div className="mt-12 pt-8 border-t border-gray-800 text-center">
             <p className="text-sm text-gray-500 max-w-3xl mx-auto">

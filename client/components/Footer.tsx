@@ -42,65 +42,203 @@ export function Footer() {
               Trusted by 500+ Pros
             </p>
             <p className="text-sm text-gray-500 leading-relaxed">
-              Costa del Sol's most trusted platform connecting homeowners with verified professionals.
+              Costa del Sol's most trusted platform connecting homeowners with
+              verified professionals.
             </p>
-            
+
             {/* Social Icons */}
             <div className="flex items-center gap-4 pt-2">
-              <a href="#" className="text-gray-400 hover:text-[#0a1f44] transition-colors"><Facebook className="h-5 w-5" /></a>
-              <a href="#" className="text-gray-400 hover:text-[#0a1f44] transition-colors"><Twitter className="h-5 w-5" /></a>
-              <a href="#" className="text-gray-400 hover:text-[#0a1f44] transition-colors"><Instagram className="h-5 w-5" /></a>
-              <a href="#" className="text-gray-400 hover:text-[#0a1f44] transition-colors"><Linkedin className="h-5 w-5" /></a>
+              <a
+                href="#"
+                className="text-gray-400 hover:text-[#0a1f44] transition-colors"
+              >
+                <Facebook className="h-5 w-5" />
+              </a>
+              <a
+                href="#"
+                className="text-gray-400 hover:text-[#0a1f44] transition-colors"
+              >
+                <Twitter className="h-5 w-5" />
+              </a>
+              <a
+                href="#"
+                className="text-gray-400 hover:text-[#0a1f44] transition-colors"
+              >
+                <Instagram className="h-5 w-5" />
+              </a>
+              <a
+                href="#"
+                className="text-gray-400 hover:text-[#0a1f44] transition-colors"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
             </div>
           </div>
 
           {/* Col 2: Company */}
           <div className="border-b border-gray-100 md:border-none pb-4 md:pb-0">
-            <button 
-              onClick={() => toggleSection('company')}
+            <button
+              onClick={() => toggleSection("company")}
               className="flex items-center justify-between w-full md:cursor-default group"
             >
-              <h4 className="font-bold text-[#0a1f44] text-sm uppercase tracking-wider">Company</h4>
-              <ChevronDown className={cn("w-4 h-4 md:hidden text-gray-400 transition-transform", openSection === 'company' ? "rotate-180" : "")} />
+              <h4 className="font-bold text-[#0a1f44] text-sm uppercase tracking-wider">
+                Company
+              </h4>
+              <ChevronDown
+                className={cn(
+                  "w-4 h-4 md:hidden text-gray-400 transition-transform",
+                  openSection === "company" ? "rotate-180" : "",
+                )}
+              />
             </button>
-            <ul className={cn("space-y-3 mt-4 overflow-hidden transition-all md:block", openSection === 'company' ? "max-h-48" : "max-h-0 md:max-h-full")}>
-              <li><Link to="/about" className="text-sm text-gray-600 hover:text-[#0a1f44]">About Us</Link></li>
-              <li><Link to="/contact" className="text-sm text-gray-600 hover:text-[#0a1f44]">Contact</Link></li>
-              <li><Link to="/blog" className="text-sm text-gray-600 hover:text-[#0a1f44]">Blog</Link></li>
-              <li><Link to="/careers" className="text-sm text-gray-600 hover:text-[#0a1f44]">Careers</Link></li>
+            <ul
+              className={cn(
+                "space-y-3 mt-4 overflow-hidden transition-all md:block",
+                openSection === "company"
+                  ? "max-h-48"
+                  : "max-h-0 md:max-h-full",
+              )}
+            >
+              <li>
+                <Link
+                  to="/about"
+                  className="text-sm text-gray-600 hover:text-[#0a1f44]"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/contact"
+                  className="text-sm text-gray-600 hover:text-[#0a1f44]"
+                >
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/blog"
+                  className="text-sm text-gray-600 hover:text-[#0a1f44]"
+                >
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/careers"
+                  className="text-sm text-gray-600 hover:text-[#0a1f44]"
+                >
+                  Careers
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Col 3: Homeowners */}
           <div className="border-b border-gray-100 md:border-none pb-4 md:pb-0">
-            <button 
-              onClick={() => toggleSection('homeowners')}
+            <button
+              onClick={() => toggleSection("homeowners")}
               className="flex items-center justify-between w-full md:cursor-default group"
             >
-              <h4 className="font-bold text-[#0a1f44] text-sm uppercase tracking-wider">Homeowners</h4>
-              <ChevronDown className={cn("w-4 h-4 md:hidden text-gray-400 transition-transform", openSection === 'homeowners' ? "rotate-180" : "")} />
+              <h4 className="font-bold text-[#0a1f44] text-sm uppercase tracking-wider">
+                Homeowners
+              </h4>
+              <ChevronDown
+                className={cn(
+                  "w-4 h-4 md:hidden text-gray-400 transition-transform",
+                  openSection === "homeowners" ? "rotate-180" : "",
+                )}
+              />
             </button>
-            <ul className={cn("space-y-3 mt-4 overflow-hidden transition-all md:block", openSection === 'homeowners' ? "max-h-48" : "max-h-0 md:max-h-full")}>
-              <li><Link to="/post-job" className="text-sm text-gray-600 hover:text-[#0a1f44]">Post a Job</Link></li>
-              <li><Link to="/cost-guides" className="text-sm text-gray-600 hover:text-[#0a1f44]">Cost Guides</Link></li>
-              <li><Link to="/how-it-works" className="text-sm text-gray-600 hover:text-[#0a1f44]">How it Works</Link></li>
-              <li><Link to="/holiday-homes" className="text-sm text-gray-600 hover:text-[#0a1f44]">Holiday Homes</Link></li>
+            <ul
+              className={cn(
+                "space-y-3 mt-4 overflow-hidden transition-all md:block",
+                openSection === "homeowners"
+                  ? "max-h-48"
+                  : "max-h-0 md:max-h-full",
+              )}
+            >
+              <li>
+                <Link
+                  to="/post-job"
+                  className="text-sm text-gray-600 hover:text-[#0a1f44]"
+                >
+                  Post a Job
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/cost-guides"
+                  className="text-sm text-gray-600 hover:text-[#0a1f44]"
+                >
+                  Cost Guides
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/how-it-works"
+                  className="text-sm text-gray-600 hover:text-[#0a1f44]"
+                >
+                  How it Works
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/holiday-homes"
+                  className="text-sm text-gray-600 hover:text-[#0a1f44]"
+                >
+                  Holiday Homes
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Col 4: Pros */}
           <div className="border-b border-gray-100 md:border-none pb-4 md:pb-0">
-            <button 
-              onClick={() => toggleSection('pros')}
+            <button
+              onClick={() => toggleSection("pros")}
               className="flex items-center justify-between w-full md:cursor-default group"
             >
-              <h4 className="font-bold text-[#0a1f44] text-sm uppercase tracking-wider">Pros</h4>
-              <ChevronDown className={cn("w-4 h-4 md:hidden text-gray-400 transition-transform", openSection === 'pros' ? "rotate-180" : "")} />
+              <h4 className="font-bold text-[#0a1f44] text-sm uppercase tracking-wider">
+                Pros
+              </h4>
+              <ChevronDown
+                className={cn(
+                  "w-4 h-4 md:hidden text-gray-400 transition-transform",
+                  openSection === "pros" ? "rotate-180" : "",
+                )}
+              />
             </button>
-            <ul className={cn("space-y-3 mt-4 overflow-hidden transition-all md:block", openSection === 'pros' ? "max-h-48" : "max-h-0 md:max-h-full")}>
-              <li><Link to="/join-as-tradesperson" className="text-sm text-gray-600 hover:text-[#0a1f44]">Join as Pro</Link></li>
-              <li><Link to="/pro/dashboard" className="text-sm text-gray-600 hover:text-[#0a1f44]">Pro Dashboard</Link></li>
-              <li><Link to="/login" className="text-sm text-gray-600 hover:text-[#0a1f44]">Login</Link></li>
+            <ul
+              className={cn(
+                "space-y-3 mt-4 overflow-hidden transition-all md:block",
+                openSection === "pros" ? "max-h-48" : "max-h-0 md:max-h-full",
+              )}
+            >
+              <li>
+                <Link
+                  to="/join-as-tradesperson"
+                  className="text-sm text-gray-600 hover:text-[#0a1f44]"
+                >
+                  Join as Pro
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/pro/dashboard"
+                  className="text-sm text-gray-600 hover:text-[#0a1f44]"
+                >
+                  Pro Dashboard
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/login"
+                  className="text-sm text-gray-600 hover:text-[#0a1f44]"
+                >
+                  Login
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -117,9 +255,21 @@ export function Footer() {
               © 2024 CostaTrade. {t("footer.allRights")}
             </div>
             <div className="flex items-center gap-6 text-gray-500">
-              <Link to="/terms" className="hover:text-[#0a1f44] transition-colors">Terms</Link>
-              <Link to="/cookies" className="hover:text-[#0a1f44] transition-colors">Privacy & Cookies</Link>
-              <a href="#" className="hover:text-[#0a1f44] transition-colors">Sitemap</a>
+              <Link
+                to="/terms"
+                className="hover:text-[#0a1f44] transition-colors"
+              >
+                Terms
+              </Link>
+              <Link
+                to="/cookies"
+                className="hover:text-[#0a1f44] transition-colors"
+              >
+                Privacy & Cookies
+              </Link>
+              <a href="#" className="hover:text-[#0a1f44] transition-colors">
+                Sitemap
+              </a>
             </div>
           </div>
         </div>

@@ -63,7 +63,10 @@ function AppContent() {
             />
 
             {/* Search - Redirect to Post Job */}
-            <Route path="/search" element={<Navigate to="/post-job" replace />} />
+            <Route
+              path="/search"
+              element={<Navigate to="/post-job" replace />}
+            />
 
             {/* Information Pages */}
             <Route path="/how-it-works" element={<HowItWorksPage />} />

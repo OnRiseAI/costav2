@@ -1,13 +1,16 @@
-import { Link } from 'react-router-dom';
-import { Construction, Home } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Link } from "react-router-dom";
+import { Construction, Home } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 interface PlaceholderPageProps {
   title: string;
   description: string;
 }
 
-export default function PlaceholderPage({ title, description }: PlaceholderPageProps) {
+export default function PlaceholderPage({
+  title,
+  description,
+}: PlaceholderPageProps) {
   return (
     <div className="min-h-[70vh] flex items-center justify-center bg-gray-50">
       <div className="container-custom">
@@ -18,7 +21,8 @@ export default function PlaceholderPage({ title, description }: PlaceholderPageP
           <h1 className="text-4xl font-bold mb-4">{title}</h1>
           <p className="text-xl text-muted-foreground mb-8">{description}</p>
           <p className="text-muted-foreground mb-8">
-            This page is under construction. Continue exploring or return to the homepage.
+            This page is under construction. Continue exploring or return to the
+            homepage.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/">

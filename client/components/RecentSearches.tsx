@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import { Clock, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useState, useEffect } from "react";
+import { Clock, X } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface RecentSearch {
   trade: string;
@@ -15,13 +15,13 @@ export function RecentSearches() {
 
   useEffect(() => {
     // Load recent searches from localStorage
-    const stored = localStorage.getItem('recentSearches');
+    const stored = localStorage.getItem("recentSearches");
     if (stored) {
       try {
         const parsed = JSON.parse(stored);
         setSearches(parsed.slice(0, 5)); // Show max 5 recent searches
       } catch (e) {
-        console.error('Failed to parse recent searches', e);
+        console.error("Failed to parse recent searches", e);
       }
     }
   }, []);
@@ -29,12 +29,12 @@ export function RecentSearches() {
   const removeSearch = (index: number) => {
     const updated = searches.filter((_, i) => i !== index);
     setSearches(updated);
-    localStorage.setItem('recentSearches', JSON.stringify(updated));
+    localStorage.setItem("recentSearches", JSON.stringify(updated));
   };
 
   const clearAll = () => {
     setSearches([]);
-    localStorage.removeItem('recentSearches');
+    localStorage.removeItem("recentSearches");
   };
 
   if (searches.length === 0) {
@@ -71,7 +71,9 @@ export function RecentSearches() {
               {search.location && (
                 <>
                   <span className="text-muted-foreground">in</span>
-                  <span className="text-muted-foreground">{search.location}</span>
+                  <span className="text-muted-foreground">
+                    {search.location}
+                  </span>
                 </>
               )}
             </Link>
@@ -95,20 +97,24 @@ export function RecentSearches() {
 export function saveRecentSearch(trade: string, location: string) {
   if (!trade) return;
 
-  const stored = localStorage.getItem('recentSearches');
+  const stored = localStorage.getItem("recentSearches");
   let searches: RecentSearch[] = [];
-  
+
   if (stored) {
     try {
       searches = JSON.parse(stored);
     } catch (e) {
-      console.error('Failed to parse stored searches', e);
+      console.error("Failed to parse stored searches", e);
     }
   }
 
   // Remove duplicate if exists
   searches = searches.filter(
-    (s) => !(s.trade.toLowerCase() === trade.toLowerCase() && s.location.toLowerCase() === location.toLowerCase())
+    (s) =>
+      !(
+        s.trade.toLowerCase() === trade.toLowerCase() &&
+        s.location.toLowerCase() === location.toLowerCase()
+      ),
   );
 
   // Add new search at the beginning
@@ -121,5 +127,5 @@ export function saveRecentSearch(trade: string, location: string) {
   // Keep only last 10 searches
   searches = searches.slice(0, 10);
 
-  localStorage.setItem('recentSearches', JSON.stringify(searches));
+  localStorage.setItem("recentSearches", JSON.stringify(searches));
 }

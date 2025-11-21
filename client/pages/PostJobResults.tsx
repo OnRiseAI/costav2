@@ -87,14 +87,18 @@ export default function PostJobResults() {
                 Quote Request Sent!
               </DialogTitle>
               <DialogDescription className="text-center text-gray-600 pt-2">
-                Your request has been sent to <span className="font-bold text-[#0a1f44]">{selectedTradesperson.businessName}</span>.
-                They will receive a notification immediately.
+                Your request has been sent to{" "}
+                <span className="font-bold text-[#0a1f44]">
+                  {selectedTradesperson.businessName}
+                </span>
+                . They will receive a notification immediately.
               </DialogDescription>
             </DialogHeader>
 
             <div className="py-4 text-center space-y-4">
               <p className="text-sm text-gray-500">
-                You will receive a notification when they respond to your request.
+                You will receive a notification when they respond to your
+                request.
               </p>
 
               <Button
@@ -117,9 +121,7 @@ export default function PostJobResults() {
               <ArrowLeft className="h-5 w-5" />
               Back to results
             </button>
-            <div className="text-sm font-medium text-gray-500">
-              Step 1 of 2
-            </div>
+            <div className="text-sm font-medium text-gray-500">Step 1 of 2</div>
           </div>
         </div>
 
@@ -160,11 +162,12 @@ export default function PostJobResults() {
                       {jobDescription.length}/500
                     </div>
                   </div>
-                  
+
                   {jobDescription.length > 0 && jobDescription.length < 50 && (
                     <div className="mt-3 flex items-center gap-2 text-amber-600 text-sm bg-amber-50 p-3 rounded-lg">
                       <Info className="h-4 w-4" />
-                      Please enter at least 50 characters to help the tradesperson understand your needs.
+                      Please enter at least 50 characters to help the
+                      tradesperson understand your needs.
                     </div>
                   )}
                 </div>
@@ -186,15 +189,15 @@ export default function PostJobResults() {
                         label: "Urgent",
                         desc: "Within 48 hours",
                       },
-                      { 
-                        value: "2weeks", 
+                      {
+                        value: "2weeks",
                         label: "Within 2 weeks",
-                        desc: "Specific dates"
+                        desc: "Specific dates",
                       },
-                      { 
-                        value: "budgeting", 
+                      {
+                        value: "budgeting",
                         label: "Just budgeting",
-                        desc: "Planning phase"
+                        desc: "Planning phase",
                       },
                     ].map((option) => (
                       <label
@@ -206,18 +209,26 @@ export default function PostJobResults() {
                         }`}
                       >
                         <div className="flex items-center justify-between mb-1">
-                          <span className={`font-bold ${timing === option.value ? "text-[#0a1f44]" : "text-gray-700"}`}>
+                          <span
+                            className={`font-bold ${timing === option.value ? "text-[#0a1f44]" : "text-gray-700"}`}
+                          >
                             {option.label}
                           </span>
-                          <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
-                            timing === option.value ? "border-[#0a1f44]" : "border-gray-300"
-                          }`}>
+                          <div
+                            className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
+                              timing === option.value
+                                ? "border-[#0a1f44]"
+                                : "border-gray-300"
+                            }`}
+                          >
                             {timing === option.value && (
                               <div className="w-2.5 h-2.5 rounded-full bg-[#0a1f44]" />
                             )}
                           </div>
                         </div>
-                        <span className="text-sm text-gray-500">{option.desc}</span>
+                        <span className="text-sm text-gray-500">
+                          {option.desc}
+                        </span>
                         <input
                           type="radio"
                           name="timing"
@@ -251,7 +262,8 @@ export default function PostJobResults() {
                     )}
                   </Button>
                   <p className="text-center text-sm text-gray-500 mt-4">
-                    {selectedTradesperson.businessName} will receive your request immediately via their phone and account.
+                    {selectedTradesperson.businessName} will receive your
+                    request immediately via their phone and account.
                   </p>
                 </div>
               </div>
@@ -262,7 +274,7 @@ export default function PostJobResults() {
                   <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">
                     You are contacting
                   </h3>
-                  
+
                   <div className="flex flex-col items-center text-center mb-6">
                     <div className="w-24 h-24 rounded-full bg-gray-100 overflow-hidden mb-4 border-4 border-white shadow-md">
                       {selectedTradesperson.profilePhoto ? (
@@ -281,9 +293,10 @@ export default function PostJobResults() {
                       {selectedTradesperson.businessName}
                     </h2>
                     <div className="flex items-center gap-1 text-sm text-gray-600 mb-2">
-                      <MapPin className="h-3 w-3" /> {postcode || "Costa del Sol"}
+                      <MapPin className="h-3 w-3" />{" "}
+                      {postcode || "Costa del Sol"}
                     </div>
-                    
+
                     {selectedTradesperson.verified && (
                       <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-green-50 text-green-700 text-xs font-bold border border-green-100">
                         <Shield className="h-3 w-3" /> Verified Pro
@@ -540,14 +553,14 @@ export default function PostJobResults() {
               Get in touch with this professional directly
             </DialogDescription>
           </DialogHeader>
-          
+
           {phoneModalData && (
             <div className="flex flex-col items-center space-y-6 py-4">
               <div className="w-20 h-20 rounded-full bg-gray-100 overflow-hidden flex items-center justify-center">
                 {phoneModalData.profilePhoto ? (
-                  <img 
-                    src={phoneModalData.profilePhoto} 
-                    alt={phoneModalData.businessName} 
+                  <img
+                    src={phoneModalData.profilePhoto}
+                    alt={phoneModalData.businessName}
                     className="w-full h-full object-cover"
                   />
                 ) : (
@@ -556,15 +569,21 @@ export default function PostJobResults() {
                   </span>
                 )}
               </div>
-              
+
               <div className="text-center">
-                <h3 className="text-lg font-bold text-gray-900">{phoneModalData.businessName}</h3>
-                <p className="text-sm text-gray-500">{phoneModalData.tradeCategory}</p>
+                <h3 className="text-lg font-bold text-gray-900">
+                  {phoneModalData.businessName}
+                </h3>
+                <p className="text-sm text-gray-500">
+                  {phoneModalData.tradeCategory}
+                </p>
               </div>
 
               <div className="w-full bg-blue-50 rounded-xl p-6 text-center border border-blue-100">
-                <p className="text-sm text-blue-600 mb-2 font-medium">Phone Number</p>
-                <a 
+                <p className="text-sm text-blue-600 mb-2 font-medium">
+                  Phone Number
+                </p>
+                <a
                   href={`tel:${phoneModalData.phone || "+34 952 123 456"}`}
                   className="text-2xl font-bold text-[#0a1f44] hover:underline flex items-center justify-center gap-2"
                 >
@@ -574,7 +593,10 @@ export default function PostJobResults() {
               </div>
 
               <div className="text-center text-sm text-gray-500 max-w-xs">
-                <p>Please mention <strong>CostaTrade</strong> when you call to ensure the best service.</p>
+                <p>
+                  Please mention <strong>CostaTrade</strong> when you call to
+                  ensure the best service.
+                </p>
               </div>
             </div>
           )}

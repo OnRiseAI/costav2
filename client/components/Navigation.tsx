@@ -32,7 +32,13 @@ export function Navigation() {
         } else if (prev.hours > 0) {
           return { ...prev, hours: prev.hours - 1, minutes: 59, seconds: 59 };
         } else if (prev.days > 0) {
-          return { ...prev, days: prev.days - 1, hours: 23, minutes: 59, seconds: 59 };
+          return {
+            ...prev,
+            days: prev.days - 1,
+            hours: 23,
+            minutes: 59,
+            seconds: 59,
+          };
         }
         return prev;
       });
@@ -139,7 +145,8 @@ export function Navigation() {
               Coming Soon!
             </DialogTitle>
             <DialogDescription className="text-center text-gray-600 pt-2 text-base">
-              We're putting the finishing touches on our mobile app. Get ready for the easiest way to find tradespeople on the Costa del Sol.
+              We're putting the finishing touches on our mobile app. Get ready
+              for the easiest way to find tradespeople on the Costa del Sol.
             </DialogDescription>
           </DialogHeader>
 
@@ -149,19 +156,31 @@ export function Navigation() {
                 <div className="text-2xl font-bold">{timeLeft.days}</div>
                 <div className="text-xs uppercase opacity-70">Days</div>
               </div>
-              <div className="text-2xl font-bold text-[#0a1f44] self-center">:</div>
+              <div className="text-2xl font-bold text-[#0a1f44] self-center">
+                :
+              </div>
               <div className="bg-[#0a1f44] text-white p-3 rounded-xl min-w-[70px]">
-                <div className="text-2xl font-bold">{String(timeLeft.hours).padStart(2, '0')}</div>
+                <div className="text-2xl font-bold">
+                  {String(timeLeft.hours).padStart(2, "0")}
+                </div>
                 <div className="text-xs uppercase opacity-70">Hours</div>
               </div>
-              <div className="text-2xl font-bold text-[#0a1f44] self-center">:</div>
+              <div className="text-2xl font-bold text-[#0a1f44] self-center">
+                :
+              </div>
               <div className="bg-[#0a1f44] text-white p-3 rounded-xl min-w-[70px]">
-                <div className="text-2xl font-bold">{String(timeLeft.minutes).padStart(2, '0')}</div>
+                <div className="text-2xl font-bold">
+                  {String(timeLeft.minutes).padStart(2, "0")}
+                </div>
                 <div className="text-xs uppercase opacity-70">Mins</div>
               </div>
-              <div className="text-2xl font-bold text-[#0a1f44] self-center">:</div>
+              <div className="text-2xl font-bold text-[#0a1f44] self-center">
+                :
+              </div>
               <div className="bg-[#0a1f44] text-white p-3 rounded-xl min-w-[70px]">
-                <div className="text-2xl font-bold">{String(timeLeft.seconds).padStart(2, '0')}</div>
+                <div className="text-2xl font-bold">
+                  {String(timeLeft.seconds).padStart(2, "0")}
+                </div>
                 <div className="text-xs uppercase opacity-70">Secs</div>
               </div>
             </div>
