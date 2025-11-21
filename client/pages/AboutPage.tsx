@@ -9,10 +9,25 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { SEO } from "@/components/SEO";
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white font-sans">
+      <SEO
+        title="About CostaTrades | Our Mission for Safer Home Improvements"
+        description="We are connecting homeowners with verified pros across the Costa del Sol. Learn about our 12-step verification process and team."
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          mainEntity: {
+            "@type": "Organization",
+            name: "CostaTrades",
+            foundingDate: "2024",
+            description: "The safest way to hire tradespeople in Spain.",
+          },
+        }}
+      />
       {/* Hero Section */}
       <section className="relative h-[600px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
