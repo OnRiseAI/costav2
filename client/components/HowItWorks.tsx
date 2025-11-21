@@ -28,16 +28,16 @@ export function HowItWorks() {
       description:
         "Review profiles, ratings, photos and prices, then message directly.",
       icon: MessageSquare,
-      color: "text-purple-600",
-      bgColor: "bg-purple-50",
+      color: "text-blue-600",
+      bgColor: "bg-blue-50",
     },
     {
       number: "04",
       title: "Job done with peace of mind",
       description: "Work backed by written quotes and verified insurance.",
       icon: Shield,
-      color: "text-orange-600",
-      bgColor: "bg-orange-50",
+      color: "text-blue-600",
+      bgColor: "bg-blue-50",
     },
   ];
 

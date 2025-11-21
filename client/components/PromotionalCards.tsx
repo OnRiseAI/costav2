@@ -89,20 +89,20 @@ export function PromotionalCards() {
               </h3>
               <ul className="space-y-2 mb-6 text-sm md:text-base">
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-300 font-bold">•</span>
+                  <span className="text-blue-200 font-bold">•</span>
                   <span>
                     From EV chargers to air con, find the right products to
                     power your home
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-300 font-bold">•</span>
+                  <span className="text-blue-200 font-bold">•</span>
                   <span>
                     Solar panels, batteries, boilers and more — all in one place
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-300 font-bold">•</span>
+                  <span className="text-blue-200 font-bold">•</span>
                   <span>Selected from partners who know their stuff</span>
                 </li>
               </ul>

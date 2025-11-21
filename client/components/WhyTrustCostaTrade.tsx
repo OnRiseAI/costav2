@@ -20,15 +20,15 @@ export function WhyTrustCostaTrade() {
       icon: MapPin,
       heading: "Local professionals",
       text: "Find tradespeople who understand the region and deliver reliable workmanship.",
-      color: "text-orange-600",
-      bgColor: "bg-orange-50",
+      color: "text-blue-600",
+      bgColor: "bg-blue-50",
     },
     {
       icon: Globe,
       heading: "Multilingual support",
       text: "Many professionals offer communication in English, Spanish, German and French.",
-      color: "text-purple-600",
-      bgColor: "bg-purple-50",
+      color: "text-blue-600",
+      bgColor: "bg-blue-50",
     },
   ];
 
