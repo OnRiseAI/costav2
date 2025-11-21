@@ -469,6 +469,7 @@ export function TradespersonDashboard() {
 
             {activeTab === "find-jobs" && renderLeadFeed()}
             {activeTab === "my-quotes" && renderMyQuotes()}
+            {activeTab === "reviews" && renderReviews()}
 
             {activeTab === "profile" && (
               <div className="bg-white rounded-2xl p-12 text-center border border-slate-200">
