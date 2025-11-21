@@ -66,7 +66,7 @@ export function CTACards() {
 
                 {/* Button */}
                 <Link to={card.buttonLink} className="w-full">
-                  <Button className="w-full bg-[#E31E24] hover:bg-[#C41A1F] text-white text-base font-semibold py-3 rounded-full">
+                  <Button className="w-full bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white text-base font-semibold py-3 rounded-full">
                     {card.buttonText}
                   </Button>
                 </Link>

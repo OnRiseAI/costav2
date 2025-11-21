@@ -219,16 +219,19 @@ export default function Index() {
       <WhyTrustCostaTrade />
 
       {/* Popular Trade Categories Section */}
-      <section className="bg-gradient-to-b from-white via-gray-50 to-white py-20 md:py-32 relative overflow-hidden">
+      <section className="bg-white py-20 md:py-32 relative overflow-hidden">
         {/* Subtle Geometric Background */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-white to-orange-50/30"></div>
-          <div className="absolute top-1/4 left-0 w-96 h-96 bg-gradient-to-br from-primary/5 to-transparent rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-gradient-to-br from-accent/5 to-transparent rounded-full blur-3xl"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50/10 to-white"></div>
+          <div className="absolute top-1/4 left-0 w-96 h-96 bg-gradient-to-br from-blue-100/20 to-transparent rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-gradient-to-br from-cyan-100/20 to-transparent rounded-full blur-3xl"></div>
         </div>
         <div className="absolute inset-0 opacity-5 pattern-grid text-gray-400 z-10"></div>
         <div className="container-custom relative z-20">
           <div className="text-center mb-12 animate-fade-in">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0a1f44] mb-4">
+              Popular Trade Categories
+            </h2>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
               Find verified professionals for any home improvement or
               maintenance need
@@ -257,20 +260,20 @@ export default function Index() {
       <CTACards />
 
       {/* Featured Tradespeople Section */}
-      <section className="bg-gray-50 py-20 md:py-32 relative overflow-hidden">
+      <section className="bg-slate-50 py-20 md:py-32 relative overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.pexels.com/photos/5691531/pexels-photo-5691531.jpeg?auto=compress&cs=tinysrgb&w=1920"
             alt="Professional workspace"
-            className="w-full h-full object-cover opacity-10"
+            className="w-full h-full object-cover opacity-5"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-50/95 via-gray-50/98 to-gray-50/95"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-50/95 via-slate-50/98 to-slate-50/95"></div>
         </div>
-        <div className="absolute inset-0 opacity-5 pattern-dots text-primary z-10"></div>
+        <div className="absolute inset-0 opacity-5 pattern-dots text-[#0a1f44] z-10"></div>
         <div className="container-custom relative z-20">
           <div className="text-center mb-12 animate-fade-in">
-            <h2 className="mb-4 text-2xl md:text-3xl lg:text-4xl">
+            <h2 className="mb-4 text-2xl md:text-3xl lg:text-4xl font-bold text-[#0a1f44]">
               Featured Tradespeople
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -290,7 +293,7 @@ export default function Index() {
           </div>
           <div className="text-center">
             <Link to="/post-job">
-              <Button size="lg" className="gap-2 bg-accent hover:bg-accent/90">
+              <Button size="lg" className="gap-2 bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white">
                 Browse All Tradespeople
                 <ArrowRight className="h-4 w-4" />
               </Button>
@@ -303,14 +306,14 @@ export default function Index() {
       <section className="bg-white py-20 md:py-32 relative overflow-hidden">
         {/* Background with Happy Customers Theme */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-orange-50/20 via-white to-blue-50/20"></div>
-          <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-gradient-to-br from-blue-200/20 to-transparent rounded-full blur-3xl"></div>
-          <div className="absolute -top-20 -right-20 w-80 h-80 bg-gradient-to-br from-orange-200/20 to-transparent rounded-full blur-3xl"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50/10 to-white"></div>
+          <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-gradient-to-br from-blue-100/20 to-transparent rounded-full blur-3xl"></div>
+          <div className="absolute -top-20 -right-20 w-80 h-80 bg-gradient-to-br from-cyan-100/20 to-transparent rounded-full blur-3xl"></div>
         </div>
         <div className="absolute inset-0 opacity-5 pattern-dots text-gray-400 z-10"></div>
         <div className="container-custom relative z-20">
           <div className="text-center mb-12 animate-fade-in">
-            <h2 className="mb-4 text-2xl md:text-3xl lg:text-4xl">
+            <h2 className="mb-4 text-2xl md:text-3xl lg:text-4xl font-bold text-[#0a1f44]">
               Customer Reviews
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">

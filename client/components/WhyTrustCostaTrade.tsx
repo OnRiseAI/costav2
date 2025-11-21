@@ -33,10 +33,10 @@ export function WhyTrustCostaTrade() {
   ];
 
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden">
+    <section className="relative py-24 md:py-32 overflow-hidden bg-slate-50">
       {/* Premium Soft Background */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50/15 to-white"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50/20 to-slate-50"></div>
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-bl from-blue-100/20 to-transparent rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-1/3 w-80 h-80 bg-gradient-to-tr from-cyan-100/15 to-transparent rounded-full blur-3xl"></div>
       </div>
@@ -44,7 +44,7 @@ export function WhyTrustCostaTrade() {
       <div className="container-custom relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-20">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0a1f44] mb-6 tracking-tight">
             Why homeowners trust CostaTrade
           </h2>
         </div>
@@ -70,7 +70,7 @@ export function WhyTrustCostaTrade() {
                 </div>
 
                 {/* Heading */}
-                <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-4 group-hover:text-primary transition-colors duration-300">
+                <h3 className="text-xl md:text-2xl font-semibold text-[#0a1f44] mb-4 group-hover:text-blue-600 transition-colors duration-300">
                   {pillar.heading}
                 </h3>
 

@@ -42,7 +42,7 @@ export function HowItWorks() {
   ];
 
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden">
+    <section className="relative py-24 md:py-32 overflow-hidden bg-white">
       {/* Premium Background */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50/40 to-white"></div>
@@ -53,7 +53,7 @@ export function HowItWorks() {
       <div className="container-custom relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-20">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0a1f44] mb-6 tracking-tight">
             How CostaTrade Works
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed">
@@ -73,10 +73,10 @@ export function HowItWorks() {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {/* Card Background with Premium Shadow */}
-                <div className="absolute inset-0 bg-white rounded-3xl shadow-sm group-hover:shadow-xl transition-all duration-500 border border-white/80"></div>
+                <div className="absolute inset-0 bg-white rounded-3xl shadow-sm group-hover:shadow-xl transition-all duration-500 border border-gray-100"></div>
 
                 {/* Watermark Step Number */}
-                <div className="absolute -top-8 -right-4 text-9xl font-bold text-blue-100/40 pointer-events-none select-none">
+                <div className="absolute -top-8 -right-4 text-9xl font-bold text-blue-50/80 pointer-events-none select-none">
                   {step.number}
                 </div>
 
@@ -93,7 +93,7 @@ export function HowItWorks() {
                   </div>
 
                   {/* Heading */}
-                  <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-4 leading-tight group-hover:text-primary transition-colors duration-300">
+                  <h3 className="text-xl md:text-2xl font-semibold text-[#0a1f44] mb-4 leading-tight group-hover:text-blue-600 transition-colors duration-300">
                     {step.title}
                   </h3>
 
@@ -121,7 +121,7 @@ export function HowItWorks() {
           <Link to="/post-job" className="inline-block">
             <Button
               size="lg"
-              className="bg-gradient-to-r from-primary to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white text-lg px-10 py-7 rounded-2xl font-semibold shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
+              className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white text-lg px-10 py-7 rounded-2xl font-semibold shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
             >
               Find a Verified Tradesperson
             </Button>
