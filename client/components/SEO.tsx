@@ -6,6 +6,16 @@ interface SEOProps {
   schema?: object | string;
 }
 
+function slugify(str: string) {
+  return str
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9\-]/g, "")
+    .replace(/-+/g, "-");
+}
+
 export function SEO({ title, description, schema }: SEOProps) {
   useEffect(() => {
     // Update Title
@@ -20,23 +30,30 @@ export function SEO({ title, description, schema }: SEOProps) {
     }
     metaDescription.setAttribute("content", description);
 
-    // Update JSON-LD Schema
+    // Update JSON-LD Schema: create a uniquely identifiable script element per page
     if (schema) {
-      let script = document.querySelector('script[type="application/ld+json"]');
-      if (!script) {
-        script = document.createElement("script");
-        script.setAttribute("type", "application/ld+json");
-        document.head.appendChild(script);
-      }
+      try {
+        const id = `ld-json-${slugify(title)}`;
+        let script = document.getElementById(id) as HTMLScriptElement | null;
+        if (!script) {
+          script = document.createElement("script");
+          script.setAttribute("type", "application/ld+json");
+          script.setAttribute("id", id);
+          document.head.appendChild(script);
+        }
 
-      const schemaContent =
-        typeof schema === "string" ? schema : JSON.stringify(schema);
-      script.textContent = schemaContent;
+        const schemaContent = typeof schema === "string" ? schema : JSON.stringify(schema);
+        script.textContent = schemaContent;
+      } catch (e) {
+        // If serialization fails, write a single JSON-LD to console for debugging
+        // but don't block rendering.
+        // eslint-disable-next-line no-console
+        console.warn("Failed to set JSON-LD schema", e);
+      }
     }
 
-    // Cleanup function (optional, but good practice to avoid stale data if component unmounts)
-    // However, for SEO, we usually want the tags to persist until the next page overwrites them.
-    // So we might not strictly need to remove them on unmount, but let's keep it simple.
+    // Note: we intentionally do not remove the script on unmount so that search bots
+    // crawling may still find the last applied schema if they land on the page.
   }, [title, description, schema]);
 
   return null;
