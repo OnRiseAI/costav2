@@ -218,17 +218,6 @@ export function Navigation() {
           {/* Menu Panel */}
           <div className="fixed top-[72px] left-0 w-80 max-h-[calc(100vh-72px)] bg-white border-r border-gray-200 overflow-y-auto z-40 shadow-lg">
             <div className="px-6 py-6 flex flex-col space-y-6">
-              {/* Home Link */}
-              <div className="flex justify-center pb-4 border-b border-gray-200">
-                <Link
-                  to="/"
-                  className="text-lg font-semibold text-[#0a1f44] hover:text-primary transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Home
-                </Link>
-              </div>
-
               {/* Homeowner Section */}
               <div className="flex flex-col space-y-4">
                 <h2 className="text-xl font-bold text-[#0a1f44]">
@@ -240,6 +229,13 @@ export function Navigation() {
                   </Button>
                 </Link>
                 <div className="flex flex-col space-y-2 text-sm pl-2">
+                  <Link
+                    to="/"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Home
+                  </Link>
                   <Link
                     to="/how-it-works"
                     className="text-muted-foreground hover:text-foreground transition-colors"
