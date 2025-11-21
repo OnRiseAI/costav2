@@ -23,6 +23,7 @@ import {
   MessageSquare,
   ArrowLeft,
   Info,
+  Loader2,
 } from "lucide-react";
 import { searchTradespeople } from "@/data/tradespeople";
 import { Progress } from "@/components/ui/progress";
@@ -37,6 +38,8 @@ export default function PostJobResults() {
   const [showQuoteForm, setShowQuoteForm] = useState(false);
   const [selectedTradesperson, setSelectedTradesperson] = useState<any>(null);
   const [timing, setTiming] = useState("flexible");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [quoteSentSuccess, setQuoteSentSuccess] = useState(false);
 
   // Phone Modal State
   const [phoneModalOpen, setPhoneModalOpen] = useState(false);
@@ -54,9 +57,56 @@ export default function PostJobResults() {
     setPhoneModalOpen(true);
   };
 
+  const handleSubmitQuote = () => {
+    setIsSubmitting(true);
+    // Simulate API call
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setQuoteSentSuccess(true);
+    }, 1500);
+  };
+
+  const handleCloseSuccess = () => {
+    setQuoteSentSuccess(false);
+    setShowQuoteForm(false);
+    setJobDescription("");
+    setTiming("flexible");
+  };
+
   if (showQuoteForm && selectedTradesperson) {
     return (
       <div className="min-h-screen bg-gray-50 font-sans">
+        {/* Success Modal */}
+        <Dialog open={quoteSentSuccess} onOpenChange={setQuoteSentSuccess}>
+          <DialogContent className="sm:max-w-md bg-white rounded-2xl">
+            <DialogHeader>
+              <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                <CheckCircle className="h-8 w-8 text-green-600" />
+              </div>
+              <DialogTitle className="text-center text-2xl font-bold text-[#0a1f44]">
+                Quote Request Sent!
+              </DialogTitle>
+              <DialogDescription className="text-center text-gray-600 pt-2">
+                Your request has been sent to <span className="font-bold text-[#0a1f44]">{selectedTradesperson.businessName}</span>.
+                They will receive a notification immediately.
+              </DialogDescription>
+            </DialogHeader>
+
+            <div className="py-4 text-center space-y-4">
+              <p className="text-sm text-gray-500">
+                You will receive a notification when they respond to your request.
+              </p>
+
+              <Button
+                className="w-full bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white font-bold py-6 rounded-xl shadow-lg"
+                onClick={handleCloseSuccess}
+              >
+                Return to Results
+              </Button>
+            </div>
+          </DialogContent>
+        </Dialog>
+
         {/* Header */}
         <div className="bg-white border-b border-gray-200 sticky top-0 z-30">
           <div className="container-custom py-4 flex items-center justify-between">
