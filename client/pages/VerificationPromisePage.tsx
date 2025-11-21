@@ -309,7 +309,7 @@ export default function VerificationPromisePage() {
           </h2>
 
           <div className="flex flex-col items-center gap-8">
-            <Link to="/search">
+            <Link to="/post-job">
               <Button className="bg-[#E31E24] hover:bg-[#C41218] text-white px-12 py-8 text-xl rounded-full font-bold shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300">
                 Find a Tradesperson
               </Button>
