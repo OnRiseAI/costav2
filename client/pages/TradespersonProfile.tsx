@@ -204,7 +204,7 @@ export default function TradespersonProfile() {
         title={`${profile.businessName} - ${profile.tradeCategory} in ${profile.location} | CostaTrades Reviews`}
         description={`Read verified reviews for ${profile.businessName}. Verified ${profile.tradeCategory} in ${profile.location}. Request a free quote now. Phone verified.`}
         schema={(() => {
-          const baseUrl = 'https://www.costatrades.com';
+          const baseUrl = "https://www.costatrades.com";
           const url = `${baseUrl}/tradesperson/${profile.slug}`;
 
           const aggregateRating = profile.reviewCount
@@ -237,12 +237,16 @@ export default function TradespersonProfile() {
           }));
 
           const imageObjects = [
-            ...(profile.profilePhoto ? [{
-              "@type": "ImageObject",
-              url: profile.profilePhoto,
-              caption: profile.businessName,
-            }] : []),
-            ...profile.portfolio.map(p => ({
+            ...(profile.profilePhoto
+              ? [
+                  {
+                    "@type": "ImageObject",
+                    url: profile.profilePhoto,
+                    caption: profile.businessName,
+                  },
+                ]
+              : []),
+            ...profile.portfolio.map((p) => ({
               "@type": "ImageObject",
               url: p.image,
               caption: p.title,
@@ -253,7 +257,7 @@ export default function TradespersonProfile() {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             name: profile.businessName,
-            image: imageObjects.map(i => i.url),
+            image: imageObjects.map((i) => i.url),
             telephone: profile.phone || undefined,
             url,
             priceRange: "€€",

@@ -42,7 +42,8 @@ export function SEO({ title, description, schema }: SEOProps) {
           document.head.appendChild(script);
         }
 
-        const schemaContent = typeof schema === "string" ? schema : JSON.stringify(schema);
+        const schemaContent =
+          typeof schema === "string" ? schema : JSON.stringify(schema);
         script.textContent = schemaContent;
       } catch (e) {
         // If serialization fails, write a single JSON-LD to console for debugging

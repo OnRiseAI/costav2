@@ -63,9 +63,11 @@ function extractBlogSlugs(content) {
 }
 
 async function build() {
-  const SITE_URL = process.env.SITE_URL || 'https://www.costatrades.com';
+  const SITE_URL = process.env.SITE_URL || "https://www.costatrades.com";
   if (!process.env.SITE_URL) {
-    console.warn(`Warning: SITE_URL not provided, defaulting to ${SITE_URL}. For CI or production pass SITE_URL env var.`);
+    console.warn(
+      `Warning: SITE_URL not provided, defaulting to ${SITE_URL}. For CI or production pass SITE_URL env var.`,
+    );
   }
 
   // Read data files

@@ -267,7 +267,10 @@ export function Footer() {
               >
                 Privacy & Cookies
               </Link>
-              <a href="/sitemap.xml" className="hover:text-[#0a1f44] transition-colors">
+              <a
+                href="/sitemap.xml"
+                className="hover:text-[#0a1f44] transition-colors"
+              >
                 Sitemap
               </a>
             </div>
