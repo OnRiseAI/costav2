@@ -129,6 +129,18 @@ export function CustomerDashboard() {
     // if (!isAuthenticated) navigate("/login");
   }, [isAuthenticated, navigate]);
 
+  useEffect(() => {
+    const tab = searchParams.get("tab");
+    if (!tab) return;
+    const allowedTabs = ["jobs", "messages", "profile", "notifications", "saved"];
+    if (allowedTabs.includes(tab)) {
+      setActiveTab(tab);
+      if (tab !== "jobs") {
+        setShowQuotes(false);
+      }
+    }
+  }, [searchParams]);
+
   const handleSignOut = async () => {
     await signOut();
     navigate("/");
