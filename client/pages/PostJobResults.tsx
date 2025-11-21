@@ -19,8 +19,13 @@ import {
   Clock,
   Filter,
   User,
+  Calendar,
+  MessageSquare,
+  ArrowLeft,
+  Info,
 } from "lucide-react";
 import { searchTradespeople } from "@/data/tradespeople";
+import { Progress } from "@/components/ui/progress";
 
 export default function PostJobResults() {
   const [searchParams] = useSearchParams();
@@ -51,106 +56,196 @@ export default function PostJobResults() {
 
   if (showQuoteForm && selectedTradesperson) {
     return (
-      <div className="min-h-screen bg-gray-50">
-        <div className="container-custom py-8">
-          <div className="max-w-2xl mx-auto">
+      <div className="min-h-screen bg-gray-50 font-sans">
+        {/* Header */}
+        <div className="bg-white border-b border-gray-200 sticky top-0 z-30">
+          <div className="container-custom py-4 flex items-center justify-between">
             <button
               onClick={() => setShowQuoteForm(false)}
-              className="text-muted-foreground hover:text-foreground mb-6 flex items-center gap-2"
+              className="text-gray-600 hover:text-[#0a1f44] flex items-center gap-2 font-medium transition-colors"
             >
-              <ChevronRight className="h-4 w-4 rotate-180" />
-              Back
+              <ArrowLeft className="h-5 w-5" />
+              Back to results
             </button>
+            <div className="text-sm font-medium text-gray-500">
+              Step 1 of 2
+            </div>
+          </div>
+        </div>
 
-            <div className="bg-white rounded-xl p-8 shadow-sm">
-              <div className="flex items-center gap-4 mb-8">
-                <div className="w-16 h-16 rounded-lg bg-gray-200 overflow-hidden flex-shrink-0">
-                  {selectedTradesperson.profilePhoto ? (
-                    <img
-                      src={selectedTradesperson.profilePhoto}
-                      alt={selectedTradesperson.businessName}
-                      className="w-full h-full object-cover"
+        <div className="container-custom py-8 md:py-12">
+          <div className="max-w-3xl mx-auto">
+            {/* Progress Bar */}
+            <div className="mb-8">
+              <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div className="h-full bg-[#0a1f44] w-1/2 rounded-full"></div>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* Main Form */}
+              <div className="md:col-span-2 space-y-8">
+                <div>
+                  <h1 className="text-3xl font-bold text-[#0a1f44] mb-2">
+                    Request a quote
+                  </h1>
+                  <p className="text-gray-600">
+                    Provide details about your job to get an accurate quote.
+                  </p>
+                </div>
+
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                  <label className="block text-lg font-bold text-[#0a1f44] mb-4 flex items-center gap-2">
+                    <MessageSquare className="h-5 w-5 text-blue-600" />
+                    Describe your job
+                  </label>
+                  <div className="relative">
+                    <textarea
+                      value={jobDescription}
+                      onChange={(e) => setJobDescription(e.target.value)}
+                      placeholder="Hi, I need help with... (e.g. fixing a leaking tap in the kitchen, installing a new light fixture)"
+                      className="w-full border-2 border-gray-200 rounded-xl p-4 min-h-[180px] focus:border-[#0a1f44] focus:ring-0 focus:outline-none resize-none text-lg placeholder:text-gray-400 transition-colors"
                     />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center text-2xl font-bold text-gray-400">
-                      {selectedTradesperson.businessName.charAt(0)}
+                    <div className="absolute bottom-4 right-4 text-xs font-medium px-2 py-1 rounded bg-gray-100 text-gray-500">
+                      {jobDescription.length}/500
+                    </div>
+                  </div>
+                  
+                  {jobDescription.length > 0 && jobDescription.length < 50 && (
+                    <div className="mt-3 flex items-center gap-2 text-amber-600 text-sm bg-amber-50 p-3 rounded-lg">
+                      <Info className="h-4 w-4" />
+                      Please enter at least 50 characters to help the tradesperson understand your needs.
                     </div>
                   )}
                 </div>
-                <div>
-                  <h2 className="text-xl font-bold">
-                    {selectedTradesperson.businessName}
-                  </h2>
-                </div>
-              </div>
 
-              <h1 className="text-3xl font-bold mb-8 text-foreground">
-                Request a quote
-              </h1>
-
-              <div className="space-y-6">
-                <div>
-                  <label className="block text-lg font-semibold mb-3">
-                    Describe your job
-                  </label>
-                  <textarea
-                    value={jobDescription}
-                    onChange={(e) => setJobDescription(e.target.value)}
-                    placeholder="Tell us a bit about your job! Remember, do not include personal details like your name, phone number, address, or email at this stage."
-                    className="w-full border-2 border-gray-200 rounded-xl p-4 min-h-[150px] focus:border-[#0a1f44] focus:outline-none resize-none"
-                  />
-                  <div className="flex justify-between text-sm text-muted-foreground mt-2">
-                    <span>Min characters: 50</span>
-                    <span>{jobDescription.length}/500</span>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-lg font-semibold mb-3">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                  <label className="block text-lg font-bold text-[#0a1f44] mb-4 flex items-center gap-2">
+                    <Calendar className="h-5 w-5 text-blue-600" />
                     When would you like the job to start?
                   </label>
-                  <div className="space-y-3">
+                  <div className="grid sm:grid-cols-2 gap-3">
                     {[
                       {
                         value: "flexible",
-                        label: "I'm flexible on the start date",
+                        label: "I'm flexible",
+                        desc: "Whenever available",
                       },
                       {
                         value: "urgent",
-                        label: "It's urgent (within 48 hours)",
+                        label: "Urgent",
+                        desc: "Within 48 hours",
                       },
-                      { value: "2weeks", label: "Within 2 weeks" },
-                      { value: "1month", label: "Within 1 month" },
-                      {
-                        value: "budgeting",
-                        label: "I'm budgeting / researching",
+                      { 
+                        value: "2weeks", 
+                        label: "Within 2 weeks",
+                        desc: "Specific dates"
+                      },
+                      { 
+                        value: "budgeting", 
+                        label: "Just budgeting",
+                        desc: "Planning phase"
                       },
                     ].map((option) => (
                       <label
                         key={option.value}
-                        className="flex items-center gap-3 border-2 border-gray-200 rounded-xl p-4 cursor-pointer hover:border-[#0a1f44] transition-colors"
+                        className={`relative flex flex-col p-4 border-2 rounded-xl cursor-pointer transition-all duration-200 ${
+                          timing === option.value
+                            ? "border-[#0a1f44] bg-blue-50/30"
+                            : "border-gray-200 hover:border-blue-200 hover:bg-gray-50"
+                        }`}
                       >
+                        <div className="flex items-center justify-between mb-1">
+                          <span className={`font-bold ${timing === option.value ? "text-[#0a1f44]" : "text-gray-700"}`}>
+                            {option.label}
+                          </span>
+                          <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
+                            timing === option.value ? "border-[#0a1f44]" : "border-gray-300"
+                          }`}>
+                            {timing === option.value && (
+                              <div className="w-2.5 h-2.5 rounded-full bg-[#0a1f44]" />
+                            )}
+                          </div>
+                        </div>
+                        <span className="text-sm text-gray-500">{option.desc}</span>
                         <input
                           type="radio"
                           name="timing"
                           value={option.value}
                           checked={timing === option.value}
                           onChange={(e) => setTiming(e.target.value)}
-                          className="w-5 h-5 text-[#0a1f44]"
+                          className="hidden"
                         />
-                        <span className="text-lg">{option.label}</span>
                       </label>
                     ))}
                   </div>
                 </div>
 
-                <Button
-                  size="lg"
-                  className="w-full text-lg py-6 bg-[#0a1f44] hover:bg-[#0a1f44]/90"
-                  disabled={jobDescription.length < 50}
-                >
-                  Continue
-                </Button>
+                <div className="pt-4">
+                  <Button
+                    size="lg"
+                    className="w-full text-lg font-bold py-7 rounded-xl bg-[#0a1f44] hover:bg-[#0a1f44]/90 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 disabled:opacity-50 disabled:transform-none disabled:shadow-none"
+                    disabled={jobDescription.length < 50}
+                  >
+                    Continue to Contact Details
+                    <ChevronRight className="ml-2 h-5 w-5" />
+                  </Button>
+                  <p className="text-center text-sm text-gray-500 mt-4">
+                    Next step: We'll ask for your contact details so {selectedTradesperson.businessName} can reply.
+                  </p>
+                </div>
+              </div>
+
+              {/* Sidebar Summary */}
+              <div className="md:col-span-1">
+                <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 sticky top-24">
+                  <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4">
+                    You are contacting
+                  </h3>
+                  
+                  <div className="flex flex-col items-center text-center mb-6">
+                    <div className="w-24 h-24 rounded-full bg-gray-100 overflow-hidden mb-4 border-4 border-white shadow-md">
+                      {selectedTradesperson.profilePhoto ? (
+                        <img
+                          src={selectedTradesperson.profilePhoto}
+                          alt={selectedTradesperson.businessName}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center text-3xl font-bold text-gray-400">
+                          {selectedTradesperson.businessName.charAt(0)}
+                        </div>
+                      )}
+                    </div>
+                    <h2 className="text-xl font-bold text-[#0a1f44] mb-1">
+                      {selectedTradesperson.businessName}
+                    </h2>
+                    <div className="flex items-center gap-1 text-sm text-gray-600 mb-2">
+                      <MapPin className="h-3 w-3" /> {postcode || "Costa del Sol"}
+                    </div>
+                    
+                    {selectedTradesperson.verified && (
+                      <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-green-50 text-green-700 text-xs font-bold border border-green-100">
+                        <Shield className="h-3 w-3" /> Verified Pro
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="space-y-3 pt-6 border-t border-gray-100">
+                    <div className="flex items-center gap-3 text-sm text-gray-600">
+                      <CheckCircle className="h-4 w-4 text-green-500" />
+                      <span>Free to request quotes</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-sm text-gray-600">
+                      <CheckCircle className="h-4 w-4 text-green-500" />
+                      <span>No obligation to hire</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-sm text-gray-600">
+                      <CheckCircle className="h-4 w-4 text-green-500" />
+                      <span>Your details are secure</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -160,7 +255,7 @@ export default function PostJobResults() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 font-sans">
       {/* Header Bar */}
       <div className="bg-[#0a1f44] py-6 shadow-md sticky top-0 z-40">
         <div className="container-custom">
@@ -385,14 +480,14 @@ export default function PostJobResults() {
               Get in touch with this professional directly
             </DialogDescription>
           </DialogHeader>
-
+          
           {phoneModalData && (
             <div className="flex flex-col items-center space-y-6 py-4">
               <div className="w-20 h-20 rounded-full bg-gray-100 overflow-hidden flex items-center justify-center">
                 {phoneModalData.profilePhoto ? (
-                  <img
-                    src={phoneModalData.profilePhoto}
-                    alt={phoneModalData.businessName}
+                  <img 
+                    src={phoneModalData.profilePhoto} 
+                    alt={phoneModalData.businessName} 
                     className="w-full h-full object-cover"
                   />
                 ) : (
@@ -401,7 +496,7 @@ export default function PostJobResults() {
                   </span>
                 )}
               </div>
-
+              
               <div className="text-center">
                 <h3 className="text-lg font-bold text-gray-900">{phoneModalData.businessName}</h3>
                 <p className="text-sm text-gray-500">{phoneModalData.tradeCategory}</p>
@@ -409,7 +504,7 @@ export default function PostJobResults() {
 
               <div className="w-full bg-blue-50 rounded-xl p-6 text-center border border-blue-100">
                 <p className="text-sm text-blue-600 mb-2 font-medium">Phone Number</p>
-                <a
+                <a 
                   href={`tel:${phoneModalData.phone || "+34 952 123 456"}`}
                   className="text-2xl font-bold text-[#0a1f44] hover:underline flex items-center justify-center gap-2"
                 >
