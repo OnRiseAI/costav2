@@ -453,6 +453,10 @@ export function CustomerDashboard() {
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans pb-20">
+      <SEO
+        title="My Dashboard | CostaTrades"
+        description="Manage your active jobs, view quotes, and chat with tradespeople."
+      />
       {/* Mobile Header */}
       <div className="lg:hidden bg-white border-b border-slate-200 p-4 sticky top-0 z-30 flex justify-between items-center">
         <h1 className="font-bold text-lg text-[#0a1f44]">Dashboard</h1>
