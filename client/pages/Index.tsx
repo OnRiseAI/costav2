@@ -201,8 +201,7 @@ export default function Index() {
           url: "https://www.costatrades.com",
           potentialAction: {
             "@type": "SearchAction",
-            target:
-              "https://www.costatrades.com/search?q={search_term_string}",
+            target: "https://www.costatrades.com/search?q={search_term_string}",
             "query-input": "required name=search_term_string",
           },
         }}

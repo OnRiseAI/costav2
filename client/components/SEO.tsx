@@ -28,15 +28,15 @@ export function SEO({ title, description, schema }: SEOProps) {
         script.setAttribute("type", "application/ld+json");
         document.head.appendChild(script);
       }
-      
-      const schemaContent = typeof schema === 'string' ? schema : JSON.stringify(schema);
+
+      const schemaContent =
+        typeof schema === "string" ? schema : JSON.stringify(schema);
       script.textContent = schemaContent;
     }
 
     // Cleanup function (optional, but good practice to avoid stale data if component unmounts)
     // However, for SEO, we usually want the tags to persist until the next page overwrites them.
     // So we might not strictly need to remove them on unmount, but let's keep it simple.
-    
   }, [title, description, schema]);
 
   return null;
