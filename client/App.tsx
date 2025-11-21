@@ -62,8 +62,8 @@ function AppContent() {
               element={<TradespersonProfile />}
             />
 
-            {/* Search */}
-            <Route path="/search" element={<SearchResults />} />
+            {/* Search - Redirect to Post Job */}
+            <Route path="/search" element={<Navigate to="/post-job" replace />} />
 
             {/* Information Pages */}
             <Route path="/how-it-works" element={<HowItWorksPage />} />
