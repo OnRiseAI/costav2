@@ -46,7 +46,7 @@ export function PremiumHero() {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchValue.trim()) {
-      window.location.href = `/search?q=${encodeURIComponent(searchValue)}`;
+      window.location.href = `/post-job?option=${encodeURIComponent(searchValue)}`;
     }
   };
 
