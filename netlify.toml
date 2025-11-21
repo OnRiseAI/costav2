@@ -8,6 +8,14 @@
   external_node_modules = ["express"]
   node_bundler = "esbuild"
   
+# SPA fallback: ensure client-side routes are served by index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = true
+
+# API function proxy
 [[redirects]]
   force = true
   from = "/api/*"
