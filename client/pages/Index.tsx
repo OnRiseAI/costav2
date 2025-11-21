@@ -194,17 +194,59 @@ export default function Index() {
       <SEO
         title="CostaTrades | Find Verified Tradespeople in Costa del Sol"
         description="Connect with trusted plumbers, electricians, and builders in Marbella, Estepona & Mijas. Verified reviews, free quotes, and guaranteed work."
-        schema={{
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          name: "CostaTrades",
-          url: "https://www.costatrades.com",
-          potentialAction: {
-            "@type": "SearchAction",
-            target: "https://www.costatrades.com/search?q={search_term_string}",
-            "query-input": "required name=search_term_string",
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "CostaTrades",
+            url: "https://www.costatrades.com",
+            potentialAction: {
+              "@type": "SearchAction",
+              target: "https://www.costatrades.com/search?q={search_term_string}",
+              "query-input": "required name=search_term_string",
+            },
           },
-        }}
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "CostaTrades",
+            url: "https://www.costatrades.com",
+            logo: "https://www.costatrades.com/favicon.ico",
+            sameAs: [
+              "https://www.facebook.com/costatrades",
+              "https://twitter.com/costatrades",
+              "https://www.linkedin.com/company/costatrades",
+            ],
+            contactPoint: [
+              {
+                "@type": "ContactPoint",
+                telephone: "+34-000-000-000",
+                contactType: "customer support",
+                areaServed: "ES",
+                availableLanguage: ["English", "Spanish"],
+              },
+            ],
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: "CostaTrades | Find Verified Tradespeople in Costa del Sol",
+            url: "https://www.costatrades.com",
+            description:
+              "Connect with trusted plumbers, electricians, and builders in Marbella, Estepona & Mijas.",
+            breadcrumb: {
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://www.costatrades.com",
+                },
+              ],
+            },
+          },
+        ]}
       />
       {/* Live Activity Feed */}
       <LiveActivity />
