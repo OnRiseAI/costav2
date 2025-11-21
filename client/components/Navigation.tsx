@@ -95,16 +95,58 @@ export function Navigation() {
               </Link>
             </div>
 
-            {/* Center/Right: Action Buttons */}
+            {/* Center navigation */}
+            <div className="hidden lg:flex items-center gap-6">
+              <Link
+                to="/how-it-works"
+                className="text-sm font-medium text-slate-700 hover:text-[#0a1f44] transition-colors"
+              >
+                How it works
+              </Link>
+              <Link
+                to="/cost-guides"
+                className="text-sm font-medium text-slate-700 hover:text-[#0a1f44] transition-colors"
+              >
+                Cost guides
+              </Link>
+              <Link
+                to="/holiday-homes"
+                className="text-sm font-medium text-slate-700 hover:text-[#0a1f44] transition-colors"
+              >
+                Holiday homes
+              </Link>
+              <Link
+                to="/landlords"
+                className="text-sm font-medium text-slate-700 hover:text-[#0a1f44] transition-colors"
+              >
+                Landlords
+              </Link>
+              <Link
+                to="/blog"
+                className="text-sm font-medium text-slate-700 hover:text-[#0a1f44] transition-colors"
+              >
+                Blog
+              </Link>
+            </div>
+
+            {/* Right: primary actions */}
             <div className="flex items-center gap-3">
-              <Link to="/join-as-tradesperson">
-                <Button className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white px-5 md:px-7 h-[44px] text-[14px] md:text-[15px] font-medium rounded-full whitespace-nowrap shadow-sm">
-                  Trade sign up
+              <Link to="/post-job" className="hidden md:block">
+                <Button className="bg-[#E31E24] hover:bg-[#C41218] text-white px-5 md:px-7 h-[44px] text-[14px] md:text-[15px] font-semibold rounded-full whitespace-nowrap shadow-sm">
+                  Post a job
+                </Button>
+              </Link>
+              <Link to="/join-as-tradesperson" className="hidden md:block">
+                <Button
+                  variant="outline"
+                  className="border border-[#0a1f44] text-[#0a1f44] hover:bg-gray-50 bg-white px-5 md:px-7 h-[44px] text-[14px] md:text-[15px] font-medium rounded-full whitespace-nowrap"
+                >
+                  For tradespeople
                 </Button>
               </Link>
               <Button
                 variant="outline"
-                className="border-2 border-[#0a1f44] text-[#0a1f44] hover:bg-gray-50 hover:text-[#0a1f44] bg-white px-5 md:px-7 h-[44px] text-[14px] md:text-[15px] font-medium rounded-full whitespace-nowrap"
+                className="hidden lg:inline-flex border-0 text-[#0a1f44] hover:bg-gray-50 bg-white px-4 h-[40px] text-[13px] font-medium rounded-full whitespace-nowrap"
                 onClick={() => setIsAppModalOpen(true)}
               >
                 Download app
@@ -222,22 +264,65 @@ export function Navigation() {
 
               {/* Homeowner Section */}
               <div className="flex flex-col space-y-4">
-                <h2 className="text-xl font-bold text-[#0a1f44]">Homeowner</h2>
-                <Link
-                  to="/review-trade"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <Button className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white px-6 py-3 text-base rounded-lg w-full">
-                    Review a Trade
+                <h2 className="text-xl font-bold text-[#0a1f44]">
+                  For homeowners
+                </h2>
+                <Link to="/post-job" onClick={() => setMobileMenuOpen(false)}>
+                  <Button className="bg-[#E31E24] hover:bg-[#C41218] text-white px-6 py-3 text-base rounded-lg w-full">
+                    Post a job
                   </Button>
                 </Link>
-                <Link
-                  to="/saved-trades"
-                  className="text-muted-foreground hover:text-foreground transition-colors text-sm pl-2"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Saved Trades
-                </Link>
+                <div className="flex flex-col space-y-2 text-sm pl-2">
+                  <Link
+                    to="/how-it-works"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    How it works
+                  </Link>
+                  <Link
+                    to="/cost-guides"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Cost guides
+                  </Link>
+                  <Link
+                    to="/holiday-homes"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Holiday homes
+                  </Link>
+                  <Link
+                    to="/landlords"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Landlords
+                  </Link>
+                  <Link
+                    to="/blog"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Blog
+                  </Link>
+                  <Link
+                    to="/saved-trades"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Saved trades
+                  </Link>
+                  <Link
+                    to="/review-trade"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Review a trade
+                  </Link>
+                </div>
               </div>
 
               {/* Divider */}
