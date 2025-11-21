@@ -95,9 +95,6 @@ export function Navigation() {
               </Link>
             </div>
 
-            {/* Center navigation - Removed as per request */}
-            <div className="hidden lg:flex items-center gap-6">
-            </div>
 
             {/* Right: primary actions */}
             <div className="flex items-center gap-3">
