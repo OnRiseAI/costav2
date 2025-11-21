@@ -573,7 +573,9 @@ export default function TradespersonProfile() {
             </div>
           </div>
           <Link to="/post-job">
-            <Button className="shadow-md">Request Quote</Button>
+            <Button className="shadow-md bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 h-10 text-sm font-semibold">
+              Request a Quote
+            </Button>
           </Link>
         </div>
       </div>
