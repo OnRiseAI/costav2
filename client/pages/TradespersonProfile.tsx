@@ -1,286 +1,394 @@
-import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
 import { 
-  Star, 
-  CheckCircle, 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Briefcase, 
-  Award, 
-  Camera, 
-  ArrowRight,
-  User,
-  MessageSquare
-} from "lucide-react";
+  Star, MapPin, Shield, CheckCircle, Phone, Mail, 
+  Clock, Award, Users, Camera, ChevronRight, X,
+  Check, Building2, User
+} from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { Dialog, DialogContent, DialogTrigger, DialogClose } from "@/components/ui/dialog";
+import { demoTradespeople, Tradesperson } from "@/data/tradespeople";
 
-// Mock data for a tradesperson profile
-const tradespersonData = {
-  id: "mario-plumbing-sl",
-  name: "Mario Plumbing S.L.",
-  type: "Company (S.L.)",
-  isPhoneVerified: true,
-  isIdVerified: true,
-  isTopRated: true,
-  rating: 4.9,
-  reviews: 12,
-  teamSize: "5-10",
-  bio: "We are a family-run business in Marbella with over 10 years of experience providing reliable and professional plumbing services across the Costa del Sol. From emergency repairs to full installations, our certified team is here to help.",
-  companyDetails: {
-    registration: "B-12345678",
-    insurance: "Liability Insurance up to €1M",
-  },
-  services: ["Emergency Repairs", "Boiler Installation", "Leak Detection", "Tap Replacement", "Drain Unblocking", "Full Bathroom Refurbishment"],
-  serviceAreas: ["Marbella", "Mijas", "Estepona", "Benahavís", "San Pedro"],
-  photos: [
-    "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?q=80&w=2940&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1613477714763-11013005436e?q=80&w=2940&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1617042377508-72372739179a?q=80&w=2940&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2940&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2831&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=2940&auto=format&fit=crop",
-  ],
-  team: [
-    { name: "Mario Rossi", role: "Head Plumber", photo: "https://randomuser.me/api/portraits/men/1.jpg" },
-    { name: "Sofia Marti", role: "Office Manager", photo: "https://randomuser.me/api/portraits/women/2.jpg" },
-    { name: "Carlos Ruiz", role: "Senior Plumber", photo: "https://randomuser.me/api/portraits/men/3.jpg" }
-  ],
-  reviews: [
-    { id: 1, text: "Mario came on time and fixed the leak quickly. Very professional service.", author: "Sarah J.", authorType: "Verified Homeowner", date: "2 days ago", rating: 5 },
-    { id: 2, text: "Excellent work on my boiler installation. Clean and efficient.", author: "David Miller", authorType: "Verified Homeowner", date: "1 week ago", rating: 4.5 },
-    { id: 3, text: "Highly recommend Mario Plumbing. Solved a persistent issue others couldn't.", author: "Elena Costa", authorType: "Verified Homeowner", date: "3 weeks ago", rating: 5 }
-  ]
-};
+// Extended interface for the full profile
+interface TradespersonProfileData extends Tradesperson {
+  type: 'Company' | 'Sole Trader';
+  cif?: string;
+  insurance?: string;
+  bio: string;
+  areasCovered: string[];
+  team?: {
+    name: string;
+    role: string;
+    photo: string;
+  }[];
+  portfolio: {
+    id: number;
+    image: string;
+    title: string;
+  }[];
+  reviews: {
+    id: number;
+    author: string;
+    rating: number;
+    date: string;
+    text: string;
+    verified: boolean;
+  }[];
+}
 
 export default function TradespersonProfile() {
-  const { slug } = useParams(); // In a real app, this would fetch data based on slug
-  const [isVerified, setIsVerified] = useState(tradespersonData.isPhoneVerified && tradespersonData.isIdVerified);
-  const [showVerificationModal, setShowVerificationModal] = useState(false);
+  const { slug } = useParams<{ slug: string }>();
+  const [profile, setProfile] = useState<TradespersonProfileData | null>(null);
+  const [loading, setLoading] = useState(true);
 
-  const renderBadges = () => (
-    <div className="flex flex-wrap gap-2">
-      {tradespersonData.isPhoneVerified && (
-        <span className="inline-flex items-center gap-1 px-3 py-1 bg-gray-100 text-gray-700 text-xs font-bold rounded-full shadow-inner">
-          <CheckCircle className="w-3 h-3 text-gray-500" /> Phone Verified
-        </span>
-      )}
-      {tradespersonData.isIdVerified && (
-        <span className="inline-flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-full shadow-inner">
-          <CheckCircle className="w-3 h-3 text-blue-500" /> ID Verified
-        </span>
-      )}
-      {tradespersonData.isTopRated && (
-        <span className="inline-flex items-center gap-1 px-3 py-1 bg-yellow-100 text-yellow-700 text-xs font-bold rounded-full shadow-inner">
-          <Star className="w-3 h-3 fill-yellow-500 text-yellow-500" /> Top Rated
-        </span>
-      )}
-    </div>
-  );
+  useEffect(() => {
+    // Simulate API fetch
+    const found = demoTradespeople.find(t => t.slug === slug);
+    
+    if (found) {
+      // Enrich with mock data for the demo
+      const enrichedProfile: TradespersonProfileData = {
+        ...found,
+        type: found.businessName.includes('Group') || found.businessName.includes('Services') ? 'Company' : 'Sole Trader',
+        cif: 'B-12345678',
+        insurance: 'Liability Insurance up to €1M',
+        bio: `We are a professional ${found.tradeCategory.toLowerCase()} service based in ${found.location} with over ${found.yearsInBusiness} years of experience. We pride ourselves on quality workmanship, reliability, and excellent customer service. Our team is fully qualified and insured, ensuring peace of mind for all our clients.`,
+        areasCovered: [found.location, 'Mijas', 'Estepona', 'Benahavís'],
+        team: found.businessName.includes('Group') || found.businessName.includes('Services') ? [
+          { name: 'Mario', role: 'Head Specialist', photo: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop' },
+          { name: 'Sarah', role: 'Office Manager', photo: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop' },
+          { name: 'David', role: 'Senior Technician', photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop' }
+        ] : undefined,
+        portfolio: [
+          { id: 1, title: 'Modern Bathroom Renovation', image: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&h=600&fit=crop' },
+          { id: 2, title: 'Kitchen Plumbing Installation', image: 'https://images.unsplash.com/photo-1584622050111-993a426fbf0a?w=800&h=600&fit=crop' },
+          { id: 3, title: 'Emergency Leak Repair', image: 'https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=800&h=600&fit=crop' },
+          { id: 4, title: 'Boiler Replacement', image: 'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=800&h=600&fit=crop' },
+          { id: 5, title: 'Underfloor Heating', image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&h=600&fit=crop' },
+          { id: 6, title: 'Commercial Installation', image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&h=600&fit=crop' },
+        ],
+        reviews: [
+          { id: 1, author: 'Sarah J.', rating: 5, date: '2 days ago', text: 'Mario came on time and fixed the leak quickly. Very professional and clean work.', verified: true },
+          { id: 2, author: 'Mike T.', rating: 5, date: '1 week ago', text: 'Excellent service. Explained everything clearly and the price was fair. Highly recommended!', verified: true },
+          { id: 3, author: 'Elena R.', rating: 4, date: '3 weeks ago', text: 'Good work, arrived a bit late but called to let me know. The repair is perfect.', verified: true },
+        ]
+      };
+      setProfile(enrichedProfile);
+    }
+    setLoading(false);
+  }, [slug]);
 
-  const renderStats = () => (
-    <div className="flex flex-wrap gap-4 text-sm text-slate-500">
-      <div className="flex items-center gap-1.5">
-        <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-        <span className="font-bold text-[#0a1f44]">{tradespersonData.rating}</span> ({tradespersonData.reviews} reviews)
+  if (loading) {
+    return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+  }
+
+  if (!profile) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center p-4">
+        <h1 className="text-2xl font-bold mb-4">Tradesperson Not Found</h1>
+        <Link to="/trades">
+          <Button>Browse Trades</Button>
+        </Link>
       </div>
-      <div className="flex items-center gap-1.5">
-        <Briefcase className="w-4 h-4 text-slate-400" /> Team Size: <span className="font-bold text-[#0a1f44]">{tradespersonData.teamSize}</span>
-      </div>
-    </div>
-  );
-
-  const handleRequestQuote = () => {
-    // In a real app, this would navigate to a quote request form or modal
-    alert("Redirecting to quote request...");
-  };
+    );
+  }
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans selection:bg-blue-100 selection:text-blue-900">
-      {/* Trust Hero */}
-      <section className="relative py-16 px-4 bg-white border-b border-slate-100">
-        <div className="container-custom max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-12 items-center">
-            {/* Profile Photo/Logo */}
-            <div className="md:col-span-1 flex justify-center md:justify-start">
-              <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold text-4xl shadow-xl border-4 border-white">
-                {tradespersonData.name.split(' ').map(n => n[0]).join('')}
-              </div>
+    <div className="min-h-screen bg-gray-50 pb-20 md:pb-0">
+      {/* 1. Trust Hero Section */}
+      <div className="bg-white border-b">
+        <div className="container mx-auto px-4 py-8">
+          <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+            {/* Profile Photo */}
+            <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-white shadow-lg flex-shrink-0 bg-gray-100">
+              {profile.profilePhoto ? (
+                <img src={profile.profilePhoto} alt={profile.businessName} className="w-full h-full object-cover" />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center bg-primary/10 text-primary text-3xl font-bold">
+                  {profile.businessName.charAt(0)}
+                </div>
+              )}
             </div>
 
-            {/* Info & Action */}
-            <div className="md:col-span-2">
-              <h1 className="text-3xl md:text-5xl font-bold text-[#0a1f44] mb-4 leading-tight">{tradespersonData.name}</h1>
-              <p className="text-lg text-slate-600 mb-6 capitalize">{tradespersonData.type}</p>
-              
-              {renderBadges()}
-              <div className="mt-6">
-                {renderStats()}
+            {/* Info */}
+            <div className="flex-1 w-full">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                  <h1 className="text-2xl md:text-3xl font-bold text-gray-900">{profile.businessName}</h1>
+                  <div className="flex items-center gap-2 mt-1 text-gray-600">
+                    {profile.type === 'Company' ? <Building2 className="w-4 h-4" /> : <User className="w-4 h-4" />}
+                    <span>{profile.type}</span>
+                    <span className="text-gray-300">|</span>
+                    <MapPin className="w-4 h-4" />
+                    <span>{profile.location}</span>
+                  </div>
+                </div>
+                <div className="hidden md:block">
+                  <Link to="/request-quote">
+                    <Button size="lg" className="bg-primary hover:bg-primary/90 text-white shadow-md">
+                      Request a Quote
+                    </Button>
+                  </Link>
+                </div>
               </div>
 
-              <Button 
-                onClick={handleRequestQuote} 
-                size="lg" 
-                className="mt-8 px-8 py-7 text-lg rounded-xl bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-900/20 w-full md:w-auto"
-              >
-                Request a Quote <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
+              {/* Badges */}
+              <div className="flex flex-wrap gap-2 mt-4">
+                {profile.verified && (
+                  <Badge variant="secondary" className="bg-blue-50 text-blue-700 border-blue-100 gap-1 px-3 py-1">
+                    <Shield className="w-3 h-3 fill-blue-700" /> ID/CIF Verified
+                  </Badge>
+                )}
+                {profile.phone && (
+                  <Badge variant="secondary" className="bg-gray-100 text-gray-700 border-gray-200 gap-1 px-3 py-1">
+                    <Phone className="w-3 h-3" /> Phone Verified
+                  </Badge>
+                )}
+                {profile.rating >= 4.8 && (
+                  <Badge variant="secondary" className="bg-amber-50 text-amber-700 border-amber-100 gap-1 px-3 py-1">
+                    <Award className="w-3 h-3" /> Top Rated
+                  </Badge>
+                )}
+              </div>
+
+              {/* Stats */}
+              <div className="flex items-center gap-6 mt-6 text-sm">
+                <div className="flex items-center gap-1">
+                  <Star className="w-5 h-5 text-amber-400 fill-amber-400" />
+                  <span className="font-bold text-lg">{profile.rating}</span>
+                  <span className="text-gray-500 underline decoration-dotted">({profile.reviewCount} Reviews)</span>
+                </div>
+                <div className="flex items-center gap-1 text-gray-600">
+                  <Users className="w-4 h-4" />
+                  <span>Team Size: {profile.team ? '5-10' : '1-2'}</span>
+                </div>
+                <div className="flex items-center gap-1 text-gray-600">
+                  <Clock className="w-4 h-4" />
+                  <span>{profile.yearsInBusiness} Years Exp.</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      <div className="container-custom max-w-5xl mx-auto px-4 py-16">
-        <div className="grid lg:grid-cols-3 gap-16">
-          {/* Sidebar Navigation */}
-          <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-100 sticky top-24">
-              <nav className="p-6 space-y-3">
-                <button 
-                  onClick={() => {}} // Placeholder for navigation logic
-                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors bg-blue-50 text-blue-700"
-                >
-                  <Briefcase className="w-5 h-5" />
-                  About
-                </button>
-                <button 
-                  onClick={() => {}}
-                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors text-slate-600 hover:bg-slate-50"
-                >
-                  <Camera className="w-5 h-5" />
-                  Portfolio
-                </button>
-                <button 
-                  onClick={() => {}}
-                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors text-slate-600 hover:bg-slate-50"
-                >
-                  <Star className="w-5 h-5" />
-                  Reviews
-                </button>
-                <button 
-                  onClick={() => {}}
-                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors text-slate-600 hover:bg-slate-50"
-                >
-                  <User className="w-5 h-5" />
-                  Meet the Team
-                </button>
-              </nav>
-            </div>
-          </div>
-
-          {/* Main Content Area */}
-          <div className="lg:col-span-2 space-y-16">
+      <div className="container mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* Left Column (Main Content) */}
+        <div className="lg:col-span-2 space-y-8">
+          
+          {/* 2. About Section */}
+          <section className="bg-white rounded-xl p-6 shadow-sm border">
+            <h2 className="text-xl font-bold mb-4">About {profile.businessName}</h2>
+            <p className="text-gray-600 leading-relaxed mb-6">
+              {profile.bio}
+            </p>
             
-            {/* 2. About Section */}
-            <section>
-              <h2 className="text-3xl font-bold text-[#0a1f44] mb-6">About Mario Plumbing S.L.</h2>
-              <p className="text-lg text-slate-600 leading-relaxed mb-8">{tradespersonData.bio}</p>
-              
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="font-bold text-lg text-[#0a1f44] mb-3 flex items-center gap-2">
-                    <Briefcase className="w-5 h-5 text-blue-600" /> Company Details
-                  </h3>
-                  <ul className="space-y-2 text-sm text-slate-600">
-                    <li><strong>Registration (CIF):</strong> {tradespersonData.companyDetails.registration} <span className="text-blue-600 font-medium">(Verified)</span></li>
-                    <li><strong>Insurance:</strong> {tradespersonData.companyDetails.insurance}</li>
-                  </ul>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+              <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                  <CheckCircle className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg text-[#0a1f44] mb-3 flex items-center gap-2">
-                    <MapPin className="w-5 h-5 text-blue-600" /> Service Areas
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {tradespersonData.serviceAreas.map((area, i) => (
-                      <span key={i} className="px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-xs font-medium">{area}</span>
+                  <p className="text-xs text-gray-500 uppercase font-semibold">Registration (CIF)</p>
+                  <p className="font-medium text-gray-900">{profile.cif} <span className="text-green-600 text-xs ml-1">(Verified)</span></p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+                  <Shield className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="text-xs text-gray-500 uppercase font-semibold">Insurance</p>
+                  <p className="font-medium text-gray-900">Liability up to €1M</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mb-6">
+              <h3 className="font-semibold mb-3">Services</h3>
+              <div className="flex flex-wrap gap-2">
+                {profile.services?.map((service, index) => (
+                  <Badge key={index} variant="outline" className="bg-gray-50 px-3 py-1 text-sm font-normal">
+                    {service}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h3 className="font-semibold mb-3">Areas Covered</h3>
+              <div className="flex flex-wrap gap-2 text-gray-600 text-sm">
+                {profile.areasCovered.map((area, index) => (
+                  <span key={index} className="flex items-center gap-1 bg-gray-50 px-3 py-1 rounded-full">
+                    <MapPin className="w-3 h-3" /> {area}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* 2b. Meet the Team (Optional) */}
+          {profile.team && (
+            <section className="bg-white rounded-xl p-6 shadow-sm border">
+              <h2 className="text-xl font-bold mb-4">Our Experts</h2>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                {profile.team.map((member, index) => (
+                  <div key={index} className="text-center">
+                    <div className="w-20 h-20 mx-auto rounded-full overflow-hidden mb-2 border-2 border-gray-100">
+                      <img src={member.photo} alt={member.name} className="w-full h-full object-cover" />
+                    </div>
+                    <p className="font-medium text-gray-900">{member.name}</p>
+                    <p className="text-xs text-gray-500">{member.role}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* 3. Portfolio Gallery */}
+          <section className="bg-white rounded-xl p-6 shadow-sm border">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-xl font-bold">Recent Work</h2>
+              <span className="text-sm text-gray-500">{profile.portfolio.length} Projects</span>
+            </div>
+            
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {profile.portfolio.map((item) => (
+                <Dialog key={item.id}>
+                  <DialogTrigger asChild>
+                    <div className="group relative aspect-square rounded-lg overflow-hidden cursor-pointer bg-gray-100">
+                      <img 
+                        src={item.image} 
+                        alt={item.title} 
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                        <Camera className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-lg" />
+                      </div>
+                    </div>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-4xl w-full p-0 overflow-hidden bg-black border-none">
+                    <div className="relative w-full h-[80vh] flex items-center justify-center bg-black">
+                      <img 
+                        src={item.image} 
+                        alt={item.title} 
+                        className="max-w-full max-h-full object-contain"
+                      />
+                      <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent text-white">
+                        <h3 className="text-lg font-medium">{item.title}</h3>
+                      </div>
+                    </div>
+                  </DialogContent>
+                </Dialog>
+              ))}
+            </div>
+          </section>
+
+          {/* 4. Reviews Wall */}
+          <section className="bg-white rounded-xl p-6 shadow-sm border">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-xl font-bold">What Customers Say</h2>
+              <div className="flex items-center gap-2">
+                <div className="flex">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <Star key={star} className={`w-4 h-4 ${star <= Math.round(profile.rating) ? 'text-amber-400 fill-amber-400' : 'text-gray-300'}`} />
+                  ))}
+                </div>
+                <span className="font-bold">{profile.rating}</span>
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              {profile.reviews.map((review) => (
+                <div key={review.id} className="border-b last:border-0 pb-6 last:pb-0">
+                  <div className="flex justify-between items-start mb-2">
+                    <div className="flex items-center gap-2">
+                      <div className="font-semibold text-gray-900">{review.author}</div>
+                      {review.verified && (
+                        <span className="text-xs bg-green-50 text-green-700 px-2 py-0.5 rounded-full flex items-center gap-1">
+                          <Check className="w-3 h-3" /> Verified Homeowner
+                        </span>
+                      )}
+                    </div>
+                    <span className="text-sm text-gray-500">{review.date}</span>
+                  </div>
+                  <div className="flex mb-2">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <Star key={star} className={`w-3 h-3 ${star <= review.rating ? 'text-amber-400 fill-amber-400' : 'text-gray-300'}`} />
                     ))}
                   </div>
+                  <p className="text-gray-600 italic">"{review.text}"</p>
                 </div>
-              </div>
-              
-              <div className="mt-8">
-                <h3 className="font-bold text-lg text-[#0a1f44] mb-3 flex items-center gap-2">
-                  <Tag className="w-5 h-5 text-blue-600" /> Services Offered
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {tradespersonData.services.map((service, i) => (
-                    <span key={i} className="px-4 py-2 bg-slate-100 text-slate-700 rounded-full text-sm">{service}</span>
-                  ))}
-                </div>
-              </div>
-            </section>
+              ))}
+            </div>
+            
+            <div className="mt-6 text-center">
+              <Button variant="outline" className="w-full md:w-auto">
+                View All {profile.reviewCount} Reviews
+              </Button>
+            </div>
+          </section>
 
-            {/* 2b. Meet the Team */}
-            {tradespersonData.team && tradespersonData.team.length > 0 && (
-              <section>
-                <h2 className="text-3xl font-bold text-[#0a1f44] mb-8">Meet the Experts</h2>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {tradespersonData.team.map((member, i) => (
-                    <div key={i} className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm text-center">
-                      <img src={member.photo} alt={member.name} className="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-2 border-white shadow-sm" />
-                      <h4 className="font-bold text-[#0a1f44]">{member.name}</h4>
-                      <p className="text-sm text-slate-500">{member.role}</p>
-                    </div>
-                  ))}
-                </div>
-              </section>
-            )}
+        </div>
 
-            {/* 3. Portfolio Gallery */}
-            <section>
-              <h2 className="text-3xl font-bold text-[#0a1f44] mb-8">Recent Work</h2>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {tradespersonData.photos.map((photo, i) => (
-                  <div key={i} className="aspect-square rounded-xl overflow-hidden bg-slate-100 border border-slate-200 cursor-pointer hover:shadow-lg transition-shadow">
-                    <img src={photo} alt={`Recent work ${i + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-                  </div>
-                ))}
+        {/* Right Column (Sidebar - Desktop) */}
+        <div className="hidden lg:block space-y-6">
+          <div className="bg-white rounded-xl p-6 shadow-sm border sticky top-24">
+            <h3 className="font-bold text-lg mb-4">Contact {profile.businessName}</h3>
+            <p className="text-gray-600 text-sm mb-6">
+              Get a free quote for your project. Response time: usually within 2 hours.
+            </p>
+            
+            <Link to="/request-quote">
+              <Button className="w-full mb-4 h-12 text-lg shadow-md">
+                Request a Quote
+              </Button>
+            </Link>
+            
+            <div className="space-y-4 text-sm">
+              <div className="flex items-center gap-3 text-gray-600">
+                <Phone className="w-4 h-4" />
+                <span>{profile.phone || '+34 952 123 456'}</span>
               </div>
-            </section>
+              <div className="flex items-center gap-3 text-gray-600">
+                <Mail className="w-4 h-4" />
+                <span>Contact via Message</span>
+              </div>
+              <div className="flex items-center gap-3 text-gray-600">
+                <Clock className="w-4 h-4" />
+                <span>Mon - Fri: 09:00 - 18:00</span>
+              </div>
+            </div>
 
-            {/* 4. Reviews Wall */}
-            <section>
-              <h2 className="text-3xl font-bold text-[#0a1f44] mb-8">What Customers Say</h2>
-              <div className="space-y-6">
-                {tradespersonData.reviews.map((review) => (
-                  <div key={review.id} className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
-                    <div className="flex items-center gap-2 mb-3">
-                      {[...Array(5)].map((_, i) => (
-                        <Star 
-                          key={i} 
-                          className={`w-5 h-5 ${i < review.rating ? 'fill-yellow-400 text-yellow-400' : 'text-slate-300'}`} 
-                        />
-                      ))}
-                    </div>
-                    <p className="text-slate-700 italic mb-4 leading-relaxed">"{review.text}"</p>
-                    <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 font-bold text-sm">
-                        {review.author.split(' ').map(n => n[0]).join('')}
-                      </div>
-                      <div>
-                        <div className="font-bold text-[#0a1f44]">{review.author}</div>
-                        <div className="text-xs text-slate-500">{review.authorType}</div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
+            <div className="mt-6 pt-6 border-t">
+              <p className="text-xs text-gray-500 text-center">
+                <Shield className="w-3 h-3 inline mr-1" />
+                CostaTrade Guarantee: Verified Pro
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
       {/* 5. Sticky Footer (Mobile Only) */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 p-4 z-40 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
-        <Button 
-          onClick={handleRequestQuote} 
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white h-14 text-lg font-bold rounded-xl shadow-lg shadow-blue-900/20"
-        >
-          Request a Quote
-        </Button>
+      <div className="fixed bottom-0 left-0 right-0 bg-white border-t p-4 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] md:hidden z-40">
+        <div className="flex items-center justify-between gap-4">
+          <div className="flex-1 min-w-0">
+            <p className="font-bold text-gray-900 truncate">{profile.businessName}</p>
+            <div className="flex items-center gap-1 text-xs text-gray-600">
+              <Star className="w-3 h-3 text-amber-400 fill-amber-400" />
+              <span>{profile.rating}</span>
+              <span>({profile.reviewCount})</span>
+            </div>
+          </div>
+          <Link to="/request-quote">
+            <Button className="shadow-md">
+              Request Quote
+            </Button>
+          </Link>
+        </div>
       </div>
     </div>
   );
