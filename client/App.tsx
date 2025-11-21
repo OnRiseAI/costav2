@@ -11,7 +11,6 @@ import JobPostedSuccess from "@/pages/JobPostedSuccess";
 import PostJob from "@/pages/PostJob";
 import PostJobResults from "@/pages/PostJobResults";
 import LoginPage from "@/pages/LoginPage";
-import SignupPage from "@/pages/SignupPage";
 import JoinAsTradesperson from "@/pages/JoinAsTradesperson";
 import TradespersonProfile from "@/pages/TradespersonProfile";
 import TradespersonDetails from "@/pages/TradespersonDetails";
@@ -21,7 +20,6 @@ import { CustomerDashboard } from "@/pages/CustomerDashboard";
 import { TradespersonDashboard } from "@/pages/TradespersonDashboard";
 import TradespersonJobDetail from "@/pages/TradespersonJobDetail";
 import { Tradespeople } from "@/pages/Tradespeople";
-import TradesMenu from "@/pages/TradesMenu";
 import AboutPage from "@/pages/AboutPage";
 import HowItWorksPage from "@/pages/HowItWorksPage";
 import VerificationPromisePage from "@/pages/VerificationPromisePage";
@@ -82,7 +80,6 @@ function AppContent() {
             <Route path="/blog/:slug" element={<BlogPostPage />} />
 
             {/* For Tradespeople */}
-            <Route path="/trades-menu" element={<TradesMenu />} />
             <Route
               path="/join-as-tradesperson"
               element={<JoinAsTradesperson />}
@@ -102,7 +99,6 @@ function AppContent() {
 
             {/* Authentication */}
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/signup" element={<SignupPage />} />
 
             {/* Homeowner Dashboard */}
             <Route path="/customer-dashboard" element={<CustomerDashboard />} />
