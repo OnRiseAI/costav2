@@ -278,7 +278,7 @@ export const tradeServices: TradeServices = {
       }
     ]
   },
-  'electricians-panel': {
+  'air-conditioning': {
     title: 'What do you need with your air conditioning?',
     services: [
       {
