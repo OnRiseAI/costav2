@@ -54,32 +54,35 @@ export default function SignupPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-    setIsLoading(true);
 
-    // Validation
-    if (!formData.full_name || !formData.email || !formData.password) {
-      setError("Please fill in all required fields");
-      setIsLoading(false);
+    // Step 1 validation (account details)
+    if (step === 1) {
+      if (!formData.full_name || !formData.email || !formData.password) {
+        setError("Please fill in all required fields");
+        return;
+      }
+
+      if (formData.password !== formData.confirm_password) {
+        setError("Passwords do not match");
+        return;
+      }
+
+      if (formData.password.length < 6) {
+        setError("Password must be at least 6 characters");
+        return;
+      }
+
+      setStep(2);
       return;
     }
 
-    if (formData.password !== formData.confirm_password) {
-      setError("Passwords do not match");
-      setIsLoading(false);
-      return;
-    }
-
-    if (formData.password.length < 6) {
-      setError("Password must be at least 6 characters");
-      setIsLoading(false);
-      return;
-    }
-
+    // Step 2 validation (additional details)
     if (formData.user_type === "tradesperson" && !formData.trade_category) {
       setError("Please select a trade category");
-      setIsLoading(false);
       return;
     }
+
+    setIsLoading(true);
 
     const { error: signupError } = await signUp(
       formData.email,
@@ -96,9 +99,24 @@ export default function SignupPage() {
     if (signupError) {
       setError(signupError.message || "Failed to sign up");
       setIsLoading(false);
-    } else {
-      navigate("/customer-dashboard");
+      return;
     }
+
+    try {
+      const prefs = {
+        push: notificationPrefs.push,
+        whatsapp: notificationPrefs.whatsapp,
+        email: notificationPrefs.email,
+      };
+      window.localStorage.setItem(
+        "costatrade.notificationPrefs",
+        JSON.stringify(prefs),
+      );
+    } catch {
+      // If storing preferences fails, continue without blocking signup
+    }
+
+    navigate("/customer-dashboard");
   };
 
   return (
