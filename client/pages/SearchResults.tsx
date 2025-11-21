@@ -296,8 +296,8 @@ export default function SearchResults() {
                   <Button variant="outline" onClick={handleClearFilters}>
                     Clear Filters
                   </Button>
-                  <Link to="/trades">
-                    <Button>Browse Categories</Button>
+                  <Link to="/">
+                    <Button>Go to Homepage</Button>
                   </Link>
                 </div>
               </div>
