@@ -7,6 +7,7 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import Index from "@/pages/Index";
 import TradeCategory from "@/pages/TradeCategory";
 import SearchResults from "@/pages/SearchResults";
+import JobPostedSuccess from "@/pages/JobPostedSuccess";
 import PostJob from "@/pages/PostJob";
 import PostJobResults from "@/pages/PostJobResults";
 import RequestQuote from "@/pages/RequestQuote";
@@ -122,6 +123,7 @@ function AppContent() {
             <Route path="/customer-dashboard" element={<CustomerDashboard />} />
             <Route path="/dashboard" element={<CustomerDashboard />} />
             <Route path="/post-job" element={<PostJob />} />
+            <Route path="/post-job/success" element={<JobPostedSuccess />} />
             <Route path="/post-job/results" element={<PostJobResults />} />
             <Route path="/request-quote" element={<RequestQuote />} />
             <Route
