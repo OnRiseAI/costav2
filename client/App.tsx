@@ -45,6 +45,7 @@ function AppContent() {
   return (
     <>
       <ScrollToTop />
+      <GoogleAnalytics />
       <div className="flex flex-col min-h-screen">
         <Navigation />
         <main className="flex-1">
