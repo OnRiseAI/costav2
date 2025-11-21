@@ -236,33 +236,6 @@ export function Footer() {
                     Dashboard
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    to="/pro/leads"
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group"
-                  >
-                    <span className="inline-block w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                    Get Jobs
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/pro/profile"
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group"
-                  >
-                    <span className="inline-block w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                    My Profile
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/pro/help"
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group"
-                  >
-                    <span className="inline-block w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                    Support
-                  </Link>
-                </li>
               </ul>
             </div>
 
@@ -348,29 +321,11 @@ export function Footer() {
                 </li>
                 <li>
                   <Link
-                    to="/privacy"
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group"
-                  >
-                    <span className="inline-block w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                    {t("footer.privacy")}
-                  </Link>
-                </li>
-                <li>
-                  <Link
                     to="/cookies"
                     className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group"
                   >
                     <span className="inline-block w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
                     Cookie Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/help"
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group"
-                  >
-                    <span className="inline-block w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                    {t("footer.help")}
                   </Link>
                 </li>
               </ul>
