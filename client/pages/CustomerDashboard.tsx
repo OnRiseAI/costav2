@@ -102,7 +102,7 @@ const mockQuotes = [
       rating: 4.7,
       reviews: 12,
     },
-    price: "€180",
+    price: "���180",
     message:
       "I specialize in plumbing repairs. Can guarantee the work for 1 year.",
     date: "2 days ago",
@@ -414,6 +414,38 @@ export function CustomerDashboard() {
           </div>
         ))}
       </div>
+    </div>
+  );
+
+  const renderSavedPros = () => (
+    <div className="space-y-6">
+      <div className="flex items-center justify-between">
+        <h2 className="text-2xl font-bold text-[#0a1f44]">Saved Pros</h2>
+        <p className="text-sm text-slate-500">
+          Quickly rehire tradespeople you trust.
+        </p>
+      </div>
+
+      {savedPros.length === 0 ? (
+        <div className="bg-white rounded-2xl p-12 text-center border border-slate-200 shadow-sm">
+          <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-400">
+            <Heart className="w-8 h-8" />
+          </div>
+          <h3 className="text-lg font-bold text-[#0a1f44] mb-2">
+            No saved pros yet
+          </h3>
+          <p className="text-slate-500 mb-6">
+            Save tradespeople from your quotes or search results to find them
+            again quickly.
+          </p>
+        </div>
+      ) : (
+        <div className="grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {savedPros.map((pro) => (
+            <TradespersonCard key={pro.slug} {...pro} />
+          ))}
+        </div>
+      )}
     </div>
   );
 
