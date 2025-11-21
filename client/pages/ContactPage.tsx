@@ -81,8 +81,8 @@ export default function ContactPage() {
             Get in touch with our team
           </h1>
           <p className="text-lg md:text-xl text-blue-100/80 font-light max-w-2xl mx-auto leading-relaxed animate-fade-in-up delay-100">
-            Whether you have a question about features, pricing, or need support,
-            we're ready to answer all your questions.
+            Whether you have a question about features, pricing, or need
+            support, we're ready to answer all your questions.
           </p>
         </div>
       </section>

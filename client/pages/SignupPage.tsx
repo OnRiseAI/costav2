@@ -372,7 +372,8 @@ export default function SignupPage() {
                       />
                     </div>
                     <p className="mt-1 text-xs text-slate-500">
-                      At least 6 characters. Use something you don’t use elsewhere.
+                      At least 6 characters. Use something you don’t use
+                      elsewhere.
                     </p>
                   </div>
 
@@ -451,10 +452,18 @@ export default function SignupPage() {
                           <option value="">Select a trade</option>
                           <option value="plumbers">Plumbers</option>
                           <option value="electricians">Electricians</option>
-                          <option value="builders">Builders & Renovations</option>
-                          <option value="painters">Painters & Decorators</option>
-                          <option value="pool-maintenance">Pool Maintenance</option>
-                          <option value="air-conditioning">Air Conditioning</option>
+                          <option value="builders">
+                            Builders & Renovations
+                          </option>
+                          <option value="painters">
+                            Painters & Decorators
+                          </option>
+                          <option value="pool-maintenance">
+                            Pool Maintenance
+                          </option>
+                          <option value="air-conditioning">
+                            Air Conditioning
+                          </option>
                           <option value="locksmiths">Locksmiths</option>
                           <option value="gardeners">Gardeners</option>
                         </select>
@@ -565,7 +574,9 @@ export default function SignupPage() {
                       disabled={isLoading || loading}
                       className="flex-1 h-11 bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white text-sm font-semibold rounded-full"
                     >
-                      {isLoading || loading ? "Creating account..." : "Create Account"}
+                      {isLoading || loading
+                        ? "Creating account..."
+                        : "Create Account"}
                     </Button>
                   </div>
                 </>
