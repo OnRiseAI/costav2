@@ -203,19 +203,107 @@ export default function TradespersonProfile() {
       <SEO
         title={`${profile.businessName} - ${profile.tradeCategory} in ${profile.location} | CostaTrades Reviews`}
         description={`Read verified reviews for ${profile.businessName}. Verified ${profile.tradeCategory} in ${profile.location}. Request a free quote now. Phone verified.`}
-        schema={{
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          name: profile.businessName,
-          image: profile.profilePhoto,
-          telephone: profile.phone || "",
-          address: {
-            "@type": "PostalAddress",
-            addressLocality: profile.location,
-            addressCountry: "ES",
-          },
-          priceRange: "€€",
-        }}
+        schema={(() => {
+          const baseUrl = 'https://www.costatrades.com';
+          const url = `${baseUrl}/tradesperson/${profile.slug}`;
+
+          const aggregateRating = profile.reviewCount
+            ? {
+                "@type": "AggregateRating",
+                ratingValue: Number(profile.rating.toFixed(1)),
+                reviewCount: profile.reviewCount,
+              }
+            : undefined;
+
+          const reviews = profile.reviews?.map((r) => ({
+            "@type": "Review",
+            author: r.author,
+            datePublished: new Date().toISOString(),
+            reviewBody: r.text,
+            reviewRating: {
+              "@type": "Rating",
+              ratingValue: r.rating,
+            },
+          }));
+
+          const serviceObjects = (profile.services || []).map((s) => ({
+            "@type": "Service",
+            name: s,
+            provider: {
+              "@type": "LocalBusiness",
+              name: profile.businessName,
+              url,
+            },
+          }));
+
+          const imageObjects = [
+            ...(profile.profilePhoto ? [{
+              "@type": "ImageObject",
+              url: profile.profilePhoto,
+              caption: profile.businessName,
+            }] : []),
+            ...profile.portfolio.map(p => ({
+              "@type": "ImageObject",
+              url: p.image,
+              caption: p.title,
+            })),
+          ];
+
+          const localBusiness = {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            name: profile.businessName,
+            image: imageObjects.map(i => i.url),
+            telephone: profile.phone || undefined,
+            url,
+            priceRange: "€€",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: profile.location,
+              addressCountry: "ES",
+            },
+            makesOffer: serviceObjects,
+            review: reviews,
+            aggregateRating,
+            logo: profile.profilePhoto,
+            sameAs: [],
+          };
+
+          // Also include a WebPage object to provide page-level context
+          const webPage = {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: `${profile.businessName} | CostaTrades`,
+            url,
+            description: profile.bio,
+            primaryImageOfPage: imageObjects[0] || undefined,
+            breadcrumb: {
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: baseUrl,
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Trades",
+                  item: `${baseUrl}/trades`,
+                },
+                {
+                  "@type": "ListItem",
+                  position: 3,
+                  name: profile.businessName,
+                  item: url,
+                },
+              ],
+            },
+          };
+
+          return [localBusiness, webPage];
+        })()}
       />
       {/* 1. Trust Hero Section */}
       <div className="bg-white border-b">
