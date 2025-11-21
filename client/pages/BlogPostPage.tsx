@@ -897,7 +897,7 @@ const blogPosts = {
         <p>
           Always ask your builder if they will handle the permits for you.{" "}
           <Link
-            to="/search"
+            to="/post-job"
             className="text-blue-600 hover:underline font-semibold"
           >
             Find builders who handle the paperwork
