@@ -27,9 +27,7 @@ export function PromotionalCards() {
                   <QrCode className="h-12 w-12 text-[#0a1f44]" />
                 </div>
                 <div>
-                  <p className="text-sm text-blue-100/80">
-                    Scan to download
-                  </p>
+                  <p className="text-sm text-blue-100/80">Scan to download</p>
                   <p className="text-xs text-blue-100/70">
                     From Google Play & App Store
                   </p>

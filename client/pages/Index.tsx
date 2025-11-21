@@ -293,7 +293,10 @@ export default function Index() {
           </div>
           <div className="text-center">
             <Link to="/post-job">
-              <Button size="lg" className="gap-2 bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white">
+              <Button
+                size="lg"
+                className="gap-2 bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white"
+              >
                 Browse All Tradespeople
                 <ArrowRight className="h-4 w-4" />
               </Button>

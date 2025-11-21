@@ -95,7 +95,6 @@ export function Navigation() {
               </Link>
             </div>
 
-
             {/* Right: primary actions */}
             <div className="flex items-center gap-3">
               <Link to="/post-job" className="hidden md:block">

@@ -15,7 +15,8 @@ export default function ReviewTrade() {
     }
 
     return demoTradespeople.filter((pro) => {
-      const haystack = `${pro.businessName} ${pro.tradeCategory} ${pro.location}`.toLowerCase();
+      const haystack =
+        `${pro.businessName} ${pro.tradeCategory} ${pro.location}`.toLowerCase();
       return haystack.includes(value);
     });
   }, [query]);
@@ -35,7 +36,8 @@ export default function ReviewTrade() {
             Who would you like to review?
           </h1>
           <p className="text-base md:text-lg text-blue-100/90 max-w-2xl mx-auto mb-8">
-            Search by business name, trade or location to find the right tradesperson.
+            Search by business name, trade or location to find the right
+            tradesperson.
           </p>
 
           <div className="max-w-2xl mx-auto">
@@ -74,7 +76,8 @@ export default function ReviewTrade() {
               {query.trim() ? "Search results" : "Popular tradespeople"}
             </h2>
             <p className="text-sm text-slate-500 mt-1">
-              {results.length} {results.length === 1 ? "match" : "matches"} found
+              {results.length} {results.length === 1 ? "match" : "matches"}{" "}
+              found
             </p>
           </div>
         </div>
@@ -85,7 +88,8 @@ export default function ReviewTrade() {
               We could not find any trades matching your search.
             </p>
             <p className="text-slate-500 text-sm">
-              Try searching with a shorter name or just the town where the work was done.
+              Try searching with a shorter name or just the town where the work
+              was done.
             </p>
           </div>
         ) : (
@@ -100,14 +104,17 @@ export default function ReviewTrade() {
                     {pro.businessName}
                   </h3>
                   <p className="text-sm text-slate-500 flex items-center gap-1.5 mb-1">
-                    <MapPin className="w-3.5 h-3.5 text-slate-400" /> {pro.location}
+                    <MapPin className="w-3.5 h-3.5 text-slate-400" />{" "}
+                    {pro.location}
                   </p>
                   <p className="text-xs uppercase tracking-wide text-slate-500 mb-2">
                     {pro.tradeCategory}
                   </p>
                   <div className="flex items-center gap-1 text-amber-500 text-sm">
                     <Star className="w-4 h-4 fill-current" />
-                    <span className="font-semibold">{pro.rating.toFixed(1)}</span>
+                    <span className="font-semibold">
+                      {pro.rating.toFixed(1)}
+                    </span>
                     <span className="text-slate-400 text-xs">
                       ({pro.reviewCount} reviews)
                     </span>

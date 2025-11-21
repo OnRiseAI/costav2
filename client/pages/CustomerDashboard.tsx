@@ -132,7 +132,13 @@ export function CustomerDashboard() {
   useEffect(() => {
     const tab = searchParams.get("tab");
     if (!tab) return;
-    const allowedTabs = ["jobs", "messages", "profile", "notifications", "saved"];
+    const allowedTabs = [
+      "jobs",
+      "messages",
+      "profile",
+      "notifications",
+      "saved",
+    ];
     if (allowedTabs.includes(tab)) {
       setActiveTab(tab);
       if (tab !== "jobs") {
