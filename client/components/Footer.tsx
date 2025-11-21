@@ -78,7 +78,7 @@ export function Footer() {
                   Find rated professionals and get quotes for your next project
                   in minutes
                 </p>
-                <Link to="/search">
+                <Link to="/post-job">
                   <Button className="w-full bg-accent hover:bg-accent/90 text-white group/btn">
                     Find a professional
                     <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
