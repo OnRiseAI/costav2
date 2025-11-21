@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Mail, Lock, User, Briefcase, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
+import { SEO } from "@/components/SEO";
 
 export default function SignupPage() {
   const navigate = useNavigate();

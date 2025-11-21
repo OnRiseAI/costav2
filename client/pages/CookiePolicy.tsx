@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/SEO";
 
 export default function CookiePolicy() {
   const lastUpdated = "November 2025";
@@ -15,6 +16,17 @@ export default function CookiePolicy() {
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans py-12 px-4 md:px-8">
+      <SEO
+        title="Cookie Policy | Privacy Preferences"
+        description="How we use cookies to improve your experience. Manage your settings here."
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Cookie Policy",
+          description:
+            "How we use cookies to improve your experience on CostaTrades. Manage your settings here.",
+        }}
+      />
       <div className="max-w-3xl mx-auto">
         <div className="mb-8">
           <Link to="/">
