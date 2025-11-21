@@ -273,7 +273,7 @@ export default function Index() {
             ))}
           </div>
           <div className="text-center">
-            <Link to="/search">
+            <Link to="/post-job">
               <Button size="lg" className="gap-2 bg-accent hover:bg-accent/90">
                 Browse All Tradespeople
                 <ArrowRight className="h-4 w-4" />
