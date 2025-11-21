@@ -34,6 +34,7 @@ import { TradespersonPromo } from "@/components/TradespersonPromo";
 import { AppStoreBadges } from "@/components/AppStoreBadges";
 import { Button } from "@/components/ui/button";
 import { getFeaturedTradespeople } from "@/data/tradespeople";
+import { SEO } from "@/components/SEO";
 
 export default function Index() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -190,6 +191,22 @@ export default function Index() {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="CostaTrades | Find Verified Tradespeople in Costa del Sol"
+        description="Connect with trusted plumbers, electricians, and builders in Marbella, Estepona & Mijas. Verified reviews, free quotes, and guaranteed work."
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "CostaTrades",
+          url: "https://www.costatrades.com",
+          potentialAction: {
+            "@type": "SearchAction",
+            target:
+              "https://www.costatrades.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string",
+          },
+        }}
+      />
       {/* Live Activity Feed */}
       <LiveActivity />
 
