@@ -155,7 +155,7 @@ function AppContent() {
               element={
                 <PlaceholderPage
                   title="Download App"
-                  description="Get the CostaTrade app on iOS and Android"
+                  description="The CostaTrade mobile app is coming soon to iOS and Android"
                 />
               }
             />
