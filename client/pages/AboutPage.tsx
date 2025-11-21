@@ -362,7 +362,7 @@ export default function AboutPage() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-            <Link to="/search">
+            <Link to="/post-job">
               <Button
                 size="lg"
                 variant="outline"
