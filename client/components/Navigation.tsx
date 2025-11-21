@@ -129,20 +129,6 @@ export function Navigation() {
                   </Button>
                 </Link>
                 <Link
-                  to="/homeowner-advice"
-                  className="text-muted-foreground hover:text-foreground transition-colors text-sm pl-2"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Homeowner Advice Centre
-                </Link>
-                <Link
-                  to="/find-expert"
-                  className="text-muted-foreground hover:text-foreground transition-colors text-sm pl-2"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Find Your Expert
-                </Link>
-                <Link
                   to="/saved-trades"
                   className="text-muted-foreground hover:text-foreground transition-colors text-sm pl-2"
                   onClick={() => setMobileMenuOpen(false)}
@@ -164,13 +150,6 @@ export function Navigation() {
                   <Button className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white px-6 py-3 text-base rounded-lg w-full">
                     Join CostaTrade
                   </Button>
-                </Link>
-                <Link
-                  to="/advice-centre"
-                  className="text-muted-foreground hover:text-foreground transition-colors text-sm pl-2"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Advice Centre
                 </Link>
                 <Link
                   to="/login"
