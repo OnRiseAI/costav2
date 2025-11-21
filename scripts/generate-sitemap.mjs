@@ -63,12 +63,9 @@ function extractBlogSlugs(content) {
 }
 
 async function build() {
-  const SITE_URL = process.env.SITE_URL;
-  if (!SITE_URL) {
-    console.error(
-      'Error: SITE_URL environment variable must be set. Example: SITE_URL="https://www.yoursite.com" node scripts/generate-sitemap.mjs',
-    );
-    process.exit(1);
+  const SITE_URL = process.env.SITE_URL || 'https://www.costatrades.com';
+  if (!process.env.SITE_URL) {
+    console.warn(`Warning: SITE_URL not provided, defaulting to ${SITE_URL}. For CI or production pass SITE_URL env var.`);
   }
 
   // Read data files
