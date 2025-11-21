@@ -82,11 +82,11 @@ export function TradespersonCard({
         {/* Verification Badges */}
         {verified && (
           <div className="flex flex-wrap gap-2 mb-4">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium bg-trust/10 text-trust border border-trust/20">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium bg-green-50 text-green-700 border border-green-200">
               <CheckCircle className="h-4 w-4" />
               <span>Verified</span>
             </div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium bg-accent/10 text-accent border border-accent/20">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-200">
               <Shield className="h-4 w-4" />
               <span>Guaranteed</span>
             </div>
@@ -95,7 +95,7 @@ export function TradespersonCard({
 
         {/* Rating */}
         <div className="mb-4">
-          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full">
+          <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full">
             <div className="flex items-center gap-1">
               {[...Array(5)].map((_, i) => (
                 <Star
@@ -158,13 +158,13 @@ export function TradespersonCard({
         {/* CTA Buttons */}
         <div className="flex flex-col gap-3 mt-auto pt-6 border-t border-border">
           <Link to="/post-job" className="w-full">
-            <Button className="w-full bg-accent hover:bg-accent/90 text-white text-lg py-6 rounded-xl">
+            <Button className="w-full bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white text-lg py-6 rounded-xl">
               Request a quote
             </Button>
           </Link>
           <Button
             variant="outline"
-            className="w-full text-lg py-6 rounded-xl border-2 border-foreground text-foreground hover:bg-gray-50 hover:text-foreground"
+            className="w-full text-lg py-6 rounded-xl border-2 border-[#0a1f44] text-[#0a1f44] hover:bg-blue-50 hover:text-[#0a1f44]"
             onClick={handleCall}
           >
             <Phone className="h-5 w-5 mr-2" />
