@@ -235,13 +235,23 @@ export default function PostJobResults() {
                   <Button
                     size="lg"
                     className="w-full text-lg font-bold py-7 rounded-xl bg-[#0a1f44] hover:bg-[#0a1f44]/90 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 disabled:opacity-50 disabled:transform-none disabled:shadow-none"
-                    disabled={jobDescription.length < 50}
+                    disabled={jobDescription.length < 50 || isSubmitting}
+                    onClick={handleSubmitQuote}
                   >
-                    Continue to Contact Details
-                    <ChevronRight className="ml-2 h-5 w-5" />
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                        Sending Request...
+                      </>
+                    ) : (
+                      <>
+                        Send Quote Request
+                        <ChevronRight className="ml-2 h-5 w-5" />
+                      </>
+                    )}
                   </Button>
                   <p className="text-center text-sm text-gray-500 mt-4">
-                    Next step: We'll ask for your contact details so {selectedTradesperson.businessName} can reply.
+                    {selectedTradesperson.businessName} will receive your request immediately via their phone and account.
                   </p>
                 </div>
               </div>
