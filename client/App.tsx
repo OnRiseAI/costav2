@@ -35,6 +35,7 @@ import LandlordsPage from "@/pages/LandlordsPage";
 import SEOTradePage from "@/pages/SEOTradePage";
 import { CookieConsent } from "@/components/CookieConsent";
 import PlaceholderPage from "@/pages/PlaceholderPage";
+import ReviewTrade from "@/pages/ReviewTrade";
 import NotFound from "@/pages/NotFound";
 import SignupPage from "@/pages/SignupPage";
 import "./global.css";
@@ -113,23 +114,10 @@ function AppContent() {
             <Route path="/post-job" element={<PostJob />} />
             <Route path="/post-job/success" element={<JobPostedSuccess />} />
             <Route path="/post-job/results" element={<PostJobResults />} />
-            <Route
-              path="/review-trade"
-              element={
-                <PlaceholderPage
-                  title="Review a Trade"
-                  description="Share your experience and help others find trusted tradespeople"
-                />
-              }
-            />
+            <Route path="/review-trade" element={<ReviewTrade />} />
             <Route
               path="/saved-trades"
-              element={
-                <PlaceholderPage
-                  title="Saved Trades"
-                  description="Your saved tradespeople and favorite professionals"
-                />
-              }
+              element={<Navigate to="/customer-dashboard?tab=saved" replace />}
             />
 
             {/* Tradesperson Dashboard */}
@@ -138,12 +126,7 @@ function AppContent() {
             <Route path="/tradesperson-profile" element={<Tradespeople />} />
             <Route
               path="/pro/reviews"
-              element={
-                <PlaceholderPage
-                  title="Reviews"
-                  description="Manage and respond to customer reviews"
-                />
-              }
+              element={<Navigate to="/pro/dashboard?tab=reviews" replace />}
             />
 
             {/* Legal */}
