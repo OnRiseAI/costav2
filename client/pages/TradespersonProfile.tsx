@@ -126,7 +126,7 @@ export default function TradespersonProfile() {
                   </div>
                 </div>
                 <div className="hidden md:block">
-                  <Link to="/request-quote">
+                  <Link to="/post-job">
                     <Button size="lg" className="bg-primary hover:bg-primary/90 text-white shadow-md">
                       Request a Quote
                     </Button>
@@ -341,7 +341,7 @@ export default function TradespersonProfile() {
               Get a free quote for your project. Response time: usually within 2 hours.
             </p>
             
-            <Link to="/request-quote">
+            <Link to="/post-job">
               <Button className="w-full mb-4 h-12 text-lg shadow-md">
                 Request a Quote
               </Button>
@@ -383,7 +383,7 @@ export default function TradespersonProfile() {
               <span>({profile.reviewCount})</span>
             </div>
           </div>
-          <Link to="/request-quote">
+          <Link to="/post-job">
             <Button className="shadow-md">
               Request Quote
             </Button>
