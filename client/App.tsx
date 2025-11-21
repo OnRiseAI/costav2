@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { Navigation } from "@/components/Navigation";
@@ -6,7 +6,6 @@ import { Footer } from "@/components/Footer";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import Index from "@/pages/Index";
 import TradeCategory from "@/pages/TradeCategory";
-import SearchResults from "@/pages/SearchResults";
 import JobPostedSuccess from "@/pages/JobPostedSuccess";
 import PostJob from "@/pages/PostJob";
 import PostJobResults from "@/pages/PostJobResults";
