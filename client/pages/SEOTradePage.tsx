@@ -129,7 +129,7 @@ export default function SEOTradePage() {
                   Get a Quote Now
                 </Button>
               </Link>
-              <Link to="/search">
+              <Link to="/post-job">
                 <Button
                   size="lg"
                   variant="outline"
