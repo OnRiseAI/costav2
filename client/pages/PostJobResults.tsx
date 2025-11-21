@@ -101,7 +101,7 @@ export default function PostJobResults() {
                 className="w-full bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white font-bold py-6 rounded-xl shadow-lg"
                 onClick={handleCloseSuccess}
               >
-                Return to Results
+                Message another {category || "Professional"}
               </Button>
             </div>
           </DialogContent>
