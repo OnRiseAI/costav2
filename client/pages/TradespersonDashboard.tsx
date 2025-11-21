@@ -26,6 +26,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth, supabase } from "@/contexts/AuthContext";
+import { SEO } from "@/components/SEO";
 
 // Mock data for leads
 const mockLeads = [
