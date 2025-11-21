@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Star, MapPin, CheckCircle, Shield, Phone } from "lucide-react";
+import { Star, MapPin, CheckCircle, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -30,15 +30,8 @@ export function TradespersonCard({
   jobsCompleted,
   yearsInBusiness,
   services = [],
-  phone,
 }: TradespersonCardProps) {
   const { t } = useLanguage();
-
-  const handleCall = () => {
-    if (phone) {
-      window.location.href = `tel:${phone}`;
-    }
-  };
 
   const defaultServices = services.length > 0 ? services : [tradeCategory];
 
