@@ -179,6 +179,13 @@ export function TradespersonDashboard() {
           My Quotes
         </button>
         <button
+          onClick={() => setActiveTab("reviews")}
+          className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${activeTab === "reviews" ? "bg-blue-50 text-blue-700" : "text-slate-600 hover:bg-slate-50"}`}
+        >
+          <Star className="w-5 h-5" />
+          Reviews
+        </button>
+        <button
           onClick={() => setActiveTab("profile")}
           className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${activeTab === "profile" ? "bg-blue-50 text-blue-700" : "text-slate-600 hover:bg-slate-50"}`}
         >
