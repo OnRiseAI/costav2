@@ -19,6 +19,8 @@ export default function SignupPage() {
   const navigate = useNavigate();
   const { signUp, loading } = useAuth();
 
+  const [step, setStep] = useState<1 | 2>(1);
+
   const [formData, setFormData] = useState({
     full_name: "",
     email: "",
@@ -28,6 +30,12 @@ export default function SignupPage() {
     phone: "",
     business_name: "",
     trade_category: "",
+  });
+
+  const [notificationPrefs, setNotificationPrefs] = useState({
+    push: true,
+    whatsapp: true,
+    email: false,
   });
 
   const [error, setError] = useState("");
