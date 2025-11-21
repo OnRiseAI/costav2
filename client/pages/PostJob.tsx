@@ -29,6 +29,7 @@ import {
   Truck,
 } from "lucide-react";
 import { getTradeServices, tradeServices } from "@/data/tradeServices";
+import { SEO } from "@/components/SEO";
 
 const categories = [
   {
@@ -245,6 +246,19 @@ export default function PostJob() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Post a Job for Free | Find Local Tradespeople"
+        description="Describe your project and get 3 free quotes from verified local experts within 24 hours. No obligation."
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          serviceType: "Home Improvement Marketplace",
+          provider: {
+            "@type": "Organization",
+            name: "CostaTrades",
+          },
+        }}
+      />
       {/* Hero Section */}
       <div className="bg-[#0a1f44] text-white py-20 md:py-32 relative overflow-hidden">
         {/* Animated Background Icons */}
