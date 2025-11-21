@@ -136,15 +136,6 @@ export function PopularServices() {
             );
           })}
         </div>
-
-        {/* View All Link */}
-        <div className="text-center">
-          <Link to="/trades">
-            <Button variant="outline" className="text-base font-medium">
-              View all categories
-            </Button>
-          </Link>
-        </div>
       </div>
     </section>
   );

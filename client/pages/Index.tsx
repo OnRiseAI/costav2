@@ -231,14 +231,6 @@ export default function Index() {
               />
             ))}
           </div>
-          <div className="text-center">
-            <Link to="/trades">
-              <Button variant="outline" size="lg" className="gap-2">
-                View All Categories
-                <ArrowRight className="h-4 w-4" />
-              </Button>
-            </Link>
-          </div>
         </div>
       </section>
 

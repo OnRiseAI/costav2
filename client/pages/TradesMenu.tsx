@@ -21,12 +21,6 @@ export default function TradesMenu() {
           {/* Menu Links */}
           <div className="flex flex-col items-center space-y-6 w-full">
             <Link
-              to="/advice-centre"
-              className="text-lg md:text-xl text-gray-600 hover:text-[#0a1f44] transition-colors text-center"
-            >
-              Advice Centre
-            </Link>
-            <Link
               to="/pro/dashboard"
               className="text-lg md:text-xl text-gray-600 hover:text-[#0a1f44] transition-colors text-center"
             >
