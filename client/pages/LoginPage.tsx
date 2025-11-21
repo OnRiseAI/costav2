@@ -3,6 +3,7 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Eye, EyeOff, AlertCircle, CheckCircle2, Star } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
+import { SEO } from "@/components/SEO";
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -40,6 +41,10 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen bg-white grid lg:grid-cols-2">
+      <SEO
+        title="Login | CostaTrades"
+        description="Sign in to your homeowner or tradesperson account."
+      />
       {/* Left Side - Form */}
       <div className="flex flex-col justify-center px-4 sm:px-6 lg:px-20 xl:px-24 py-12">
         <div className="w-full max-w-sm mx-auto lg:w-96">
