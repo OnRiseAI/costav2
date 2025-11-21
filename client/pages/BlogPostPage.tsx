@@ -126,7 +126,7 @@ const blogPosts = {
         <p className="mt-8">
           Need help navigating the process?{" "}
           <Link
-            to="/search"
+            to="/post-job"
             className="text-blue-600 hover:underline font-semibold"
           >
             Find a local architect or builder
