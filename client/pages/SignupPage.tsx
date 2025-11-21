@@ -85,6 +85,17 @@ export default function SignupPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary via-primary-600 to-primary-700 flex items-center justify-center p-4">
+      <SEO
+        title="Create an Account | CostaTrades"
+        description="Join CostaTrades as a homeowner or tradesperson."
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Sign Up",
+          description:
+            "Create a CostaTrades account as a homeowner or tradesperson to access the platform.",
+        }}
+      />
       <div className="w-full max-w-md">
         <div className="bg-white rounded-2xl shadow-2xl p-8">
           <div className="text-center mb-8">
