@@ -1,10 +1,45 @@
 import { Link } from "react-router-dom";
-import { Menu, X, Heart, User } from "lucide-react";
-import { useState } from "react";
+import { Menu, X, Heart, User, Clock } from "lucide-react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isAppModalOpen, setIsAppModalOpen] = useState(false);
+  const [timeLeft, setTimeLeft] = useState({
+    days: 14,
+    hours: 12,
+    minutes: 45,
+    seconds: 30,
+  });
+
+  useEffect(() => {
+    if (!isAppModalOpen) return;
+
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => {
+        if (prev.seconds > 0) {
+          return { ...prev, seconds: prev.seconds - 1 };
+        } else if (prev.minutes > 0) {
+          return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
+        } else if (prev.hours > 0) {
+          return { ...prev, hours: prev.hours - 1, minutes: 59, seconds: 59 };
+        } else if (prev.days > 0) {
+          return { ...prev, days: prev.days - 1, hours: 23, minutes: 59, seconds: 59 };
+        }
+        return prev;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [isAppModalOpen]);
 
   return (
     <>
@@ -61,14 +96,13 @@ export function Navigation() {
                   Trade sign up
                 </Button>
               </Link>
-              <Link to="/download-app">
-                <Button
-                  variant="outline"
-                  className="border-2 border-[#0a1f44] text-[#0a1f44] hover:bg-gray-50 hover:text-[#0a1f44] bg-white px-5 md:px-7 h-[44px] text-[14px] md:text-[15px] font-medium rounded-full whitespace-nowrap"
-                >
-                  Download app
-                </Button>
-              </Link>
+              <Button
+                variant="outline"
+                className="border-2 border-[#0a1f44] text-[#0a1f44] hover:bg-gray-50 hover:text-[#0a1f44] bg-white px-5 md:px-7 h-[44px] text-[14px] md:text-[15px] font-medium rounded-full whitespace-nowrap"
+                onClick={() => setIsAppModalOpen(true)}
+              >
+                Download app
+              </Button>
               <Link
                 to="/saved-trades"
                 className="hidden md:flex items-center justify-center"
@@ -93,6 +127,56 @@ export function Navigation() {
           </div>
         </div>
       </nav>
+
+      {/* App Coming Soon Modal */}
+      <Dialog open={isAppModalOpen} onOpenChange={setIsAppModalOpen}>
+        <DialogContent className="sm:max-w-md bg-white rounded-2xl border-0 shadow-2xl">
+          <DialogHeader className="text-center pt-6">
+            <div className="mx-auto w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mb-4 animate-pulse">
+              <Clock className="h-10 w-10 text-[#0a1f44]" />
+            </div>
+            <DialogTitle className="text-2xl font-bold text-[#0a1f44]">
+              Coming Soon!
+            </DialogTitle>
+            <DialogDescription className="text-center text-gray-600 pt-2 text-base">
+              We're putting the finishing touches on our mobile app. Get ready for the easiest way to find tradespeople on the Costa del Sol.
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="py-8">
+            <div className="flex justify-center gap-4 text-center">
+              <div className="bg-[#0a1f44] text-white p-3 rounded-xl min-w-[70px]">
+                <div className="text-2xl font-bold">{timeLeft.days}</div>
+                <div className="text-xs uppercase opacity-70">Days</div>
+              </div>
+              <div className="text-2xl font-bold text-[#0a1f44] self-center">:</div>
+              <div className="bg-[#0a1f44] text-white p-3 rounded-xl min-w-[70px]">
+                <div className="text-2xl font-bold">{String(timeLeft.hours).padStart(2, '0')}</div>
+                <div className="text-xs uppercase opacity-70">Hours</div>
+              </div>
+              <div className="text-2xl font-bold text-[#0a1f44] self-center">:</div>
+              <div className="bg-[#0a1f44] text-white p-3 rounded-xl min-w-[70px]">
+                <div className="text-2xl font-bold">{String(timeLeft.minutes).padStart(2, '0')}</div>
+                <div className="text-xs uppercase opacity-70">Mins</div>
+              </div>
+              <div className="text-2xl font-bold text-[#0a1f44] self-center">:</div>
+              <div className="bg-[#0a1f44] text-white p-3 rounded-xl min-w-[70px]">
+                <div className="text-2xl font-bold">{String(timeLeft.seconds).padStart(2, '0')}</div>
+                <div className="text-xs uppercase opacity-70">Secs</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="pb-6 px-4">
+            <Button
+              className="w-full bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white font-bold py-6 rounded-xl"
+              onClick={() => setIsAppModalOpen(false)}
+            >
+              Notify Me When It Launches
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
 
       {/* Mobile Menu - Sidebar style */}
       {mobileMenuOpen && (
