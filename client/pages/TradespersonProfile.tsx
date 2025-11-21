@@ -183,7 +183,7 @@ export default function TradespersonProfile() {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center p-4">
         <h1 className="text-2xl font-bold mb-4">Tradesperson Not Found</h1>
-        <Link to="/search">
+        <Link to="/post-job">
           <Button>Browse Trades</Button>
         </Link>
       </div>
