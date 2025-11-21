@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
-import { ShieldCheck, ChevronDown } from "lucide-react";
+import { ShieldCheck, ChevronDown, Plus, Minus } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 export function MegaFooter() {
+  const [isOpen, setIsOpen] = useState(false);
   const [openSection, setOpenSection] = useState<string | null>(null);
 
   const toggleSection = (title: string) => {
@@ -84,59 +86,82 @@ export function MegaFooter() {
   ];
 
   return (
-    <div className="bg-[#111827] text-[#9CA3AF] py-12 border-t border-gray-800">
-      <div className="container-custom">
-        <div className="grid md:grid-cols-5 gap-8 md:gap-4">
-          {sections.map((section) => (
-            <div
-              key={section.title}
-              className="border-b border-gray-800 md:border-none pb-4 md:pb-0"
-            >
-              <button
-                onClick={() => toggleSection(section.title)}
-                className="flex items-center justify-between w-full md:cursor-default group"
+    <div className="bg-[#111827] text-[#9CA3AF] border-t border-gray-800 transition-all duration-500 ease-in-out">
+      {/* Toggle Bar */}
+      <div 
+        className="container-custom py-4 flex flex-col md:flex-row items-center justify-between gap-4 cursor-pointer hover:bg-gray-900/50 transition-colors"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <p className="text-sm font-medium text-gray-400">
+          Serving Marbella, Estepona, Mijas, and beyond.
+        </p>
+        <Button 
+          variant="ghost" 
+          className="text-gray-300 hover:text-white hover:bg-gray-800 gap-2 text-xs uppercase tracking-wider"
+        >
+          {isOpen ? "Hide Areas & Services" : "View All Areas & Services"}
+          {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+        </Button>
+      </div>
+
+      {/* Expandable Content */}
+      <div className={cn(
+        "overflow-hidden transition-all duration-500 ease-in-out",
+        isOpen ? "max-h-[2000px] opacity-100 pb-12" : "max-h-0 opacity-0"
+      )}>
+        <div className="container-custom pt-8 border-t border-gray-800">
+          <div className="grid md:grid-cols-5 gap-8 md:gap-4">
+            {sections.map((section) => (
+              <div
+                key={section.title}
+                className="border-b border-gray-800 md:border-none pb-4 md:pb-0"
               >
-                <h4 className="text-sm font-bold text-white mb-2 md:mb-4 uppercase tracking-wider">
-                  {section.title}
-                </h4>
-                <ChevronDown
+                <button
+                  onClick={() => toggleSection(section.title)}
+                  className="flex items-center justify-between w-full md:cursor-default group"
+                >
+                  <h4 className="text-sm font-bold text-white mb-2 md:mb-4 uppercase tracking-wider">
+                    {section.title}
+                  </h4>
+                  <ChevronDown
+                    className={cn(
+                      "w-4 h-4 md:hidden transition-transform duration-200",
+                      openSection === section.title ? "rotate-180" : "",
+                    )}
+                  />
+                </button>
+
+                <ul
                   className={cn(
-                    "w-4 h-4 md:hidden transition-transform duration-200",
-                    openSection === section.title ? "rotate-180" : "",
+                    "space-y-2 overflow-hidden transition-all duration-300 md:block",
+                    openSection === section.title
+                      ? "max-h-96 mt-2"
+                      : "max-h-0 md:max-h-full",
                   )}
-                />
-              </button>
-
-              <ul
-                className={cn(
-                  "space-y-2 overflow-hidden transition-all duration-300 md:block",
-                  openSection === section.title
-                    ? "max-h-96 mt-2"
-                    : "max-h-0 md:max-h-full",
-                )}
-              >
-                {section.links.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      to={link.href}
-                      className="text-[13px] hover:text-[#F3F4F6] transition-colors block py-1 md:py-0"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-                {section.extra}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        {/* AEO Context Block */}
-        <div className="mt-12 pt-8 border-t border-gray-800 text-center">
-          <p className="text-sm text-gray-500 max-w-3xl mx-auto">
-            CostaTrades connects homeowners on the Costa del Sol with verified
-            local tradespeople. Serving Marbella, Estepona, Mijas, and beyond.
-          </p>
+                >
+                  {section.links.map((link) => (
+                    <li key={link.name}>
+                      <Link
+                        to={link.href}
+                        className="text-[13px] hover:text-[#F3F4F6] transition-colors block py-1 md:py-0"
+                      >
+                        {link.name}
+                      </Link>
+                    </li>
+                  ))}
+                  {section.extra}
+                </ul>
+              </div>
+            ))}
+          </div>
+          
+          {/* AEO Context Block */}
+          <div className="mt-12 pt-8 border-t border-gray-800 text-center">
+            <p className="text-sm text-gray-500 max-w-3xl mx-auto">
+              CostaTrades connects homeowners on the Costa del Sol with verified
+              local tradespeople. Serving Marbella, Estepona, Mijas, and beyond.
+            </p>
+          </div>
         </div>
       </div>
     </div>
