@@ -262,7 +262,7 @@ export function Footer() {
                 Terms
               </Link>
               <Link
-                to="/cookies"
+                to="/privacy-policy"
                 className="hover:text-[#0a1f44] transition-colors"
               >
                 Privacy & Cookies
