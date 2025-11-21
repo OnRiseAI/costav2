@@ -34,6 +34,7 @@ import HolidayHomesPage from "@/pages/HolidayHomesPage";
 import LandlordsPage from "@/pages/LandlordsPage";
 import SEOTradePage from "@/pages/SEOTradePage";
 import { CookieConsent } from "@/components/CookieConsent";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import PlaceholderPage from "@/pages/PlaceholderPage";
 import ReviewTrade from "@/pages/ReviewTrade";
 import NotFound from "@/pages/NotFound";
