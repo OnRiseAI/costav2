@@ -24,6 +24,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { useAuth, supabase } from "@/contexts/AuthContext";
 import { Switch } from "@/components/ui/switch";
+import { SEO } from "@/components/SEO";
 
 // Mock data for demonstration
 const mockJobs = [
