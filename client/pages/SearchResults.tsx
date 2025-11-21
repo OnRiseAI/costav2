@@ -1,5 +1,5 @@
 import { useSearchParams, Link } from "react-router-dom";
-import { MapPin, Star, SlidersHorizontal, ChevronDown, X, Home, Search } from "lucide-react";
+import { MapPin, Star, SlidersHorizontal, ChevronDown, X, Home, Search, Shield } from "lucide-react";
 import { TradespersonCard } from "@/components/TradespersonCard";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
