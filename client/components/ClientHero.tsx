@@ -1,4 +1,16 @@
-import { Search, MessageSquare, CheckCircle, Globe } from "lucide-react";
+import {
+  Search,
+  MessageSquare,
+  CheckCircle,
+  Globe,
+  Wrench,
+  Hammer,
+  Paintbrush,
+  Zap,
+  HardHat,
+  Ruler,
+  Truck,
+} from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -7,6 +19,7 @@ export function ClientHero() {
   const [searchValue, setSearchValue] = useState("");
   const [currentPlaceholderIndex, setCurrentPlaceholderIndex] = useState(0);
   const [displayedPlaceholder, setDisplayedPlaceholder] = useState("");
+  const [fade, setFade] = useState(true);
 
   const placeholders = [
     "I need a plumber",
@@ -33,8 +46,12 @@ export function ClientHero() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentPlaceholderIndex((prev) => (prev + 1) % placeholders.length);
-    }, 4000); // Change every 4 seconds
+      setFade(false);
+      setTimeout(() => {
+        setCurrentPlaceholderIndex((prev) => (prev + 1) % placeholders.length);
+        setFade(true);
+      }, 500);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, []);
@@ -54,51 +71,71 @@ export function ClientHero() {
     {
       icon: MessageSquare,
       label: "Real customer reviews",
-      color: "text-blue-600",
-      bgColor: "bg-blue-50",
+      color: "text-blue-200",
+      bgColor: "bg-white/10",
     },
     {
       icon: CheckCircle,
       label: "Transparent profiles",
-      color: "text-emerald-600",
-      bgColor: "bg-emerald-50",
+      color: "text-green-300",
+      bgColor: "bg-white/10",
     },
     {
       icon: Globe,
       label: "Multilingual support",
-      color: "text-purple-600",
-      bgColor: "bg-purple-50",
+      color: "text-purple-300",
+      bgColor: "bg-white/10",
     },
   ];
 
   return (
-    <section className="relative py-20 md:py-32 overflow-hidden">
-      {/* Premium Mediterranean Gradient Background */}
-      <div className="absolute inset-0 z-0">
-        {/* Soft coastal gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50/25 to-cyan-50/15"></div>
-
-        {/* Floating premium orbs */}
-        <div className="absolute top-32 right-1/3 w-80 h-80 bg-gradient-to-bl from-blue-100/25 to-transparent rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-gradient-to-tr from-cyan-100/20 to-transparent rounded-full blur-3xl"></div>
+    <section className="relative py-20 md:py-32 overflow-hidden bg-[#0a1f44]">
+      {/* Animated Background Icons */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-10 left-10 opacity-10 animate-float-slow">
+          <Wrench className="w-24 h-24 text-blue-300" />
+        </div>
+        <div className="absolute top-20 right-20 opacity-10 animate-float-medium">
+          <Hammer className="w-32 h-32 text-purple-300" />
+        </div>
+        <div className="absolute bottom-10 left-1/4 opacity-5 animate-float-fast">
+          <Paintbrush className="w-20 h-20 text-green-300" />
+        </div>
+        <div className="absolute top-1/3 right-1/4 opacity-5 animate-pulse-slow">
+          <Zap className="w-16 h-16 text-yellow-300" />
+        </div>
+        <div className="absolute bottom-20 right-10 opacity-10 animate-float-slow">
+          <HardHat className="w-28 h-28 text-orange-300" />
+        </div>
+        <div className="absolute top-1/2 left-10 opacity-5 animate-float-medium">
+          <Ruler className="w-20 h-20 text-cyan-300" />
+        </div>
+        <div className="absolute bottom-1/3 right-1/3 opacity-5 animate-float-fast">
+          <Truck className="w-24 h-24 text-red-300" />
+        </div>
       </div>
+
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0a1f44]/50 to-[#0a1f44] pointer-events-none"></div>
 
       <div className="container-custom relative z-10">
         {/* Main Content Container */}
         <div className="max-w-3xl mx-auto">
           {/* Premium Headline */}
-          <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-foreground text-center mb-8 leading-tight tracking-tighter animate-fade-in">
-            Trusted local tradespeople for your Costa del Sol home
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white text-center mb-8 leading-tight tracking-tighter animate-fade-in">
+            Find the right{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-cyan-200">
+              tradesperson
+            </span>{" "}
+            for your job
           </h2>
 
           {/* Elegant Subheading */}
           <p
-            className="text-xl md:text-2xl text-muted-foreground text-center mb-12 leading-relaxed font-light max-w-2xl mx-auto animate-fade-in"
+            className="text-xl md:text-2xl text-blue-100/90 text-center mb-12 leading-relaxed font-light max-w-2xl mx-auto animate-fade-in"
             style={{ animationDelay: "0.1s" }}
           >
-            Choose from professionals offering multilingual support and
-            transparent customer reviews. Compare profiles, view past work and
-            contact tradespeople directly.
+            Get quotes from trusted local professionals in minutes.
           </p>
 
           {/* Premium Search Bar */}
@@ -107,13 +144,13 @@ export function ClientHero() {
             className="mb-16 animate-scale-in max-w-2xl mx-auto"
             style={{ animationDelay: "0.2s" }}
           >
-            <div className="relative bg-white rounded-full shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 group">
+            <div className="relative bg-white rounded-full shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-white/10 group">
               {/* Subtle inner glow */}
               <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-transparent pointer-events-none rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
               <div className="relative flex items-center px-4 md:px-8 py-3 md:py-6 gap-2 md:gap-4">
                 <Search
-                  className="h-5 w-5 text-muted-foreground flex-shrink-0"
+                  className="h-5 w-5 text-gray-400 flex-shrink-0"
                   strokeWidth={1.5}
                 />
                 <input
@@ -121,11 +158,11 @@ export function ClientHero() {
                   value={searchValue}
                   onChange={(e) => setSearchValue(e.target.value)}
                   placeholder={displayedPlaceholder}
-                  className="flex-1 bg-transparent text-base md:text-lg text-foreground placeholder-muted-foreground focus:outline-none font-light transition-opacity duration-500 min-w-0"
+                  className={`flex-1 bg-transparent text-base md:text-lg text-gray-900 placeholder:text-gray-400 focus:outline-none font-light transition-opacity duration-500 min-w-0 ${fade ? "opacity-100" : "opacity-0"}`}
                 />
                 <Button
                   type="submit"
-                  className="ml-1 md:ml-2 bg-gradient-to-r from-primary to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white px-4 md:px-8 py-2 md:py-2.5 rounded-full font-semibold text-sm md:text-base transition-all duration-300 flex-shrink-0 shadow-sm hover:shadow-md whitespace-nowrap"
+                  className="ml-1 md:ml-2 bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white px-6 md:px-8 py-2 md:py-2.5 rounded-full font-semibold text-sm md:text-base transition-all duration-300 flex-shrink-0 shadow-sm hover:shadow-md whitespace-nowrap"
                 >
                   Search
                 </Button>
@@ -140,7 +177,7 @@ export function ClientHero() {
           >
             <Link
               to="/post-job"
-              className="inline-block text-base text-primary hover:text-primary-600 font-medium transition-colors duration-300"
+              className="inline-block text-base text-blue-200 hover:text-white font-medium transition-colors duration-300"
             >
               Or describe your project and let us match you →
             </Link>
@@ -160,7 +197,7 @@ export function ClientHero() {
                     >
                       <div className="flex justify-center mb-3">
                         <div
-                          className={`w-14 h-14 ${badge.bgColor} rounded-2xl flex items-center justify-center shadow-sm hover:shadow-md transition-shadow duration-300`}
+                          className={`w-14 h-14 ${badge.bgColor} rounded-2xl flex items-center justify-center shadow-sm hover:shadow-md transition-shadow duration-300 backdrop-blur-sm border border-white/10`}
                         >
                           <Icon
                             className={`h-7 w-7 ${badge.color}`}
@@ -168,7 +205,7 @@ export function ClientHero() {
                           />
                         </div>
                       </div>
-                      <p className="text-sm md:text-base font-medium text-foreground whitespace-nowrap md:whitespace-normal">
+                      <p className="text-sm md:text-base font-medium text-blue-100 whitespace-nowrap md:whitespace-normal">
                         {badge.label}
                       </p>
                     </div>
@@ -180,10 +217,10 @@ export function ClientHero() {
 
           {/* Location Microcopy */}
           <div
-            className="text-center pt-8 border-t border-gray-200/50 animate-fade-in"
+            className="text-center pt-8 border-t border-white/10 animate-fade-in"
             style={{ animationDelay: "0.7s" }}
           >
-            <p className="text-xs md:text-sm text-muted-foreground font-light tracking-wide">
+            <p className="text-xs md:text-sm text-blue-200/60 font-light tracking-wide">
               Serving homeowners across Málaga, Marbella, Mijas, Fuengirola and
               Estepona
             </p>
