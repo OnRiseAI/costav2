@@ -95,38 +95,8 @@ export function Navigation() {
               </Link>
             </div>
 
-            {/* Center navigation */}
+            {/* Center navigation - Removed as per request */}
             <div className="hidden lg:flex items-center gap-6">
-              <Link
-                to="/how-it-works"
-                className="text-sm font-medium text-slate-700 hover:text-[#0a1f44] transition-colors"
-              >
-                How it works
-              </Link>
-              <Link
-                to="/cost-guides"
-                className="text-sm font-medium text-slate-700 hover:text-[#0a1f44] transition-colors"
-              >
-                Cost guides
-              </Link>
-              <Link
-                to="/holiday-homes"
-                className="text-sm font-medium text-slate-700 hover:text-[#0a1f44] transition-colors"
-              >
-                Holiday homes
-              </Link>
-              <Link
-                to="/landlords"
-                className="text-sm font-medium text-slate-700 hover:text-[#0a1f44] transition-colors"
-              >
-                Landlords
-              </Link>
-              <Link
-                to="/blog"
-                className="text-sm font-medium text-slate-700 hover:text-[#0a1f44] transition-colors"
-              >
-                Blog
-              </Link>
             </div>
 
             {/* Right: primary actions */}
