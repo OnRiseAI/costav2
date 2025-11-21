@@ -26,6 +26,7 @@ import FAQPage from "@/pages/FAQPage";
 import CostGuidesPage from "@/pages/CostGuidesPage";
 import ContactPage from "@/pages/ContactPage";
 import TermsOfService from "@/pages/TermsOfService";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import CookiePolicy from "@/pages/CookiePolicy";
 import BlogPage from "@/pages/BlogPage";
 import BlogPostPage from "@/pages/BlogPostPage";
@@ -35,6 +36,7 @@ import SEOTradePage from "@/pages/SEOTradePage";
 import { CookieConsent } from "@/components/CookieConsent";
 import PlaceholderPage from "@/pages/PlaceholderPage";
 import NotFound from "@/pages/NotFound";
+import SignupPage from "@/pages/SignupPage";
 import "./global.css";
 
 function AppContent() {
