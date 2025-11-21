@@ -205,6 +205,13 @@ export function CustomerDashboard() {
           Messages
         </button>
         <button
+          onClick={() => setActiveTab("saved")}
+          className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${activeTab === "saved" ? "bg-blue-50 text-blue-700" : "text-slate-600 hover:bg-slate-50"}`}
+        >
+          <Heart className="w-5 h-5" />
+          Saved Pros
+        </button>
+        <button
           onClick={() => setActiveTab("profile")}
           className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${activeTab === "profile" ? "bg-blue-50 text-blue-700" : "text-slate-600 hover:bg-slate-50"}`}
         >
