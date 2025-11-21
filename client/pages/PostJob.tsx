@@ -113,6 +113,7 @@ const PLACEHOLDERS = [
 
 export default function PostJob() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [step, setStep] = useState<1 | 2>(1);
   const [selectedCategory, setSelectedCategory] = useState<string>("");
@@ -120,7 +121,16 @@ export default function PostJob() {
   const [postcode, setPostcode] = useState<string>("");
   const [placeholderIndex, setPlaceholderIndex] = useState(0);
   const [fade, setFade] = useState(true);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState(searchParams.get("option") || "");
+
+  useEffect(() => {
+    const option = searchParams.get("option");
+    if (option) {
+      setSearchQuery(option);
+      // Optionally trigger search immediately if desired, but setting state might be enough for now
+      // or we can call handleHeroSearch() if we move it or wrap it in useEffect
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     const interval = setInterval(() => {
