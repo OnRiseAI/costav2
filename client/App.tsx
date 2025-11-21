@@ -60,15 +60,6 @@ function AppContent() {
             <Route path="/seo-template" element={<SEOTradePage />} />
 
             {/* Trade Category Pages */}
-            <Route
-              path="/trades"
-              element={
-                <PlaceholderPage
-                  title="All Trade Categories"
-                  description="Browse all available trade categories in Costa del Sol"
-                />
-              }
-            />
             <Route path="/trades/:category" element={<TradeCategory />} />
 
             {/* Tradesperson Profile */}
@@ -147,38 +138,11 @@ function AppContent() {
               }
             />
             <Route
-              path="/homeowner-advice"
-              element={
-                <PlaceholderPage
-                  title="Homeowner Advice Centre"
-                  description="Expert tips and guides for your home improvement projects"
-                />
-              }
-            />
-            <Route
-              path="/find-expert"
-              element={
-                <PlaceholderPage
-                  title="Find Your Expert"
-                  description="Connect with verified professionals in Costa del Sol"
-                />
-              }
-            />
-            <Route
               path="/saved-trades"
               element={
                 <PlaceholderPage
                   title="Saved Trades"
                   description="Your saved tradespeople and favorite professionals"
-                />
-              }
-            />
-            <Route
-              path="/advice-centre"
-              element={
-                <PlaceholderPage
-                  title="Advice Centre"
-                  description="Resources and guidance for tradespeople and homeowners"
                 />
               }
             />
