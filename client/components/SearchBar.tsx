@@ -47,9 +47,9 @@ export function SearchBar({ variant = 'hero' }: SearchBarProps) {
     }
 
     const params = new URLSearchParams();
-    if (trade) params.set('trade', trade);
-    if (location) params.set('location', location);
-    navigate(`/search?${params.toString()}`);
+    if (trade) params.set('option', trade);
+    if (location) params.set('postcode', location);
+    navigate(`/post-job?${params.toString()}`);
   };
 
   const isHero = variant === 'hero';
