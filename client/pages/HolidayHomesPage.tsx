@@ -191,7 +191,7 @@ export default function HolidayHomesPage() {
             Stop worrying about your property and start enjoying it. Find your
             trusted maintenance team today.
           </p>
-          <Link to="/search">
+          <Link to="/post-job">
             <Button
               size="lg"
               className="bg-blue-500 hover:bg-blue-600 text-white px-10 py-7 text-xl rounded-full font-bold shadow-xl hover:shadow-2xl hover:shadow-blue-500/20 transition-all flex items-center gap-3 mx-auto"
