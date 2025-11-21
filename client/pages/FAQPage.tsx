@@ -1,5 +1,14 @@
 import { Button } from "@/components/ui/button";
-import { Search, MessageCircle, ChevronDown, Home, Briefcase, Scale, HelpCircle, Info } from "lucide-react";
+import {
+  Search,
+  MessageCircle,
+  ChevronDown,
+  Home,
+  Briefcase,
+  Scale,
+  HelpCircle,
+  Info,
+} from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -15,29 +24,29 @@ export default function FAQPage() {
       questions: [
         {
           q: "Is CostaTrades free to use?",
-          a: "Yes, CostaTrades is 100% free for homeowners. You can post jobs, receive quotes, and contact tradespeople without paying any fees."
+          a: "Yes, CostaTrades is 100% free for homeowners. You can post jobs, receive quotes, and contact tradespeople without paying any fees.",
         },
         {
           q: "How do I know the tradespeople are reliable?",
-          a: "We prioritize accountability. Every tradesperson has a public profile with verified reviews from real customers, ensuring transparency and trust."
+          a: "We prioritize accountability. Every tradesperson has a public profile with verified reviews from real customers, ensuring transparency and trust.",
         },
         {
           q: "What areas do you cover?",
-          a: "We cover the entire Costa del Sol, including Marbella, Estepona, Mijas, Fuengirola, Benalmadena, and Sotogrande."
+          a: "We cover the entire Costa del Sol, including Marbella, Estepona, Mijas, Fuengirola, Benalmadena, and Sotogrande.",
         },
         {
           q: "Can I get a quote without posting a job?",
-          a: "Yes. You can browse our directory and contact tradespeople directly via phone or WhatsApp to request a quote."
+          a: "Yes. You can browse our directory and contact tradespeople directly via phone or WhatsApp to request a quote.",
         },
         {
           q: "How do I leave a review?",
-          a: "After a job is completed, you can leave a review on the tradesperson's profile. Your feedback helps maintain our high standards of quality and trust."
+          a: "After a job is completed, you can leave a review on the tradesperson's profile. Your feedback helps maintain our high standards of quality and trust.",
         },
         {
           q: "What if I'm not satisfied with the work?",
-          a: "We recommend first discussing the issue with the tradesperson. If unresolved, please contact our support team. While we don't directly manage jobs, we investigate all reports of poor service."
-        }
-      ]
+          a: "We recommend first discussing the issue with the tradesperson. If unresolved, please contact our support team. While we don't directly manage jobs, we investigate all reports of poor service.",
+        },
+      ],
     },
     {
       title: "For Tradespeople",
@@ -47,29 +56,29 @@ export default function FAQPage() {
       questions: [
         {
           q: "Is it free to join CostaTrades?",
-          a: "Yes, CostaTrades is completely free for tradespeople. There are no subscription fees, lead fees, or commissions on the jobs you secure."
+          a: "Yes, CostaTrades is completely free for tradespeople. There are no subscription fees, lead fees, or commissions on the jobs you secure.",
         },
         {
           q: "Do you take a commission on my earnings?",
-          a: "No. You keep 100% of what you earn. We are a free directory designed to connect you with local homeowners."
+          a: "No. You keep 100% of what you earn. We are a free directory designed to connect you with local homeowners.",
         },
         {
           q: "How do I get verified?",
-          a: "Simply create your profile and complete the verification steps, which include confirming your identity and business details to build trust with clients."
+          a: "Simply create your profile and complete the verification steps, which include confirming your identity and business details to build trust with clients.",
         },
         {
           q: "How do I get more leads?",
-          a: "Complete your profile with a professional photo, detailed description of services, and photos of past work. Verified profiles with positive reviews also rank higher in search results."
+          a: "Complete your profile with a professional photo, detailed description of services, and photos of past work. Verified profiles with positive reviews also rank higher in search results.",
         },
         {
           q: "Can I list multiple services?",
-          a: "Yes, you can select multiple trade categories that match your skills, such as plumbing, electrical work, and general maintenance, ensuring you appear in all relevant searches."
+          a: "Yes, you can select multiple trade categories that match your skills, such as plumbing, electrical work, and general maintenance, ensuring you appear in all relevant searches.",
         },
         {
           q: "Do I need to be a Spanish resident?",
-          a: "You need to be legally allowed to work in Spain. We may ask for your NIE/NIF during the verification process to ensure compliance with local regulations."
-        }
-      ]
+          a: "You need to be legally allowed to work in Spain. We may ask for your NIE/NIF during the verification process to ensure compliance with local regulations.",
+        },
+      ],
     },
     {
       title: "Costs & Regulations",
@@ -79,29 +88,29 @@ export default function FAQPage() {
       questions: [
         {
           q: "How much does a plumber cost in Marbella?",
-          a: "The average call-out fee for a plumber in Marbella is approximately €150, though this varies by urgency and location."
+          a: "The average call-out fee for a plumber in Marbella is approximately €150, though this varies by urgency and location.",
         },
         {
           q: "Do I need a permit for renovation in Spain?",
-          a: "Yes, most renovations require a 'Licencia de Obra' (Building Permit) from your local Town Hall (Ayuntamiento). Minor works need a 'Licencia de Obra Menor'."
+          a: "Yes, most renovations require a 'Licencia de Obra' (Building Permit) from your local Town Hall (Ayuntamiento). Minor works need a 'Licencia de Obra Menor'.",
         },
         {
           q: "What is the average hourly rate for an electrician?",
-          a: "Electricians on the Costa del Sol typically charge between €40 and €70 per hour, depending on the complexity of the work and urgency."
+          a: "Electricians on the Costa del Sol typically charge between €40 and €70 per hour, depending on the complexity of the work and urgency.",
         },
         {
           q: "Do I need an architect for a small extension?",
-          a: "For structural changes or extensions, you generally need an architect ('Arquitecto') to prepare the project for the Town Hall building permit."
+          a: "For structural changes or extensions, you generally need an architect ('Arquitecto') to prepare the project for the Town Hall building permit.",
         },
         {
           q: "What is IVA and do I have to pay it?",
-          a: "IVA is the Spanish VAT. Standard rate is 21% for most goods and services. Renovation works may qualify for a reduced rate of 10% under specific conditions."
+          a: "IVA is the Spanish VAT. Standard rate is 21% for most goods and services. Renovation works may qualify for a reduced rate of 10% under specific conditions.",
         },
         {
           q: "How much does a painter charge per square meter?",
-          a: "Painters typically charge between €8 and €15 per square meter for interior walls, including materials. Exterior painting may cost more depending on access and surface condition."
-        }
-      ]
+          a: "Painters typically charge between €8 and €15 per square meter for interior walls, including materials. Exterior painting may cost more depending on access and surface condition.",
+        },
+      ],
     },
     {
       title: "General & Account",
@@ -111,63 +120,64 @@ export default function FAQPage() {
       questions: [
         {
           q: "How do I reset my password?",
-          a: "You can reset your password by clicking 'Forgot Password' on the login page and following the email instructions sent to your registered address."
+          a: "You can reset your password by clicking 'Forgot Password' on the login page and following the email instructions sent to your registered address.",
         },
         {
           q: "Can I change my email address?",
-          a: "Yes, you can update your email address and other personal details in your profile settings dashboard after logging in."
+          a: "Yes, you can update your email address and other personal details in your profile settings dashboard after logging in.",
         },
         {
           q: "Is my personal data safe?",
-          a: "Absolutely. We use industry-standard encryption and strictly adhere to GDPR regulations to ensure your personal data is protected at all times."
+          a: "Absolutely. We use industry-standard encryption and strictly adhere to GDPR regulations to ensure your personal data is protected at all times.",
         },
         {
           q: "How do I delete my account?",
-          a: "You can request account deletion from your profile settings or by contacting our support team. We will process your request in accordance with GDPR guidelines."
+          a: "You can request account deletion from your profile settings or by contacting our support team. We will process your request in accordance with GDPR guidelines.",
         },
         {
           q: "Is there a mobile app?",
-          a: "We are currently developing our mobile app. For now, our website is fully responsive and works perfectly on all mobile devices and tablets."
+          a: "We are currently developing our mobile app. For now, our website is fully responsive and works perfectly on all mobile devices and tablets.",
         },
         {
           q: "How can I contact customer support?",
-          a: "You can reach our support team via the 'Contact Us' page, email, or directly through WhatsApp for urgent inquiries. We aim to respond within 24 hours."
-        }
-      ]
-    }
+          a: "You can reach our support team via the 'Contact Us' page, email, or directly through WhatsApp for urgent inquiries. We aim to respond within 24 hours.",
+        },
+      ],
+    },
   ];
 
   // Filter questions based on search
-  const filteredCategories = categories.map(cat => ({
-    ...cat,
-    questions: cat.questions.filter(q => 
-      q.q.toLowerCase().includes(searchQuery.toLowerCase()) || 
-      q.a.toLowerCase().includes(searchQuery.toLowerCase())
-    )
-  })).filter(cat => cat.questions.length > 0);
+  const filteredCategories = categories
+    .map((cat) => ({
+      ...cat,
+      questions: cat.questions.filter(
+        (q) =>
+          q.q.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          q.a.toLowerCase().includes(searchQuery.toLowerCase()),
+      ),
+    }))
+    .filter((cat) => cat.questions.length > 0);
 
   // Generate FAQ Schema
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": categories.flatMap(cat => 
-      cat.questions.map(q => ({
+    mainEntity: categories.flatMap((cat) =>
+      cat.questions.map((q) => ({
         "@type": "Question",
-        "name": q.q,
-        "acceptedAnswer": {
+        name: q.q,
+        acceptedAnswer: {
           "@type": "Answer",
-          "text": q.a
-        }
-      }))
-    )
+          text: q.a,
+        },
+      })),
+    ),
   };
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans">
       {/* Schema Markup */}
-      <script type="application/ld+json">
-        {JSON.stringify(faqSchema)}
-      </script>
+      <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
 
       {/* 1. Hero Section */}
       <section className="relative py-24 md:py-32 px-4 text-center overflow-hidden bg-[#0a1f44]">
@@ -181,18 +191,27 @@ export default function FAQPage() {
         <div className="container-custom max-w-4xl relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm mb-8 animate-fade-in">
             <HelpCircle className="w-4 h-4 text-blue-300" />
-            <span className="text-sm font-medium tracking-wide uppercase text-blue-100">Help Center</span>
+            <span className="text-sm font-medium tracking-wide uppercase text-blue-100">
+              Help Center
+            </span>
           </div>
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8 tracking-tight animate-slide-up">
             How can we help you?
           </h1>
-          <p className="text-xl md:text-2xl text-blue-100 mb-12 font-light max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: "0.1s" }}>
-            Find answers about hiring tradespeople, costs, and our verification process.
+          <p
+            className="text-xl md:text-2xl text-blue-100 mb-12 font-light max-w-2xl mx-auto animate-slide-up"
+            style={{ animationDelay: "0.1s" }}
+          >
+            Find answers about hiring tradespeople, costs, and our verification
+            process.
           </p>
-          
+
           {/* Search Bar */}
-          <div className="max-w-2xl mx-auto relative animate-scale-in" style={{ animationDelay: "0.2s" }}>
+          <div
+            className="max-w-2xl mx-auto relative animate-scale-in"
+            style={{ animationDelay: "0.2s" }}
+          >
             <div className="absolute inset-y-0 left-5 flex items-center pointer-events-none">
               <Search className="h-6 w-6 text-slate-400" />
             </div>
@@ -215,20 +234,26 @@ export default function FAQPage() {
               filteredCategories.map((category, idx) => {
                 const Icon = category.icon;
                 return (
-                  <div key={idx} className="bg-white rounded-[2rem] p-8 md:p-10 shadow-xl shadow-slate-200/50 border border-white animate-fade-in" style={{ animationDelay: `${0.3 + idx * 0.1}s` }}>
+                  <div
+                    key={idx}
+                    className="bg-white rounded-[2rem] p-8 md:p-10 shadow-xl shadow-slate-200/50 border border-white animate-fade-in"
+                    style={{ animationDelay: `${0.3 + idx * 0.1}s` }}
+                  >
                     <div className="flex items-center gap-4 mb-8 border-b border-slate-100 pb-6">
-                      <div className={`w-12 h-12 ${category.bgColor} rounded-xl flex items-center justify-center`}>
+                      <div
+                        className={`w-12 h-12 ${category.bgColor} rounded-xl flex items-center justify-center`}
+                      >
                         <Icon className={`w-6 h-6 ${category.color}`} />
                       </div>
                       <h2 className="text-2xl md:text-3xl font-bold text-[#0a1f44]">
                         {category.title}
                       </h2>
                     </div>
-                    
+
                     <div className="space-y-4">
                       {category.questions.map((item, qIdx) => (
-                        <details 
-                          key={qIdx} 
+                        <details
+                          key={qIdx}
                           className="group [&_summary::-webkit-details-marker]:hidden bg-slate-50 rounded-xl overflow-hidden transition-all duration-300 hover:bg-slate-100 open:bg-white open:shadow-md open:ring-1 open:ring-slate-200/50"
                         >
                           <summary className="flex cursor-pointer items-center justify-between gap-4 p-5 text-slate-900 transition-colors focus:outline-none">
@@ -250,9 +275,11 @@ export default function FAQPage() {
               })
             ) : (
               <div className="md:col-span-2 text-center py-20 bg-white rounded-[2rem] shadow-sm">
-                <p className="text-xl text-slate-500">No answers found for "{searchQuery}"</p>
-                <Button 
-                  variant="link" 
+                <p className="text-xl text-slate-500">
+                  No answers found for "{searchQuery}"
+                </p>
+                <Button
+                  variant="link"
                   onClick={() => setSearchQuery("")}
                   className="mt-2 text-blue-600 font-semibold"
                 >
@@ -274,11 +301,12 @@ export default function FAQPage() {
             Still have questions?
           </h2>
           <p className="text-xl text-slate-600 mb-10 font-light leading-relaxed">
-            Can't find what you're looking for? Our support team is here to help you via WhatsApp.
+            Can't find what you're looking for? Our support team is here to help
+            you via WhatsApp.
           </p>
-          <a 
-            href="https://wa.me/34123456789" 
-            target="_blank" 
+          <a
+            href="https://wa.me/34123456789"
+            target="_blank"
             rel="noopener noreferrer"
             className="inline-block hover:-translate-y-1 transition-transform duration-300"
           >

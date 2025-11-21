@@ -68,7 +68,10 @@ function AppContent() {
 
             {/* Information Pages */}
             <Route path="/how-it-works" element={<HowItWorksPage />} />
-            <Route path="/verification-promise" element={<VerificationPromisePage />} />
+            <Route
+              path="/verification-promise"
+              element={<VerificationPromisePage />}
+            />
             <Route path="/why-us" element={<VerificationPromisePage />} />
             <Route path="/faq" element={<FAQPage />} />
             <Route path="/cost-guides" element={<CostGuidesPage />} />
@@ -140,14 +143,8 @@ function AppContent() {
             />
 
             {/* Legal */}
-            <Route
-              path="/terms"
-              element={<TermsOfService />}
-            />
-            <Route
-              path="/cookie-policy"
-              element={<CookiePolicy />}
-            />
+            <Route path="/terms" element={<TermsOfService />} />
+            <Route path="/cookie-policy" element={<CookiePolicy />} />
             <Route
               path="/download-app"
               element={

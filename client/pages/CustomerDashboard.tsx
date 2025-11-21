@@ -19,7 +19,7 @@ import {
   XCircle,
   MessageCircle,
   Mail,
-  Smartphone
+  Smartphone,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth, supabase } from "@/contexts/AuthContext";
@@ -30,24 +30,26 @@ const mockJobs = [
   {
     id: "1",
     title: "Fix Leaky Tap in Marbella",
-    description: "Kitchen tap is dripping constantly. Need a plumber to fix or replace it.",
+    description:
+      "Kitchen tap is dripping constantly. Need a plumber to fix or replace it.",
     location: "Marbella",
     status: "open",
     created_at: "2 days ago",
     quotes_count: 3,
     views_count: 12,
-    budget: "€100 - €200"
+    budget: "€100 - €200",
   },
   {
     id: "2",
     title: "Paint Living Room",
-    description: "Need to paint a 30sqm living room. Walls and ceiling. White paint.",
+    description:
+      "Need to paint a 30sqm living room. Walls and ceiling. White paint.",
     location: "Estepona",
     status: "in_progress",
     created_at: "1 week ago",
     quotes_count: 5,
     views_count: 24,
-    budget: "€300 - €500"
+    budget: "€300 - €500",
   },
   {
     id: "3",
@@ -58,8 +60,8 @@ const mockJobs = [
     created_at: "1 month ago",
     quotes_count: 2,
     views_count: 8,
-    budget: "€50 - €100"
-  }
+    budget: "€50 - €100",
+  },
 ];
 
 const mockQuotes = [
@@ -69,11 +71,12 @@ const mockQuotes = [
       name: "Juan Perez",
       photo: "https://randomuser.me/api/portraits/men/32.jpg",
       rating: 4.8,
-      reviews: 24
+      reviews: 24,
     },
     price: "€150",
-    message: "Hi, I can come tomorrow at 10am. I have the tools and parts needed.",
-    date: "Yesterday"
+    message:
+      "Hi, I can come tomorrow at 10am. I have the tools and parts needed.",
+    date: "Yesterday",
   },
   {
     id: "q2",
@@ -81,11 +84,11 @@ const mockQuotes = [
       name: "David Smith",
       photo: "https://randomuser.me/api/portraits/men/45.jpg",
       rating: 4.9,
-      reviews: 56
+      reviews: 56,
     },
     price: "€120",
     message: "Available this weekend. Price includes basic parts.",
-    date: "Today"
+    date: "Today",
   },
   {
     id: "q3",
@@ -93,12 +96,13 @@ const mockQuotes = [
       name: "Maria Garcia",
       photo: "https://randomuser.me/api/portraits/women/28.jpg",
       rating: 4.7,
-      reviews: 12
+      reviews: 12,
     },
     price: "€180",
-    message: "I specialize in plumbing repairs. Can guarantee the work for 1 year.",
-    date: "2 days ago"
-  }
+    message:
+      "I specialize in plumbing repairs. Can guarantee the work for 1 year.",
+    date: "2 days ago",
+  },
 ];
 
 export function CustomerDashboard() {
@@ -126,11 +130,23 @@ export function CustomerDashboard() {
   const getStatusBadge = (status: string) => {
     switch (status) {
       case "open":
-        return <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">Open for Quotes</span>;
+        return (
+          <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">
+            Open for Quotes
+          </span>
+        );
       case "in_progress":
-        return <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">In Progress</span>;
+        return (
+          <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">
+            In Progress
+          </span>
+        );
       case "completed":
-        return <span className="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">Completed</span>;
+        return (
+          <span className="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">
+            Completed
+          </span>
+        );
       default:
         return null;
     }
@@ -145,33 +161,38 @@ export function CustomerDashboard() {
           </div>
           <div>
             <h3 className="font-bold text-[#0a1f44]">My Account</h3>
-            <p className="text-xs text-slate-500 truncate max-w-[120px]">{user?.email || "user@example.com"}</p>
+            <p className="text-xs text-slate-500 truncate max-w-[120px]">
+              {user?.email || "user@example.com"}
+            </p>
           </div>
         </div>
       </div>
       <nav className="p-4 space-y-1">
-        <button 
-          onClick={() => { setActiveTab("jobs"); setShowQuotes(false); }}
+        <button
+          onClick={() => {
+            setActiveTab("jobs");
+            setShowQuotes(false);
+          }}
           className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${activeTab === "jobs" ? "bg-blue-50 text-blue-700" : "text-slate-600 hover:bg-slate-50"}`}
         >
           <Briefcase className="w-5 h-5" />
           My Jobs
         </button>
-        <button 
+        <button
           onClick={() => setActiveTab("messages")}
           className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${activeTab === "messages" ? "bg-blue-50 text-blue-700" : "text-slate-600 hover:bg-slate-50"}`}
         >
           <MessageSquare className="w-5 h-5" />
           Messages
         </button>
-        <button 
+        <button
           onClick={() => setActiveTab("profile")}
           className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${activeTab === "profile" ? "bg-blue-50 text-blue-700" : "text-slate-600 hover:bg-slate-50"}`}
         >
           <User className="w-5 h-5" />
           Profile
         </button>
-        <button 
+        <button
           onClick={() => setActiveTab("notifications")}
           className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${activeTab === "notifications" ? "bg-blue-50 text-blue-700" : "text-slate-600 hover:bg-slate-50"}`}
         >
@@ -180,7 +201,7 @@ export function CustomerDashboard() {
         </button>
       </nav>
       <div className="p-4 border-t border-slate-100 mt-4">
-        <button 
+        <button
           onClick={handleSignOut}
           className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-red-600 hover:bg-red-50 transition-colors"
         >
@@ -195,7 +216,10 @@ export function CustomerDashboard() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h2 className="text-2xl font-bold text-[#0a1f44]">Active Projects</h2>
-        <Button onClick={() => navigate("/post-job")} className="bg-blue-600 hover:bg-blue-700 text-white gap-2">
+        <Button
+          onClick={() => navigate("/post-job")}
+          className="bg-blue-600 hover:bg-blue-700 text-white gap-2"
+        >
           <Plus className="w-4 h-4" /> Post a Job
         </Button>
       </div>
@@ -206,44 +230,68 @@ export function CustomerDashboard() {
             <Briefcase className="w-8 h-8" />
           </div>
           <h3 className="text-lg font-bold text-[#0a1f44] mb-2">No jobs yet</h3>
-          <p className="text-slate-500 mb-6">Post your first job to get quotes from verified tradespeople.</p>
-          <Button onClick={() => navigate("/post-job")} size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
+          <p className="text-slate-500 mb-6">
+            Post your first job to get quotes from verified tradespeople.
+          </p>
+          <Button
+            onClick={() => navigate("/post-job")}
+            size="lg"
+            className="bg-blue-600 hover:bg-blue-700 text-white"
+          >
             Post a Job Now
           </Button>
         </div>
       ) : (
         <div className="space-y-4">
           {mockJobs.map((job) => (
-            <div key={job.id} className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+            <div
+              key={job.id}
+              className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
+            >
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
                 <div>
                   <div className="flex items-center gap-3 mb-2">
                     {getStatusBadge(job.status)}
-                    <span className="text-xs text-slate-400 font-medium">{job.created_at}</span>
+                    <span className="text-xs text-slate-400 font-medium">
+                      {job.created_at}
+                    </span>
                   </div>
-                  <h3 className="text-xl font-bold text-[#0a1f44] mb-1">{job.title}</h3>
+                  <h3 className="text-xl font-bold text-[#0a1f44] mb-1">
+                    {job.title}
+                  </h3>
                   <div className="flex items-center gap-2 text-sm text-slate-500">
                     <MapPin className="w-4 h-4" /> {job.location}
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="text-center px-4 py-2 bg-slate-50 rounded-lg">
-                    <div className="text-lg font-bold text-[#0a1f44]">{job.quotes_count}</div>
-                    <div className="text-xs text-slate-500 uppercase tracking-wide">Quotes</div>
+                    <div className="text-lg font-bold text-[#0a1f44]">
+                      {job.quotes_count}
+                    </div>
+                    <div className="text-xs text-slate-500 uppercase tracking-wide">
+                      Quotes
+                    </div>
                   </div>
                   <div className="text-center px-4 py-2 bg-slate-50 rounded-lg">
-                    <div className="text-lg font-bold text-[#0a1f44]">{job.views_count}</div>
-                    <div className="text-xs text-slate-500 uppercase tracking-wide">Views</div>
+                    <div className="text-lg font-bold text-[#0a1f44]">
+                      {job.views_count}
+                    </div>
+                    <div className="text-xs text-slate-500 uppercase tracking-wide">
+                      Views
+                    </div>
                   </div>
                 </div>
               </div>
-              
+
               <div className="flex items-center justify-between pt-4 border-t border-slate-100 mt-4">
                 <div className="text-sm font-medium text-slate-600">
                   Budget: <span className="text-[#0a1f44]">{job.budget}</span>
                 </div>
-                <Button 
-                  onClick={() => { setSelectedJob(job.id); setShowQuotes(true); }}
+                <Button
+                  onClick={() => {
+                    setSelectedJob(job.id);
+                    setShowQuotes(true);
+                  }}
                   className="bg-white border border-slate-200 text-[#0a1f44] hover:bg-slate-50 hover:border-slate-300"
                 >
                   View Quotes <ChevronRight className="w-4 h-4 ml-2" />
@@ -259,29 +307,44 @@ export function CustomerDashboard() {
   const renderQuotesDetail = () => (
     <div className="space-y-6 animate-fade-in">
       <div className="flex items-center gap-2 mb-6">
-        <button 
+        <button
           onClick={() => setShowQuotes(false)}
           className="text-slate-400 hover:text-[#0a1f44] transition-colors"
         >
           My Jobs
         </button>
         <ChevronRight className="w-4 h-4 text-slate-300" />
-        <span className="font-semibold text-[#0a1f44]">Quotes for "Fix Leaky Tap"</span>
+        <span className="font-semibold text-[#0a1f44]">
+          Quotes for "Fix Leaky Tap"
+        </span>
       </div>
 
       <div className="grid gap-6">
         {mockQuotes.map((quote) => (
-          <div key={quote.id} className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+          <div
+            key={quote.id}
+            className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm"
+          >
             <div className="flex flex-col md:flex-row gap-6">
               {/* Tradesperson Info */}
               <div className="flex items-start gap-4 min-w-[200px]">
-                <img src={quote.tradesperson.photo} alt={quote.tradesperson.name} className="w-14 h-14 rounded-full object-cover border-2 border-white shadow-sm" />
+                <img
+                  src={quote.tradesperson.photo}
+                  alt={quote.tradesperson.name}
+                  className="w-14 h-14 rounded-full object-cover border-2 border-white shadow-sm"
+                />
                 <div>
-                  <h4 className="font-bold text-[#0a1f44]">{quote.tradesperson.name}</h4>
+                  <h4 className="font-bold text-[#0a1f44]">
+                    {quote.tradesperson.name}
+                  </h4>
                   <div className="flex items-center gap-1 text-sm text-yellow-500">
                     <Star className="w-4 h-4 fill-current" />
-                    <span className="font-bold">{quote.tradesperson.rating}</span>
-                    <span className="text-slate-400 font-normal">({quote.tradesperson.reviews})</span>
+                    <span className="font-bold">
+                      {quote.tradesperson.rating}
+                    </span>
+                    <span className="text-slate-400 font-normal">
+                      ({quote.tradesperson.reviews})
+                    </span>
                   </div>
                   <div className="mt-2 inline-flex items-center gap-1 px-2 py-0.5 bg-green-50 text-green-700 text-xs font-medium rounded-full">
                     <CheckCircle2 className="w-3 h-3" /> Verified
@@ -292,7 +355,12 @@ export function CustomerDashboard() {
               {/* Quote Details */}
               <div className="flex-1 border-l border-slate-100 pl-0 md:pl-6 pt-4 md:pt-0 border-t md:border-t-0">
                 <div className="flex justify-between items-start mb-2">
-                  <div className="text-2xl font-bold text-[#0a1f44]">{quote.price} <span className="text-sm font-normal text-slate-500">(Estimated)</span></div>
+                  <div className="text-2xl font-bold text-[#0a1f44]">
+                    {quote.price}{" "}
+                    <span className="text-sm font-normal text-slate-500">
+                      (Estimated)
+                    </span>
+                  </div>
                   <span className="text-xs text-slate-400">{quote.date}</span>
                 </div>
                 <p className="text-slate-600 text-sm leading-relaxed mb-4 bg-slate-50 p-3 rounded-lg">
@@ -302,10 +370,16 @@ export function CustomerDashboard() {
                   <Button className="bg-green-600 hover:bg-green-700 text-white flex-1 md:flex-none">
                     Accept Quote
                   </Button>
-                  <Button variant="outline" className="flex-1 md:flex-none gap-2">
+                  <Button
+                    variant="outline"
+                    className="flex-1 md:flex-none gap-2"
+                  >
                     <MessageCircle className="w-4 h-4" /> Message
                   </Button>
-                  <Button variant="ghost" className="text-slate-400 hover:text-red-600 hover:bg-red-50 flex-1 md:flex-none">
+                  <Button
+                    variant="ghost"
+                    className="text-slate-400 hover:text-red-600 hover:bg-red-50 flex-1 md:flex-none"
+                  >
                     Decline
                   </Button>
                 </div>
@@ -320,7 +394,9 @@ export function CustomerDashboard() {
   const renderNotifications = () => (
     <div className="max-w-2xl">
       <h2 className="text-2xl font-bold text-[#0a1f44] mb-2">Stay Updated</h2>
-      <p className="text-slate-500 mb-8">Manage how you receive updates about your jobs and quotes.</p>
+      <p className="text-slate-500 mb-8">
+        Manage how you receive updates about your jobs and quotes.
+      </p>
 
       <div className="bg-white rounded-2xl border border-slate-200 shadow-sm divide-y divide-slate-100">
         <div className="p-6 flex items-center justify-between">
@@ -330,7 +406,9 @@ export function CustomerDashboard() {
             </div>
             <div>
               <h3 className="font-bold text-[#0a1f44]">Push Notifications</h3>
-              <p className="text-sm text-slate-500">Get instant alerts on your device when you get a quote.</p>
+              <p className="text-sm text-slate-500">
+                Get instant alerts on your device when you get a quote.
+              </p>
             </div>
           </div>
           <Switch checked={pushEnabled} onCheckedChange={setPushEnabled} />
@@ -343,10 +421,15 @@ export function CustomerDashboard() {
             </div>
             <div>
               <h3 className="font-bold text-[#0a1f44]">WhatsApp Alerts</h3>
-              <p className="text-sm text-slate-500">Receive quotes and messages directly to WhatsApp.</p>
+              <p className="text-sm text-slate-500">
+                Receive quotes and messages directly to WhatsApp.
+              </p>
             </div>
           </div>
-          <Switch checked={whatsappEnabled} onCheckedChange={setWhatsappEnabled} />
+          <Switch
+            checked={whatsappEnabled}
+            onCheckedChange={setWhatsappEnabled}
+          />
         </div>
 
         <div className="p-6 flex items-center justify-between">
@@ -356,7 +439,9 @@ export function CustomerDashboard() {
             </div>
             <div>
               <h3 className="font-bold text-[#0a1f44]">Email Summaries</h3>
-              <p className="text-sm text-slate-500">Receive a daily digest of activity on your account.</p>
+              <p className="text-sm text-slate-500">
+                Receive a daily digest of activity on your account.
+              </p>
             </div>
           </div>
           <Switch checked={emailEnabled} onCheckedChange={setEmailEnabled} />
@@ -378,9 +463,7 @@ export function CustomerDashboard() {
       <div className="container-custom py-8 lg:py-12">
         <div className="grid lg:grid-cols-[280px_1fr] gap-8">
           {/* Desktop Sidebar */}
-          <div className="hidden lg:block">
-            {renderSidebar()}
-          </div>
+          <div className="hidden lg:block">{renderSidebar()}</div>
 
           {/* Main Content */}
           <div className="min-h-[500px]">
@@ -391,14 +474,20 @@ export function CustomerDashboard() {
               <div className="bg-white rounded-2xl p-12 text-center border border-slate-200">
                 <MessageSquare className="w-12 h-12 text-slate-300 mx-auto mb-4" />
                 <h3 className="text-lg font-bold text-[#0a1f44]">Messages</h3>
-                <p className="text-slate-500">Select a quote to start messaging a tradesperson.</p>
+                <p className="text-slate-500">
+                  Select a quote to start messaging a tradesperson.
+                </p>
               </div>
             )}
             {activeTab === "profile" && (
               <div className="bg-white rounded-2xl p-12 text-center border border-slate-200">
                 <User className="w-12 h-12 text-slate-300 mx-auto mb-4" />
-                <h3 className="text-lg font-bold text-[#0a1f44]">Profile Settings</h3>
-                <p className="text-slate-500">Profile management coming soon.</p>
+                <h3 className="text-lg font-bold text-[#0a1f44]">
+                  Profile Settings
+                </h3>
+                <p className="text-slate-500">
+                  Profile management coming soon.
+                </p>
               </div>
             )}
           </div>
@@ -407,28 +496,31 @@ export function CustomerDashboard() {
 
       {/* Mobile Bottom Nav */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 p-2 z-30 flex justify-around">
-        <button 
-          onClick={() => { setActiveTab("jobs"); setShowQuotes(false); }}
+        <button
+          onClick={() => {
+            setActiveTab("jobs");
+            setShowQuotes(false);
+          }}
           className={`flex flex-col items-center p-2 rounded-lg ${activeTab === "jobs" ? "text-blue-600" : "text-slate-400"}`}
         >
           <Briefcase className="w-6 h-6" />
           <span className="text-[10px] font-medium mt-1">Jobs</span>
         </button>
-        <button 
+        <button
           onClick={() => setActiveTab("messages")}
           className={`flex flex-col items-center p-2 rounded-lg ${activeTab === "messages" ? "text-blue-600" : "text-slate-400"}`}
         >
           <MessageSquare className="w-6 h-6" />
           <span className="text-[10px] font-medium mt-1">Chat</span>
         </button>
-        <button 
+        <button
           onClick={() => setActiveTab("notifications")}
           className={`flex flex-col items-center p-2 rounded-lg ${activeTab === "notifications" ? "text-blue-600" : "text-slate-400"}`}
         >
           <Bell className="w-6 h-6" />
           <span className="text-[10px] font-medium mt-1">Alerts</span>
         </button>
-        <button 
+        <button
           onClick={() => setActiveTab("profile")}
           className={`flex flex-col items-center p-2 rounded-lg ${activeTab === "profile" ? "text-blue-600" : "text-slate-400"}`}
         >

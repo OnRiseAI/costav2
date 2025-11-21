@@ -292,10 +292,7 @@ export default function SignupPage() {
             <Link to="/terms" className="text-primary hover:underline">
               Terms of Service
             </Link>{" "}
-            and{" "}
-            <span className="text-primary">
-              Privacy Policy
-            </span>
+            and <span className="text-primary">Privacy Policy</span>
           </p>
 
           {/* Sign In Link */}

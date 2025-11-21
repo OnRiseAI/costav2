@@ -1,4 +1,12 @@
-import { ArrowLeft, Shield, Lock, Eye, FileText, Mail, MapPin } from "lucide-react";
+import {
+  ArrowLeft,
+  Shield,
+  Lock,
+  Eye,
+  FileText,
+  Mail,
+  MapPin,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
@@ -6,7 +14,8 @@ export default function PrivacyPolicy() {
   const lastUpdated = "November 2025";
   const companyName = "Onrisedigital LTD";
   const registeredOffice = "72 Shelton Street, London, WC2H 9JQ";
-  const spanishOffice = "Ave de las Cumbres, Elviria Business Center, Office 4-6, 29604 Marbella, Málaga";
+  const spanishOffice =
+    "Ave de las Cumbres, Elviria Business Center, Office 4-6, 29604 Marbella, Málaga";
   const contactEmail = "hi@costatrades.com";
 
   return (
@@ -14,7 +23,10 @@ export default function PrivacyPolicy() {
       <div className="max-w-3xl mx-auto">
         <div className="mb-8">
           <Link to="/">
-            <Button variant="ghost" className="pl-0 hover:bg-transparent text-slate-500 hover:text-slate-800">
+            <Button
+              variant="ghost"
+              className="pl-0 hover:bg-transparent text-slate-500 hover:text-slate-800"
+            >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Home
             </Button>
@@ -25,9 +37,13 @@ export default function PrivacyPolicy() {
           <div className="bg-[#0a1f44] text-white p-8 md:p-12">
             <div className="flex items-center gap-3 mb-4 text-blue-300">
               <Shield className="w-6 h-6" />
-              <span className="text-sm font-medium uppercase tracking-wider">Legal Compliance</span>
+              <span className="text-sm font-medium uppercase tracking-wider">
+                Legal Compliance
+              </span>
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">Privacy Policy</h1>
+            <h1 className="text-3xl md:text-4xl font-bold mb-4">
+              Privacy Policy
+            </h1>
             <p className="text-blue-100">Last Updated: {lastUpdated}</p>
           </div>
 
@@ -38,10 +54,15 @@ export default function PrivacyPolicy() {
                 1. Introduction
               </h2>
               <p className="mb-4">
-                <strong>{companyName}</strong> ("we", "us", "our") is committed to protecting your privacy and ensuring the security of your personal information. This policy explains how we collect, use, and safeguard data on <strong>CostaTrades.com</strong>.
+                <strong>{companyName}</strong> ("we", "us", "our") is committed
+                to protecting your privacy and ensuring the security of your
+                personal information. This policy explains how we collect, use,
+                and safeguard data on <strong>CostaTrades.com</strong>.
               </p>
               <p>
-                We operate as a marketplace connecting homeowners with tradespeople. By using our platform, you agree to the collection and use of information in accordance with this policy.
+                We operate as a marketplace connecting homeowners with
+                tradespeople. By using our platform, you agree to the collection
+                and use of information in accordance with this policy.
               </p>
             </section>
 
@@ -53,7 +74,9 @@ export default function PrivacyPolicy() {
               </h2>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-slate-50 p-6 rounded-xl border border-slate-100">
-                  <h3 className="font-bold text-[#0a1f44] mb-3">For Homeowners</h3>
+                  <h3 className="font-bold text-[#0a1f44] mb-3">
+                    For Homeowners
+                  </h3>
                   <ul className="list-disc pl-5 space-y-2 text-sm">
                     <li>Full Name</li>
                     <li>Email Address & Phone Number</li>
@@ -62,7 +85,9 @@ export default function PrivacyPolicy() {
                   </ul>
                 </div>
                 <div className="bg-slate-50 p-6 rounded-xl border border-slate-100">
-                  <h3 className="font-bold text-[#0a1f44] mb-3">For Tradespeople</h3>
+                  <h3 className="font-bold text-[#0a1f44] mb-3">
+                    For Tradespeople
+                  </h3>
                   <ul className="list-disc pl-5 space-y-2 text-sm">
                     <li>Personal & Business Name</li>
                     <li>Contact Details (Email, Phone)</li>
@@ -80,23 +105,40 @@ export default function PrivacyPolicy() {
                 <Eye className="w-5 h-5 text-blue-600" />
                 3. How We Use Your Data
               </h2>
-              <p className="mb-4">We use the collected data for the following purposes:</p>
+              <p className="mb-4">
+                We use the collected data for the following purposes:
+              </p>
               <ul className="space-y-3">
                 <li className="flex gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-2.5 flex-shrink-0"></div>
-                  <span><strong>Service Delivery:</strong> To connect homeowners with relevant tradespeople and facilitate the quoting process.</span>
+                  <span>
+                    <strong>Service Delivery:</strong> To connect homeowners
+                    with relevant tradespeople and facilitate the quoting
+                    process.
+                  </span>
                 </li>
                 <li className="flex gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-2.5 flex-shrink-0"></div>
-                  <span><strong>Verification:</strong> To verify the identities and credentials of tradespeople to prevent fraud and ensure quality.</span>
+                  <span>
+                    <strong>Verification:</strong> To verify the identities and
+                    credentials of tradespeople to prevent fraud and ensure
+                    quality.
+                  </span>
                 </li>
                 <li className="flex gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-2.5 flex-shrink-0"></div>
-                  <span><strong>Communication:</strong> To send service notifications, job updates, and important alerts via Email or WhatsApp.</span>
+                  <span>
+                    <strong>Communication:</strong> To send service
+                    notifications, job updates, and important alerts via Email
+                    or WhatsApp.
+                  </span>
                 </li>
                 <li className="flex gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-2.5 flex-shrink-0"></div>
-                  <span><strong>Improvement:</strong> To analyze platform usage and improve our services and user experience.</span>
+                  <span>
+                    <strong>Improvement:</strong> To analyze platform usage and
+                    improve our services and user experience.
+                  </span>
                 </li>
               </ul>
             </section>
@@ -108,14 +150,23 @@ export default function PrivacyPolicy() {
                 4. Data Sharing
               </h2>
               <p className="mb-4">
-                We respect your data privacy. We <strong>do not</strong> sell your personal data to third-party marketing lists.
+                We respect your data privacy. We <strong>do not</strong> sell
+                your personal data to third-party marketing lists.
               </p>
               <p className="mb-4">
-                However, to provide our service, we must share certain information:
+                However, to provide our service, we must share certain
+                information:
               </p>
               <ul className="list-disc pl-5 space-y-2 mb-4">
-                <li><strong>Homeowner Job Details:</strong> Shared with relevant tradespeople so they can provide quotes. Contact details are only shared when you explicitly allow it or request a quote.</li>
-                <li><strong>Legal Requirements:</strong> We may disclose data if required by law or to protect our rights and safety.</li>
+                <li>
+                  <strong>Homeowner Job Details:</strong> Shared with relevant
+                  tradespeople so they can provide quotes. Contact details are
+                  only shared when you explicitly allow it or request a quote.
+                </li>
+                <li>
+                  <strong>Legal Requirements:</strong> We may disclose data if
+                  required by law or to protect our rights and safety.
+                </li>
               </ul>
             </section>
 
@@ -124,43 +175,72 @@ export default function PrivacyPolicy() {
               <h2 className="text-2xl font-bold text-[#0a1f44] mb-4 flex items-center gap-2">
                 5. Your Rights (GDPR)
               </h2>
-              <p className="mb-4">Under the General Data Protection Regulation (GDPR), you have the following rights:</p>
+              <p className="mb-4">
+                Under the General Data Protection Regulation (GDPR), you have
+                the following rights:
+              </p>
               <div className="space-y-4">
                 <div className="border-l-4 border-blue-500 pl-4 py-1">
                   <h3 className="font-bold text-[#0a1f44]">Right to Access</h3>
-                  <p className="text-sm">You can request a copy of the personal data we hold about you.</p>
+                  <p className="text-sm">
+                    You can request a copy of the personal data we hold about
+                    you.
+                  </p>
                 </div>
                 <div className="border-l-4 border-blue-500 pl-4 py-1">
-                  <h3 className="font-bold text-[#0a1f44]">Right to Rectification</h3>
-                  <p className="text-sm">You can request correction of any inaccurate or incomplete data.</p>
+                  <h3 className="font-bold text-[#0a1f44]">
+                    Right to Rectification
+                  </h3>
+                  <p className="text-sm">
+                    You can request correction of any inaccurate or incomplete
+                    data.
+                  </p>
                 </div>
                 <div className="border-l-4 border-blue-500 pl-4 py-1">
-                  <h3 className="font-bold text-[#0a1f44]">Right to Erasure ("Right to be Forgotten")</h3>
-                  <p className="text-sm">You can request that we delete your personal data, subject to legal retention requirements.</p>
+                  <h3 className="font-bold text-[#0a1f44]">
+                    Right to Erasure ("Right to be Forgotten")
+                  </h3>
+                  <p className="text-sm">
+                    You can request that we delete your personal data, subject
+                    to legal retention requirements.
+                  </p>
                 </div>
               </div>
             </section>
 
             {/* Contact Us */}
             <section className="bg-slate-50 p-8 rounded-2xl border border-slate-200">
-              <h2 className="text-2xl font-bold text-[#0a1f44] mb-6">Contact Us</h2>
+              <h2 className="text-2xl font-bold text-[#0a1f44] mb-6">
+                Contact Us
+              </h2>
               <p className="mb-6">
-                If you have any questions about this Privacy Policy or wish to exercise your rights, please contact our Data Protection Officer.
+                If you have any questions about this Privacy Policy or wish to
+                exercise your rights, please contact our Data Protection
+                Officer.
               </p>
-              
+
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
                   <Mail className="w-6 h-6 text-blue-600 mt-1" />
                   <div>
-                    <span className="block font-bold text-[#0a1f44]">Email</span>
-                    <a href={`mailto:${contactEmail}`} className="text-blue-600 hover:underline">{contactEmail}</a>
+                    <span className="block font-bold text-[#0a1f44]">
+                      Email
+                    </span>
+                    <a
+                      href={`mailto:${contactEmail}`}
+                      className="text-blue-600 hover:underline"
+                    >
+                      {contactEmail}
+                    </a>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start gap-4">
                   <MapPin className="w-6 h-6 text-blue-600 mt-1" />
                   <div>
-                    <span className="block font-bold text-[#0a1f44]">Spanish Office</span>
+                    <span className="block font-bold text-[#0a1f44]">
+                      Spanish Office
+                    </span>
                     <span className="text-slate-600">{spanishOffice}</span>
                   </div>
                 </div>
@@ -168,7 +248,9 @@ export default function PrivacyPolicy() {
                 <div className="flex items-start gap-4">
                   <MapPin className="w-6 h-6 text-slate-400 mt-1" />
                   <div>
-                    <span className="block font-bold text-[#0a1f44]">Registered Office (UK)</span>
+                    <span className="block font-bold text-[#0a1f44]">
+                      Registered Office (UK)
+                    </span>
                     <span className="text-slate-600">{registeredOffice}</span>
                   </div>
                 </div>
