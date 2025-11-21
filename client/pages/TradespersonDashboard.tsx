@@ -405,6 +405,10 @@ export function TradespersonDashboard() {
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans pb-20">
+      <SEO
+        title="Pro Dashboard | CostaTrades for Pros"
+        description="Manage your leads, send quotes, and update your profile."
+      />
       {/* Mobile Header */}
       <div className="lg:hidden bg-[#0a1f44] text-white p-4 sticky top-0 z-30 flex justify-between items-center shadow-md">
         <div className="flex items-center gap-3">
