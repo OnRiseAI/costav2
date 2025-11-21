@@ -10,6 +10,20 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { cn } from "@/lib/utils";
+import {
   ChevronRight,
   MapPin,
   Search,
@@ -27,6 +41,8 @@ import {
   HardHat,
   Ruler,
   Truck,
+  Check,
+  ChevronsUpDown,
 } from "lucide-react";
 import { getTradeServices, tradeServices } from "@/data/tradeServices";
 import { SEO } from "@/components/SEO";
@@ -125,6 +141,7 @@ export default function PostJob() {
   const [searchQuery, setSearchQuery] = useState(
     searchParams.get("option") || "",
   );
+  const [openCombobox, setOpenCombobox] = useState(false);
 
   useEffect(() => {
     const option = searchParams.get("option");
@@ -467,24 +484,67 @@ export default function PostJob() {
             {step === 2 && (
               <div className="space-y-6 py-4">
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
-                    <MapPin className="h-5 w-5 text-gray-400" />
-                  </div>
-                  <Input
-                    type="text"
-                    list="costa-towns"
-                    value={postcode}
-                    onChange={(e) => setPostcode(e.target.value.toUpperCase())}
-                    placeholder="Enter postcode or town (e.g. 29600)"
-                    className="h-14 pl-12 text-lg rounded-xl border-gray-300 focus:border-[#0a1f44] focus:ring-[#0a1f44]"
-                    autoFocus
-                    onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-                  />
-                  <datalist id="costa-towns">
-                    {towns.map((t) => (
-                      <option value={t} key={t} />
-                    ))}
-                  </datalist>
+                  <Popover open={openCombobox} onOpenChange={setOpenCombobox}>
+                    <PopoverTrigger asChild>
+                      <Button
+                        variant="outline"
+                        role="combobox"
+                        aria-expanded={openCombobox}
+                        className="w-full justify-between h-14 text-lg rounded-xl border-gray-300 hover:border-[#0a1f44] hover:bg-white text-left font-normal"
+                      >
+                        {postcode ? (
+                          <span className="text-gray-900">
+                            {towns.find(
+                              (town) =>
+                                town.toLowerCase() === postcode.toLowerCase(),
+                            ) || postcode}
+                          </span>
+                        ) : (
+                          <span className="text-gray-500">Select town...</span>
+                        )}
+                        <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                      </Button>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-[var(--radix-popover-trigger-width)] p-0">
+                      <Command>
+                        <CommandInput placeholder="Search town..." />
+                        <CommandList>
+                          <CommandEmpty>No town found.</CommandEmpty>
+                          <CommandGroup>
+                            {towns.map((town) => (
+                              <CommandItem
+                                key={town}
+                                value={town}
+                                onSelect={(currentValue) => {
+                                  // We use the original town name for display/state
+                                  // cmdk returns the value lowercased if not specified otherwise,
+                                  // but here we want to set the state to the proper casing from our list
+                                  setPostcode(
+                                    currentValue.toLowerCase() ===
+                                      postcode.toLowerCase()
+                                      ? ""
+                                      : town,
+                                  );
+                                  setOpenCombobox(false);
+                                }}
+                              >
+                                <Check
+                                  className={cn(
+                                    "mr-2 h-4 w-4",
+                                    postcode.toLowerCase() ===
+                                      town.toLowerCase()
+                                      ? "opacity-100"
+                                      : "opacity-0",
+                                  )}
+                                />
+                                {town}
+                              </CommandItem>
+                            ))}
+                          </CommandGroup>
+                        </CommandList>
+                      </Command>
+                    </PopoverContent>
+                  </Popover>
                 </div>
 
                 <Button
