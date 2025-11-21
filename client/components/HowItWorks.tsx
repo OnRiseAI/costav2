@@ -118,7 +118,7 @@ export function HowItWorks() {
 
         {/* Premium CTA Section */}
         <div className="flex flex-col items-center justify-center gap-4">
-          <Link to="/search" className="inline-block">
+          <Link to="/post-job" className="inline-block">
             <Button
               size="lg"
               className="bg-gradient-to-r from-primary to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white text-lg px-10 py-7 rounded-2xl font-semibold shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
