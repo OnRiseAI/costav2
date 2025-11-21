@@ -327,31 +327,42 @@ export default function PostJob() {
       </div>
 
       {/* Categories Grid */}
-      <div id="categories-grid" className="container-custom py-16">
-        <h2 className="text-2xl font-bold text-[#0a1f44] mb-8 text-center">
-          Or browse by category
-        </h2>
+      <div id="categories-grid" className="container-custom py-20 bg-slate-50/50">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0a1f44] mb-4">
+            What do you need help with?
+          </h2>
+          <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+            Select a category to get started. We'll ask a few questions to match you with the right professionals.
+          </p>
+        </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {categories.map((category) => {
             const Icon = category.icon;
             return (
               <button
                 key={category.slug}
                 onClick={() => handleCategorySelect(category.slug)}
-                className="group relative bg-white rounded-2xl p-6 transition-all duration-300 hover:shadow-xl border border-gray-100 hover:border-blue-100 flex flex-col items-center justify-center gap-4 min-h-[160px] text-center"
+                className="group relative bg-white rounded-3xl p-6 transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 hover:border-blue-200 flex flex-col items-center justify-center gap-5 min-h-[200px] text-center hover:-translate-y-1"
               >
                 <div
-                  className={`w-16 h-16 rounded-full ${category.bg} flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300`}
+                  className={`w-20 h-20 rounded-2xl ${category.bg} flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-sm group-hover:shadow-md`}
                 >
-                  <Icon className={`w-8 h-8 ${category.color}`} />
+                  <Icon className={`w-10 h-10 ${category.color}`} strokeWidth={1.5} />
                 </div>
-                <span className="font-bold text-gray-700 group-hover:text-[#0a1f44] text-lg">
-                  {category.name}
-                </span>
-                <div className="absolute bottom-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
-                  <div className="flex items-center gap-1 text-sm font-medium text-blue-600">
-                    Select <ArrowRight className="h-3 w-3" />
+                <div className="space-y-1">
+                  <span className="font-bold text-gray-800 group-hover:text-[#0a1f44] text-lg block">
+                    {category.name}
+                  </span>
+                  <span className="text-xs text-gray-400 font-medium uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300 block">
+                    Get Quotes
+                  </span>
+                </div>
+
+                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
+                  <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center">
+                    <ArrowRight className="h-4 w-4 text-blue-600" />
                   </div>
                 </div>
               </button>
