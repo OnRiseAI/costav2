@@ -2,6 +2,13 @@ import { useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
+import {
   ChevronRight,
   Phone,
   MapPin,
@@ -11,6 +18,7 @@ import {
   Search,
   Clock,
   Filter,
+  User,
 } from "lucide-react";
 import { searchTradespeople } from "@/data/tradespeople";
 
@@ -25,6 +33,10 @@ export default function PostJobResults() {
   const [selectedTradesperson, setSelectedTradesperson] = useState<any>(null);
   const [timing, setTiming] = useState("flexible");
 
+  // Phone Modal State
+  const [phoneModalOpen, setPhoneModalOpen] = useState(false);
+  const [phoneModalData, setPhoneModalData] = useState<any>(null);
+
   const tradespeople = searchTradespeople(category, "");
 
   const handleRequestQuote = (tradesperson: any) => {
@@ -32,8 +44,9 @@ export default function PostJobResults() {
     setShowQuoteForm(true);
   };
 
-  const handleCall = (phone: string) => {
-    window.location.href = `tel:${phone}`;
+  const handleShowNumber = (tradesperson: any) => {
+    setPhoneModalData(tradesperson);
+    setPhoneModalOpen(true);
   };
 
   if (showQuoteForm && selectedTradesperson) {
@@ -347,8 +360,8 @@ export default function PostJobResults() {
                     </Button>
                     <Button
                       variant="outline"
-                      className="w-full border-2 border-gray-200 hover:bg-gray-50 hover:border-gray-300 text-gray-700 font-semibold py-6 rounded-xl"
-                      onClick={() => handleCall("+34-123-456-789")}
+                      className="w-full border-2 border-gray-200 hover:bg-gray-50 hover:border-gray-300 text-gray-700 hover:text-gray-900 font-semibold py-6 rounded-xl"
+                      onClick={() => handleShowNumber(tradesperson)}
                     >
                       <Phone className="h-4 w-4 mr-2" />
                       Show number
@@ -360,6 +373,58 @@ export default function PostJobResults() {
           </div>
         </div>
       </div>
+
+      {/* Phone Number Modal */}
+      <Dialog open={phoneModalOpen} onOpenChange={setPhoneModalOpen}>
+        <DialogContent className="sm:max-w-md bg-white rounded-2xl">
+          <DialogHeader>
+            <DialogTitle className="text-center text-xl font-bold text-[#0a1f44]">
+              Contact Information
+            </DialogTitle>
+            <DialogDescription className="text-center">
+              Get in touch with this professional directly
+            </DialogDescription>
+          </DialogHeader>
+
+          {phoneModalData && (
+            <div className="flex flex-col items-center space-y-6 py-4">
+              <div className="w-20 h-20 rounded-full bg-gray-100 overflow-hidden flex items-center justify-center">
+                {phoneModalData.profilePhoto ? (
+                  <img
+                    src={phoneModalData.profilePhoto}
+                    alt={phoneModalData.businessName}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <span className="text-2xl font-bold text-gray-400">
+                    {phoneModalData.businessName.charAt(0)}
+                  </span>
+                )}
+              </div>
+
+              <div className="text-center">
+                <h3 className="text-lg font-bold text-gray-900">{phoneModalData.businessName}</h3>
+                <p className="text-sm text-gray-500">{phoneModalData.tradeCategory}</p>
+              </div>
+
+              <div className="w-full bg-blue-50 rounded-xl p-6 text-center border border-blue-100">
+                <p className="text-sm text-blue-600 mb-2 font-medium">Phone Number</p>
+                <a
+                  href={`tel:${phoneModalData.phone || "+34 952 123 456"}`}
+                  className="text-2xl font-bold text-[#0a1f44] hover:underline flex items-center justify-center gap-2"
+                >
+                  <Phone className="h-5 w-5" />
+                  {phoneModalData.phone || "+34 952 123 456"}
+                </a>
+              </div>
+
+              <div className="text-center text-sm text-gray-500 max-w-xs">
+                <p>Please mention <strong>CostaTrade</strong> when you call to ensure the best service.</p>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
