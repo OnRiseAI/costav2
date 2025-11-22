@@ -55,7 +55,7 @@ export default function LandlordsPage() {
 
           <p className="text-xl md:text-2xl text-blue-100 mb-10 font-light max-w-2xl mx-auto leading-relaxed">
             Minimize void periods and keep tenants happy. Fast-response
-            tradespeople for landlords and property managers.
+            specialists for landlords and property managers.
           </p>
 
           <Link to="/post-job">
