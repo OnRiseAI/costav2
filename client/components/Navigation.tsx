@@ -271,6 +271,13 @@ export function Navigation() {
                     Blog
                   </Link>
                   <Link
+                    to="/faq"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    FAQ
+                  </Link>
+                  <Link
                     to="/saved-trades"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                     onClick={() => setMobileMenuOpen(false)}
