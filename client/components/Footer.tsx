@@ -108,6 +108,14 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <a
+                  href="https://costatrades.com/verification-promise"
+                  className="text-sm text-gray-600 hover:text-[#0a1f44]"
+                >
+                  Our Vetting Process
+                </a>
+              </li>
+              <li>
                 <Link
                   to="/contact"
                   className="text-sm text-gray-600 hover:text-[#0a1f44]"
