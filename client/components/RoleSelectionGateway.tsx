@@ -1,7 +1,15 @@
-import { Link } from "react-router-dom";
-import { Home, Briefcase } from "lucide-react";
+interface RoleSelectionGatewayProps {
+  onSelectRole?: (role: "customer" | "tradesperson") => void;
+}
 
-export function RoleSelectionGateway() {
+export function RoleSelectionGateway({ onSelectRole }: RoleSelectionGatewayProps) {
+  const handleRoleClick = (e: React.MouseEvent, role: "customer" | "tradesperson") => {
+    if (onSelectRole) {
+      e.preventDefault();
+      onSelectRole(role);
+    }
+  };
+
   return (
     <section className="w-full min-h-[80vh] flex items-center justify-center bg-slate-50 py-16 md:py-24">
       <div className="container-custom max-w-5xl mx-auto px-4">
@@ -20,6 +28,7 @@ export function RoleSelectionGateway() {
           {/* Card A: Homeowner / Demand */}
           <Link
             to="/signup"
+            onClick={(e) => handleRoleClick(e, "customer")}
             className="flex-1 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0a1f44] focus-visible:ring-offset-2 rounded-xl"
           >
             <article className="h-full bg-white rounded-xl shadow-sm border border-gray-200 p-10 flex flex-col items-start text-left transition-all duration-300 ease-out group-hover:-translate-y-1 group-hover:border-[#0a1f44] group-hover:shadow-md">
@@ -41,6 +50,7 @@ export function RoleSelectionGateway() {
           {/* Card B: Specialist / Supply - THE PREMIUM CARD */}
           <Link
             to="/tradesperson/details"
+            onClick={(e) => handleRoleClick(e, "tradesperson")}
             className="flex-1 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0a1f44] focus-visible:ring-offset-2 rounded-xl"
           >
             <article className="h-full bg-[#0A1E40] rounded-xl p-10 flex flex-col items-start text-left relative overflow-hidden transition-all duration-300 ease-out group-hover:-translate-y-1 group-hover:bg-[#0e2a55] group-hover:shadow-xl">
