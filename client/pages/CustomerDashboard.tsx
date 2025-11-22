@@ -33,6 +33,13 @@ import {
   Phone,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 import { useAuth, supabase } from "@/contexts/AuthContext";
 import { Switch } from "@/components/ui/switch";
 import { SEO } from "@/components/SEO";
@@ -144,6 +151,10 @@ export function CustomerDashboard() {
   const [selectedJob, setSelectedJob] = useState<string | null>(null);
   const [showQuotes, setShowQuotes] = useState(false);
 
+  // Phone Modal State
+  const [phoneModalOpen, setPhoneModalOpen] = useState(false);
+  const [phoneModalData, setPhoneModalData] = useState<any>(null);
+
   const savedPros = demoTradespeople.slice(0, 6);
 
   // Notification settings state
@@ -224,6 +235,11 @@ export function CustomerDashboard() {
   const handleSignOut = async () => {
     await signOut();
     navigate("/");
+  };
+
+  const handleShowNumber = (tradesperson: any) => {
+    setPhoneModalData(tradesperson);
+    setPhoneModalOpen(true);
   };
 
   const getStatusBadge = (status: string) => {
@@ -530,16 +546,14 @@ export function CustomerDashboard() {
                     WhatsApp
                   </Button>
 
-                  {/* Secondary Button: Call */}
+                  {/* Secondary Button: Show Number */}
                   <Button
                     variant="outline"
                     className="bg-white border-[#0A1E40] text-[#0A1E40] hover:bg-slate-50 flex-1 md:flex-none gap-2"
-                    onClick={() =>
-                      (window.location.href = `tel:${quote.tradesperson.phone}`)
-                    }
+                    onClick={() => handleShowNumber(quote.tradesperson)}
                   >
                     <Phone className="w-4 h-4" />
-                    Call
+                    Show Number
                   </Button>
 
                   {/* Tertiary Action: Decline */}
@@ -736,6 +750,67 @@ export function CustomerDashboard() {
           <span className="text-[10px] font-medium mt-1">Profile</span>
         </button>
       </div>
+
+      {/* Phone Number Modal */}
+      <Dialog open={phoneModalOpen} onOpenChange={setPhoneModalOpen}>
+        <DialogContent className="sm:max-w-md bg-white rounded-2xl">
+          <DialogHeader>
+            <DialogTitle className="text-center text-xl font-bold text-[#0a1f44]">
+              Contact Information
+            </DialogTitle>
+            <DialogDescription className="text-center">
+              Get in touch with this professional directly
+            </DialogDescription>
+          </DialogHeader>
+
+          {phoneModalData && (
+            <div className="flex flex-col items-center space-y-6 py-4">
+              <div className="w-20 h-20 rounded-full bg-gray-100 overflow-hidden flex items-center justify-center">
+                {phoneModalData.photo ? (
+                  <img
+                    src={phoneModalData.photo}
+                    alt={phoneModalData.name}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <span className="text-2xl font-bold text-gray-400">
+                    {phoneModalData.name?.charAt(0)}
+                  </span>
+                )}
+              </div>
+
+              <div className="text-center">
+                <h3 className="text-lg font-bold text-gray-900">
+                  {phoneModalData.name}
+                </h3>
+                <p className="text-sm text-gray-500">
+                  {phoneModalData.tradeCategory || "Professional"}
+                </p>
+              </div>
+
+              <div className="w-full bg-blue-50 rounded-xl p-6 text-center border border-blue-100">
+                <p className="text-sm text-blue-600 mb-2 font-medium">
+                  Phone Number
+                </p>
+                <a
+                  href={`tel:${phoneModalData.phone || "+34 952 123 456"}`}
+                  className="text-2xl font-bold text-[#0a1f44] hover:underline flex items-center justify-center gap-2"
+                >
+                  <Phone className="h-5 w-5" />
+                  {phoneModalData.phone || "+34 952 123 456"}
+                </a>
+              </div>
+
+              <div className="text-center text-sm text-gray-500 max-w-xs">
+                <p>
+                  Please mention <strong>CostaTrade</strong> when you call to
+                  ensure the best service.
+                </p>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
