@@ -107,7 +107,7 @@ export function Navigation() {
                   variant="outline"
                   className="border border-[#0a1f44] text-[#0a1f44] hover:bg-gray-50 hover:text-[#0a1f44] bg-white px-5 md:px-7 h-[44px] text-[14px] md:text-[15px] font-medium rounded-full whitespace-nowrap"
                 >
-                  For tradespeople
+                  For professionals
                 </Button>
               </Link>
               <Button
@@ -154,7 +154,7 @@ export function Navigation() {
             </DialogTitle>
             <DialogDescription className="text-center text-gray-600 pt-2 text-base">
               We're putting the finishing touches on our mobile app. Get ready
-              for the easiest way to find tradespeople on the Costa del Sol.
+              for the easiest way to find professionals on the Costa del Sol.
             </DialogDescription>
           </DialogHeader>
 
