@@ -72,13 +72,17 @@ export default function TradespersonProfile() {
 
     if (found) {
       // Determine cover image based on category
-      let coverImage = "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200&h=400&fit=crop"; // Default construction
-      if (found.tradeCategorySlug === 'pool-maintenance') {
-        coverImage = "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=1200&h=400&fit=crop";
-      } else if (found.tradeCategorySlug === 'air-conditioning') {
-        coverImage = "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=1200&h=400&fit=crop"; // AC specific
-      } else if (found.tradeCategorySlug === 'gardeners') {
-        coverImage = "https://images.unsplash.com/photo-1558904541-efa843a96f01?w=1200&h=400&fit=crop";
+      let coverImage =
+        "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200&h=400&fit=crop"; // Default construction
+      if (found.tradeCategorySlug === "pool-maintenance") {
+        coverImage =
+          "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=1200&h=400&fit=crop";
+      } else if (found.tradeCategorySlug === "air-conditioning") {
+        coverImage =
+          "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=1200&h=400&fit=crop"; // AC specific
+      } else if (found.tradeCategorySlug === "gardeners") {
+        coverImage =
+          "https://images.unsplash.com/photo-1558904541-efa843a96f01?w=1200&h=400&fit=crop";
       }
 
       // Enrich with mock data for the demo
@@ -332,7 +336,7 @@ export default function TradespersonProfile() {
                   {profile.portfolio.length} Projects
                 </span>
               </div>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* First image is large (Hero) */}
                 {profile.portfolio.length > 0 && (
@@ -395,15 +399,22 @@ export default function TradespersonProfile() {
               </h2>
               <div className="space-y-6">
                 {profile.reviews.map((review) => (
-                  <div key={review.id} className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                  <div
+                    key={review.id}
+                    className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm"
+                  >
                     <div className="flex justify-between items-start mb-4">
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center font-bold text-gray-500">
                           {review.author.charAt(0)}
                         </div>
                         <div>
-                          <div className="font-bold text-gray-900">{review.author}</div>
-                          <div className="text-xs text-gray-500">{review.date}</div>
+                          <div className="font-bold text-gray-900">
+                            {review.author}
+                          </div>
+                          <div className="text-xs text-gray-500">
+                            {review.date}
+                          </div>
                         </div>
                       </div>
                       <div className="flex">
@@ -431,14 +442,17 @@ export default function TradespersonProfile() {
           <div className="hidden lg:block relative">
             <div className="sticky top-24 space-y-6">
               {/* 3. Conditional Logic (The Growth Engine) */}
-              
+
               {/* SCENARIO A: Active Pro (Claimed) */}
               {profile.isClaimed ? (
                 <Card className="border-none shadow-xl overflow-hidden">
                   <div className="bg-[#0A1E40] p-6 text-white">
-                    <h3 className="text-xl font-serif font-bold mb-2">Interested in hiring?</h3>
+                    <h3 className="text-xl font-serif font-bold mb-2">
+                      Interested in hiring?
+                    </h3>
                     <p className="text-blue-100 text-sm">
-                      Contact {profile.businessName} directly for a quote or consultation.
+                      Contact {profile.businessName} directly for a quote or
+                      consultation.
                     </p>
                   </div>
                   <CardContent className="p-6 space-y-4">
@@ -447,13 +461,19 @@ export default function TradespersonProfile() {
                         Request Consultation
                       </Button>
                     </Link>
-                    
-                    <Button 
-                      variant="outline" 
+
+                    <Button
+                      variant="outline"
                       className="w-full bg-[#25D366] hover:bg-[#25D366]/90 text-white border-none h-12 text-base font-bold shadow-md flex items-center justify-center gap-2"
-                      onClick={() => window.open(`https://wa.me/${profile.phone?.replace(/[^0-9]/g, '') || ''}`, '_blank')}
+                      onClick={() =>
+                        window.open(
+                          `https://wa.me/${profile.phone?.replace(/[^0-9]/g, "") || ""}`,
+                          "_blank",
+                        )
+                      }
                     >
-                      <MessageCircle className="w-5 h-5 fill-current" /> WhatsApp
+                      <MessageCircle className="w-5 h-5 fill-current" />{" "}
+                      WhatsApp
                     </Button>
 
                     <div className="pt-4 border-t border-gray-100 text-center">
@@ -470,13 +490,14 @@ export default function TradespersonProfile() {
                     <div className="w-16 h-16 bg-amber-50 rounded-full flex items-center justify-center mx-auto text-[#C5A059]">
                       <Building2 className="w-8 h-8" />
                     </div>
-                    
+
                     <div>
                       <h3 className="text-xl font-serif font-bold text-[#0A1E40] mb-2">
                         Is this your business?
                       </h3>
                       <p className="text-gray-600 text-sm leading-relaxed">
-                        Take control of this profile. Upload photos, reply to reviews, and receive job leads directly.
+                        Take control of this profile. Upload photos, reply to
+                        reviews, and receive job leads directly.
                       </p>
                     </div>
 
@@ -485,7 +506,7 @@ export default function TradespersonProfile() {
                         Claim for Free
                       </Button>
                     </Link>
-                    
+
                     <p className="text-xs text-gray-400">
                       Verification required. No credit card needed.
                     </p>
@@ -501,15 +522,21 @@ export default function TradespersonProfile() {
                 <ul className="space-y-3 text-sm text-gray-600">
                   <li className="flex items-center justify-between">
                     <span>Years in Business</span>
-                    <span className="font-medium text-gray-900">{profile.yearsInBusiness}</span>
+                    <span className="font-medium text-gray-900">
+                      {profile.yearsInBusiness}
+                    </span>
                   </li>
                   <li className="flex items-center justify-between">
                     <span>Jobs Completed</span>
-                    <span className="font-medium text-gray-900">{profile.jobsCompleted}</span>
+                    <span className="font-medium text-gray-900">
+                      {profile.jobsCompleted}
+                    </span>
                   </li>
                   <li className="flex items-center justify-between">
                     <span>Team Size</span>
-                    <span className="font-medium text-gray-900">{profile.team ? "5-10" : "1-2"}</span>
+                    <span className="font-medium text-gray-900">
+                      {profile.team ? "5-10" : "1-2"}
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -533,7 +560,7 @@ export default function TradespersonProfile() {
           </div>
         </div>
       )}
-      
+
       {/* Mobile Footer for Claimed (Optional, keeping existing "Request Quote" for UX) */}
       {profile.isClaimed && (
         <div className="fixed bottom-0 left-0 right-0 bg-white border-t p-4 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] md:hidden z-40">
