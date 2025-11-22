@@ -115,7 +115,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "Finally a site that actually verifies tradespeople. It makes homeowners trust us more from day one.",
+      "Finally a site that actually verifies specialists. It makes homeowners trust us more from day one.",
     name: "David Mueller",
     role: "Plumber in Fuengirola",
     image: "https://i.pravatar.cc/100?img=11",
@@ -155,12 +155,12 @@ export default function JoinAsTradesperson() {
   return (
     <div className="bg-white font-sans">
       <SEO
-        title="Join as a Tradesperson | Get More Leads"
+        title="Professional Application | Get More Leads"
         description="Sign up to CostaTrades. Get verified leads in Marbella & Costa del Sol. 0% commission on jobs."
         schema={{
           "@context": "https://schema.org",
           "@type": "WebPage",
-          name: "Join as a Tradesperson",
+          name: "Professional Application",
           description:
             "Join CostaTrades to get verified leads and grow your business across the Costa del Sol.",
         }}
@@ -275,7 +275,7 @@ export default function JoinAsTradesperson() {
                 <div className="relative bg-white rounded-[32px] shadow-2xl overflow-hidden border-4 border-white/10">
                   <img
                     src="https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=800"
-                    alt="Tradesperson working"
+                    alt="Specialist working"
                     className="w-full h-[500px] object-cover"
                   />
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-8">
