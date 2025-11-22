@@ -2,8 +2,13 @@ interface RoleSelectionGatewayProps {
   onSelectRole?: (role: "customer" | "tradesperson") => void;
 }
 
-export function RoleSelectionGateway({ onSelectRole }: RoleSelectionGatewayProps) {
-  const handleRoleClick = (e: React.MouseEvent, role: "customer" | "tradesperson") => {
+export function RoleSelectionGateway({
+  onSelectRole,
+}: RoleSelectionGatewayProps) {
+  const handleRoleClick = (
+    e: React.MouseEvent,
+    role: "customer" | "tradesperson",
+  ) => {
     if (onSelectRole) {
       e.preventDefault();
       onSelectRole(role);
