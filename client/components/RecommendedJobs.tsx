@@ -185,7 +185,7 @@ export function RecommendedJobs() {
                       to={`/post-job?service=${job.slug}`}
                       className="inline-block w-full bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-300 text-center group-hover:shadow-md group-hover:scale-105"
                     >
-                      Find tradesperson
+                      Find a Specialist
                     </Link>
                   </div>
                 </div>
