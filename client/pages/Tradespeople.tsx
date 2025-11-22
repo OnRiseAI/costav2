@@ -128,7 +128,7 @@ export function Tradespeople() {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-3xl font-bold text-foreground">
-                Tradesperson Profile
+                Specialist Profile
               </h1>
               <p className="text-muted-foreground">
                 Manage your profile and view opportunities
