@@ -46,7 +46,8 @@ export function RoleSelectionGateway() {
                 I am a Specialist
               </h2>
               <p className="text-sm md:text-base text-gray-700 max-w-xs">
-                Join the network, find high-value clients, and grow your business.
+                Join the network, find high-value clients, and grow your
+                business.
               </p>
             </article>
           </Link>
