@@ -5,7 +5,7 @@ export function TrustBadges() {
     {
       title: "Verified",
       description:
-        "Every tradesperson undergoes ID checks, insurance validation, and business verification",
+        "Every specialist undergoes ID checks, insurance validation, and business verification",
       icon: CheckCircle,
       color: "text-green-600",
     },
@@ -51,7 +51,7 @@ export function TrustBadges() {
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
               Costa del Sol's most trusted platform for finding reliable
-              tradespeople
+              professionals
             </p>
           </div>
 
