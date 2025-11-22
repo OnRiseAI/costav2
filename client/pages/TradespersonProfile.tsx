@@ -353,8 +353,9 @@ export default function TradespersonProfile() {
               <div className="flex items-start gap-2 text-gray-600">
                 <MapPin className="w-5 h-5 text-[#0A1E40] flex-shrink-0 mt-0.5" />
                 <p>
-                  Based in <span className="font-semibold">{profile.location}</span>{" "}
-                  • Serving Marbella, Estepona, and Mijas.
+                  Based in{" "}
+                  <span className="font-semibold">{profile.location}</span> •
+                  Serving Marbella, Estepona, and Mijas.
                 </p>
               </div>
             </section>
