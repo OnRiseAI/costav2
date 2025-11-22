@@ -12,14 +12,17 @@ import {
   Truck,
 } from "lucide-react";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { POST_JOB_CATEGORIES, POST_JOB_TOWNS } from "@/data/postJobSearchConfig";
+import { extractTradeAndLocation } from "@/lib/searchParser";
 
 export function ClientHero() {
   const [searchValue, setSearchValue] = useState("");
   const [currentPlaceholderIndex, setCurrentPlaceholderIndex] = useState(0);
   const [displayedPlaceholder, setDisplayedPlaceholder] = useState("");
   const [fade, setFade] = useState(true);
+  const navigate = useNavigate();
 
   const placeholders = [
     "I need a plumber",
@@ -62,9 +65,27 @@ export function ClientHero() {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    if (searchValue.trim()) {
-      window.location.href = `/post-job?option=${encodeURIComponent(searchValue)}`;
+    const trimmed = searchValue.trim();
+    if (!trimmed) {
+      return;
     }
+
+    const { tradeSlug, location } = extractTradeAndLocation(
+      trimmed,
+      POST_JOB_CATEGORIES,
+      POST_JOB_TOWNS,
+    );
+
+    const params = new URLSearchParams();
+    params.set("option", trimmed);
+    if (tradeSlug) {
+      params.set("trade", tradeSlug);
+    }
+    if (location) {
+      params.set("location", location);
+    }
+
+    navigate(`/post-job?${params.toString()}`);
   };
 
   const trustBadges = [
