@@ -22,7 +22,7 @@ export default function JobPostedSuccess() {
           </div>
 
           <h1 className="text-4xl md:text-5xl font-bold text-[#0a1f44] mb-6 tracking-tight">
-            Job Posted! We're contacting tradespeople in your area now.
+            Job Posted! We're contacting specialists in your area now.
           </h1>
           <p className="text-xl text-slate-600 mb-10 font-light max-w-2xl mx-auto">
             Expect your first quote within 24 hours.
@@ -86,7 +86,7 @@ export default function JobPostedSuccess() {
                       Pros Review
                     </h3>
                     <p className="text-slate-600 text-sm">
-                      Tradespeople review your job details and availability.
+                      Specialists review your job details and availability.
                     </p>
                   </div>
                 </div>
