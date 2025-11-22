@@ -5,7 +5,7 @@ export function WhyChooseUs() {
     {
       icon: Shield,
       title: 'Fully Verified',
-      description: 'Every tradesperson undergoes ID checks, insurance validation, and business verification',
+      description: 'Every professional undergoes ID checks, insurance validation, and business verification',
       color: 'text-green-600',
       bgColor: 'bg-green-50',
     },
