@@ -334,7 +334,9 @@ export default function PostJob() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleHeroSearch()}
-                placeholder={typewriterPlaceholder || "Villa Renovation in Marbella"}
+                placeholder={
+                  typewriterPlaceholder || "Villa Renovation in Marbella"
+                }
                 className="flex-1 min-w-0 h-14 text-lg text-gray-900 placeholder:text-gray-400 focus:outline-none bg-transparent transition-opacity duration-500"
               />
               <button

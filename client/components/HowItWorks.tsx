@@ -57,7 +57,8 @@ export function HowItWorks() {
             How to find your Specialist
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed">
-            A simple, guided process for finding trusted and verified professionals across the Costa del Sol.
+            A simple, guided process for finding trusted and verified
+            professionals across the Costa del Sol.
           </p>
         </div>
 

@@ -105,7 +105,9 @@ export function PremiumHero() {
                   type="text"
                   value={searchValue}
                   onChange={(e) => setSearchValue(e.target.value)}
-                  placeholder={typewriterPlaceholder || "Villa Renovation in Marbella"}
+                  placeholder={
+                    typewriterPlaceholder || "Villa Renovation in Marbella"
+                  }
                   className="flex-1 bg-transparent text-lg text-foreground placeholder-muted-foreground focus:outline-none font-light transition-opacity duration-500"
                 />
                 <Button

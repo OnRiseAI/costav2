@@ -143,7 +143,9 @@ export function ClientHero() {
                   type="text"
                   value={searchValue}
                   onChange={(e) => setSearchValue(e.target.value)}
-                  placeholder={typewriterPlaceholder || "Villa Renovation in Marbella"}
+                  placeholder={
+                    typewriterPlaceholder || "Villa Renovation in Marbella"
+                  }
                   className="flex-1 bg-transparent text-base md:text-lg text-gray-900 placeholder:text-gray-400 focus:outline-none font-light transition-opacity duration-500 min-w-0"
                 />
                 <Button
