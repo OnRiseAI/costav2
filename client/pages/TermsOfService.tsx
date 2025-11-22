@@ -69,7 +69,7 @@ export default function TermsOfService() {
                 <p className="font-medium text-blue-900">Important Notice:</p>
                 <p className="text-blue-800 mt-1">
                   We are <strong>not</strong> a construction company. We do not
-                  employ the tradespeople listed on our site. The contract for
+                  employ the professionals listed on our site. The contract for
                   any work performed is strictly between the Homeowner and the
                   Specialist.
                 </p>
