@@ -226,22 +226,13 @@ export default function TradespersonProfile() {
         description={`Hire ${profile.businessName}, a verified ${profile.tradeCategory} in ${profile.location}. Read reviews, view portfolio, and request a quote.`}
       />
 
-      {/* 1. Hero Header (Global) */}
-      <div className="relative bg-white">
-        {/* Cover Image */}
-        <div className="h-[350px] w-full relative overflow-hidden">
-          <img
-            src={profile.coverImage}
-            alt="Cover"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A1E40]/80 to-transparent opacity-60"></div>
-        </div>
-
-        <div className="container mx-auto px-4 relative">
-          {/* Avatar - Overlapping bottom-left */}
-          <div className="absolute -top-20 left-4 md:left-8">
-            <div className="w-[140px] h-[140px] rounded-full border-4 border-white shadow-xl overflow-hidden bg-white">
+      {/* 1. Hero Header (Split Layout) */}
+      <div className="flex flex-col md:flex-row md:h-[350px] w-full">
+        {/* Left Section (Info) - 60% on desktop, Auto on mobile */}
+        <div className="w-full md:w-[60%] bg-[#0A1E40] flex flex-col justify-center p-8 md:p-10 order-2 md:order-1">
+          <div className="flex items-center gap-6">
+            {/* Avatar */}
+            <div className="w-[100px] h-[100px] rounded-full border-4 border-white overflow-hidden flex-shrink-0 bg-white">
               {profile.profilePhoto ? (
                 <img
                   src={profile.profilePhoto}
@@ -249,45 +240,53 @@ export default function TradespersonProfile() {
                   className="w-full h-full object-cover"
                 />
               ) : (
-                <div className="w-full h-full flex items-center justify-center bg-[#0A1E40] text-white text-5xl font-serif font-bold">
+                <div className="w-full h-full flex items-center justify-center bg-[#0A1E40] text-white text-4xl font-bold">
                   {profile.businessName.charAt(0)}
                 </div>
               )}
             </div>
-          </div>
 
-          {/* Headline & Badges */}
-          <div className="pt-20 pb-8 pl-4 md:pl-8">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-[#0A1E40] mb-4">
-              {profile.businessName}
-            </h1>
+            <div>
+              {/* H1 Name */}
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white font-sans mb-2">
+                {profile.businessName}
+              </h1>
 
-            <div className="flex flex-wrap items-center gap-3">
-              {/* Pill 1: English Speaking */}
-              <Badge className="bg-white text-[#0A1E40] border border-gray-200 hover:bg-gray-50 px-3 py-1.5 text-sm font-medium shadow-sm gap-1.5">
-                <span className="text-lg">🇬🇧</span> English Speaking
-              </Badge>
+              {/* Trust Row */}
+              <div className="flex items-center gap-3 mb-2">
+                <div className="flex items-center gap-1">
+                  <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                  <span className="text-white font-bold">{profile.rating}</span>
+                </div>
+                {profile.verified && (
+                  <Badge className="bg-white/10 text-white hover:bg-white/20 border-none gap-1">
+                    <Shield className="w-3 h-3" /> Verified
+                  </Badge>
+                )}
+              </div>
 
-              {/* Pill 2: Verified (if claimed) */}
-              {profile.isClaimed && (
-                <Badge className="bg-[#0A1E40] text-white hover:bg-[#0A1E40]/90 px-3 py-1.5 text-sm font-medium shadow-sm gap-1.5 border-none">
-                  <Shield className="w-4 h-4 fill-current" /> Verified Pro
-                </Badge>
-              )}
-
-              {/* Pill 3: City */}
-              <Badge className="bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 px-3 py-1.5 text-sm font-medium shadow-sm gap-1.5">
-                <MapPin className="w-4 h-4 text-[#0A1E40]" /> {profile.location}
-              </Badge>
-
-              {/* Pill 4: Unclaimed (if !claimed) */}
-              {!profile.isClaimed && (
-                <Badge className="bg-amber-50 text-amber-700 border border-amber-200 hover:bg-amber-100 px-3 py-1.5 text-sm font-medium shadow-sm gap-1.5">
-                  <AlertTriangle className="w-4 h-4" /> Unclaimed Profile
-                </Badge>
-              )}
+              {/* Location */}
+              <div className="flex items-center gap-2 text-blue-200">
+                <MapPin className="w-4 h-4" />
+                <span>{profile.location}</span>
+              </div>
             </div>
           </div>
+        </div>
+
+        {/* Right Section (Image) - 40% on desktop, 200px on mobile */}
+        <div className="w-full md:w-[40%] h-[200px] md:h-auto bg-slate-800 relative overflow-hidden order-1 md:order-2">
+          {profile.coverImage ? (
+            <img
+              src={profile.coverImage}
+              alt="Cover"
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <div className="w-full h-full bg-gradient-to-br from-slate-800 to-slate-900 opacity-50 flex items-center justify-center">
+              <div className="w-full h-full opacity-10 bg-[radial-gradient(#ffffff33_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            </div>
+          )}
         </div>
       </div>
 
