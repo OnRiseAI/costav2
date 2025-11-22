@@ -49,13 +49,13 @@ export function MegaFooter() {
     {
       title: "AREAS COVERED",
       links: [
-        { name: "Trades in Marbella", href: "/trades/plumber/marbella" },
-        { name: "Trades in Estepona", href: "/trades/plumber/estepona" },
-        { name: "Trades in Mijas", href: "/trades/plumber/mijas" },
-        { name: "Trades in Fuengirola", href: "/trades/plumber/fuengirola" },
-        { name: "Trades in Benalmadena", href: "/trades/plumber/benalmadena" },
-        { name: "Trades in Sotogrande", href: "/trades/plumber/sotogrande" },
-        { name: "Trades in Manilva", href: "/trades/plumber/manilva" },
+        { name: "Pros in Marbella", href: "/trades/plumber/marbella" },
+        { name: "Pros in Estepona", href: "/trades/plumber/estepona" },
+        { name: "Pros in Mijas", href: "/trades/plumber/mijas" },
+        { name: "Pros in Fuengirola", href: "/trades/plumber/fuengirola" },
+        { name: "Pros in Benalmadena", href: "/trades/plumber/benalmadena" },
+        { name: "Pros in Sotogrande", href: "/trades/plumber/sotogrande" },
+        { name: "Pros in Manilva", href: "/trades/plumber/manilva" },
       ],
     },
     {
@@ -165,7 +165,7 @@ export function MegaFooter() {
           <div className="mt-12 pt-8 border-t border-gray-800 text-center">
             <p className="text-sm text-gray-500 max-w-3xl mx-auto">
               CostaTrades connects homeowners on the Costa del Sol with verified
-              local tradespeople. Serving Marbella, Estepona, Mijas, and beyond.
+              local professionals. Serving Marbella, Estepona, Mijas, and beyond.
             </p>
           </div>
         </div>
