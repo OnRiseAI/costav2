@@ -107,7 +107,7 @@ export function Navigation() {
                   variant="outline"
                   className="border border-[#0a1f44] text-[#0a1f44] hover:bg-gray-50 hover:text-[#0a1f44] bg-white px-5 md:px-7 h-[44px] text-[14px] md:text-[15px] font-medium rounded-full whitespace-nowrap"
                 >
-                  For professionals
+                  Join as Pro
                 </Button>
               </Link>
               <Button
@@ -298,7 +298,7 @@ export function Navigation() {
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <Button className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white px-6 py-3 text-base rounded-lg w-full">
-                    Join CostaTrade
+                    Join as Pro
                   </Button>
                 </Link>
                 <Link
