@@ -17,13 +17,13 @@ export const translations = {
     // Navigation
     "nav.findTrades": "Find Trades",
     "nav.howItWorks": "How it Works",
-    "nav.forTradespeople": "For Tradespeople",
+    "nav.forTradespeople": "For Professionals",
     "nav.blog": "Blog",
     "nav.login": "Login",
     "nav.signup": "Sign Up",
 
     // Hero
-    "hero.title": "Costa del Sol's Home of Trusted Tradespeople",
+    "hero.title": "Costa del Sol's Home of Trusted Professionals",
     "hero.subtitle":
       "Connect with verified, reliable professionals for all your home improvement needs. Read reviews, compare quotes, and hire with confidence.",
     "hero.searchPlaceholder": "What trade do you need?",
@@ -39,7 +39,7 @@ export const translations = {
     "how.step2.desc": "Read verified reviews and view past work",
     "how.step3.title": "Hire",
     "how.step3.desc":
-      "Request quotes and choose the best tradesperson for your job",
+      "Request quotes and choose the best specialist for your job",
 
     // Categories
     "categories.title": "Popular Trade Categories",
@@ -58,7 +58,7 @@ export const translations = {
     "category.handyman": "Handyman Services",
 
     // Stats
-    "stats.tradespeople": "Verified Tradespeople",
+    "stats.tradespeople": "Verified Specialists",
     "stats.reviews": "Customer Reviews",
     "stats.jobs": "Jobs Completed",
 
