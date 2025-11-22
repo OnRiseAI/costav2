@@ -17,7 +17,7 @@ export default function HolidayHomesPage() {
     <div className="min-h-screen bg-slate-50 font-sans">
       <SEO
         title="Property Maintenance for Holiday Homes | Key Holding & Repairs"
-        description="Reliable tradespeople for holiday rentals in Costa del Sol. Emergency repairs for guests and key holding services."
+        description="Reliable specialists for holiday rentals in Costa del Sol. Emergency repairs for guests and key holding services."
         schema={{
           "@context": "https://schema.org",
           "@type": "Service",
@@ -53,7 +53,7 @@ export default function HolidayHomesPage() {
           </h1>
 
           <p className="text-xl md:text-2xl text-blue-100 mb-10 font-light max-w-2xl mx-auto leading-relaxed">
-            Find trusted tradespeople who specialize in working with
+            Find trusted specialists who specialize in working with
             non-resident owners. English-speaking, reliable, and photo-verified
             updates.
           </p>
@@ -82,8 +82,8 @@ export default function HolidayHomesPage() {
                 English Speaking
               </h3>
               <p className="text-slate-600 leading-relaxed">
-                Communication is key. Filter for tradespeople who speak your
-                language to ensure nothing gets lost in translation.
+                Communication is key. Filter for specialists who speak your
+    language to ensure nothing gets lost in translation.
               </p>
             </div>
 
