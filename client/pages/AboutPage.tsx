@@ -24,7 +24,7 @@ export default function AboutPage() {
             "@type": "Organization",
             name: "CostaTrades",
             foundingDate: "2024",
-            description: "The safest way to hire tradespeople in Spain.",
+            description: "The safest way to hire professionals in Spain.",
           },
         }}
       />
@@ -48,14 +48,14 @@ export default function AboutPage() {
           </div>
 
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight tracking-tight">
-            Connecting residents and holiday home owners to trusted tradespeople
+            Connecting residents and holiday home owners to trusted professionals
             you can rely on.
           </h1>
 
           <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto font-light leading-relaxed">
             CostaTrades was created by a small team who live on the Costa del
             Sol and understand the real challenges of finding dependable
-            tradespeople.
+            professionals.
           </p>
         </div>
       </section>
@@ -175,7 +175,7 @@ export default function AboutPage() {
               {
                 icon: Globe,
                 title: "Language Friendly",
-                desc: "Many of our tradespeople speak English and Spanish.",
+                desc: "Many of our professionals speak English and Spanish.",
                 color: "text-green-600",
                 bg: "bg-green-50",
               },
@@ -189,7 +189,7 @@ export default function AboutPage() {
               {
                 icon: Info,
                 title: "Clear Information",
-                desc: "Every listing shows you exactly what the tradesperson offers.",
+                desc: "Every listing shows you exactly what the professional offers.",
                 color: "text-purple-600",
                 bg: "bg-purple-50",
               },
