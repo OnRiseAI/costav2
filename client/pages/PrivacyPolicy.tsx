@@ -73,7 +73,7 @@ export default function PrivacyPolicy() {
               </p>
               <p>
                 We operate as a marketplace connecting homeowners with
-                tradespeople. By using our platform, you agree to the collection
+                professionals. By using our platform, you agree to the collection
                 and use of information in accordance with this policy.
               </p>
             </section>
@@ -98,7 +98,7 @@ export default function PrivacyPolicy() {
                 </div>
                 <div className="bg-slate-50 p-6 rounded-xl border border-slate-100">
                   <h3 className="font-bold text-[#0a1f44] mb-3">
-                    For Tradespeople
+                    For Professionals
                   </h3>
                   <ul className="list-disc pl-5 space-y-2 text-sm">
                     <li>Personal & Business Name</li>
@@ -125,7 +125,7 @@ export default function PrivacyPolicy() {
                   <div className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-2.5 flex-shrink-0"></div>
                   <span>
                     <strong>Service Delivery:</strong> To connect homeowners
-                    with relevant tradespeople and facilitate the quoting
+                    with relevant professionals and facilitate the quoting
                     process.
                   </span>
                 </li>
@@ -133,7 +133,7 @@ export default function PrivacyPolicy() {
                   <div className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-2.5 flex-shrink-0"></div>
                   <span>
                     <strong>Verification:</strong> To verify the identities and
-                    credentials of tradespeople to prevent fraud and ensure
+                    credentials of professionals to prevent fraud and ensure
                     quality.
                   </span>
                 </li>
@@ -172,7 +172,7 @@ export default function PrivacyPolicy() {
               <ul className="list-disc pl-5 space-y-2 mb-4">
                 <li>
                   <strong>Homeowner Job Details:</strong> Shared with relevant
-                  tradespeople so they can provide quotes. Contact details are
+                  specialists so they can provide quotes. Contact details are
                   only shared when you explicitly allow it or request a quote.
                 </li>
                 <li>
