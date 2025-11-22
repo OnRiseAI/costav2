@@ -111,7 +111,7 @@ export function TradespersonPromo() {
             <div className="relative h-full rounded-[40px] overflow-hidden border border-white/10 shadow-2xl bg-[#0f2952]">
               <img
                 src="https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Professional tradesperson"
+                alt="Specialist"
                 className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f44] via-transparent to-transparent opacity-60"></div>
