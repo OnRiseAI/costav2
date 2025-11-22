@@ -247,7 +247,7 @@ export default function SEOTradePage() {
                 Verified ID
               </h3>
               <p className="text-muted-foreground">
-                We check every tradesperson's identity and credentials so you
+                We check every specialist's identity and credentials so you
                 can book with confidence.
               </p>
             </div>
