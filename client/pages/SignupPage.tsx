@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { useAuth } from "@/contexts/AuthContext";
 import { SEO } from "@/components/SEO";
+import { RoleSelectionGateway } from "@/components/RoleSelectionGateway";
 
 export default function SignupPage() {
   const navigate = useNavigate();
