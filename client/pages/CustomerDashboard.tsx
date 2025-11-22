@@ -120,7 +120,7 @@ const mockQuotes = [
 export function CustomerDashboard() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const { user, signOut, isAuthenticated } = useAuth();
+  const { user, signOut, isAuthenticated, loading } = useAuth();
   const [activeTab, setActiveTab] = useState("jobs");
   const [selectedJob, setSelectedJob] = useState<string | null>(null);
   const [showQuotes, setShowQuotes] = useState(false);
@@ -163,9 +163,10 @@ export function CustomerDashboard() {
   });
 
   useEffect(() => {
-    // In a real app, we would check auth here
-    // if (!isAuthenticated) navigate("/login");
-  }, [isAuthenticated, navigate]);
+    if (!loading && !isAuthenticated) {
+      navigate("/login");
+    }
+  }, [loading, isAuthenticated, navigate]);
 
   useEffect(() => {
     try {

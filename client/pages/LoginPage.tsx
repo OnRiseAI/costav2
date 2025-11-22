@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Eye, EyeOff, AlertCircle, CheckCircle2, Star } from "lucide-react";
-import { useAuth } from "@/contexts/AuthContext";
+import { useAuth, supabase } from "@/contexts/AuthContext";
 import { SEO } from "@/components/SEO";
 
 export default function LoginPage() {
@@ -26,7 +26,7 @@ export default function LoginPage() {
     setIsLoading(true);
 
     if (isFormValid) {
-      const { error: signInError } = await signIn(email, password);
+      const { data, error: signInError } = await signIn(email, password);
 
       if (signInError) {
         setError(signInError.message || "Failed to sign in");
@@ -34,8 +34,27 @@ export default function LoginPage() {
         return;
       }
 
-      // Determine user type and redirect
-      navigate("/customer-dashboard");
+      let redirectPath = "/customer-dashboard";
+
+      try {
+        const userId = (data as any)?.user?.id;
+
+        if (userId) {
+          const { data: profile } = await supabase
+            .from("users")
+            .select("user_type")
+            .eq("id", userId)
+            .single();
+
+          if (profile?.user_type === "tradesperson") {
+            redirectPath = "/pro/dashboard";
+          }
+        }
+      } catch {
+        // If profile lookup fails, default redirect is used
+      }
+
+      navigate(redirectPath);
     }
   };
 

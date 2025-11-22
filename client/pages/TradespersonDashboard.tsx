@@ -125,7 +125,7 @@ const mockReviews = [
 
 export function TradespersonDashboard() {
   const navigate = useNavigate();
-  const { user, signOut, isAuthenticated } = useAuth();
+  const { user, signOut, isAuthenticated, loading } = useAuth();
   const [activeTab, setActiveTab] = useState("find-jobs");
   const [isVerified, setIsVerified] = useState(false); // Mock verification state
   const [showVerificationModal, setShowVerificationModal] = useState(false);
@@ -139,9 +139,10 @@ export function TradespersonDashboard() {
   };
 
   useEffect(() => {
-    // In a real app, check auth and fetch profile
-    // if (!isAuthenticated) navigate("/login");
-  }, [isAuthenticated, navigate]);
+    if (!loading && !isAuthenticated) {
+      navigate("/login");
+    }
+  }, [loading, isAuthenticated, navigate]);
 
   const handleSignOut = async () => {
     await signOut();
