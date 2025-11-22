@@ -24,11 +24,11 @@ export default function FAQPage() {
       questions: [
         {
           q: "Is CostaTrades free to use?",
-          a: "Yes, CostaTrades is 100% free for homeowners. You can post jobs, receive quotes, and contact tradespeople without paying any fees.",
+          a: "Yes, CostaTrades is 100% free for homeowners. You can post jobs, receive quotes, and contact professionals without paying any fees.",
         },
         {
-          q: "How do I know the tradespeople are reliable?",
-          a: "We prioritize accountability. Every tradesperson has a public profile with verified reviews from real customers, ensuring transparency and trust.",
+          q: "How do I know the professionals are reliable?",
+          a: "We prioritize accountability. Every specialist has a public profile with verified reviews from real customers, ensuring transparency and trust.",
         },
         {
           q: "What areas do you cover?",
@@ -49,14 +49,14 @@ export default function FAQPage() {
       ],
     },
     {
-      title: "For Tradespeople",
+      title: "For Professionals",
       icon: Briefcase,
       color: "text-emerald-600",
       bgColor: "bg-emerald-50",
       questions: [
         {
           q: "Is it free to join CostaTrades?",
-          a: "Yes, CostaTrades is completely free for tradespeople. There are no subscription fees, lead fees, or commissions on the jobs you secure.",
+          a: "Yes, CostaTrades is completely free for professionals. There are no subscription fees, lead fees, or commissions on the jobs you secure.",
         },
         {
           q: "Do you take a commission on my earnings?",
