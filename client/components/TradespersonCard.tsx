@@ -101,8 +101,8 @@ export function TradespersonCard({
                 />
               ))}
             </div>
-            <span className="font-bold text-lg">{rating.toFixed(1)}</span>
-            <span className="text-sm">
+            <span className="font-bold text-lg leading-none pt-0.5">{rating.toFixed(1)}</span>
+            <span className="text-sm leading-none pt-0.5">
               ({reviewCount} {t("common.reviews")})
             </span>
           </div>
