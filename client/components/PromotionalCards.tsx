@@ -19,7 +19,7 @@ export function PromotionalCards() {
               </h3>
               <p className="text-blue-100/90 mb-6">
                 Search, message and book with real-time updates from
-                tradespeople
+                specialists
               </p>
 
               <div className="flex items-center gap-4">
