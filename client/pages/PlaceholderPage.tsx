@@ -33,7 +33,7 @@ export default function PlaceholderPage({
             </Link>
             <Link to="/post-job">
               <Button size="lg" variant="outline">
-                Find Tradespeople
+                Find Professionals
               </Button>
             </Link>
           </div>
