@@ -126,13 +126,13 @@ export default function SignupPage() {
     <div className="min-h-screen bg-white grid lg:grid-cols-2">
       <SEO
         title="Create an Account | CostaTrades"
-        description="Join CostaTrades as a homeowner or tradesperson."
+        description="Join CostaTrades as a homeowner or specialist."
         schema={{
           "@context": "https://schema.org",
           "@type": "WebPage",
           name: "Sign Up",
           description:
-            "Create a CostaTrades account as a homeowner or tradesperson to access the platform.",
+            "Create a CostaTrades account as a homeowner or specialist to access the platform.",
         }}
       />
 
@@ -160,7 +160,7 @@ export default function SignupPage() {
             </h1>
             <p className="text-lg text-blue-100/90 max-w-xl mb-8 leading-relaxed">
               One account to post jobs, compare quotes and save your favourite
-              tradespeople across the Costa del Sol.
+              specialists across the Costa del Sol.
             </p>
 
             <div className="space-y-4">
@@ -171,7 +171,7 @@ export default function SignupPage() {
                 <div>
                   <p className="font-semibold">Verified local pros only</p>
                   <p className="text-sm text-blue-100/80">
-                    Every tradesperson goes through checks before appearing on
+                    Every specialist goes through checks before appearing on
                     the platform.
                   </p>
                 </div>
@@ -313,7 +313,7 @@ export default function SignupPage() {
                         <div className="flex items-center gap-2 mb-1">
                           <Briefcase className="h-4 w-4 text-[#0a1f44]" />
                           <span className="text-sm font-semibold text-[#0a1f44]">
-                            Tradesperson
+                            Specialist
                           </span>
                         </div>
                         <span className="text-xs text-slate-500">
