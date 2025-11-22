@@ -200,7 +200,7 @@ export function Footer() {
               className="flex items-center justify-between w-full md:cursor-default group"
             >
               <h4 className="font-bold text-[#0a1f44] text-sm uppercase tracking-wider">
-                Pros
+                For Professionals
               </h4>
               <ChevronDown
                 className={cn(
@@ -220,7 +220,7 @@ export function Footer() {
                   to="/join-as-tradesperson"
                   className="text-sm text-gray-600 hover:text-[#0a1f44]"
                 >
-                  Join as Pro
+                  Apply to Join
                 </Link>
               </li>
               <li>
