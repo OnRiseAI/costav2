@@ -8,14 +8,7 @@ export interface ParsedSearchResult {
   location: string | null;
 }
 
-const FILLER_PHRASES = [
-  "i need",
-  "looking for",
-  "near me",
-  "near",
-  "in",
-  "a",
-];
+const FILLER_PHRASES = ["i need", "looking for", "near me", "near", "in", "a"];
 
 const normalizeForMatch = (text: string) => {
   return text

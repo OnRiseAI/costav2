@@ -2,7 +2,10 @@ import { Search, Shield, FileCheck, Star } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { POST_JOB_CATEGORIES, POST_JOB_TOWNS } from "@/data/postJobSearchConfig";
+import {
+  POST_JOB_CATEGORIES,
+  POST_JOB_TOWNS,
+} from "@/data/postJobSearchConfig";
 import { extractTradeAndLocation } from "@/lib/searchParser";
 
 export function PremiumHero() {
