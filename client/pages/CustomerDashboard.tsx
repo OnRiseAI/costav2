@@ -478,10 +478,10 @@ export function CustomerDashboard() {
                   </h4>
                   <div className="flex items-center gap-1 text-sm text-yellow-500">
                     <Star className="w-4 h-4 fill-current" />
-                    <span className="font-bold">
-                      {quote.tradesperson.rating}
+                    <span className="font-bold leading-none pt-0.5">
+                      {quote.tradesperson.rating.toFixed(1)}
                     </span>
-                    <span className="text-slate-400 font-normal">
+                    <span className="text-slate-400 font-normal leading-none pt-0.5">
                       ({quote.tradesperson.reviews})
                     </span>
                   </div>
