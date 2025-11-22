@@ -62,10 +62,10 @@ export const translations = {
     'reviews.verified': 'Verified Job',
     
     // CTA
-    'cta.homeowner.title': 'Need a Tradesperson?',
+    'cta.homeowner.title': 'Need a Professional?',
     'cta.homeowner.desc': 'Post your job and receive quotes from verified professionals',
     'cta.homeowner.button': 'Get Quotes Now',
-    'cta.tradesperson.title': 'Are You a Tradesperson?',
+    'cta.tradesperson.title': 'Are You a Service Pro?',
     'cta.tradesperson.desc': 'Join TradeFinder Costa del Sol and grow your business with quality leads',
     'cta.tradesperson.button': 'Join Now',
     

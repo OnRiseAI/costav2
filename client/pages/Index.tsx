@@ -317,7 +317,7 @@ export default function Index() {
         <div className="container-custom relative z-20">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="mb-4 text-2xl md:text-3xl lg:text-4xl font-bold text-[#0a1f44]">
-              Featured Specialists
+              Featured Professionals
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
               Top-rated professionals ready to help with your next project
@@ -340,7 +340,7 @@ export default function Index() {
                 size="lg"
                 className="gap-2 bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white"
               >
-                Browse All Specialists
+                Browse All Professionals
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
