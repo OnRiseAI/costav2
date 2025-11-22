@@ -22,7 +22,7 @@ export default function SignupPage() {
   const navigate = useNavigate();
   const { signUp, loading } = useAuth();
 
-  const [step, setStep] = useState<1 | 2>(1);
+  const [step, setStep] = useState<0 | 1 | 2>(0); // 0 = Role Selection, 1 = Account Details, 2 = Preferences
 
   const [formData, setFormData] = useState({
     full_name: "",
@@ -52,6 +52,11 @@ export default function SignupPage() {
       ...prev,
       [name]: value,
     }));
+  };
+
+  const handleRoleSelect = (role: "customer" | "tradesperson") => {
+    setFormData((prev) => ({ ...prev, user_type: role }));
+    setStep(1);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -121,6 +126,19 @@ export default function SignupPage() {
 
     navigate("/customer-dashboard");
   };
+
+  // If step is 0, show the Role Selection Gateway
+  if (step === 0) {
+    return (
+      <>
+        <SEO
+          title="Join CostaTrades | Select Account Type"
+          description="Choose how you want to use CostaTrades: as a homeowner or a professional."
+        />
+        <RoleSelectionGateway />
+      </>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-white grid lg:grid-cols-2">
@@ -225,11 +243,12 @@ export default function SignupPage() {
       <div className="flex flex-col justify-center px-4 sm:px-6 lg:px-16 xl:px-24 py-12">
         <div className="w-full max-w-md mx-auto">
           <div className="mb-8 text-center lg:text-left">
-            <Link to="/" className="inline-block mb-4">
-              <span className="text-2xl font-bold text-[#0a1f44]">
-                CostaTrade
-              </span>
-            </Link>
+            <button 
+              onClick={() => setStep(0)}
+              className="inline-block mb-4 text-sm text-muted-foreground hover:text-[#0a1f44] transition-colors"
+            >
+              ← Back to selection
+            </button>
             <h2 className="text-3xl font-bold text-[#0a1f44] mb-2 tracking-tight">
               Create your account
             </h2>
@@ -265,62 +284,25 @@ export default function SignupPage() {
             <form onSubmit={handleSubmit} className="space-y-5">
               {step === 1 && (
                 <>
-                  {/* User Type Selection */}
-                  <div className="grid grid-cols-2 gap-3 mb-2">
-                    <label className="relative cursor-pointer">
-                      <input
-                        type="radio"
-                        name="user_type"
-                        value="customer"
-                        checked={formData.user_type === "customer"}
-                        onChange={handleChange}
-                        className="sr-only"
-                      />
-                      <div
-                        className={`h-full rounded-xl border-2 px-4 py-3 transition-all flex flex-col justify-center ${
-                          formData.user_type === "customer"
-                            ? "border-[#0a1f44] bg-blue-50/40 shadow-sm"
-                            : "border-slate-200 hover:border-[#0a1f44]/50 bg-slate-50/60"
-                        }`}
-                      >
-                        <div className="flex items-center gap-2 mb-1">
-                          <User className="h-4 w-4 text-[#0a1f44]" />
-                          <span className="text-sm font-semibold text-[#0a1f44]">
-                            Customer
-                          </span>
-                        </div>
-                        <span className="text-xs text-slate-500">
-                          Post jobs & hire pros
-                        </span>
+                  {/* User Type Display (Read Only) */}
+                  <div className="mb-4 p-3 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-full bg-[#0a1f44]/10 flex items-center justify-center text-[#0a1f44]">
+                        {formData.user_type === "customer" ? <User className="w-4 h-4" /> : <Briefcase className="w-4 h-4" />}
                       </div>
-                    </label>
-                    <label className="relative cursor-pointer">
-                      <input
-                        type="radio"
-                        name="user_type"
-                        value="tradesperson"
-                        checked={formData.user_type === "tradesperson"}
-                        onChange={handleChange}
-                        className="sr-only"
-                      />
-                      <div
-                        className={`h-full rounded-xl border-2 px-4 py-3 transition-all flex flex-col justify-center ${
-                          formData.user_type === "tradesperson"
-                            ? "border-[#0a1f44] bg-blue-50/40 shadow-sm"
-                            : "border-slate-200 hover:border-[#0a1f44]/50 bg-slate-50/60"
-                        }`}
-                      >
-                        <div className="flex items-center gap-2 mb-1">
-                          <Briefcase className="h-4 w-4 text-[#0a1f44]" />
-                          <span className="text-sm font-semibold text-[#0a1f44]">
-                            Specialist
-                          </span>
-                        </div>
-                        <span className="text-xs text-slate-500">
-                          Offer services & get leads
-                        </span>
+                      <div>
+                        <p className="text-sm font-semibold text-[#0a1f44] capitalize">
+                          {formData.user_type === "customer" ? "Homeowner Account" : "Professional Account"}
+                        </p>
                       </div>
-                    </label>
+                    </div>
+                    <button 
+                      type="button"
+                      onClick={() => setStep(0)}
+                      className="text-xs text-muted-foreground hover:text-[#0a1f44] underline"
+                    >
+                      Change
+                    </button>
                   </div>
 
                   {/* Full Name */}
