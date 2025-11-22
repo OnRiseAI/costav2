@@ -325,6 +325,40 @@ export default function TradespersonProfile() {
               </div>
             </section>
 
+            {/* Location & Service Area */}
+            <section>
+              <h3 className="text-2xl font-serif font-bold text-[#0A1E40] mb-6">
+                Service Area
+              </h3>
+              <div className="w-full h-[250px] bg-gray-100 rounded-xl overflow-hidden relative mb-4 border border-gray-200">
+                {/* Google Maps Placeholder */}
+                <img
+                  src="https://maps.googleapis.com/maps/api/staticmap?center=Marbella,Spain&zoom=12&size=800x400&style=feature:all|element:geometry|color:0xf5f5f5&style=feature:water|element:geometry|color:0xc9c9c9&style=feature:water|element:labels.text.fill|color:0x9e9e9e&style=feature:road|element:geometry|color:0xffffff&key=YOUR_API_KEY_HERE"
+                  alt="Service Area Map"
+                  className="w-full h-full object-cover opacity-80"
+                  onError={(e) => {
+                    // Fallback if static map fails (e.g. no key)
+                    e.currentTarget.src =
+                      "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&h=400&fit=crop";
+                  }}
+                />
+                {/* Logic Visualization: Pin or Radius */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  {/* Simulating address_is_hidden logic with a radius circle for now as default safe behavior */}
+                  <div className="w-32 h-32 rounded-full bg-blue-500/20 border-2 border-blue-500 flex items-center justify-center animate-pulse-slow">
+                    <div className="w-3 h-3 bg-blue-600 rounded-full shadow-lg"></div>
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-start gap-2 text-gray-600">
+                <MapPin className="w-5 h-5 text-[#0A1E40] flex-shrink-0 mt-0.5" />
+                <p>
+                  Based in <span className="font-semibold">{profile.location}</span>{" "}
+                  • Serving Marbella, Estepona, and Mijas.
+                </p>
+              </div>
+            </section>
+
             {/* Portfolio Masonry */}
             <section>
               <div className="flex items-center justify-between mb-6">
