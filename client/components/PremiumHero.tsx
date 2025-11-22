@@ -72,7 +72,7 @@ export function PremiumHero() {
         <div className="max-w-3xl mx-auto">
           {/* Heading */}
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-center leading-tight tracking-tight animate-fade-in">
-            Find verified English and Spanish speaking tradespeople across the
+            Find verified English and Spanish speaking specialists across the
             Costa del Sol
           </h2>
 
