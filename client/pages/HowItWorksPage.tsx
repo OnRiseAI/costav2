@@ -22,12 +22,12 @@ export default function HowItWorksPage() {
     {
       question: "Is it really free?",
       answer:
-        "Yes. Using CostaTrades is 100% free for homeowners. There are no sign-up fees, hidden charges or mark-ups on quotes. You only pay the tradesperson directly for the work done.",
+        "Yes. Using CostaTrades is 100% free for homeowners. There are no sign-up fees, hidden charges or mark-ups on quotes. You only pay the professional directly for the work done.",
     },
     {
       question: "How many quotes will I get?",
       answer:
-        "For most jobs you will receive between 3–5 quotes from available tradespeople. Sometimes more, sometimes fewer, depending on the type of work and your location.",
+        "For most jobs you will receive between 3–5 quotes from available specialists. Sometimes more, sometimes fewer, depending on the type of work and your location.",
     },
     {
       question: "What if I don't like the quotes?",
@@ -35,7 +35,7 @@ export default function HowItWorksPage() {
         "There is absolutely no obligation to hire. If the quotes or professionals don't feel like the right fit, you can simply decline and post again later or look elsewhere.",
     },
     {
-      question: "How do you verify tradespeople?",
+      question: "How do you verify specialists?",
       answer:
         "We perform rigorous checks including ID verification, business registration status, and insurance coverage. We also collect real reviews from homeowners like you to ensure ongoing quality.",
     },
@@ -47,17 +47,17 @@ export default function HowItWorksPage() {
     {
       question: "Do the tradespeople speak English?",
       answer:
-        "Yes, many of our professionals are multilingual. You can filter for English-speaking tradespeople when you post your job or review their profiles.",
+        "Yes, many of our professionals are multilingual. You can filter for English-speaking specialists when you post your job or review their profiles.",
     },
     {
       question: "Can I see examples of previous work?",
       answer:
-        "Absolutely. Tradesperson profiles feature photo galleries of their past projects, so you can see the quality of their craftsmanship before you hire.",
+        "Absolutely. Specialist profiles feature photo galleries of their past projects, so you can see the quality of their craftsmanship before you hire.",
     },
     {
       question: "How quickly can I get a job done?",
       answer:
-        "Many tradespeople offer same-day or next-day availability for urgent tasks. When you post your job, you can specify your timeline, and we'll match you with professionals who are available when you need them.",
+        "Many specialists offer same-day or next-day availability for urgent tasks. When you post your job, you can specify your timeline, and we'll match you with professionals who are available when you need them.",
     },
   ];
 
@@ -80,7 +80,7 @@ export default function HowItWorksPage() {
               </div>
 
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#0a1f44] mb-6 leading-[1.1] tracking-tight">
-                The Easiest Way to Find Trusted Tradespeople.
+                The Easiest Way to Find Trusted Professionals.
               </h1>
 
               <p className="text-xl text-slate-600 mb-10 font-light leading-relaxed">
@@ -92,7 +92,7 @@ export default function HowItWorksPage() {
                 {[
                   "Post your job once and let interested local professionals come to you.",
                   "Compare quotes, ratings and past work so you can choose with confidence.",
-                  "Sit back while a verified tradesperson gets the job done.",
+                  "Sit back while a verified specialist gets the job done.",
                 ].map((text, i) => (
                   <div key={i} className="flex items-start gap-4 group">
                     <div className="mt-1 w-8 h-8 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600 font-bold text-sm group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300 shadow-sm">
@@ -205,7 +205,7 @@ export default function HowItWorksPage() {
                 Receive interest from locals
               </h3>
               <p className="text-slate-600 leading-relaxed px-4">
-                Available tradespeople in your area review your job and send you
+                Available specialists in your area review your job and send you
                 quotes or request a quick visit if they need more details.
               </p>
             </div>
@@ -248,7 +248,7 @@ export default function HowItWorksPage() {
               {
                 icon: MapPin,
                 title: "Local expertise",
-                desc: "Tradespeople who actually know Costa del Sol homes—from terraces and pools to old town apartments.",
+                desc: "Professionals who actually know Costa del Sol homes—from terraces and pools to old town apartments.",
                 color: "text-blue-600",
                 bg: "bg-blue-50",
               },
