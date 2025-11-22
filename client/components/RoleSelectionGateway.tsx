@@ -24,9 +24,9 @@ export function RoleSelectionGateway() {
           >
             <article className="h-full bg-white rounded-xl shadow-sm border border-gray-200 p-10 flex flex-col items-start text-left transition-all duration-300 ease-out group-hover:-translate-y-1 group-hover:border-[#0a1f44] group-hover:shadow-md">
               <div className="mb-8">
-                <Home 
-                  className="w-10 h-10 text-[#0a1f44] stroke-[1.5]" 
-                  aria-hidden="true" 
+                <Home
+                  className="w-10 h-10 text-[#0a1f44] stroke-[1.5]"
+                  aria-hidden="true"
                 />
               </div>
               <h2 className="text-2xl font-bold text-[#0a1f44] mb-3">
@@ -52,16 +52,17 @@ export function RoleSelectionGateway() {
               </div>
 
               <div className="mb-8">
-                <Briefcase 
-                  className="w-10 h-10 text-white stroke-[1.5]" 
-                  aria-hidden="true" 
+                <Briefcase
+                  className="w-10 h-10 text-white stroke-[1.5]"
+                  aria-hidden="true"
                 />
               </div>
               <h2 className="text-2xl font-bold text-white mb-3">
                 I am a Professional
               </h2>
               <p className="text-base text-gray-300 leading-relaxed">
-                Join the exclusive network, find high-value clients, and grow your business.
+                Join the exclusive network, find high-value clients, and grow
+                your business.
               </p>
             </article>
           </Link>
