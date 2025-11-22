@@ -5,7 +5,7 @@ export function TrustSection() {
     {
       icon: Shield,
       title: 'Guarantee',
-      description: 'We guarantee Costa del Sol tradespeople\'s work, claim up to €1000',
+      description: 'We guarantee Costa del Sol professionals\' work, claim up to €1000',
       link: 'T&Cs apply',
     },
     {
@@ -17,7 +17,7 @@ export function TrustSection() {
     {
       icon: CheckCircle2,
       title: 'Checked',
-      description: 'Every tradesperson has passed up to 12 checks',
+      description: 'Every specialist has passed up to 12 checks',
       link: 'Find out more',
     },
   ];
