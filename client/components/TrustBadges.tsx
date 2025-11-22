@@ -59,12 +59,8 @@ export function TrustBadges() {
           <div className="grid md:grid-cols-3 gap-8 md:gap-12 mb-16">
             {topPillars.map((pillar, index) => {
               const Icon = pillar.icon;
-              return (
-                <div
-                  key={index}
-                  className="text-center group hover:scale-105 transition-transform duration-300 animate-slide-up"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
+              const content = (
+                <>
                   <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-trust/20 to-trust/5 rounded-full flex items-center justify-center group-hover:shadow-lg group-hover:from-trust/30 transition-all duration-300">
                     <Icon className="w-12 h-12 text-trust" />
                   </div>
@@ -74,6 +70,27 @@ export function TrustBadges() {
                   <p className="text-muted-foreground leading-relaxed text-base">
                     {pillar.description}
                   </p>
+                </>
+              );
+
+              const isVerifiedPillar = pillar.title === "Verified";
+
+              return (
+                <div
+                  key={index}
+                  className="text-center group hover:scale-105 transition-transform duration-300 animate-slide-up"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  {isVerifiedPillar ? (
+                    <a
+                      href="https://costatrades.com/verification-promise"
+                      className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-trust/60 rounded-2xl"
+                    >
+                      {content}
+                    </a>
+                  ) : (
+                    content
+                  )}
                 </div>
               );
             })}
