@@ -315,7 +315,7 @@ export default function PostJob() {
           <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight leading-tight">
             Find the right{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-cyan-200">
-              tradesperson
+              specialist
             </span>{" "}
             for your job
           </h1>
@@ -429,7 +429,7 @@ export default function PostJob() {
               <DialogDescription className="text-blue-200 text-center">
                 {step === 1
                   ? `Select the type of ${selectedCategoryName.toLowerCase()} work you need`
-                  : "We need this to find tradespeople in your area"}
+                  : "We need this to find specialists in your area"}
               </DialogDescription>
             </DialogHeader>
           </div>
