@@ -55,7 +55,7 @@ export default function NotFound() {
                 className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg shadow-blue-900/20 w-full sm:w-auto flex items-center gap-2"
               >
                 <Search className="w-5 h-5" />
-                Find a Tradesperson
+                Find a Verified Specialist
               </Button>
             </Link>
             <Link to="/">
