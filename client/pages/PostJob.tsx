@@ -206,10 +206,16 @@ export default function PostJob() {
     "La Cala de Mijas",
   ];
 
-  const handleHeroSearch = () => {
-    if (!searchQuery.trim()) return;
+  const handleHeroSearch = (overrideQuery?: string) => {
+    const queryToUse = overrideQuery ?? searchQuery;
+    const trimmed = queryToUse.trim();
+    if (!trimmed) return;
 
-    const { tradeSlug, location } = extractTradeAndLocation(searchQuery);
+    const { tradeSlug, location } = extractTradeAndLocation(
+      trimmed,
+      categories,
+      towns,
+    );
 
     if (tradeSlug && location) {
       handleCategorySelect(tradeSlug);
@@ -229,9 +235,8 @@ export default function PostJob() {
       return;
     }
 
-    const query = searchQuery.toLowerCase();
+    const query = trimmed.toLowerCase();
 
-    // 1. Check for exact or partial category match
     const matchedCategory = categories.find(
       (c) => c.name.toLowerCase().includes(query) || c.slug.includes(query),
     );
@@ -241,7 +246,6 @@ export default function PostJob() {
       return;
     }
 
-    // 2. Check for service match
     for (const [slug, data] of Object.entries(tradeServices)) {
       const matchedService = data.services.find(
         (s) =>
@@ -258,7 +262,6 @@ export default function PostJob() {
       }
     }
 
-    // 3. Fallback: Scroll to categories
     const grid = document.getElementById("categories-grid");
     if (grid) {
       grid.scrollIntoView({ behavior: "smooth" });
@@ -273,40 +276,6 @@ export default function PostJob() {
       );
     }
   };
-
-  useEffect(() => {
-    const option = searchParams.get("option");
-    if (option && !isModalOpen && searchQuery) {
-      const query = option.toLowerCase();
-
-      // 1. Check for exact or partial category match
-      const matchedCategory = categories.find(
-        (c) => c.name.toLowerCase().includes(query) || c.slug.includes(query),
-      );
-
-      if (matchedCategory) {
-        handleCategorySelect(matchedCategory.slug);
-        return;
-      }
-
-      // 2. Check for service match
-      for (const [slug, data] of Object.entries(tradeServices)) {
-        const matchedService = data.services.find(
-          (s) =>
-            s.label.toLowerCase().includes(query) ||
-            (s.description && s.description.toLowerCase().includes(query)),
-        );
-
-        if (matchedService) {
-          setSelectedCategory(slug);
-          setSelectedSubTask(matchedService.label);
-          setStep(2);
-          setIsModalOpen(true);
-          return;
-        }
-      }
-    }
-  }, [searchParams, searchQuery]); // Added searchQuery dependency to ensure it runs after state update if needed, though option from params is stable
 
   const tradeData = getTradeServices(selectedCategory);
   const selectedCategoryName =
