@@ -9,14 +9,14 @@ export function CTACards() {
     {
       title: "Leave a review",
       description:
-        "Have you completed a project recently? Let your tradesperson know how they did.",
+        "Have you completed a project recently? Let your specialist know how they did.",
       buttonText: "Leave a review",
       buttonLink: "/review-trade",
       imageUrl:
         "https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2Fd10edb94fb5b4d71a29cfe934130da94?format=webp&width=800",
     },
     {
-      title: "Tradesperson sign up",
+      title: "Professional Application",
       description:
         "Join our network for free. We're here to help you find more work and grow your business.",
       buttonText: "Add your business for free",
@@ -27,7 +27,7 @@ export function CTACards() {
     {
       title: "Request a quote",
       description:
-        "Tell us what you're looking for and we'll pass your request on to three approved tradespeople.",
+        "Tell us what you're looking for and we'll pass your request on to three approved specialists.",
       buttonText: "Request a quote",
       buttonLink: "/post-job",
       imageUrl:
