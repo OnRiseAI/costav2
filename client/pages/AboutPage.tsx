@@ -383,7 +383,7 @@ export default function AboutPage() {
                 variant="outline"
                 className="w-full sm:w-auto border-2 border-[#0a1f44] text-[#0a1f44] hover:bg-blue-50 hover:text-[#0a1f44] px-8 py-6 text-lg rounded-full font-bold"
               >
-                Browse Tradespeople
+                Browse Specialists
               </Button>
             </Link>
           </div>
