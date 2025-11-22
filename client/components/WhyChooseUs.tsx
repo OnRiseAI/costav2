@@ -84,7 +84,7 @@ export function WhyChooseUs() {
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             Costa del Sol's most trusted platform for finding reliable
-            tradespeople
+            professionals
           </p>
         </div>
 
