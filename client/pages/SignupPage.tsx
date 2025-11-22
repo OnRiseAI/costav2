@@ -243,7 +243,7 @@ export default function SignupPage() {
       <div className="flex flex-col justify-center px-4 sm:px-6 lg:px-16 xl:px-24 py-12">
         <div className="w-full max-w-md mx-auto">
           <div className="mb-8 text-center lg:text-left">
-            <button 
+            <button
               onClick={() => setStep(0)}
               className="inline-block mb-4 text-sm text-muted-foreground hover:text-[#0a1f44] transition-colors"
             >
@@ -288,15 +288,21 @@ export default function SignupPage() {
                   <div className="mb-4 p-3 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 rounded-full bg-[#0a1f44]/10 flex items-center justify-center text-[#0a1f44]">
-                        {formData.user_type === "customer" ? <User className="w-4 h-4" /> : <Briefcase className="w-4 h-4" />}
+                        {formData.user_type === "customer" ? (
+                          <User className="w-4 h-4" />
+                        ) : (
+                          <Briefcase className="w-4 h-4" />
+                        )}
                       </div>
                       <div>
                         <p className="text-sm font-semibold text-[#0a1f44] capitalize">
-                          {formData.user_type === "customer" ? "Homeowner Account" : "Professional Account"}
+                          {formData.user_type === "customer"
+                            ? "Homeowner Account"
+                            : "Professional Account"}
                         </p>
                       </div>
                     </div>
-                    <button 
+                    <button
                       type="button"
                       onClick={() => setStep(0)}
                       className="text-xs text-muted-foreground hover:text-[#0a1f44] underline"
