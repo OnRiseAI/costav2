@@ -222,7 +222,7 @@ export function generateQuoteEmailHTML(data: QuoteEmailData): string {
                 <div class="job-description">${data.jobDetails.description}</div>
             </div>
 
-            <!-- Tradesperson Info -->
+            <!-- Specialist Info -->
             <div class="section">
                 <h2 class="section-title">🏢 Request For</h2>
                 <div class="info-card">
@@ -244,7 +244,7 @@ export function generateQuoteEmailHTML(data: QuoteEmailData): string {
         <!-- Footer -->
         <div class="footer">
             <p><strong>Costa del Sol TradeFinder</strong></p>
-            <p>Connecting homeowners with trusted tradespeople across Costa del Sol</p>
+            <p>Connecting homeowners with trusted professionals across Costa del Sol</p>
             <p style="margin-top: 20px; font-size: 12px; color: #9ca3af;">
                 This email was sent because a customer requested a quote through your TradeFinder profile.
             </p>
@@ -278,6 +278,6 @@ Business: ${data.tradesperson.businessName}
 
 ---
 Costa del Sol TradeFinder
-Connecting homeowners with trusted tradespeople across Costa del Sol
+Connecting homeowners with trusted professionals across Costa del Sol
   `.trim();
 }
