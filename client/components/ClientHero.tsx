@@ -155,7 +155,8 @@ export function ClientHero() {
             className="text-xl md:text-2xl text-blue-100/90 text-center mb-12 leading-relaxed font-light max-w-2xl mx-auto animate-fade-in"
             style={{ animationDelay: "0.1s" }}
           >
-            Connect with trusted Home Improvement & Maintenance Professionals who speak your language.
+            Connect with trusted Home Improvement & Maintenance Professionals
+            who speak your language.
           </p>
 
           {/* Premium Search Bar */}
