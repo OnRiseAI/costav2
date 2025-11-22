@@ -378,7 +378,7 @@ export default function JoinAsTradesperson() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-[#0a1f44] mb-6 tracking-tight">
-                Why tradespeople choose CostaTrade
+                Why specialists choose CostaTrade
               </h2>
               <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
                 Built for busy professionals who want a steady flow of the right
