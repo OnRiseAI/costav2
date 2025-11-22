@@ -46,6 +46,7 @@ import {
 } from "lucide-react";
 import { getTradeServices, tradeServices } from "@/data/tradeServices";
 import { SEO } from "@/components/SEO";
+import { extractTradeAndLocation } from "@/lib/searchParser";
 
 const categories = [
   {
@@ -128,36 +129,6 @@ const PLACEHOLDERS = [
   "Garden needs care? Look for a 'Gardener'",
 ];
 
-const FILLER_PHRASES = [
-  "i need",
-  "looking for",
-  "near me",
-  "near",
-  "in",
-  "a",
-];
-
-const normalizeForMatch = (text: string) => {
-  return text
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-z0-9\s]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-};
-
-const removeFillerPhrases = (text: string) => {
-  let result = text.toLowerCase();
-
-  FILLER_PHRASES.forEach((phrase) => {
-    const pattern = new RegExp(`\\b${phrase.replace(/\s+/g, "\\s+")}\\b`, "gi");
-    result = result.replace(pattern, " ");
-  });
-
-  return result.replace(/\s+/g, " ").trim();
-};
-
 export default function PostJob() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -173,50 +144,26 @@ export default function PostJob() {
   );
   const [openCombobox, setOpenCombobox] = useState(false);
 
-  const extractTradeAndLocation = (input: string) => {
-    const cleaned = removeFillerPhrases(input);
-
-    if (!cleaned) {
-      return { tradeSlug: null as string | null, location: null as string | null };
-    }
-
-    const normalizedQuery = normalizeForMatch(cleaned);
-
-    let tradeSlug: string | null = null;
-    let location: string | null = null;
-
-    for (const category of categories) {
-      const normalizedCategoryName = normalizeForMatch(category.name);
-      const normalizedCategorySlug = normalizeForMatch(category.slug);
-
-      if (
-        normalizedQuery.includes(normalizedCategoryName) ||
-        normalizedQuery.includes(normalizedCategorySlug)
-      ) {
-        tradeSlug = category.slug;
-        break;
-      }
-    }
-
-    for (const town of towns) {
-      const normalizedTown = normalizeForMatch(town);
-
-      if (normalizedQuery.includes(normalizedTown)) {
-        location = town;
-        break;
-      }
-    }
-
-    return { tradeSlug, location };
-  };
-
   useEffect(() => {
     const option = searchParams.get("option");
-    if (option) {
-      setSearchQuery(option);
-      // Optionally trigger search immediately if desired, but setting state might be enough for now
-      // or we can call handleHeroSearch() if we move it or wrap it in useEffect
+    const locationFromParam =
+      searchParams.get("location") || searchParams.get("postcode") || "";
+
+    if (!option) {
+      return;
     }
+
+    setSearchQuery(option);
+
+    const combinedQuery = locationFromParam
+      ? `${option} ${locationFromParam}`
+      : option;
+
+    if (locationFromParam) {
+      setPostcode(locationFromParam);
+    }
+
+    handleHeroSearch(combinedQuery);
   }, [searchParams]);
 
   useEffect(() => {
