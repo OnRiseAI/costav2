@@ -24,8 +24,8 @@ export default function ReviewTrade() {
   return (
     <div className="min-h-screen bg-slate-50 font-sans pb-20">
       <SEO
-        title="Review a Tradesperson | CostaTrades"
-        description="Find the tradesperson you hired and share your experience to help other homeowners on the Costa del Sol."
+        title="Review a Specialist | CostaTrades"
+        description="Find the specialist you hired and share your experience to help other homeowners on the Costa del Sol."
       />
 
       {/* Hero */}
@@ -37,7 +37,7 @@ export default function ReviewTrade() {
           </h1>
           <p className="text-base md:text-lg text-blue-100/90 max-w-2xl mx-auto mb-8">
             Search by business name, trade or location to find the right
-            tradesperson.
+            specialist.
           </p>
 
           <div className="max-w-2xl mx-auto">
@@ -63,7 +63,7 @@ export default function ReviewTrade() {
           </div>
 
           <p className="mt-4 text-xs md:text-sm text-blue-200/70">
-            Only review tradespeople you have personally hired and worked with.
+            Only review specialists you have personally hired and worked with.
           </p>
         </div>
       </section>
@@ -73,7 +73,7 @@ export default function ReviewTrade() {
         <div className="flex items-center justify-between mb-6 md:mb-8">
           <div>
             <h2 className="text-xl md:text-2xl font-bold text-[#0a1f44]">
-              {query.trim() ? "Search results" : "Popular tradespeople"}
+              {query.trim() ? "Search results" : "Popular specialists"}
             </h2>
             <p className="text-sm text-slate-500 mt-1">
               {results.length} {results.length === 1 ? "match" : "matches"}{" "}
