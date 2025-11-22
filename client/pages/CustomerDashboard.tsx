@@ -21,6 +21,7 @@ import {
   MessageCircle,
   Mail,
   Smartphone,
+  Home,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth, supabase } from "@/contexts/AuthContext";
@@ -41,7 +42,7 @@ interface NotificationPreferences {
 const mockJobs = [
   {
     id: "1",
-    title: "Fix Leaky Tap in Marbella",
+    title: "Villa Renovation",
     description:
       "Kitchen tap is dripping constantly. Need a plumber to fix or replace it.",
     location: "Marbella",
@@ -211,19 +212,19 @@ export function CustomerDashboard() {
     switch (status) {
       case "open":
         return (
-          <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">
-            Open for Quotes
+          <span className="bg-green-50 text-green-800 px-3 py-1 rounded-full text-xs font-medium tracking-wide border border-green-100">
+            Accepting Proposals
           </span>
         );
       case "in_progress":
         return (
-          <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">
+          <span className="bg-blue-50 text-blue-800 px-3 py-1 rounded-full text-xs font-medium tracking-wide border border-blue-100">
             In Progress
           </span>
         );
       case "completed":
         return (
-          <span className="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">
+          <span className="bg-slate-50 text-slate-600 px-3 py-1 rounded-full text-xs font-medium tracking-wide border border-slate-100">
             Completed
           </span>
         );
@@ -233,10 +234,10 @@ export function CustomerDashboard() {
   };
 
   const renderSidebar = () => (
-    <div className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden sticky top-24">
+    <div className="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden sticky top-24">
       <div className="p-6 border-b border-slate-100">
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
+          <div className="w-12 h-12 bg-[#0a1f44] rounded-full flex items-center justify-center text-white font-bold text-xl">
             {user?.email?.charAt(0).toUpperCase() || "U"}
           </div>
           <div>
@@ -253,35 +254,35 @@ export function CustomerDashboard() {
             setActiveTab("jobs");
             setShowQuotes(false);
           }}
-          className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${activeTab === "jobs" ? "bg-blue-50 text-blue-700" : "text-slate-600 hover:bg-slate-50"}`}
+          className={`w-full flex items-center gap-3 px-4 py-3 rounded-md text-sm font-medium transition-colors ${activeTab === "jobs" ? "bg-[#0a1f44] text-white" : "text-slate-600 hover:bg-slate-50"}`}
         >
           <Briefcase className="w-5 h-5" />
-          My Jobs
+          My Projects
         </button>
         <button
           onClick={() => setActiveTab("messages")}
-          className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${activeTab === "messages" ? "bg-blue-50 text-blue-700" : "text-slate-600 hover:bg-slate-50"}`}
+          className={`w-full flex items-center gap-3 px-4 py-3 rounded-md text-sm font-medium transition-colors ${activeTab === "messages" ? "bg-[#0a1f44] text-white" : "text-slate-600 hover:bg-slate-50"}`}
         >
           <MessageSquare className="w-5 h-5" />
           Messages
         </button>
         <button
           onClick={() => setActiveTab("saved")}
-          className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${activeTab === "saved" ? "bg-blue-50 text-blue-700" : "text-slate-600 hover:bg-slate-50"}`}
+          className={`w-full flex items-center gap-3 px-4 py-3 rounded-md text-sm font-medium transition-colors ${activeTab === "saved" ? "bg-[#0a1f44] text-white" : "text-slate-600 hover:bg-slate-50"}`}
         >
           <Heart className="w-5 h-5" />
           Saved Pros
         </button>
         <button
           onClick={() => setActiveTab("profile")}
-          className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${activeTab === "profile" ? "bg-blue-50 text-blue-700" : "text-slate-600 hover:bg-slate-50"}`}
+          className={`w-full flex items-center gap-3 px-4 py-3 rounded-md text-sm font-medium transition-colors ${activeTab === "profile" ? "bg-[#0a1f44] text-white" : "text-slate-600 hover:bg-slate-50"}`}
         >
           <User className="w-5 h-5" />
           Profile
         </button>
         <button
           onClick={() => setActiveTab("notifications")}
-          className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${activeTab === "notifications" ? "bg-blue-50 text-blue-700" : "text-slate-600 hover:bg-slate-50"}`}
+          className={`w-full flex items-center gap-3 px-4 py-3 rounded-md text-sm font-medium transition-colors ${activeTab === "notifications" ? "bg-[#0a1f44] text-white" : "text-slate-600 hover:bg-slate-50"}`}
         >
           <Bell className="w-5 h-5" />
           Notifications
@@ -290,7 +291,7 @@ export function CustomerDashboard() {
       <div className="p-4 border-t border-slate-100 mt-4">
         <button
           onClick={handleSignOut}
-          className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-red-600 hover:bg-red-50 transition-colors"
+          className="w-full flex items-center gap-3 px-4 py-3 rounded-md text-sm font-medium text-red-600 hover:bg-red-50 transition-colors"
         >
           <LogOut className="w-5 h-5" />
           Sign Out
@@ -300,89 +301,101 @@ export function CustomerDashboard() {
   );
 
   const renderJobsList = () => (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h2 className="text-2xl font-bold text-[#0a1f44]">Active Projects</h2>
+    <div className="space-y-8">
+      {/* Concierge Header */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-slate-200">
+        <div>
+          <h2 className="text-3xl font-serif font-bold text-[#0a1f44] mb-2">
+            Welcome back.
+          </h2>
+          <p className="text-slate-500 text-lg">
+            You have 3 new proposals to review across your active projects.
+          </p>
+        </div>
         <Button
           onClick={() => navigate("/post-job")}
-          className="bg-blue-600 hover:bg-blue-700 text-white gap-2"
+          className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white px-6 py-6 text-base font-semibold shadow-lg hover:shadow-xl transition-all"
         >
-          <Plus className="w-4 h-4" /> Post a Job
+          <Plus className="w-5 h-5 mr-2" /> Start New Project
         </Button>
       </div>
 
       {mockJobs.length === 0 ? (
-        <div className="bg-white rounded-2xl p-12 text-center border border-slate-200 shadow-sm">
-          <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-400">
-            <Briefcase className="w-8 h-8" />
+        <div className="bg-white rounded-xl p-12 text-center border border-slate-200 shadow-sm">
+          <div className="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-6 text-[#0a1f44]">
+            <Home className="w-10 h-10 stroke-[1.5]" />
           </div>
-          <h3 className="text-lg font-bold text-[#0a1f44] mb-2">No jobs yet</h3>
-          <p className="text-slate-500 mb-6">
-            Post your first job to get quotes from verified specialists.
+          <h3 className="text-2xl font-serif font-bold text-[#0a1f44] mb-3">
+            Ready to upgrade your home?
+          </h3>
+          <p className="text-slate-500 text-lg mb-8 max-w-md mx-auto">
+            Post your first project to connect with verified specialists.
           </p>
           <Button
             onClick={() => navigate("/post-job")}
             size="lg"
-            className="bg-blue-600 hover:bg-blue-700 text-white"
+            className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white px-8 h-12 text-base"
           >
             Post a Job Now
           </Button>
         </div>
       ) : (
-        <div className="space-y-4">
+        <div className="space-y-6">
           {mockJobs.map((job) => (
             <div
               key={job.id}
-              className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
+              className="bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden group"
             >
-              <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
-                <div>
-                  <div className="flex items-center gap-3 mb-2">
-                    {getStatusBadge(job.status)}
-                    <span className="text-xs text-slate-400 font-medium">
-                      {job.created_at}
-                    </span>
-                  </div>
-                  <h3 className="text-xl font-bold text-[#0a1f44] mb-1">
-                    {job.title}
-                  </h3>
-                  <div className="flex items-center gap-2 text-sm text-slate-500">
-                    <MapPin className="w-4 h-4" /> {job.location}
-                  </div>
+              <div className="flex flex-col md:flex-row">
+                {/* Thumbnail */}
+                <div className="w-full md:w-[180px] h-48 md:h-auto bg-slate-100 flex items-center justify-center flex-shrink-0 border-b md:border-b-0 md:border-r border-slate-100">
+                  <Home className="w-10 h-10 text-slate-300" />
                 </div>
-                <div className="flex items-center gap-4">
-                  <div className="text-center px-4 py-2 bg-slate-50 rounded-lg">
-                    <div className="text-lg font-bold text-[#0a1f44]">
-                      {job.quotes_count}
-                    </div>
-                    <div className="text-xs text-slate-500 uppercase tracking-wide">
-                      Quotes
-                    </div>
-                  </div>
-                  <div className="text-center px-4 py-2 bg-slate-50 rounded-lg">
-                    <div className="text-lg font-bold text-[#0a1f44]">
-                      {job.views_count}
-                    </div>
-                    <div className="text-xs text-slate-500 uppercase tracking-wide">
-                      Views
-                    </div>
-                  </div>
-                </div>
-              </div>
 
-              <div className="flex items-center justify-between pt-4 border-t border-slate-100 mt-4">
-                <div className="text-sm font-medium text-slate-600">
-                  Budget: <span className="text-[#0a1f44]">{job.budget}</span>
+                {/* Content */}
+                <div className="flex-1 p-6 md:p-8 flex flex-col md:flex-row gap-6">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-3">
+                      {getStatusBadge(job.status)}
+                      <span className="text-xs text-slate-400 font-medium">
+                        Posted {job.created_at}
+                      </span>
+                    </div>
+                    <h3 className="text-2xl font-bold text-[#0a1f44] mb-2 group-hover:text-blue-700 transition-colors">
+                      {job.title}
+                    </h3>
+                    <div className="flex items-center gap-2 text-sm text-slate-500 mb-4">
+                      <MapPin className="w-4 h-4" /> {job.location}
+                    </div>
+                    <div className="text-sm font-medium text-slate-600">
+                      Est. Budget:{" "}
+                      <span className="text-[#0a1f44] font-bold">
+                        {job.budget}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Stats & Action */}
+                  <div className="flex flex-row md:flex-col items-center md:items-end justify-between md:justify-center gap-4 md:gap-6 md:pl-8 md:border-l border-slate-100 min-w-[160px]">
+                    <div className="text-center md:text-right">
+                      <div className="text-2xl font-bold text-[#0a1f44]">
+                        {job.quotes_count}
+                      </div>
+                      <div className="text-xs text-slate-500 uppercase tracking-wide font-medium">
+                        Proposals
+                      </div>
+                    </div>
+                    <Button
+                      onClick={() => {
+                        setSelectedJob(job.id);
+                        setShowQuotes(true);
+                      }}
+                      className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white w-full md:w-auto"
+                    >
+                      Review Proposals
+                    </Button>
+                  </div>
                 </div>
-                <Button
-                  onClick={() => {
-                    setSelectedJob(job.id);
-                    setShowQuotes(true);
-                  }}
-                  className="bg-white border border-slate-200 text-[#0a1f44] hover:bg-slate-50 hover:border-slate-300"
-                >
-                  View Quotes <ChevronRight className="w-4 h-4 ml-2" />
-                </Button>
               </div>
             </div>
           ))}
@@ -398,11 +411,11 @@ export function CustomerDashboard() {
           onClick={() => setShowQuotes(false)}
           className="text-slate-400 hover:text-[#0a1f44] transition-colors"
         >
-          My Jobs
+          My Projects
         </button>
         <ChevronRight className="w-4 h-4 text-slate-300" />
         <span className="font-semibold text-[#0a1f44]">
-          Quotes for "Fix Leaky Tap"
+          Proposals for "Villa Renovation"
         </span>
       </div>
 
@@ -455,7 +468,7 @@ export function CustomerDashboard() {
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Button className="bg-green-600 hover:bg-green-700 text-white flex-1 md:flex-none">
-                    Accept Quote
+                    Accept Proposal
                   </Button>
                   <Button
                     variant="outline"
@@ -570,7 +583,7 @@ export function CustomerDashboard() {
   );
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans pb-20">
+    <div className="min-h-screen bg-[#F9F9F9] font-sans pb-20">
       <SEO
         title="My Dashboard | CostaTrades"
         description="Manage your active jobs, view quotes, and chat with specialists."
@@ -578,7 +591,7 @@ export function CustomerDashboard() {
       {/* Mobile Header */}
       <div className="lg:hidden bg-white border-b border-slate-200 p-4 sticky top-0 z-30 flex justify-between items-center">
         <h1 className="font-bold text-lg text-[#0a1f44]">Dashboard</h1>
-        <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
+        <div className="w-8 h-8 bg-[#0a1f44] rounded-full flex items-center justify-center text-white font-bold text-sm">
           {user?.email?.charAt(0).toUpperCase() || "U"}
         </div>
       </div>
@@ -625,35 +638,35 @@ export function CustomerDashboard() {
             setActiveTab("jobs");
             setShowQuotes(false);
           }}
-          className={`flex flex-col items-center p-2 rounded-lg ${activeTab === "jobs" ? "text-blue-600" : "text-slate-400"}`}
+          className={`flex flex-col items-center p-2 rounded-lg ${activeTab === "jobs" ? "text-[#0a1f44]" : "text-slate-400"}`}
         >
           <Briefcase className="w-6 h-6" />
-          <span className="text-[10px] font-medium mt-1">Jobs</span>
+          <span className="text-[10px] font-medium mt-1">Projects</span>
         </button>
         <button
           onClick={() => setActiveTab("messages")}
-          className={`flex flex-col items-center p-2 rounded-lg ${activeTab === "messages" ? "text-blue-600" : "text-slate-400"}`}
+          className={`flex flex-col items-center p-2 rounded-lg ${activeTab === "messages" ? "text-[#0a1f44]" : "text-slate-400"}`}
         >
           <MessageSquare className="w-6 h-6" />
           <span className="text-[10px] font-medium mt-1">Chat</span>
         </button>
         <button
           onClick={() => setActiveTab("notifications")}
-          className={`flex flex-col items-center p-2 rounded-lg ${activeTab === "notifications" ? "text-blue-600" : "text-slate-400"}`}
+          className={`flex flex-col items-center p-2 rounded-lg ${activeTab === "notifications" ? "text-[#0a1f44]" : "text-slate-400"}`}
         >
           <Bell className="w-6 h-6" />
           <span className="text-[10px] font-medium mt-1">Alerts</span>
         </button>
         <button
           onClick={() => setActiveTab("saved")}
-          className={`flex flex-col items-center p-2 rounded-lg ${activeTab === "saved" ? "text-blue-600" : "text-slate-400"}`}
+          className={`flex flex-col items-center p-2 rounded-lg ${activeTab === "saved" ? "text-[#0a1f44]" : "text-slate-400"}`}
         >
           <Heart className="w-6 h-6" />
           <span className="text-[10px] font-medium mt-1">Saved</span>
         </button>
         <button
           onClick={() => setActiveTab("profile")}
-          className={`flex flex-col items-center p-2 rounded-lg ${activeTab === "profile" ? "text-blue-600" : "text-slate-400"}`}
+          className={`flex flex-col items-center p-2 rounded-lg ${activeTab === "profile" ? "text-[#0a1f44]" : "text-slate-400"}`}
         >
           <User className="w-6 h-6" />
           <span className="text-[10px] font-medium mt-1">Profile</span>
