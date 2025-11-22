@@ -167,7 +167,7 @@ export default function PostJobResults() {
                     <div className="mt-3 flex items-center gap-2 text-amber-600 text-sm bg-amber-50 p-3 rounded-lg">
                       <Info className="h-4 w-4" />
                       Please enter at least 50 characters to help the
-                      tradesperson understand your needs.
+                      specialist understand your needs.
                     </div>
                   )}
                 </div>
