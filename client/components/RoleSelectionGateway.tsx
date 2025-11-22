@@ -1,65 +1,79 @@
 import { Link } from "react-router-dom";
-import { Home, UserCircle2, Briefcase } from "lucide-react";
+import { Home, Briefcase } from "lucide-react";
 
 export function RoleSelectionGateway() {
   return (
-    <section className="w-full bg-slate-50 py-16 md:py-24">
-      <div className="container-custom max-w-4xl mx-auto px-4">
-        <header className="text-center mb-10 md:mb-12">
-          <h1 className="text-2xl md:text-3xl font-bold text-[#0a1f44] mb-3">
-            Join CostaTrades
+    <section className="w-full min-h-[80vh] flex items-center justify-center bg-slate-50 py-16 md:py-24">
+      <div className="container-custom max-w-5xl mx-auto px-4">
+        {/* Header Section */}
+        <header className="text-center mb-12 md:mb-16">
+          <h1 className="text-3xl md:text-[2.5rem] font-bold text-[#0a1f44] mb-4 leading-tight">
+            Welcome to CostaTrades
           </h1>
-          <p className="text-base md:text-lg text-gray-700">
-            How do you want to use the platform?
+          <p className="text-lg text-slate-500 font-sans">
+            Select your account type to continue.
           </p>
         </header>
 
-        <div className="flex flex-col md:flex-row gap-6 md:gap-8 mb-8">
-          {/* Customer card */}
+        {/* The Selection Cards */}
+        <div className="flex flex-col md:flex-row gap-6 md:gap-6 mb-12">
+          {/* Card A: Homeowner / Demand */}
           <Link
             to="/signup"
-            className="flex-1 block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0a1f44] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 rounded-xl"
+            className="flex-1 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0a1f44] focus-visible:ring-offset-2 rounded-xl"
           >
-            <article className="h-full bg-white rounded-xl shadow-sm border border-slate-200 p-6 md:p-8 flex flex-col items-center text-center cursor-pointer transition-transform duration-200 ease-out hover:-translate-y-1.5 hover:shadow-lg">
-              <div className="mb-5 flex items-center justify-center w-14 h-14 rounded-full bg-slate-50 text-[#0a1f44]">
-                <Home className="w-7 h-7" aria-hidden="true" />
+            <article className="h-full bg-white rounded-xl shadow-sm border border-gray-200 p-10 flex flex-col items-start text-left transition-all duration-300 ease-out group-hover:-translate-y-1 group-hover:border-[#0a1f44] group-hover:shadow-md">
+              <div className="mb-8">
+                <Home 
+                  className="w-10 h-10 text-[#0a1f44] stroke-[1.5]" 
+                  aria-hidden="true" 
+                />
               </div>
-              <h2 className="text-lg md:text-xl font-semibold text-[#0a1f44] mb-2">
+              <h2 className="text-2xl font-bold text-[#0a1f44] mb-3">
                 I need a Specialist
               </h2>
-              <p className="text-sm md:text-base text-gray-600 max-w-xs">
-                Post a job, compare proposals, and hire verified professionals.
+              <p className="text-base text-gray-600 leading-relaxed">
+                Post jobs, compare proposals, and hire verified professionals.
               </p>
             </article>
           </Link>
 
-          {/* Professional card */}
+          {/* Card B: Specialist / Supply - THE PREMIUM CARD */}
           <Link
             to="/tradesperson/details"
-            className="flex-1 block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0a1f44] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 rounded-xl"
+            className="flex-1 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0a1f44] focus-visible:ring-offset-2 rounded-xl"
           >
-            <article className="h-full rounded-xl border-2 border-[#0a1f44] bg-[#F0F4F8] p-6 md:p-8 flex flex-col items-center text-center cursor-pointer transition-transform duration-200 ease-out hover:-translate-y-1.5 hover:shadow-lg">
-              <div className="mb-5 flex items-center justify-center w-14 h-14 rounded-full bg-[#0a1f44] text-white">
-                <Briefcase className="w-7 h-7" aria-hidden="true" />
+            <article className="h-full bg-[#0A1E40] rounded-xl p-10 flex flex-col items-start text-left relative overflow-hidden transition-all duration-300 ease-out group-hover:-translate-y-1 group-hover:bg-[#0e2a55] group-hover:shadow-xl">
+              {/* Badge */}
+              <div className="absolute top-6 right-6 bg-amber-500/10 border border-amber-500/20 px-3 py-1 rounded-full">
+                <span className="text-xs font-bold text-amber-400 tracking-wider">
+                  PARTNER
+                </span>
               </div>
-              <h2 className="text-lg md:text-xl font-semibold text-[#0a1f44] mb-2">
-                I am a Specialist
+
+              <div className="mb-8">
+                <Briefcase 
+                  className="w-10 h-10 text-white stroke-[1.5]" 
+                  aria-hidden="true" 
+                />
+              </div>
+              <h2 className="text-2xl font-bold text-white mb-3">
+                I am a Professional
               </h2>
-              <p className="text-sm md:text-base text-gray-700 max-w-xs">
-                Join the network, find high-value clients, and grow your
-                business.
+              <p className="text-base text-gray-300 leading-relaxed">
+                Join the exclusive network, find high-value clients, and grow your business.
               </p>
             </article>
           </Link>
         </div>
 
-        <div className="text-center text-sm md:text-base text-gray-700">
-          <span>Already have an account? </span>
+        {/* Footer */}
+        <div className="text-center">
           <Link
             to="/login"
-            className="font-medium text-[#0a1f44] underline-offset-4 hover:underline"
+            className="text-base text-slate-500 hover:text-[#0a1f44] transition-colors font-medium"
           >
-            Log In
+            Already a member? Log In
           </Link>
         </div>
       </div>
