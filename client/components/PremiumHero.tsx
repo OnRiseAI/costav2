@@ -7,47 +7,19 @@ import {
   POST_JOB_TOWNS,
 } from "@/data/postJobSearchConfig";
 import { extractTradeAndLocation } from "@/lib/searchParser";
+import { SEARCH_PLACEHOLDERS } from "@/data/searchPlaceholders";
+import { useTypewriterPlaceholder } from "@/hooks/useTypewriterPlaceholder";
 
 export function PremiumHero() {
   const [searchValue, setSearchValue] = useState("");
   const [currentPlaceholderIndex, setCurrentPlaceholderIndex] = useState(0);
   const [displayedPlaceholder, setDisplayedPlaceholder] = useState("");
   const navigate = useNavigate();
-
-  const placeholders = [
-    "I need a plumber",
-    "I need to fit a kitchen",
-    "I have a problem with my toilet",
-    "I need a wall building",
-    "My roof needs repairs",
-    "I want to renovate my bathroom",
-    "Air conditioning installation",
-    "Pool maintenance needed",
-    "I need an electrician",
-    "Garden landscaping services",
-    "Paint my exterior walls",
-    "Tile work for my terrace",
-    "Solar panels installation",
-    "Boiler servicing required",
-    "Pest control needed",
-    "I need a handyman",
-    "Patio decking installation",
-    "Window replacement",
-    "Swimming pool restoration",
-    "General home maintenance",
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentPlaceholderIndex((prev) => (prev + 1) % placeholders.length);
-    }, 4000); // Change every 4 seconds
-
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    setDisplayedPlaceholder(placeholders[currentPlaceholderIndex]);
-  }, [currentPlaceholderIndex]);
+  const typewriterPlaceholder = useTypewriterPlaceholder(SEARCH_PLACEHOLDERS, {
+    typeSpeed: 80,
+    deleteSpeed: 40,
+    pauseMs: 2000,
+  });
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -133,7 +105,7 @@ export function PremiumHero() {
                   type="text"
                   value={searchValue}
                   onChange={(e) => setSearchValue(e.target.value)}
-                  placeholder={displayedPlaceholder}
+                  placeholder={typewriterPlaceholder || "Villa Renovation in Marbella"}
                   className="flex-1 bg-transparent text-lg text-foreground placeholder-muted-foreground focus:outline-none font-light transition-opacity duration-500"
                 />
                 <Button

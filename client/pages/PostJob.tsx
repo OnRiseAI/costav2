@@ -47,6 +47,8 @@ import {
 import { getTradeServices, tradeServices } from "@/data/tradeServices";
 import { SEO } from "@/components/SEO";
 import { extractTradeAndLocation } from "@/lib/searchParser";
+import { SEARCH_PLACEHOLDERS } from "@/data/searchPlaceholders";
+import { useTypewriterPlaceholder } from "@/hooks/useTypewriterPlaceholder";
 
 const categories = [
   {
@@ -121,14 +123,6 @@ const categories = [
   },
 ];
 
-const PLACEHOLDERS = [
-  "What trade are you looking for? (e.g. Plumber)",
-  "Need a leak fixed? Try 'Plumber'",
-  "Wiring issues? Search for 'Electrician'",
-  "Time for a renovation? Find a 'Builder'",
-  "Garden needs care? Look for a 'Gardener'",
-];
-
 export default function PostJob() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -137,12 +131,15 @@ export default function PostJob() {
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [selectedSubTask, setSelectedSubTask] = useState<string>("");
   const [postcode, setPostcode] = useState<string>("");
-  const [placeholderIndex, setPlaceholderIndex] = useState(0);
-  const [fade, setFade] = useState(true);
   const [searchQuery, setSearchQuery] = useState(
     searchParams.get("option") || "",
   );
   const [openCombobox, setOpenCombobox] = useState(false);
+  const typewriterPlaceholder = useTypewriterPlaceholder(SEARCH_PLACEHOLDERS, {
+    typeSpeed: 80,
+    deleteSpeed: 40,
+    pauseMs: 2000,
+  });
 
   useEffect(() => {
     const option = searchParams.get("option");
@@ -165,18 +162,6 @@ export default function PostJob() {
 
     handleHeroSearch(combinedQuery);
   }, [searchParams]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setFade(false);
-      setTimeout(() => {
-        setPlaceholderIndex((prev) => (prev + 1) % PLACEHOLDERS.length);
-        setFade(true);
-      }, 500); // Wait for fade out before changing text
-    }, 4000); // Change every 4 seconds
-
-    return () => clearInterval(interval);
-  }, []);
 
   const handleCategorySelect = (categorySlug: string) => {
     setSelectedCategory(categorySlug);
@@ -349,8 +334,8 @@ export default function PostJob() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleHeroSearch()}
-                placeholder={PLACEHOLDERS[placeholderIndex]}
-                className={`flex-1 min-w-0 h-14 text-lg text-gray-900 placeholder:text-gray-400 focus:outline-none bg-transparent transition-opacity duration-500 ${fade ? "opacity-100" : "opacity-0"}`}
+                placeholder={typewriterPlaceholder || "Villa Renovation in Marbella"}
+                className="flex-1 min-w-0 h-14 text-lg text-gray-900 placeholder:text-gray-400 focus:outline-none bg-transparent transition-opacity duration-500"
               />
               <button
                 onClick={handleHeroSearch}
