@@ -17,7 +17,7 @@ export default function CostGuidesPage() {
     {
       service: "Electrician (Rewire 2-Bed)",
       low: "€3,000",
-      high: "€5,000",
+      high: "���5,000",
       avg: "€4,200",
     },
     {
@@ -459,7 +459,7 @@ export default function CostGuidesPage() {
           <div className="space-y-6">
             <div className="bg-white p-6 rounded-xl border border-slate-200">
               <h3 className="font-bold text-lg text-[#0a1f44] mb-2">
-                Do Spanish tradespeople charge VAT (IVA)?
+                Do Spanish specialists charge VAT (IVA)?
               </h3>
               <p className="text-slate-600">
                 Yes, legally they must charge <strong>21% IVA</strong>. Be wary
