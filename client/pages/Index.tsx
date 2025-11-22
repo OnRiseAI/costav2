@@ -192,7 +192,7 @@ export default function Index() {
   return (
     <div className="min-h-screen">
       <SEO
-        title="CostaTrades | Find Verified Tradespeople in Costa del Sol"
+        title="CostaTrades | Find Verified Specialists in Costa del Sol"
         description="Connect with trusted plumbers, electricians, and builders in Marbella, Estepona & Mijas. Verified reviews, free quotes, and guaranteed work."
         schema={[
           {
