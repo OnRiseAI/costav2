@@ -125,6 +125,14 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  to="/faq"
+                  className="text-sm text-gray-600 hover:text-[#0a1f44]"
+                >
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link
                   to="/careers"
                   className="text-sm text-gray-600 hover:text-[#0a1f44]"
                 >
