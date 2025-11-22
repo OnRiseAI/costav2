@@ -30,6 +30,7 @@ import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import CookiePolicy from "@/pages/CookiePolicy";
 import BlogPage from "@/pages/BlogPage";
 import BlogPostPage from "@/pages/BlogPostPage";
+import CareersPage from "@/pages/CareersPage";
 import HolidayHomesPage from "@/pages/HolidayHomesPage";
 import LandlordsPage from "@/pages/LandlordsPage";
 import SEOTradePage from "@/pages/SEOTradePage";
@@ -85,6 +86,7 @@ function AppContent() {
             <Route path="/holiday-homes" element={<HolidayHomesPage />} />
             <Route path="/landlords" element={<LandlordsPage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/careers" element={<CareersPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
