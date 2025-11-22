@@ -63,7 +63,7 @@ export default function TermsOfService() {
               <p className="mb-4">
                 <strong>CostaTrades.com</strong> (operated by {companyName}) is
                 a directory and connection platform designed to introduce
-                homeowners to local tradespeople.
+    homeowners to local professionals.
               </p>
               <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
                 <p className="font-medium text-blue-900">Important Notice:</p>
@@ -71,7 +71,7 @@ export default function TermsOfService() {
                   We are <strong>not</strong> a construction company. We do not
                   employ the tradespeople listed on our site. The contract for
                   any work performed is strictly between the Homeowner and the
-                  Tradesperson.
+                  Specialist.
                 </p>
               </div>
             </section>
@@ -91,7 +91,7 @@ export default function TermsOfService() {
               <ul className="list-disc pl-5 space-y-2 mb-4">
                 <li>
                   <strong>Quality of Work:</strong> Any defects, poor
-                  workmanship, or failure to complete work by a tradesperson.
+                  workmanship, or failure to complete work by a specialist.
                 </li>
                 <li>
                   <strong>Financial Disputes:</strong> Any disputes regarding
@@ -104,7 +104,7 @@ export default function TermsOfService() {
               </ul>
               <p>
                 Our role is limited to facilitating the initial connection. We
-                do not supervise, direct, or control the tradespeople.
+                do not supervise, direct, or control the professionals.
               </p>
             </section>
 
@@ -131,14 +131,14 @@ export default function TermsOfService() {
                     </li>
                     <li>
                       Pay for agreed services in accordance with the terms
-                      settled with the tradesperson.
+                      settled with the specialist.
                     </li>
                   </ul>
                 </div>
 
                 <div>
                   <h3 className="font-bold text-lg text-[#0a1f44] mb-2">
-                    For Tradespeople
+                    For Professionals
                   </h3>
                   <p>You agree to:</p>
                   <ul className="list-disc pl-5 space-y-1 mt-2">
@@ -166,7 +166,7 @@ export default function TermsOfService() {
                 4. Verification Disclaimer
               </h2>
               <p className="mb-4">
-                While we conduct checks on tradespeople (including ID
+                While we conduct checks on professionals (including ID
                 verification and insurance checks), these measures{" "}
                 <strong>do not guarantee</strong> future performance or conduct.
               </p>
