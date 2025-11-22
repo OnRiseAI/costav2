@@ -57,7 +57,7 @@ export default function VerificationPromisePage() {
         <div className="absolute inset-0 z-0 opacity-20">
           <img
             src="https://images.pexels.com/photos/8487400/pexels-photo-8487400.jpeg"
-            alt="Professional tradesperson"
+            alt="Specialist"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-[#0a1f44]/80 mix-blend-multiply"></div>
@@ -72,7 +72,7 @@ export default function VerificationPromisePage() {
           </div>
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight tracking-tight animate-slide-up">
-            Only the Best Tradespeople Want to Be Here
+            Only the Best Specialists Want to Be Here
           </h1>
 
           <p
@@ -97,7 +97,7 @@ export default function VerificationPromisePage() {
           </h2>
 
           <p className="text-xl text-slate-600 leading-relaxed font-light">
-            Unlike anonymous listings or social media groups, every tradesperson
+            Unlike anonymous listings or social media groups, every specialist
             on CostaTrades has a public profile with their real business
             details. They know their reputation is on the line with every
             job—which means they deliver quality work, every time.
@@ -147,7 +147,7 @@ export default function VerificationPromisePage() {
                 They Choose to Be Here
               </h3>
               <p className="text-slate-600 leading-relaxed">
-                The best tradespeople actively want to be on CostaTrades because
+                The best specialists actively want to be on CostaTrades because
                 it shows they are serious about their reputation and their
                 business.
               </p>
@@ -311,7 +311,7 @@ export default function VerificationPromisePage() {
           <div className="flex flex-col items-center gap-8">
             <Link to="/post-job">
               <Button className="bg-[#E31E24] hover:bg-[#C41218] text-white px-12 py-8 text-xl rounded-full font-bold shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300">
-                Find a Tradesperson
+                Find a Verified Specialist
               </Button>
             </Link>
 
