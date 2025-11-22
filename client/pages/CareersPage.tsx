@@ -7,11 +7,11 @@ import { SEO } from "@/components/SEO";
 export default function CareersPage() {
   return (
     <>
-      <SEO 
-        title="Careers | CostaTrades" 
-        description="Join the team redefining professional standards on the Costa del Sol." 
+      <SEO
+        title="Careers | CostaTrades"
+        description="Join the team redefining professional standards on the Costa del Sol."
       />
-      
+
       <div className="min-h-screen font-sans">
         {/* Section 1: The Hero (Status Update) */}
         <section className="bg-[#0A1E40] text-white py-24 md:py-32 relative overflow-hidden">
@@ -20,13 +20,15 @@ export default function CareersPage() {
             <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-white blur-3xl"></div>
             <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-blue-400 blur-3xl"></div>
           </div>
-          
+
           <div className="container mx-auto px-4 relative z-10 text-center max-w-4xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 tracking-tight leading-tight">
               Help us redefine professional standards on the Costa del Sol.
             </h1>
             <p className="text-lg md:text-xl text-blue-100/90 max-w-2xl mx-auto leading-relaxed font-light">
-              Our team is currently fully staffed. However, we are always interested in connecting with exceptional talent for future opportunities.
+              Our team is currently fully staffed. However, we are always
+              interested in connecting with exceptional talent for future
+              opportunities.
             </p>
           </div>
         </section>
@@ -37,16 +39,19 @@ export default function CareersPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-[#2f2f2f] text-center mb-16">
               The CostaTrades Culture
             </h2>
-            
+
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {/* Card 1 */}
               <div className="p-8 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
                 <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 text-[#0A1E40]">
                   <Globe className="w-7 h-7" />
                 </div>
-                <h3 className="text-xl font-bold text-[#0A1E40] mb-3">International Mindset</h3>
+                <h3 className="text-xl font-bold text-[#0A1E40] mb-3">
+                  International Mindset
+                </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  A diverse team serving British, German, Scandinavian, and Spanish clients.
+                  A diverse team serving British, German, Scandinavian, and
+                  Spanish clients.
                 </p>
               </div>
 
@@ -55,9 +60,12 @@ export default function CareersPage() {
                 <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 text-[#0A1E40]">
                   <Rocket className="w-7 h-7" />
                 </div>
-                <h3 className="text-xl font-bold text-[#0A1E40] mb-3">High Impact</h3>
+                <h3 className="text-xl font-bold text-[#0A1E40] mb-3">
+                  High Impact
+                </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  We are modernizing an entire industry, not just building a directory.
+                  We are modernizing an entire industry, not just building a
+                  directory.
                 </p>
               </div>
 
@@ -66,9 +74,12 @@ export default function CareersPage() {
                 <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 text-[#0A1E40]">
                   <Sun className="w-7 h-7" />
                 </div>
-                <h3 className="text-xl font-bold text-[#0A1E40] mb-3">Balance & Focus</h3>
+                <h3 className="text-xl font-bold text-[#0A1E40] mb-3">
+                  Balance & Focus
+                </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Hard work on a premium product, without forgetting the Costa lifestyle.
+                  Hard work on a premium product, without forgetting the Costa
+                  lifestyle.
                 </p>
               </div>
             </div>
@@ -91,13 +102,15 @@ export default function CareersPage() {
               {[
                 "Senior React Developer (Remote)",
                 "B2B Partnership Manager (Marbella)",
-                "Customer Success German/English (Estepona)"
+                "Customer Success German/English (Estepona)",
               ].map((role, index) => (
-                <div 
+                <div
                   key={index}
                   className="bg-white p-6 rounded-xl border border-gray-200 flex items-center justify-between opacity-60 grayscale select-none"
                 >
-                  <span className="font-medium text-gray-500 text-lg">{role}</span>
+                  <span className="font-medium text-gray-500 text-lg">
+                    {role}
+                  </span>
                   <span className="bg-gray-100 text-gray-500 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-gray-200">
                     Filled
                   </span>
@@ -113,16 +126,19 @@ export default function CareersPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-[#0A1E40] mb-8">
               Be the first to know.
             </h2>
-            
-            <form className="flex flex-col sm:flex-row gap-4" onSubmit={(e) => e.preventDefault()}>
-              <Input 
-                type="email" 
-                placeholder="Enter your email address" 
+
+            <form
+              className="flex flex-col sm:flex-row gap-4"
+              onSubmit={(e) => e.preventDefault()}
+            >
+              <Input
+                type="email"
+                placeholder="Enter your email address"
                 className="h-12 bg-white border-gray-200 text-lg"
                 required
               />
-              <Button 
-                type="submit" 
+              <Button
+                type="submit"
                 className="h-12 px-8 bg-[#0A1E40] hover:bg-[#0A1E40]/90 text-white font-semibold text-lg whitespace-nowrap"
               >
                 Join Talent Pool
