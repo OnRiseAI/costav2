@@ -231,7 +231,7 @@ export default function Index() {
           {
             "@context": "https://schema.org",
             "@type": "WebPage",
-            name: "CostaTrades | Find Verified Tradespeople in Costa del Sol",
+            name: "CostaTrades | Find Verified Specialists in Costa del Sol",
             url: "https://www.costatrades.com",
             description:
               "Connect with trusted plumbers, electricians, and builders in Marbella, Estepona & Mijas.",
