@@ -25,8 +25,8 @@ export function WhyTrustCostaTrade() {
     },
     {
       icon: Globe,
-      heading: "Multilingual support",
-      text: "Many professionals offer communication in English, Spanish, German and French.",
+      heading: "Multilingual Experts",
+      text: "Many professionals offer communication in English, Spanish, German, and Scandinavian.",
       color: "text-blue-600",
       bgColor: "bg-blue-50",
     },

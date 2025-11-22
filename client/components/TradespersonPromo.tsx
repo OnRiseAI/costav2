@@ -54,16 +54,16 @@ export function TradespersonPromo() {
             </div>
 
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight">
-              Are you a tradesperson? <br />
+              Are you a Top-Rated Professional? <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-blue-100 to-white">
-                Grow your business with us.
+                Grow your business with premium clients.
               </span>
             </h2>
 
             <p className="text-lg md:text-xl text-blue-100/70 mb-10 leading-relaxed max-w-xl font-light">
-              Join CostaTrade for free and connect with homeowners who need your
-              expertise. We're here to help you succeed with verified leads and
-              tools to manage your reputation.
+              Join the Costa del Sol's only curated network for high-value Expat
+              clients. We help you stand out with verified leads and a premium
+              reputation.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-16">
@@ -72,7 +72,7 @@ export function TradespersonPromo() {
                   size="lg"
                   className="w-full sm:w-auto bg-white text-[#0a1f44] hover:bg-blue-50 font-semibold text-base px-8 h-14 rounded-full shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-all duration-300"
                 >
-                  Add your business for free
+                  Apply to Join
                 </Button>
               </Link>
               <Link to="/how-it-works-trades">

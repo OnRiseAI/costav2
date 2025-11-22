@@ -54,11 +54,10 @@ export function HowItWorks() {
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-20">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0a1f44] mb-6 tracking-tight">
-            How CostaTrade Works
+            How to find your Specialist
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed">
-            A simple, guided process for finding trusted and verified
-            tradespeople across Costa del Sol.
+            A simple, guided process for finding trusted and verified professionals across the Costa del Sol.
           </p>
         </div>
 
@@ -123,7 +122,7 @@ export function HowItWorks() {
               size="lg"
               className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white text-lg px-10 py-7 rounded-2xl font-semibold shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
             >
-              Find a Verified Tradesperson
+              Find a Verified Specialist
             </Button>
           </Link>
           <p className="text-center text-sm text-muted-foreground font-light max-w-2xl">
