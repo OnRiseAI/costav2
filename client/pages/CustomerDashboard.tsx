@@ -317,7 +317,7 @@ export function CustomerDashboard() {
           </div>
           <h3 className="text-lg font-bold text-[#0a1f44] mb-2">No jobs yet</h3>
           <p className="text-slate-500 mb-6">
-            Post your first job to get quotes from verified tradespeople.
+            Post your first job to get quotes from verified specialists.
           </p>
           <Button
             onClick={() => navigate("/post-job")}
@@ -482,7 +482,7 @@ export function CustomerDashboard() {
       <div className="flex items-center justify-between">
         <h2 className="text-2xl font-bold text-[#0a1f44]">Saved Pros</h2>
         <p className="text-sm text-slate-500">
-          Quickly rehire tradespeople you trust.
+          Quickly rehire specialists you trust.
         </p>
       </div>
 
@@ -495,7 +495,7 @@ export function CustomerDashboard() {
             No saved pros yet
           </h3>
           <p className="text-slate-500 mb-6">
-            Save tradespeople from your quotes or search results to find them
+            Save specialists from your quotes or search results to find them
             again quickly.
           </p>
         </div>
@@ -572,7 +572,7 @@ export function CustomerDashboard() {
     <div className="min-h-screen bg-slate-50 font-sans pb-20">
       <SEO
         title="My Dashboard | CostaTrades"
-        description="Manage your active jobs, view quotes, and chat with tradespeople."
+        description="Manage your active jobs, view quotes, and chat with specialists."
       />
       {/* Mobile Header */}
       <div className="lg:hidden bg-white border-b border-slate-200 p-4 sticky top-0 z-30 flex justify-between items-center">
@@ -598,7 +598,7 @@ export function CustomerDashboard() {
                 <MessageSquare className="w-12 h-12 text-slate-300 mx-auto mb-4" />
                 <h3 className="text-lg font-bold text-[#0a1f44]">Messages</h3>
                 <p className="text-slate-500">
-                  Select a quote to start messaging a tradesperson.
+                  Select a quote to start messaging a specialist.
                 </p>
               </div>
             )}
