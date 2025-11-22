@@ -370,7 +370,7 @@ export function Tradespeople() {
         ) : (
           <div className="bg-white rounded-lg p-12 text-center">
             <p className="text-muted-foreground mb-6">
-              No tradesperson profile found. Please contact support.
+              No specialist profile found. Please contact support.
             </p>
             <Button onClick={() => navigate("/")}>Go Home</Button>
           </div>
