@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import { Home, Briefcase } from "lucide-react";
+
 interface RoleSelectionGatewayProps {
   onSelectRole?: (role: "customer" | "tradesperson") => void;
 }
