@@ -135,7 +135,7 @@ export default function SignupPage() {
           title="Join CostaTrades | Select Account Type"
           description="Choose how you want to use CostaTrades: as a homeowner or a professional."
         />
-        <RoleSelectionGateway />
+        <RoleSelectionGateway onSelectRole={handleRoleSelect} />
       </>
     );
   }
