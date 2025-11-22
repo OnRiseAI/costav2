@@ -16,6 +16,9 @@ import {
   Check,
   Building2,
   User,
+  AlertTriangle,
+  Flag,
+  MessageCircle,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -54,6 +57,8 @@ interface TradespersonProfileData extends Tradesperson {
     text: string;
     verified: boolean;
   }[];
+  coverImage: string;
+  isClaimed: boolean;
 }
 
 export default function TradespersonProfile() {
@@ -66,6 +71,16 @@ export default function TradespersonProfile() {
     const found = demoTradespeople.find((t) => t.slug === slug);
 
     if (found) {
+      // Determine cover image based on category
+      let coverImage = "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200&h=400&fit=crop"; // Default construction
+      if (found.tradeCategorySlug === 'pool-maintenance') {
+        coverImage = "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=1200&h=400&fit=crop";
+      } else if (found.tradeCategorySlug === 'air-conditioning') {
+        coverImage = "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=1200&h=400&fit=crop"; // AC specific
+      } else if (found.tradeCategorySlug === 'gardeners') {
+        coverImage = "https://images.unsplash.com/photo-1558904541-efa843a96f01?w=1200&h=400&fit=crop";
+      }
+
       // Enrich with mock data for the demo
       const enrichedProfile: TradespersonProfileData = {
         ...found,
@@ -166,6 +181,8 @@ export default function TradespersonProfile() {
             verified: true,
           },
         ],
+        coverImage,
+        isClaimed: found.verified, // Using verified status as proxy for claimed status for this demo
       };
       setProfile(enrichedProfile);
     }
@@ -175,7 +192,7 @@ export default function TradespersonProfile() {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        Loading...
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#0A1E40]"></div>
       </div>
     );
   }
@@ -185,7 +202,7 @@ export default function TradespersonProfile() {
       <div className="min-h-screen flex flex-col items-center justify-center p-4">
         <h1 className="text-2xl font-bold mb-4">Specialist Not Found</h1>
         <Link to="/post-job">
-          <Button>Browse Specialists</Button>
+          <Button className="bg-[#0A1E40]">Browse Specialists</Button>
         </Link>
       </div>
     );
@@ -199,122 +216,28 @@ export default function TradespersonProfile() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 pb-20 md:pb-0">
+    <div className="min-h-screen bg-gray-50 font-sans pb-20 md:pb-0">
       <SEO
-        title={`${profile.businessName} - ${profile.tradeCategory} in ${profile.location} | CostaTrades Reviews`}
-        description={`Read verified reviews for ${profile.businessName}. Verified ${profile.tradeCategory} in ${profile.location}. Request a free quote now. Phone verified.`}
-        schema={(() => {
-          const baseUrl = "https://www.costatrades.com";
-          const url = `${baseUrl}/tradesperson/${profile.slug}`;
-
-          const aggregateRating = profile.reviewCount
-            ? {
-                "@type": "AggregateRating",
-                ratingValue: Number(profile.rating.toFixed(1)),
-                reviewCount: profile.reviewCount,
-              }
-            : undefined;
-
-          const reviews = profile.reviews?.map((r) => ({
-            "@type": "Review",
-            author: r.author,
-            datePublished: new Date().toISOString(),
-            reviewBody: r.text,
-            reviewRating: {
-              "@type": "Rating",
-              ratingValue: r.rating,
-            },
-          }));
-
-          const serviceObjects = (profile.services || []).map((s) => ({
-            "@type": "Service",
-            name: s,
-            provider: {
-              "@type": "LocalBusiness",
-              name: profile.businessName,
-              url,
-            },
-          }));
-
-          const imageObjects = [
-            ...(profile.profilePhoto
-              ? [
-                  {
-                    "@type": "ImageObject",
-                    url: profile.profilePhoto,
-                    caption: profile.businessName,
-                  },
-                ]
-              : []),
-            ...profile.portfolio.map((p) => ({
-              "@type": "ImageObject",
-              url: p.image,
-              caption: p.title,
-            })),
-          ];
-
-          const localBusiness = {
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            name: profile.businessName,
-            image: imageObjects.map((i) => i.url),
-            telephone: profile.phone || undefined,
-            url,
-            priceRange: "€€",
-            address: {
-              "@type": "PostalAddress",
-              addressLocality: profile.location,
-              addressCountry: "ES",
-            },
-            makesOffer: serviceObjects,
-            review: reviews,
-            aggregateRating,
-            logo: profile.profilePhoto,
-            sameAs: [],
-          };
-
-          // Also include a WebPage object to provide page-level context
-          const webPage = {
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            name: `${profile.businessName} | CostaTrades`,
-            url,
-            description: profile.bio,
-            primaryImageOfPage: imageObjects[0] || undefined,
-            breadcrumb: {
-              "@type": "BreadcrumbList",
-              itemListElement: [
-                {
-                  "@type": "ListItem",
-                  position: 1,
-                  name: "Home",
-                  item: baseUrl,
-                },
-                {
-                  "@type": "ListItem",
-                  position: 2,
-                  name: "Pros",
-                  item: `${baseUrl}/trades`,
-                },
-                {
-                  "@type": "ListItem",
-                  position: 3,
-                  name: profile.businessName,
-                  item: url,
-                },
-              ],
-            },
-          };
-
-          return [localBusiness, webPage];
-        })()}
+        title={`${profile.businessName} - ${profile.tradeCategory} in ${profile.location} | CostaTrades`}
+        description={`Hire ${profile.businessName}, a verified ${profile.tradeCategory} in ${profile.location}. Read reviews, view portfolio, and request a quote.`}
       />
-      {/* 1. Trust Hero Section */}
-      <div className="bg-white border-b">
-        <div className="container mx-auto px-4 py-8">
-          <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
-            {/* Profile Photo */}
-            <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-white shadow-lg flex-shrink-0 bg-gray-100">
+
+      {/* 1. Hero Header (Global) */}
+      <div className="relative bg-white">
+        {/* Cover Image */}
+        <div className="h-[350px] w-full relative overflow-hidden">
+          <img
+            src={profile.coverImage}
+            alt="Cover"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A1E40]/80 to-transparent opacity-60"></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative">
+          {/* Avatar - Overlapping bottom-left */}
+          <div className="absolute -top-20 left-4 md:left-8">
+            <div className="w-[140px] h-[140px] rounded-full border-4 border-white shadow-xl overflow-hidden bg-white">
               {profile.profilePhoto ? (
                 <img
                   src={profile.profilePhoto}
@@ -322,355 +245,316 @@ export default function TradespersonProfile() {
                   className="w-full h-full object-cover"
                 />
               ) : (
-                <div className="w-full h-full flex items-center justify-center bg-primary/10 text-primary text-3xl font-bold">
+                <div className="w-full h-full flex items-center justify-center bg-[#0A1E40] text-white text-5xl font-serif font-bold">
                   {profile.businessName.charAt(0)}
                 </div>
               )}
             </div>
+          </div>
 
-            {/* Info */}
-            <div className="flex-1 w-full">
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <div>
-                  <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
-                    {profile.businessName}
-                  </h1>
-                  <div className="flex items-center gap-2 mt-1 text-gray-600">
-                    {profile.type === "Company" ? (
-                      <Building2 className="w-4 h-4" />
-                    ) : (
-                      <User className="w-4 h-4" />
-                    )}
-                    <span>{profile.type}</span>
-                    <span className="text-gray-300">|</span>
-                    <MapPin className="w-4 h-4" />
-                    <span>{profile.location}</span>
-                  </div>
-                </div>
-                <div className="hidden md:block">
-                  <Link to="/post-job">
-                    <Button
-                      size="lg"
-                      className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-md rounded-full px-8 h-12 text-base font-semibold"
-                    >
-                      Request a Quote
-                    </Button>
-                  </Link>
-                </div>
-              </div>
+          {/* Headline & Badges */}
+          <div className="pt-20 pb-8 pl-4 md:pl-8">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-[#0A1E40] mb-4">
+              {profile.businessName}
+            </h1>
 
-              {/* Badges */}
-              <div className="flex flex-wrap gap-2 mt-4">
-                {profile.verified && (
-                  <Badge
-                    variant="secondary"
-                    className="bg-blue-50 text-blue-700 border-blue-100 gap-1 px-3 py-1"
-                  >
-                    <Shield className="w-3 h-3 fill-blue-700" /> ID/CIF Verified
-                  </Badge>
-                )}
-                {profile.phone && (
-                  <Badge
-                    variant="secondary"
-                    className="bg-gray-100 text-gray-700 border-gray-200 gap-1 px-3 py-1"
-                  >
-                    <Phone className="w-3 h-3" /> Phone Verified
-                  </Badge>
-                )}
-                {profile.rating >= 4.8 && (
-                  <Badge
-                    variant="secondary"
-                    className="bg-amber-50 text-amber-700 border-amber-100 gap-1 px-3 py-1"
-                  >
-                    <Award className="w-3 h-3" /> Top Rated
-                  </Badge>
-                )}
-              </div>
+            <div className="flex flex-wrap items-center gap-3">
+              {/* Pill 1: English Speaking */}
+              <Badge className="bg-white text-[#0A1E40] border border-gray-200 hover:bg-gray-50 px-3 py-1.5 text-sm font-medium shadow-sm gap-1.5">
+                <span className="text-lg">🇬🇧</span> English Speaking
+              </Badge>
 
-              {/* Stats */}
-              <div className="flex items-center gap-6 mt-6 text-sm">
-                <div className="flex items-center gap-1">
-                  <Star className="w-5 h-5 text-amber-400 fill-amber-400" />
-                  <span className="font-bold text-lg">{profile.rating}</span>
-                  <span className="text-gray-500 underline decoration-dotted">
-                    ({profile.reviewCount} Reviews)
-                  </span>
-                </div>
-                <div className="flex items-center gap-1 text-gray-600">
-                  <Users className="w-4 h-4" />
-                  <span>Team Size: {profile.team ? "5-10" : "1-2"}</span>
-                </div>
-                <div className="flex items-center gap-1 text-gray-600">
-                  <Clock className="w-4 h-4" />
-                  <span>{profile.yearsInBusiness} Years Exp.</span>
-                </div>
-              </div>
+              {/* Pill 2: Verified (if claimed) */}
+              {profile.isClaimed && (
+                <Badge className="bg-[#0A1E40] text-white hover:bg-[#0A1E40]/90 px-3 py-1.5 text-sm font-medium shadow-sm gap-1.5 border-none">
+                  <Shield className="w-4 h-4 fill-current" /> Verified Pro
+                </Badge>
+              )}
+
+              {/* Pill 3: City */}
+              <Badge className="bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 px-3 py-1.5 text-sm font-medium shadow-sm gap-1.5">
+                <MapPin className="w-4 h-4 text-[#0A1E40]" /> {profile.location}
+              </Badge>
+
+              {/* Pill 4: Unclaimed (if !claimed) */}
+              {!profile.isClaimed && (
+                <Badge className="bg-amber-50 text-amber-700 border border-amber-200 hover:bg-amber-100 px-3 py-1.5 text-sm font-medium shadow-sm gap-1.5">
+                  <AlertTriangle className="w-4 h-4" /> Unclaimed Profile
+                </Badge>
+              )}
             </div>
           </div>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Left Column (Main Content) */}
-        <div className="lg:col-span-2 space-y-8">
-          {/* 2. About Section */}
-          <section className="bg-white rounded-xl p-6 shadow-sm border">
-            <h2 className="text-xl font-bold mb-4">
-              About {profile.businessName}
-            </h2>
-            <p className="text-gray-600 leading-relaxed mb-6">{profile.bio}</p>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-              <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-                <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
-                  <CheckCircle className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-xs text-gray-500 uppercase font-semibold">
-                    Registration (CIF)
-                  </p>
-                  <p className="font-medium text-gray-900">
-                    {profile.cif}{" "}
-                    <span className="text-green-600 text-xs ml-1">
-                      (Verified)
-                    </span>
-                  </p>
-                </div>
+      {/* 2. Main Content Grid */}
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-[65%_35%] gap-12">
+          {/* Left Column (65%) */}
+          <div className="space-y-12">
+            {/* About Section */}
+            <section>
+              <h2 className="text-2xl font-serif font-bold text-[#0A1E40] mb-6">
+                About Us
+              </h2>
+              <div className="prose prose-lg text-gray-600 leading-relaxed max-w-none">
+                <p>{profile.bio}</p>
               </div>
-              <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
-                  <Shield className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-xs text-gray-500 uppercase font-semibold">
-                    Insurance
-                  </p>
-                  <p className="font-medium text-gray-900">
-                    Liability up to €1M
-                  </p>
-                </div>
-              </div>
-            </div>
+            </section>
 
-            <div className="mb-6">
-              <h3 className="font-semibold mb-3">Services</h3>
-              <div className="flex flex-wrap gap-2">
-                {profile.services?.map((service, index) => (
-                  <Badge
-                    key={index}
-                    variant="outline"
-                    className="bg-gray-50 px-3 py-1 text-sm font-normal"
-                  >
-                    {service}
-                  </Badge>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h3 className="font-semibold mb-3">Areas Covered</h3>
-              <div className="flex flex-wrap gap-2 text-gray-600 text-sm">
-                {profile.areasCovered.map((area, index) => (
-                  <span
-                    key={index}
-                    className="flex items-center gap-1 bg-gray-50 px-3 py-1 rounded-full"
-                  >
-                    <MapPin className="w-3 h-3" /> {area}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* 2b. Meet the Team (Optional) */}
-          {profile.team && (
-            <section className="bg-white rounded-xl p-6 shadow-sm border">
-              <h2 className="text-xl font-bold mb-4">Our Experts</h2>
+            {/* Services Grid */}
+            <section>
+              <h2 className="text-2xl font-serif font-bold text-[#0A1E40] mb-6">
+                Services
+              </h2>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {profile.team.map((member, index) => (
-                  <div key={index} className="text-center">
-                    <div className="w-20 h-20 mx-auto rounded-full overflow-hidden mb-2 border-2 border-gray-100">
-                      <img
-                        src={member.photo}
-                        alt={`${member.name}, ${member.role} at ${profile.businessName} in ${profile.location}`}
-                        className="w-full h-full object-cover"
-                      />
+                {profile.services?.map((service, index) => (
+                  <div
+                    key={index}
+                    className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm flex flex-col items-center text-center hover:shadow-md transition-shadow"
+                  >
+                    <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-[#0A1E40] mb-3">
+                      <CheckCircle className="w-5 h-5" />
                     </div>
-                    <p className="font-medium text-gray-900">{member.name}</p>
-                    <p className="text-xs text-gray-500">{member.role}</p>
+                    <span className="font-medium text-gray-900">{service}</span>
                   </div>
                 ))}
               </div>
             </section>
-          )}
 
-          {/* 3. Portfolio Gallery */}
-          <section className="bg-white rounded-xl p-6 shadow-sm border">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-bold">Recent Work</h2>
-              <span className="text-sm text-gray-500">
-                {profile.portfolio.length} Projects
-              </span>
-            </div>
+            {/* Portfolio Masonry */}
+            <section>
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-2xl font-serif font-bold text-[#0A1E40]">
+                  Portfolio
+                </h2>
+                <span className="text-sm text-gray-500 font-medium">
+                  {profile.portfolio.length} Projects
+                </span>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* First image is large (Hero) */}
+                {profile.portfolio.length > 0 && (
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <div className="md:col-span-2 aspect-video rounded-2xl overflow-hidden cursor-pointer group relative">
+                        <img
+                          src={profile.portfolio[0].image}
+                          alt={profile.portfolio[0].title}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors flex items-center justify-center">
+                          <div className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-bold text-[#0A1E40] opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all">
+                            View Project
+                          </div>
+                        </div>
+                      </div>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-5xl bg-black border-none p-0">
+                      <img
+                        src={profile.portfolio[0].image}
+                        alt={profile.portfolio[0].title}
+                        className="w-full h-auto max-h-[90vh] object-contain"
+                      />
+                    </DialogContent>
+                  </Dialog>
+                )}
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {profile.portfolio.map((item) => (
-                <Dialog key={item.id}>
-                  <DialogTrigger asChild>
-                    <div className="group relative aspect-square rounded-lg overflow-hidden cursor-pointer bg-gray-100">
+                {/* Remaining images */}
+                {profile.portfolio.slice(1).map((item) => (
+                  <Dialog key={item.id}>
+                    <DialogTrigger asChild>
+                      <div className="aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer group relative">
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors flex items-center justify-center">
+                          <Camera className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </div>
+                      </div>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-5xl bg-black border-none p-0">
                       <img
                         src={item.image}
-                        alt={`${item.title} completed by ${profile.businessName} in ${profile.location}`}
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        alt={item.title}
+                        className="w-full h-auto max-h-[90vh] object-contain"
                       />
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                        <Camera className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-lg" />
-                      </div>
-                    </div>
-                  </DialogTrigger>
-                  <DialogContent className="max-w-4xl w-full p-0 overflow-hidden bg-black border-none">
-                    <div className="relative w-full h-[80vh] flex items-center justify-center bg-black">
-                      <img
-                        src={item.image}
-                        alt={`${item.title} project by ${profile.businessName} in ${profile.location}`}
-                        className="max-w-full max-h-full object-contain"
-                      />
-                      <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent text-white">
-                        <h3 className="text-lg font-medium">{item.title}</h3>
-                      </div>
-                    </div>
-                  </DialogContent>
-                </Dialog>
-              ))}
-            </div>
-          </section>
+                    </DialogContent>
+                  </Dialog>
+                ))}
+              </div>
+            </section>
 
-          {/* 4. Reviews Wall */}
-          <section
-            id="reviews-section"
-            className="bg-white rounded-xl p-6 shadow-sm border"
-          >
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold">What Customers Say</h2>
-              <div className="flex items-center gap-2">
-                <div className="flex">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <Star
-                      key={star}
-                      className={`w-4 h-4 ${star <= Math.round(profile.rating) ? "text-amber-400 fill-amber-400" : "text-gray-300"}`}
-                    />
-                  ))}
-                </div>
-                <span className="font-bold">{profile.rating}</span>
+            {/* Reviews Section */}
+            <section id="reviews-section">
+              <h2 className="text-2xl font-serif font-bold text-[#0A1E40] mb-6">
+                Client Reviews
+              </h2>
+              <div className="space-y-6">
+                {profile.reviews.map((review) => (
+                  <div key={review.id} className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                    <div className="flex justify-between items-start mb-4">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center font-bold text-gray-500">
+                          {review.author.charAt(0)}
+                        </div>
+                        <div>
+                          <div className="font-bold text-gray-900">{review.author}</div>
+                          <div className="text-xs text-gray-500">{review.date}</div>
+                        </div>
+                      </div>
+                      <div className="flex">
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            className={`w-4 h-4 ${i < review.rating ? "text-amber-400 fill-amber-400" : "text-gray-200"}`}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                    <p className="text-gray-600 italic">"{review.text}"</p>
+                    {review.verified && (
+                      <div className="mt-4 flex items-center gap-2 text-xs font-medium text-green-700 bg-green-50 inline-flex px-2 py-1 rounded-md">
+                        <CheckCircle className="w-3 h-3" /> Verified Homeowner
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </section>
+          </div>
+
+          {/* Right Column (35% - Sticky Sidebar) */}
+          <div className="hidden lg:block relative">
+            <div className="sticky top-24 space-y-6">
+              {/* 3. Conditional Logic (The Growth Engine) */}
+              
+              {/* SCENARIO A: Active Pro (Claimed) */}
+              {profile.isClaimed ? (
+                <Card className="border-none shadow-xl overflow-hidden">
+                  <div className="bg-[#0A1E40] p-6 text-white">
+                    <h3 className="text-xl font-serif font-bold mb-2">Interested in hiring?</h3>
+                    <p className="text-blue-100 text-sm">
+                      Contact {profile.businessName} directly for a quote or consultation.
+                    </p>
+                  </div>
+                  <CardContent className="p-6 space-y-4">
+                    <Link to="/post-job">
+                      <Button className="w-full bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white h-12 text-base font-bold shadow-md">
+                        Request Consultation
+                      </Button>
+                    </Link>
+                    
+                    <Button 
+                      variant="outline" 
+                      className="w-full bg-[#25D366] hover:bg-[#25D366]/90 text-white border-none h-12 text-base font-bold shadow-md flex items-center justify-center gap-2"
+                      onClick={() => window.open(`https://wa.me/${profile.phone?.replace(/[^0-9]/g, '') || ''}`, '_blank')}
+                    >
+                      <MessageCircle className="w-5 h-5 fill-current" /> WhatsApp
+                    </Button>
+
+                    <div className="pt-4 border-t border-gray-100 text-center">
+                      <p className="text-sm text-gray-500 flex items-center justify-center gap-2">
+                        <Clock className="w-4 h-4" /> Response time: ~1 hour
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              ) : (
+                /* SCENARIO B: Unclaimed Pro */
+                <Card className="border-2 border-[#C5A059] shadow-xl overflow-hidden bg-white">
+                  <CardContent className="p-8 text-center space-y-6">
+                    <div className="w-16 h-16 bg-amber-50 rounded-full flex items-center justify-center mx-auto text-[#C5A059]">
+                      <Building2 className="w-8 h-8" />
+                    </div>
+                    
+                    <div>
+                      <h3 className="text-xl font-serif font-bold text-[#0A1E40] mb-2">
+                        Is this your business?
+                      </h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        Take control of this profile. Upload photos, reply to reviews, and receive job leads directly.
+                      </p>
+                    </div>
+
+                    <Link to={`/claim?id=${profile.slug}`} className="block">
+                      <Button className="w-full bg-[#0A1E40] hover:bg-[#0A1E40]/90 text-white h-12 text-base font-bold shadow-md">
+                        Claim for Free
+                      </Button>
+                    </Link>
+                    
+                    <p className="text-xs text-gray-400">
+                      Verification required. No credit card needed.
+                    </p>
+                  </CardContent>
+                </Card>
+              )}
+
+              {/* Additional Trust Info */}
+              <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
+                <h4 className="font-bold text-[#0A1E40] mb-4 text-sm uppercase tracking-wider">
+                  Business Details
+                </h4>
+                <ul className="space-y-3 text-sm text-gray-600">
+                  <li className="flex items-center justify-between">
+                    <span>Years in Business</span>
+                    <span className="font-medium text-gray-900">{profile.yearsInBusiness}</span>
+                  </li>
+                  <li className="flex items-center justify-between">
+                    <span>Jobs Completed</span>
+                    <span className="font-medium text-gray-900">{profile.jobsCompleted}</span>
+                  </li>
+                  <li className="flex items-center justify-between">
+                    <span>Team Size</span>
+                    <span className="font-medium text-gray-900">{profile.team ? "5-10" : "1-2"}</span>
+                  </li>
+                </ul>
               </div>
             </div>
-
-            <div className="space-y-6">
-              {profile.reviews.map((review) => (
-                <div
-                  key={review.id}
-                  className="border-b last:border-0 pb-6 last:pb-0"
-                >
-                  <div className="flex justify-between items-start mb-2">
-                    <div className="flex items-center gap-2">
-                      <div className="font-semibold text-gray-900">
-                        {review.author}
-                      </div>
-                      {review.verified && (
-                        <span className="text-xs bg-green-50 text-green-700 px-2 py-0.5 rounded-full flex items-center gap-1">
-                          <Check className="w-3 h-3" /> Verified Homeowner
-                        </span>
-                      )}
-                    </div>
-                    <span className="text-sm text-gray-500">{review.date}</span>
-                  </div>
-                  <div className="flex mb-2">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <Star
-                        key={star}
-                        className={`w-3 h-3 ${star <= review.rating ? "text-amber-400 fill-amber-400" : "text-gray-300"}`}
-                      />
-                    ))}
-                  </div>
-                  <p className="text-gray-600 italic">"{review.text}"</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-6 text-center">
-              <Button
-                variant="outline"
-                className="w-full md:w-auto"
-                onClick={handleViewAllReviewsClick}
-              >
-                View All {profile.reviewCount} Reviews
-              </Button>
-            </div>
-          </section>
+          </div>
         </div>
+      </div>
 
-        {/* Right Column (Sidebar - Desktop) */}
-        <div className="hidden lg:block space-y-6">
-          <div className="bg-white rounded-xl p-6 shadow-sm border sticky top-24">
-            <h3 className="font-bold text-lg mb-4">
-              Contact {profile.businessName}
-            </h3>
-            <p className="text-gray-600 text-sm mb-6">
-              Get a free quote for your project. Response time: usually within 2
-              hours.
-            </p>
-
-            <Link to="/post-job">
-              <Button className="w-full mb-4 h-12 text-base font-semibold shadow-md bg-primary hover:bg-primary/90 text-primary-foreground rounded-full">
-                Request a Quote
+      {/* 4. Mobile Responsiveness - Fixed Bottom Bar (Unclaimed Only) */}
+      {!profile.isClaimed && (
+        <div className="fixed bottom-0 left-0 right-0 bg-[#0A1E40] p-4 z-[999] md:hidden shadow-[0_-4px_10px_rgba(0,0,0,0.2)]">
+          <div className="flex items-center justify-between gap-4">
+            <span className="text-white font-bold text-sm">
+              Own this business?
+            </span>
+            <Link to={`/claim?id=${profile.slug}`}>
+              <Button className="bg-[#C5A059] hover:bg-[#C5A059]/90 text-white font-bold px-6">
+                Claim
               </Button>
             </Link>
-
-            <div className="space-y-4 text-sm">
-              <div className="flex items-center gap-3 text-gray-600">
-                <Phone className="w-4 h-4" />
-                <span>{profile.phone || "+34 952 123 456"}</span>
-              </div>
-              <div className="flex items-center gap-3 text-gray-600">
-                <Mail className="w-4 h-4" />
-                <span>Contact via Message</span>
-              </div>
-              <div className="flex items-center gap-3 text-gray-600">
-                <Clock className="w-4 h-4" />
-                <span>Mon - Fri: 09:00 - 18:00</span>
-              </div>
-            </div>
-
-            <div className="mt-6 pt-6 border-t">
-              <p className="text-xs text-gray-500 text-center">
-                <Shield className="w-3 h-3 inline mr-1" />
-                CostaTrade Guarantee: Verified Pro
+          </div>
+        </div>
+      )}
+      
+      {/* Mobile Footer for Claimed (Optional, keeping existing "Request Quote" for UX) */}
+      {profile.isClaimed && (
+        <div className="fixed bottom-0 left-0 right-0 bg-white border-t p-4 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] md:hidden z-40">
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex-1 min-w-0">
+              <p className="font-bold text-[#0A1E40] truncate">
+                {profile.businessName}
               </p>
+              <div className="flex items-center gap-1 text-xs text-gray-600">
+                <Star className="w-3 h-3 text-amber-400 fill-amber-400" />
+                <span>{profile.rating}</span>
+              </div>
             </div>
+            <Link to="/post-job">
+              <Button className="bg-[#0A1E40] hover:bg-[#0A1E40]/90 text-white rounded-full px-6 h-10 text-sm font-bold shadow-md">
+                Request Consultation
+              </Button>
+            </Link>
           </div>
         </div>
-      </div>
-
-      {/* 5. Sticky Footer (Mobile Only) */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t p-4 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] md:hidden z-40">
-        <div className="flex items-center justify-between gap-4">
-          <div className="flex-1 min-w-0">
-            <p className="font-bold text-gray-900 truncate">
-              {profile.businessName}
-            </p>
-            <div className="flex items-center gap-1 text-xs text-gray-600">
-              <Star className="w-3 h-3 text-amber-400 fill-amber-400" />
-              <span>{profile.rating}</span>
-              <span>({profile.reviewCount})</span>
-            </div>
-          </div>
-          <Link to="/post-job">
-            <Button className="shadow-md bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 h-10 text-sm font-semibold">
-              Request a Quote
-            </Button>
-          </Link>
-        </div>
-      </div>
+      )}
     </div>
   );
 }
