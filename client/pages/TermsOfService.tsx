@@ -63,7 +63,7 @@ export default function TermsOfService() {
               <p className="mb-4">
                 <strong>CostaTrades.com</strong> (operated by {companyName}) is
                 a directory and connection platform designed to introduce
-    homeowners to local professionals.
+                homeowners to local professionals.
               </p>
               <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
                 <p className="font-medium text-blue-900">Important Notice:</p>

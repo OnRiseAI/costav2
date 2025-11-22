@@ -48,8 +48,8 @@ export default function AboutPage() {
           </div>
 
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight tracking-tight">
-            Connecting residents and holiday home owners to trusted professionals
-            you can rely on.
+            Connecting residents and holiday home owners to trusted
+            professionals you can rely on.
           </h1>
 
           <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto font-light leading-relaxed">

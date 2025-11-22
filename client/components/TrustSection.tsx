@@ -1,24 +1,25 @@
-import { CheckCircle2, Shield, Star } from 'lucide-react';
+import { CheckCircle2, Shield, Star } from "lucide-react";
 
 export function TrustSection() {
   const trustFeatures = [
     {
       icon: Shield,
-      title: 'Guarantee',
-      description: 'We guarantee Costa del Sol professionals\' work, claim up to €1000',
-      link: 'T&Cs apply',
+      title: "Guarantee",
+      description:
+        "We guarantee Costa del Sol professionals' work, claim up to €1000",
+      link: "T&Cs apply",
     },
     {
       icon: Star,
-      title: 'Reviewed',
-      description: 'Over 50,000 reviews have been published on our platform',
+      title: "Reviewed",
+      description: "Over 50,000 reviews have been published on our platform",
       link: null,
     },
     {
       icon: CheckCircle2,
-      title: 'Checked',
-      description: 'Every specialist has passed up to 12 checks',
-      link: 'Find out more',
+      title: "Checked",
+      description: "Every specialist has passed up to 12 checks",
+      link: "Find out more",
     },
   ];
 
@@ -33,7 +34,9 @@ export function TrustSection() {
               </div>
             </div>
             <div>
-              <h3 className="text-xl font-bold text-foreground mb-2">{feature.title}</h3>
+              <h3 className="text-xl font-bold text-foreground mb-2">
+                {feature.title}
+              </h3>
               <p className="text-muted-foreground">
                 {feature.description}
                 {feature.link && (

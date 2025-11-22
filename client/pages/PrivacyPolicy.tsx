@@ -73,8 +73,9 @@ export default function PrivacyPolicy() {
               </p>
               <p>
                 We operate as a marketplace connecting homeowners with
-                professionals. By using our platform, you agree to the collection
-                and use of information in accordance with this policy.
+                professionals. By using our platform, you agree to the
+                collection and use of information in accordance with this
+                policy.
               </p>
             </section>
 

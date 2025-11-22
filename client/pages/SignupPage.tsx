@@ -171,8 +171,8 @@ export default function SignupPage() {
                 <div>
                   <p className="font-semibold">Verified local pros only</p>
                   <p className="text-sm text-blue-100/80">
-                    Every specialist goes through checks before appearing on
-                    the platform.
+                    Every specialist goes through checks before appearing on the
+                    platform.
                   </p>
                 </div>
               </div>

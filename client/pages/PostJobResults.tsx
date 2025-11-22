@@ -166,8 +166,8 @@ export default function PostJobResults() {
                   {jobDescription.length > 0 && jobDescription.length < 50 && (
                     <div className="mt-3 flex items-center gap-2 text-amber-600 text-sm bg-amber-50 p-3 rounded-lg">
                       <Info className="h-4 w-4" />
-                      Please enter at least 50 characters to help the
-                      specialist understand your needs.
+                      Please enter at least 50 characters to help the specialist
+                      understand your needs.
                     </div>
                   )}
                 </div>

@@ -165,7 +165,8 @@ export function MegaFooter() {
           <div className="mt-12 pt-8 border-t border-gray-800 text-center">
             <p className="text-sm text-gray-500 max-w-3xl mx-auto">
               CostaTrades connects homeowners on the Costa del Sol with verified
-              local professionals. Serving Marbella, Estepona, Mijas, and beyond.
+              local professionals. Serving Marbella, Estepona, Mijas, and
+              beyond.
             </p>
           </div>
         </div>

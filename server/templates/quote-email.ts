@@ -20,9 +20,9 @@ const getTimingLabel = (timing: string): string => {
   const timingLabels: Record<string, string> = {
     flexible: "I'm flexible on the start date",
     urgent: "It's urgent (within 48 hours)",
-    '2weeks': 'Within 2 weeks',
-    '1month': 'Within 1 month',
-    budgeting: "I'm budgeting / researching"
+    "2weeks": "Within 2 weeks",
+    "1month": "Within 1 month",
+    budgeting: "I'm budgeting / researching",
   };
   return timingLabels[timing] || timing;
 };

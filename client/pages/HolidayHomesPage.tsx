@@ -53,9 +53,8 @@ export default function HolidayHomesPage() {
           </h1>
 
           <p className="text-xl md:text-2xl text-blue-100 mb-10 font-light max-w-2xl mx-auto leading-relaxed">
-            Find trusted specialists who specialize in working with
-            non-resident owners. English-speaking, reliable, and photo-verified
-            updates.
+            Find trusted specialists who specialize in working with non-resident
+            owners. English-speaking, reliable, and photo-verified updates.
           </p>
 
           <Link to="/post-job">
@@ -83,7 +82,7 @@ export default function HolidayHomesPage() {
               </h3>
               <p className="text-slate-600 leading-relaxed">
                 Communication is key. Filter for specialists who speak your
-    language to ensure nothing gets lost in translation.
+                language to ensure nothing gets lost in translation.
               </p>
             </div>
 

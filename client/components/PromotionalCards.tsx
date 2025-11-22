@@ -18,8 +18,7 @@ export function PromotionalCards() {
                 Simplify your home improvements with our app
               </h3>
               <p className="text-blue-100/90 mb-6">
-                Search, message and book with real-time updates from
-                specialists
+                Search, message and book with real-time updates from specialists
               </p>
 
               <div className="flex items-center gap-4">
