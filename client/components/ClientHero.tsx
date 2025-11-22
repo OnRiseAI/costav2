@@ -147,11 +147,7 @@ export function ClientHero() {
         <div className="max-w-3xl mx-auto">
           {/* Premium Headline */}
           <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white text-center mb-8 leading-tight tracking-tighter animate-fade-in">
-            Find the right{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-cyan-200">
-              tradesperson
-            </span>{" "}
-            for your job
+            Find Verified Specialists on the Costa del Sol
           </h2>
 
           {/* Elegant Subheading */}
@@ -159,7 +155,7 @@ export function ClientHero() {
             className="text-xl md:text-2xl text-blue-100/90 text-center mb-12 leading-relaxed font-light max-w-2xl mx-auto animate-fade-in"
             style={{ animationDelay: "0.1s" }}
           >
-            Get quotes from trusted local professionals in minutes.
+            Connect with trusted Home Improvement & Maintenance Professionals who speak your language.
           </p>
 
           {/* Premium Search Bar */}
