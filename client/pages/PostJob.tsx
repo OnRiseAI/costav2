@@ -270,7 +270,7 @@ export default function PostJob() {
     <div className="min-h-screen bg-white">
       <SEO
         title="Post a Job for Free | Find Local Specialists"
-        description="Describe your project and get 3 free quotes from verified local experts within 24 hours. No obligation."
+        description="Describe your project details and get free proposals from trusted tradespeople on the Costa del Sol. Connect with the right expert for your job."
         schema={{
           "@context": "https://schema.org",
           "@type": "Service",
