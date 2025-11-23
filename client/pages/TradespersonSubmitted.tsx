@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/SEO";
 import { CheckCircle2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 

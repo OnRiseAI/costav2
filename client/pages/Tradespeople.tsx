@@ -11,6 +11,7 @@ import {
   LogOut,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/SEO";
 import { useAuth, supabase } from "@/contexts/AuthContext";
 
 interface TradesPersonProfile {
