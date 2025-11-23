@@ -1,32 +1,24 @@
 [build]
-  base = ""
   command = "npm run build"
-  publish = "dist/spa"
+  publish = "client/dist/spa"
 
+# SPA routing for your Vite/React app
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
-  [prerender]
-  enabled = true
-  
-# Prerender (safe core pages only)
-[[prerender]]
-  path = "/"
-[[prerender]]
-  path = "/about"
-[[prerender]]
-  path = "/contact"
-[[prerender]]
-  path = "/faq"
-[[prerender]]
-  path = "/cost-guides"
-[[prerender]]
-  path = "/holiday-homes"
-[[prerender]]
-  path = "/landlords"
-[[prerender]]
-  path = "/blog"
-[[prerender]]
-  path = "/404"
+# Prerender.io integration through Netlify plugin
+[[plugins]]
+  package = "netlify-plugin-prerendercloud"
+
+[plugins.inputs]
+  prerenderToken = "CYKl4MyWGz4qfRUYvDSo"
+  # recommended defaults
+  userAgentPattern = ".*"
+  # this ensures ALL crawlers get prerendered HTML
+  prerenderServiceURL = "https://service.prerender.io"
+
+# Optional: make sure functions folder is not forced
+[functions]
+  directory = "netlify/functions"
