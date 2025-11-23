@@ -53,7 +53,6 @@ function AppContent() {
           <Routes>
             {/* Homepage */}
             <Route path="/" element={<Index />} />
-            <Route path="/home" element={<Index />} />
 
             {/* SEO Trade Pages */}
             <Route path="/trades/:trade/:location" element={<SEOTradePage />} />
