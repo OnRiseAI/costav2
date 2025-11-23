@@ -668,7 +668,7 @@ export function CustomerDashboard() {
       />
       {/* Mobile Header */}
       <div className="lg:hidden bg-white border-b border-slate-200 p-4 sticky top-0 z-30 flex justify-between items-center">
-        <h1 className="font-bold text-lg text-[#0a1f44]">Dashboard</h1>
+        <h1 className="font-bold text-lg text-[#0a1f44]">Manage Your Projects</h1>
         <div className="w-8 h-8 bg-[#0a1f44] rounded-full flex items-center justify-center text-white font-bold text-sm">
           {user?.email?.charAt(0).toUpperCase() || "U"}
         </div>
