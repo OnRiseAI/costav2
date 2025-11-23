@@ -11,6 +11,8 @@ import {
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
+import { SEO } from "@/components/SEO";
+
 export default function HowItWorksPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
