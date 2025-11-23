@@ -66,7 +66,7 @@ export default function VerificationPromisePage() {
         </div>
 
         <div className="container-custom relative z-10 text-center max-w-4xl mx-auto">
-          <SEO title="Our Quality Standard | Vetting & Reviews" />
+          <SEO title="Our Quality Standard | Vetting & Reviews" description="We prioritize transparency. Learn how we vet professionals through ID checks, insurance verification, and real client reviews before you hire." />
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm mb-8 animate-fade-in">
             <Shield className="w-4 h-4 text-emerald-400" />
             <span className="text-sm font-medium tracking-wide uppercase text-emerald-400">

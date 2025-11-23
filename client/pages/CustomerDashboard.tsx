@@ -664,7 +664,7 @@ export function CustomerDashboard() {
     <div className="min-h-screen bg-[#F9F9F9] font-sans pb-20">
       <SEO
         title="My Dashboard | Manage Projects & Proposals"
-        description="Manage your active jobs, view quotes, and chat with specialists."
+        description="Manage your home renovations, view proposals in your language, and message professionals directly. Control your projects from one secure dashboard."
       />
       {/* Mobile Header */}
       <div className="lg:hidden bg-white border-b border-slate-200 p-4 sticky top-0 z-30 flex justify-between items-center">

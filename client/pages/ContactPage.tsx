@@ -54,7 +54,7 @@ export default function ContactPage() {
     <div className="min-h-screen bg-gray-50 font-sans">
       <SEO
         title="Contact Us | CostaTrades"
-        description="Get in touch with CostaTrades. We're here to help with any questions about finding tradespeople or using our platform."
+        description="Need help? Contact our support team in Marbella. We are here to assist homeowners and professionals 7 days a week with your account or project."
       />
 
       {/* Hero Section */}

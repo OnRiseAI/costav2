@@ -193,7 +193,7 @@ export default function Index() {
     <div className="min-h-screen">
       <SEO
         title="CostaTrades: Verified Specialists on the Costa del Sol"
-        description="Connect with trusted plumbers, electricians, and builders in Marbella, Estepona & Mijas. Verified reviews, free quotes, and guaranteed work."
+        description="Connect with verified international professionals in Marbella & Malaga. We list English, German, and Scandinavian speaking experts for your home."
         schema={[
           {
             "@context": "https://schema.org",
@@ -234,7 +234,7 @@ export default function Index() {
             name: "CostaTrades | Find Verified Specialists in Costa del Sol",
             url: "https://www.costatrades.com",
             description:
-              "Connect with trusted plumbers, electricians, and builders in Marbella, Estepona & Mijas.",
+              "Connect with verified international professionals in Marbella & Malaga. We list English, German, and Scandinavian speaking experts for your home.",
             breadcrumb: {
               "@type": "BreadcrumbList",
               itemListElement: [

@@ -156,13 +156,13 @@ export default function JoinAsTradesperson() {
     <div className="bg-white font-sans">
       <SEO
         title="Join CostaTrades | Get High-Value Expat Leads"
-        description="Sign up to CostaTrades. Get verified leads in Marbella & Costa del Sol. 0% commission on jobs."
+        description="Stop competing on price. Join the #1 directory for English, German, and Nordic clients in Spain. Grow your business with high-value, quality jobs."
         schema={{
           "@context": "https://schema.org",
           "@type": "WebPage",
           name: "Join CostaTrades",
           description:
-            "Join CostaTrades to get verified leads and grow your business across the Costa del Sol.",
+            "Stop competing on price. Join the #1 directory for English, German, and Nordic clients in Spain. Grow your business with high-value, quality jobs.",
         }}
       />
       {/* Hero Section */}
