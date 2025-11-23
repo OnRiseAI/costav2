@@ -1,36 +1,40 @@
 import { useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { SEO } from "@/components/SEO";
+import { useMemo } from "react";
 
 export default function TradeCategory() {
   const { category } = useParams();
-  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
 
-  useEffect(() => {
-    if (category) {
-      navigate(`/post-job/results?category=${encodeURIComponent(category)}`, {
-        replace: true,
-      });
-    }
-  }, [category, navigate]);
+  const categoryLabel = useMemo(() => {
+    return category
+      ? category.charAt(0).toUpperCase() + category.slice(1).replace(/-/g, " ")
+      : "Trade";
+  }, [category]);
 
-  const categoryLabel = category
-    ? category.charAt(0).toUpperCase() + category.slice(1).replace(/-/g, " ")
-    : "Trade";
+  const locationName = searchParams.get("location") || "";
+
+  const pageTitle = `${categoryLabel} in ${locationName || "Costa del Sol"} | English & German Speaking`;
+  const h1Text = `Top 10 Verified ${categoryLabel} in ${locationName || "Costa del Sol"}`;
+  const metaDescription = `Find trusted ${categoryLabel} in ${locationName || "Costa del Sol"}. Verified international professionals. Free quotes.`;
 
   return (
-    <>
-      <SEO
-        title={`Best ${categoryLabel} in Costa del Sol | Hire Verified ${categoryLabel}`}
-        description={`Find top-rated ${categoryLabel} in Marbella & coast. Read reviews, check prices, and request quotes online.`}
-        schema={{
-          "@context": "https://schema.org",
-          "@type": "CollectionPage",
-          name: `${categoryLabel} in Costa del Sol`,
-          description:
-            "Browse verified tradespeople and services for your next home project on the Costa del Sol.",
-        }}
-      />
-    </>
+    <div className="min-h-screen bg-white font-sans py-12">
+      <SEO title={pageTitle} description={metaDescription} />
+
+      <div className="container-custom">
+        <header className="mb-8">
+          <h1 className="text-3xl md:text-4xl font-bold text-[#0A1E40]">{h1Text}</h1>
+        </header>
+
+        {/* Placeholder for category listings - preserve existing behavior elsewhere */}
+        <div className="bg-white rounded-lg border border-slate-100 p-6 shadow-sm">
+          <p className="text-sm text-slate-600">
+            Showing top professionals for <strong>{categoryLabel}</strong> in <strong>{locationName || "Costa del Sol"}</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
