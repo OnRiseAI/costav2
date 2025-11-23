@@ -9,7 +9,6 @@
   status = 200
 
 # --- FULL SEO PRERENDERING ---
-# Core static pages
 [[prerender]]
   path = "/"
 [[prerender]]
@@ -42,17 +41,5 @@
   path = "/cookie-policy"
 [[prerender]]
   path = "/blog"
-
-# Dynamic trade/location SEO pages
-[[prerender]]
-  path = "/trades/*"
-[[prerender]]
-  path = "/tradesperson/*"
-[[prerender]]
-  path = "/seo-template"
-[[prerender]]
-  path = "/blog/*"
-
-# 404
 [[prerender]]
   path = "/404"
