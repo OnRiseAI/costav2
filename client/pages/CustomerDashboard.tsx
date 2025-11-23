@@ -663,7 +663,7 @@ export function CustomerDashboard() {
   return (
     <div className="min-h-screen bg-[#F9F9F9] font-sans pb-20">
       <SEO
-        title="My Dashboard | CostaTrades"
+        title="My Dashboard | Manage Projects & Proposals"
         description="Manage your active jobs, view quotes, and chat with specialists."
       />
       {/* Mobile Header */}
