@@ -40,13 +40,22 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, type, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
+
+    // Ensure buttons used outside of forms behave as expected by default.
+    // If the consumer passed an explicit `type` prop, respect it. When using
+    // `asChild`, avoid forcing a type since the child may not accept it.
+    const elementProps: React.ButtonHTMLAttributes<HTMLButtonElement> = {
+      type: (type as any) || (asChild ? undefined : "button"),
+      ...props,
+    };
+
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
-        {...props}
+        {...(elementProps as any)}
       />
     );
   },
