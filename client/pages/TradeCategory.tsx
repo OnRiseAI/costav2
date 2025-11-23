@@ -25,13 +25,16 @@ export default function TradeCategory() {
 
       <div className="container-custom">
         <header className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-[#0A1E40]">{h1Text}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-[#0A1E40]">
+            {h1Text}
+          </h1>
         </header>
 
         {/* Placeholder for category listings - preserve existing behavior elsewhere */}
         <div className="bg-white rounded-lg border border-slate-100 p-6 shadow-sm">
           <p className="text-sm text-slate-600">
-            Showing top professionals for <strong>{categoryLabel}</strong> in <strong>{locationName || "Costa del Sol"}</strong>.
+            Showing top professionals for <strong>{categoryLabel}</strong> in{" "}
+            <strong>{locationName || "Costa del Sol"}</strong>.
           </p>
         </div>
       </div>

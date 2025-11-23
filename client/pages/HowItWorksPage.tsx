@@ -73,7 +73,10 @@ export default function HowItWorksPage() {
         </div>
 
         <div className="container-custom relative z-10">
-          <SEO title="How it Works | Hire International Pros Safely" description="Post a job in your language and get proposals from multilingual experts. The safe, fast, and verified way to hire professionals on the Costa del Sol." />
+          <SEO
+            title="How it Works | Hire International Pros Safely"
+            description="Post a job in your language and get proposals from multilingual experts. The safe, fast, and verified way to hire professionals on the Costa del Sol."
+          />
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Copy */}
             <div className="max-w-xl animate-fade-in">
