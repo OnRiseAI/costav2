@@ -111,9 +111,9 @@ export function ClientHero() {
         {/* Main Content Container */}
         <div className="max-w-3xl mx-auto">
           {/* Premium Headline */}
-          <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white text-center mb-8 leading-tight tracking-tighter animate-fade-in">
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white text-center mb-8 leading-tight tracking-tighter animate-fade-in">
             Find Verified Specialists on the Costa del Sol
-          </h2>
+          </h1>
 
           {/* Elegant Subheading */}
           <p
