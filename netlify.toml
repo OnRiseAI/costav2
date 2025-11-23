@@ -1,6 +1,6 @@
 [build]
   command = "npm run build"
-  publish = "spa/spa"
+  publish = "dist/spa/spa"
 
 # --- ONLY prerender static marketing pages (safe) ---
 [[prerender]]
