@@ -13,6 +13,8 @@ import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+import { SEO } from "@/components/SEO";
+
 export default function VerificationPromisePage() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
