@@ -17,7 +17,7 @@ export default function TradeCategory() {
 
   const pageTitle = `${categoryLabel} in ${locationName || "Costa del Sol"} | English & German Speaking`;
   const h1Text = `Top 10 Verified ${categoryLabel} in ${locationName || "Costa del Sol"}`;
-  const metaDescription = `Find trusted ${categoryLabel} in ${locationName || "Costa del Sol"}. Verified international professionals. Free quotes.`;
+  const metaDescription = `Find verified ${categoryLabel} in ${locationName || "the Costa del Sol"}. Compare trusted international professionals who speak your language. Get free quotes today.`;
 
   return (
     <div className="min-h-screen bg-white font-sans py-12">
