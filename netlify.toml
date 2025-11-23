@@ -1,23 +1,58 @@
 [build]
-  command = "npm run build:client"
-  functions = "netlify/functions"
-  publish = "dist/spa"
+  command = "npm run build"
+  publish = "dist"
 
-
-[functions]
-  external_node_modules = ["express"]
-  node_bundler = "esbuild"
-  
-# SPA fallback: ensure client-side routes are served by index.html
+# --- SPA fallback ---
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-  force = true
 
-# API function proxy
-[[redirects]]
-  force = true
-  from = "/api/*"
-  status = 200
-  to = "/.netlify/functions/api/:splat"
+# --- FULL SEO PRERENDERING ---
+# Core static pages
+[[prerender]]
+  path = "/"
+[[prerender]]
+  path = "/home"
+[[prerender]]
+  path = "/how-it-works"
+[[prerender]]
+  path = "/verification-promise"
+[[prerender]]
+  path = "/why-us"
+[[prerender]]
+  path = "/faq"
+[[prerender]]
+  path = "/cost-guides"
+[[prerender]]
+  path = "/holiday-homes"
+[[prerender]]
+  path = "/landlords"
+[[prerender]]
+  path = "/about"
+[[prerender]]
+  path = "/careers"
+[[prerender]]
+  path = "/contact"
+[[prerender]]
+  path = "/terms"
+[[prerender]]
+  path = "/privacy-policy"
+[[prerender]]
+  path = "/cookie-policy"
+[[prerender]]
+  path = "/blog"
+
+# Dynamic trade/location SEO pages
+[[prerender]]
+  path = "/trades/*"
+[[prerender]]
+  path = "/tradesperson/*"
+[[prerender]]
+  path = "/seo-template"
+[[prerender]]
+  path = "/blog/*"
+
+# 404
+[[prerender]]
+  path = "/404"
