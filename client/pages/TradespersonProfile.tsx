@@ -222,9 +222,9 @@ export default function TradespersonProfile() {
   return (
     <div className="min-h-screen bg-gray-50 font-sans pb-20 md:pb-0">
       <SEO
-        title={`${profile.businessName} - ${profile.location} | CostaTrades`}
-        description={`Hire ${profile.businessName} in ${profile.location}. Verified reviews and quotes.`}
-      />
+    title={`${profile.businessName} - ${profile.location} | CostaTrades`}
+    description={`Hire ${profile.businessName}, a verified ${profile.tradeCategory} in ${profile.location}. Read reviews. Speaks: ${profile.languages && profile.languages.length ? profile.languages.join(", ") : "English & Spanish"}. Request a quote.`}
+  />
 
       {/* 1. Hero Header (Split Layout) */}
       <div className="flex flex-col md:flex-row md:h-[350px] w-full">
