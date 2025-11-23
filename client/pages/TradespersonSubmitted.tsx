@@ -8,6 +8,10 @@ export default function TradespersonSubmitted() {
 
   return (
     <div className="min-h-screen bg-[#0a1f44] flex items-center justify-center relative overflow-hidden font-sans">
+      <SEO
+        title="Application Submitted | CostaTrades for Pros"
+        description="Your specialist application has been sent. Our team will review your details and email you when your CostaTrades profile goes live."
+      />
       {/* Background Effects */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-500 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2"></div>

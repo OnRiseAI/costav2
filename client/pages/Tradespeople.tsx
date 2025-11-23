@@ -123,6 +123,10 @@ export function Tradespeople() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
+      <SEO
+        title="Manage Specialist Profile | CostaTrades for Pros"
+        description="Update your business details, service areas and contact information so homeowners can find and trust your CostaTrades specialist profile."
+      />
       {/* Header */}
       <div className="bg-white border-b border-gray-200 shadow-sm">
         <div className="container-custom py-6">

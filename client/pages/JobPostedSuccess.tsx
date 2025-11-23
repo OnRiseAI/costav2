@@ -15,6 +15,10 @@ import {
 export default function JobPostedSuccess() {
   return (
     <div className="min-h-screen bg-white font-sans">
+      <SEO
+        title="Job Posted Successfully | CostaTrades"
+        description="Your job has been sent to verified specialists near you on the Costa del Sol. Track responses and manage quotes from your CostaTrades dashboard."
+      />
       {/* 1. The "Celebration" Hero */}
       <section className="py-20 px-4 text-center bg-slate-50 border-b border-slate-100">
         <div className="container-custom max-w-3xl mx-auto">

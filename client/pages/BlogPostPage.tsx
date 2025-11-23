@@ -918,6 +918,10 @@ export default function BlogPostPage() {
 
   return (
     <div className="min-h-screen bg-white font-sans selection:bg-blue-100 selection:text-blue-900">
+      <SEO
+        title={`${post.title} | CostaTrades Blog`}
+        description={`In-depth ${post.category.toLowerCase()} advice for Costa del Sol homeowners. Detailed guidance from CostaTrades experts on ${post.title}.`}
+      />
       {/* Article Header */}
       <header className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         {/* Background Image with Parallax-like feel */}

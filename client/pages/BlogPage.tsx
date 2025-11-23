@@ -103,6 +103,10 @@ const recentPosts = [
 export default function BlogPage() {
   return (
     <div className="min-h-screen bg-slate-50 font-sans selection:bg-blue-100 selection:text-blue-900">
+      <SEO
+        title="Costa del Sol Home Advice Blog | CostaTrades"
+        description="Read expert guides on renovations, maintenance, legal changes and costs for international homeowners across the Costa del Sol."
+      />
       {/* Hero Section */}
       <section className="relative py-24 lg:py-32 px-4 text-center overflow-hidden bg-[#0a1f44] text-white">
         <div className="absolute inset-0 z-0">

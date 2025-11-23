@@ -120,6 +120,10 @@ export default function TradespersonReview() {
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
+      <SEO
+        title="Review & Submit Application | CostaTrades for Pros"
+        description="Check your trade, business and contact details before submitting your specialist application to CostaTrades."
+      />
       <TradespersonProgress currentStep={3} />
 
       <div className="container-custom py-12 md:py-16 max-w-5xl">

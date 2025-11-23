@@ -14,6 +14,10 @@ import { SEO } from "@/components/SEO";
 export default function NotFound() {
   return (
     <div className="min-h-[80vh] flex items-center justify-center bg-slate-50 px-4 py-12">
+      <SEO
+        title="Page Not Found | CostaTrades"
+        description="This page does not exist. Find verified tradespeople or return to the CostaTrades homepage to start a new search."
+      />
       <div className="container-custom max-w-3xl mx-auto text-center">
         {/* 1. The Visual (Humor) */}
         <div className="relative w-40 h-40 mx-auto mb-8">

@@ -77,6 +77,10 @@ export default function PostJobResults() {
   if (showQuoteForm && selectedTradesperson) {
     return (
       <div className="min-h-screen bg-gray-50 font-sans">
+        <SEO
+          title="Request a Quote | CostaTrades"
+          description="Describe your job and send a free quote request to a verified specialist on the Costa del Sol."
+        />
         {/* Success Modal */}
         <Dialog open={quoteSentSuccess} onOpenChange={setQuoteSentSuccess}>
           <DialogContent className="sm:max-w-md bg-white rounded-2xl">
@@ -330,6 +334,10 @@ export default function PostJobResults() {
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
+      <SEO
+        title="Job Matches & Quotes | CostaTrades"
+        description="Review matching specialists for your job, compare profiles and send quote requests or contact pros directly."
+      />
       {/* Header Bar */}
       <div className="bg-[#0a1f44] py-6 shadow-md sticky top-0 z-40">
         <div className="container-custom">

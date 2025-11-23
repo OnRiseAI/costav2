@@ -77,6 +77,10 @@ export default function TradespersonJobDetail() {
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans pb-24 md:pb-12">
+      <SEO
+        title="Job Details & Send Quote | CostaTrades for Pros"
+        description="Review homeowner job details, budget and location, then send a professional quote from your CostaTrades pro dashboard."
+      />
       {/* Mobile Header */}
       <div className="bg-white border-b border-slate-200 p-4 sticky top-0 z-30 flex items-center gap-4 md:hidden">
         <Link
