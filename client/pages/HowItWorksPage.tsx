@@ -73,6 +73,7 @@ export default function HowItWorksPage() {
         </div>
 
         <div className="container-custom relative z-10">
+          <SEO title="How it Works | Hire International Pros Safely" />
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Copy */}
             <div className="max-w-xl animate-fade-in">
@@ -82,7 +83,7 @@ export default function HowItWorksPage() {
               </div>
 
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#0a1f44] mb-6 leading-[1.1] tracking-tight">
-                The Easiest Way to Find Trusted Professionals.
+                Find a Specialist in 3 Steps
               </h1>
 
               <p className="text-xl text-slate-600 mb-10 font-light leading-relaxed">
