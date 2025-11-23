@@ -188,10 +188,7 @@ export default function JoinAsTradesperson() {
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight">
-                Get free qualified leads when you join{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-blue-100 to-white">
-                  CostaTrade
-                </span>
+                Get High-Value Expat Leads
               </h1>
 
               <p className="text-lg md:text-xl text-blue-100/80 mb-10 leading-relaxed max-w-xl font-light">
