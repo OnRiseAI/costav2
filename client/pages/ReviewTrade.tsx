@@ -25,7 +25,7 @@ export default function ReviewTrade() {
     <div className="min-h-screen bg-slate-50 font-sans pb-20">
       <SEO
         title="Review a Specialist | CostaTrades"
-        description="Find the specialist you hired and share your experience to help other homeowners on the Costa del Sol."
+        description="Share your experience with the community. Help other homeowners by reviewing your tradesperson. Your feedback keeps our standards high and safe."
       />
 
       {/* Hero */}
