@@ -1,18 +1,19 @@
 [build]
   command = "npm run build"
-  publish = "dist/spa/spa"
+  publish = "dist"
 
-# --- ONLY prerender static marketing pages (safe) ---
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Prerender (safe core pages only)
 [[prerender]]
   path = "/"
 [[prerender]]
-  path = "/home"
+  path = "/about"
 [[prerender]]
-  path = "/how-it-works"
-[[prerender]]
-  path = "/verification-promise"
-[[prerender]]
-  path = "/why-us"
+  path = "/contact"
 [[prerender]]
   path = "/faq"
 [[prerender]]
@@ -21,18 +22,6 @@
   path = "/holiday-homes"
 [[prerender]]
   path = "/landlords"
-[[prerender]]
-  path = "/about"
-[[prerender]]
-  path = "/careers"
-[[prerender]]
-  path = "/contact"
-[[prerender]]
-  path = "/terms"
-[[prerender]]
-  path = "/privacy-policy"
-[[prerender]]
-  path = "/cookie-policy"
 [[prerender]]
   path = "/blog"
 [[prerender]]
