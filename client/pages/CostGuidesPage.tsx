@@ -18,7 +18,7 @@ export default function CostGuidesPage() {
     {
       service: "Electrician (Rewire 2-Bed)",
       low: "€3,000",
-      high: "���5,000",
+      high: "€5,000",
       avg: "€4,200",
     },
     {
@@ -300,7 +300,7 @@ export default function CostGuidesPage() {
                     Luxury Renovation
                   </div>
                   <div className="text-3xl font-bold mb-2">
-                    €1,500+
+                    ��1,500+
                     <span className="text-lg text-blue-300 font-normal">
                       /m²
                     </span>
