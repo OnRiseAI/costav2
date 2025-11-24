@@ -1,23 +1,24 @@
 [build]
-  command = "npm run build:client"
-  functions = "netlify/functions"
-  publish = "dist/spa"
+  command = "npm run build"
+  publish = "client/dist/spa"
 
-
-[functions]
-  external_node_modules = ["express"]
-  node_bundler = "esbuild"
-  
-# SPA fallback: ensure client-side routes are served by index.html
+# SPA routing for your Vite/React app
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-  force = true
 
-# API function proxy
-[[redirects]]
-  force = true
-  from = "/api/*"
-  status = 200
-  to = "/.netlify/functions/api/:splat"
+# Prerender.io integration through Netlify plugin
+[[plugins]]
+  package = "netlify-plugin-prerendercloud"
+
+[plugins.inputs]
+  prerenderToken = "CYKl4MyWGz4qfRUYvDSo"
+  # recommended defaults
+  userAgentPattern = ".*"
+  # this ensures ALL crawlers get prerendered HTML
+  prerenderServiceURL = "https://service.prerender.io"
+
+# Optional: make sure functions folder is not forced
+[functions]
+  directory = "netlify/functions"
