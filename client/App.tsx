@@ -43,6 +43,7 @@ import SignupPage from "@/pages/SignupPage";
 import "./global.css";
 
 function AppContent() {
+  console.log("AppContent rendering...");
   return (
     <>
       <ScrollToTop />
