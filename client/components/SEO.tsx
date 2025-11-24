@@ -3,6 +3,8 @@ import { useEffect } from "react";
 interface SEOProps {
   title: string;
   description: string;
+  image?: string;
+  url?: string;
   schema?: object | string;
 }
 
@@ -33,30 +35,34 @@ function upsertMeta(
   element.setAttribute("content", content);
 }
 
-export function SEO({ title, description, schema }: SEOProps) {
+export function SEO({ title, description, image, url, schema }: SEOProps) {
   useEffect(() => {
     if (typeof document === "undefined") return;
 
-    document.title = title;
+    const canonical = url || window.location.href;
+    const ogImage = image || "/og-default.jpg";
 
+    document.title = title;
     upsertMeta("name", "description", description);
+
+    let linkCanonical = document.querySelector('link[rel="canonical"]');
+    if (!linkCanonical) {
+      linkCanonical = document.createElement("link");
+      linkCanonical.setAttribute("rel", "canonical");
+      document.head.appendChild(linkCanonical);
+    }
+    linkCanonical.setAttribute("href", canonical);
 
     upsertMeta("property", "og:title", title);
     upsertMeta("property", "og:description", description);
+    upsertMeta("property", "og:url", canonical);
+    upsertMeta("property", "og:type", "website");
+    upsertMeta("property", "og:image", ogImage);
 
+    upsertMeta("name", "twitter:card", "summary_large_image");
     upsertMeta("name", "twitter:title", title);
     upsertMeta("name", "twitter:description", description);
-
-    const ogTypeSelector = 'meta[property="og:type"]';
-    let ogType = document.querySelector(
-      ogTypeSelector,
-    ) as HTMLMetaElement | null;
-    if (!ogType) {
-      ogType = document.createElement("meta");
-      ogType.setAttribute("property", "og:type");
-      ogType.setAttribute("content", "website");
-      document.head.appendChild(ogType);
-    }
+    upsertMeta("name", "twitter:image", ogImage);
 
     if (schema) {
       try {
@@ -77,7 +83,7 @@ export function SEO({ title, description, schema }: SEOProps) {
         console.warn("Failed to set JSON-LD schema", e);
       }
     }
-  }, [title, description, schema]);
+  }, [title, description, image, url, schema]);
 
   return null;
 }
