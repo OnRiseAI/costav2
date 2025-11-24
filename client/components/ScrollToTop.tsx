@@ -7,6 +7,11 @@ export function ScrollToTop() {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
+    if (pathname.startsWith("/post-job")) {
+      window.scrollTo(0, 0);
+      return;
+    }
+
     const isMobile =
       (window.matchMedia && window.matchMedia("(max-width: 768px)").matches) ||
       window.innerWidth <= 768;
