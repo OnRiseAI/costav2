@@ -121,7 +121,7 @@ export default function TradespersonReview() {
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
       <SEO
-        title="Review & Submit Application | CostaTrades for Pros"
+        title="Submit Application | CostaTrades"
         description="Check your trade, business and contact details before submitting your specialist application to CostaTrades."
       />
       <TradespersonProgress currentStep={3} />

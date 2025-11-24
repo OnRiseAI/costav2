@@ -124,7 +124,7 @@ export function Tradespeople() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
       <SEO
-        title="Manage Specialist Profile | CostaTrades for Pros"
+        title="Manage Specialist Profile | CostaTrades"
         description="Update your business details, service areas and contact information so homeowners can find and trust your CostaTrades specialist profile."
       />
       {/* Header */}

@@ -84,7 +84,7 @@ export default function CostGuidesPage() {
   return (
     <div className="min-h-screen bg-slate-50 font-sans">
       <SEO
-        title="2025 Trade Price Guide | Costa del Sol Costs"
+        title="2025 Trade Price Guide | Costa del Sol"
         description="Explore average prices for plumbers, electricians, builders and more across Marbella, Estepona and Mijas. Plan your renovation budget with real Costa del Sol market data."
       />
       {/* 1. Hero & Summary */}

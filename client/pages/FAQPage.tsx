@@ -178,7 +178,7 @@ export default function FAQPage() {
   return (
     <div className="min-h-screen bg-slate-50 font-sans">
       <SEO
-        title="Help Center & FAQs | CostaTrades"
+        title="Help Center | FAQs"
         description="Find answers about hiring vetted tradespeople, pricing, verification and using CostaTrades for homeowners and professionals on the Costa del Sol."
       />
       {/* Schema Markup */}

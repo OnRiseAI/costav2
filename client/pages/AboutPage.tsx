@@ -15,7 +15,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white font-sans">
       <SEO
-        title="About CostaTrades | Our Mission for Safer Home Improvements"
+        title="About CostaTrades | Our Mission"
         description="We connect international homeowners with trusted local experts. No language barriers, just quality work. We bridge the gap for expats in Spain."
         schema={{
           "@context": "https://schema.org",

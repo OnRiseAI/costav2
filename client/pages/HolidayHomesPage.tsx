@@ -16,7 +16,7 @@ export default function HolidayHomesPage() {
   return (
     <div className="min-h-screen bg-slate-50 font-sans">
       <SEO
-        title="Property Maintenance for Holiday Homes | Key Holding & Repairs"
+        title="Holiday Home Maintenance | Key Holding"
         description="Reliable specialists for holiday rentals in Costa del Sol. Emergency repairs for guests and key holding services."
         schema={{
           "@context": "https://schema.org",
