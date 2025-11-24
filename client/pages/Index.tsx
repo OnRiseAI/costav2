@@ -37,6 +37,7 @@ import { getFeaturedTradespeople } from "@/data/tradespeople";
 import { SEO } from "@/components/SEO";
 
 export default function Index() {
+  console.log("Index page rendering...");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedTradeSlug, setSelectedTradeSlug] = useState("");
 
