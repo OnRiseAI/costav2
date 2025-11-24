@@ -926,7 +926,11 @@ export default function BlogPostPage() {
       <header className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         {/* Background Image with Parallax-like feel */}
         <div className="absolute inset-0 z-0">
-          <img src={post.image} alt="" className="w-full h-full object-cover" />
+          <img
+            src={post.image}
+            alt={post.title}
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0a1f44]/70 via-[#0a1f44]/60 to-[#0a1f44]/90"></div>
         </div>
 
