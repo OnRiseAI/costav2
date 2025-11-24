@@ -48,7 +48,9 @@ export function SEO({ title, description, schema }: SEOProps) {
     upsertMeta("name", "twitter:description", description);
 
     const ogTypeSelector = 'meta[property="og:type"]';
-    let ogType = document.querySelector(ogTypeSelector) as HTMLMetaElement | null;
+    let ogType = document.querySelector(
+      ogTypeSelector,
+    ) as HTMLMetaElement | null;
     if (!ogType) {
       ogType = document.createElement("meta");
       ogType.setAttribute("property", "og:type");
