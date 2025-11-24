@@ -33,7 +33,7 @@ class ErrorBoundary extends Component<
   }
 }
 
-console.log("Mounting React App...");
+console.log("main.tsx loaded and running...");
 
 const rootElement = document.getElementById("root");
 if (!rootElement) {
