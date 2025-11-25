@@ -7,6 +7,8 @@ import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { FAQSection, getFAQSchema } from "@/components/FAQSection";
 import { StickyMobileCTA } from "@/components/StickyMobileCTA";
 import { CategoryCard } from "@/components/CategoryCard";
+import { ProGrowthBand } from "@/components/ProGrowthBand";
+import { WhyCostaTrades } from "@/components/WhyCostaTrades";
 import {
   Wrench,
   Zap,
@@ -20,24 +22,64 @@ import {
 
 export default function Index() {
   const popularCategories = [
-    { name: "Plumber", slug: "plumbers", icon: Wrench, count: 120 },
-    { name: "Electrician", slug: "electricians", icon: Zap, count: 95 },
-    { name: "Builder", slug: "builders", icon: Hammer, count: 80 },
-    { name: "Painter", slug: "painters", icon: Paintbrush, count: 65 },
-    { name: "Gardener", slug: "gardeners", icon: Shovel, count: 50 },
     {
-      name: "Pool Maintenance",
-      slug: "pool-maintenance",
-      icon: Droplets,
-      count: 45,
+      name: "Plumber",
+      slug: "plumbers",
+      icon: Wrench,
+      count: 120,
+      isMostRequested: true,
+      locationLabel: "Marbella",
+    },
+    {
+      name: "Electrician",
+      slug: "electricians",
+      icon: Zap,
+      count: 95,
+      locationLabel: "Mijas",
     },
     {
       name: "Air Conditioning",
       slug: "air-conditioning",
       icon: Snowflake,
       count: 40,
+      isMostRequested: true,
+      locationLabel: "Estepona",
     },
-    { name: "Locksmith", slug: "locksmiths", icon: Key, count: 30 },
+    {
+      name: "Builder",
+      slug: "builders",
+      icon: Hammer,
+      count: 80,
+      locationLabel: "Costa del Sol",
+    },
+    {
+      name: "Painter",
+      slug: "painters",
+      icon: Paintbrush,
+      count: 65,
+      locationLabel: "Fuengirola",
+    },
+    {
+      name: "Gardener",
+      slug: "gardeners",
+      icon: Shovel,
+      count: 50,
+      locationLabel: "Benahavís",
+    },
+    {
+      name: "Pool Maintenance",
+      slug: "pool-maintenance",
+      icon: Droplets,
+      count: 45,
+      locationLabel: "Sotogrande",
+    },
+    {
+      name: "Locksmith",
+      slug: "locksmiths",
+      icon: Key,
+      count: 30,
+      locationLabel: "Malaga",
+    },
   ];
 
   const organizationSchema = {
@@ -80,22 +122,22 @@ export default function Index() {
         {/* 1. Hero Section */}
         <HomeHero />
 
-        {/* 2. Price Guide Table (AEO Snippet Winner) */}
+        {/* 2. Market Rates (Interactive Price Guide) */}
         <div className="container-custom relative z-20 -mt-8 mb-16">
           <PriceGuideTable />
         </div>
 
-        {/* 3. How It Works (Redesigned) */}
+        {/* 3. How It Works (Premium Zig-Zag) */}
         <HowItWorks />
 
-        {/* 4. Popular Categories (Service Schema) */}
-        <section className="py-16 bg-white">
+        {/* 4. Popular Trades (Mediterranean Refresh) */}
+        <section className="py-20 bg-white">
           <div className="container-custom">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#0a1f44] mb-4">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0a1f44] mb-4">
                 Popular Trades
               </h2>
-              <p className="text-slate-600 max-w-2xl mx-auto">
+              <p className="text-slate-600 max-w-2xl mx-auto text-lg">
                 Find the right specialist for your home improvement project.
               </p>
             </div>
@@ -107,19 +149,24 @@ export default function Index() {
                   slug={cat.slug}
                   icon={cat.icon}
                   count={cat.count}
+                  isMostRequested={cat.isMostRequested}
+                  locationLabel={cat.locationLabel}
                 />
               ))}
             </div>
           </div>
         </section>
 
-        {/* 5. Before/After Slider (Visual Trust) */}
-        <BeforeAfterSlider />
+        {/* 5. Pro Growth Band (The "Claim" Strategy) */}
+        <ProGrowthBand />
 
-        {/* 6. FAQ Section (AEO Q&A) */}
+        {/* 6. Why CostaTrades? (Trust & Stats) */}
+        <WhyCostaTrades />
+
+        {/* 7. FAQ Section (Expanded) */}
         <FAQSection />
 
-        {/* 7. Areas We Serve */}
+        {/* 8. Areas We Cover (SEO Footer) */}
         <AreasWeServe />
       </main>
 
