@@ -1,42 +1,47 @@
-import { MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export function AreasWeServe() {
   const areas = [
     "Marbella",
     "Estepona",
-    "Mijas Costa",
+    "Mijas",
     "Fuengirola",
+    "Malaga",
+    "Sotogrande",
     "Benalmádena",
     "Torremolinos",
-    "Sotogrande",
-    "Malaga City",
+    "Benahavís",
+    "San Pedro",
+    "Calahonda",
+    "Nerja",
   ];
 
   return (
     <section className="bg-white py-16 border-t border-slate-100">
       <div className="container-custom">
         <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#0a1f44] mb-2">
-            Find Tradespeople near you
+          <h2 className="text-2xl md:text-3xl font-serif font-bold text-[#0a1f44] mb-2">
+            Areas We Cover
           </h2>
           <p className="text-slate-500">
             Serving the entire Costa del Sol region
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-          {areas.map((area, index) => (
-            <div
-              key={index}
-              className="flex items-center justify-center p-4 bg-slate-50 rounded-lg hover:bg-blue-50 transition-colors cursor-default group"
-            >
-              <MapPin className="w-4 h-4 text-slate-400 mr-2 group-hover:text-[#0a1f44] transition-colors" />
-              <span className="font-medium text-slate-700 group-hover:text-[#0a1f44] transition-colors">
-                {area}
-              </span>
-            </div>
-          ))}
-        </div>
+        <nav aria-label="Locations">
+          <ul className="grid grid-cols-2 md:grid-cols-4 gap-y-4 gap-x-8 max-w-4xl mx-auto text-center md:text-left">
+            {areas.map((area, index) => (
+              <li key={index}>
+                <Link
+                  to={`/post-job?postcode=${encodeURIComponent(area)}`}
+                  className="text-slate-600 hover:text-[#E07A5F] font-medium transition-colors block py-1"
+                >
+                  {area}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
     </section>
   );
