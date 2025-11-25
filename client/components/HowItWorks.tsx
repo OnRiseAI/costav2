@@ -1,135 +1,58 @@
-import { Search, Handshake, MessageSquare, Shield } from "lucide-react";
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { Search, MessageSquare, Star } from "lucide-react";
 
 export function HowItWorks() {
   const steps = [
     {
-      number: "01",
-      title: "Tell us what you need",
-      description:
-        "Search by trade or describe your project in English or Spanish.",
       icon: Search,
-      color: "text-blue-600",
-      bgColor: "bg-blue-50",
+      title: "Search or Post",
+      description: "Tell us what you need or browse our directory.",
     },
     {
-      number: "02",
-      title: "Get quotes from verified trades",
-      description:
-        "We connect you with a small number of local trades who match your job.",
-      icon: Handshake,
-      color: "text-emerald-600",
-      bgColor: "bg-emerald-50",
-    },
-    {
-      number: "03",
-      title: "Compare, chat and choose",
-      description:
-        "Review profiles, ratings, photos and prices, then message directly.",
       icon: MessageSquare,
-      color: "text-blue-600",
-      bgColor: "bg-blue-50",
+      title: "Get Free Quotes",
+      description: "Chat directly with pros. No middleman fees.",
     },
     {
-      number: "04",
-      title: "Job done with peace of mind",
-      description: "Work backed by written quotes and verified insurance.",
-      icon: Shield,
-      color: "text-blue-600",
-      bgColor: "bg-blue-50",
+      icon: Star,
+      title: "Hire with Confidence",
+      description: "Read community reviews and pick your favorite.",
     },
   ];
 
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden bg-white">
-      {/* Premium Background */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50/40 to-white"></div>
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-gradient-to-bl from-blue-100/30 to-transparent rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-1/3 w-96 h-96 bg-gradient-to-tr from-cyan-100/20 to-transparent rounded-full blur-3xl"></div>
-      </div>
-
-      <div className="container-custom relative z-10">
-        {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center mb-20">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0a1f44] mb-6 tracking-tight">
-            How to find your Specialist
+    <section className="bg-slate-50 py-16">
+      <div className="container-custom">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0a1f44] mb-4">
+            How It Works
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed">
-            A simple, guided process for finding trusted and verified
-            professionals across the Costa del Sol.
+          <p className="text-slate-600 max-w-2xl mx-auto">
+            Finding a trusted tradesperson has never been easier.
           </p>
         </div>
 
-        {/* Four Steps Grid */}
-        <div className="grid md:grid-cols-4 gap-6 md:gap-8 mb-16">
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto relative">
+          {/* Connecting line for desktop */}
+          <div className="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-slate-200 -z-10"></div>
+
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
-              <div
-                key={index}
-                className="relative group animate-slide-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                {/* Card Background with Premium Shadow */}
-                <div className="absolute inset-0 bg-white rounded-3xl shadow-sm group-hover:shadow-xl transition-all duration-500 border border-gray-100"></div>
-
-                {/* Watermark Step Number */}
-                <div className="absolute -top-8 -right-4 text-9xl font-bold text-blue-50/80 pointer-events-none select-none">
-                  {step.number}
-                </div>
-
-                {/* Card Content */}
-                <div className="relative p-8 md:p-10 h-full flex flex-col">
-                  {/* Icon Container */}
-                  <div
-                    className={`w-16 h-16 ${step.bgColor} rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500`}
-                  >
-                    <Icon
-                      className={`w-8 h-8 ${step.color}`}
-                      strokeWidth={1.5}
-                    />
+              <div key={index} className="flex flex-col items-center text-center relative">
+                <div className="w-24 h-24 bg-white rounded-full shadow-md flex items-center justify-center mb-6 border-4 border-slate-50 z-10">
+                  <div className="w-16 h-16 bg-[#0a1f44] rounded-full flex items-center justify-center text-white font-bold text-2xl">
+                    {index + 1}
                   </div>
-
-                  {/* Heading */}
-                  <h3 className="text-xl md:text-2xl font-semibold text-[#0a1f44] mb-4 leading-tight group-hover:text-blue-600 transition-colors duration-300">
-                    {step.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-base text-muted-foreground font-light leading-relaxed flex-grow">
-                    {step.description}
-                  </p>
-
-                  {/* Subtle Badge on Step 4 */}
-                  {index === 3 && (
-                    <div className="mt-6 pt-6 border-t border-gray-100">
-                      <span className="inline-block text-xs font-medium text-blue-700 bg-blue-50 px-3 py-1.5 rounded-full">
-                        Protected by verification
-                      </span>
-                    </div>
-                  )}
                 </div>
+                <h3 className="text-xl font-bold text-[#0a1f44] mb-3">
+                  {step.title}
+                </h3>
+                <p className="text-slate-600 max-w-xs mx-auto">
+                  {step.description}
+                </p>
               </div>
             );
           })}
-        </div>
-
-        {/* Premium CTA Section */}
-        <div className="flex flex-col items-center justify-center gap-4">
-          <Link to="/post-job" className="inline-block">
-            <Button
-              size="lg"
-              className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white text-lg px-10 py-7 rounded-2xl font-semibold shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
-            >
-              Find a Verified Specialist
-            </Button>
-          </Link>
-          <p className="text-center text-sm text-muted-foreground font-light max-w-2xl">
-            Verified professionals with proven credentials and real customer
-            reviews.
-          </p>
         </div>
       </div>
     </section>
