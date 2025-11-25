@@ -1,7 +1,6 @@
 import { SEO } from "@/components/SEO";
 import { HomeHero } from "@/components/HomeHero";
 import { PriceGuideTable } from "@/components/PriceGuideTable";
-import { TrustProtocol } from "@/components/TrustProtocol";
 import { HowItWorks } from "@/components/HowItWorks";
 import { AreasWeServe } from "@/components/AreasWeServe";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
@@ -86,12 +85,7 @@ export default function Index() {
           <PriceGuideTable />
         </div>
 
-        {/* 3. Trust Protocol (Trust Signals) */}
-        <section className="mb-20">
-          <TrustProtocol />
-        </section>
-
-        {/* 3.5 How It Works */}
+        {/* 3. How It Works (Redesigned) */}
         <HowItWorks />
 
         {/* 4. Popular Categories (Service Schema) */}
