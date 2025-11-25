@@ -2,6 +2,8 @@ import { SEO } from "@/components/SEO";
 import { HomeHero } from "@/components/HomeHero";
 import { PriceGuideTable } from "@/components/PriceGuideTable";
 import { TrustProtocol } from "@/components/TrustProtocol";
+import { HowItWorks } from "@/components/HowItWorks";
+import { AreasWeServe } from "@/components/AreasWeServe";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { FAQSection, getFAQSchema } from "@/components/FAQSection";
 import { StickyMobileCTA } from "@/components/StickyMobileCTA";
@@ -89,8 +91,11 @@ export default function Index() {
           <TrustProtocol />
         </section>
 
+        {/* 3.5 How It Works */}
+        <HowItWorks />
+
         {/* 4. Popular Categories (Service Schema) */}
-        <section className="py-16 bg-slate-50">
+        <section className="py-16 bg-white">
           <div className="container-custom">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-[#0a1f44] mb-4">
@@ -119,6 +124,9 @@ export default function Index() {
 
         {/* 6. FAQ Section (AEO Q&A) */}
         <FAQSection />
+
+        {/* 7. Areas We Serve */}
+        <AreasWeServe />
       </main>
 
       {/* Mobile Sticky CTA */}
