@@ -146,21 +146,22 @@ export default function PostJob() {
     const locationFromParam =
       searchParams.get("location") || searchParams.get("postcode") || "";
 
-    if (!option) {
-      return;
+    // Ensure we update state if params exist
+    if (option) {
+      setSearchQuery(option);
     }
-
-    setSearchQuery(option);
-
-    const combinedQuery = locationFromParam
-      ? `${option} ${locationFromParam}`
-      : option;
 
     if (locationFromParam) {
       setPostcode(locationFromParam);
     }
 
-    handleHeroSearch(combinedQuery);
+    // Only trigger search if we have parameters
+    if (option || locationFromParam) {
+      const combinedQuery = locationFromParam
+        ? `${option || ""} ${locationFromParam}`
+        : option || "";
+      handleHeroSearch(combinedQuery);
+    }
   }, [searchParams]);
 
   const handleCategorySelect = (categorySlug: string) => {
@@ -191,8 +192,10 @@ export default function PostJob() {
     "La Cala de Mijas",
   ];
 
-  const handleHeroSearch = (overrideQuery?: string) => {
-    const queryToUse = overrideQuery ?? searchQuery;
+  const handleHeroSearch = (overrideQuery?: string | any) => {
+    const queryToUse = typeof overrideQuery === "string" ? overrideQuery : searchQuery;
+    if (typeof queryToUse !== "string") return;
+
     const trimmed = queryToUse.trim();
     if (!trimmed) return;
 
@@ -340,7 +343,7 @@ export default function PostJob() {
                 className="flex-1 min-w-0 h-14 text-lg text-gray-900 placeholder:text-gray-400 focus:outline-none bg-transparent transition-opacity duration-500"
               />
               <button
-                onClick={handleHeroSearch}
+                onClick={() => handleHeroSearch()}
                 className="bg-[#0a1f44] text-white px-8 h-14 rounded-full font-bold text-lg hover:bg-blue-900 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center flex-shrink-0"
               >
                 Search
