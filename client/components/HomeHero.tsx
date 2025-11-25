@@ -1,64 +1,67 @@
-import { Wrench, Hammer, Paintbrush, Zap, HardHat, Ruler, Truck, Sparkles, Search } from "lucide-react";
+import { MessageSquare, ShieldCheck, Globe } from "lucide-react";
 import { SearchBar } from "@/components/SearchBar";
+import { Link } from "react-router-dom";
 
 export function HomeHero() {
   return (
-    <div className="bg-[#0a1f44] text-white py-20 md:py-32 relative overflow-hidden">
-      {/* Animated Background Icons */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-10 left-10 opacity-10 animate-float-slow">
-          <Wrench className="w-24 h-24 text-blue-300" />
-        </div>
-        <div className="absolute top-20 right-20 opacity-10 animate-float-medium">
-          <Hammer className="w-32 h-32 text-purple-300" />
-        </div>
-        <div className="absolute bottom-10 left-1/4 opacity-5 animate-float-fast">
-          <Paintbrush className="w-20 h-20 text-green-300" />
-        </div>
-        <div className="absolute top-1/3 right-1/4 opacity-5 animate-pulse-slow">
-          <Zap className="w-16 h-16 text-yellow-300" />
-        </div>
-        <div className="absolute bottom-20 right-10 opacity-10 animate-float-slow">
-          <HardHat className="w-28 h-28 text-orange-300" />
-        </div>
-        <div className="absolute top-1/2 left-10 opacity-5 animate-float-medium">
-          <Ruler className="w-20 h-20 text-cyan-300" />
-        </div>
-        <div className="absolute bottom-1/3 right-1/3 opacity-5 animate-float-fast">
-          <Truck className="w-24 h-24 text-red-300" />
-        </div>
+    <div className="relative py-20 md:py-32 overflow-hidden min-h-[600px] flex items-center">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="https://images.pexels.com/photos/4186560/pexels-photo-4186560.jpeg"
+          alt="Modern white Spanish villa"
+          className="w-full h-full object-cover"
+        />
       </div>
 
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0a1f44]/50 to-[#0a1f44] pointer-events-none"></div>
+      {/* Gradient Overlay - Deep Navy Blue 90% */}
+      <div className="absolute inset-0 bg-[#0a1f44]/90 z-10"></div>
 
-      <div className="container-custom relative z-10 text-center max-w-4xl mx-auto">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight leading-tight">
-          Verified English-Speaking Tradespeople Costa del Sol
+      <div className="container-custom relative z-20 text-center max-w-4xl mx-auto px-4">
+        <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight leading-tight text-white">
+          Find Trusted Specialists on the Costa del Sol
         </h1>
         <p className="text-xl md:text-2xl text-blue-100/90 mb-12 font-light max-w-2xl mx-auto">
-          Get quotes from trusted local professionals in minutes.
+          Connect with trusted Home Improvement & Maintenance Professionals who speak your language.
         </p>
 
-        <div className="relative max-w-2xl mx-auto group">
-          <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-20 group-hover:opacity-40 blur transition duration-500"></div>
-          <div className="relative bg-white rounded-full shadow-2xl p-2 transition-transform duration-300 hover:scale-[1.01]">
-            <SearchBar variant="hero" />
-          </div>
+        <div className="max-w-3xl mx-auto mb-6">
+          <SearchBar variant="hero" />
         </div>
 
-        <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm text-blue-200/60">
-          <span className="flex items-center gap-1">
-            <Sparkles className="w-3 h-3" /> Free to post
-          </span>
-          <span className="w-1 h-1 rounded-full bg-blue-200/30"></span>
-          <span className="flex items-center gap-1">
-            <Sparkles className="w-3 h-3" /> No obligation
-          </span>
-          <span className="w-1 h-1 rounded-full bg-blue-200/30"></span>
-          <span className="flex items-center gap-1">
-            <Sparkles className="w-3 h-3" /> Verified trades
-          </span>
+        {/* Concierge Link */}
+        <div className="mb-12">
+          <Link
+            to="/post-job"
+            className="text-blue-200 hover:text-white transition-colors text-lg font-medium flex items-center justify-center gap-2 group"
+          >
+            Or describe your project and let us match you{" "}
+            <span className="group-hover:translate-x-1 transition-transform">
+              →
+            </span>
+          </Link>
+        </div>
+
+        {/* Trust Icons */}
+        <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12 text-blue-100/80">
+          <div className="flex items-center gap-3">
+            <MessageSquare className="w-5 h-5 md:w-6 md:h-6" />
+            <span className="font-medium text-sm md:text-base">
+              Real customer reviews
+            </span>
+          </div>
+          <div className="flex items-center gap-3">
+            <ShieldCheck className="w-5 h-5 md:w-6 md:h-6" />
+            <span className="font-medium text-sm md:text-base">
+              Transparent profiles
+            </span>
+          </div>
+          <div className="flex items-center gap-3">
+            <Globe className="w-5 h-5 md:w-6 md:h-6" />
+            <span className="font-medium text-sm md:text-base">
+              Multilingual support
+            </span>
+          </div>
         </div>
       </div>
     </div>
