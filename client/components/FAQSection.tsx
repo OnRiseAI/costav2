@@ -16,6 +16,20 @@ export const faqData = [
     answer:
       "Yes. Legitimate tradespeople must be registered as 'Autónomo' or a limited company (S.L.), have a fiscal number (NIF/CIF), and carry liability insurance. CostaTrades verifies these documents for our 'Verified' professionals.",
   },
+  {
+    question: "Is this service free for homeowners?",
+    answer: "Yes, 100% free to search and request quotes.",
+  },
+  {
+    question: "Do the tradespeople speak English?",
+    answer:
+      "We highlight languages on every profile so you know who speaks English, German, or Spanish.",
+  },
+  {
+    question: "What areas do you cover?",
+    answer:
+      "From Sotogrande to Nerja, including Marbella, Mijas, and Malaga.",
+  },
 ];
 
 export function FAQSection() {

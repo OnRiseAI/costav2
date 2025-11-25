@@ -1,11 +1,11 @@
-import { ShieldCheck, CheckCircle2, Languages } from "lucide-react";
+import { Star, CheckCircle2, Languages } from "lucide-react";
 
 export function TrustProtocol() {
   const items = [
     {
-      icon: ShieldCheck,
-      text: "ID Verified (NIE/DNI)",
-      description: "We verify the identity of every professional.",
+      icon: Star,
+      text: "Community Rated",
+      description: "Professionals rated by real homeowners like you.",
     },
     {
       icon: CheckCircle2,
