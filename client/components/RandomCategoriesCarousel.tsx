@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 export function RandomCategoriesCarousel() {
   const randomCategories = [
     {
-      name: "Air Conditioning",
+      name: "Air Con",
       slug: "air-conditioning",
       icon: Wind,
       count: 4,
@@ -61,7 +61,7 @@ export function RandomCategoriesCarousel() {
         "https://images.pexels.com/photos/8486928/pexels-photo-8486928.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
-      name: "Pool Maintenance & Repair",
+      name: "Pool Services",
       slug: "pool-maintenance",
       icon: Droplets,
       count: 4,
