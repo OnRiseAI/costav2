@@ -162,6 +162,67 @@ const blogPosts = {
         </div>
 
         <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6 text-2xl">
+          The Health Risk: Why Damp Isn't Just Cosmetic
+        </h2>
+
+        <p className="mb-4 text-slate-700">
+          Many homeowners treat mold as an aesthetic problem—an ugly stain to be
+          painted over. But prolonged exposure to damp conditions is a serious
+          health issue, particularly for children, elderly residents, and anyone
+          with existing respiratory conditions.
+        </p>
+
+        <p className="mb-6 text-slate-700">
+          According to the{" "}
+          <a
+            href="https://www.who.int/publications/i/item/9789289041683"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            WHO Guidelines for Indoor Air Quality
+          </a>
+          , persistent dampness is directly linked to increased risk of
+          respiratory infections, asthma, allergic rhinitis, and eczema. Mold
+          spores become airborne and are easily inhaled, triggering immune
+          responses even in otherwise healthy individuals.
+        </p>
+
+        <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-xl mb-8">
+          <h3 className="font-bold text-amber-900 mb-3 flex items-center gap-2">
+            <AlertTriangle className="w-5 h-5" />
+            Vulnerable Groups
+          </h3>
+          <ul className="space-y-2 text-slate-700 text-sm">
+            <li>
+              <strong>Infants and children:</strong> Developing immune systems
+              are more susceptible to mold-related illness.
+            </li>
+            <li>
+              <strong>Asthma sufferers:</strong> Mold spores are a known trigger
+              for asthma attacks and can worsen chronic symptoms.
+            </li>
+            <li>
+              <strong>Immunocompromised individuals:</strong> People undergoing
+              chemotherapy or with autoimmune conditions face higher infection
+              risk.
+            </li>
+            <li>
+              <strong>Elderly residents:</strong> Reduced lung capacity and
+              slower healing make older adults more vulnerable to complications.
+            </li>
+          </ul>
+        </div>
+
+        <p className="mb-8 text-slate-700">
+          If you or anyone in your household experiences persistent coughing,
+          wheezing, skin rashes, or frequent colds that improve when away from
+          the property, damp may be the underlying cause. In these cases,
+          treating the problem becomes a medical necessity, not just a
+          maintenance task.
+        </p>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6 text-2xl">
           2025 Price Guide: Cost to Fix Damp in Malaga
         </h2>
 
