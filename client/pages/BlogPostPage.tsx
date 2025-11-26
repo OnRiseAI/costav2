@@ -102,9 +102,7 @@ const blogPosts = {
             <thead>
               <tr className="bg-slate-50 border-b border-slate-200">
                 <th className="p-4 font-bold text-[#0a1f44]">Solution</th>
-                <th className="p-4 font-bold text-[#0a1f44]">
-                  Estimated Cost
-                </th>
+                <th className="p-4 font-bold text-[#0a1f44]">Estimated Cost</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 text-sm">
@@ -160,7 +158,9 @@ const blogPosts = {
           <li>
             <strong>Bleach Wash:</strong> For surface mold, wash with a 1:4
             bleach/water solution.{" "}
-            <em>Note: This does not kill the root, it only cleans the surface.</em>
+            <em>
+              Note: This does not kill the root, it only cleans the surface.
+            </em>
           </li>
           <li>
             <strong>Check Gutters:</strong> Ensure your gutters and downpipes
@@ -1044,32 +1044,37 @@ const blogPosts = {
       <>
         {/* AEO / Verdict Snippet */}
         <div className="bg-blue-50 rounded-xl p-6 mb-8 border border-blue-100">
-          <div className="text-sm text-slate-500 mb-2">Updated Jan 2025 • 12 min read</div>
+          <div className="text-sm text-slate-500 mb-2">
+            Updated Jan 2025 • 12 min read
+          </div>
           <h2 className="font-bold text-[#0a1f44] mb-2 text-lg">
             Quick Verdict (2025 Data)
           </h2>
           <p className="text-slate-700 leading-relaxed">
-            Verdict: With electricity prices averaging <strong>€0.25/kWh</strong>,
-            well-designed solar systems on the Costa del Sol typically pay for
-            themselves in <strong>3–5 years</strong>. New 2025 grants
-            (<em>subvenciones</em>) and local tax breaks can cover up to
-            <strong> 40% of installation costs</strong> for qualifying properties.
+            Verdict: With electricity prices averaging{" "}
+            <strong>€0.25/kWh</strong>, well-designed solar systems on the Costa
+            del Sol typically pay for themselves in <strong>3–5 years</strong>.
+            New 2025 grants (<em>subvenciones</em>) and local tax breaks can
+            cover up to
+            <strong> 40% of installation costs</strong> for qualifying
+            properties.
           </p>
         </div>
 
         <p className="text-xl leading-relaxed text-slate-600 mb-8 font-sans font-light">
           Few regions in Europe are better suited to solar than the Costa del
-          Sol. We enjoy more than <strong>320 days of sun per year</strong>, high
-          retail electricity prices, and one of Spain's most mature solar
+          Sol. We enjoy more than <strong>320 days of sun per year</strong>,
+          high retail electricity prices, and one of Spain's most mature solar
           installation markets. Yet many international owners still ask the same
-          question: <strong>“Is solar really worth it for my villa or apartment?”</strong>
+          question:{" "}
+          <strong>“Is solar really worth it for my villa or apartment?”</strong>
         </p>
 
         <p className="mb-6">
           This guide walks through the <strong>real Endesa bill math</strong>,
-          explains how the old <em>"Sun Tax"</em> disappeared, and shows you what
-          ROI to expect in 2025 – including a real case study from a villa in
-          Elviria.
+          explains how the old <em>"Sun Tax"</em> disappeared, and shows you
+          what ROI to expect in 2025 – including a real case study from a villa
+          in Elviria.
         </p>
 
         <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-4 text-2xl">
@@ -1083,15 +1088,15 @@ const blogPosts = {
         <ul className="list-disc pl-5 space-y-3 marker:text-blue-500 mb-6">
           <li>
             <strong>Potencia contratada (Power capacity):</strong> The fixed
-            charge for the maximum power (kW) your property can draw at any time.
-            Think of it as the size of your "pipe" to the grid. This is charged
-            per kW per day and <strong>does not disappear</strong> completely with
-            solar.
+            charge for the maximum power (kW) your property can draw at any
+            time. Think of it as the size of your "pipe" to the grid. This is
+            charged per kW per day and <strong>does not disappear</strong>{" "}
+            completely with solar.
           </li>
           <li>
-            <strong>Consumo (Energy use):</strong> The variable part based on how
-            many kWh you consume each month. This is where solar has the biggest
-            impact.
+            <strong>Consumo (Energy use):</strong> The variable part based on
+            how many kWh you consume each month. This is where solar has the
+            biggest impact.
           </li>
         </ul>
 
@@ -1101,7 +1106,8 @@ const blogPosts = {
           </h3>
           <ul className="space-y-2 text-slate-700 text-sm">
             <li>
-              <strong>Potencia:</strong> 5.5 kW × ~€0.13/kW/day ≈ <strong>€22–€24 / month</strong>
+              <strong>Potencia:</strong> 5.5 kW × ~€0.13/kW/day ≈{" "}
+              <strong>€22–€24 / month</strong>
             </li>
             <li>
               <strong>Consumo:</strong> 400–600 kWh at ~€0.25/kWh ≈
@@ -1113,8 +1119,9 @@ const blogPosts = {
             </li>
           </ul>
           <p className="mt-4 text-slate-700">
-            In other words, <strong>60–70% of your bill is pure consumption</strong>.
-            Solar attacks this Consumo line directly by generating free daytime
+            In other words,{" "}
+            <strong>60–70% of your bill is pure consumption</strong>. Solar
+            attacks this Consumo line directly by generating free daytime
             electricity.
           </p>
         </div>
@@ -1141,7 +1148,8 @@ const blogPosts = {
         <p className="mb-4">
           Many expats still believe Spain punishes solar owners with a special
           tax, known as the <em>Impuesto al Sol</em> or "Sun Tax". This used to
-          be partly true for certain large installations under older regulations.
+          be partly true for certain large installations under older
+          regulations.
         </p>
         <p className="mb-4">
           <strong>Since 2018, that tax has been abolished.</strong> Royal Decree
@@ -1173,10 +1181,11 @@ const blogPosts = {
           3. Living in a Community (LPH): Can Neighbours Block Solar?
         </h2>
         <p className="mb-4">
-          If you own an apartment or townhouse in a <em>Comunidad de
-          Propietarios</em>, the roof is usually a <strong>common element</strong>
-          regulated by Spain's Horizontal Property Law (<em>Ley de Propiedad
-          Horizontal</em>, LPH).
+          If you own an apartment or townhouse in a{" "}
+          <em>Comunidad de Propietarios</em>, the roof is usually a{" "}
+          <strong>common element</strong>
+          regulated by Spain's Horizontal Property Law (
+          <em>Ley de Propiedad Horizontal</em>, LPH).
         </p>
         <p className="mb-4">
           The law was updated to make energy-efficiency works easier. In most
@@ -1237,7 +1246,8 @@ const blogPosts = {
             </li>
           </ul>
           <p className="mt-4 text-slate-800">
-            That is a saving of roughly <strong>€245 per month</strong>, or about
+            That is a saving of roughly <strong>€245 per month</strong>, or
+            about
             <strong> €2,940 per year</strong>. Divide the €8,500 investment by
             €2,940 and you get a payback period of roughly
             <strong> 4.2 years</strong> – well within the 3–5 year range we see
@@ -1260,9 +1270,15 @@ const blogPosts = {
               <tr className="bg-slate-50 border-b border-slate-200">
                 <th className="p-4 font-bold text-[#0a1f44]">System Type</th>
                 <th className="p-4 font-bold text-[#0a1f44]">Size (kW)</th>
-                <th className="p-4 font-bold text-[#0a1f44]">Typical Installed Cost</th>
-                <th className="p-4 font-bold text-[#0a1f44]">Estimated Yearly Savings</th>
-                <th className="p-4 font-bold text-[#0a1f44]">Payback (After Grants)</th>
+                <th className="p-4 font-bold text-[#0a1f44]">
+                  Typical Installed Cost
+                </th>
+                <th className="p-4 font-bold text-[#0a1f44]">
+                  Estimated Yearly Savings
+                </th>
+                <th className="p-4 font-bold text-[#0a1f44]">
+                  Payback (After Grants)
+                </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
@@ -1320,7 +1336,8 @@ const blogPosts = {
           </li>
           <li>
             <strong>IBI reductions:</strong> Many town halls, including Marbella
-            and Estepona, offer <strong>up to 50% IBI discount for 3–5 years</strong>
+            and Estepona, offer{" "}
+            <strong>up to 50% IBI discount for 3–5 years</strong>
             for homes with certified solar installations.
           </li>
           <li>
@@ -1331,8 +1348,8 @@ const blogPosts = {
 
         <p className="mb-8">
           When combined, these incentives can reduce the effective cost of a
-          system by <strong>30–40%</strong>, pushing many projects below
-          the <strong>4-year ROI</strong> mark.
+          system by <strong>30–40%</strong>, pushing many projects below the{" "}
+          <strong>4-year ROI</strong> mark.
         </p>
 
         <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-4 text-2xl">
@@ -1346,12 +1363,13 @@ const blogPosts = {
         <ul className="list-disc pl-5 space-y-3 marker:text-blue-500 mb-6">
           <li>
             <strong>Full-time homes:</strong> A battery usually makes sense,
-            shifting excess daytime production into the evening when AC,
-            cooking and lighting demand is highest.
+            shifting excess daytime production into the evening when AC, cooking
+            and lighting demand is highest.
           </li>
           <li>
             <strong>Holiday homes:</strong> If the property is often empty, you
-            may prefer a <strong>simple grid-tied system without battery</strong>
+            may prefer a{" "}
+            <strong>simple grid-tied system without battery</strong>
             and rely on surplus compensation instead.
           </li>
           <li>
@@ -1381,8 +1399,8 @@ const blogPosts = {
               enough to justify the cost. A standard grid-tied system without
               storage still reduces your bills when you are there and lets you
               benefit from surplus compensation the rest of the year. Many
-              owners choose to <strong>add a battery later</strong> once they see
-              real usage patterns.
+              owners choose to <strong>add a battery later</strong> once they
+              see real usage patterns.
             </p>
           </div>
 
@@ -1392,10 +1410,11 @@ const blogPosts = {
             </h3>
             <p className="text-slate-700">
               Marbella Town Hall currently offers IBI discounts for certified
-              solar installations, but you must <strong>apply proactively</strong>.
-              After your system is legalised and registered, your installer or
-              gestor should provide the documentation. You then submit the
-              application at the <em>Oficina de Atención al Contribuyente</em>
+              solar installations, but you must{" "}
+              <strong>apply proactively</strong>. After your system is legalised
+              and registered, your installer or gestor should provide the
+              documentation. You then submit the application at the{" "}
+              <em>Oficina de Atención al Contribuyente</em>
               (tax office) or via the online <em>Sede Electrónica</em>, usually
               before <strong>31 December</strong> for the discount to apply to
               the following year's bill.
