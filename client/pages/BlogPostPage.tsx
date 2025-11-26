@@ -11,6 +11,10 @@ import {
   Quote,
   ArrowRight,
   AlertTriangle,
+  Droplets,
+  ArrowUpFromLine,
+  CloudRain,
+  FileText,
 } from "lucide-react";
 
 // Mock data for all blog posts
