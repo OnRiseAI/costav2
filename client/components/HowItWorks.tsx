@@ -62,35 +62,37 @@ export function HowItWorks() {
 
             return (
               <div key={step.title} className="relative group">
-                {/* Big step number in the background */}
-                <div className="pointer-events-none absolute -top-6 left-3 text-6xl md:text-7xl font-extrabold text-slate-200/70 group-hover:text-slate-300/90 transition-colors">
-                  {stepNumber}
-                </div>
-
-                <div className="relative flex h-full flex-col rounded-2xl border border-slate-200/80 bg-white/90 backdrop-blur-sm p-7 shadow-sm transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-xl transform-gpu backface-hidden">
-                  <div className="flex items-center gap-3 mb-5">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-[#0a1f44] shadow-[0_6px_18px_rgba(15,23,42,0.08)]">
-                      <Icon className="h-5 w-5" />
-                    </div>
-                    <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-blue-700">
-                      Step {stepNumber}
-                    </span>
+                <div className="relative flex h-full flex-col rounded-2xl border border-slate-200/80 bg-white/90 backdrop-blur-sm p-7 shadow-sm transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-xl transform-gpu backface-hidden overflow-hidden">
+                  {/* Big step number in the foreground corner */}
+                  <div className="absolute -top-4 -right-4 text-8xl font-extrabold text-slate-50/80 pointer-events-none select-none z-0">
+                    {stepNumber}
                   </div>
 
-                  <h3 className="mb-2 text-base md:text-lg font-semibold text-[#0a1f44]">
-                    {step.title}
-                  </h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    {step.description}
-                  </p>
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-3 mb-5">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-[#0a1f44] shadow-[0_6px_18px_rgba(15,23,42,0.08)]">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-blue-700">
+                        Step {stepNumber}
+                      </span>
+                    </div>
 
-                  {index === 0 && (
-                    <span className="mt-5 inline-flex w-fit items-center gap-1 rounded-full bg-blue-50 px-3 py-1 text-[11px] font-medium text-blue-800">
-                      Start here
-                      <span className="text-blue-500">•</span>
-                      Ideal if you know roughly what you need
-                    </span>
-                  )}
+                    <h3 className="mb-2 text-base md:text-lg font-semibold text-[#0a1f44]">
+                      {step.title}
+                    </h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">
+                      {step.description}
+                    </p>
+
+                    {index === 0 && (
+                      <span className="mt-5 inline-flex w-fit items-center gap-1 rounded-full bg-blue-50 px-3 py-1 text-[11px] font-medium text-blue-800">
+                        Start here
+                        <span className="text-blue-500">•</span>
+                        Ideal if you know roughly what you need
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
             );
