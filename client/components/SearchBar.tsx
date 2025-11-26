@@ -50,9 +50,11 @@ export function SearchBar({ variant = "hero" }: SearchBarProps) {
           />
           <button
             onClick={() => handleSearch()}
-            className="bg-[#0a1f44] text-white px-8 h-14 rounded-full font-bold text-lg hover:bg-blue-900 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center flex-shrink-0"
+            className="bg-[#0a1f44] text-white h-12 w-12 md:w-auto md:px-8 md:h-14 rounded-full font-bold text-lg hover:bg-blue-900 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center flex-shrink-0 mr-1 md:mr-0"
+            aria-label="Search"
           >
-            Search
+            <Search className="h-5 w-5 md:hidden" />
+            <span className="hidden md:inline">Search</span>
           </button>
         </div>
       </div>
