@@ -273,15 +273,18 @@ export default function BlogPage() {
           ))}
         </div>
 
-        <div className="mt-20 text-center">
-          <Button
-            variant="outline"
-            size="lg"
-            className="px-10 py-6 rounded-full border-slate-200 text-slate-600 hover:text-[#0a1f44] hover:border-[#0a1f44] hover:bg-white text-lg font-medium transition-all duration-300"
-          >
-            Load More Articles
-          </Button>
-        </div>
+        {visibleCount < recentPosts.length && (
+          <div className="mt-20 text-center">
+            <Button
+              variant="outline"
+              size="lg"
+              className="px-10 py-6 rounded-full border-slate-200 text-slate-600 hover:text-[#0a1f44] hover:border-[#0a1f44] hover:bg-white text-lg font-medium transition-all duration-300"
+              onClick={handleLoadMore}
+            >
+              Load More Articles
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );
