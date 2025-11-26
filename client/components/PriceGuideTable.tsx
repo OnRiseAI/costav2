@@ -42,8 +42,8 @@ export function PriceGuideTable() {
   ];
 
   return (
-    <div className="max-w-5xl mx-auto px-4">
-      <div className="bg-white rounded-2xl shadow-2xl shadow-slate-200/50 border border-slate-100 overflow-hidden">
+    <div className="max-w-5xl mx-auto px-4 antialiased">
+      <div className="bg-white rounded-2xl shadow-2xl shadow-slate-200/50 border border-slate-100 overflow-hidden transform-gpu">
         <div className="bg-gradient-to-r from-[#0a1f44] to-[#1e3a8a] px-4 md:px-8 py-5 border-b border-slate-200 flex items-center justify-between text-white">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-white/10 rounded-lg backdrop-blur-sm">

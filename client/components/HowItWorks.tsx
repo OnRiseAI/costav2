@@ -29,7 +29,7 @@ export function HowItWorks() {
   ];
 
   return (
-    <section className="relative bg-slate-50 py-20 px-6 overflow-hidden">
+    <section className="relative bg-slate-50 py-20 px-6 overflow-hidden antialiased">
       {/* Soft background accents */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -top-24 -left-24 h-56 w-56 rounded-full bg-blue-100/40 blur-3xl" />
@@ -67,7 +67,7 @@ export function HowItWorks() {
                   {stepNumber}
                 </div>
 
-                <div className="relative flex h-full flex-col rounded-2xl border border-slate-200/80 bg-white/90 backdrop-blur-sm p-7 shadow-sm transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-xl">
+                <div className="relative flex h-full flex-col rounded-2xl border border-slate-200/80 bg-white/90 backdrop-blur-sm p-7 shadow-sm transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-xl transform-gpu backface-hidden">
                   <div className="flex items-center gap-3 mb-5">
                     <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-[#0a1f44] shadow-[0_6px_18px_rgba(15,23,42,0.08)]">
                       <Icon className="h-5 w-5" />
