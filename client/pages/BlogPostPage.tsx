@@ -14,6 +14,185 @@ import {
 
 // Mock data for all blog posts
 const blogPosts = {
+  "stop-damp-mold-spain": {
+    title: "How to Stop Damp & Mold in Your Spanish Home (2025 Guide)",
+    metaDescription:
+      "Most damp issues on the Costa del Sol are caused by Condensation or Rising Damp. Quick fixes include vents and dehumidifiers. Permanent fixes require professional tanking.",
+    category: "Maintenance",
+    author: "Carlos Rodriguez",
+    authorRole: "Senior Surveyor",
+    date: "Nov 26, 2025",
+    readTime: "5 min read",
+    image:
+      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2940&auto=format&fit=crop",
+    keyTakeaways: [
+      "Most damp issues on the Costa del Sol are caused by Condensation or Rising Damp.",
+      "Quick fixes include vents and dehumidifiers.",
+      "Permanent fixes require professional tanking.",
+    ],
+    content: (
+      <>
+        {/* AEO Snippet */}
+        <div className="bg-blue-50 rounded-xl p-6 mb-8 border border-blue-100">
+          <h3 className="font-bold text-[#0a1f44] mb-2 text-lg">
+            Quick Verdict
+          </h3>
+          <p className="text-slate-700 leading-relaxed">
+            Most damp issues on the Costa del Sol are caused by{" "}
+            <strong>Condensation</strong> or <strong>Rising Damp</strong>. Quick
+            fixes include vents and dehumidifiers. Permanent fixes require
+            professional tanking.
+          </p>
+        </div>
+
+        <p className="text-xl leading-relaxed text-slate-600 mb-8 font-sans font-light">
+          Damp is the silent destroyer of Spanish homes. Whether it's the black
+          spots in the bathroom or the peeling paint near the skirting boards,
+          ignoring it will only make it more expensive to fix.
+        </p>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6 text-2xl">
+          Step 1: Diagnosis – Condensation vs. Rising Damp
+        </h2>
+
+        <div className="space-y-6 mb-12">
+          <div className="bg-slate-50 p-6 rounded-xl border-l-4 border-blue-500">
+            <h3 className="font-bold text-[#0a1f44] mb-2">1. Condensation</h3>
+            <p className="text-slate-600">
+              <strong>Signs:</strong> Black mold spots on walls/ceilings,
+              steaming windows, musty smell.
+            </p>
+            <p className="text-slate-600 mt-2">
+              <strong>Cause:</strong> Poor ventilation and high humidity (common
+              in winter).
+            </p>
+          </div>
+          <div className="bg-slate-50 p-6 rounded-xl border-l-4 border-amber-500">
+            <h3 className="font-bold text-[#0a1f44] mb-2">2. Rising Damp</h3>
+            <p className="text-slate-600">
+              <strong>Signs:</strong> Tide marks up to 1m high, peeling
+              paint/plaster, white salty deposits.
+            </p>
+            <p className="text-slate-600 mt-2">
+              <strong>Cause:</strong> Groundwater rising up through porous walls
+              (failed DPC).
+            </p>
+          </div>
+          <div className="bg-slate-50 p-6 rounded-xl border-l-4 border-red-500">
+            <h3 className="font-bold text-[#0a1f44] mb-2">
+              3. Penetrating Damp
+            </h3>
+            <p className="text-slate-600">
+              <strong>Signs:</strong> Damp patches at any height, often after
+              rain.
+            </p>
+            <p className="text-slate-600 mt-2">
+              <strong>Cause:</strong> Leaking gutters, cracked render, or roof
+              issues.
+            </p>
+          </div>
+        </div>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6 text-2xl">
+          2025 Price Guide: Cost to Fix Damp in Malaga
+        </h2>
+
+        <div className="my-8 overflow-x-auto rounded-xl border border-slate-200 shadow-sm font-sans">
+          <table className="w-full text-left border-collapse">
+            <thead>
+              <tr className="bg-slate-50 border-b border-slate-200">
+                <th className="p-4 font-bold text-[#0a1f44]">Solution</th>
+                <th className="p-4 font-bold text-[#0a1f44]">
+                  Estimated Cost
+                </th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100 text-sm">
+              <tr className="even:bg-slate-50">
+                <td className="p-4 font-medium">Anti-Mold Painting</td>
+                <td className="p-4 text-slate-600">€12 - €18 / m²</td>
+              </tr>
+              <tr className="even:bg-slate-50">
+                <td className="p-4 font-medium">Dehumidifier Unit</td>
+                <td className="p-4 text-slate-600">€200 - €350</td>
+              </tr>
+              <tr className="even:bg-slate-50">
+                <td className="p-4 font-medium">Chemical Injection (DPC)</td>
+                <td className="p-4 text-slate-600">€80 - €120 / m</td>
+              </tr>
+              <tr className="even:bg-slate-50">
+                <td className="p-4 font-medium">Tanking (Waterproofing)</td>
+                <td className="p-4 text-slate-600">€60 - €100 / m²</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        {/* IN-CONTENT CTA */}
+        <div className="bg-slate-900 rounded-2xl p-8 my-12 text-center relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/20 rounded-full blur-3xl -mr-10 -mt-10"></div>
+          <div className="relative z-10">
+            <h3 className="text-2xl font-bold text-white mb-3">
+              Need a professional opinion?
+            </h3>
+            <p className="text-blue-100 mb-6">
+              Don't let mold spread. Get a free inspection from verified damp
+              proofing experts.
+            </p>
+            <Link to="/trades/builders">
+              <Button className="bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-6 rounded-xl text-lg">
+                Find Damp Proofing Experts{" "}
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6 text-2xl">
+          3 Immediate DIY Fixes
+        </h2>
+        <ol className="list-decimal pl-5 space-y-4 marker:text-blue-500 font-medium text-slate-700">
+          <li>
+            <strong>Improve Ventilation:</strong> Install trickle vents on
+            windows or use a PIV (Positive Input Ventilation) unit to circulate
+            fresh air.
+          </li>
+          <li>
+            <strong>Bleach Wash:</strong> For surface mold, wash with a 1:4
+            bleach/water solution.{" "}
+            <em>Note: This does not kill the root, it only cleans the surface.</em>
+          </li>
+          <li>
+            <strong>Check Gutters:</strong> Ensure your gutters and downpipes
+            are clear. A blocked gutter can cause water to run down the wall and
+            penetrate the brickwork.
+          </li>
+        </ol>
+      </>
+    ),
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "What causes damp in Spanish homes?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "The most common causes are condensation due to high humidity and lack of ventilation, or rising damp caused by a failed damp proof course.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How much does damp proofing cost in Malaga?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Chemical injection typically costs €80-€120 per meter, while tanking costs €60-€100 per square meter.",
+          },
+        },
+      ],
+    },
+  },
   "renovation-permits-andalucia-2025": {
     title: "The Ultimate Guide to Renovation Permits in Andalucia (2025)",
     metaDescription:
@@ -933,6 +1112,11 @@ export default function BlogPostPage() {
         description={
           post.metaDescription ||
           `In-depth ${post.category.toLowerCase()} advice for Costa del Sol homeowners. Detailed guidance from CostaTrades experts on ${post.title}.`
+        }
+        url={`https://costatrades.com/blog/${slug}`}
+        schema={
+          // @ts-ignore
+          post.faqSchema ? JSON.stringify(post.faqSchema) : undefined
         }
       />
       {/* Article Header */}
