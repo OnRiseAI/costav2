@@ -482,7 +482,7 @@ const blogPosts = {
           name: "What causes damp in Spanish homes?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "The most common causes are condensation due to high humidity and lack of ventilation, or rising damp caused by a failed damp proof course.",
+            text: "The most common cause is condensation (90% of cases) due to thermal bridging in uninsulated Spanish construction (Ladrillo). Rising damp occurs when groundwater rises through porous walls due to a failed damp-proof course. Penetrating damp is caused by external water entering through cracks, leaking gutters, or damaged render.",
           },
         },
         {
@@ -490,7 +490,31 @@ const blogPosts = {
           name: "How much does damp proofing cost in Malaga?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Chemical injection typically costs €80-€120 per meter, while tanking costs €60-€100 per square meter.",
+            text: "Chemical DPC injection costs €80-€120 per linear meter (varies by wall thickness). Tanking costs €60-€100 per m². Anti-mold paint costs €12-€18 per m². Dehumidifier units cost €200-€350. Always get a site visit for accurate pricing.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Does bleach kill mold permanently?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "No. Bleach is mostly water and cannot penetrate porous materials like plaster to kill mold roots (mycelium). Use a proper fungicidal wash instead, which contains biocides that kill spores and penetrate deeper into surfaces.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Who is responsible for damp in a Spanish apartment community?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Under the Ley de Propiedad Horizontal (LPH), structural damp from common elements like façades, foundations, or shared roofs is the Community of Owners' responsibility. Damp from issues within your unit (e.g., leaking shower, condensation) is your responsibility.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Is damp dangerous to health?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes. According to WHO guidelines, persistent dampness is directly linked to respiratory infections, asthma, allergic rhinitis, and eczema. Children, elderly residents, asthma sufferers, and immunocompromised individuals are particularly vulnerable to mold-related illness.",
           },
         },
       ],
