@@ -18,7 +18,7 @@ const blogPosts = {
   "stop-damp-mold-spain": {
     title: "How to Stop Damp & Mold in Your Spanish Home (2025 Guide)",
     metaDescription:
-      "Most damp issues on the Costa del Sol are caused by Condensation or Rising Damp. Quick fixes include vents and dehumidifiers. Permanent fixes require professional tanking.",
+      "Comprehensive guide to diagnosing and fixing damp in Spanish homes. Learn about Condensation vs Rising Damp, thermal bridging, health risks, legal responsibilities (LPH), and why bleach doesn't work. Includes 2025 pricing and real case studies.",
     category: "Maintenance",
     author: "Carlos Rodriguez",
     authorRole: "Senior Surveyor",
@@ -240,7 +240,7 @@ const blogPosts = {
             <tbody className="divide-y divide-slate-100 text-sm">
               <tr className="even:bg-slate-50">
                 <td className="p-4 font-medium">Anti-Mold Painting</td>
-                <td className="p-4 text-slate-600">€12 - €18 / m²</td>
+                <td className="p-4 text-slate-600">€12 - €18 / m��</td>
               </tr>
               <tr className="even:bg-slate-50">
                 <td className="p-4 font-medium">Dehumidifier Unit</td>
@@ -1423,7 +1423,7 @@ const blogPosts = {
           </h3>
           <ul className="space-y-2 text-slate-700 text-sm">
             <li>
-              <strong>Potencia:</strong> 5.5 kW �� ~€0.13/kW/day ≈{" "}
+              <strong>Potencia:</strong> 5.5 kW × ~€0.13/kW/day ≈{" "}
               <strong>€22–€24 / month</strong>
             </li>
             <li>
