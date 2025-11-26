@@ -1075,12 +1075,29 @@ const blogPosts = {
         </p>
 
         <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-4 text-2xl">
-          1. The Endesa Bill: Potencia vs. Consumo Explained
+          The "Endesa" Problem
         </h2>
         <p className="mb-4">
-          Spanish electricity bills look intimidating because they bundle
-          different concepts into one page. To understand solar ROI, you only
-          need to separate two main parts of the bill:
+          Current electricity rates in Malaga typically fluctuate between
+          <strong> €0.20 and €0.30 per kWh</strong>, depending on your tariff and
+          time of day. For a villa with air conditioning, a heated pool and
+          regular year-round use, that quickly adds up to
+          <strong> €3,000–€6,000+ per year</strong>.
+        </p>
+        <p className="mb-4">
+          According to official{" "}
+          <a
+            href="https://re.jrc.ec.europa.eu/pvg_tools/en/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            PVGIS Data
+          </a>
+          , Malaga receives over
+          <strong> 1,700 kWh/m² of solar irradiation per year</strong>. That
+          means every square metre of well-oriented roof can generate far more
+          energy than it consumes in a typical Spanish home.
         </p>
         <ul className="list-disc pl-5 space-y-3 marker:text-blue-500 mb-6">
           <li>
