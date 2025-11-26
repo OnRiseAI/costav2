@@ -7,7 +7,7 @@ export function ScrollToTop() {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    if (pathname.startsWith("/post-job")) {
+    if (pathname.startsWith("/post-job") || pathname.startsWith("/blog")) {
       window.scrollTo(0, 0);
       return;
     }
