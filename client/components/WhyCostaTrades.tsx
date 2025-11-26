@@ -1,6 +1,10 @@
 import { Users, Wallet, MapPin, Quote } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export function WhyCostaTrades() {
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+
   const stats = [
     {
       icon: Users,
@@ -21,6 +25,44 @@ export function WhyCostaTrades() {
       sub: "Coastal Coverage",
     },
   ];
+
+  const testimonials = [
+    {
+      text: "Found a brilliant electrician within 24 hours. Spoke perfect English and fixed the issue immediately.",
+      author: "Marcus",
+      location: "Mijas Costa",
+      initial: "M",
+      color: "bg-[#E31E24]", // Red
+    },
+    {
+      text: "Finally a platform where I can find reliable tradespeople who actually show up. Highly recommended!",
+      author: "Sarah",
+      location: "Marbella",
+      initial: "S",
+      color: "bg-[#F59E0B]", // Amber
+    },
+    {
+      text: "Great experience finding a pool maintenance service. The quotes were transparent and fair.",
+      author: "David",
+      location: "Estepona",
+      initial: "D",
+      color: "bg-[#10B981]", // Emerald
+    },
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+        setIsAnimating(false);
+      }, 500); // Wait for fade out
+    }, 5000); // Change every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [testimonials.length]);
+
+  const activeTestimonial = testimonials[currentTestimonial];
 
   return (
     <section className="py-20 bg-white">
@@ -50,7 +92,7 @@ export function WhyCostaTrades() {
                   <div className="font-bold text-3xl text-[#0a1f44] mb-1">
                     {stat.value}
                   </div>
-                  <div className="font-bold text-[#E07A5F] uppercase tracking-wider text-sm mb-1">
+                  <div className="font-bold text-[#E31E24] uppercase tracking-wider text-sm mb-1">
                     {stat.label}
                   </div>
                   <div className="text-slate-500 text-xs font-medium">
@@ -61,23 +103,38 @@ export function WhyCostaTrades() {
             })}
           </div>
 
-          {/* Featured Testimonial */}
-          <div className="bg-[#0a1f44] rounded-2xl p-8 md:p-10 text-white relative overflow-hidden">
+          {/* Featured Testimonial - Rotating */}
+          <div className="bg-[#0a1f44] rounded-2xl p-8 md:p-10 text-white relative overflow-hidden min-h-[280px] flex flex-col justify-center">
             <Quote className="absolute top-6 left-6 w-12 h-12 text-white/10" />
-            <div className="relative z-10">
-              <p className="text-xl md:text-2xl italic leading-relaxed mb-6 text-blue-50">
-                "Found a brilliant electrician within 24 hours. Spoke perfect
-                English and fixed the issue immediately."
+            
+            {/* Background decoration */}
+            <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-white/5 rounded-full blur-3xl"></div>
+            
+            <div 
+              className={`relative z-10 transition-opacity duration-500 ease-in-out ${isAnimating ? 'opacity-0' : 'opacity-100'}`}
+            >
+              <p className="text-xl md:text-2xl italic leading-relaxed mb-8 text-blue-50">
+                "{activeTestimonial.text}"
               </p>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-[#E07A5F] rounded-full flex items-center justify-center font-bold text-white">
-                  M
+                <div className={`w-12 h-12 ${activeTestimonial.color} rounded-full flex items-center justify-center font-bold text-white shadow-lg`}>
+                  {activeTestimonial.initial}
                 </div>
                 <div>
-                  <div className="font-bold text-white">Marcus</div>
-                  <div className="text-blue-200 text-sm">Mijas Costa</div>
+                  <div className="font-bold text-white text-lg">{activeTestimonial.author}</div>
+                  <div className="text-blue-200 text-sm font-medium">{activeTestimonial.location}</div>
                 </div>
               </div>
+            </div>
+
+            {/* Progress Indicators */}
+            <div className="absolute bottom-6 right-8 flex gap-2">
+              {testimonials.map((_, idx) => (
+                <div 
+                  key={idx}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${idx === currentTestimonial ? 'w-6 bg-white' : 'w-1.5 bg-white/30'}`}
+                />
+              ))}
             </div>
           </div>
         </div>
