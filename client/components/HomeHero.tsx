@@ -33,8 +33,8 @@ export function HomeHero() {
         </p>
 
         <div className="max-w-3xl mx-auto mb-6 relative">
-          {/* Mobile Search Prompt */}
-          <div className="md:hidden absolute -top-12 left-4 animate-bounce">
+          {/* Search Prompt */}
+          <div className="absolute -top-12 left-4 md:-left-12 md:-top-8 animate-bounce z-20">
             <div className="relative">
               <svg
                 width="40"
@@ -42,7 +42,7 @@ export function HomeHero() {
                 viewBox="0 0 120 120"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="transform rotate-12 text-yellow-400"
+                className="transform rotate-12 text-yellow-400 w-10 h-10 md:w-14 md:h-14"
               >
                 <path
                   d="M10 10 C 30 50, 50 50, 80 80"
@@ -59,7 +59,7 @@ export function HomeHero() {
                   fill="none"
                 />
               </svg>
-              <span className="absolute -top-2 left-8 text-yellow-400 font-handwriting text-sm font-bold whitespace-nowrap transform -rotate-6">
+              <span className="absolute -top-2 left-8 md:left-12 text-yellow-400 font-handwriting text-sm md:text-lg font-bold whitespace-nowrap transform -rotate-6 drop-shadow-md">
                 Start here
               </span>
             </div>
