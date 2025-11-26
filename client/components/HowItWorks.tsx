@@ -1,76 +1,58 @@
-import { Link } from "react-router-dom";
+import { Search, Eye, MessageCircle, CheckCircle } from "lucide-react";
 
 export function HowItWorks() {
-  return (
-    <section className="bg-[#F9F7F2] py-20 md:py-28">
-      <div className="container-custom">
-        <div className="flex flex-col gap-20 md:gap-32">
-          {/* Row 1: Image Left / Text Right */}
-          <div className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
-            <div className="w-full md:w-1/2 relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[3/4] md:aspect-[4/5]">
-                <img
-                  src="https://images.pexels.com/photos/8293686/pexels-photo-8293686.jpeg"
-                  alt="Pristine renovated kitchen"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                />
-              </div>
-              {/* Decorative element */}
-              <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-[#E07A5F] rounded-full opacity-20 blur-2xl"></div>
-            </div>
-            <div className="w-full md:w-1/2">
-              <span className="text-[#E07A5F] font-bold tracking-wider uppercase text-sm mb-2 block">
-                Step 1
-              </span>
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0a1f44] mb-6">
-                Describe or Browse.
-              </h2>
-              <p className="text-slate-600 text-lg leading-relaxed mb-8">
-                Post a job in seconds or browse our curated directory of local
-                specialists. Filter by language and location to find the perfect
-                match for your project.
-              </p>
-              <Link
-                to="/post-job"
-                className="inline-flex items-center text-[#0a1f44] font-semibold border-b-2 border-[#E07A5F] hover:text-[#E07A5F] transition-colors pb-1"
-              >
-                Post a job now
-              </Link>
-            </div>
-          </div>
+  const steps = [
+    {
+      icon: Search,
+      title: "Search & Filter",
+      description: "Filter by trade and location to find the perfect specialist.",
+    },
+    {
+      icon: Eye,
+      title: "Compare Profiles",
+      description: "View photos, reviews, and verify they speak your language.",
+    },
+    {
+      icon: MessageCircle,
+      title: "Direct Chat",
+      description: "Chat directly to get quotes. Ask for WhatsApp updates.",
+    },
+    {
+      icon: CheckCircle,
+      title: "Hire & Rate",
+      description: "Get the job done. No middleman fees. Rate your pro.",
+    },
+  ];
 
-          {/* Row 2: Text Left / Image Right */}
-          <div className="flex flex-col md:flex-row-reverse items-center gap-12 md:gap-20">
-            <div className="w-full md:w-1/2 relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[3/4] md:aspect-[4/5]">
-                <img
-                  src="https://images.pexels.com/photos/7579206/pexels-photo-7579206.jpeg"
-                  alt="Homeowner shaking hands with tradesperson"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                />
-              </div>
-              {/* Decorative element */}
-              <div className="absolute -top-6 -right-6 w-24 h-24 bg-[#81B29A] rounded-full opacity-20 blur-2xl"></div>
-            </div>
-            <div className="w-full md:w-1/2">
-              <span className="text-[#81B29A] font-bold tracking-wider uppercase text-sm mb-2 block">
-                Step 2
-              </span>
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0a1f44] mb-6">
-                Hire Direct.
-              </h2>
-              <p className="text-slate-600 text-lg leading-relaxed mb-8">
-                Chat directly with pros. Check their ratings and reviews from
-                other homeowners. No middleman fees, just direct connections.
-              </p>
-              <Link
-                to="/post-job"
-                className="inline-flex items-center text-[#0a1f44] font-semibold border-b-2 border-[#81B29A] hover:text-[#81B29A] transition-colors pb-1"
+  return (
+    <section className="bg-slate-50 py-20 px-6">
+      <div className="container-custom">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0a1f44]">
+            How it works
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {steps.map((step, index) => {
+            const Icon = step.icon;
+            return (
+              <div
+                key={index}
+                className="bg-white rounded-2xl shadow-sm p-8 flex flex-col items-center text-center h-full"
               >
-                Find a professional
-              </Link>
-            </div>
-          </div>
+                <div className="w-16 h-16 rounded-2xl bg-[#FEFCE8] flex items-center justify-center mb-6 flex-shrink-0">
+                  <Icon className="w-8 h-8 text-slate-900" />
+                </div>
+                <h3 className="font-bold text-lg text-[#0a1f44] mb-3">
+                  {step.title}
+                </h3>
+                <p className="text-sm text-slate-500 leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
