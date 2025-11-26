@@ -230,9 +230,9 @@ export default function BlogPage() {
       <div className="container-custom max-w-7xl mx-auto px-4 py-16 -mt-20 relative z-20">
         {/* Featured Article */}
         <Link to={`/blog/${featuredPost.slug}`} className="block group mb-20">
-          <div className="bg-white rounded-[2.5rem] shadow-2xl shadow-blue-900/10 border border-white/50 overflow-hidden grid lg:grid-cols-2 gap-0 hover:shadow-blue-900/20 transition-all duration-500 transform hover:-translate-y-1">
+          <div className="bg-slate-950 text-white rounded-[2.5rem] shadow-[0_28px_70px_rgba(15,23,42,0.9)] border border-slate-800/80 overflow-hidden grid lg:grid-cols-2 gap-0 hover:border-sky-500/40 hover:shadow-[0_32px_80px_rgba(56,189,248,0.45)] transition-all duration-500 transform hover:-translate-y-1">
             <div className="relative h-72 lg:h-auto overflow-hidden">
-              <div className="absolute top-6 left-6 z-10 bg-white/90 backdrop-blur-md text-[#0a1f44] text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider shadow-lg flex items-center gap-2">
+              <div className="absolute top-6 left-6 z-10 bg-slate-950/80 backdrop-blur-md text-slate-50 text-xs font-semibold px-4 py-2 rounded-full uppercase tracking-wider shadow-lg flex items-center gap-2 border border-slate-700/80">
                 <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
                 Must Read
               </div>
@@ -241,15 +241,15 @@ export default function BlogPage() {
                 alt={featuredPost.title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent lg:hidden"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/40 to-transparent"></div>
             </div>
             <div className="p-8 md:p-12 lg:p-16 flex flex-col justify-center relative">
               <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
                 <Sparkles className="w-40 h-40 text-blue-600" />
               </div>
 
-              <div className="flex items-center gap-4 text-sm text-slate-500 mb-6 font-medium">
-                <span className="text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
+              <div className="flex items-center gap-4 text-sm text-slate-300 mb-6 font-medium">
+                <span className="text-sky-200 bg-slate-900/70 border border-slate-700 px-3 py-1 rounded-full">
                   {featuredPost.category}
                 </span>
                 <span className="w-1 h-1 bg-slate-300 rounded-full"></span>
@@ -258,13 +258,13 @@ export default function BlogPage() {
                 </span>
               </div>
 
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0a1f44] mb-6 leading-[1.1] group-hover:text-blue-700 transition-colors">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-[1.1] group-hover:text-sky-300 transition-colors">
                 {featuredPost.title}
               </h2>
-              <p className="text-slate-600 text-lg mb-8 leading-relaxed line-clamp-3">
+              <p className="text-slate-200/90 text-lg mb-8 leading-relaxed line-clamp-3">
                 {featuredPost.excerpt}
               </p>
-              <div className="flex items-center text-blue-600 font-bold text-lg group-hover:translate-x-2 transition-transform duration-300">
+              <div className="flex items-center text-sky-300 font-semibold text-lg group-hover:translate-x-2 transition-transform duration-300">
                 Read Article <ArrowRight className="w-5 h-5 ml-2" />
               </div>
             </div>
@@ -297,7 +297,7 @@ export default function BlogPage() {
             <Link
               to={`/blog/${post.slug}`}
               key={post.id}
-              className="group flex flex-col bg-white rounded-[2rem] border border-slate-100 overflow-hidden hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-500 hover:-translate-y-2"
+              className="group flex flex-col rounded-[2rem] border border-slate-800/80 bg-slate-950 text-white overflow-hidden shadow-[0_22px_55px_rgba(15,23,42,0.9)] hover:border-sky-500/50 hover:shadow-[0_28px_70px_rgba(56,189,248,0.5)] transition-all duration-500 hover:-translate-y-2"
             >
               <div className="relative h-64 overflow-hidden">
                 <img
@@ -305,13 +305,13 @@ export default function BlogPage() {
                   alt={post.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
-                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-[#0a1f44] text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+                <div className="absolute top-4 left-4 bg-slate-950/85 backdrop-blur-sm text-slate-50 text-xs font-semibold px-3 py-1.5 rounded-full shadow-sm border border-slate-700/80">
                   {post.category}
                 </div>
               </div>
               <div className="p-8 flex-1 flex flex-col">
-                <div className="flex items-center gap-3 text-xs font-medium text-slate-400 mb-4">
+                <div className="flex items-center gap-3 text-xs font-medium text-slate-300 mb-4">
                   <span className="flex items-center gap-1">
                     <Calendar className="w-3.5 h-3.5" /> Nov 15, 2025
                   </span>
@@ -320,13 +320,13 @@ export default function BlogPage() {
                     <Clock className="w-3.5 h-3.5" /> {post.readTime}
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-[#0a1f44] mb-3 leading-snug group-hover:text-blue-600 transition-colors">
+                <h3 className="text-xl font-bold text-white mb-3 leading-snug group-hover:text-sky-300 transition-colors">
                   {post.title}
                 </h3>
-                <p className="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-3 flex-1">
+                <p className="text-slate-300 text-sm leading-relaxed mb-6 line-clamp-3 flex-1">
                   {post.excerpt}
                 </p>
-                <div className="flex items-center text-sm font-bold text-blue-600 mt-auto pt-6 border-t border-slate-50 group-hover:border-blue-50 transition-colors">
+                <div className="flex items-center text-sm font-semibold text-sky-300 mt-auto pt-6 border-t border-slate-800/80 group-hover:border-sky-500/40 transition-colors">
                   Read More{" "}
                   <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                 </div>
