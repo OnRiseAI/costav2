@@ -44,8 +44,8 @@ export const translations = {
     // Categories
     "categories.title": "Popular Trade Categories",
     "categories.viewAll": "View All Categories",
-    "category.poolMaintenance": "Pool Maintenance & Repair",
-    "category.airConditioning": "Air Conditioning",
+    "category.poolMaintenance": "Pool Services",
+    "category.airConditioning": "Air Con",
     "category.plumbers": "Plumbers",
     "category.electricians": "Electricians",
     "category.builders": "Builders & Renovations",
