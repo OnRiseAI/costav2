@@ -28,7 +28,7 @@ export function HowItWorks() {
     <section className="bg-slate-50 py-20 px-6">
       <div className="container-custom">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0a1f44]">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0a1f44]">
             How it works
           </h2>
         </div>
@@ -42,12 +42,12 @@ export function HowItWorks() {
                 className="bg-white rounded-2xl shadow-sm p-8 flex flex-col items-center text-center h-full"
               >
                 <div className="w-16 h-16 rounded-2xl bg-[#FEFCE8] flex items-center justify-center mb-6 flex-shrink-0">
-                  <Icon className="w-8 h-8 text-slate-900" />
+                  <Icon className="w-8 h-8 text-[#0a1f44]" />
                 </div>
                 <h3 className="font-bold text-lg text-[#0a1f44] mb-3">
                   {step.title}
                 </h3>
-                <p className="text-sm text-slate-500 leading-relaxed">
+                <p className="text-sm text-slate-600 leading-relaxed">
                   {step.description}
                 </p>
               </div>
