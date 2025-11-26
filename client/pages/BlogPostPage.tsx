@@ -256,7 +256,7 @@ const blogPosts = {
               </tr>
               <tr className="even:bg-slate-50">
                 <td className="p-4 font-medium">Tanking (Waterproofing)</td>
-                <td className="p-4 text-slate-600">€60 - €100 / m²</td>
+                <td className="p-4 text-slate-600">��60 - €100 / m²</td>
               </tr>
             </tbody>
           </table>
@@ -1763,22 +1763,48 @@ const blogPosts = {
           </div>
         </div>
 
-        <div className="bg-slate-900 rounded-2xl p-8 my-8 text-center relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/30 rounded-full blur-3xl -mr-10 -mt-10"></div>
-          <div className="relative z-10">
-            <h3 className="text-2xl font-bold text-white mb-3">
-              Ready to see your own ROI?
-            </h3>
-            <p className="text-blue-100 mb-6 max-w-xl mx-auto">
-              Describe your property once and get quotes from vetted solar
-              installers who understand Endesa bills, community rules and local
-              grants on the Costa del Sol.
-            </p>
-            <Link to="/post-job">
-              <Button className="bg-blue-500 hover:bg-blue-400 text-white font-bold px-8 py-6 rounded-xl text-lg">
-                Request Solar Quotes
-              </Button>
-            </Link>
+        <div className="relative my-12">
+          <div className="rounded-3xl bg-gradient-to-r from-[#020617] via-[#020b33] to-[#0b1120] p-[1px] shadow-[0_22px_55px_rgba(15,23,42,0.85)]">
+            <div className="relative overflow-hidden rounded-3xl bg-slate-900/95 px-6 py-10 md:px-10 md:py-12 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+              <div className="pointer-events-none absolute inset-0 opacity-60">
+                <div className="absolute -top-10 -right-10 w-40 h-40 bg-blue-500/30 rounded-full blur-3xl" />
+                <div className="absolute -bottom-16 -left-8 w-48 h-48 bg-emerald-500/20 rounded-full blur-3xl" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(148,163,253,0.15),transparent_60%)]" />
+              </div>
+
+              <div className="relative z-10 max-w-xl text-left">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700 mb-4">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                  <span className="text-xs font-semibold tracking-wide text-slate-100 uppercase">
+                    Free, no obligation quotes
+                  </span>
+                </div>
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 leading-tight">
+                  Ready to see your own ROI?
+                </h3>
+                <p className="text-slate-200/90 mb-6 text-sm md:text-base leading-relaxed">
+                  Describe your property once and get tailored proposals from vetted solar
+                  installers who understand Endesa bills, community rules and local grants
+                  on the Costa del Sol.
+                </p>
+              </div>
+
+              <div className="relative z-10 flex flex-col items-stretch md:items-end gap-3 min-w-[220px]">
+                <p className="text-xs text-slate-300/80 mb-1 md:mb-2">
+                  Average payback for well-designed systems in Malaga:
+                  <span className="font-semibold text-emerald-400"> 3.5–5 years</span>
+                </p>
+                <Link to="/post-job" className="w-full md:w-auto">
+                  <Button className="w-full md:w-auto bg-blue-500 hover:bg-blue-400 text-white font-semibold md:font-bold px-7 md:px-9 py-4 md:py-5 rounded-2xl text-sm md:text-lg shadow-[0_14px_35px_rgba(37,99,235,0.55)] flex items-center justify-center gap-2">
+                    <span>Request Solar Quotes</span>
+                    <ArrowRight className="w-5 h-5" />
+                  </Button>
+                </Link>
+                <p className="text-[11px] text-slate-400 mt-1 md:mt-2">
+                  No spam. Your details are only shared with selected vetted installers.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </>
