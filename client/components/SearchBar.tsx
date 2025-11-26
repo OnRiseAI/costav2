@@ -61,7 +61,7 @@ export function SearchBar({ variant = "hero" }: SearchBarProps) {
         {/* Button */}
         <Button
           type="submit"
-          className="w-full md:w-auto bg-[#FBBF24] hover:bg-[#F59E0B] text-slate-900 font-bold py-3 md:py-6 px-8 rounded-full h-auto text-base md:text-lg shadow-md transition-transform hover:scale-105 mt-2 md:mt-0"
+          className="w-full md:w-auto bg-[#E31E24] hover:bg-[#C41218] text-white font-bold py-3 md:py-6 px-8 rounded-full h-auto text-base md:text-lg shadow-md transition-transform hover:scale-105 mt-2 md:mt-0"
         >
           Search
         </Button>
