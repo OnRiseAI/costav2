@@ -1157,7 +1157,7 @@ const blogPosts = {
         </p>
 
         <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-4 text-2xl">
-          2. The "Sun Tax" Myth – Why It No Longer Exists
+          The Sun Tax Myth
         </h2>
         <p className="mb-4">
           Many expats still believe Spain punishes solar owners with a special
@@ -1188,7 +1188,18 @@ const blogPosts = {
         <p className="mb-6">
           Any installer still mentioning the Sun Tax for residential systems is
           either using outdated information or trying to scare you into making a
-          rushed decision.
+          rushed decision. The "Sun Tax" was officially abolished in 2018 by
+          {" "}
+          <a
+            href="https://www.boe.es/eli/es/rd/2019/04/05/244"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            Real Decreto 244/2019
+          </a>
+          , which guarantees your right to legal self-consumption and simplified
+          compensation for surplus energy.
         </p>
 
         <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-4 text-2xl">
@@ -1230,11 +1241,11 @@ const blogPosts = {
         </p>
 
         <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-4 text-2xl">
-          4. Case Study: Real Villa in Elviria
+          Case Study: 4-Bed Villa in Mijas
         </h2>
-        <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-6 mb-8">
-          <h3 className="font-bold text-emerald-900 mb-3 text-lg">
-            Real Scenario: Villa in Elviria
+        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 mb-8">
+          <h3 className="font-bold text-[#0a1f44] mb-3 text-lg">
+            Real Numbers from a Mijas Family Home
           </h3>
           <ul className="space-y-2 text-slate-800 text-sm">
             <li>
@@ -1242,128 +1253,113 @@ const blogPosts = {
               residence.
             </li>
             <li>
-              <strong>Before Solar:</strong> Average monthly bill
-              <strong> €280</strong> (air-conditioning running most of the
-              summer).
+              <strong>System:</strong> 5 kW inverter with battery storage.
             </li>
             <li>
-              <strong>System Installed:</strong> <strong>5 kW</strong> of panels
-              + <strong>5 kWh</strong> lithium battery.
+              <strong>Net Cost (after grant):</strong> €8,000.
             </li>
             <li>
-              <strong>Total Cost 2025:</strong> <strong>€8,500</strong>
-              (including inverter, permits and installation).
+              <strong>Annual Saving on Bills:</strong> approximately
+              <strong> €3,660 per year</strong>.
             </li>
             <li>
-              <strong>After Solar:</strong> Average monthly bill around
-              <strong> €35</strong> (mainly fixed Potencia and taxes).
+              <strong>Simple Payback:</strong> around
+              <strong> 2.1 years</strong>.
             </li>
           </ul>
-          <p className="mt-4 text-slate-800">
-            That is a saving of roughly <strong>€245 per month</strong>, or
-            about
-            <strong> €2,940 per year</strong>. Divide the €8,500 investment by
-            €2,940 and you get a payback period of roughly
-            <strong> 4.2 years</strong> – well within the 3–5 year range we see
-            for many full-time villas.
+          <p className="mt-4 text-slate-700">
+            After the payback point, the owners effectively generate thousands of
+            euros of electricity every year for the remaining life of the
+            system, with only minor maintenance costs.
           </p>
         </div>
 
         <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-4 text-2xl">
-          5. 2025 Price Guide: Typical Solar Systems on the Costa del Sol
+          2025 IBI Reductions in Malaga
         </h2>
         <p className="mb-4">
-          Prices vary by brand, roof type and access, but the following table is
-          a realistic guide for quality, legal installations in Malaga province
-          in 2025.
+          Each Town Hall sets its own rules, but the following table summarises
+          typical <strong>IBI discounts</strong> currently available for
+          certified residential solar systems in parts of Malaga province:
         </p>
 
         <div className="my-8 overflow-x-auto rounded-xl border border-slate-200 shadow-sm font-sans">
           <table className="w-full text-left border-collapse text-sm">
             <thead>
               <tr className="bg-slate-50 border-b border-slate-200">
-                <th className="p-4 font-bold text-[#0a1f44]">System Type</th>
-                <th className="p-4 font-bold text-[#0a1f44]">Size (kW)</th>
-                <th className="p-4 font-bold text-[#0a1f44]">
-                  Typical Installed Cost
-                </th>
-                <th className="p-4 font-bold text-[#0a1f44]">
-                  Estimated Yearly Savings
-                </th>
-                <th className="p-4 font-bold text-[#0a1f44]">
-                  Payback (After Grants)
-                </th>
+                <th className="p-4 font-bold text-[#0a1f44]">Municipality</th>
+                <th className="p-4 font-bold text-[#0a1f44]">Typical IBI Discount</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
               <tr className="even:bg-slate-50">
-                <td className="p-4 font-medium">Apartment / Small Terrace</td>
-                <td className="p-4">2–3 kW</td>
-                <td className="p-4">€3,500 – €5,000</td>
-                <td className="p-4">€600 – €900 / year</td>
-                <td className="p-4">4–6 years</td>
+                <td className="p-4 font-medium">Marbella</td>
+                <td className="p-4">25% discount for 5 years</td>
               </tr>
               <tr className="even:bg-slate-50">
-                <td className="p-4 font-medium">Standard Family Villa</td>
-                <td className="p-4">4–6 kW</td>
-                <td className="p-4">€6,500 – €9,500</td>
-                <td className="p-4">€1,200 – €1,800 / year</td>
-                <td className="p-4">3–5 years</td>
+                <td className="p-4 font-medium">Mijas</td>
+                <td className="p-4">50% discount for 3 years</td>
               </tr>
               <tr className="even:bg-slate-50">
-                <td className="p-4 font-medium">Villa with Battery Storage</td>
-                <td className="p-4">5 kW + 5–10 kWh battery</td>
-                <td className="p-4">€8,000 – €12,500</td>
-                <td className="p-4">€1,800 – €2,500 / year</td>
-                <td className="p-4">4–6 years</td>
+                <td className="p-4 font-medium">Fuengirola</td>
+                <td className="p-4">50% discount for 3 years</td>
               </tr>
               <tr className="even:bg-slate-50">
-                <td className="p-4 font-medium">Large Luxury Villa</td>
-                <td className="p-4">8–12 kW</td>
-                <td className="p-4">€12,000 – €20,000</td>
-                <td className="p-4">€2,500 – €4,000 / year</td>
-                <td className="p-4">3–5 years</td>
+                <td className="p-4 font-medium">Malaga City</td>
+                <td className="p-4">15% discount for 3 years</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <p className="mb-8 text-slate-600 text-sm">
-          <strong>Note:</strong> The payback estimates above assume access to
-          current 2025 grants and IBI/ICIO reductions where available. Without
-          incentives, add roughly 1–2 years to each payback period.
+        <p className="mb-8 text-sm text-slate-600">
+          These figures change over time and may depend on system size and
+          administrative deadlines, so always confirm the current ordinance with
+          your local <em>Ayuntamiento</em> before signing a contract.
         </p>
 
         <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-4 text-2xl">
-          6. Grants, Tax Breaks and 2025 Subvenciones
+          The 3 Hidden Savings (2025 Tax Rules)
         </h2>
         <p className="mb-4">
-          In addition to lower bills, Andalucia homeowners can benefit from
-          several layers of financial support in 2025:
+          The headline saving is obvious: lower monthly bills. But in 2025 there
+          are <strong>three additional layers of savings</strong> available to
+          many Costa del Sol homeowners:
         </p>
-        <ul className="list-disc pl-5 space-y-3 marker:text-blue-500 mb-6">
+        <ol className="list-decimal pl-5 space-y-3 marker:text-blue-500 mb-6">
           <li>
-            <strong>Regional grants (Junta / EU NextGen):</strong> Periodic
-            programmes offering <strong>20–40% subsidies</strong> on solar and
-            battery systems. These are limited in time and budget, so a good
-            installer will handle the paperwork quickly.
+            <strong>NextGen / Regional Grants:</strong> You can apply for
+            subsidies covering up to <strong>40% of the installation cost</strong>
+            via the{" "}
+            <a
+              href="https://www.agenciaandaluzadelaenergia.es/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:underline"
+            >
+              Agencia Andaluza de la Energía
+            </a>
+            . These programmes open in waves and are often handled directly by
+            reputable installers.
           </li>
           <li>
-            <strong>IBI reductions:</strong> Many town halls, including Marbella
-            and Estepona, offer{" "}
-            <strong>up to 50% IBI discount for 3–5 years</strong>
-            for homes with certified solar installations.
+            <strong>IRPF Deductions:</strong> Certain energy-efficiency works
+            allow you to deduct up to <strong>€3,000 from your income tax
+            (IRPF)</strong> over several years, provided the works are properly
+            certified and reduce your primary energy consumption.
           </li>
           <li>
-            <strong>ICIO reductions:</strong> Reduced construction tax for the
-            works, typically 30–95% depending on the municipality.
+            <strong>Local IBI / ICIO Discounts:</strong> Many municipalities
+            offer reduced <em>Impuesto sobre Bienes Inmuebles</em> (IBI) and
+            reduced <em>ICIO</em> construction tax for solar projects, directly
+            cutting your annual running costs.
           </li>
-        </ul>
+        </ol>
 
         <p className="mb-8">
-          When combined, these incentives can reduce the effective cost of a
-          system by <strong>30–40%</strong>, pushing many projects below the{" "}
-          <strong>4-year ROI</strong> mark.
+          When you layer these incentives on top of bill savings, it is common
+          to see <strong>effective payback times drop below 4 years</strong> for
+          full-time residences.
         </p>
 
         <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-4 text-2xl">
