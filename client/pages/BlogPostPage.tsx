@@ -2155,24 +2155,28 @@ export default function BlogPostPage() {
                 <Link
                   to={`/blog/${slug}`}
                   key={i}
-                  className="bg-white rounded-[2rem] overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-500 group cursor-pointer block hover:-translate-y-2"
+                  className="group cursor-pointer block hover:-translate-y-2 transition-all duration-500"
                 >
-                  <div className="h-56 bg-slate-200 relative overflow-hidden">
-                    <img
-                      src={p.image}
-                      alt={p.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-[#0a1f44] text-xs font-bold px-3 py-1 rounded-full shadow-sm">
-                      {p.category}
+                  <div className="bg-slate-950 rounded-[2rem] overflow-hidden border border-slate-800/80 shadow-[0_18px_45px_rgba(15,23,42,0.85)] group-hover:border-sky-500/50">
+                    <div className="h-56 relative overflow-hidden">
+                      <img
+                        src={p.image}
+                        alt={p.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-transparent" />
+                      <div className="absolute top-4 left-4 bg-slate-900/80 border border-slate-700/80 text-slate-50 text-xs font-semibold px-3 py-1.5 rounded-full shadow-sm">
+                        {p.category}
+                      </div>
                     </div>
-                  </div>
-                  <div className="p-8">
-                    <h4 className="font-bold text-[#0a1f44] text-lg mb-3 group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug">
-                      {p.title}
-                    </h4>
-                    <div className="flex items-center text-sm text-slate-400 mt-4 font-medium">
-                      <Clock className="w-4 h-4 mr-1.5" /> {p.readTime}
+                    <div className="p-7 flex flex-col gap-3">
+                      <h4 className="font-bold text-white text-lg leading-snug line-clamp-2 group-hover:text-sky-300 transition-colors">
+                        {p.title}
+                      </h4>
+                      <div className="flex items-center text-xs font-medium text-slate-300/90 gap-2">
+                        <Clock className="w-4 h-4 text-sky-300" />
+                        <span>{p.readTime}</span>
+                      </div>
                     </div>
                   </div>
                 </Link>
