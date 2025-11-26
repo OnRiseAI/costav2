@@ -1060,12 +1060,11 @@ const blogPosts = {
         </div>
 
         <p className="text-xl leading-relaxed text-slate-600 mb-8 font-sans font-light">
-          Few regions in Europe are better suited to solar than the Costa del
-          Sol. We enjoy more than <strong>320 days of sun per year</strong>,
-          high retail electricity prices, and one of Spain's most mature solar
-          installation markets. Yet many international owners still ask the same
-          question:{" "}
-          <strong>“Is solar really worth it for my villa or apartment?”</strong>
+          The Costa del Sol sits on one of the best solar resources in Europe,
+          yet many homeowners still rely 100% on Endesa or Iberdrola for their
+          electricity. In 2025, with high grid prices and generous tax breaks,
+          well-designed solar systems have moved from "nice green upgrade" to a
+          <strong>serious financial investment</strong>.
         </p>
 
         <p className="mb-6">
