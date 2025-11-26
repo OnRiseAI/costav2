@@ -102,6 +102,15 @@ const recentPosts = [
 ];
 
 export default function BlogPage() {
+  const [visibleCount, setVisibleCount] = useState(6);
+  const visiblePosts = recentPosts.slice(0, visibleCount);
+
+  const handleLoadMore = () => {
+    setVisibleCount((prev) =>
+      prev + 6 >= recentPosts.length ? recentPosts.length : prev + 6,
+    );
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 font-sans selection:bg-blue-100 selection:text-blue-900">
       <SEO
