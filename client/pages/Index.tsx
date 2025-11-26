@@ -98,7 +98,7 @@ export default function Index() {
     <div className="min-h-screen bg-white font-sans pb-20 md:pb-0">
       <SEO
         title="Verified English-Speaking Tradespeople Costa del Sol | CostaTrades"
-        description="Find trusted builders, plumbers, and electricians in Marbella, Estepona & Mijas. Compare quotes from vetted professionals. Post your job for free."
+        description="Find trusted specialists across the Costa del Sol. Compare quotes from vetted professionals. Post your job for free."
         schema={JSON.stringify(combinedSchema)}
       />
 
