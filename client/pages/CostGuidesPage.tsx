@@ -85,7 +85,7 @@ export default function CostGuidesPage() {
     <div className="min-h-screen bg-slate-50 font-sans">
       <SEO
         title="2025 Trade Price Guide | Costa del Sol"
-        description="Explore average prices for plumbers, electricians, builders and more across Marbella, Estepona and Mijas. Plan your renovation budget with real Costa del Sol market data."
+        description="2025 Costa del Sol Price Guides. How much should you pay for builders, plumbers, and painters? Avoid the 'tourist tax' with real market rates."
       />
       {/* 1. Hero & Summary */}
       <section className="relative py-20 md:py-28 px-4 text-center overflow-hidden bg-[#0a1f44] text-white">
