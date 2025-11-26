@@ -22,13 +22,14 @@ const blogPosts = {
     author: "Carlos Rodriguez",
     authorRole: "Senior Surveyor",
     date: "Nov 26, 2025",
-    readTime: "5 min read",
+    readTime: "12 min read",
     image:
       "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2940&auto=format&fit=crop",
     keyTakeaways: [
-      "Most damp issues on the Costa del Sol are caused by Condensation or Rising Damp.",
-      "Quick fixes include vents and dehumidifiers.",
-      "Permanent fixes require professional tanking.",
+      "90% of mold on the Costa del Sol is Condensation caused by thermal bridging in uninsulated Spanish construction.",
+      "If you see white salts (Salitre) below 1 metre, you have Rising Damp—not condensation.",
+      "Bleach feeds mold by adding water; use fungicidal wash instead.",
+      "Structural damp from façades or foundations is the Community's responsibility under LPH law.",
     ],
     content: (
       <>
@@ -38,10 +39,11 @@ const blogPosts = {
             Quick Verdict
           </h3>
           <p className="text-slate-700 leading-relaxed">
-            Most damp issues on the Costa del Sol are caused by{" "}
-            <strong>Condensation</strong> or <strong>Rising Damp</strong>. Quick
-            fixes include vents and dehumidifiers. Permanent fixes require
-            professional tanking.
+            90% of mold issues on the Costa del Sol are{" "}
+            <strong>Condensation</strong> caused by 'Thermal Bridging' (lack of
+            insulation). However, if you see white salts (<em>Salitre</em>) below
+            1 meter, you have <strong>Rising Damp</strong>. Bleach cleans the
+            mold, but only ventilation or DPC Injection cures the cause.
           </p>
         </div>
 
