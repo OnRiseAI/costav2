@@ -42,9 +42,9 @@ export function WhyCostaTrades() {
               return (
                 <div
                   key={index}
-                  className="bg-[#F9F7F2] rounded-2xl p-6 text-center border border-[#E07A5F]/10 hover:border-[#E07A5F]/30 transition-colors"
+                  className="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200 hover:border-blue-200 transition-colors"
                 >
-                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm text-[#E07A5F]">
+                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm text-[#0a1f44]">
                     <Icon className="w-6 h-6" />
                   </div>
                   <div className="font-bold text-3xl text-[#0a1f44] mb-1">

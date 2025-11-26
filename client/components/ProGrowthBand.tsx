@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export function ProGrowthBand() {
   return (
-    <section className="bg-[#3D5A80] py-16">
+    <section className="bg-[#0a1f44] py-16">
       <div className="container-custom">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
           <div className="max-w-2xl">
@@ -18,7 +18,7 @@ export function ProGrowthBand() {
           <div className="flex flex-col sm:flex-row gap-4">
             <Button
               asChild
-              className="bg-[#E07A5F] hover:bg-[#d66a4e] text-white font-bold py-6 px-8 rounded-full text-lg shadow-lg hover:shadow-xl transition-all"
+              className="bg-[#E31E24] hover:bg-[#C41218] text-white font-bold py-6 px-8 rounded-full text-lg shadow-lg hover:shadow-xl transition-all"
             >
               <Link to="/pro/claim">Find & Claim My Business</Link>
             </Button>

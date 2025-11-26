@@ -35,7 +35,7 @@ export const faqData = [
 
 export function FAQSection() {
   return (
-    <div className="bg-[#F9F7F2] py-20">
+    <div className="bg-slate-50 py-20">
       <div className="container-custom">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0a1f44] mb-4">
@@ -50,11 +50,11 @@ export function FAQSection() {
           {faqData.map((faq, index) => (
             <details
               key={index}
-              className="group border border-[#E07A5F]/20 rounded-xl bg-white open:shadow-md transition-all duration-200 h-fit"
+              className="group border border-slate-200 rounded-xl bg-white open:shadow-md transition-all duration-200 h-fit"
             >
               <summary className="flex items-center justify-between cursor-pointer p-6 font-bold text-[#0a1f44] list-none select-none text-lg">
                 {faq.question}
-                <ChevronDown className="w-5 h-5 text-[#E07A5F] transition-transform duration-200 group-open:rotate-180 flex-shrink-0 ml-4" />
+                <ChevronDown className="w-5 h-5 text-blue-600 transition-transform duration-200 group-open:rotate-180 flex-shrink-0 ml-4" />
               </summary>
               <div className="px-6 pb-6 text-slate-600 leading-relaxed">
                 {faq.answer}

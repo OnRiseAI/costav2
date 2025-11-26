@@ -31,7 +31,7 @@ export function CategoryCard({
         
         {/* Most Requested Badge */}
         {isMostRequested && (
-          <div className="absolute top-3 right-3 bg-[#E07A5F] text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wide z-10">
+          <div className="absolute top-3 right-3 bg-[#E31E24] text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wide z-10">
             Most Requested
           </div>
         )}
@@ -39,7 +39,7 @@ export function CategoryCard({
         <div className="relative z-10 flex flex-col items-center text-center h-full">
           <div className={cn(
             "w-16 h-16 rounded-full flex items-center justify-center mb-4 transition-all duration-300",
-            "bg-[#F9F7F2] text-[#81B29A] group-hover:bg-[#E07A5F] group-hover:text-white"
+            "bg-blue-50 text-[#0a1f44] group-hover:bg-[#0a1f44] group-hover:text-white"
           )}>
             <Icon className="h-8 w-8 transition-colors" />
           </div>

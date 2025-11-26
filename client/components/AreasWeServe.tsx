@@ -34,7 +34,7 @@ export function AreasWeServe() {
               <li key={index}>
                 <Link
                   to={`/post-job?postcode=${encodeURIComponent(area)}`}
-                  className="text-slate-600 hover:text-[#E07A5F] font-medium transition-colors block py-1"
+                  className="text-slate-600 hover:text-[#0a1f44] font-medium transition-colors block py-1"
                 >
                   {area}
                 </Link>
