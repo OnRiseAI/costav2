@@ -88,14 +88,14 @@ const categories = [
   },
   {
     slug: "pool-maintenance",
-    name: "Pool Maintenance",
+    name: "Pool Services",
     icon: Droplets,
     color: "text-cyan-600",
     bg: "bg-cyan-50",
   },
   {
     slug: "air-conditioning",
-    name: "Air Conditioning",
+    name: "Air Con",
     icon: Snowflake,
     color: "text-sky-600",
     bg: "bg-sky-50",
