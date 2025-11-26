@@ -1048,16 +1048,14 @@ const blogPosts = {
             Updated Jan 2025 • 12 min read
           </div>
           <h2 className="font-bold text-[#0a1f44] mb-2 text-lg">
-            Quick Verdict (2025 Data)
+            The Quick Verdict
           </h2>
           <p className="text-slate-700 leading-relaxed">
-            Verdict: With electricity prices averaging{" "}
-            <strong>€0.25/kWh</strong>, well-designed solar systems on the Costa
-            del Sol typically pay for themselves in <strong>3–5 years</strong>.
-            New 2025 grants (<em>subvenciones</em>) and local tax breaks can
-            cover up to
-            <strong> 40% of installation costs</strong> for qualifying
-            properties.
+            With <strong>3,200 hours of sun per year</strong>, the ROI for solar
+            in Malaga is typically <strong>3.5–5 years</strong>. Homeowners can
+            claim up to <strong>40% deductions on IRPF</strong> and get
+            <strong> 50% off IBI (Council Tax)</strong> in towns like Mijas and
+            Fuengirola.
           </p>
         </div>
 
