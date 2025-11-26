@@ -255,6 +255,16 @@ const blogPosts = {
           </table>
         </div>
 
+        <p className="mb-8 text-slate-600 text-sm">
+          <strong>Why do prices vary?</strong> Chemical injection (DPC) prices
+          depend heavily on wall thickness and accessibility. A standard 30 cm
+          brick wall requires significantly more fluid per linear metre than a
+          thin partition wall. Similarly, tanking costs fluctuate based on
+          whether the surface is smooth concrete or rough stone, and whether
+          scaffolding or basement access is required. Always request a site visit
+          for accurate pricing—quotes given over the phone are rarely reliable.
+        </p>
+
         {/* IN-CONTENT CTA */}
         <div className="bg-slate-900 rounded-2xl p-8 my-12 text-center relative overflow-hidden">
           <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/20 rounded-full blur-3xl -mr-10 -mt-10"></div>
@@ -373,7 +383,7 @@ const blogPosts = {
                 that lack of paperwork will come back to haunt you."
               </p>
               <cite className="text-sm text-slate-500 font-sans not-italic">
-                — Carlos Rodriguez, Senior Architect at MalagaDesign
+                �� Carlos Rodriguez, Senior Architect at MalagaDesign
               </cite>
             </div>
           </div>
