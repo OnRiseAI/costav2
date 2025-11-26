@@ -7,7 +7,7 @@ export function ProGrowthBand() {
       <div className="container-custom">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
           <div className="max-w-2xl">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Are you a Trade Professional?
             </h2>
             <p className="text-blue-100 text-lg md:text-xl font-light">

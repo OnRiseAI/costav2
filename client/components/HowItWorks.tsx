@@ -28,7 +28,7 @@ export function HowItWorks() {
     <section className="bg-slate-50 py-20 px-6">
       <div className="container-custom">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0a1f44]">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0a1f44]">
             How it works
           </h2>
         </div>

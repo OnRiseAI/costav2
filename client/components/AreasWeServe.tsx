@@ -20,7 +20,7 @@ export function AreasWeServe() {
     <section className="bg-white py-16 border-t border-slate-100">
       <div className="container-custom">
         <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl font-serif font-bold text-[#0a1f44] mb-2">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#0a1f44] mb-2">
             Areas We Cover
           </h2>
           <p className="text-slate-500">

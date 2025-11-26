@@ -44,7 +44,7 @@ export function CategoryCard({
             <Icon className="h-8 w-8 transition-colors" />
           </div>
           
-          <h3 className="font-serif font-bold text-lg text-[#0a1f44] mb-2 group-hover:text-[#E07A5F] transition-colors">
+          <h3 className="font-bold text-lg text-[#0a1f44] mb-2 group-hover:text-[#E07A5F] transition-colors">
             {name}
           </h3>
           

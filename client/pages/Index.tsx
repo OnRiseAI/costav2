@@ -134,7 +134,7 @@ export default function Index() {
         <section className="py-20 bg-white">
           <div className="container-custom">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0a1f44] mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#0a1f44] mb-4">
                 Popular Trades
               </h2>
               <p className="text-slate-600 max-w-2xl mx-auto text-lg">
