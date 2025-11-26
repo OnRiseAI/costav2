@@ -16,6 +16,8 @@ import {
 const blogPosts = {
   "renovation-permits-andalucia-2025": {
     title: "The Ultimate Guide to Renovation Permits in Andalucia (2025)",
+    metaDescription:
+      "Renovation Permits in Andalucia (2025 Guide). Do you need a license? Learn the difference between Obra Mayor vs. Obra Menor to avoid fines.",
     category: "Legal/Permits",
     author: "Maria Gonzalez",
     authorRole: "Legal Consultant",
@@ -139,6 +141,8 @@ const blogPosts = {
   },
   "pool-water-update-2025": {
     title: "Costa del Sol Water Update 2025: Can I Finally Fill My Pool?",
+    metaDescription:
+      "2025 Pool Water Rules: Can you fill your pool on the Costa del Sol? Latest drought restrictions and refilling updates for homeowners.",
     category: "Maintenance",
     author: "Sarah Jenkins",
     authorRole: "Local News Editor",
@@ -246,6 +250,8 @@ const blogPosts = {
   },
   "new-rental-laws-2025": {
     title: "New Rental Laws April 2025: Can Your Neighbors Ban Your Airbnb?",
+    metaDescription:
+      "New Rental Laws Andalucia 2025: Tourist license changes and Airbnb crackdowns. What Costa del Sol property owners must know.",
     category: "Legal/Permits",
     author: "Antonio Ruiz",
     authorRole: "Property Lawyer",
@@ -369,6 +375,8 @@ const blogPosts = {
   },
   "renovating-older-villa-2025": {
     title: "Why Renovating an Older Villa is the Smartest Investment in 2025",
+    metaDescription:
+      "Renovating an older villa in Spain? Watch for these 2025 issues: dodgy rewiring, hidden damp, and outdated plumbing.",
     category: "Renovation",
     author: "Elena Costa",
     authorRole: "Real Estate Analyst",
@@ -477,6 +485,8 @@ const blogPosts = {
   },
   "malaga-hard-water-boiler": {
     title: "The Silent Boiler Killer: Dealing with Malaga's Hard Water",
+    metaDescription:
+      "Malaga hard water destroying your boiler? Learn how limescale impacts plumbing and the best water softener solutions to save money.",
     category: "Maintenance",
     author: "David Miller",
     authorRole: "Senior Plumber",
