@@ -64,7 +64,7 @@ export function HowItWorks() {
               <div key={step.title} className="relative group">
                 <div className="relative flex h-full flex-col rounded-2xl border border-slate-200/80 bg-white/90 backdrop-blur-sm p-7 shadow-sm transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-xl transform-gpu backface-hidden overflow-hidden">
                   {/* Big step number in the foreground corner */}
-                  <div className="absolute -top-4 -right-4 text-8xl font-extrabold text-slate-50/80 pointer-events-none select-none z-0">
+                  <div className="absolute -top-4 -right-4 text-8xl font-extrabold text-slate-100 pointer-events-none select-none z-0">
                     {stepNumber}
                   </div>
 
