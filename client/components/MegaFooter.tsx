@@ -25,7 +25,7 @@ export function MegaFooter() {
         },
         { name: "AC Repair in Marbella", href: "/trades/ac-repair/marbella" },
         { name: "Builders in Marbella", href: "/trades/builder/marbella" },
-        { name: "Pool Maintenance", href: "/trades/pool-maintenance/marbella" },
+        { name: "Pool Services", href: "/trades/pool-maintenance/marbella" },
         { name: "Painters", href: "/trades/painter/marbella" },
         { name: "Locksmiths", href: "/trades/locksmith/marbella" },
         { name: "Handyman", href: "/trades/handyman/marbella" },
