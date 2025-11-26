@@ -55,40 +55,108 @@ const blogPosts = {
           Step 1: Diagnosis – Condensation vs. Rising Damp
         </h2>
 
+        <p className="mb-6 text-slate-700">
+          Before you spend a cent on treatments, you need to correctly identify
+          the type of damp. Misdiagnosis is common and expensive—many homeowners
+          spend thousands on DPC injection when the real problem is simply
+          condensation from poor ventilation.
+        </p>
+
+        <p className="mb-8 text-slate-700">
+          In Spanish construction (<em>Ladrillo</em>), lack of cavity wall
+          insulation creates <strong>'Thermal Bridges'</strong> (
+          <em>Puente Térmico</em>). This is why mold forms specifically on
+          concrete pillars and corners—these cold spots cause warm indoor air to
+          condense. Modern homes must follow the{" "}
+          <a
+            href="https://www.codigotecnico.org/pdf/Documentos/HS/DBHS.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            CTE Regulations
+          </a>{" "}
+          for ventilation, but older villas built before 2006 often lack these
+          essential airflow systems.
+        </p>
+
         <div className="space-y-6 mb-12">
           <div className="bg-slate-50 p-6 rounded-xl border-l-4 border-blue-500">
-            <h3 className="font-bold text-[#0a1f44] mb-2">1. Condensation</h3>
-            <p className="text-slate-600">
-              <strong>Signs:</strong> Black mold spots on walls/ceilings,
-              steaming windows, musty smell.
-            </p>
-            <p className="text-slate-600 mt-2">
-              <strong>Cause:</strong> Poor ventilation and high humidity (common
-              in winter).
-            </p>
-          </div>
-          <div className="bg-slate-50 p-6 rounded-xl border-l-4 border-amber-500">
-            <h3 className="font-bold text-[#0a1f44] mb-2">2. Rising Damp</h3>
-            <p className="text-slate-600">
-              <strong>Signs:</strong> Tide marks up to 1m high, peeling
-              paint/plaster, white salty deposits.
-            </p>
-            <p className="text-slate-600 mt-2">
-              <strong>Cause:</strong> Groundwater rising up through porous walls
-              (failed DPC).
-            </p>
-          </div>
-          <div className="bg-slate-50 p-6 rounded-xl border-l-4 border-red-500">
-            <h3 className="font-bold text-[#0a1f44] mb-2">
-              3. Penetrating Damp
+            <h3 className="font-bold text-[#0a1f44] mb-3 text-lg">
+              1. Condensation (<em>Condensación</em>)
             </h3>
-            <p className="text-slate-600">
-              <strong>Signs:</strong> Damp patches at any height, often after
-              rain.
+            <p className="text-slate-700 mb-3">
+              <strong>Visible Signs:</strong> Black mold spots on walls and
+              ceilings (especially in bathrooms and north-facing bedrooms),
+              steaming windows in the morning, musty odour, water droplets on
+              tiles and glass.
             </p>
-            <p className="text-slate-600 mt-2">
-              <strong>Cause:</strong> Leaking gutters, cracked render, or roof
-              issues.
+            <p className="text-slate-700 mb-3">
+              <strong>The Science:</strong> Condensation forms when warm,
+              moisture-laden air meets a cold surface. Spanish homes with
+              single-glazed windows and uninsulated concrete frames create
+              perfect conditions. Every shower, every pot of boiling pasta, even
+              breathing, adds moisture to the air. If that moisture has nowhere
+              to escape, it settles on the coldest surfaces—typically exterior
+              walls and window frames.
+            </p>
+            <p className="text-slate-700">
+              <strong>Lifestyle Triggers:</strong> Drying clothes indoors,
+              running hot showers without ventilation, cooking without extraction,
+              or using portable gas heaters (which produce water vapour as a
+              by-product).
+            </p>
+          </div>
+
+          <div className="bg-slate-50 p-6 rounded-xl border-l-4 border-amber-500">
+            <h3 className="font-bold text-[#0a1f44] mb-3 text-lg">
+              2. Rising Damp (<em>Humedad por Capilaridad</em>)
+            </h3>
+            <p className="text-slate-700 mb-3">
+              <strong>Visible Signs:</strong> Horizontal tide marks typically
+              up to 1 metre high from floor level, peeling paint and crumbling
+              plaster near skirting boards, white crystalline salt deposits (
+              <em>salitre</em>), damp patches that worsen in wet weather but never
+              fully dry.
+            </p>
+            <p className="text-slate-700 mb-3">
+              <strong>The Science:</strong> Ground moisture rises through porous
+              building materials via capillary action—the same mechanism that
+              lets plants draw water upwards. Traditional Spanish bricks (
+              <em>ladrillo</em>) are particularly vulnerable because they were
+              often laid without an effective damp-proof course (DPC). As water
+              evaporates from the wall surface, it leaves behind mineral salts
+              which then attract more moisture, creating a vicious cycle.
+            </p>
+            <p className="text-slate-700">
+              <strong>Structural Cause:</strong> Failed or missing DPC
+              (horizontal waterproof barrier), high water table, defective
+              drainage around foundations, or breached membranes due to age.
+            </p>
+          </div>
+
+          <div className="bg-slate-50 p-6 rounded-xl border-l-4 border-red-500">
+            <h3 className="font-bold text-[#0a1f44] mb-3 text-lg">
+              3. Penetrating Damp (<em>Filtración</em>)
+            </h3>
+            <p className="text-slate-700 mb-3">
+              <strong>Visible Signs:</strong> Damp patches at any height on
+              walls (not just low down), staining that appears or worsens after
+              heavy rain, localised damage around windows, doors or roof
+              junctions, green algae growth on external walls.
+            </p>
+            <p className="text-slate-700 mb-3">
+              <strong>The Science:</strong> Unlike rising damp which is driven
+              by capillary action, penetrating damp is caused by water forcing
+              its way through defects in the building envelope. Spanish render (
+              <em>monocapa</em>) can crack over time due to thermal expansion,
+              creating pathways for rainwater to seep through.
+            </p>
+            <p className="text-slate-700">
+              <strong>Common Entry Points:</strong> Blocked or leaking gutters
+              and downpipes, cracked render or missing pointing, failed seals
+              around windows, damaged roof tiles, or poorly installed air
+              conditioning units.
             </p>
           </div>
         </div>
