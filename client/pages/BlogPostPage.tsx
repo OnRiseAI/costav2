@@ -64,7 +64,7 @@ const blogPosts = {
 
         <p className="mb-6 text-slate-700">
           Before you spend a cent on treatments, you need to correctly identify
-          the type of damp. Misdiagnosis is common and expensive—many homeowners
+          the type of damp. Misdiagnosis is common and expensive���many homeowners
           spend thousands on DPC injection when the real problem is simply
           condensation from poor ventilation.
         </p>
@@ -1779,7 +1779,7 @@ const blogPosts = {
                   Solar ROI check • Costa del Sol
                 </p>
 
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 leading-tight">
+                <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-3 leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,0.9)]">
                   Ready to see your own ROI?
                 </h3>
                 <p className="text-slate-200/90 mb-6 text-sm md:text-base leading-relaxed">
