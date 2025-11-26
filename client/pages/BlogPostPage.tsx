@@ -286,6 +286,101 @@ const blogPosts = {
         </div>
 
         <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6 text-2xl">
+          Who Pays? (Renters & Communities)
+        </h2>
+
+        <p className="mb-4 text-slate-700">
+          Damp problems in Spain are often complicated by legal questions of
+          responsibility—especially in rental properties and apartment
+          communities (<em>Comunidades de Propietarios</em>).
+        </p>
+
+        <h3 className="font-bold text-[#0a1f44] mb-3 text-lg">
+          Community of Owners (LPH)
+        </h3>
+        <p className="mb-6 text-slate-700">
+          Under the{" "}
+          <a
+            href="https://www.boe.es/buscar/act.php?id=BOE-A-1960-10906"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            Ley de Propiedad Horizontal
+          </a>{" "}
+          (Horizontal Property Law), structural damp originating from common
+          elements—such as the façade, foundations, or shared roofs—is the legal
+          responsibility of the <strong>Community of Owners</strong>, not
+          individual apartment owners. If rising damp is caused by a failed DPC
+          in the building's external walls, the community must approve and fund
+          the repair through shared fees (<em>cuotas</em>). However, damp caused
+          by internal issues within your unit (such as a leaking shower tray or
+          condensation from lack of ventilation) remains your responsibility.
+        </p>
+
+        <h3 className="font-bold text-[#0a1f44] mb-3 text-lg">
+          Rental Properties
+        </h3>
+        <p className="mb-8 text-slate-700">
+          Tenants are entitled to a habitable home free from structural defects.
+          If damp is caused by a building defect (failed waterproofing, broken
+          gutters, etc.), the <strong>landlord is responsible</strong> for the
+          repair. However, if the damp is caused by tenant behaviour—such as
+          refusing to ventilate, drying laundry indoors continuously, or blocking
+          air vents—the tenant may be liable. Document the issue with photos and
+          notify the landlord in writing (<em>burofax</em>) to establish a paper
+          trail.
+        </p>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6 text-2xl">
+          Case Study: Ground Floor Apartment in Calahonda
+        </h2>
+
+        <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 mb-8">
+          <h3 className="font-bold text-[#0a1f44] mb-3 text-lg">
+            Real-World Example
+          </h3>
+          <ul className="space-y-2 text-slate-800 text-sm mb-4">
+            <li>
+              <strong>Property:</strong> 2-bedroom ground-floor apartment, built
+              1998.
+            </li>
+            <li>
+              <strong>Problem:</strong> Persistent black mold behind wardrobes,
+              humidity readings of <strong>85%</strong> in the master bedroom,
+              musty smell throughout.
+            </li>
+            <li>
+              <strong>Initial Misdiagnosis:</strong> Owner was quoted €2,400 for
+              DPC injection by a "specialist" who never tested for rising damp.
+            </li>
+            <li>
+              <strong>Actual Cause:</strong> Condensation due to single-glazed
+              windows, no trickle vents, and concrete thermal bridging in corners.
+            </li>
+          </ul>
+
+          <p className="text-slate-700 mb-3">
+            <strong>Solution Implemented:</strong>
+          </p>
+          <ul className="list-disc pl-5 space-y-1 text-slate-700 text-sm mb-4">
+            <li>Installed 3 trickle vents on bedroom windows (€180 total)</li>
+            <li>
+              Applied thermal ceramic paint (<em>Pintura Térmica</em>) to cold
+              corners (€220 for materials + labour)
+            </li>
+            <li>Purchased a small dehumidifier for the bedroom (€160)</li>
+          </ul>
+
+          <p className="text-slate-700 font-medium">
+            <strong>Result:</strong> Within 4 weeks, humidity dropped to{" "}
+            <strong>55%</strong>, mold stopped reappearing, and the musty smell
+            disappeared. <strong>Total cost: €560</strong>—a fraction of the
+            original quote.
+          </p>
+        </div>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6 text-2xl">
           3 Immediate DIY Fixes
         </h2>
         <ol className="list-decimal pl-5 space-y-4 marker:text-blue-500 font-medium text-slate-700">
@@ -383,7 +478,7 @@ const blogPosts = {
                 that lack of paperwork will come back to haunt you."
               </p>
               <cite className="text-sm text-slate-500 font-sans not-italic">
-                �� Carlos Rodriguez, Senior Architect at MalagaDesign
+                — Carlos Rodriguez, Senior Architect at MalagaDesign
               </cite>
             </div>
           </div>
