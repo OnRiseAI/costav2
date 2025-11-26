@@ -35,7 +35,7 @@ export function SearchBar({ variant = "hero" }: SearchBarProps) {
       <div className="relative max-w-2xl mx-auto group">
         <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-20 group-hover:opacity-40 blur transition duration-500"></div>
         <div className="relative bg-white rounded-full shadow-2xl flex items-center p-2 transition-transform duration-300 hover:scale-[1.01]">
-          <div className="pl-6 pr-4 text-gray-400 flex-shrink-0">
+          <div className="hidden md:block pl-6 pr-4 text-gray-400 flex-shrink-0">
             <Search className="h-6 w-6" />
           </div>
           <input

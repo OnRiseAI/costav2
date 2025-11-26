@@ -32,7 +32,38 @@ export function HomeHero() {
           Connect with verified Home Improvement & Maintenance Professionals who speak your language.
         </p>
 
-        <div className="max-w-3xl mx-auto mb-6">
+        <div className="max-w-3xl mx-auto mb-6 relative">
+          {/* Mobile Search Prompt */}
+          <div className="md:hidden absolute -top-12 left-4 animate-bounce">
+            <div className="relative">
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 120 120"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="transform rotate-12 text-yellow-400"
+              >
+                <path
+                  d="M10 10 C 30 50, 50 50, 80 80"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                  fill="none"
+                />
+                <path
+                  d="M80 80 L 60 75 M 80 80 L 75 60"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                  fill="none"
+                />
+              </svg>
+              <span className="absolute -top-2 left-8 text-yellow-400 font-handwriting text-sm font-bold whitespace-nowrap transform -rotate-6">
+                Start here
+              </span>
+            </div>
+          </div>
           <SearchBar variant="hero" />
         </div>
 
