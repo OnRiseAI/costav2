@@ -383,25 +383,91 @@ const blogPosts = {
         <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6 text-2xl">
           3 Immediate DIY Fixes
         </h2>
-        <ol className="list-decimal pl-5 space-y-4 marker:text-blue-500 font-medium text-slate-700">
+        <p className="mb-6 text-slate-700">
+          While these steps won't cure structural damp, they can significantly
+          reduce condensation-related mold and buy you time while you arrange
+          professional assessment.
+        </p>
+
+        <ol className="list-decimal pl-5 space-y-6 marker:text-blue-500 text-slate-700">
           <li>
-            <strong>Improve Ventilation:</strong> Install trickle vents on
-            windows or use a PIV (Positive Input Ventilation) unit to circulate
-            fresh air.
+            <div>
+              <strong className="text-[#0a1f44] text-lg">
+                Improve Ventilation
+              </strong>
+              <p className="mt-2">
+                This is the single most effective DIY intervention for
+                condensation. Install <strong>trickle vents</strong> on window
+                frames to allow continuous background ventilation without losing
+                security or heat. For whole-house solutions, consider a{" "}
+                <strong>PIV (Positive Input Ventilation)</strong> unit installed
+                in the loft space, which gently pressurises the home with
+                filtered fresh air, forcing stale humid air out through natural
+                gaps. Cost: €150–€400 depending on system.
+              </p>
+            </div>
           </li>
           <li>
-            <strong>Bleach Wash:</strong> For surface mold, wash with a 1:4
-            bleach/water solution.{" "}
-            <em>
-              Note: This does not kill the root, it only cleans the surface.
-            </em>
+            <div>
+              <strong className="text-[#0a1f44] text-lg">
+                Use Fungicidal Wash (Not Bleach)
+              </strong>
+              <p className="mt-2 mb-3">
+                Many DIY guides recommend bleach, but this is problematic.
+                Bleach is mostly water—and water feeds mold. While it removes
+                surface staining temporarily, bleach cannot penetrate porous
+                materials like plaster or grout to kill the root structure (
+                <em>mycelium</em>). Within weeks, the mold returns.
+              </p>
+              <p className="mb-3">
+                <strong>Better solution:</strong> Use a proper{" "}
+                <strong>fungicidal wash</strong> (available at any{" "}
+                <em>ferretería</em> or DIY store). These contain biocides that
+                kill mold spores on contact and penetrate deeper into surfaces.
+                Apply with a spray bottle, leave for 15 minutes, then wipe
+                clean. Always wear gloves and ensure good ventilation.
+              </p>
+              <p className="text-sm text-slate-600">
+                <em>Important:</em> Fungicidal treatments only address the
+                symptom. If you don't fix the underlying moisture problem
+                (ventilation, leaks, thermal bridging), the mold will return.
+              </p>
+            </div>
           </li>
           <li>
-            <strong>Check Gutters:</strong> Ensure your gutters and downpipes
-            are clear. A blocked gutter can cause water to run down the wall and
-            penetrate the brickwork.
+            <div>
+              <strong className="text-[#0a1f44] text-lg">
+                Check and Clear Gutters
+              </strong>
+              <p className="mt-2">
+                Blocked gutters are one of the most common causes of penetrating
+                damp in Spanish homes. Leaves, pine needles, and dirt accumulate
+                quickly, especially after autumn storms. When gutters overflow,
+                water cascades down the façade, saturating render and eventually
+                penetrating through cracks. Inspect your gutters twice a
+                year—ideally before and after the rainy season—and clear any
+                debris. Check that downpipes are securely connected and
+                discharging water away from the building's foundations, not
+                straight into the ground next to the wall.
+              </p>
+            </div>
           </li>
         </ol>
+
+        <div className="bg-blue-50 rounded-xl p-6 mt-8 border border-blue-100">
+          <h3 className="font-bold text-[#0a1f44] mb-2">
+            When DIY Isn't Enough
+          </h3>
+          <p className="text-slate-700">
+            If you've tried ventilation improvements and the mold keeps coming
+            back, or if you see signs of rising damp (tide marks, salt deposits),
+            it's time to call a professional. Structural damp requires specialist
+            equipment—moisture meters, thermal imaging cameras, and chemical
+            treatments—that aren't available to DIYers. Delaying professional
+            intervention can lead to structural damage costing tens of thousands
+            to repair.
+          </p>
+        </div>
       </>
     ),
     faqSchema: {
