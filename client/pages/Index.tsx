@@ -38,7 +38,7 @@ export default function Index() {
       locationLabel: "Mijas",
     },
     {
-      name: "Air Conditioning",
+      name: "Air Con",
       slug: "air-conditioning",
       icon: Snowflake,
       count: 40,
@@ -67,7 +67,7 @@ export default function Index() {
       locationLabel: "Benahavís",
     },
     {
-      name: "Pool Maintenance",
+      name: "Pool Services",
       slug: "pool-maintenance",
       icon: Droplets,
       count: 45,
