@@ -10,6 +10,7 @@ import {
   CheckCircle2,
   Quote,
   ArrowRight,
+  AlertTriangle,
 } from "lucide-react";
 
 // Mock data for all blog posts
@@ -1422,7 +1423,7 @@ const blogPosts = {
           </h3>
           <ul className="space-y-2 text-slate-700 text-sm">
             <li>
-              <strong>Potencia:</strong> 5.5 kW × ~€0.13/kW/day ≈{" "}
+              <strong>Potencia:</strong> 5.5 kW �� ~€0.13/kW/day ≈{" "}
               <strong>€22–€24 / month</strong>
             </li>
             <li>
