@@ -50,40 +50,103 @@ export function PriceGuideTable() {
               <Euro className="w-5 h-5 text-yellow-400" />
             </div>
             <div>
-              <h3 className="font-bold text-base md:text-lg tracking-tight">2025 Market Rates</h3>
-              <p className="text-xs text-blue-200 font-medium">Costa del Sol Average</p>
+              <h3 className="font-bold text-base md:text-lg tracking-tight">
+                2025 Market Rates
+              </h3>
+              <p className="text-xs text-blue-200 font-medium">
+                Costa del Sol Average
+              </p>
             </div>
           </div>
           <span className="hidden md:inline-flex px-3 py-1 rounded-full bg-white/10 text-xs font-medium border border-white/20">
             Updated Monthly
           </span>
         </div>
-        
-        <div className="overflow-x-auto">
-          <table className="w-full text-left text-sm md:text-base">
+
+        {/* Mobile View: Card List */}
+        <div className="md:hidden divide-y divide-slate-100">
+          {rates.map((item) => (
+            <div key={item.service} className="p-4 flex items-center justify-between gap-4">
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <div className="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0"></div>
+                  <h4 className="font-semibold text-slate-900 truncate">
+                    {item.service}
+                  </h4>
+                </div>
+                <p className="text-sm font-bold text-[#0a1f44] pl-3.5">
+                  {item.rate}
+                </p>
+              </div>
+              <Link
+                to={`/post-job?option=${encodeURIComponent(item.service)}`}
+                className="shrink-0 bg-blue-50 text-blue-600 hover:bg-blue-100 font-semibold text-xs px-4 py-2.5 rounded-lg transition-colors"
+              >
+                Book
+              </Link>
+            </div>
+          ))}
+          
+          {/* Mobile Emergency Row */}
+          <div className="p-4 bg-red-50/50 border-t border-red-100 flex items-center justify-between gap-4">
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="relative flex h-2.5 w-2.5 shrink-0">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500"></span>
+                </span>
+                <h4 className="font-bold text-red-900 truncate text-sm">
+                  Emergency (24/7)
+                </h4>
+              </div>
+              <p className="text-sm font-bold text-red-900 pl-4.5">
+                €150 - €180 (Fixed)
+              </p>
+            </div>
+            <Link
+              to="/post-job?option=Emergency"
+              className="shrink-0 bg-[#E31E24] text-white font-bold text-xs px-4 py-2.5 rounded-lg shadow-sm"
+            >
+              Help Now
+            </Link>
+          </div>
+        </div>
+
+        {/* Desktop View: Table */}
+        <div className="hidden md:block overflow-x-auto">
+          <table className="w-full text-left text-base">
             <thead className="bg-slate-50/80 text-slate-500 border-b border-slate-200">
               <tr>
-                <th className="px-4 md:px-8 py-4 md:py-5 font-semibold w-1/3 text-[10px] md:text-xs uppercase tracking-wider">Trade / Service</th>
-                <th className="px-4 md:px-8 py-4 md:py-5 font-semibold w-1/3 text-[10px] md:text-xs uppercase tracking-wider">2025 Market Rate</th>
-                <th className="px-4 md:px-8 py-4 md:py-5 font-semibold w-1/3 text-right text-[10px] md:text-xs uppercase tracking-wider">Action</th>
+                <th className="px-8 py-5 font-semibold w-1/3 text-xs uppercase tracking-wider">
+                  Trade / Service
+                </th>
+                <th className="px-8 py-5 font-semibold w-1/3 text-xs uppercase tracking-wider">
+                  2025 Market Rate
+                </th>
+                <th className="px-8 py-5 font-semibold w-1/3 text-right text-xs uppercase tracking-wider">
+                  Action
+                </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
               {rates.map((item) => (
-                <tr key={item.service} className="hover:bg-blue-50/30 transition-colors group">
-                  <td className="px-4 md:px-8 py-4 md:py-5 font-semibold text-slate-700 flex items-center gap-2 md:gap-3">
+                <tr
+                  key={item.service}
+                  className="hover:bg-blue-50/30 transition-colors group"
+                >
+                  <td className="px-8 py-5 font-semibold text-slate-700 flex items-center gap-3">
                     <div className="w-1.5 h-1.5 rounded-full bg-slate-300 group-hover:bg-blue-500 transition-colors shrink-0"></div>
-                    <span className="text-sm md:text-base">{item.service}</span>
+                    {item.service}
                   </td>
-                  <td className="px-4 md:px-8 py-4 md:py-5 font-bold text-[#0a1f44] tabular-nums text-sm md:text-base">{item.rate}</td>
-                  <td className="px-4 md:px-8 py-4 md:py-5 text-right">
+                  <td className="px-8 py-5 font-bold text-[#0a1f44] tabular-nums">
+                    {item.rate}
+                  </td>
+                  <td className="px-8 py-5 text-right">
                     <Link
                       to={`/post-job?option=${encodeURIComponent(item.service)}`}
-                      className="inline-flex items-center text-blue-600 font-semibold text-xs md:text-sm hover:text-blue-800 transition-colors group-hover:translate-x-1 duration-200 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 md:px-4 md:py-2 rounded-lg whitespace-nowrap"
+                      className="inline-flex items-center text-blue-600 font-semibold text-sm hover:text-blue-800 transition-colors group-hover:translate-x-1 duration-200 bg-blue-50 hover:bg-blue-100 px-4 py-2 rounded-lg"
                     >
-                      <span className="hidden md:inline">{item.action}</span>
-                      <span className="md:hidden">Book</span>
-                      <ArrowRight className="w-3 h-3 md:w-4 md:h-4 ml-1.5" />
+                      {item.action} <ArrowRight className="w-4 h-4 ml-1.5" />
                     </Link>
                   </td>
                 </tr>
@@ -91,21 +154,22 @@ export function PriceGuideTable() {
 
               {/* Emergency Row */}
               <tr className="bg-red-50/50 hover:bg-red-50 transition-colors border-t border-red-100">
-                <td className="px-4 md:px-8 py-4 md:py-5 font-bold text-red-900 flex items-center gap-2 md:gap-3">
+                <td className="px-8 py-5 font-bold text-red-900 flex items-center gap-3">
                   <span className="relative flex h-3 w-3 shrink-0">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
                   </span>
-                  <span className="text-sm md:text-base">Emergency Call-out (24/7)</span>
+                  Emergency Call-out (24/7)
                 </td>
-                <td className="px-4 md:px-8 py-4 md:py-5 font-bold text-red-900 tabular-nums text-sm md:text-base">€150 - €180 (Fixed)</td>
-                <td className="px-4 md:px-8 py-4 md:py-5 text-right">
+                <td className="px-8 py-5 font-bold text-red-900 tabular-nums">
+                  €150 - €180 (Fixed)
+                </td>
+                <td className="px-8 py-5 text-right">
                   <Link
                     to="/post-job?option=Emergency"
-                    className="inline-flex items-center justify-center bg-[#E31E24] hover:bg-[#C41218] text-white font-bold py-2 px-3 md:py-2.5 md:px-5 rounded-lg text-xs md:text-sm transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5 whitespace-nowrap"
+                    className="inline-flex items-center justify-center bg-[#E31E24] hover:bg-[#C41218] text-white font-bold py-2.5 px-5 rounded-lg text-sm transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
                   >
-                    <span className="hidden md:inline">Find Help Now</span>
-                    <span className="md:hidden">Help Now</span>
+                    Find Help Now
                   </Link>
                 </td>
               </tr>
@@ -113,9 +177,10 @@ export function PriceGuideTable() {
           </table>
         </div>
       </div>
-      
+
       <p className="text-center text-xs text-slate-400 mt-3">
-        Estimates for licensed, English-speaking professionals. Final prices set by provider.
+        Estimates for licensed, English-speaking professionals. Final prices set
+        by provider.
       </p>
     </div>
   );
