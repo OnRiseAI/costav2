@@ -101,14 +101,30 @@ const recentPosts = [
   },
 ];
 
+const PAGE_SIZE = 3;
+
 export default function BlogPage() {
-  const [visibleCount, setVisibleCount] = useState(6);
-  const visiblePosts = recentPosts.slice(0, visibleCount);
+  const [activeCategory, setActiveCategory] = useState<string>("All");
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+
+  const filteredPosts =
+    activeCategory === "All"
+      ? recentPosts
+      : recentPosts.filter((post) => post.category === activeCategory);
+
+  const visiblePosts = filteredPosts.slice(0, visibleCount);
 
   const handleLoadMore = () => {
     setVisibleCount((prev) =>
-      prev + 6 >= recentPosts.length ? recentPosts.length : prev + 6,
+      prev + PAGE_SIZE >= filteredPosts.length
+        ? filteredPosts.length
+        : prev + PAGE_SIZE,
     );
+  };
+
+  const handleCategoryClick = (category: string) => {
+    setActiveCategory(category);
+    setVisibleCount(PAGE_SIZE);
   };
 
   return (
@@ -214,11 +230,13 @@ export default function BlogPage() {
         {/* Categories */}
         <div className="mb-12">
           <div className="flex flex-wrap justify-center gap-3">
-            {categories.map((cat, idx) => (
+            {categories.map((cat) => (
               <button
-                key={idx}
+                key={cat}
+                type="button"
+                onClick={() => handleCategoryClick(cat)}
                 className={`px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 ${
-                  idx === 0
+                  activeCategory === cat
                     ? "bg-[#0a1f44] text-white shadow-lg shadow-blue-900/20 ring-4 ring-blue-500/10"
                     : "bg-white text-slate-600 border border-slate-200 hover:border-blue-300 hover:text-blue-600 hover:shadow-md"
                 }`}
@@ -273,7 +291,7 @@ export default function BlogPage() {
           ))}
         </div>
 
-        {visibleCount < recentPosts.length && (
+        {visibleCount < filteredPosts.length && (
           <div className="mt-20 text-center">
             <Button
               variant="outline"
