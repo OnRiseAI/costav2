@@ -26,59 +26,43 @@ export default function Index() {
       name: "Plumber",
       slug: "plumbers",
       icon: Wrench,
-      count: 120,
       isMostRequested: true,
-      locationLabel: "Marbella",
     },
     {
       name: "Electrician",
       slug: "electricians",
       icon: Zap,
-      count: 95,
-      locationLabel: "Mijas",
     },
     {
       name: "Air Con",
       slug: "air-conditioning",
       icon: Snowflake,
-      count: 40,
       isMostRequested: true,
-      locationLabel: "Estepona",
     },
     {
       name: "Builder",
       slug: "builders",
       icon: Hammer,
-      count: 80,
-      locationLabel: "Costa del Sol",
     },
     {
       name: "Painter",
       slug: "painters",
       icon: Paintbrush,
-      count: 65,
-      locationLabel: "Fuengirola",
     },
     {
       name: "Gardener",
       slug: "gardeners",
       icon: Shovel,
-      count: 50,
-      locationLabel: "Benahavís",
     },
     {
       name: "Pool Services",
       slug: "pool-maintenance",
       icon: Droplets,
-      count: 45,
-      locationLabel: "Sotogrande",
     },
     {
       name: "Locksmith",
       slug: "locksmiths",
       icon: Key,
-      count: 30,
-      locationLabel: "Malaga",
     },
   ];
 
@@ -148,9 +132,7 @@ export default function Index() {
                   name={cat.name}
                   slug={cat.slug}
                   icon={cat.icon}
-                  count={cat.count}
                   isMostRequested={cat.isMostRequested}
-                  locationLabel={cat.locationLabel}
                 />
               ))}
             </div>
