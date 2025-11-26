@@ -112,14 +112,14 @@ const recentPosts = [
   },
   {
     id: 8,
-    title: "Electricity Bills 2025: Is Solar Finally Worth It?",
+    title: "Is Solar Power Worth It on the Costa del Sol? (2025 Data)",
     excerpt:
-      "Andalucia gets over 320 days of sun. See when solar panels make sense and how fast they can pay for themselves.",
+      "With electricity at around €0.25/kWh and new 2025 grants, solar on the Costa del Sol can pay for itself in as little as 3–5 years.",
     image:
       "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=2942&auto=format&fit=crop",
     category: "Cost Guides",
-    readTime: "5 min read",
-    slug: "solar-panels-worth-it-2025",
+    readTime: "12 min read",
+    slug: "solar-panels-costa-del-sol-roi",
   },
   {
     id: 9,

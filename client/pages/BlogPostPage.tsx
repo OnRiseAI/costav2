@@ -1023,6 +1023,429 @@ const blogPosts = {
       </>
     ),
   },
+  "solar-panels-costa-del-sol-roi": {
+    title: "Is Solar Power Worth It on the Costa del Sol? (2025 Data)",
+    metaDescription:
+      "Solar panels in Andalucia can pay for themselves in 3-5 years thanks to high electricity prices and generous 2025 grants. Learn the real ROI, Endesa bill math, community rules and tax breaks.",
+    category: "Cost Guides",
+    author: "Miguel Angel",
+    authorRole: "Energy Engineer",
+    date: "Updated Jan 2025",
+    readTime: "12 min read",
+    image:
+      "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=2942&auto=format&fit=crop",
+    keyTakeaways: [
+      "With electricity prices around €0.25/kWh, most Costa del Sol homes see solar payback in 3-5 years.",
+      "The old 'Impuesto al Sol' (Sun Tax) was abolished in 2018 – modern systems are fully legal and incentivised.",
+      "Owners in communities (LPH) can usually install panels for personal use even if some neighbours disagree.",
+      "2025 grants and local tax discounts can cover up to 40% of installation costs for qualifying homes.",
+    ],
+    content: (
+      <>
+        {/* AEO / Verdict Snippet */}
+        <div className="bg-blue-50 rounded-xl p-6 mb-8 border border-blue-100">
+          <div className="text-sm text-slate-500 mb-2">Updated Jan 2025 • 12 min read</div>
+          <h2 className="font-bold text-[#0a1f44] mb-2 text-lg">
+            Quick Verdict (2025 Data)
+          </h2>
+          <p className="text-slate-700 leading-relaxed">
+            Verdict: With electricity prices averaging <strong>€0.25/kWh</strong>,
+            well-designed solar systems on the Costa del Sol typically pay for
+            themselves in <strong>3–5 years</strong>. New 2025 grants
+            (<em>subvenciones</em>) and local tax breaks can cover up to
+            <strong> 40% of installation costs</strong> for qualifying properties.
+          </p>
+        </div>
+
+        <p className="text-xl leading-relaxed text-slate-600 mb-8 font-sans font-light">
+          Few regions in Europe are better suited to solar than the Costa del
+          Sol. We enjoy more than <strong>320 days of sun per year</strong>, high
+          retail electricity prices, and one of Spain's most mature solar
+          installation markets. Yet many international owners still ask the same
+          question: <strong>“Is solar really worth it for my villa or apartment?”</strong>
+        </p>
+
+        <p className="mb-6">
+          This guide walks through the <strong>real Endesa bill math</strong>,
+          explains how the old <em>"Sun Tax"</em> disappeared, and shows you what
+          ROI to expect in 2025 – including a real case study from a villa in
+          Elviria.
+        </p>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-4 text-2xl">
+          1. The Endesa Bill: Potencia vs. Consumo Explained
+        </h2>
+        <p className="mb-4">
+          Spanish electricity bills look intimidating because they bundle
+          different concepts into one page. To understand solar ROI, you only
+          need to separate two main parts of the bill:
+        </p>
+        <ul className="list-disc pl-5 space-y-3 marker:text-blue-500 mb-6">
+          <li>
+            <strong>Potencia contratada (Power capacity):</strong> The fixed
+            charge for the maximum power (kW) your property can draw at any time.
+            Think of it as the size of your "pipe" to the grid. This is charged
+            per kW per day and <strong>does not disappear</strong> completely with
+            solar.
+          </li>
+          <li>
+            <strong>Consumo (Energy use):</strong> The variable part based on how
+            many kWh you consume each month. This is where solar has the biggest
+            impact.
+          </li>
+        </ul>
+
+        <div className="bg-slate-50 rounded-xl p-6 mb-8 border border-slate-200">
+          <h3 className="font-bold text-[#0a1f44] mb-3">
+            Example: Typical Endesa Bill on the Costa del Sol
+          </h3>
+          <ul className="space-y-2 text-slate-700 text-sm">
+            <li>
+              <strong>Potencia:</strong> 5.5 kW × ~€0.13/kW/day ≈ <strong>€22–€24 / month</strong>
+            </li>
+            <li>
+              <strong>Consumo:</strong> 400–600 kWh at ~€0.25/kWh ≈
+              <strong> €100–€150 / month</strong>
+            </li>
+            <li>
+              <strong>Other charges:</strong> taxes, meter rental, etc. ≈
+              <strong> €20–€30 / month</strong>
+            </li>
+          </ul>
+          <p className="mt-4 text-slate-700">
+            In other words, <strong>60–70% of your bill is pure consumption</strong>.
+            Solar attacks this Consumo line directly by generating free daytime
+            electricity.
+          </p>
+        </div>
+
+        <h3 className="font-sans text-[#0a1f44] font-bold mt-10 mb-3 text-xl">
+          How Solar Shrinks the Consumo Line
+        </h3>
+        <p className="mb-4">
+          A 5 kW system on the Costa del Sol typically produces around
+          <strong> 7,500–8,500 kWh per year</strong>. If your home consumes
+          8,000–10,000 kWh annually, solar can easily cover
+          <strong> 60–80% of that usage</strong>.
+        </p>
+        <p className="mb-6">
+          That means your Consumo line – often €120–€180 per month for a
+          full-time villa – can drop to <strong>€20–€60</strong>. You will still
+          pay Potencia and taxes, but the heavy variable part is dramatically
+          reduced.
+        </p>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-4 text-2xl">
+          2. The "Sun Tax" Myth – Why It No Longer Exists
+        </h2>
+        <p className="mb-4">
+          Many expats still believe Spain punishes solar owners with a special
+          tax, known as the <em>Impuesto al Sol</em> or "Sun Tax". This used to
+          be partly true for certain large installations under older regulations.
+        </p>
+        <p className="mb-4">
+          <strong>Since 2018, that tax has been abolished.</strong> Royal Decree
+          15/2018 and subsequent regulations completely removed the Sun Tax and
+          simplified self-consumption rules. Today:
+        </p>
+        <ul className="list-disc pl-5 space-y-3 marker:text-blue-500 mb-6">
+          <li>
+            Residential systems under 100 kW do <strong>not</strong> pay any
+            extra fee for self-consumption.
+          </li>
+          <li>
+            You can connect your system legally with your supplier (Endesa,
+            Iberdrola, etc.) and receive <strong>bill credits</strong> for
+            surplus energy (<em>compensación de excedentes</em>).
+          </li>
+          <li>
+            There is <strong>no requirement</strong> to install an expensive
+            second meter just to be "taxed" on your own production.
+          </li>
+        </ul>
+        <p className="mb-6">
+          Any installer still mentioning the Sun Tax for residential systems is
+          either using outdated information or trying to scare you into making a
+          rushed decision.
+        </p>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-4 text-2xl">
+          3. Living in a Community (LPH): Can Neighbours Block Solar?
+        </h2>
+        <p className="mb-4">
+          If you own an apartment or townhouse in a <em>Comunidad de
+          Propietarios</em>, the roof is usually a <strong>common element</strong>
+          regulated by Spain's Horizontal Property Law (<em>Ley de Propiedad
+          Horizontal</em>, LPH).
+        </p>
+        <p className="mb-4">
+          The law was updated to make energy-efficiency works easier. In most
+          cases:
+        </p>
+        <ul className="list-disc pl-5 space-y-3 marker:text-blue-500 mb-6">
+          <li>
+            For <strong>individual self-consumption</strong> (panels that only
+            feed your apartment), communities cannot simply block you because a
+            few neighbours "don't like the look".
+          </li>
+          <li>
+            The community must allow access to common roofs, provided the
+            installation is safe, respects technical limits and does not
+            seriously affect the building's structure or other owners.
+          </li>
+          <li>
+            A majority vote is usually required to formalise the use of common
+            space and the distribution of any surplus production.
+          </li>
+        </ul>
+        <p className="mb-6 text-sm text-slate-600">
+          <strong>Important:</strong> Every building has its own statutes and
+          layout. Always ask your administrator and, if needed, a specialist
+          lawyer before signing an installation contract. But in broad terms, if
+          you are installing panels <strong>for your own use</strong>, Spanish
+          law is now on your side.
+        </p>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-4 text-2xl">
+          4. Case Study: Real Villa in Elviria
+        </h2>
+        <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-6 mb-8">
+          <h3 className="font-bold text-emerald-900 mb-3 text-lg">
+            Real Scenario: Villa in Elviria
+          </h3>
+          <ul className="space-y-2 text-slate-800 text-sm">
+            <li>
+              <strong>Property:</strong> 4-bedroom villa used as a main
+              residence.
+            </li>
+            <li>
+              <strong>Before Solar:</strong> Average monthly bill
+              <strong> €280</strong> (air-conditioning running most of the
+              summer).
+            </li>
+            <li>
+              <strong>System Installed:</strong> <strong>5 kW</strong> of panels
+              + <strong>5 kWh</strong> lithium battery.
+            </li>
+            <li>
+              <strong>Total Cost 2025:</strong> <strong>€8,500</strong>
+              (including inverter, permits and installation).
+            </li>
+            <li>
+              <strong>After Solar:</strong> Average monthly bill around
+              <strong> €35</strong> (mainly fixed Potencia and taxes).
+            </li>
+          </ul>
+          <p className="mt-4 text-slate-800">
+            That is a saving of roughly <strong>€245 per month</strong>, or about
+            <strong> €2,940 per year</strong>. Divide the €8,500 investment by
+            €2,940 and you get a payback period of roughly
+            <strong> 4.2 years</strong> – well within the 3–5 year range we see
+            for many full-time villas.
+          </p>
+        </div>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-4 text-2xl">
+          5. 2025 Price Guide: Typical Solar Systems on the Costa del Sol
+        </h2>
+        <p className="mb-4">
+          Prices vary by brand, roof type and access, but the following table is
+          a realistic guide for quality, legal installations in Malaga province
+          in 2025.
+        </p>
+
+        <div className="my-8 overflow-x-auto rounded-xl border border-slate-200 shadow-sm font-sans">
+          <table className="w-full text-left border-collapse text-sm">
+            <thead>
+              <tr className="bg-slate-50 border-b border-slate-200">
+                <th className="p-4 font-bold text-[#0a1f44]">System Type</th>
+                <th className="p-4 font-bold text-[#0a1f44]">Size (kW)</th>
+                <th className="p-4 font-bold text-[#0a1f44]">Typical Installed Cost</th>
+                <th className="p-4 font-bold text-[#0a1f44]">Estimated Yearly Savings</th>
+                <th className="p-4 font-bold text-[#0a1f44]">Payback (After Grants)</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100">
+              <tr className="even:bg-slate-50">
+                <td className="p-4 font-medium">Apartment / Small Terrace</td>
+                <td className="p-4">2–3 kW</td>
+                <td className="p-4">€3,500 – €5,000</td>
+                <td className="p-4">€600 – €900 / year</td>
+                <td className="p-4">4–6 years</td>
+              </tr>
+              <tr className="even:bg-slate-50">
+                <td className="p-4 font-medium">Standard Family Villa</td>
+                <td className="p-4">4–6 kW</td>
+                <td className="p-4">€6,500 – €9,500</td>
+                <td className="p-4">€1,200 – €1,800 / year</td>
+                <td className="p-4">3–5 years</td>
+              </tr>
+              <tr className="even:bg-slate-50">
+                <td className="p-4 font-medium">Villa with Battery Storage</td>
+                <td className="p-4">5 kW + 5–10 kWh battery</td>
+                <td className="p-4">€8,000 – €12,500</td>
+                <td className="p-4">€1,800 – €2,500 / year</td>
+                <td className="p-4">4–6 years</td>
+              </tr>
+              <tr className="even:bg-slate-50">
+                <td className="p-4 font-medium">Large Luxury Villa</td>
+                <td className="p-4">8–12 kW</td>
+                <td className="p-4">€12,000 – €20,000</td>
+                <td className="p-4">€2,500 – €4,000 / year</td>
+                <td className="p-4">3–5 years</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p className="mb-8 text-slate-600 text-sm">
+          <strong>Note:</strong> The payback estimates above assume access to
+          current 2025 grants and IBI/ICIO reductions where available. Without
+          incentives, add roughly 1–2 years to each payback period.
+        </p>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-4 text-2xl">
+          6. Grants, Tax Breaks and 2025 Subvenciones
+        </h2>
+        <p className="mb-4">
+          In addition to lower bills, Andalucia homeowners can benefit from
+          several layers of financial support in 2025:
+        </p>
+        <ul className="list-disc pl-5 space-y-3 marker:text-blue-500 mb-6">
+          <li>
+            <strong>Regional grants (Junta / EU NextGen):</strong> Periodic
+            programmes offering <strong>20–40% subsidies</strong> on solar and
+            battery systems. These are limited in time and budget, so a good
+            installer will handle the paperwork quickly.
+          </li>
+          <li>
+            <strong>IBI reductions:</strong> Many town halls, including Marbella
+            and Estepona, offer <strong>up to 50% IBI discount for 3–5 years</strong>
+            for homes with certified solar installations.
+          </li>
+          <li>
+            <strong>ICIO reductions:</strong> Reduced construction tax for the
+            works, typically 30–95% depending on the municipality.
+          </li>
+        </ul>
+
+        <p className="mb-8">
+          When combined, these incentives can reduce the effective cost of a
+          system by <strong>30–40%</strong>, pushing many projects below
+          the <strong>4-year ROI</strong> mark.
+        </p>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-4 text-2xl">
+          7. Do You Need a Battery? (Especially for Holiday Homes)
+        </h2>
+        <p className="mb-4">
+          Batteries are no longer a niche add-on, but they are not mandatory for
+          a good ROI. Whether you need one depends mainly on how you use the
+          property:
+        </p>
+        <ul className="list-disc pl-5 space-y-3 marker:text-blue-500 mb-6">
+          <li>
+            <strong>Full-time homes:</strong> A battery usually makes sense,
+            shifting excess daytime production into the evening when AC,
+            cooking and lighting demand is highest.
+          </li>
+          <li>
+            <strong>Holiday homes:</strong> If the property is often empty, you
+            may prefer a <strong>simple grid-tied system without battery</strong>
+            and rely on surplus compensation instead.
+          </li>
+          <li>
+            <strong>Rental villas:</strong> Batteries can smooth out guest
+            consumption and protect you from peak pricing.
+          </li>
+        </ul>
+
+        <p className="mb-8">
+          For many occasional-use homes, it is smarter to start without a
+          battery and add one later once you have 12 months of real production
+          data.
+        </p>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-4 text-2xl">
+          8. Frequently Asked Questions (2025)
+        </h2>
+
+        <div className="space-y-6 mb-12">
+          <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
+            <h3 className="font-bold text-[#0a1f44] mb-2 text-lg">
+              Do I need a battery for a holiday home?
+            </h3>
+            <p className="text-slate-700">
+              Not necessarily. If your Costa del Sol property is empty for long
+              stretches, a battery may not charge and discharge efficiently
+              enough to justify the cost. A standard grid-tied system without
+              storage still reduces your bills when you are there and lets you
+              benefit from surplus compensation the rest of the year. Many
+              owners choose to <strong>add a battery later</strong> once they see
+              real usage patterns.
+            </p>
+          </div>
+
+          <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
+            <h3 className="font-bold text-[#0a1f44] mb-2 text-lg">
+              How do I claim the IBI tax reduction in Marbella?
+            </h3>
+            <p className="text-slate-700">
+              Marbella Town Hall currently offers IBI discounts for certified
+              solar installations, but you must <strong>apply proactively</strong>.
+              After your system is legalised and registered, your installer or
+              gestor should provide the documentation. You then submit the
+              application at the <em>Oficina de Atención al Contribuyente</em>
+              (tax office) or via the online <em>Sede Electrónica</em>, usually
+              before <strong>31 December</strong> for the discount to apply to
+              the following year's bill.
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-slate-900 rounded-2xl p-8 my-8 text-center relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/30 rounded-full blur-3xl -mr-10 -mt-10"></div>
+          <div className="relative z-10">
+            <h3 className="text-2xl font-bold text-white mb-3">
+              Ready to see your own ROI?
+            </h3>
+            <p className="text-blue-100 mb-6 max-w-xl mx-auto">
+              Describe your property once and get quotes from vetted solar
+              installers who understand Endesa bills, community rules and local
+              grants on the Costa del Sol.
+            </p>
+            <Link to="/post-job">
+              <Button className="bg-blue-500 hover:bg-blue-400 text-white font-bold px-8 py-6 rounded-xl text-lg">
+                Request Solar Quotes
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </>
+    ),
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Do I need a battery for a holiday home?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Most holiday homes on the Costa del Sol do not strictly need a battery. A standard grid-tied system still reduces bills when occupied and uses surplus compensation when empty. Many owners add a battery later once they understand their usage patterns.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How do I claim the IBI tax reduction in Marbella?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "After your solar installation is legalised, your installer or gestor should provide the documentation confirming it. You then submit an application for the IBI reduction at Marbella's tax office or via the Sede Electrónica, normally before 31 December so the discount applies to the next tax year.",
+          },
+        },
+      ],
+    },
+  },
   "bathroom-reform-permit": {
     title: "Licencia de Obra Menor: Do You Need One for a Bathroom Reform?",
     category: "Legal/Permits",
