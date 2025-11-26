@@ -29,7 +29,8 @@ export function HomeHero() {
           Find Trusted Specialists on the Costa del Sol
         </h1>
         <p className="text-xl md:text-2xl text-blue-100/90 mb-12 font-light max-w-2xl mx-auto leading-relaxed">
-          Connect with verified Home Improvement & Maintenance Professionals who speak your language.
+          Connect with verified Home Improvement & Maintenance Professionals who
+          speak your language.
         </p>
 
         <div className="max-w-3xl mx-auto mb-6 relative">

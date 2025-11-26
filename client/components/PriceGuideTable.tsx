@@ -66,7 +66,10 @@ export function PriceGuideTable() {
         {/* Mobile View: Card List */}
         <div className="md:hidden divide-y divide-slate-100">
           {rates.map((item) => (
-            <div key={item.service} className="p-4 flex items-center justify-between gap-4">
+            <div
+              key={item.service}
+              className="p-4 flex items-center justify-between gap-4"
+            >
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1">
                   <div className="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0"></div>
@@ -86,7 +89,7 @@ export function PriceGuideTable() {
               </Link>
             </div>
           ))}
-          
+
           {/* Mobile Emergency Row */}
           <div className="p-4 bg-red-50/50 border-t border-red-100 flex items-center justify-between gap-4">
             <div className="flex-1 min-w-0">

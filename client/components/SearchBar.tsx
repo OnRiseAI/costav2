@@ -13,7 +13,7 @@ export function SearchBar({ variant = "hero" }: SearchBarProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
   const { t } = useLanguage();
-  
+
   const typewriterPlaceholder = useTypewriterPlaceholder(SEARCH_PLACEHOLDERS, {
     typeSpeed: 80,
     deleteSpeed: 40,
@@ -22,7 +22,7 @@ export function SearchBar({ variant = "hero" }: SearchBarProps) {
 
   const handleSearch = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
-    
+
     const params = new URLSearchParams();
     if (searchQuery) params.set("option", searchQuery);
     navigate(`/post-job?${params.toString()}`);

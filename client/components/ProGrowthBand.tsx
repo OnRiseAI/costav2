@@ -21,16 +21,17 @@ export function ProGrowthBand() {
                 High Demand Area
               </span>
             </div>
-            
+
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
               Stop chasing leads. <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white">
                 Let the jobs come to you.
               </span>
             </h2>
-            
+
             <p className="text-blue-100 text-lg md:text-xl font-light mb-8 leading-relaxed">
-              Join 500+ professionals on the Costa del Sol who are growing their business with zero upfront fees.
+              Join 500+ professionals on the Costa del Sol who are growing their
+              business with zero upfront fees.
             </p>
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-6 mb-10">
@@ -74,11 +75,13 @@ export function ProGrowthBand() {
                   <TrendingUp className="w-6 h-6 text-blue-300" />
                 </div>
                 <div>
-                  <div className="text-sm text-blue-200">Monthly Job Requests</div>
+                  <div className="text-sm text-blue-200">
+                    Monthly Job Requests
+                  </div>
                   <div className="text-2xl font-bold text-white">1,240+</div>
                 </div>
               </div>
-              
+
               <div className="flex items-center gap-4 mb-8">
                 <div className="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center">
                   <Users className="w-6 h-6 text-purple-300" />
@@ -92,7 +95,9 @@ export function ProGrowthBand() {
               <div className="pt-6 border-t border-white/10">
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-blue-200">Average job value</span>
-                  <span className="font-bold text-green-400">€450 - €2,500</span>
+                  <span className="font-bold text-green-400">
+                    €450 - €2,500
+                  </span>
                 </div>
               </div>
             </div>

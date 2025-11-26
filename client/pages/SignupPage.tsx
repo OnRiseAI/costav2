@@ -450,9 +450,7 @@ export default function SignupPage() {
                           <option value="pool-maintenance">
                             Pool Services
                           </option>
-                          <option value="air-conditioning">
-                            Air Con
-                          </option>
+                          <option value="air-conditioning">Air Con</option>
                           <option value="locksmiths">Locksmiths</option>
                           <option value="gardeners">Gardeners</option>
                         </select>

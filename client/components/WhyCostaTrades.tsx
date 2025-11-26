@@ -106,23 +106,29 @@ export function WhyCostaTrades() {
           {/* Featured Testimonial - Rotating */}
           <div className="bg-[#0a1f44] rounded-2xl p-8 md:p-10 text-white relative overflow-hidden min-h-[280px] flex flex-col justify-center">
             <Quote className="absolute top-6 left-6 w-12 h-12 text-white/10" />
-            
+
             {/* Background decoration */}
             <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-white/5 rounded-full blur-3xl"></div>
-            
-            <div 
-              className={`relative z-10 transition-opacity duration-500 ease-in-out ${isAnimating ? 'opacity-0' : 'opacity-100'}`}
+
+            <div
+              className={`relative z-10 transition-opacity duration-500 ease-in-out ${isAnimating ? "opacity-0" : "opacity-100"}`}
             >
               <p className="text-xl md:text-2xl italic leading-relaxed mb-8 text-blue-50">
                 "{activeTestimonial.text}"
               </p>
               <div className="flex items-center gap-4">
-                <div className={`w-12 h-12 ${activeTestimonial.color} rounded-full flex items-center justify-center font-bold text-white shadow-lg`}>
+                <div
+                  className={`w-12 h-12 ${activeTestimonial.color} rounded-full flex items-center justify-center font-bold text-white shadow-lg`}
+                >
                   {activeTestimonial.initial}
                 </div>
                 <div>
-                  <div className="font-bold text-white text-lg">{activeTestimonial.author}</div>
-                  <div className="text-blue-200 text-sm font-medium">{activeTestimonial.location}</div>
+                  <div className="font-bold text-white text-lg">
+                    {activeTestimonial.author}
+                  </div>
+                  <div className="text-blue-200 text-sm font-medium">
+                    {activeTestimonial.location}
+                  </div>
                 </div>
               </div>
             </div>
@@ -130,9 +136,9 @@ export function WhyCostaTrades() {
             {/* Progress Indicators */}
             <div className="absolute bottom-6 right-8 flex gap-2">
               {testimonials.map((_, idx) => (
-                <div 
+                <div
                   key={idx}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${idx === currentTestimonial ? 'w-6 bg-white' : 'w-1.5 bg-white/30'}`}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${idx === currentTestimonial ? "w-6 bg-white" : "w-1.5 bg-white/30"}`}
                 />
               ))}
             </div>

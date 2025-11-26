@@ -193,7 +193,8 @@ export default function PostJob() {
   ];
 
   const handleHeroSearch = (overrideQuery?: string | any) => {
-    const queryToUse = typeof overrideQuery === "string" ? overrideQuery : searchQuery;
+    const queryToUse =
+      typeof overrideQuery === "string" ? overrideQuery : searchQuery;
     if (typeof queryToUse !== "string") return;
 
     const trimmed = queryToUse.trim();
