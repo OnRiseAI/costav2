@@ -99,6 +99,50 @@ const recentPosts = [
     readTime: "6 min read",
     slug: "protecting-home-squatters-2025",
   },
+  {
+    id: 7,
+    title: "How to Stop Damp & Mold in Your Spanish Home (2025 Guide)",
+    excerpt:
+      "Learn how to diagnose condensation vs rising damp, what it costs to fix in Malaga, and when to call a damp proofing specialist.",
+    image:
+      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2940&auto=format&fit=crop",
+    category: "Maintenance",
+    readTime: "5 min read",
+    slug: "stop-damp-mold-spain",
+  },
+  {
+    id: 8,
+    title: "Electricity Bills 2025: Is Solar Finally Worth It?",
+    excerpt:
+      "Andalucia gets over 320 days of sun. See when solar panels make sense and how fast they can pay for themselves.",
+    image:
+      "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=2942&auto=format&fit=crop",
+    category: "Cost Guides",
+    readTime: "5 min read",
+    slug: "solar-panels-worth-it-2025",
+  },
+  {
+    id: 9,
+    title: "Licencia de Obra Menor: Do You Need One for a Bathroom Reform?",
+    excerpt:
+      "Even simple bathroom reforms can require paperwork. Learn when a 'Declaración Responsable' is enough and how to avoid fines.",
+    image:
+      "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?q=80&w=2940&auto=format&fit=crop",
+    category: "Legal/Permits",
+    readTime: "4 min read",
+    slug: "bathroom-reform-permit",
+  },
+  {
+    id: 10,
+    title: "The Ultimate Guide to Renovation Permits in Andalucia (2025)",
+    excerpt:
+      "Understand the difference between Obra Mayor and Obra Menor, permit costs, and how to avoid stop-work orders.",
+    image:
+      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2831&auto=format&fit=crop",
+    category: "Legal/Permits",
+    readTime: "8 min read",
+    slug: "renovation-permits-andalucia-2025",
+  },
 ];
 
 const PAGE_SIZE = 3;
