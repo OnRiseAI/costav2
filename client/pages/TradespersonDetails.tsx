@@ -22,32 +22,32 @@ const DEFAULT_MAP_URL =
 
 const AREA_OPTIONS = [
   "Marbella",
-  "Málaga",
+  "Malaga",
   "Fuengirola",
   "Mijas",
   "Estepona",
-  "Benalmádena",
+  "Benalmadena",
   "Torremolinos",
   "Nerja",
-  "Coín",
-  "Alhaurín el Grande",
-  "San Pedro de Alcántara",
-  "Rincón de la Victoria",
+  "Coin",
+  "Alhaurin el Grande",
+  "San Pedro de Alcantara",
+  "Rincon de la Victoria",
 ];
 
 const AREA_COORDINATES: Record<string, { lat: number; lon: number }> = {
   Marbella: { lat: 36.5099, lon: -4.8854 },
-  Málaga: { lat: 36.7213, lon: -4.4214 },
+  Malaga: { lat: 36.7213, lon: -4.4214 },
   Fuengirola: { lat: 36.5396, lon: -4.6247 },
   Mijas: { lat: 36.595, lon: -4.6374 },
   Estepona: { lat: 36.4256, lon: -5.151 },
-  Benalmádena: { lat: 36.5951, lon: -4.5734 },
+  Benalmadena: { lat: 36.5951, lon: -4.5734 },
   Torremolinos: { lat: 36.6203, lon: -4.4998 },
   Nerja: { lat: 36.746, lon: -3.88 },
-  Coín: { lat: 36.6588, lon: -4.7556 },
-  "Alhaurín el Grande": { lat: 36.6428, lon: -4.6913 },
-  "San Pedro de Alcántara": { lat: 36.4823, lon: -4.9903 },
-  "Rincón de la Victoria": { lat: 36.7176, lon: -4.275 },
+  Coin: { lat: 36.6588, lon: -4.7556 },
+  "Alhaurin el Grande": { lat: 36.6428, lon: -4.6913 },
+  "San Pedro de Alcantara": { lat: 36.4823, lon: -4.9903 },
+  "Rincon de la Victoria": { lat: 36.7176, lon: -4.275 },
 };
 
 const LANGUAGE_OPTIONS = [
