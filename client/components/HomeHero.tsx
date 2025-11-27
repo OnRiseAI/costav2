@@ -9,9 +9,13 @@ export function HomeHero() {
       <div className="absolute inset-0 z-0">
         <img
           src="https://images.pexels.com/photos/4186560/pexels-photo-4186560.jpeg?auto=compress&cs=tinysrgb&w=1200"
+          srcSet="https://images.pexels.com/photos/4186560/pexels-photo-4186560.jpeg?auto=compress&cs=tinysrgb&w=600 600w, https://images.pexels.com/photos/4186560/pexels-photo-4186560.jpeg?auto=compress&cs=tinysrgb&w=1200 1200w"
+          sizes="(max-width: 768px) 100vw, 1200px"
           alt="Modern white Spanish villa"
           className="w-full h-full object-cover"
           loading="eager"
+          decoding="async"
+          fetchpriority="high"
         />
       </div>
 

@@ -10,8 +10,8 @@ export function CookieConsent() {
     // Check if user has already consented
     const hasConsented = localStorage.getItem("cookieConsent");
     if (!hasConsented) {
-      // Show banner after a short delay
-      const timer = setTimeout(() => setIsVisible(true), 1000);
+      // Show banner after a short delay so it does not affect LCP
+      const timer = setTimeout(() => setIsVisible(true), 4000);
       return () => clearTimeout(timer);
     }
   }, []);
