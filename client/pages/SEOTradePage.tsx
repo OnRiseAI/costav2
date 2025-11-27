@@ -70,7 +70,11 @@ const TRADE_PRICES: Record<
     { service: "Maintenance Service", price: "€80 - €120", time: "Per Unit" },
   ],
   painter: [
-    { service: "Room Painting (Small)", price: "€200 - €350", time: "Fixed Price" },
+    {
+      service: "Room Painting (Small)",
+      price: "€200 - €350",
+      time: "Fixed Price",
+    },
     { service: "Exterior Facade", price: "€12 - €18", time: "Per m²" },
     { service: "Daily Rate", price: "€150 - €200", time: "8 Hours" },
   ],
@@ -315,10 +319,10 @@ export default function SEOTradePage() {
                     </p>
                     <ul className="list-disc pl-5 space-y-2 mb-4">
                       <li>
-                        <strong>Community Guidelines:</strong> Many urbanizations in{" "}
-                        {locationName} have strict rules regarding work hours
-                        and access for tradespeople. Always check with your
-                        community president or administrator.
+                        <strong>Community Guidelines:</strong> Many
+                        urbanizations in {locationName} have strict rules
+                        regarding work hours and access for tradespeople. Always
+                        check with your community president or administrator.
                       </li>
                       <li>
                         <strong>Noise Ordinances:</strong> Construction noise is
