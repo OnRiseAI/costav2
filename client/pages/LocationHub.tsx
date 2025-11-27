@@ -251,9 +251,9 @@ export default function LocationHub() {
               Find Verified Specialists in {displayData.REGION_NAME}
             </h1>
             <p className="text-xl text-blue-100 mb-8 max-w-2xl font-light">
-              Hire ID-verified plumbers, electricians, builders, handymen, and home
-              specialists across {displayData.REGION_NAME}. Every specialist is
-              insured, background-checked, and reviewed.
+              Hire ID-verified plumbers, electricians, builders, handymen, and
+              home specialists across {displayData.REGION_NAME}. Every
+              specialist is insured, background-checked, and reviewed.
             </p>
             <Link to={`/post-job/results?area=${displayData.region_slug}`}>
               <Button
@@ -323,13 +323,14 @@ export default function LocationHub() {
               Local Home Issues in {displayData.REGION_NAME}
             </h2>
             <ul className="space-y-4">
-              {TownLogisticsProfile.logistics.vehicle_width_limit_meters !== null && (
+              {TownLogisticsProfile.logistics.vehicle_width_limit_meters !==
+                null && (
                 <li className="flex items-start gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2.5 flex-shrink-0" />
                   <span className="text-gray-700">
-                    Vehicle width limit of {" "}
-                    {TownLogisticsProfile.logistics.vehicle_width_limit_meters} meters
-                    in some streets.
+                    Vehicle width limit of{" "}
+                    {TownLogisticsProfile.logistics.vehicle_width_limit_meters}{" "}
+                    meters in some streets.
                   </span>
                 </li>
               )}
@@ -337,7 +338,7 @@ export default function LocationHub() {
                 <li className="flex items-start gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2.5 flex-shrink-0" />
                   <span className="text-gray-700">
-                    Parking risk level is {" "}
+                    Parking risk level is{" "}
                     {TownLogisticsProfile.logistics.parking_risk_level}.
                   </span>
                 </li>
@@ -372,7 +373,7 @@ export default function LocationHub() {
                   {TownLogisticsProfile.seasonality.summer_construction_ban &&
                   hasBanMonths
                     ? `Summer construction ban applies during ${TownLogisticsProfile.seasonality.ban_months.join(
-                        " & "
+                        " & ",
                       )}.`
                     : "No fixed summer construction ban is currently in place, but some communities may have their own quiet hours."}
                 </span>
@@ -380,7 +381,7 @@ export default function LocationHub() {
               <li className="flex items-start gap-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2.5 flex-shrink-0" />
                 <span className="text-gray-700">
-                  Noise sensitivity in this area is rated {" "}
+                  Noise sensitivity in this area is rated{" "}
                   {TownLogisticsProfile.seasonality.noise_sensitivity_score}/10,
                   so planning noisy works considerately is important.
                 </span>
@@ -400,8 +401,8 @@ export default function LocationHub() {
                   Seasonal Construction Restriction
                 </h3>
                 <p className="text-amber-700">
-                  Heavy construction and noise-generating work is restricted in {" "}
-                  {displayData.REGION_NAME} during {" "}
+                  Heavy construction and noise-generating work is restricted in{" "}
+                  {displayData.REGION_NAME} during{" "}
                   {TownLogisticsProfile.seasonality.ban_months.join(" & ")}.
                 </p>
               </div>
@@ -471,13 +472,13 @@ export default function LocationHub() {
           <div className="w-full h-[400px] bg-gray-100 rounded-2xl overflow-hidden relative">
             <iframe
               title={`Coverage map of verified specialists in ${displayData.REGION_NAME}`}
-              src={`https://www.openstreetmap.org/export/embed.html?bbox=${parseFloat(
-                displayData.LON
-              ) - 0.1},${parseFloat(displayData.LAT) - 0.1},${parseFloat(
-                displayData.LON
-              ) + 0.1},${parseFloat(
-                displayData.LAT
-              ) + 0.1}&layer=mapnik&marker=${displayData.LAT},${displayData.LON}`}
+              src={`https://www.openstreetmap.org/export/embed.html?bbox=${
+                parseFloat(displayData.LON) - 0.1
+              },${parseFloat(displayData.LAT) - 0.1},${
+                parseFloat(displayData.LON) + 0.1
+              },${
+                parseFloat(displayData.LAT) + 0.1
+              }&layer=mapnik&marker=${displayData.LAT},${displayData.LON}`}
               className="w-full h-full border-0 grayscale-[20%]"
               loading="lazy"
             />
@@ -488,7 +489,9 @@ export default function LocationHub() {
       <section className="py-16 bg-[#0a1f44] text-white">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-10">Your Safety Comes First</h2>
+            <h2 className="text-3xl font-bold mb-10">
+              Your Safety Comes First
+            </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
               <div className="flex gap-4">
                 <Shield className="w-8 h-8 text-green-400 flex-shrink-0" />

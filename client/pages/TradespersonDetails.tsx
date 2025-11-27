@@ -61,20 +61,13 @@ const AREA_COORDINATES: Record<string, { lat: number; lon: number }> = {
   Benalmadena: { lat: 36.5951, lon: -4.5734 },
   Malaga: { lat: 36.7213, lon: -4.4214 },
   "Alhaurin el Grande": { lat: 36.6428, lon: -4.6913 },
-  Manilva: { lat: 36.377, lon: -5.250 },
+  Manilva: { lat: 36.377, lon: -5.25 },
   Nerja: { lat: 36.746, lon: -3.88 },
-  "Torre del Mar": { lat: 36.740, lon: -4.095 },
-  Sotogrande: { lat: 36.290, lon: -5.290 },
+  "Torre del Mar": { lat: 36.74, lon: -4.095 },
+  Sotogrande: { lat: 36.29, lon: -5.29 },
 };
 
-const RADIUS_OPTIONS = [
-  "5 km",
-  "10 km",
-  "15 km",
-  "20 km",
-  "30 km",
-  "50 km",
-];
+const RADIUS_OPTIONS = ["5 km", "10 km", "15 km", "20 km", "30 km", "50 km"];
 
 const LANGUAGE_OPTIONS = [
   { value: "English", label: "English", flag: "🇬🇧" },
