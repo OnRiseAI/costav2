@@ -1,6 +1,8 @@
 import { useParams, useLocation, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { SEO } from "@/components/SEO";
+import { useEffect, useState } from "react";
+import { supabase } from "@/contexts/AuthContext";
 import {
   Shield,
   MapPin,
@@ -70,11 +72,7 @@ const TRADE_PRICES: Record<
     { service: "Maintenance Service", price: "€80 - €120", time: "Per Unit" },
   ],
   painter: [
-    {
-      service: "Room Painting (Small)",
-      price: "€200 - €350",
-      time: "Fixed Price",
-    },
+    { service: "Room Painting (Small)", price: "€200 - €350", time: "Fixed Price" },
     { service: "Exterior Facade", price: "€12 - €18", time: "Per m²" },
     { service: "Daily Rate", price: "€150 - €200", time: "8 Hours" },
   ],
@@ -101,9 +99,18 @@ const MOCK_DATA = {
     "In coastal residential areas along the Costa del Sol, emergency structural issues and serious leaks are often complicated by seasonal traffic, gated communities and parking restrictions. CostaTrades specialists plan fast access routes and coordinate with building administrators so problems can be stabilised before they worsen.",
 };
 
+interface LocationProfile {
+  region_name: string;
+  slug: string;
+  sub_areas: string[];
+  logistics: any;
+  content_injects: any;
+}
+
 export default function SEOTradePage() {
   const params = useParams();
   const routerLocation = useLocation();
+  const [locationData, setLocationData] = useState<LocationProfile | null>(null);
 
   const rawPath = routerLocation.pathname.toLowerCase();
   const pathSegments = rawPath.split("/").filter(Boolean);
@@ -136,10 +143,40 @@ export default function SEOTradePage() {
     ? normalizedTradeSlug.charAt(0).toUpperCase() +
       normalizedTradeSlug.slice(1).replace(/-/g, " ")
     : MOCK_DATA.trade;
-  const locationName = locationSlug
+  
+  // Use fetched location name if available, otherwise fallback to slug-based name
+  const locationName = locationData?.region_name || (locationSlug
     ? locationSlug.charAt(0).toUpperCase() +
       locationSlug.slice(1).replace(/-/g, " ")
-    : MOCK_DATA.location;
+    : MOCK_DATA.location);
+
+  // Fetch location data from Supabase
+  useEffect(() => {
+    async function fetchLocationData() {
+      if (!locationSlug) return;
+
+      try {
+        const { data, error } = await supabase
+          .from("location_profiles")
+          .select("*")
+          .eq("slug", locationSlug)
+          .single();
+
+        if (error) {
+          console.warn("Error fetching location profile:", error);
+          return;
+        }
+
+        if (data) {
+          setLocationData(data);
+        }
+      } catch (err) {
+        console.error("Unexpected error fetching location data:", err);
+      }
+    }
+
+    fetchLocationData();
+  }, [locationSlug]);
 
   // Determine hero image
   const normalizedTrade = normalizedTradeSlug || "default";
@@ -313,30 +350,49 @@ export default function SEOTradePage() {
                     Rules for hiring a {tradeName} in {locationName}
                   </h2>
                   <div className="prose prose-lg text-gray-600 leading-relaxed">
-                    <p className="mb-4">
-                      When undertaking work in {locationName}, it is crucial to
-                      adhere to local regulations to avoid fines and disputes.
-                    </p>
+                    {locationData?.content_injects?.intro ? (
+                      <p className="mb-4">{locationData.content_injects.intro}</p>
+                    ) : (
+                      <p className="mb-4">
+                        When undertaking work in {locationName}, it is crucial to
+                        adhere to local regulations to avoid fines and disputes.
+                      </p>
+                    )}
+                    
                     <ul className="list-disc pl-5 space-y-2 mb-4">
                       <li>
-                        <strong>Community Guidelines:</strong> Many
-                        urbanizations in {locationName} have strict rules
-                        regarding work hours and access for tradespeople. Always
-                        check with your community president or administrator.
+                        <strong>Community Guidelines:</strong>{" "}
+                        {locationData?.logistics?.community_guidelines || 
+                          `Many urbanizations in ${locationName} have strict rules regarding work hours and access for tradespeople. Always check with your community president or administrator.`}
                       </li>
                       <li>
-                        <strong>Noise Ordinances:</strong> Construction noise is
-                        typically restricted during siesta hours (often 2 PM - 5
-                        PM) and late evenings. Violating these can lead to
-                        police complaints.
+                        <strong>Noise Ordinances:</strong>{" "}
+                        {locationData?.logistics?.noise_ordinances || 
+                          "Construction noise is typically restricted during siesta hours (often 2 PM - 5 PM) and late evenings. Violating these can lead to police complaints."}
                       </li>
                       <li>
-                        <strong>Permits:</strong> For significant renovations, a
-                        "Licencia de Obra Menor" (Minor Works License) may be
-                        required from the {locationName} Town Hall.
+                        <strong>Permits:</strong>{" "}
+                        {locationData?.logistics?.permits || 
+                          `For significant renovations, a "Licencia de Obra Menor" (Minor Works License) may be required from the ${locationName} Town Hall.`}
                       </li>
                     </ul>
-                    <p>
+                    
+                    {locationData?.sub_areas && locationData.sub_areas.length > 0 && (
+                      <div className="mt-6">
+                        <h3 className="text-lg font-semibold text-[#0a1f44] mb-2">
+                          Areas Covered in {locationName}
+                        </h3>
+                        <div className="flex flex-wrap gap-2">
+                          {locationData.sub_areas.map((area, idx) => (
+                            <span key={idx} className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm">
+                              {area}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    <p className="mt-4">
                       Our verified {tradeName.toLowerCase()} specialists are
                       familiar with these local requirements and can help ensure
                       your project proceeds smoothly.
