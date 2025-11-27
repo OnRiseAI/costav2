@@ -384,6 +384,11 @@ export default function TradespersonDetails() {
                       />
                     )}
                   </MapContainer>
+                  <div className="pointer-events-none absolute inset-0 flex items-center justify-center z-[400]">
+                    <div className="w-12 h-12 rounded-full bg-[#0a1f44]/90 border-4 border-white shadow-xl flex items-center justify-center">
+                      <div className="w-3 h-3 bg-white rounded-full animate-pulse" />
+                    </div>
+                  </div>
                 </div>
                 <div className="p-6 border-t border-gray-100 bg-gray-50/50 space-y-6">
                   <div className="grid gap-6 md:grid-cols-2">
