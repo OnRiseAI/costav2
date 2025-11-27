@@ -318,6 +318,146 @@ const LOCATION_CONFIG: LocationData[] = [
       },
     },
   },
+  {
+    REGION_NAME: "La Cala de Mijas",
+    region_slug: "la-cala-de-mijas",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.5052",
+    LON: "-4.6822",
+    TownLogisticsProfile: {
+      cluster_type: "Coastal_Residential",
+      logistics: {
+        security_gate_clearance: false,
+        vehicle_width_limit_meters: null,
+        parking_risk_level: "Medium",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 7,
+      },
+      content_injects: {
+        provider_warning:
+          "Beachfront zones and central village streets can be congested during weekends and summers.",
+        customer_reassurance:
+          "CostaTrades specialists schedule arrival windows to avoid local bottlenecks.",
+      },
+    },
+  },
+  {
+    REGION_NAME: "Calahonda",
+    region_slug: "calahonda",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.5039",
+    LON: "-4.7086",
+    TownLogisticsProfile: {
+      cluster_type: "Coastal_Residential",
+      logistics: {
+        security_gate_clearance: false,
+        vehicle_width_limit_meters: null,
+        parking_risk_level: "Medium",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 6,
+      },
+      content_injects: {
+        provider_warning:
+          "Hilly areas in upper Calahonda can extend arrival times, especially for larger vehicles.",
+        customer_reassurance:
+          "CostaTrades specialists plan hillside access routes in advance for smooth arrivals.",
+      },
+    },
+  },
+  {
+    REGION_NAME: "Riviera del Sol",
+    region_slug: "riviera-del-sol",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.5015",
+    LON: "-4.6994",
+    TownLogisticsProfile: {
+      cluster_type: "Coastal_Residential",
+      logistics: {
+        security_gate_clearance: false,
+        vehicle_width_limit_meters: null,
+        parking_risk_level: "Medium",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 6,
+      },
+      content_injects: {
+        provider_warning:
+          "Some residential streets are narrow, which can limit manoeuvring for service vehicles.",
+        customer_reassurance:
+          "CostaTrades assigns appropriately sized specialists to avoid any access issues.",
+      },
+    },
+  },
+  {
+    REGION_NAME: "Miraflores",
+    region_slug: "miraflores",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.5046",
+    LON: "-4.6928",
+    TownLogisticsProfile: {
+      cluster_type: "Coastal_Residential",
+      logistics: {
+        security_gate_clearance: true,
+        vehicle_width_limit_meters: null,
+        parking_risk_level: "Low",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 5,
+      },
+      content_injects: {
+        provider_warning:
+          "Gated urbanisations in Miraflores may require visitor entry registration.",
+        customer_reassurance:
+          "CostaTrades handles all gate access with your community to keep visits hassle-free.",
+      },
+    },
+  },
+  {
+    REGION_NAME: "El Chaparral",
+    region_slug: "el-chaparral",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.5220",
+    LON: "-4.6548",
+    TownLogisticsProfile: {
+      cluster_type: "Coastal_Residential",
+      logistics: {
+        security_gate_clearance: false,
+        vehicle_width_limit_meters: null,
+        parking_risk_level: "Low",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 5,
+      },
+      content_injects: {
+        provider_warning:
+          "Woodland surroundings can make certain properties harder to locate for first-time visitors.",
+        customer_reassurance:
+          "CostaTrades specialists use precise GPS routing to ensure accurate arrival.",
+      },
+    },
+  },
 ];
 
 const RELATED_AREAS_BY_CLUSTER: Record<string, SubArea[]> = {
