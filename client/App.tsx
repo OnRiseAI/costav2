@@ -39,6 +39,7 @@ import PlaceholderPage from "@/pages/PlaceholderPage";
 import ReviewTrade from "@/pages/ReviewTrade";
 import NotFound from "@/pages/NotFound";
 import SignupPage from "@/pages/SignupPage";
+import LocationHub from "@/pages/LocationHub";
 import "./global.css";
 
 function AppContent() {
