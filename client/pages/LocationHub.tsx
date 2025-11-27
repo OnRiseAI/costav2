@@ -680,6 +680,8 @@ const RELATED_AREAS_BY_CLUSTER: Record<string, SubArea[]> = {
     { name: "Mijas Costa", slug: "mijas-costa" },
     { name: "La Cala de Mijas", slug: "la-cala-de-mijas" },
     { name: "Calahonda", slug: "calahonda" },
+    { name: "Estepona Town", slug: "estepona-town" },
+    { name: "Sabinillas", slug: "sabinillas" },
   ],
 };
 
