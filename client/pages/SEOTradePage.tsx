@@ -74,7 +74,7 @@ export default function SEOTradePage() {
     (rawTradeSlugFromParams?.startsWith("emergency-") ?? false);
 
   const effectiveTradeSlug =
-    rawTradeSlugFromParams ?? tradeSlugFromPath || "";
+    rawTradeSlugFromParams ?? tradeSlugFromPath ?? "";
 
   const normalizedTradeSlug = effectiveTradeSlug
     ? effectiveTradeSlug.replace(/^emergency-/, "")
