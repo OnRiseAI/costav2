@@ -1768,7 +1768,7 @@ const blogPosts = {
             <div className="absolute -inset-x-6 -inset-y-4 bg-gradient-to-r from-blue-500/15 via-sky-400/10 to-emerald-400/10 blur-3xl" />
 
             <div className="relative rounded-[28px] bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border border-slate-800/80 shadow-xl md:shadow-[0_28px_70px_rgba(15,23,42,0.85)] px-6 py-9 md:px-12 md:py-12 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-              <div className="absolute right-4 top-4 hidden md:flex items-center gap-2 text-[11px] font-medium text-slate-400">
+              <div className="absolute right-4 top-4 hidden md:flex items-center gap-2 text-[11px] font-medium text-slate-300">
                 <span className="inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
                 <span>Updated 2025 data</span>
               </div>
@@ -1790,7 +1790,7 @@ const blogPosts = {
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-[11px] sm:text-xs text-white">
                   <div className="rounded-2xl bg-slate-900/70 border border-slate-800 px-3 py-3">
-                    <div className="text-[10px] uppercase tracking-wide text-slate-400 mb-1">
+                    <div className="text-[10px] uppercase tracking-wide text-slate-300 mb-1">
                       Typical Payback
                     </div>
                     <div className="text-sm font-semibold text-emerald-400">
@@ -1798,7 +1798,7 @@ const blogPosts = {
                     </div>
                   </div>
                   <div className="rounded-2xl bg-slate-900/70 border border-slate-800 px-3 py-3">
-                    <div className="text-[10px] uppercase tracking-wide text-slate-400 mb-1">
+                    <div className="text-[10px] uppercase tracking-wide text-slate-300 mb-1">
                       Grants
                     </div>
                     <div className="text-sm font-semibold text-sky-300">
@@ -1806,7 +1806,7 @@ const blogPosts = {
                     </div>
                   </div>
                   <div className="rounded-2xl bg-slate-900/70 border border-slate-800 px-3 py-3 hidden sm:block">
-                    <div className="text-[10px] uppercase tracking-wide text-slate-400 mb-1">
+                    <div className="text-[10px] uppercase tracking-wide text-slate-300 mb-1">
                       IBI Discounts
                     </div>
                     <div className="text-sm font-semibold text-indigo-300">
@@ -1823,7 +1823,7 @@ const blogPosts = {
                     <ArrowRight className="w-5 h-5" />
                   </Button>
                 </Link>
-                <p className="text-[11px] text-slate-400 mt-1 md:mt-2 max-w-xs text-right">
+                <p className="text-[11px] text-slate-300 mt-1 md:mt-2 max-w-xs text-right">
                   100% free service. We only match you with vetted installers who work
                   regularly across Malaga and the Costa del Sol.
                 </p>
