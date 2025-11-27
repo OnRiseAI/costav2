@@ -13,26 +13,8 @@ export function useTypewriterPlaceholder(
   const [index, setIndex] = useState(0);
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
-  const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    );
-    const isNarrowScreen = window.matchMedia("(max-width: 768px)");
-
-    if (prefersReducedMotion.matches || isNarrowScreen.matches) {
-      setEnabled(false);
-      return;
-    }
-
-    setEnabled(true);
-  }, []);
-
-  useEffect(() => {
-    if (!enabled) return;
     if (!phrases.length) return;
 
     const currentPhrase = phrases[index % phrases.length];
@@ -61,7 +43,7 @@ export function useTypewriterPlaceholder(
         window.clearTimeout(timeoutId);
       }
     };
-  }, [phrases, index, text, isDeleting, typeSpeed, deleteSpeed, pauseMs, enabled]);
+  }, [phrases, index, text, isDeleting, typeSpeed, deleteSpeed, pauseMs]);
 
-  return enabled ? text : "";
+  return text;
 }
