@@ -309,78 +309,50 @@ export default function SEOTradePage() {
           </div>
         </section>
 
-        {/* 2. Price Guide Table Section (Semantic HTML) */}
+        {/* 2. Price Guide Section (High-Conversion Pricing Card) */}
         <section className="py-16 bg-white">
           <div className="container-custom">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold text-[#0a1f44] mb-8 text-center">
                 2025 Price Guide: {tradeName} Costs in {locationName}
               </h2>
-              <div className="overflow-x-auto rounded-xl shadow-lg border border-gray-100">
-                <table className="w-full text-left border-collapse">
-                  <thead>
-                    <tr className="bg-gray-50 border-b border-gray-200">
-                      <th className="p-4 font-semibold text-[#0a1f44]">
-                        Service
-                      </th>
-                      <th className="p-4 font-semibold text-[#0a1f44]">
-                        Avg Price
-                      </th>
-                      <th className="p-4 font-semibold text-[#0a1f44]">Time</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-100">
-                    {tradePriceRange ? (
-                      <>
-                        <tr className="hover:bg-blue-50/30 transition-colors">
-                          <td className="p-4 text-slate-700 font-medium">
-                            Standard Call-out
-                          </td>
-                          <td className="p-4 text-slate-600">
-                            {tradePriceRange}
-                          </td>
-                          <td className="p-4 text-slate-500 text-sm">
-                            First Hour
-                          </td>
-                        </tr>
-                        <tr className="hover:bg-blue-50/30 transition-colors">
-                          <td className="p-4 text-slate-700 font-medium">
-                            Additional Time
-                          </td>
-                          <td className="p-4 text-slate-600">
-                            Included within range
-                          </td>
-                          <td className="p-4 text-slate-500 text-sm">
-                            Project Dependent
-                          </td>
-                        </tr>
-                      </>
-                    ) : (
-                      <>
-                        <tr className="hover:bg-blue-50/30 transition-colors">
-                          <td className="p-4 text-slate-700 font-medium">
-                            Standard Call-out
-                          </td>
-                          <td className="p-4 text-slate-600">€50 - €80</td>
-                          <td className="p-4 text-slate-500 text-sm">
-                            First Hour
-                          </td>
-                        </tr>
-                        <tr className="hover:bg-blue-50/30 transition-colors">
-                          <td className="p-4 text-slate-700 font-medium">
-                            Hourly Rate
-                          </td>
-                          <td className="p-4 text-slate-600">€40 - €60</td>
-                          <td className="p-4 text-slate-500 text-sm">
-                            Per Hour
-                          </td>
-                        </tr>
-                      </>
-                    )}
-                  </tbody>
-                </table>
+
+              <div className="bg-white rounded-xl shadow-md border border-gray-200 p-6 md:p-8">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+                  {/* Left Side: Price Details */}
+                  <div className="flex-1 text-center md:text-left w-full">
+                    <span className="inline-block text-xs font-bold text-blue-600 uppercase tracking-wider mb-2 bg-blue-50 px-2 py-1 rounded">
+                      Typical Rate for {tradeName}
+                    </span>
+                    <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+                      {tradePriceRange || "€50 - €80"}
+                    </div>
+                    <p className="text-gray-500 text-sm">
+                      Includes call-out &amp; first hour assessment.
+                    </p>
+                  </div>
+
+                  {/* Right Side: Action Area */}
+                  <div className="flex flex-col items-center w-full md:w-auto min-w-[280px]">
+                    <span className="text-sm font-medium text-gray-600 mb-2">
+                      Need a firm price?
+                    </span>
+                    <Link to="/post-job" className="w-full">
+                      <Button
+                        size="lg"
+                        className="w-full bg-[#0A1F44] hover:bg-[#06152b] text-white h-14 text-lg font-bold rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5"
+                      >
+                        Get Exact Quote
+                      </Button>
+                    </Link>
+                    <span className="text-xs text-gray-400 mt-2">
+                      No obligation. Free to post.
+                    </span>
+                  </div>
+                </div>
               </div>
-              <p className="text-sm text-slate-500 mt-4 text-center">
+
+              <p className="text-sm text-slate-500 mt-6 text-center">
                 *Prices are estimates based on local market rates in{" "}
                 {locationName}. Final quotes may vary based on complexity.
               </p>
