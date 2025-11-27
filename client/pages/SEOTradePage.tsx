@@ -45,7 +45,6 @@ const TRADE_IMAGES: Record<string, string> = {
   default: "https://images.pexels.com/photos/2244746/pexels-photo-2244746.jpeg",
 };
 
-
 // This would typically come from a data source/API
 const MOCK_DATA = {
   trade: "Emergency specialists",
