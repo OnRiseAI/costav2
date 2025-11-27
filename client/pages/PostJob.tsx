@@ -135,6 +135,8 @@ export default function PostJob() {
   const [searchQuery, setSearchQuery] = useState(
     searchParams.get("option") || "",
   );
+  const [openCombobox, setOpenCombobox] = useState(false);
+  const [townSearch, setTownSearch] = useState("");
   const typewriterPlaceholder = useTypewriterPlaceholder(SEARCH_PLACEHOLDERS, {
     typeSpeed: 80,
     deleteSpeed: 40,
