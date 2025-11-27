@@ -64,8 +64,7 @@ export default function SEOTradePage() {
   const paramTrade = params.trade as string | undefined;
   const paramService = params.service as string | undefined;
 
-  const rawTradeSlugFromParams =
-    (paramTrade ?? paramService)?.toLowerCase();
+  const rawTradeSlugFromParams = (paramTrade ?? paramService)?.toLowerCase();
 
   const tradeSlugFromPath = lastSegment;
 
@@ -73,8 +72,7 @@ export default function SEOTradePage() {
     tradeSlugFromPath.startsWith("emergency-") ||
     (rawTradeSlugFromParams?.startsWith("emergency-") ?? false);
 
-  const effectiveTradeSlug =
-    rawTradeSlugFromParams ?? tradeSlugFromPath ?? "";
+  const effectiveTradeSlug = rawTradeSlugFromParams ?? tradeSlugFromPath ?? "";
 
   const normalizedTradeSlug = effectiveTradeSlug
     ? effectiveTradeSlug.replace(/^emergency-/, "")
@@ -152,9 +150,9 @@ export default function SEOTradePage() {
                 Trusted {tradeName} in {locationName}
               </h1>
               <p className="text-xl text-blue-100 mb-8 max-w-2xl font-light">
-                Hire vetted {tradeName.toLowerCase()} specialists in {locationName} for
-                planned work, improvements and maintenance with clear pricing and
-                communication.
+                Hire vetted {tradeName.toLowerCase()} specialists in{" "}
+                {locationName} for planned work, improvements and maintenance
+                with clear pricing and communication.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/post-job">
@@ -234,20 +232,23 @@ export default function SEOTradePage() {
                   How CostaTrades Works
                 </h2>
                 <p className="text-slate-600 mb-6">
-                  Tell us what you need done and we&apos;ll match you with vetted{" "}
-                  {tradeName.toLowerCase()} specialists in {locationName}.
+                  Tell us what you need done and we&apos;ll match you with
+                  vetted {tradeName.toLowerCase()} specialists in {locationName}
+                  .
                 </p>
                 <ul className="space-y-4 text-slate-600">
                   <li>
-                    <span className="font-semibold">1. Post your job</span>{" "}
-                    with a short description and photos if you have them.
+                    <span className="font-semibold">1. Post your job</span> with
+                    a short description and photos if you have them.
                   </li>
                   <li>
                     <span className="font-semibold">2. Compare quotes</span>{" "}
                     from multiple specialists with transparent pricing.
                   </li>
                   <li>
-                    <span className="font-semibold">3. Hire with confidence</span>{" "}
+                    <span className="font-semibold">
+                      3. Hire with confidence
+                    </span>{" "}
                     knowing every specialist is verified and reviewed.
                   </li>
                 </ul>
