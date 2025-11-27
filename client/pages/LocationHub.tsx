@@ -592,7 +592,7 @@ const LOCATION_CONFIG: LocationData[] = [
       },
       content_injects: {
         provider_warning:
-          "Manilva’s hilly terrain can extend travel times during peak visitors’ season.",
+          "Manilva��s hilly terrain can extend travel times during peak visitors’ season.",
         customer_reassurance:
           "CostaTrades specialists plan optimal routes to ensure timely arrival.",
       },
@@ -878,6 +878,14 @@ const RELATED_AREAS_BY_CLUSTER: Record<string, SubArea[]> = {
     { name: "Calahonda", slug: "calahonda" },
     { name: "Estepona Town", slug: "estepona-town" },
     { name: "Sabinillas", slug: "sabinillas" },
+    { name: "Rincon de la Victoria", slug: "rincon-de-la-victoria" },
+    { name: "Torre del Mar", slug: "torre-del-mar" },
+    { name: "Nerja", slug: "nerja" },
+  ],
+  Mountain_Village: [
+    { name: "Frigiliana", slug: "frigiliana" },
+    { name: "Mijas Pueblo", slug: "mijas-pueblo" },
+    { name: "Ojen", slug: "ojen" },
   ],
 };
 
