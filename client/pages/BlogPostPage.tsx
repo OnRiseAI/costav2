@@ -1366,7 +1366,7 @@ const blogPosts = {
     image:
       "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=2942&auto=format&fit=crop",
     keyTakeaways: [
-      "With electricity prices around €0.25/kWh, most Costa del Sol homes see solar payback in 3-5 years.",
+      "With electricity prices around ���0.25/kWh, most Costa del Sol homes see solar payback in 3-5 years.",
       "The old 'Impuesto al Sol' (Sun Tax) was abolished in 2018 – modern systems are fully legal and incentivised.",
       "Owners in communities (LPH) can usually install panels for personal use even if some neighbours disagree.",
       "2025 grants and local tax discounts can cover up to 40% of installation costs for qualifying homes.",
@@ -2164,7 +2164,7 @@ export default function BlogPostPage() {
                         alt={p.title}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/80 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-slate-900/30 to-transparent" />
                       <div className="absolute top-4 left-4 bg-slate-900/80 border border-slate-700/80 text-slate-50 text-xs font-semibold px-3 py-1.5 rounded-full shadow-sm">
                         {p.category}
                       </div>
