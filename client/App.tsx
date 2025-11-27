@@ -56,7 +56,11 @@ function AppContent() {
 
             {/* SEO Trade Pages */}
             <Route path="/trades/:trade/:location" element={<SEOTradePage />} />
+            <Route path="/locations/:location/:trade" element={<SEOTradePage />} />
             <Route path="/seo-template" element={<SEOTradePage />} />
+
+            {/* Location Hub */}
+            <Route path="/locations/:region_slug" element={<LocationHub />} />
 
             {/* Trade Category Pages */}
             <Route path="/trades/:category" element={<TradeCategory />} />
