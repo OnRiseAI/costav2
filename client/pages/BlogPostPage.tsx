@@ -21,7 +21,8 @@ import {
 const blogPosts = {
   "stop-damp-mold-spain": {
     title: "Stop Damp & Mold Spain: The 2025 Guide",
-    metaDescription: "Damp or Mold in your Spanish villa? Diagnose Condensation vs. Rising Damp. See 2025 repair costs, chemical injection prices & legal rights.",
+    metaDescription:
+      "Damp or Mold in your Spanish villa? Diagnose Condensation vs. Rising Damp. See 2025 repair costs, chemical injection prices & legal rights.",
     category: "Maintenance",
     author: "Carlos Rodriguez",
     authorRole: "Senior Surveyor",
@@ -996,7 +997,8 @@ const blogPosts = {
   },
   "malaga-hard-water-boiler": {
     title: "Malaga Hard Water: Boiler & Softener Guide",
-    metaDescription: "Malaga hard water destroying your boiler? The 2025 guide to Limescale, Descaling costs, and the best Water Softeners for the Costa del Sol.",
+    metaDescription:
+      "Malaga hard water destroying your boiler? The 2025 guide to Limescale, Descaling costs, and the best Water Softeners for the Costa del Sol.",
     category: "Maintenance",
     author: "David Miller",
     authorRole: "Senior Plumber",
@@ -1170,7 +1172,8 @@ const blogPosts = {
   },
   "protecting-home-squatters-2025": {
     title: "Protect Home from Okupas: 2025 Guide",
-    metaDescription: "Protect your Spanish home from Okupas. 2025 Guide: Best anti-snap locks, alarm systems & legal eviction rules for non-resident owners.",
+    metaDescription:
+      "Protect your Spanish home from Okupas. 2025 Guide: Best anti-snap locks, alarm systems & legal eviction rules for non-resident owners.",
     category: "Legal/Permits",
     author: "James Wilson",
     authorRole: "Security Consultant",
@@ -1357,7 +1360,8 @@ const blogPosts = {
   },
   "solar-panels-costa-del-sol-roi": {
     title: "Solar Power Costa del Sol: 2025 ROI Guide",
-    metaDescription: "Is Solar worth it in Andalucia? 2025 ROI Guide: Calculate savings, claim 40% NextGen grants & check IBI tax reductions for Malaga homeowners.",
+    metaDescription:
+      "Is Solar worth it in Andalucia? 2025 ROI Guide: Calculate savings, claim 40% NextGen grants & check IBI tax reductions for Malaga homeowners.",
     category: "Cost Guides",
     author: "Miguel Angel",
     authorRole: "Energy Engineer",
