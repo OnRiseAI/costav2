@@ -321,7 +321,7 @@ export default function ContactPage() {
                       <br />
                       Office 4-6, 29604 Marbella
                       <br />
-                      Málaga, Spain
+                      Malaga, Spain
                     </p>
                   </div>
                 </div>
