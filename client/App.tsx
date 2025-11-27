@@ -54,16 +54,21 @@ function AppContent() {
             {/* Homepage */}
             <Route path="/" element={<Index />} />
 
-            {/* SEO Trade Pages */}
+            {/* SEO Trade & Service Pages */}
             <Route path="/trades/:trade/:location" element={<SEOTradePage />} />
             <Route
-              path="/locations/:location/:trade"
+              path="/locations/:location/emergency-:service"
+              element={<SEOTradePage />}
+            />
+            <Route
+              path="/locations/:location/:service"
               element={<SEOTradePage />}
             />
             <Route path="/seo-template" element={<SEOTradePage />} />
 
-            {/* Location Hub */}
-            <Route path="/locations/:region_slug" element={<LocationHub />} />
+            {/* Location Hub - Regions & Sub-Regions */}
+            <Route path="/areas/:region" element={<LocationHub />} />
+            <Route path="/locations/:location" element={<LocationHub />} />
 
             {/* Trade Category Pages */}
             <Route path="/trades/:category" element={<TradeCategory />} />

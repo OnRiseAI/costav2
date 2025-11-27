@@ -52,18 +52,22 @@ const MOCK_DATA = {
 };
 
 export default function SEOTradePage() {
-  const { trade, location } = useParams();
+  const params = useParams();
+  const tradeSlug = (params.trade as string | undefined) ??
+    ((params.service as string | undefined) ?? undefined);
+  const locationSlug = (params.location as string | undefined) ??
+    ((params.region_slug as string | undefined) ?? (params.region as string | undefined));
 
   // Fallback to mock data if params are missing (for template preview)
-  const tradeName = trade
-    ? trade.charAt(0).toUpperCase() + trade.slice(1).replace(/-/g, " ")
+  const tradeName = tradeSlug
+    ? tradeSlug.charAt(0).toUpperCase() + tradeSlug.slice(1).replace(/-/g, " ")
     : MOCK_DATA.trade;
-  const locationName = location
-    ? location.charAt(0).toUpperCase() + location.slice(1).replace(/-/g, " ")
+  const locationName = locationSlug
+    ? locationSlug.charAt(0).toUpperCase() + locationSlug.slice(1).replace(/-/g, " ")
     : MOCK_DATA.location;
 
   // Determine hero image
-  const normalizedTrade = trade?.toLowerCase() || "default";
+  const normalizedTrade = tradeSlug?.toLowerCase() || "default";
   // Try exact match, then singular/plural variations, then default
   const heroImage =
     TRADE_IMAGES[normalizedTrade] ||

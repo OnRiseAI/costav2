@@ -1295,21 +1295,23 @@ function formatRegionNameFromSlug(slug: string): string {
 }
 
 export default function LocationHub() {
-  const { region_slug } = useParams();
+  const params = useParams();
+  const regionSlug = (params.region_slug as string | undefined) ??
+    ((params.location as string | undefined) ?? (params.region as string | undefined));
 
   const defaultRegion = LOCATION_CONFIG[0];
 
-  const matchedRegion = region_slug
-    ? LOCATION_CONFIG.find((region) => region.region_slug === region_slug)
+  const matchedRegion = regionSlug
+    ? LOCATION_CONFIG.find((region) => region.region_slug === regionSlug)
     : defaultRegion;
 
   const baseData: LocationData =
     matchedRegion ||
-    (region_slug
+    (regionSlug
       ? {
           ...defaultRegion,
-          REGION_NAME: formatRegionNameFromSlug(region_slug),
-          region_slug,
+          REGION_NAME: formatRegionNameFromSlug(regionSlug),
+          region_slug: regionSlug,
         }
       : defaultRegion);
 
