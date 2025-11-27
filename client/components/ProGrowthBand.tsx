@@ -54,14 +54,14 @@ export function ProGrowthBand() {
                 asChild
                 className="bg-[#E31E24] hover:bg-[#C41218] text-white font-bold py-7 px-8 rounded-xl text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
               >
-                <Link to="/pro/claim">Get More Leads Now</Link>
+                <Link to="/join-as-tradesperson">Get More Leads Now</Link>
               </Button>
               <Button
                 asChild
                 variant="outline"
                 className="bg-white/5 border-2 border-white/20 text-white hover:bg-white hover:text-[#0a1f44] font-bold py-7 px-8 rounded-xl text-lg backdrop-blur-sm transition-all duration-300"
               >
-                <Link to="/pro/register">Create Free Profile</Link>
+                <Link to="/join-as-tradesperson">Create Free Profile</Link>
               </Button>
             </div>
           </div>
