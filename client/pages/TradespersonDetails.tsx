@@ -12,6 +12,8 @@ import {
 } from "@/components/ui/select";
 import { TradespersonProgress } from "@/components/TradespersonProgress";
 import { ChevronLeft } from "lucide-react";
+import { MapContainer, TileLayer, Circle, useMap } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
 
 const TRADE_LABELS: Record<string, string> = {
   electrician: "Electrician",
