@@ -178,6 +178,34 @@ const LOCATION_CONFIG: LocationData[] = [
       },
     },
   },
+  {
+    REGION_NAME: "Puerto Banus",
+    region_slug: "puerto-banus",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.4840",
+    LON: "-4.9520",
+    TownLogisticsProfile: {
+      cluster_type: "Luxury_Gated",
+      logistics: {
+        security_gate_clearance: true,
+        vehicle_width_limit_meters: 2.1,
+        parking_risk_level: "High",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: true,
+        ban_months: ["July", "August"],
+        noise_sensitivity_score: 9,
+      },
+      content_injects: {
+        provider_warning:
+          "Access near the marina and front-line zones can be restricted during peak seasons.",
+        customer_reassurance:
+          "CostaTrades specialists plan access windows around high traffic to avoid delays.",
+      },
+    },
+  },
 ];
 
 const RELATED_AREAS_BY_CLUSTER: Record<string, SubArea[]> = {
