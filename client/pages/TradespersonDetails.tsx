@@ -26,8 +26,21 @@ const TRADE_LABELS: Record<string, string> = {
   mechanic: "Mechanic",
 };
 
-const DEFAULT_MAP_URL =
-  "https://www.openstreetmap.org/export/embed.html?bbox=-5.6,35.9,-3.8,37.0&layer=mapnik";
+const DEFAULT_CENTER = { lat: 36.595, lon: -4.6374 }; // Mijas/Fuengirola area
+
+function ChangeView({
+  center,
+  zoom,
+}: {
+  center: { lat: number; lon: number };
+  zoom: number;
+}) {
+  const map = useMap();
+  useEffect(() => {
+    map.setView([center.lat, center.lon], zoom);
+  }, [center, zoom, map]);
+  return null;
+}
 
 const AREA_OPTIONS = [
   "Marbella",
@@ -218,20 +231,10 @@ export default function TradespersonDetails() {
     navigate("/tradesperson/review");
   };
 
-  const mapUrl = useMemo(() => {
-    if (!mapCenter) {
-      return DEFAULT_MAP_URL;
-    }
-
-    const deltaLat = 0.18;
-    const deltaLon = 0.3;
-    const minLat = mapCenter.lat - deltaLat;
-    const maxLat = mapCenter.lat + deltaLat;
-    const minLon = mapCenter.lon - deltaLon;
-    const maxLon = mapCenter.lon + deltaLon;
-
-    return `https://www.openstreetmap.org/export/embed.html?bbox=${minLon},${minLat},${maxLon},${maxLat}&layer=mapnik&marker=${mapCenter.lat},${mapCenter.lon}`;
-  }, [mapCenter]);
+  const getRadiusInMeters = (radiusStr: string) => {
+    const value = parseInt(radiusStr.split(" ")[0]);
+    return isNaN(value) ? 0 : value * 1000;
+  };
 
   const handlePostcodeBlur = async () => {
     const query = postcode.trim();
@@ -349,18 +352,38 @@ export default function TradespersonDetails() {
               </div>
 
               <Card className="overflow-hidden rounded-2xl border-gray-200 bg-white shadow-none ring-1 ring-gray-200">
-                <div className="relative w-full h-64 md:h-80 bg-gray-100">
-                  <iframe
-                    title="Costa del Sol map"
-                    src={mapUrl}
-                    className="w-full h-full border-0 grayscale-[20%]"
-                    loading="lazy"
-                  />
-                  <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-                    <div className="w-12 h-12 rounded-full bg-[#0a1f44]/90 border-4 border-white shadow-xl flex items-center justify-center">
-                      <div className="w-3 h-3 bg-white rounded-full animate-pulse" />
-                    </div>
-                  </div>
+                <div className="relative w-full h-64 md:h-80 bg-gray-100 z-0">
+                  <MapContainer
+                    center={[
+                      mapCenter?.lat || DEFAULT_CENTER.lat,
+                      mapCenter?.lon || DEFAULT_CENTER.lon,
+                    ]}
+                    zoom={mapCenter ? 11 : 9}
+                    scrollWheelZoom={false}
+                    className="w-full h-full grayscale-[20%]"
+                    style={{ height: "100%", width: "100%" }}
+                  >
+                    <TileLayer
+                      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                    <ChangeView
+                      center={mapCenter || DEFAULT_CENTER}
+                      zoom={mapCenter ? 11 : 9}
+                    />
+                    {mapCenter && radius && (
+                      <Circle
+                        center={[mapCenter.lat, mapCenter.lon]}
+                        radius={getRadiusInMeters(radius)}
+                        pathOptions={{
+                          fillColor: "#3b82f6",
+                          fillOpacity: 0.2,
+                          color: "#2563eb",
+                          weight: 1,
+                        }}
+                      />
+                    )}
+                  </MapContainer>
                 </div>
                 <div className="p-6 border-t border-gray-100 bg-gray-50/50 space-y-6">
                   <div className="grid gap-6 md:grid-cols-2">
