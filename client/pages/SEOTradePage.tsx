@@ -35,6 +35,8 @@ const TRADE_IMAGES: Record<string, string> = {
     "https://images.pexels.com/photos/34794658/pexels-photo-34794658.jpeg",
   "kitchen-installer":
     "https://images.pexels.com/photos/34803106/pexels-photo-34803106.jpeg",
+  "renovation-specialist":
+    "https://images.pexels.com/photos/6476582/pexels-photo-6476582.jpeg",
   "pest-control":
     "https://images.pexels.com/photos/16851694/pexels-photo-16851694.jpeg",
   // Fallback
@@ -43,12 +45,12 @@ const TRADE_IMAGES: Record<string, string> = {
 
 // This would typically come from a data source/API
 const MOCK_DATA = {
-  trade: "Plumbers",
-  location: "Marbella",
-  average_price: "€150",
-  emergency_price: "€250",
+  trade: "Emergency specialists",
+  location: "Costa del Sol",
+  average_price: "€180+",
+  emergency_price: "€260+",
   local_insight_text:
-    "In Marbella, plumbing systems often face unique challenges due to historic infrastructure in the Old Town and high mineral content in the water supply, which can lead to faster pipe corrosion.",
+    "In coastal residential areas along the Costa del Sol, emergency structural issues and serious leaks are often complicated by seasonal traffic, gated communities and parking restrictions. CostaTrades specialists plan fast access routes and coordinate with building administrators so problems can be stabilised before they worsen.",
 };
 
 export default function SEOTradePage() {
@@ -83,8 +85,8 @@ export default function SEOTradePage() {
   return (
     <div className="min-h-screen bg-white font-sans">
       <SEO
-        title={`Best ${tradeName} in ${locationName} | Verified & Reviewed`}
-        description={`Need a ${tradeName} in ${locationName}? Verified local experts. Emergency call-outs, repairs & installations. Get a free quote today.`}
+        title={`Emergency ${tradeName} in ${locationName} | 24/7 Rapid Response`}
+        description={`Emergency ${tradeName} in ${locationName} for leaks, structural issues and urgent repairs. 24/7 response with vetted local specialists ready to stabilise problems before they worsen.`}
         schema={{
           "@context": "https://schema.org",
           "@type": "Service",
@@ -121,15 +123,14 @@ export default function SEOTradePage() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm mb-6">
               <CheckCircle className="w-4 h-4 text-green-400" />
               <span className="text-sm font-medium">
-                Verified Local Professionals
+                24/7 Emergency Specialists
               </span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Top Rated {tradeName} in {locationName}
+              Emergency {tradeName} in {locationName}
             </h1>
             <p className="text-xl text-blue-100 mb-8 max-w-2xl font-light">
-              Verified, local professionals available for {tradeName} services.
-              Get fair quotes and quality work guaranteed.
+              Emergency {tradeName.toLowerCase()} support in {locationName} for leaks, structural issues and urgent repairs, with vetted local specialists who plan fast access routes to your property.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/post-job">
@@ -160,10 +161,10 @@ export default function SEOTradePage() {
           <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
             <div className="bg-[#0a1f44] p-6 text-white text-center md:text-left">
               <h2 className="text-2xl font-bold">
-                Average Costs for {tradeName} in {locationName}
+                Typical Emergency Costs for {tradeName} in {locationName}
               </h2>
               <p className="text-blue-200 text-sm mt-1">
-                Based on recent jobs completed in your area
+                Based on recent emergency call-outs completed in your area
               </p>
             </div>
 
@@ -174,13 +175,13 @@ export default function SEOTradePage() {
                   <Clock className="w-6 h-6" />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-600 mb-2">
-                  Standard Weekday Rate
+                  Standard Daytime Rate
                 </h3>
                 <div className="text-4xl font-bold text-[#0a1f44] mb-2">
                   {MOCK_DATA.average_price}
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  Includes first hour of labor
+                  Includes first hour on site for non-urgent visits
                 </p>
               </div>
 
@@ -190,13 +191,13 @@ export default function SEOTradePage() {
                   <AlertCircle className="w-6 h-6" />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-600 mb-2">
-                  Emergency / Weekend
+                  Emergency / Night & Weekend
                 </h3>
                 <div className="text-4xl font-bold text-[#E31E24] mb-2">
                   {MOCK_DATA.emergency_price}
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  For urgent 24/7 call-outs
+                  For urgent 24/7 call-outs when issues cannot wait
                 </p>
               </div>
             </div>
@@ -222,10 +223,10 @@ export default function SEOTradePage() {
                   </p>
                   <p>
                     When hiring a {tradeName.toLowerCase()} in {locationName},
-                    it's important to check if they are familiar with the
-                    specific building regulations in your urbanization. Many
-                    properties in this area have specific requirements for
-                    external modifications.
+                    make sure they understand your community access rules,
+                    parking limitations and noise restrictions. Coordinated
+                    arrival windows and clear communication with administrators
+                    help prevent delays in true emergencies.
                   </p>
                 </div>
               </div>
@@ -242,8 +243,7 @@ export default function SEOTradePage() {
               Why Hire Through CostaTrades?
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              We take the stress out of finding reliable professionals on the
-              Costa del Sol.
+              We take the stress out of emergency call-outs on the Costa del Sol by matching you with reliable, fast-response specialists.
             </p>
           </div>
 
@@ -256,8 +256,7 @@ export default function SEOTradePage() {
                 Verified ID
               </h3>
               <p className="text-muted-foreground">
-                We check every specialist's identity and credentials so you can
-                book with confidence.
+                We check every specialist's identity and credentials so gated communities and managed buildings can grant access quickly.
               </p>
             </div>
 
@@ -269,8 +268,7 @@ export default function SEOTradePage() {
                 Local Knowledge
               </h3>
               <p className="text-muted-foreground">
-                Our professionals know the local regulations, suppliers, and
-                common property issues in {locationName}.
+                Our professionals know the fastest routes, seasonal traffic patterns and common property issues in {locationName}.
               </p>
             </div>
 
@@ -282,8 +280,7 @@ export default function SEOTradePage() {
                 Fair Pricing
               </h3>
               <p className="text-muted-foreground">
-                Transparent rates and no hidden fees. Get quotes upfront before
-                any work begins.
+                Transparent emergency rates with no hidden fees, agreed upfront before any work begins.
               </p>
             </div>
           </div>
@@ -294,18 +291,17 @@ export default function SEOTradePage() {
       <section className="py-20 bg-[#0a1f44] text-white text-center">
         <div className="container-custom max-w-3xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Need a {tradeName} in {locationName} today?
+            Need emergency {tradeName.toLowerCase()} help in {locationName} today?
           </h2>
           <p className="text-xl text-blue-100 mb-10 font-light">
-            Don't wait for small problems to become big issues. Connect with a
-            verified professional now.
+            Don't wait for structural issues or serious leaks to spread. Request a fast-response specialist now.
           </p>
           <Link to="/post-job">
             <Button
               size="lg"
               className="bg-[#E31E24] hover:bg-[#C41218] text-white h-16 px-10 text-xl font-bold rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
             >
-              Book a Professional
+              Request Emergency Help
             </Button>
           </Link>
         </div>
