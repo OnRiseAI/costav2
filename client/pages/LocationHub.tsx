@@ -404,33 +404,6 @@ export default function LocationHub() {
         </div>
       </section>
 
-      {/* 11. SCHEMA (JSON-LD) */}
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Place",
-          "name": `Specialists in ${displayData.REGION_NAME}`,
-          "areaServed": displayData.REGION_NAME,
-          "geo": {
-            "@type": "GeoCircle",
-            "geoMidpoint": {
-              "@type": "GeoCoordinates",
-              "latitude": displayData.LAT,
-              "longitude": displayData.LON
-            },
-            "geoRadius": "15000"
-          },
-          "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": `Specialist Services in ${displayData.REGION_NAME}`,
-            "itemListElement": SPECIALIST_CATEGORIES.map(cat => ({
-              "@type": "OfferCatalog",
-              "name": cat.name
-            }))
-          }
-        })}
-      </script>
-
       {/* 12. FINAL CTA */}
       <section className="py-20 bg-gray-50 text-center">
         <div className="container-custom max-w-3xl">
