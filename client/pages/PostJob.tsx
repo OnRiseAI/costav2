@@ -177,22 +177,7 @@ export default function PostJob() {
     setStep(2);
   };
 
-  const towns = [
-    "Marbella",
-    "Estepona",
-    "Mijas",
-    "Fuengirola",
-    "Málaga",
-    "Benalmádena",
-    "Torremolinos",
-    "Nerja",
-    "Benahavís",
-    "Ronda",
-    "Casares",
-    "Manilva",
-    "San Pedro Alcántara",
-    "La Cala de Mijas",
-  ];
+  const towns = allTowns;
 
   const handleHeroSearch = (overrideQuery?: string | any) => {
     const queryToUse =
