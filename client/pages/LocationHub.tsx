@@ -1296,8 +1296,10 @@ function formatRegionNameFromSlug(slug: string): string {
 
 export default function LocationHub() {
   const params = useParams();
-  const regionSlug = (params.region_slug as string | undefined) ??
-    ((params.location as string | undefined) ?? (params.region as string | undefined));
+  const regionSlug =
+    (params.region_slug as string | undefined) ??
+    (params.location as string | undefined) ??
+    (params.region as string | undefined);
 
   const defaultRegion = LOCATION_CONFIG[0];
 

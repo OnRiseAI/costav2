@@ -53,17 +53,22 @@ const MOCK_DATA = {
 
 export default function SEOTradePage() {
   const params = useParams();
-  const tradeSlug = (params.trade as string | undefined) ??
-    ((params.service as string | undefined) ?? undefined);
-  const locationSlug = (params.location as string | undefined) ??
-    ((params.region_slug as string | undefined) ?? (params.region as string | undefined));
+  const tradeSlug =
+    (params.trade as string | undefined) ??
+    (params.service as string | undefined) ??
+    undefined;
+  const locationSlug =
+    (params.location as string | undefined) ??
+    (params.region_slug as string | undefined) ??
+    (params.region as string | undefined);
 
   // Fallback to mock data if params are missing (for template preview)
   const tradeName = tradeSlug
     ? tradeSlug.charAt(0).toUpperCase() + tradeSlug.slice(1).replace(/-/g, " ")
     : MOCK_DATA.trade;
   const locationName = locationSlug
-    ? locationSlug.charAt(0).toUpperCase() + locationSlug.slice(1).replace(/-/g, " ")
+    ? locationSlug.charAt(0).toUpperCase() +
+      locationSlug.slice(1).replace(/-/g, " ")
     : MOCK_DATA.location;
 
   // Determine hero image
