@@ -46,9 +46,9 @@ const blogPosts = {
           <p className="text-slate-700 leading-relaxed">
             90% of mold issues on the Costa del Sol are{" "}
             <strong>Condensation</strong> caused by 'Thermal Bridging' (lack of
-            insulation). However, if you see white salts (<em>Salitre</em>) below
-            1 meter, you have <strong>Rising Damp</strong>. Bleach cleans the
-            mold, but only ventilation or DPC Injection cures the cause.
+            insulation). However, if you see white salts (<em>Salitre</em>)
+            below 1 meter, you have <strong>Rising Damp</strong>. Bleach cleans
+            the mold, but only ventilation or DPC Injection cures the cause.
           </p>
         </div>
 
@@ -64,9 +64,9 @@ const blogPosts = {
 
         <p className="mb-6 text-slate-700">
           Before you spend a cent on treatments, you need to correctly identify
-          the type of damp. Misdiagnosis is common and expensive���many homeowners
-          spend thousands on DPC injection when the real problem is simply
-          condensation from poor ventilation.
+          the type of damp. Misdiagnosis is common and expensive���many
+          homeowners spend thousands on DPC injection when the real problem is
+          simply condensation from poor ventilation.
         </p>
 
         <p className="mb-8 text-slate-700">
@@ -109,9 +109,9 @@ const blogPosts = {
             </p>
             <p className="text-slate-700">
               <strong>Lifestyle Triggers:</strong> Drying clothes indoors,
-              running hot showers without ventilation, cooking without extraction,
-              or using portable gas heaters (which produce water vapour as a
-              by-product).
+              running hot showers without ventilation, cooking without
+              extraction, or using portable gas heaters (which produce water
+              vapour as a by-product).
             </p>
           </div>
 
@@ -120,11 +120,11 @@ const blogPosts = {
               2. Rising Damp (<em>Humedad por Capilaridad</em>)
             </h3>
             <p className="text-slate-700 mb-3">
-              <strong>Visible Signs:</strong> Horizontal tide marks typically
-              up to 1 metre high from floor level, peeling paint and crumbling
+              <strong>Visible Signs:</strong> Horizontal tide marks typically up
+              to 1 metre high from floor level, peeling paint and crumbling
               plaster near skirting boards, white crystalline salt deposits (
-              <em>salitre</em>), damp patches that worsen in wet weather but never
-              fully dry.
+              <em>salitre</em>), damp patches that worsen in wet weather but
+              never fully dry.
             </p>
             <p className="text-slate-700 mb-3">
               <strong>The Science:</strong> Ground moisture rises through porous
@@ -268,8 +268,9 @@ const blogPosts = {
           brick wall requires significantly more fluid per linear metre than a
           thin partition wall. Similarly, tanking costs fluctuate based on
           whether the surface is smooth concrete or rough stone, and whether
-          scaffolding or basement access is required. Always request a site visit
-          for accurate pricing—quotes given over the phone are rarely reliable.
+          scaffolding or basement access is required. Always request a site
+          visit for accurate pricing—quotes given over the phone are rarely
+          reliable.
         </p>
 
         {/* IN-CONTENT CTA */}
@@ -333,10 +334,10 @@ const blogPosts = {
           If damp is caused by a building defect (failed waterproofing, broken
           gutters, etc.), the <strong>landlord is responsible</strong> for the
           repair. However, if the damp is caused by tenant behaviour—such as
-          refusing to ventilate, drying laundry indoors continuously, or blocking
-          air vents—the tenant may be liable. Document the issue with photos and
-          notify the landlord in writing (<em>burofax</em>) to establish a paper
-          trail.
+          refusing to ventilate, drying laundry indoors continuously, or
+          blocking air vents—the tenant may be liable. Document the issue with
+          photos and notify the landlord in writing (<em>burofax</em>) to
+          establish a paper trail.
         </p>
 
         <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6 text-2xl">
@@ -363,7 +364,8 @@ const blogPosts = {
             </li>
             <li>
               <strong>Actual Cause:</strong> Condensation due to single-glazed
-              windows, no trickle vents, and concrete thermal bridging in corners.
+              windows, no trickle vents, and concrete thermal bridging in
+              corners.
             </li>
           </ul>
 
@@ -467,12 +469,12 @@ const blogPosts = {
           </h3>
           <p className="text-slate-700">
             If you've tried ventilation improvements and the mold keeps coming
-            back, or if you see signs of rising damp (tide marks, salt deposits),
-            it's time to call a professional. Structural damp requires specialist
-            equipment—moisture meters, thermal imaging cameras, and chemical
-            treatments—that aren't available to DIYers. Delaying professional
-            intervention can lead to structural damage costing tens of thousands
-            to repair.
+            back, or if you see signs of rising damp (tide marks, salt
+            deposits), it's time to call a professional. Structural damp
+            requires specialist equipment—moisture meters, thermal imaging
+            cameras, and chemical treatments—that aren't available to DIYers.
+            Delaying professional intervention can lead to structural damage
+            costing tens of thousands to repair.
           </p>
         </div>
       </>
@@ -1410,8 +1412,8 @@ const blogPosts = {
         </h2>
         <p className="mb-4">
           Current electricity rates in Malaga typically fluctuate between
-          <strong> €0.20 and €0.30 per kWh</strong>, depending on your tariff and
-          time of day. For a villa with air conditioning, a heated pool and
+          <strong> €0.20 and €0.30 per kWh</strong>, depending on your tariff
+          and time of day. For a villa with air conditioning, a heated pool and
           regular year-round use, that quickly adds up to
           <strong> €3,000–€6,000+ per year</strong>.
         </p>
@@ -1519,8 +1521,7 @@ const blogPosts = {
         <p className="mb-6">
           Any installer still mentioning the Sun Tax for residential systems is
           either using outdated information or trying to scare you into making a
-          rushed decision. The "Sun Tax" was officially abolished in 2018 by
-          {" "}
+          rushed decision. The "Sun Tax" was officially abolished in 2018 by{" "}
           <a
             href="https://www.boe.es/eli/es/rd/2019/04/05/244"
             target="_blank"
@@ -1599,8 +1600,8 @@ const blogPosts = {
             </li>
           </ul>
           <p className="mt-4 text-slate-700">
-            After the payback point, the owners effectively generate thousands of
-            euros of electricity every year for the remaining life of the
+            After the payback point, the owners effectively generate thousands
+            of euros of electricity every year for the remaining life of the
             system, with only minor maintenance costs.
           </p>
         </div>
@@ -1619,7 +1620,9 @@ const blogPosts = {
             <thead>
               <tr className="bg-slate-50 border-b border-slate-200">
                 <th className="p-4 font-bold text-[#0a1f44]">Municipality</th>
-                <th className="p-4 font-bold text-[#0a1f44]">Typical IBI Discount</th>
+                <th className="p-4 font-bold text-[#0a1f44]">
+                  Typical IBI Discount
+                </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
@@ -1660,7 +1663,8 @@ const blogPosts = {
         <ol className="list-decimal pl-5 space-y-3 marker:text-blue-500 mb-6">
           <li>
             <strong>NextGen / Regional Grants:</strong> You can apply for
-            subsidies covering up to <strong>40% of the installation cost</strong>
+            subsidies covering up to{" "}
+            <strong>40% of the installation cost</strong>
             via the{" "}
             <a
               href="https://www.agenciaandaluzadelaenergia.es/"
@@ -1675,9 +1679,10 @@ const blogPosts = {
           </li>
           <li>
             <strong>IRPF Deductions:</strong> Certain energy-efficiency works
-            allow you to deduct up to <strong>€3,000 from your income tax
-            (IRPF)</strong> over several years, provided the works are properly
-            certified and reduce your primary energy consumption.
+            allow you to deduct up to{" "}
+            <strong>€3,000 from your income tax (IRPF)</strong> over several
+            years, provided the works are properly certified and reduce your
+            primary energy consumption.
           </li>
           <li>
             <strong>Local IBI / ICIO Discounts:</strong> Many municipalities
@@ -1783,9 +1788,9 @@ const blogPosts = {
                   Ready to see your own ROI?
                 </h3>
                 <p className="!text-white mb-6 text-sm md:text-base leading-relaxed">
-                  Describe your property once and get tailored proposals from vetted solar
-                  installers who understand Endesa bills, community rules and 2025 grants
-                  on the Costa del Sol.
+                  Describe your property once and get tailored proposals from
+                  vetted solar installers who understand Endesa bills, community
+                  rules and 2025 grants on the Costa del Sol.
                 </p>
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-[11px] sm:text-xs !text-white">
@@ -1824,8 +1829,8 @@ const blogPosts = {
                   </Button>
                 </Link>
                 <p className="text-[11px] text-slate-300 mt-1 md:mt-2 max-w-xs text-right">
-                  100% free service. We only match you with vetted installers who work
-                  regularly across Malaga and the Costa del Sol.
+                  100% free service. We only match you with vetted installers
+                  who work regularly across Malaga and the Costa del Sol.
                 </p>
               </div>
             </div>
