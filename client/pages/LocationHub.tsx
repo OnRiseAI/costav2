@@ -112,9 +112,33 @@ export default function LocationHub() {
 
   // 6. Seasonal Warning Logic
   const currentMonth = new Date(displayData.CURRENT_DATE).toLocaleString('default', { month: 'long' });
-  const isBanActive = 
+  const isBanActive =
     TownLogisticsProfile.seasonality.summer_construction_ban === "true" &&
     TownLogisticsProfile.seasonality.ban_months.includes(currentMonth);
+
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Place",
+    name: `Specialists in ${displayData.REGION_NAME}`,
+    areaServed: displayData.REGION_NAME,
+    geo: {
+      "@type": "GeoCircle",
+      geoMidpoint: {
+        "@type": "GeoCoordinates",
+        latitude: displayData.LAT,
+        longitude: displayData.LON,
+      },
+      geoRadius: "15000",
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: `Specialist Services in ${displayData.REGION_NAME}`,
+      itemListElement: SPECIALIST_CATEGORIES.map((cat) => ({
+        "@type": "OfferCatalog",
+        name: cat.name,
+      })),
+    },
+  };
 
   return (
     <div className="min-h-screen bg-white font-sans">
@@ -122,6 +146,7 @@ export default function LocationHub() {
       <SEO
         title={`Verified Specialists in ${displayData.REGION_NAME} | CostaTrades™ (Official)`}
         description={`Find vetted plumbers, electricians, and home specialists in ${displayData.REGION_NAME}. 100% ID-verified, insured, and reviewed. View availability in ${displayData.REGION_NAME} now.`}
+        schema={schemaData}
       />
 
       {/* 1. HERO BLOCK */}
