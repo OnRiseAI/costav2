@@ -385,15 +385,25 @@ export default function SEOTradePage() {
                 {locationName}. Final quotes may vary based on complexity.
               </p>
               {tradeTasks.length > 0 && (
-                <div className="mt-8">
-                  <h3 className="text-xl font-semibold text-[#0a1f44] mb-3">
+                <div className="mt-12">
+                  <h3 className="text-2xl font-bold text-[#0a1f44] mb-6 text-center">
                     Typical Jobs for {tradeName} in {locationName}
                   </h3>
-                  <ul className="list-disc list-inside text-sm text-slate-600 space-y-1">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {tradeTasks.map((task, index) => (
-                      <li key={index}>{task}</li>
+                      <div
+                        key={index}
+                        className="bg-white border border-gray-100 rounded-lg p-4 shadow-sm flex items-center gap-3 hover:shadow-md hover:border-blue-100 transition-all duration-300 group"
+                      >
+                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-green-50 flex items-center justify-center group-hover:bg-green-100 transition-colors">
+                          <CheckCircle className="w-4 h-4 text-green-600" />
+                        </div>
+                        <span className="text-gray-800 font-semibold text-sm">
+                          {task}
+                        </span>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               )}
             </div>
