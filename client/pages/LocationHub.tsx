@@ -592,7 +592,7 @@ const LOCATION_CONFIG: LocationData[] = [
       },
       content_injects: {
         provider_warning:
-          "Manilva��s hilly terrain can extend travel times during peak visitors’ season.",
+          "Manilva’s hilly terrain can extend travel times during peak visitors’ season.",
         customer_reassurance:
           "CostaTrades specialists plan optimal routes to ensure timely arrival.",
       },
@@ -847,6 +847,202 @@ const LOCATION_CONFIG: LocationData[] = [
           "Some residential pockets have dense street parking that can slow specialist arrival.",
         customer_reassurance:
           "CostaTrades specialists plan parking and access routes in advance.",
+      },
+    },
+  },
+  {
+    REGION_NAME: "Sotogrande Costa",
+    region_slug: "sotogrande-costa",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.2933",
+    LON: "-5.2752",
+    TownLogisticsProfile: {
+      cluster_type: "Luxury_Gated",
+      logistics: {
+        security_gate_clearance: true,
+        vehicle_width_limit_meters: 2.2,
+        parking_risk_level: "Low",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: true,
+        ban_months: ["July", "August"],
+        noise_sensitivity_score: 6,
+      },
+      content_injects: {
+        provider_warning:
+          "Many streets in Sotogrande Costa require pre-approved vehicle access during peak seasons.",
+        customer_reassurance:
+          "CostaTrades handles all gate permissions to ensure smooth specialist entry.",
+      },
+    },
+  },
+  {
+    REGION_NAME: "Sotogrande Alto",
+    region_slug: "sotogrande-alto",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.3105",
+    LON: "-5.2854",
+    TownLogisticsProfile: {
+      cluster_type: "Luxury_Gated",
+      logistics: {
+        security_gate_clearance: true,
+        vehicle_width_limit_meters: null,
+        parking_risk_level: "Low",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: true,
+        ban_months: ["July", "August"],
+        noise_sensitivity_score: 5,
+      },
+      content_injects: {
+        provider_warning:
+          "Properties around golf estates often require identity verification for service entry.",
+        customer_reassurance:
+          "CostaTrades coordinates with estate security for authorised access.",
+      },
+    },
+  },
+  {
+    REGION_NAME: "La Reserva",
+    region_slug: "la-reserva",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.3037",
+    LON: "-5.2718",
+    TownLogisticsProfile: {
+      cluster_type: "Luxury_Gated",
+      logistics: {
+        security_gate_clearance: true,
+        vehicle_width_limit_meters: 2.1,
+        parking_risk_level: "Low",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: true,
+        ban_months: ["July", "August"],
+        noise_sensitivity_score: 5,
+      },
+      content_injects: {
+        provider_warning:
+          "High-security gated estates in La Reserva require pre-authorised entry for specialists.",
+        customer_reassurance:
+          "CostaTrades arranges all access protocols to avoid delays.",
+      },
+    },
+  },
+  {
+    REGION_NAME: "Guadiaro",
+    region_slug: "guadiaro",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.2862",
+    LON: "-5.2853",
+    TownLogisticsProfile: {
+      cluster_type: "Golf_Estate",
+      logistics: {
+        security_gate_clearance: false,
+        vehicle_width_limit_meters: null,
+        parking_risk_level: "Medium",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 5,
+      },
+      content_injects: {
+        provider_warning:
+          "Village-centre parking can be limited during school and weekend hours.",
+        customer_reassurance:
+          "CostaTrades specialists schedule visits to avoid high-traffic periods.",
+      },
+    },
+  },
+  {
+    REGION_NAME: "Pueblo Nuevo",
+    region_slug: "pueblo-nuevo",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.2904",
+    LON: "-5.2877",
+    TownLogisticsProfile: {
+      cluster_type: "Golf_Estate",
+      logistics: {
+        security_gate_clearance: false,
+        vehicle_width_limit_meters: null,
+        parking_risk_level: "Medium",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 6,
+      },
+      content_injects: {
+        provider_warning:
+          "Local commercial zones can have busy parking during the morning rush.",
+        customer_reassurance:
+          "CostaTrades specialists choose optimal time windows for visits.",
+      },
+    },
+  },
+  {
+    REGION_NAME: "San Roque Club",
+    region_slug: "san-roque-club",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.3172",
+    LON: "-5.3241",
+    TownLogisticsProfile: {
+      cluster_type: "Luxury_Gated",
+      logistics: {
+        security_gate_clearance: true,
+        vehicle_width_limit_meters: 2.1,
+        parking_risk_level: "Low",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: true,
+        ban_months: ["July", "August"],
+        noise_sensitivity_score: 5,
+      },
+      content_injects: {
+        provider_warning:
+          "Access to golf communities may require prior identity verification.",
+        customer_reassurance:
+          "CostaTrades coordinates with estate management for authorised access.",
+      },
+    },
+  },
+  {
+    REGION_NAME: "Alcaidesa",
+    region_slug: "alcaidesa",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.2850",
+    LON: "-5.3312",
+    TownLogisticsProfile: {
+      cluster_type: "Luxury_Gated",
+      logistics: {
+        security_gate_clearance: true,
+        vehicle_width_limit_meters: 2.0,
+        parking_risk_level: "Low",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: true,
+        ban_months: ["July", "August"],
+        noise_sensitivity_score: 6,
+      },
+      content_injects: {
+        provider_warning:
+          "Elevated hillside properties may require precise routing for safe arrival.",
+        customer_reassurance:
+          "CostaTrades uses accurate GPS mapping to plan hillside access.",
       },
     },
   },
