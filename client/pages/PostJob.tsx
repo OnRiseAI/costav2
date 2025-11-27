@@ -10,12 +10,18 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 import {
   ChevronRight,
@@ -35,12 +41,15 @@ import {
   HardHat,
   Ruler,
   Truck,
+  Check,
+  ChevronsUpDown,
 } from "lucide-react";
 import { getTradeServices, tradeServices } from "@/data/tradeServices";
 import { SEO } from "@/components/SEO";
 import { extractTradeAndLocation } from "@/lib/searchParser";
 import { SEARCH_PLACEHOLDERS } from "@/data/searchPlaceholders";
 import { useTypewriterPlaceholder } from "@/hooks/useTypewriterPlaceholder";
+import { townGroups, allTowns } from "@/data/towns";
 
 const categories = [
   {
