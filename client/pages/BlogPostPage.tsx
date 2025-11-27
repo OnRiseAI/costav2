@@ -276,10 +276,10 @@ const blogPosts = {
         <div className="bg-slate-900 rounded-2xl p-8 my-12 text-center relative overflow-hidden">
           <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/20 rounded-full blur-3xl -mr-10 -mt-10"></div>
           <div className="relative z-10">
-            <h3 className="text-2xl font-bold text-white mb-3">
+            <h3 className="text-2xl font-bold !text-white mb-3">
               Need a professional opinion?
             </h3>
-            <p className="text-blue-100 mb-6">
+            <p className="!text-blue-100 mb-6">
               Don't let mold spread. Get a free inspection from verified damp
               proofing experts.
             </p>
@@ -1774,21 +1774,21 @@ const blogPosts = {
               </div>
 
               <div className="relative max-w-xl">
-                <p className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/70 border border-slate-700 text-[11px] font-semibold tracking-wide uppercase text-slate-200 mb-4">
+                <p className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/70 border border-slate-700 text-[11px] font-semibold tracking-wide uppercase !text-slate-200 mb-4">
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                   Solar ROI check • Costa del Sol
                 </p>
 
-                <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-3 leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,0.9)]">
+                <h3 className="text-2xl md:text-3xl font-extrabold !text-white mb-3 leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,0.9)]">
                   Ready to see your own ROI?
                 </h3>
-                <p className="text-white mb-6 text-sm md:text-base leading-relaxed">
+                <p className="!text-white mb-6 text-sm md:text-base leading-relaxed">
                   Describe your property once and get tailored proposals from vetted solar
                   installers who understand Endesa bills, community rules and 2025 grants
                   on the Costa del Sol.
                 </p>
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-[11px] sm:text-xs text-white">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-[11px] sm:text-xs !text-white">
                   <div className="rounded-2xl bg-slate-900/70 border border-slate-800 px-3 py-3">
                     <div className="text-[10px] uppercase tracking-wide text-slate-300 mb-1">
                       Typical Payback
