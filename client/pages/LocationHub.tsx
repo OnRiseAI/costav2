@@ -1083,6 +1083,11 @@ const RELATED_AREAS_BY_CLUSTER: Record<string, SubArea[]> = {
     { name: "Mijas Pueblo", slug: "mijas-pueblo" },
     { name: "Ojen", slug: "ojen" },
   ],
+  Golf_Estate: [
+    { name: "Sotogrande Costa", slug: "sotogrande-costa" },
+    { name: "San Roque Club", slug: "san-roque-club" },
+    { name: "La Reserva", slug: "la-reserva" },
+  ],
 };
 
 function formatRegionNameFromSlug(slug: string): string {
