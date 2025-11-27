@@ -1,5 +1,5 @@
 export const townGroups = {
-  "Coastal": [
+  Coastal: [
     "Sotogrande",
     "La Alcaidesa",
     "San Roque",
@@ -56,7 +56,7 @@ export const townGroups = {
     "Algarrobo Costa",
     "Torrox Costa",
     "Nerja",
-    "Maro"
+    "Maro",
   ],
   "Inland (within 50 km)": [
     "Casares Pueblo",
@@ -84,11 +84,11 @@ export const townGroups = {
     "Benamocarra",
     "Benamargosa",
     "Macharaviaya",
-    "Totalan"
-  ]
+    "Totalan",
+  ],
 };
 
 export const allTowns = [
   ...townGroups["Coastal"],
-  ...townGroups["Inland (within 50 km)"]
+  ...townGroups["Inland (within 50 km)"],
 ];

@@ -13,7 +13,11 @@ export function ScrollToTop() {
 
       if (hero) {
         // If a hero exists on the page, scroll to it (immediate)
-        hero.scrollIntoView({ behavior: "auto", block: "start", inline: "nearest" });
+        hero.scrollIntoView({
+          behavior: "auto",
+          block: "start",
+          inline: "nearest",
+        });
         return;
       }
 
