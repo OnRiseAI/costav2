@@ -21,8 +21,7 @@ import {
 const blogPosts = {
   "stop-damp-mold-spain": {
     title: "How to Stop Damp & Mold in Your Spanish Home (2025 Guide)",
-    metaDescription:
-      "Comprehensive guide to diagnosing and fixing damp in Spanish homes. Learn about Condensation vs Rising Damp, thermal bridging, health risks, legal responsibilities (LPH), and why bleach doesn't work. Includes 2025 pricing and real case studies.",
+    metaDescription: "Damp or Mold in your Spanish villa? Diagnose Condensation vs. Rising Damp. See 2025 repair costs, chemical injection prices & legal rights.",
     category: "Maintenance",
     author: "Carlos Rodriguez",
     authorRole: "Senior Surveyor",
@@ -997,8 +996,7 @@ const blogPosts = {
   },
   "malaga-hard-water-boiler": {
     title: "The Silent Boiler Killer: Dealing with Malaga's Hard Water",
-    metaDescription:
-      "Malaga hard water destroying your boiler? Learn how limescale impacts plumbing and the best water softener solutions to save money.",
+    metaDescription: "Malaga hard water destroying your boiler? The 2025 guide to Limescale, Descaling costs, and the best Water Softeners for the Costa del Sol.",
     category: "Maintenance",
     author: "David Miller",
     authorRole: "Senior Plumber",
@@ -1172,6 +1170,7 @@ const blogPosts = {
   },
   "protecting-home-squatters-2025": {
     title: "Protecting Your Holiday Home from 'Okupas' (Squatters) in 2025",
+    metaDescription: "Protect your Spanish home from Okupas. 2025 Guide: Best anti-snap locks, alarm systems & legal eviction rules for non-resident owners.",
     category: "Legal/Permits",
     author: "James Wilson",
     authorRole: "Security Consultant",
@@ -1358,8 +1357,7 @@ const blogPosts = {
   },
   "solar-panels-costa-del-sol-roi": {
     title: "Is Solar Power Worth It on the Costa del Sol? (2025 Data)",
-    metaDescription:
-      "Solar panels in Andalucia can pay for themselves in 3-5 years thanks to high electricity prices and generous 2025 grants. Learn the real ROI, Endesa bill math, community rules and tax breaks.",
+    metaDescription: "Is Solar worth it in Andalucia? 2025 ROI Guide: Calculate savings, claim 40% NextGen grants & check IBI tax reductions for Malaga homeowners.",
     category: "Cost Guides",
     author: "Miguel Angel",
     authorRole: "Energy Engineer",
