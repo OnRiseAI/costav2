@@ -8,14 +8,15 @@ export function HomeHero() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.pexels.com/photos/4186560/pexels-photo-4186560.jpeg"
+          src="https://images.pexels.com/photos/4186560/pexels-photo-4186560.jpeg?auto=compress&cs=tinysrgb&w=1200"
           alt="Modern white Spanish villa"
           className="w-full h-full object-cover"
+          loading="eager"
         />
       </div>
 
-      {/* Gradient Overlay - Deep Navy Blue 90% */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0a1f44]/95 via-[#0a1f44]/85 to-[#0a1f44]/95 z-10"></div>
+      {/* Deep Navy Blue overlay 90% */}
+      <div className="absolute inset-0 bg-slate-900/90 z-10"></div>
 
       <div className="container-custom relative z-20 text-center max-w-4xl mx-auto px-4">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm mb-8 animate-fade-in">
