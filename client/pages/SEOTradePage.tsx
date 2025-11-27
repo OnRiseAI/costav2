@@ -45,53 +45,6 @@ const TRADE_IMAGES: Record<string, string> = {
   default: "https://images.pexels.com/photos/2244746/pexels-photo-2244746.jpeg",
 };
 
-// Pricing mapping for different trades
-const TRADE_PRICES: Record<
-  string,
-  Array<{ service: string; price: string; time: string }>
-> = {
-  plumber: [
-    { service: "Standard Call-out", price: "€60 - €90", time: "First Hour" },
-    { service: "Leak Detection", price: "€150 - €250", time: "Fixed Price" },
-    { service: "Tap Installation", price: "€40 - €80", time: "Per Tap" },
-    { service: "Boiler Service", price: "€90 - €120", time: "Fixed Price" },
-  ],
-  electrician: [
-    { service: "Standard Call-out", price: "€70 - €100", time: "First Hour" },
-    {
-      service: "Fuse Box Replacement",
-      price: "€300 - €500",
-      time: "Fixed Price",
-    },
-    { service: "Light Installation", price: "€30 - €60", time: "Per Point" },
-    { service: "Rewiring (Small Apt)", price: "€2000+", time: "Project" },
-  ],
-  "ac-repair": [
-    { service: "Diagnostic Visit", price: "€50 - €80", time: "Fixed Price" },
-    { service: "Gas Refill", price: "€100 - €150", time: "Per Unit" },
-    { service: "Maintenance Service", price: "€80 - €120", time: "Per Unit" },
-  ],
-  painter: [
-    {
-      service: "Room Painting (Small)",
-      price: "€200 - €350",
-      time: "Fixed Price",
-    },
-    { service: "Exterior Facade", price: "€12 - €18", time: "Per m²" },
-    { service: "Daily Rate", price: "€150 - €200", time: "8 Hours" },
-  ],
-  locksmith: [
-    { service: "Emergency Opening", price: "€80 - €150", time: "Fixed Price" },
-    { service: "Lock Change", price: "€90 - €180", time: "Includes Lock" },
-    { service: "Security Upgrade", price: "€200+", time: "Project" },
-  ],
-  default: [
-    { service: "Standard Call-out", price: "€50 - €80", time: "First Hour" },
-    { service: "Hourly Rate", price: "€40 - €60", time: "Per Hour" },
-    { service: "Day Rate", price: "€250 - €350", time: "8 Hours" },
-    { service: "Project Estimate", price: "Free", time: "On Request" },
-  ],
-};
 
 // This would typically come from a data source/API
 const MOCK_DATA = {
@@ -111,12 +64,20 @@ interface LocationProfile {
   content_injects: any;
 }
 
+interface TradeProfile {
+  service_slug: string;
+  service_name: string;
+  price_range: string | null;
+  schema_tasks: string[] | null;
+}
+
 export default function SEOTradePage() {
   const params = useParams();
   const routerLocation = useLocation();
   const [locationData, setLocationData] = useState<LocationProfile | null>(
     null,
   );
+  const [tradeData, setTradeData] = useState<TradeProfile | null>(null);
 
   const rawPath = routerLocation.pathname.toLowerCase();
   const pathSegments = rawPath.split("/").filter(Boolean);
@@ -145,10 +106,11 @@ export default function SEOTradePage() {
     (params.region as string | undefined);
 
   // Fallback to mock data if params are missing (for template preview)
-  const tradeName = normalizedTradeSlug
+  const baseTradeName = normalizedTradeSlug
     ? normalizedTradeSlug.charAt(0).toUpperCase() +
       normalizedTradeSlug.slice(1).replace(/-/g, " ")
     : MOCK_DATA.trade;
+  const tradeName = tradeData?.service_name || baseTradeName;
 
   // Use fetched location name if available, otherwise fallback to slug-based name
   const locationName =
@@ -158,33 +120,62 @@ export default function SEOTradePage() {
         locationSlug.slice(1).replace(/-/g, " ")
       : MOCK_DATA.location);
 
-  // Fetch location data from Supabase
+  // Fetch location and trade data from Supabase
   useEffect(() => {
-    async function fetchLocationData() {
-      if (!locationSlug) return;
+    const tradeSlugForQuery =
+      normalizedTradeSlug || tradeSlugFromPath || paramTrade || paramService;
 
+    if (!locationSlug && !tradeSlugForQuery) return;
+
+    async function fetchProfiles() {
       try {
-        const { data, error } = await supabase
-          .from("location_profiles")
-          .select("*")
-          .eq("slug", locationSlug)
-          .single();
+        const locationPromise = locationSlug
+          ? supabase
+              .from("location_profiles")
+              .select("*")
+              .eq("slug", locationSlug)
+              .single()
+          : Promise.resolve({ data: null, error: null });
 
-        if (error) {
-          console.warn("Error fetching location profile:", error);
-          return;
+        const tradePromise = tradeSlugForQuery
+          ? supabase
+              .from("trade_profiles")
+              .select("*")
+              .eq("service_slug", tradeSlugForQuery)
+              .single()
+          : Promise.resolve({ data: null, error: null });
+
+        const [locationResult, tradeResult] = await Promise.all([
+          locationPromise,
+          tradePromise,
+        ]);
+
+        const { data: locationProfile, error: locationError } = locationResult;
+        if (locationError) {
+          console.warn("Error fetching location profile:", locationError);
+        } else if (locationProfile) {
+          setLocationData(locationProfile);
         }
 
-        if (data) {
-          setLocationData(data);
+        const { data: tradeProfile, error: tradeError } = tradeResult;
+        if (tradeError) {
+          console.warn("Error fetching trade profile:", tradeError);
+        } else if (tradeProfile) {
+          setTradeData(tradeProfile);
         }
       } catch (err) {
-        console.error("Unexpected error fetching location data:", err);
+        console.error("Unexpected error fetching profiles:", err);
       }
     }
 
-    fetchLocationData();
-  }, [locationSlug]);
+    fetchProfiles();
+  }, [
+    locationSlug,
+    normalizedTradeSlug,
+    tradeSlugFromPath,
+    paramTrade,
+    paramService,
+  ]);
 
   // Determine hero image
   const normalizedTrade = normalizedTradeSlug || "default";
@@ -195,9 +186,12 @@ export default function SEOTradePage() {
     TRADE_IMAGES[normalizedTrade + "s"] ||
     TRADE_IMAGES.default;
 
-  // Determine pricing data
-  const tradeKey = normalizedTradeSlug?.toLowerCase() || "default";
-  const pricingData = TRADE_PRICES[tradeKey] || TRADE_PRICES["default"];
+  // Determine dynamic trade data
+  const tradePriceRange = tradeData?.price_range || null;
+  const tradeTasks =
+    tradeData?.schema_tasks && Array.isArray(tradeData.schema_tasks)
+      ? tradeData.schema_tasks
+      : [];
 
   if (!isEmergency) {
     return (
@@ -224,6 +218,21 @@ export default function SEOTradePage() {
                   ratingValue: "4.8",
                   reviewCount: "120",
                 },
+                priceRange: tradePriceRange || undefined,
+                hasOfferCatalog:
+                  tradeTasks.length > 0
+                    ? {
+                        "@type": "OfferCatalog",
+                        name: `${tradeName} services in ${locationName}`,
+                        itemListElement: tradeTasks.map((task) => ({
+                          "@type": "Offer",
+                          itemOffered: {
+                            "@type": "Service",
+                            name: task,
+                          },
+                        })),
+                      }
+                    : undefined,
               },
               {
                 "@type": "FAQPage",
@@ -233,7 +242,9 @@ export default function SEOTradePage() {
                     name: `How much does a ${tradeName} cost in ${locationName}?`,
                     acceptedAnswer: {
                       "@type": "Answer",
-                      text: `The average cost for a ${tradeName} in ${locationName} ranges from ${pricingData[0].price} for a standard call-out.`,
+                      text: tradePriceRange
+                        ? `The average cost for a ${tradeName} in ${locationName} is typically around ${tradePriceRange} for a standard call-out.`
+                        : `The average cost for a ${tradeName} in ${locationName} varies based on the job size and complexity.`,
                     },
                   },
                   {
@@ -320,20 +331,53 @@ export default function SEOTradePage() {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-100">
-                    {pricingData.map((item, index) => (
-                      <tr
-                        key={index}
-                        className="hover:bg-blue-50/30 transition-colors"
-                      >
-                        <td className="p-4 text-slate-700 font-medium">
-                          {item.service}
-                        </td>
-                        <td className="p-4 text-slate-600">{item.price}</td>
-                        <td className="p-4 text-slate-500 text-sm">
-                          {item.time}
-                        </td>
-                      </tr>
-                    ))}
+                    {tradePriceRange ? (
+                      <>
+                        <tr className="hover:bg-blue-50/30 transition-colors">
+                          <td className="p-4 text-slate-700 font-medium">
+                            Standard Call-out
+                          </td>
+                          <td className="p-4 text-slate-600">
+                            {tradePriceRange}
+                          </td>
+                          <td className="p-4 text-slate-500 text-sm">
+                            First Hour
+                          </td>
+                        </tr>
+                        <tr className="hover:bg-blue-50/30 transition-colors">
+                          <td className="p-4 text-slate-700 font-medium">
+                            Additional Time
+                          </td>
+                          <td className="p-4 text-slate-600">
+                            Included within range
+                          </td>
+                          <td className="p-4 text-slate-500 text-sm">
+                            Project Dependent
+                          </td>
+                        </tr>
+                      </>
+                    ) : (
+                      <>
+                        <tr className="hover:bg-blue-50/30 transition-colors">
+                          <td className="p-4 text-slate-700 font-medium">
+                            Standard Call-out
+                          </td>
+                          <td className="p-4 text-slate-600">€50 - €80</td>
+                          <td className="p-4 text-slate-500 text-sm">
+                            First Hour
+                          </td>
+                        </tr>
+                        <tr className="hover:bg-blue-50/30 transition-colors">
+                          <td className="p-4 text-slate-700 font-medium">
+                            Hourly Rate
+                          </td>
+                          <td className="p-4 text-slate-600">€40 - €60</td>
+                          <td className="p-4 text-slate-500 text-sm">
+                            Per Hour
+                          </td>
+                        </tr>
+                      </>
+                    )}
                   </tbody>
                 </table>
               </div>
@@ -341,6 +385,18 @@ export default function SEOTradePage() {
                 *Prices are estimates based on local market rates in{" "}
                 {locationName}. Final quotes may vary based on complexity.
               </p>
+              {tradeTasks.length > 0 && (
+                <div className="mt-8">
+                  <h3 className="text-xl font-semibold text-[#0a1f44] mb-3">
+                    Typical Jobs for {tradeName} in {locationName}
+                  </h3>
+                  <ul className="list-disc list-inside text-sm text-slate-600 space-y-1">
+                    {tradeTasks.map((task, index) => (
+                      <li key={index}>{task}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           </div>
         </section>
