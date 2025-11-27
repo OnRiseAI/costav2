@@ -3,6 +3,13 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { TradespersonProgress } from "@/components/TradespersonProgress";
 import { ChevronLeft } from "lucide-react";
 
@@ -22,33 +29,38 @@ const DEFAULT_MAP_URL =
 
 const AREA_OPTIONS = [
   "Marbella",
-  "Malaga",
-  "Fuengirola",
-  "Mijas",
   "Estepona",
+  "Fuengirola",
   "Benalmadena",
-  "Torremolinos",
-  "Nerja",
-  "Coin",
+  "Malaga",
   "Alhaurin el Grande",
-  "San Pedro de Alcantara",
-  "Rincon de la Victoria",
+  "Manilva",
+  "Nerja",
+  "Torre del Mar",
+  "Sotogrande",
 ];
 
 const AREA_COORDINATES: Record<string, { lat: number; lon: number }> = {
   Marbella: { lat: 36.5099, lon: -4.8854 },
-  Malaga: { lat: 36.7213, lon: -4.4214 },
-  Fuengirola: { lat: 36.5396, lon: -4.6247 },
-  Mijas: { lat: 36.595, lon: -4.6374 },
   Estepona: { lat: 36.4256, lon: -5.151 },
+  Fuengirola: { lat: 36.5396, lon: -4.6247 },
   Benalmadena: { lat: 36.5951, lon: -4.5734 },
-  Torremolinos: { lat: 36.6203, lon: -4.4998 },
-  Nerja: { lat: 36.746, lon: -3.88 },
-  Coin: { lat: 36.6588, lon: -4.7556 },
+  Malaga: { lat: 36.7213, lon: -4.4214 },
   "Alhaurin el Grande": { lat: 36.6428, lon: -4.6913 },
-  "San Pedro de Alcantara": { lat: 36.4823, lon: -4.9903 },
-  "Rincon de la Victoria": { lat: 36.7176, lon: -4.275 },
+  Manilva: { lat: 36.377, lon: -5.250 },
+  Nerja: { lat: 36.746, lon: -3.88 },
+  "Torre del Mar": { lat: 36.740, lon: -4.095 },
+  Sotogrande: { lat: 36.290, lon: -5.290 },
 };
+
+const RADIUS_OPTIONS = [
+  "5 km",
+  "10 km",
+  "15 km",
+  "20 km",
+  "30 km",
+  "50 km",
+];
 
 const LANGUAGE_OPTIONS = [
   { value: "English", label: "English", flag: "🇬🇧" },
@@ -81,7 +93,8 @@ type StoredApplication = {
   businessName?: string;
   website?: string;
   postcode?: string;
-  selectedAreas?: string[];
+  mainTown?: string;
+  radius?: string;
   businessType?: string;
   employeeRange?: string;
   yearsInBusiness?: string;
@@ -109,7 +122,8 @@ export default function TradespersonDetails() {
   const [businessName, setBusinessName] = useState("");
   const [website, setWebsite] = useState("");
   const [postcode, setPostcode] = useState("");
-  const [selectedAreas, setSelectedAreas] = useState<string[]>([]);
+  const [mainTown, setMainTown] = useState<string>("");
+  const [radius, setRadius] = useState<string>("");
   const [mapCenter, setMapCenter] = useState<{
     lat: number;
     lon: number;
@@ -136,7 +150,12 @@ export default function TradespersonDetails() {
       if (parsed.businessName) setBusinessName(parsed.businessName);
       if (parsed.website) setWebsite(parsed.website);
       if (parsed.postcode) setPostcode(parsed.postcode);
-      if (parsed.selectedAreas) setSelectedAreas(parsed.selectedAreas);
+      if (parsed.mainTown) {
+        setMainTown(parsed.mainTown);
+        const coords = AREA_COORDINATES[parsed.mainTown];
+        if (coords) setMapCenter(coords);
+      }
+      if (parsed.radius) setRadius(parsed.radius);
       if (parsed.businessType) setBusinessType(parsed.businessType);
       if (parsed.employeeRange) setEmployeeRange(parsed.employeeRange);
       if (parsed.yearsInBusiness) setYearsInBusiness(parsed.yearsInBusiness);
@@ -165,8 +184,8 @@ export default function TradespersonDetails() {
       return;
     }
 
-    if (selectedAreas.length === 0) {
-      window.alert("Please select at least one area you work in.");
+    if (!mainTown || !radius) {
+      window.alert("Please select a main town and service radius.");
       return;
     }
 
@@ -175,7 +194,8 @@ export default function TradespersonDetails() {
       tradeLabel,
       businessName,
       postcode,
-      selectedAreas,
+      mainTown,
+      radius,
       businessType,
       employeeRange,
       yearsInBusiness,
@@ -322,7 +342,7 @@ export default function TradespersonDetails() {
                   Service areas
                 </label>
                 <p className="text-sm text-muted-foreground">
-                  Select the areas you cover on the Costa del Sol.
+                  Choose the main town you work from and how far you travel.
                 </p>
               </div>
 
@@ -340,52 +360,62 @@ export default function TradespersonDetails() {
                     </div>
                   </div>
                 </div>
-                <div className="p-6 border-t border-gray-100 bg-gray-50/50">
-                  <div className="flex flex-wrap gap-2.5">
-                    {AREA_OPTIONS.map((area) => {
-                      const isSelected = selectedAreas.includes(area);
-
-                      const handleClick = () => {
-                        setSelectedAreas((current) => {
-                          if (current.includes(area)) {
-                            return current.filter((item) => item !== area);
+                <div className="p-6 border-t border-gray-100 bg-gray-50/50 space-y-6">
+                  <div className="grid gap-6 md:grid-cols-2">
+                    <div className="space-y-2">
+                      <Select
+                        value={mainTown}
+                        onValueChange={(value) => {
+                          setMainTown(value);
+                          const coords = AREA_COORDINATES[value];
+                          if (coords) {
+                            setMapCenter(coords);
                           }
+                        }}
+                      >
+                        <SelectTrigger className="h-12 bg-white border-gray-200 focus:border-[#0a1f44] transition-all rounded-xl">
+                          <SelectValue placeholder="Select town" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {AREA_OPTIONS.map((area) => (
+                            <SelectItem key={area} value={area}>
+                              {area}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      <p className="text-xs text-muted-foreground pl-1">
+                        Select the town you are based in.
+                      </p>
+                    </div>
 
-                          return [...current, area];
-                        });
-
-                        const coordinates = AREA_COORDINATES[area];
-                        if (coordinates) {
-                          setMapCenter(coordinates);
-                        }
-                      };
-
-                      return (
-                        <button
-                          key={area}
-                          type="button"
-                          onClick={handleClick}
-                          className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                            isSelected
-                              ? "bg-[#0a1f44] text-white shadow-md transform scale-105"
-                              : "bg-white text-gray-600 border border-gray-200 hover:border-[#0a1f44] hover:text-[#0a1f44]"
-                          }`}
-                        >
-                          {area}
-                        </button>
-                      );
-                    })}
+                    <div className="space-y-2">
+                      <Select value={radius} onValueChange={setRadius}>
+                        <SelectTrigger className="h-12 bg-white border-gray-200 focus:border-[#0a1f44] transition-all rounded-xl">
+                          <SelectValue placeholder="Select radius" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {RADIUS_OPTIONS.map((r) => (
+                            <SelectItem key={r} value={r}>
+                              {r}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      <p className="text-xs text-muted-foreground pl-1">
+                        We’ll show your profile to customers within this
+                        distance.
+                      </p>
+                    </div>
                   </div>
-                  <div className="mt-4 pt-4 border-t border-gray-200 flex items-center gap-2 text-sm text-muted-foreground">
-                    <span className="font-semibold text-[#0a1f44]">
-                      Selected:
-                    </span>
-                    {selectedAreas.length === 0 ? (
-                      <span className="italic">None selected yet</span>
-                    ) : (
-                      <span>{selectedAreas.join(", ")}</span>
-                    )}
-                  </div>
+
+                  {mainTown && radius && (
+                    <div className="p-4 bg-blue-50 rounded-xl border border-blue-100 text-blue-800 text-sm font-medium flex items-center gap-2">
+                      <div className="w-2 h-2 rounded-full bg-blue-600" />
+                      You will appear for customers up to {radius} away from{" "}
+                      {mainTown}.
+                    </div>
+                  )}
                 </div>
               </Card>
             </div>
