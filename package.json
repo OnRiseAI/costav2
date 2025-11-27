@@ -22,6 +22,7 @@
     "generate-sitemap": "node scripts/generate-sitemap.mjs"
   },
   "dependencies": {
+    "@fontsource/inter": "^5.2.8",
     "@supabase/supabase-js": "^2.81.1",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
