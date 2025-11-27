@@ -19,20 +19,30 @@ const JoinAsTradesperson = lazy(() => import("@/pages/JoinAsTradesperson"));
 const TradespersonProfile = lazy(() => import("@/pages/TradespersonProfile"));
 const TradespersonDetails = lazy(() => import("@/pages/TradespersonDetails"));
 const TradespersonReview = lazy(() => import("@/pages/TradespersonReview"));
-const TradespersonSubmitted = lazy(() => import("@/pages/TradespersonSubmitted"));
+const TradespersonSubmitted = lazy(
+  () => import("@/pages/TradespersonSubmitted"),
+);
 const CustomerDashboard = lazy(() =>
-  import("@/pages/CustomerDashboard").then((m) => ({ default: m.CustomerDashboard })),
+  import("@/pages/CustomerDashboard").then((m) => ({
+    default: m.CustomerDashboard,
+  })),
 );
 const TradespersonDashboard = lazy(() =>
-  import("@/pages/TradespersonDashboard").then((m) => ({ default: m.TradespersonDashboard })),
+  import("@/pages/TradespersonDashboard").then((m) => ({
+    default: m.TradespersonDashboard,
+  })),
 );
-const TradespersonJobDetail = lazy(() => import("@/pages/TradespersonJobDetail"));
+const TradespersonJobDetail = lazy(
+  () => import("@/pages/TradespersonJobDetail"),
+);
 const Tradespeople = lazy(() =>
   import("@/pages/Tradespeople").then((m) => ({ default: m.Tradespeople })),
 );
 const AboutPage = lazy(() => import("@/pages/AboutPage"));
 const HowItWorksPage = lazy(() => import("@/pages/HowItWorksPage"));
-const VerificationPromisePage = lazy(() => import("@/pages/VerificationPromisePage"));
+const VerificationPromisePage = lazy(
+  () => import("@/pages/VerificationPromisePage"),
+);
 const FAQPage = lazy(() => import("@/pages/FAQPage"));
 const CostGuidesPage = lazy(() => import("@/pages/CostGuidesPage"));
 const ContactPage = lazy(() => import("@/pages/ContactPage"));
@@ -71,21 +81,33 @@ function AppContent() {
               <Route path="/" element={<Index />} />
 
               {/* SEO Trade Pages */}
-              <Route path="/trades/:trade/:location" element={<SEOTradePage />} />
+              <Route
+                path="/trades/:trade/:location"
+                element={<SEOTradePage />}
+              />
               <Route path="/seo-template" element={<SEOTradePage />} />
 
               {/* Trade Category Pages */}
               <Route path="/trades/:category" element={<TradeCategory />} />
 
               {/* Tradesperson Profile */}
-              <Route path="/tradesperson/:slug" element={<TradespersonProfile />} />
+              <Route
+                path="/tradesperson/:slug"
+                element={<TradespersonProfile />}
+              />
 
               {/* Search - Redirect to Post Job */}
-              <Route path="/search" element={<Navigate to="/post-job" replace />} />
+              <Route
+                path="/search"
+                element={<Navigate to="/post-job" replace />}
+              />
 
               {/* Information Pages */}
               <Route path="/how-it-works" element={<HowItWorksPage />} />
-              <Route path="/verification-promise" element={<VerificationPromisePage />} />
+              <Route
+                path="/verification-promise"
+                element={<VerificationPromisePage />}
+              />
               <Route path="/why-us" element={<VerificationPromisePage />} />
               <Route path="/faq" element={<FAQPage />} />
               <Route path="/cost-guides" element={<CostGuidesPage />} />
@@ -98,16 +120,31 @@ function AppContent() {
               <Route path="/blog/:slug" element={<BlogPostPage />} />
 
               {/* For Tradespeople */}
-              <Route path="/join-as-tradesperson" element={<JoinAsTradesperson />} />
-              <Route path="/tradesperson/details" element={<TradespersonDetails />} />
-              <Route path="/tradesperson/review" element={<TradespersonReview />} />
-              <Route path="/tradesperson/submitted" element={<TradespersonSubmitted />} />
+              <Route
+                path="/join-as-tradesperson"
+                element={<JoinAsTradesperson />}
+              />
+              <Route
+                path="/tradesperson/details"
+                element={<TradespersonDetails />}
+              />
+              <Route
+                path="/tradesperson/review"
+                element={<TradespersonReview />}
+              />
+              <Route
+                path="/tradesperson/submitted"
+                element={<TradespersonSubmitted />}
+              />
 
               {/* Authentication */}
               <Route path="/login" element={<LoginPage />} />
 
               {/* Homeowner Dashboard */}
-              <Route path="/customer-dashboard" element={<CustomerDashboard />} />
+              <Route
+                path="/customer-dashboard"
+                element={<CustomerDashboard />}
+              />
               <Route path="/dashboard" element={<CustomerDashboard />} />
               <Route path="/post-job" element={<PostJob />} />
               <Route path="/post-job/success" element={<JobPostedSuccess />} />
@@ -115,11 +152,16 @@ function AppContent() {
               <Route path="/review-trade" element={<ReviewTrade />} />
               <Route
                 path="/saved-trades"
-                element={<Navigate to="/customer-dashboard?tab=saved" replace />}
+                element={
+                  <Navigate to="/customer-dashboard?tab=saved" replace />
+                }
               />
 
               {/* Tradesperson Dashboard */}
-              <Route path="/pro/dashboard" element={<TradespersonDashboard />} />
+              <Route
+                path="/pro/dashboard"
+                element={<TradespersonDashboard />}
+              />
               <Route path="/pro/job/:id" element={<TradespersonJobDetail />} />
               <Route path="/tradesperson-profile" element={<Tradespeople />} />
               <Route
