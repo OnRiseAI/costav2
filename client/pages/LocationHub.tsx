@@ -1,4 +1,5 @@
 import { useParams, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { SEO } from "@/components/SEO";
 import {
@@ -17,6 +18,7 @@ import {
   Paintbrush,
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { supabase } from "@/contexts/AuthContext";
 
 interface LogisticsInfo {
   security_gate_clearance: boolean;
@@ -56,6 +58,14 @@ interface LocationData {
   LAT: string;
   LON: string;
   TownLogisticsProfile: TownLogisticsProfile;
+}
+
+interface SupabaseLocationProfile {
+  slug: string;
+  region_name: string;
+  sub_areas: string[] | null;
+  logistics: any | null;
+  content_injects: any | null;
 }
 
 const SPECIALIST_CATEGORIES = [
@@ -1301,6 +1311,10 @@ export default function LocationHub() {
     (params.location as string | undefined) ??
     (params.region as string | undefined);
 
+  const [locationProfile, setLocationProfile] = useState<
+    SupabaseLocationProfile | null
+  >(null);
+
   const defaultRegion = LOCATION_CONFIG[0];
 
   const matchedRegion = regionSlug
@@ -1317,7 +1331,63 @@ export default function LocationHub() {
         }
       : defaultRegion);
 
-  const displayData = baseData;
+  useEffect(() => {
+    if (!regionSlug) return;
+
+    async function fetchLocationProfile() {
+      try {
+        const { data, error } = await supabase
+          .from("location_profiles")
+          .select("slug, region_name, sub_areas, logistics, content_injects")
+          .eq("slug", regionSlug)
+          .single();
+
+        if (error) {
+          console.warn("Error fetching location profile:", error);
+          return;
+        }
+
+        if (data) {
+          setLocationProfile(data as SupabaseLocationProfile);
+        }
+      } catch (err) {
+        console.error("Unexpected error fetching location profile:", err);
+      }
+    }
+
+    fetchLocationProfile();
+  }, [regionSlug]);
+
+  let displayData: LocationData = baseData;
+
+  if (locationProfile) {
+    const subAreasFromDb: SubArea[] = Array.isArray(locationProfile.sub_areas)
+      ? locationProfile.sub_areas.map((slug) => ({
+          slug,
+          name: formatRegionNameFromSlug(slug),
+        }))
+      : [];
+
+    displayData = {
+      ...baseData,
+      REGION_NAME: locationProfile.region_name || baseData.REGION_NAME,
+      region_slug: locationProfile.slug || baseData.region_slug,
+      SUB_AREAS:
+        subAreasFromDb.length > 0 ? subAreasFromDb : baseData.SUB_AREAS,
+      TownLogisticsProfile: {
+        ...baseData.TownLogisticsProfile,
+        logistics: {
+          ...baseData.TownLogisticsProfile.logistics,
+          ...(locationProfile.logistics || {}),
+        },
+        content_injects: {
+          ...baseData.TownLogisticsProfile.content_injects,
+          ...(locationProfile.content_injects || {}),
+        },
+      },
+    };
+  }
+
   const { TownLogisticsProfile } = displayData;
 
   const currentDate = displayData.CURRENT_DATE
@@ -1394,31 +1464,33 @@ export default function LocationHub() {
         </div>
       </section>
 
-      <section className="py-16 bg-gray-50">
-        <div className="container-custom">
-          <h2 className="text-3xl font-bold text-[#0a1f44] mb-8">
-            Popular Areas in {displayData.REGION_NAME}
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {displayData.SUB_AREAS.map((area) => (
-              <Link
-                key={area.slug}
-                to={`/locations/${area.slug}`}
-                className="block group"
-              >
-                <Card className="h-full p-6 hover:shadow-md transition-shadow border-gray-200">
-                  <h3 className="text-xl font-bold text-[#0a1f44] mb-2 group-hover:text-blue-600 transition-colors">
-                    {area.name}
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Find verified specialists in {area.name}
-                  </p>
-                </Card>
-              </Link>
-            ))}
+      {displayData.SUB_AREAS.length > 0 && (
+        <section className="py-16 bg-gray-50">
+          <div className="container-custom">
+            <h2 className="text-3xl font-bold text-[#0a1f44] mb-8">
+              Popular Areas in {displayData.REGION_NAME}
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {displayData.SUB_AREAS.map((area) => (
+                <Link
+                  key={area.slug}
+                  to={`/locations/${area.slug}`}
+                  className="block group"
+                >
+                  <Card className="h-full p-6 hover:shadow-md transition-shadow border-gray-200">
+                    <h3 className="text-xl font-bold text-[#0a1f44] mb-2 group-hover:text-blue-600 transition-colors">
+                      {area.name}
+                    </h3>
+                    <p className="text-muted-foreground">
+                      Find verified specialists in {area.name}
+                    </p>
+                  </Card>
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <section className="py-16 bg-white">
         <div className="container-custom">
