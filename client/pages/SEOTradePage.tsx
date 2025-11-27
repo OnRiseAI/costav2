@@ -43,6 +43,50 @@ const TRADE_IMAGES: Record<string, string> = {
   default: "https://images.pexels.com/photos/2244746/pexels-photo-2244746.jpeg",
 };
 
+// Pricing mapping for different trades
+const TRADE_PRICES: Record<
+  string,
+  Array<{ service: string; price: string; time: string }>
+> = {
+  plumber: [
+    { service: "Standard Call-out", price: "€60 - €90", time: "First Hour" },
+    { service: "Leak Detection", price: "€150 - €250", time: "Fixed Price" },
+    { service: "Tap Installation", price: "€40 - €80", time: "Per Tap" },
+    { service: "Boiler Service", price: "€90 - €120", time: "Fixed Price" },
+  ],
+  electrician: [
+    { service: "Standard Call-out", price: "€70 - €100", time: "First Hour" },
+    {
+      service: "Fuse Box Replacement",
+      price: "€300 - €500",
+      time: "Fixed Price",
+    },
+    { service: "Light Installation", price: "€30 - €60", time: "Per Point" },
+    { service: "Rewiring (Small Apt)", price: "€2000+", time: "Project" },
+  ],
+  "ac-repair": [
+    { service: "Diagnostic Visit", price: "€50 - €80", time: "Fixed Price" },
+    { service: "Gas Refill", price: "€100 - €150", time: "Per Unit" },
+    { service: "Maintenance Service", price: "€80 - €120", time: "Per Unit" },
+  ],
+  painter: [
+    { service: "Room Painting (Small)", price: "€200 - €350", time: "Fixed Price" },
+    { service: "Exterior Facade", price: "€12 - €18", time: "Per m²" },
+    { service: "Daily Rate", price: "€150 - €200", time: "8 Hours" },
+  ],
+  locksmith: [
+    { service: "Emergency Opening", price: "€80 - €150", time: "Fixed Price" },
+    { service: "Lock Change", price: "€90 - €180", time: "Includes Lock" },
+    { service: "Security Upgrade", price: "€200+", time: "Project" },
+  ],
+  default: [
+    { service: "Standard Call-out", price: "€50 - €80", time: "First Hour" },
+    { service: "Hourly Rate", price: "€40 - €60", time: "Per Hour" },
+    { service: "Day Rate", price: "€250 - €350", time: "8 Hours" },
+    { service: "Project Estimate", price: "Free", time: "On Request" },
+  ],
+};
+
 // This would typically come from a data source/API
 const MOCK_DATA = {
   trade: "Emergency specialists",
@@ -102,29 +146,58 @@ export default function SEOTradePage() {
     TRADE_IMAGES[normalizedTrade + "s"] ||
     TRADE_IMAGES.default;
 
+  // Determine pricing data
+  const tradeKey = normalizedTradeSlug?.toLowerCase() || "default";
+  const pricingData = TRADE_PRICES[tradeKey] || TRADE_PRICES["default"];
+
   if (!isEmergency) {
     return (
       <div className="min-h-screen bg-white font-sans">
         <SEO
-          title={`${tradeName} in ${locationName} | Verified Local Specialists`}
-          description={`Find trusted ${tradeName.toLowerCase()} specialists in ${locationName} for planned projects, upgrades and non-urgent repairs.`}
+          title={`Verified ${tradeName} Specialists in ${locationName} | CostaTrades`}
+          description={`Find vetted, insured, and local ${tradeName.toLowerCase()} specialists in ${locationName}. Compare quotes and see 2025 price guides.`}
           schema={{
             "@context": "https://schema.org",
-            "@type": "Service",
-            name: `Verified ${tradeName} Services in ${locationName}`,
-            provider: {
-              "@type": "Organization",
-              name: "CostaTrades Network",
-            },
-            areaServed: {
-              "@type": "City",
-              name: locationName,
-            },
-            aggregateRating: {
-              "@type": "AggregateRating",
-              ratingValue: "4.8",
-              reviewCount: "120",
-            },
+            "@graph": [
+              {
+                "@type": "Service",
+                name: `Verified ${tradeName} Services in ${locationName}`,
+                provider: {
+                  "@type": "Organization",
+                  name: "CostaTrades Network",
+                },
+                areaServed: {
+                  "@type": "City",
+                  name: locationName,
+                },
+                aggregateRating: {
+                  "@type": "AggregateRating",
+                  ratingValue: "4.8",
+                  reviewCount: "120",
+                },
+              },
+              {
+                "@type": "FAQPage",
+                mainEntity: [
+                  {
+                    "@type": "Question",
+                    name: `How much does a ${tradeName} cost in ${locationName}?`,
+                    acceptedAnswer: {
+                      "@type": "Answer",
+                      text: `The average cost for a ${tradeName} in ${locationName} ranges from ${pricingData[0].price} for a standard call-out.`,
+                    },
+                  },
+                  {
+                    "@type": "Question",
+                    name: `Are ${tradeName}s in ${locationName} insured?`,
+                    acceptedAnswer: {
+                      "@type": "Answer",
+                      text: "Yes, all specialists on CostaTrades are verified and required to carry valid liability insurance.",
+                    },
+                  },
+                ],
+              },
+            ],
           }}
         />
         {/* 1. Hero Section - Standard (non-emergency) */}
@@ -143,11 +216,11 @@ export default function SEOTradePage() {
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm mb-6">
                 <CheckCircle className="w-4 h-4 text-green-400" />
                 <span className="text-sm font-medium">
-                  Verified {tradeName} Specialists
+                  Vetted, Insured, and Local
                 </span>
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Trusted {tradeName} in {locationName}
+                Verified {tradeName} Specialists in {locationName}
               </h1>
               <p className="text-xl text-blue-100 mb-8 max-w-2xl font-light">
                 Hire vetted {tradeName.toLowerCase()} specialists in{" "}
@@ -177,102 +250,211 @@ export default function SEOTradePage() {
           </div>
         </section>
 
-        {/* 2. Benefits Section */}
-        <section className="py-16 bg-gray-50">
-          <div className="container-custom">
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="p-8 rounded-2xl bg-white border border-gray-100 shadow-sm">
-                <div className="w-12 h-12 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mb-4">
-                  <Shield className="w-6 h-6" />
-                </div>
-                <h3 className="text-lg font-semibold text-[#0a1f44] mb-2">
-                  Verified &amp; Reviewed
-                </h3>
-                <p className="text-sm text-slate-600">
-                  Every specialist is ID-verified, insured and reviewed by
-                  homeowners on the Costa del Sol.
-                </p>
-              </div>
-
-              <div className="p-8 rounded-2xl bg-white border border-gray-100 shadow-sm">
-                <div className="w-12 h-12 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4">
-                  <MapPin className="w-6 h-6" />
-                </div>
-                <h3 className="text-lg font-semibold text-[#0a1f44] mb-2">
-                  Local to {locationName}
-                </h3>
-                <p className="text-sm text-slate-600">
-                  Specialists who know the buildings, administrators and access
-                  rules in {locationName} and nearby areas.
-                </p>
-              </div>
-
-              <div className="p-8 rounded-2xl bg-white border border-gray-100 shadow-sm">
-                <div className="w-12 h-12 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center mb-4">
-                  <Clock className="w-6 h-6" />
-                </div>
-                <h3 className="text-lg font-semibold text-[#0a1f44] mb-2">
-                  Flexible Scheduling
-                </h3>
-                <p className="text-sm text-slate-600">
-                  Arrange visits around your availability, whether you live here
-                  full-time or visit seasonally.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 3. How It Works Section */}
+        {/* 2. Price Guide Table Section (Semantic HTML) */}
         <section className="py-16 bg-white">
           <div className="container-custom">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl font-bold text-[#0a1f44] mb-4">
-                  How CostaTrades Works
-                </h2>
-                <p className="text-slate-600 mb-6">
-                  Tell us what you need done and we&apos;ll match you with
-                  vetted {tradeName.toLowerCase()} specialists in {locationName}
-                  .
-                </p>
-                <ul className="space-y-4 text-slate-600">
-                  <li>
-                    <span className="font-semibold">1. Post your job</span> with
-                    a short description and photos if you have them.
-                  </li>
-                  <li>
-                    <span className="font-semibold">2. Compare quotes</span>{" "}
-                    from multiple specialists with transparent pricing.
-                  </li>
-                  <li>
-                    <span className="font-semibold">
-                      3. Hire with confidence
-                    </span>{" "}
-                    knowing every specialist is verified and reviewed.
-                  </li>
-                </ul>
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold text-[#0a1f44] mb-8 text-center">
+                2025 Price Guide: {tradeName} Costs in {locationName}
+              </h2>
+              <div className="overflow-x-auto rounded-xl shadow-lg border border-gray-100">
+                <table className="w-full text-left border-collapse">
+                  <thead>
+                    <tr className="bg-gray-50 border-b border-gray-200">
+                      <th className="p-4 font-semibold text-[#0a1f44]">
+                        Service
+                      </th>
+                      <th className="p-4 font-semibold text-[#0a1f44]">
+                        Avg Price
+                      </th>
+                      <th className="p-4 font-semibold text-[#0a1f44]">Time</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-100">
+                    {pricingData.map((item, index) => (
+                      <tr
+                        key={index}
+                        className="hover:bg-blue-50/30 transition-colors"
+                      >
+                        <td className="p-4 text-slate-700 font-medium">
+                          {item.service}
+                        </td>
+                        <td className="p-4 text-slate-600">{item.price}</td>
+                        <td className="p-4 text-slate-500 text-sm">
+                          {item.time}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
-              <div className="p-8 rounded-2xl bg-gray-50 border border-gray-100">
-                <h3 className="text-xl font-semibold text-[#0a1f44] mb-4">
-                  Typical Jobs for {tradeName} in {locationName}
-                </h3>
-                <p className="text-sm text-slate-600 mb-4">
-                  From planned renovations to routine maintenance, CostaTrades
-                  helps you find the right specialist for:
-                </p>
-                <ul className="list-disc list-inside text-sm text-slate-600 space-y-1">
-                  <li>Upgrades and improvements to your property</li>
-                  <li>Planned repairs and maintenance visits</li>
-                  <li>Seasonal check-ins for holiday homes and rentals</li>
-                  <li>Ongoing support from trusted local specialists</li>
-                </ul>
+              <p className="text-sm text-slate-500 mt-4 text-center">
+                *Prices are estimates based on local market rates in{" "}
+                {locationName}. Final quotes may vary based on complexity.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* 3. Local Regulations Section */}
+        <section className="py-16 bg-gray-50">
+          <div className="container-custom">
+            <div className="max-w-4xl mx-auto">
+              <div className="flex items-start gap-6">
+                <div className="hidden md:flex w-16 h-16 bg-[#0a1f44] text-white rounded-2xl items-center justify-center flex-shrink-0 shadow-lg">
+                  <Info className="w-8 h-8" />
+                </div>
+                <div>
+                  <h2 className="text-3xl font-bold text-[#0a1f44] mb-6">
+                    Rules for hiring a {tradeName} in {locationName}
+                  </h2>
+                  <div className="prose prose-lg text-gray-600 leading-relaxed">
+                    <p className="mb-4">
+                      When undertaking work in {locationName}, it is crucial to
+                      adhere to local regulations to avoid fines and disputes.
+                    </p>
+                    <ul className="list-disc pl-5 space-y-2 mb-4">
+                      <li>
+                        <strong>Community Guidelines:</strong> Many urbanizations in{" "}
+                        {locationName} have strict rules regarding work hours
+                        and access for tradespeople. Always check with your
+                        community president or administrator.
+                      </li>
+                      <li>
+                        <strong>Noise Ordinances:</strong> Construction noise is
+                        typically restricted during siesta hours (often 2 PM - 5
+                        PM) and late evenings. Violating these can lead to
+                        police complaints.
+                      </li>
+                      <li>
+                        <strong>Permits:</strong> For significant renovations, a
+                        "Licencia de Obra Menor" (Minor Works License) may be
+                        required from the {locationName} Town Hall.
+                      </li>
+                    </ul>
+                    <p>
+                      Our verified {tradeName.toLowerCase()} specialists are
+                      familiar with these local requirements and can help ensure
+                      your project proceeds smoothly.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* 4. Final CTA Section */}
+        {/* 4. Listings Grid Section */}
+        <section className="py-16 bg-white">
+          <div className="container-custom">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-[#0a1f44] mb-4">
+                Top Rated {tradeName}s near {locationName}
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Compare profiles, read reviews, and request quotes from the best
+                local professionals.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* Card 1 */}
+              <div className="rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all group">
+                <div className="h-48 bg-gray-200 relative">
+                  <img
+                    src={heroImage}
+                    alt={`Local ${tradeName}`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-xs font-bold text-[#0a1f44] shadow-sm">
+                    Verified
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-[#0a1f44] mb-2">
+                    Premier {tradeName} Services
+                  </h3>
+                  <div className="flex items-center gap-1 text-yellow-500 mb-4">
+                    ★★★★★ <span className="text-gray-400 text-sm">(48)</span>
+                  </div>
+                  <p className="text-sm text-slate-600 mb-4 line-clamp-2">
+                    Specializing in residential and commercial projects across{" "}
+                    {locationName}. Fully insured and bilingual team.
+                  </p>
+                  <Link to="/post-job">
+                    <Button className="w-full bg-blue-50 text-blue-700 hover:bg-blue-100 border-blue-200">
+                      Request Quote
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Card 2 */}
+              <div className="rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all group">
+                <div className="h-48 bg-gray-200 relative">
+                  <img
+                    src={TRADE_IMAGES["builder"] || heroImage}
+                    alt={`Expert ${tradeName}`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-xs font-bold text-[#0a1f44] shadow-sm">
+                    Verified
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-[#0a1f44] mb-2">
+                    {locationName} {tradeName} Pros
+                  </h3>
+                  <div className="flex items-center gap-1 text-yellow-500 mb-4">
+                    ★★★★★ <span className="text-gray-400 text-sm">(32)</span>
+                  </div>
+                  <p className="text-sm text-slate-600 mb-4 line-clamp-2">
+                    Fast response times and high-quality workmanship. Experts in
+                    local building codes and regulations.
+                  </p>
+                  <Link to="/post-job">
+                    <Button className="w-full bg-blue-50 text-blue-700 hover:bg-blue-100 border-blue-200">
+                      Request Quote
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Card 3 */}
+              <div className="rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all group">
+                <div className="h-48 bg-gray-200 relative">
+                  <img
+                    src={TRADE_IMAGES["handyman"] || heroImage}
+                    alt={`Trusted ${tradeName}`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-xs font-bold text-[#0a1f44] shadow-sm">
+                    Verified
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-[#0a1f44] mb-2">
+                    Reliable {tradeName} Solutions
+                  </h3>
+                  <div className="flex items-center gap-1 text-yellow-500 mb-4">
+                    ★★★★★ <span className="text-gray-400 text-sm">(27)</span>
+                  </div>
+                  <p className="text-sm text-slate-600 mb-4 line-clamp-2">
+                    Affordable rates and guaranteed satisfaction. Serving{" "}
+                    {locationName} and surrounding areas.
+                  </p>
+                  <Link to="/post-job">
+                    <Button className="w-full bg-blue-50 text-blue-700 hover:bg-blue-100 border-blue-200">
+                      Request Quote
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 5. Final CTA Section */}
         <section className="py-20 bg-[#0a1f44] text-white text-center">
           <div className="container-custom max-w-3xl">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
