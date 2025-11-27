@@ -130,7 +130,9 @@ export default function SEOTradePage() {
               Emergency {tradeName} in {locationName}
             </h1>
             <p className="text-xl text-blue-100 mb-8 max-w-2xl font-light">
-              Emergency {tradeName.toLowerCase()} support in {locationName} for leaks, structural issues and urgent repairs, with vetted local specialists who plan fast access routes to your property.
+              Emergency {tradeName.toLowerCase()} support in {locationName} for
+              leaks, structural issues and urgent repairs, with vetted local
+              specialists who plan fast access routes to your property.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/post-job">
@@ -243,7 +245,8 @@ export default function SEOTradePage() {
               Why Hire Through CostaTrades?
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              We take the stress out of emergency call-outs on the Costa del Sol by matching you with reliable, fast-response specialists.
+              We take the stress out of emergency call-outs on the Costa del Sol
+              by matching you with reliable, fast-response specialists.
             </p>
           </div>
 
@@ -256,7 +259,8 @@ export default function SEOTradePage() {
                 Verified ID
               </h3>
               <p className="text-muted-foreground">
-                We check every specialist's identity and credentials so gated communities and managed buildings can grant access quickly.
+                We check every specialist's identity and credentials so gated
+                communities and managed buildings can grant access quickly.
               </p>
             </div>
 
@@ -268,7 +272,8 @@ export default function SEOTradePage() {
                 Local Knowledge
               </h3>
               <p className="text-muted-foreground">
-                Our professionals know the fastest routes, seasonal traffic patterns and common property issues in {locationName}.
+                Our professionals know the fastest routes, seasonal traffic
+                patterns and common property issues in {locationName}.
               </p>
             </div>
 
@@ -280,7 +285,8 @@ export default function SEOTradePage() {
                 Fair Pricing
               </h3>
               <p className="text-muted-foreground">
-                Transparent emergency rates with no hidden fees, agreed upfront before any work begins.
+                Transparent emergency rates with no hidden fees, agreed upfront
+                before any work begins.
               </p>
             </div>
           </div>
@@ -291,10 +297,12 @@ export default function SEOTradePage() {
       <section className="py-20 bg-[#0a1f44] text-white text-center">
         <div className="container-custom max-w-3xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Need emergency {tradeName.toLowerCase()} help in {locationName} today?
+            Need emergency {tradeName.toLowerCase()} help in {locationName}{" "}
+            today?
           </h2>
           <p className="text-xl text-blue-100 mb-10 font-light">
-            Don't wait for structural issues or serious leaks to spread. Request a fast-response specialist now.
+            Don't wait for structural issues or serious leaks to spread. Request
+            a fast-response specialist now.
           </p>
           <Link to="/post-job">
             <Button
