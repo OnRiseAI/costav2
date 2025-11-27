@@ -235,7 +235,7 @@ export default function LocationHub() {
   return (
     <div className="min-h-screen bg-white font-sans">
       <SEO
-        title={`Verified Specialists in ${displayData.REGION_NAME} | CostaTrades (Official)`}
+        title={`Verified Specialists in ${displayData.REGION_NAME} | CostaTrades (Official)`}
         description={`Find vetted plumbers, electricians, and home specialists in ${displayData.REGION_NAME}. 100% ID-verified, insured, and reviewed. View availability in ${displayData.REGION_NAME} now.`}
         schema={schemaData}
       />
@@ -323,10 +323,9 @@ export default function LocationHub() {
                 <li className="flex items-start gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2.5 flex-shrink-0" />
                   <span className="text-gray-700">
-                    Vehicle width limit of {
-                      TownLogisticsProfile.logistics.vehicle_width_limit_meters
-                    }{" "}
-                    meters in some streets.
+                    Vehicle width limit of {" "}
+                    {TownLogisticsProfile.logistics.vehicle_width_limit_meters} meters
+                    in some streets.
                   </span>
                 </li>
               )}
@@ -378,8 +377,8 @@ export default function LocationHub() {
                 <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2.5 flex-shrink-0" />
                 <span className="text-gray-700">
                   Noise sensitivity in this area is rated {" "}
-                  {TownLogisticsProfile.seasonality.noise_sensitivity_score}
-                  {/10}, so planning noisy works considerately is important.
+                  {TownLogisticsProfile.seasonality.noise_sensitivity_score}/10,
+                  so planning noisy works considerately is important.
                 </span>
               </li>
             </ul>
@@ -432,7 +431,7 @@ export default function LocationHub() {
                 </div>
                 <p className="text-gray-600 font-medium flex items-center gap-2">
                   <CheckCircle className="w-4 h-4 text-green-500" />
-                  Available 24/7  b7 Verified  b7 Fast Response
+                  Available 24/7 - Verified - Fast Response
                 </p>
               </Card>
             ))}
