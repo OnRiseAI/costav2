@@ -61,14 +61,23 @@ function AppContent() {
             <Route path="/trades/:category" element={<TradeCategory />} />
 
             {/* Tradesperson Profile */}
-            <Route path="/tradesperson/:slug" element={<TradespersonProfile />} />
+            <Route
+              path="/tradesperson/:slug"
+              element={<TradespersonProfile />}
+            />
 
             {/* Search - Redirect to Post Job */}
-            <Route path="/search" element={<Navigate to="/post-job" replace />} />
+            <Route
+              path="/search"
+              element={<Navigate to="/post-job" replace />}
+            />
 
             {/* Information Pages */}
             <Route path="/how-it-works" element={<HowItWorksPage />} />
-            <Route path="/verification-promise" element={<VerificationPromisePage />} />
+            <Route
+              path="/verification-promise"
+              element={<VerificationPromisePage />}
+            />
             <Route path="/why-us" element={<VerificationPromisePage />} />
             <Route path="/faq" element={<FAQPage />} />
             <Route path="/cost-guides" element={<CostGuidesPage />} />
@@ -81,10 +90,22 @@ function AppContent() {
             <Route path="/blog/:slug" element={<BlogPostPage />} />
 
             {/* For Tradespeople */}
-            <Route path="/join-as-tradesperson" element={<JoinAsTradesperson />} />
-            <Route path="/tradesperson/details" element={<TradespersonDetails />} />
-            <Route path="/tradesperson/review" element={<TradespersonReview />} />
-            <Route path="/tradesperson/submitted" element={<TradespersonSubmitted />} />
+            <Route
+              path="/join-as-tradesperson"
+              element={<JoinAsTradesperson />}
+            />
+            <Route
+              path="/tradesperson/details"
+              element={<TradespersonDetails />}
+            />
+            <Route
+              path="/tradesperson/review"
+              element={<TradespersonReview />}
+            />
+            <Route
+              path="/tradesperson/submitted"
+              element={<TradespersonSubmitted />}
+            />
 
             {/* Authentication */}
             <Route path="/login" element={<LoginPage />} />
