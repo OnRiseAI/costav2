@@ -20,7 +20,7 @@ import {
 // Mock data for all blog posts
 const blogPosts = {
   "stop-damp-mold-spain": {
-    title: "How to Stop Damp & Mold in Your Spanish Home (2025 Guide)",
+    title: "Stop Damp & Mold Spain: The 2025 Guide",
     metaDescription: "Damp or Mold in your Spanish villa? Diagnose Condensation vs. Rising Damp. See 2025 repair costs, chemical injection prices & legal rights.",
     category: "Maintenance",
     author: "Carlos Rodriguez",
@@ -995,7 +995,7 @@ const blogPosts = {
     ),
   },
   "malaga-hard-water-boiler": {
-    title: "The Silent Boiler Killer: Dealing with Malaga's Hard Water",
+    title: "Malaga Hard Water: Boiler & Softener Guide",
     metaDescription: "Malaga hard water destroying your boiler? The 2025 guide to Limescale, Descaling costs, and the best Water Softeners for the Costa del Sol.",
     category: "Maintenance",
     author: "David Miller",
@@ -1169,7 +1169,7 @@ const blogPosts = {
     ),
   },
   "protecting-home-squatters-2025": {
-    title: "Protecting Your Holiday Home from 'Okupas' (Squatters) in 2025",
+    title: "Protect Home from Okupas: 2025 Guide",
     metaDescription: "Protect your Spanish home from Okupas. 2025 Guide: Best anti-snap locks, alarm systems & legal eviction rules for non-resident owners.",
     category: "Legal/Permits",
     author: "James Wilson",
@@ -1356,7 +1356,7 @@ const blogPosts = {
     ),
   },
   "solar-panels-costa-del-sol-roi": {
-    title: "Is Solar Power Worth It on the Costa del Sol? (2025 Data)",
+    title: "Solar Power Costa del Sol: 2025 ROI Guide",
     metaDescription: "Is Solar worth it in Andalucia? 2025 ROI Guide: Calculate savings, claim 40% NextGen grants & check IBI tax reductions for Malaga homeowners.",
     category: "Cost Guides",
     author: "Miguel Angel",
@@ -1944,7 +1944,7 @@ export default function BlogPostPage() {
   return (
     <div className="min-h-screen bg-white font-sans selection:bg-blue-100 selection:text-blue-900">
       <SEO
-        title={`${post.title} | CostaTrades Blog`}
+        title={`${post.title} | CostaTrades`}
         description={
           post.metaDescription ||
           `In-depth ${post.category.toLowerCase()} advice for Costa del Sol homeowners. Detailed guidance from CostaTrades experts on ${post.title}.`
