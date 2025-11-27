@@ -77,7 +77,7 @@ export default function Index() {
     address: {
       "@type": "PostalAddress",
       addressLocality: "Marbella",
-      addressRegion: "Málaga",
+      addressRegion: "Malaga",
       addressCountry: "ES",
     },
     sameAs: [
