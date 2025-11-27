@@ -469,67 +469,18 @@ export default function PostJob() {
             {step === 2 && (
               <div className="space-y-6 py-4">
                 <div className="relative">
-                  <Popover open={openCombobox} onOpenChange={setOpenCombobox}>
-                    <PopoverTrigger asChild>
-                      <Button
-                        variant="outline"
-                        role="combobox"
-                        aria-expanded={openCombobox}
-                        className="w-full justify-between h-14 text-lg rounded-xl border-gray-300 hover:border-[#0a1f44] hover:bg-white text-left font-normal"
-                      >
-                        {postcode ? (
-                          <span className="text-gray-900">
-                            {towns.find(
-                              (town) =>
-                                town.toLowerCase() === postcode.toLowerCase(),
-                            ) || postcode}
-                          </span>
-                        ) : (
-                          <span className="text-gray-500">Select town...</span>
-                        )}
-                        <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                      </Button>
-                    </PopoverTrigger>
-                    <PopoverContent className="w-[var(--radix-popover-trigger-width)] p-0">
-                      <Command>
-                        <CommandInput placeholder="Search town..." />
-                        <CommandList>
-                          <CommandEmpty>No town found.</CommandEmpty>
-                          <CommandGroup>
-                            {towns.map((town) => (
-                              <CommandItem
-                                key={town}
-                                value={town}
-                                onSelect={(currentValue) => {
-                                  // We use the original town name for display/state
-                                  // cmdk returns the value lowercased if not specified otherwise,
-                                  // but here we want to set the state to the proper casing from our list
-                                  setPostcode(
-                                    currentValue.toLowerCase() ===
-                                      postcode.toLowerCase()
-                                      ? ""
-                                      : town,
-                                  );
-                                  setOpenCombobox(false);
-                                }}
-                              >
-                                <Check
-                                  className={cn(
-                                    "mr-2 h-4 w-4",
-                                    postcode.toLowerCase() ===
-                                      town.toLowerCase()
-                                      ? "opacity-100"
-                                      : "opacity-0",
-                                  )}
-                                />
-                                {town}
-                              </CommandItem>
-                            ))}
-                          </CommandGroup>
-                        </CommandList>
-                      </Command>
-                    </PopoverContent>
-                  </Popover>
+                  <Select value={postcode} onValueChange={setPostcode}>
+                    <SelectTrigger className="w-full h-14 text-lg rounded-xl border-gray-300 hover:border-[#0a1f44] hover:bg-white text-left font-normal">
+                      <SelectValue placeholder="Select town..." />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {towns.map((town) => (
+                        <SelectItem key={town} value={town}>
+                          {town}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
 
                 <Button
