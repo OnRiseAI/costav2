@@ -206,6 +206,118 @@ const LOCATION_CONFIG: LocationData[] = [
       },
     },
   },
+  {
+    REGION_NAME: "Nueva Andalucia",
+    region_slug: "nueva-andalucia",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.5093",
+    LON: "-4.9590",
+    TownLogisticsProfile: {
+      cluster_type: "Luxury_Gated",
+      logistics: {
+        security_gate_clearance: true,
+        vehicle_width_limit_meters: null,
+        parking_risk_level: "Medium",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: true,
+        ban_months: ["July", "August"],
+        noise_sensitivity_score: 8,
+      },
+      content_injects: {
+        provider_warning:
+          "Some neighbourhoods around the golf valleys have controlled gate access during high season.",
+        customer_reassurance:
+          "CostaTrades verifies community access requirements ahead of time to avoid delays.",
+      },
+    },
+  },
+  {
+    REGION_NAME: "San Pedro",
+    region_slug: "san-pedro",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.4870",
+    LON: "-4.9938",
+    TownLogisticsProfile: {
+      cluster_type: "Luxury_Gated",
+      logistics: {
+        security_gate_clearance: false,
+        vehicle_width_limit_meters: null,
+        parking_risk_level: "Medium",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: true,
+        ban_months: ["July", "August"],
+        noise_sensitivity_score: 7,
+      },
+      content_injects: {
+        provider_warning:
+          "Traffic around the boulevard and beach side can slow arrival times during peak hours.",
+        customer_reassurance:
+          "CostaTrades specialists plan time windows around local congestion patterns.",
+      },
+    },
+  },
+  {
+    REGION_NAME: "Elviria",
+    region_slug: "elviria",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.4990",
+    LON: "-4.7913",
+    TownLogisticsProfile: {
+      cluster_type: "Luxury_Gated",
+      logistics: {
+        security_gate_clearance: true,
+        vehicle_width_limit_meters: null,
+        parking_risk_level: "Low",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: true,
+        ban_months: ["July", "August"],
+        noise_sensitivity_score: 6,
+      },
+      content_injects: {
+        provider_warning:
+          "Many hillside residential areas require pre-registered access for service vehicles.",
+        customer_reassurance:
+          "CostaTrades confirms all gate and community requirements before dispatch.",
+      },
+    },
+  },
+  {
+    REGION_NAME: "Las Chapas",
+    region_slug: "las-chapas",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.4971",
+    LON: "-4.8128",
+    TownLogisticsProfile: {
+      cluster_type: "Luxury_Gated",
+      logistics: {
+        security_gate_clearance: true,
+        vehicle_width_limit_meters: null,
+        parking_risk_level: "Low",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: true,
+        ban_months: ["July", "August"],
+        noise_sensitivity_score: 6,
+      },
+      content_injects: {
+        provider_warning:
+          "Several luxury communities require identification or pre-authorization for specialist entry.",
+        customer_reassurance:
+          "CostaTrades handles all access permissions so your appointment runs smoothly.",
+      },
+    },
+  },
 ];
 
 const RELATED_AREAS_BY_CLUSTER: Record<string, SubArea[]> = {
