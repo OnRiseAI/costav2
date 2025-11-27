@@ -61,7 +61,7 @@ function AppContent() {
               element={<SEOTradePage />}
             />
             <Route
-              path="/locations/:location/:service"
+              path="/locations/:location/:trade"
               element={<SEOTradePage />}
             />
             <Route path="/seo-template" element={<SEOTradePage />} />
