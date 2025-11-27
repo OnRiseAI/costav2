@@ -7,18 +7,19 @@ export function ScrollToTop() {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    if (pathname.startsWith("/post-job") || pathname.startsWith("/blog")) {
+    // Wait for the new page DOM to render, then attempt to scroll to the hero
+    requestAnimationFrame(() => {
+      const hero = document.getElementById("home-hero");
+
+      if (hero) {
+        // If a hero exists on the page, scroll to it (immediate)
+        hero.scrollIntoView({ behavior: "auto", block: "start", inline: "nearest" });
+        return;
+      }
+
+      // Fallback: scroll to top of the page
       window.scrollTo(0, 0);
-      return;
-    }
-
-    const isMobile =
-      (window.matchMedia && window.matchMedia("(max-width: 768px)").matches) ||
-      window.innerWidth <= 768;
-
-    if (!isMobile) return;
-
-    window.scrollTo(0, 0);
+    });
   }, [pathname]);
 
   return null;
