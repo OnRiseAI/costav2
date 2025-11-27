@@ -144,6 +144,40 @@ const LOCATION_CONFIG: LocationData[] = [
       },
     },
   },
+  {
+    REGION_NAME: "Marbella Area",
+    region_slug: "marbella-area",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [
+      { name: "Puerto Banus", slug: "puerto-banus" },
+      { name: "Nueva Andalucia", slug: "nueva-andalucia" },
+      { name: "San Pedro", slug: "san-pedro" },
+      { name: "Elviria", slug: "elviria" },
+      { name: "Las Chapas", slug: "las-chapas" },
+    ],
+    LAT: "36.5099",
+    LON: "-4.8858",
+    TownLogisticsProfile: {
+      cluster_type: "Luxury_Gated",
+      logistics: {
+        security_gate_clearance: true,
+        vehicle_width_limit_meters: null,
+        parking_risk_level: "Medium",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: true,
+        ban_months: ["July", "August"],
+        noise_sensitivity_score: 9,
+      },
+      content_injects: {
+        provider_warning:
+          "Some gated communities in Marbella require pre-approved access for specialists.",
+        customer_reassurance:
+          "CostaTrades handles all access permissions on your behalf.",
+      },
+    },
+  },
 ];
 
 const RELATED_AREAS_BY_CLUSTER: Record<string, SubArea[]> = {
