@@ -143,7 +143,7 @@ async function build() {
   const sitemapEntries = Array.from(urls)
     .sort()
     .map((p) => {
-      return `  <url>\n    <loc>${SITE_URL.replace(/\/$/, "")}${p}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>`;
+      return `  <url>\n    <loc>${SITE_URL.replace(/\/$/, "")}${p}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.8</priority>\n  </url>`;
     })
     .join("\n");
 
