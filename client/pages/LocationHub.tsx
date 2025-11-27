@@ -654,6 +654,202 @@ const LOCATION_CONFIG: LocationData[] = [
       },
     },
   },
+  {
+    REGION_NAME: "Rincon de la Victoria",
+    region_slug: "rincon-de-la-victoria",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.7170",
+    LON: "-4.2810",
+    TownLogisticsProfile: {
+      cluster_type: "Coastal_Residential",
+      logistics: {
+        security_gate_clearance: false,
+        vehicle_width_limit_meters: null,
+        parking_risk_level: "High",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 8,
+      },
+      content_injects: {
+        provider_warning:
+          "Central streets near the beachfront can become congested during weekends and summer evenings.",
+        customer_reassurance:
+          "CostaTrades specialists schedule arrivals outside peak hours to ensure smooth service.",
+      },
+    },
+  },
+  {
+    REGION_NAME: "La Cala del Moral",
+    region_slug: "la-cala-del-moral",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.7140",
+    LON: "-4.3090",
+    TownLogisticsProfile: {
+      cluster_type: "Coastal_Residential",
+      logistics: {
+        security_gate_clearance: false,
+        vehicle_width_limit_meters: null,
+        parking_risk_level: "Medium",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 7,
+      },
+      content_injects: {
+        provider_warning:
+          "Beachfront lanes narrow significantly during high traffic periods.",
+        customer_reassurance:
+          "CostaTrades specialists select the best routes for steady arrival times.",
+      },
+    },
+  },
+  {
+    REGION_NAME: "Torre del Mar",
+    region_slug: "torre-del-mar",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.7424",
+    LON: "-4.0927",
+    TownLogisticsProfile: {
+      cluster_type: "Coastal_Residential",
+      logistics: {
+        security_gate_clearance: false,
+        vehicle_width_limit_meters: null,
+        parking_risk_level: "High",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 8,
+      },
+      content_injects: {
+        provider_warning:
+          "Promenade and beachfront areas become highly congested in summer.",
+        customer_reassurance:
+          "CostaTrades schedules specialist visits early or late to avoid peak hours.",
+      },
+    },
+  },
+  {
+    REGION_NAME: "Nerja",
+    region_slug: "nerja",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.7487",
+    LON: "-3.8737",
+    TownLogisticsProfile: {
+      cluster_type: "Coastal_Residential",
+      logistics: {
+        security_gate_clearance: false,
+        vehicle_width_limit_meters: 1.9,
+        parking_risk_level: "High",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 7,
+      },
+      content_injects: {
+        provider_warning:
+          "Old Town has narrow streets where larger vans cannot access properties.",
+        customer_reassurance:
+          "CostaTrades assigns appropriately sized vehicles for Old Town and hillside properties.",
+      },
+    },
+  },
+  {
+    REGION_NAME: "Frigiliana",
+    region_slug: "frigiliana",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.7929",
+    LON: "-3.8970",
+    TownLogisticsProfile: {
+      cluster_type: "Mountain_Village",
+      logistics: {
+        security_gate_clearance: false,
+        vehicle_width_limit_meters: 1.8,
+        parking_risk_level: "High",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 8,
+      },
+      content_injects: {
+        provider_warning:
+          "Village-centre streets are extremely narrow and steep, limiting vehicle access.",
+        customer_reassurance:
+          "CostaTrades specialists use small service vehicles to navigate Frigiliana’s mountain streets.",
+      },
+    },
+  },
+  {
+    REGION_NAME: "Torrox",
+    region_slug: "torrox",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.7583",
+    LON: "-3.9520",
+    TownLogisticsProfile: {
+      cluster_type: "Coastal_Residential",
+      logistics: {
+        security_gate_clearance: false,
+        vehicle_width_limit_meters: null,
+        parking_risk_level: "Medium",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 6,
+      },
+      content_injects: {
+        provider_warning:
+          "Some hillside urbanisations have steep gradients affecting arrival times.",
+        customer_reassurance:
+          "CostaTrades specialists plan appropriate vehicle selection and timing for hillside properties.",
+      },
+    },
+  },
+  {
+    REGION_NAME: "Velez Malaga",
+    region_slug: "velez-malaga",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.7797",
+    LON: "-4.0990",
+    TownLogisticsProfile: {
+      cluster_type: "Coastal_Residential",
+      logistics: {
+        security_gate_clearance: false,
+        vehicle_width_limit_meters: null,
+        parking_risk_level: "Medium",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 6,
+      },
+      content_injects: {
+        provider_warning:
+          "Some residential pockets have dense street parking that can slow specialist arrival.",
+        customer_reassurance:
+          "CostaTrades specialists plan parking and access routes in advance.",
+      },
+    },
+  },
 ];
 
 const RELATED_AREAS_BY_CLUSTER: Record<string, SubArea[]> = {
