@@ -267,7 +267,7 @@ export default function SEOTradePage() {
               alt={`${tradeName} in ${locationName}`}
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0a1f44]/95 to-[#0a1f44]/60"></div>
+            <div className="absolute inset-0 bg-slate-900/80"></div>
           </div>
 
           <div className="container-custom relative z-10 text-white">
@@ -278,28 +278,28 @@ export default function SEOTradePage() {
                   Vetted, Insured, and Local
                 </span>
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
                 Verified {tradeName} Specialists in {locationName}
               </h1>
-              <p className="text-xl text-blue-100 mb-8 max-w-2xl font-light">
+              <p className="text-lg text-gray-200 mb-8 max-w-2xl font-light">
                 Hire vetted {tradeName.toLowerCase()} specialists in{" "}
                 {locationName} for planned work, improvements and maintenance
                 with clear pricing and communication.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link to="/post-job">
+                <Link to={`/post-job?location=${locationSlug || ""}`}>
                   <Button
                     size="lg"
-                    className="w-full sm:w-auto bg-[#0A1F44] hover:bg-[#06152b] text-white h-14 px-8 text-lg font-bold rounded-full shadow-lg hover:shadow-xl transition-all"
+                    className="w-full sm:w-auto bg-[#E31E24] hover:bg-[#C41218] text-white h-16 px-10 text-xl font-bold rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5"
                   >
                     Get Quotes Now
                   </Button>
                 </Link>
-                <Link to="/post-job">
+                <Link to={`/post-job?location=${locationSlug || ""}`}>
                   <Button
                     size="lg"
                     variant="outline"
-                    className="w-full sm:w-auto bg-white/10 border-white/30 text-white hover:bg-white/20 h-14 px-8 text-lg font-medium rounded-full backdrop-blur-sm"
+                    className="w-full sm:w-auto bg-white/10 border-white/30 text-white hover:bg-white/20 h-16 px-10 text-lg font-medium rounded-full backdrop-blur-sm"
                   >
                     Describe Your Project
                   </Button>
@@ -337,7 +337,10 @@ export default function SEOTradePage() {
                     <span className="text-sm font-medium text-gray-600 mb-2">
                       Need a firm price?
                     </span>
-                    <Link to="/post-job" className="w-full">
+                    <Link
+                      to={`/post-job?location=${locationSlug || ""}`}
+                      className="w-full"
+                    >
                       <Button
                         size="lg"
                         className="w-full bg-[#0A1F44] hover:bg-[#06152b] text-white h-14 text-lg font-bold rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5"
@@ -493,7 +496,7 @@ export default function SEOTradePage() {
                     Specializing in residential and commercial projects across{" "}
                     {locationName}. Fully insured and bilingual team.
                   </p>
-                  <Link to="/post-job">
+                  <Link to={`/post-job?location=${locationSlug || ""}`}>
                     <Button className="w-full bg-blue-50 text-blue-700 hover:bg-blue-100 border-blue-200">
                       Request Quote
                     </Button>
@@ -524,7 +527,7 @@ export default function SEOTradePage() {
                     Fast response times and high-quality workmanship. Experts in
                     local building codes and regulations.
                   </p>
-                  <Link to="/post-job">
+                  <Link to={`/post-job?location=${locationSlug || ""}`}>
                     <Button className="w-full bg-blue-50 text-blue-700 hover:bg-blue-100 border-blue-200">
                       Request Quote
                     </Button>
@@ -555,7 +558,7 @@ export default function SEOTradePage() {
                     Affordable rates and guaranteed satisfaction. Serving{" "}
                     {locationName} and surrounding areas.
                   </p>
-                  <Link to="/post-job">
+                  <Link to={`/post-job?location=${locationSlug || ""}`}>
                     <Button className="w-full bg-blue-50 text-blue-700 hover:bg-blue-100 border-blue-200">
                       Request Quote
                     </Button>
@@ -576,7 +579,7 @@ export default function SEOTradePage() {
               Share a few details about your project and we&apos;ll connect you
               with vetted local specialists.
             </p>
-            <Link to="/post-job">
+            <Link to={`/post-job?location=${locationSlug || ""}`}>
               <Button
                 size="lg"
                 className="bg-white text-[#0a1f44] hover:bg-blue-50 h-16 px-10 text-xl font-bold rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
@@ -643,7 +646,11 @@ export default function SEOTradePage() {
               specialists who plan fast access routes to your property.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/post-job">
+              <Link
+                to={`/post-job/results?service=emergency-${
+                  normalizedTradeSlug || "specialist"
+                }&location=${locationSlug || ""}&urgent=true`}
+              >
                 <Button
                   size="lg"
                   className="w-full sm:w-auto bg-[#E31E24] hover:bg-[#C41218] text-white h-14 px-8 text-lg font-bold rounded-full shadow-lg hover:shadow-xl transition-all"
@@ -651,7 +658,11 @@ export default function SEOTradePage() {
                   Get a Quote Now
                 </Button>
               </Link>
-              <Link to="/post-job">
+              <Link
+                to={`/post-job/results?service=emergency-${
+                  normalizedTradeSlug || "specialist"
+                }&location=${locationSlug || ""}&urgent=true`}
+              >
                 <Button
                   size="lg"
                   variant="outline"
@@ -812,7 +823,11 @@ export default function SEOTradePage() {
             Don't wait for structural issues or serious leaks to spread. Request
             a fast-response specialist now.
           </p>
-          <Link to="/post-job">
+          <Link
+            to={`/post-job/results?service=emergency-${
+              normalizedTradeSlug || "specialist"
+            }&location=${locationSlug || ""}&urgent=true`}
+          >
             <Button
               size="lg"
               className="bg-[#E31E24] hover:bg-[#C41218] text-white h-16 px-10 text-xl font-bold rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
