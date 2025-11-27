@@ -43,7 +43,18 @@ export function SEO({ title, description, image, url, schema }: SEOProps) {
     const ogImage = image || "/og-default.jpg";
 
     document.title = title;
-    upsertMeta("name", "description", description);
+    const MAX_META = 155;
+    const truncatedDescription =
+      description && description.length > MAX_META
+        ? description.slice(0, MAX_META)
+        : description;
+    if (description && description.length > MAX_META) {
+      // eslint-disable-next-line no-console
+      console.warn(
+        `Meta description exceeded ${MAX_META} characters and was truncated.`,
+      );
+    }
+    upsertMeta("name", "description", truncatedDescription);
 
     let linkCanonical = document.querySelector('link[rel="canonical"]');
     if (!linkCanonical) {
