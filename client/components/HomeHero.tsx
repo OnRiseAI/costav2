@@ -15,8 +15,8 @@ export function HomeHero() {
         />
       </div>
 
-      {/* Deep Navy Blue overlay 90% */}
-      <div className="absolute inset-0 bg-slate-900/90 z-10"></div>
+      {/* Deep Navy Blue gradient overlay (#0a1d3e) */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0a1d3e]/95 via-[#0a1d3e]/85 to-[#0a1d3e]/95 z-10"></div>
 
       <div className="container-custom relative z-20 text-center max-w-4xl mx-auto px-4">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm mb-8 animate-fade-in">
