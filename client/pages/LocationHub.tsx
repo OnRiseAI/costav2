@@ -480,6 +480,11 @@ const RELATED_AREAS_BY_CLUSTER: Record<string, SubArea[]> = {
     { name: "Nueva Andalucia", slug: "nueva-andalucia" },
     { name: "San Pedro", slug: "san-pedro" },
   ],
+  Coastal_Residential: [
+    { name: "Mijas Costa", slug: "mijas-costa" },
+    { name: "La Cala de Mijas", slug: "la-cala-de-mijas" },
+    { name: "Calahonda", slug: "calahonda" },
+  ],
 };
 
 function formatRegionNameFromSlug(slug: string): string {
