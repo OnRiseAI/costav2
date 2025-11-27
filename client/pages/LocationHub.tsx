@@ -1311,9 +1311,8 @@ export default function LocationHub() {
     (params.location as string | undefined) ??
     (params.region as string | undefined);
 
-  const [locationProfile, setLocationProfile] = useState<
-    SupabaseLocationProfile | null
-  >(null);
+  const [locationProfile, setLocationProfile] =
+    useState<SupabaseLocationProfile | null>(null);
 
   const defaultRegion = LOCATION_CONFIG[0];
 
