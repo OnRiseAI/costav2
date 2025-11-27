@@ -223,6 +223,11 @@ const RELATED_AREAS_BY_CLUSTER: Record<string, SubArea[]> = {
     { name: "Tolox", slug: "tolox" },
     { name: "Guaro", slug: "guaro" },
   ],
+  Luxury_Gated: [
+    { name: "Marbella Area", slug: "marbella-area" },
+    { name: "Nueva Andalucia", slug: "nueva-andalucia" },
+    { name: "San Pedro", slug: "san-pedro" },
+  ],
 };
 
 function formatRegionNameFromSlug(slug: string): string {
