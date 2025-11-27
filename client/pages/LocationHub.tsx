@@ -1046,6 +1046,202 @@ const LOCATION_CONFIG: LocationData[] = [
       },
     },
   },
+  {
+    REGION_NAME: "Alhaurin el Grande",
+    region_slug: "alhaurin-el-grande",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.6416",
+    LON: "-4.6867",
+    TownLogisticsProfile: {
+      cluster_type: "Rural_Mountain",
+      logistics: {
+        security_gate_clearance: false,
+        vehicle_width_limit_meters: null,
+        parking_risk_level: "Medium",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 5,
+      },
+      content_injects: {
+        provider_warning:
+          "Some urbanisation roads are steep and narrow, affecting arrival time for large service vehicles.",
+        customer_reassurance:
+          "CostaTrades specialists plan mountain access routes and select suitable vehicles for each job.",
+      },
+    },
+  },
+  {
+    REGION_NAME: "Coin",
+    region_slug: "coin",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.6594",
+    LON: "-4.7561",
+    TownLogisticsProfile: {
+      cluster_type: "Rural_Mountain",
+      logistics: {
+        security_gate_clearance: false,
+        vehicle_width_limit_meters: null,
+        parking_risk_level: "Low",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 4,
+      },
+      content_injects: {
+        provider_warning:
+          "Country roads around Coín can be winding with limited passing space.",
+        customer_reassurance:
+          "CostaTrades specialists plan rural access routes to ensure punctual arrival.",
+      },
+    },
+  },
+  {
+    REGION_NAME: "Mijas Pueblo",
+    region_slug: "mijas-pueblo",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.5954",
+    LON: "-4.6372",
+    TownLogisticsProfile: {
+      cluster_type: "Rural_Mountain",
+      logistics: {
+        security_gate_clearance: false,
+        vehicle_width_limit_meters: 1.9,
+        parking_risk_level: "High",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 7,
+      },
+      content_injects: {
+        provider_warning:
+          "Village-centre streets are very narrow, limiting access for medium and large vans.",
+        customer_reassurance:
+          "CostaTrades assigns smaller vehicles for Mijas Pueblo properties and plans parking in advance.",
+      },
+    },
+  },
+  {
+    REGION_NAME: "Ojen",
+    region_slug: "ojen",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.5682",
+    LON: "-4.8560",
+    TownLogisticsProfile: {
+      cluster_type: "Rural_Mountain",
+      logistics: {
+        security_gate_clearance: false,
+        vehicle_width_limit_meters: 1.9,
+        parking_risk_level: "Medium",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 7,
+      },
+      content_injects: {
+        provider_warning:
+          "Ojén’s steep streets and sharp turns can restrict larger vans.",
+        customer_reassurance:
+          "CostaTrades specialists use suitable vehicles and route planning for safe arrival.",
+      },
+    },
+  },
+  {
+    REGION_NAME: "Tolox",
+    region_slug: "tolox",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.6853",
+    LON: "-4.9050",
+    TownLogisticsProfile: {
+      cluster_type: "Rural_Mountain",
+      logistics: {
+        security_gate_clearance: false,
+        vehicle_width_limit_meters: 1.8,
+        parking_risk_level: "Medium",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 5,
+      },
+      content_injects: {
+        provider_warning:
+          "Mountain roads leading to Tolox can be tight and slow-moving, especially in winter or rain.",
+        customer_reassurance:
+          "CostaTrades plans safe arrival routes with weather-adjusted timing.",
+      },
+    },
+  },
+  {
+    REGION_NAME: "Guaro",
+    region_slug: "guaro",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.6592",
+    LON: "-4.8341",
+    TownLogisticsProfile: {
+      cluster_type: "Rural_Mountain",
+      logistics: {
+        security_gate_clearance: false,
+        vehicle_width_limit_meters: 1.8,
+        parking_risk_level: "Medium",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 6,
+      },
+      content_injects: {
+        provider_warning:
+          "Guaro’s narrow village streets require precise vehicle selection.",
+        customer_reassurance:
+          "CostaTrades assigns compact service vehicles for better access in village centres.",
+      },
+    },
+  },
+  {
+    REGION_NAME: "Alozaina",
+    region_slug: "alozaina",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.7336",
+    LON: "-4.8507",
+    TownLogisticsProfile: {
+      cluster_type: "Rural_Mountain",
+      logistics: {
+        security_gate_clearance: false,
+        vehicle_width_limit_meters: 1.8,
+        parking_risk_level: "Medium",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 6,
+      },
+      content_injects: {
+        provider_warning:
+          "Winding rural roads and village gradients can delay arrival for large vehicles.",
+        customer_reassurance:
+          "CostaTrades specialists use optimal routes and appropriate vehicles for mountain access.",
+      },
+    },
+  },
 ];
 
 const RELATED_AREAS_BY_CLUSTER: Record<string, SubArea[]> = {
