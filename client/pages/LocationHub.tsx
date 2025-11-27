@@ -458,6 +458,202 @@ const LOCATION_CONFIG: LocationData[] = [
       },
     },
   },
+  {
+    REGION_NAME: "Estepona Town",
+    region_slug: "estepona-town",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.4217",
+    LON: "-5.1459",
+    TownLogisticsProfile: {
+      cluster_type: "Coastal_Residential",
+      logistics: {
+        security_gate_clearance: false,
+        vehicle_width_limit_meters: null,
+        parking_risk_level: "High",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 8,
+      },
+      content_injects: {
+        provider_warning:
+          "Old Town and beachfront streets are narrow and often pedestrian-restricted.",
+        customer_reassurance:
+          "CostaTrades specialists schedule parking and pedestrian-zone access in advance to prevent delays.",
+      },
+    },
+  },
+  {
+    REGION_NAME: "Selwo",
+    region_slug: "selwo",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.4657",
+    LON: "-5.0390",
+    TownLogisticsProfile: {
+      cluster_type: "Coastal_Residential",
+      logistics: {
+        security_gate_clearance: true,
+        vehicle_width_limit_meters: null,
+        parking_risk_level: "Low",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 4,
+      },
+      content_injects: {
+        provider_warning:
+          "Some hillside gated communities require visitor registration before entry.",
+        customer_reassurance:
+          "CostaTrades manages all community-access requirements before dispatch.",
+      },
+    },
+  },
+  {
+    REGION_NAME: "Cancelada",
+    region_slug: "cancelada",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.4482",
+    LON: "-5.0147",
+    TownLogisticsProfile: {
+      cluster_type: "Coastal_Residential",
+      logistics: {
+        security_gate_clearance: false,
+        vehicle_width_limit_meters: null,
+        parking_risk_level: "Medium",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 6,
+      },
+      content_injects: {
+        provider_warning:
+          "Village-centre streets can be busy during school drop-off and pickup hours.",
+        customer_reassurance:
+          "CostaTrades specialists plan service timings to avoid local congestion windows.",
+      },
+    },
+  },
+  {
+    REGION_NAME: "Casares Costa",
+    region_slug: "casares-costa",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.3890",
+    LON: "-5.2201",
+    TownLogisticsProfile: {
+      cluster_type: "Coastal_Residential",
+      logistics: {
+        security_gate_clearance: true,
+        vehicle_width_limit_meters: null,
+        parking_risk_level: "Low",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 5,
+      },
+      content_injects: {
+        provider_warning:
+          "Some hillside urbanisations require pre-registered entry for service providers.",
+        customer_reassurance:
+          "CostaTrades handles access permissions with each community ahead of arrival.",
+      },
+    },
+  },
+  {
+    REGION_NAME: "Manilva",
+    region_slug: "manilva",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.3765",
+    LON: "-5.2502",
+    TownLogisticsProfile: {
+      cluster_type: "Coastal_Residential",
+      logistics: {
+        security_gate_clearance: false,
+        vehicle_width_limit_meters: null,
+        parking_risk_level: "Medium",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 6,
+      },
+      content_injects: {
+        provider_warning:
+          "Manilva’s hilly terrain can extend travel times during peak visitors’ season.",
+        customer_reassurance:
+          "CostaTrades specialists plan optimal routes to ensure timely arrival.",
+      },
+    },
+  },
+  {
+    REGION_NAME: "Sabinillas",
+    region_slug: "sabinillas",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.3761",
+    LON: "-5.2268",
+    TownLogisticsProfile: {
+      cluster_type: "Coastal_Residential",
+      logistics: {
+        security_gate_clearance: false,
+        vehicle_width_limit_meters: null,
+        parking_risk_level: "High",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 7,
+      },
+      content_injects: {
+        provider_warning:
+          "Beachfront areas and the promenade become busy, limiting vehicle access during peak times.",
+        customer_reassurance:
+          "CostaTrades specialists arrange early or late service windows to avoid crowds.",
+      },
+    },
+  },
+  {
+    REGION_NAME: "Puerto de la Duquesa",
+    region_slug: "puerto-de-la-duquesa",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.3816",
+    LON: "-5.2307",
+    TownLogisticsProfile: {
+      cluster_type: "Coastal_Residential",
+      logistics: {
+        security_gate_clearance: true,
+        vehicle_width_limit_meters: 2.0,
+        parking_risk_level: "High",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 7,
+      },
+      content_injects: {
+        provider_warning:
+          "Port-side zones have restricted loading areas and limited turning radius for large vans.",
+        customer_reassurance:
+          "CostaTrades assigns appropriately sized vehicles and schedules optimal arrival times.",
+      },
+    },
+  },
 ];
 
 const RELATED_AREAS_BY_CLUSTER: Record<string, SubArea[]> = {
