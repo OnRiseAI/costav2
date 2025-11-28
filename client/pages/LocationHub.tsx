@@ -1413,6 +1413,34 @@ const LOCATION_CONFIG: LocationData[] = [
       },
     },
   },
+  {
+    REGION_NAME: "El Rosario",
+    region_slug: "el-rosario",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.5050",
+    LON: "-4.8150",
+    TownLogisticsProfile: {
+      cluster_type: "Hillside_Gated",
+      logistics: {
+        security_gate_clearance: true,
+        vehicle_width_limit_meters: null,
+        parking_risk_level: "Low",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 6, // Inferred default
+      },
+      content_injects: {
+        provider_warning:
+          "Hillside access roads are winding and may require security clearance at the main gate.",
+        customer_reassurance:
+          "CostaTrades specialists are familiar with El Rosario security protocols.",
+      },
+    },
+  },
 ];
 
 const RELATED_AREAS_BY_CLUSTER: Record<string, SubArea[]> = {
