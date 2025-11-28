@@ -1252,6 +1252,34 @@ const LOCATION_CONFIG: LocationData[] = [
       },
     },
   },
+  {
+    REGION_NAME: "Benalmadena Area",
+    region_slug: "benalmadena-area",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.5972",
+    LON: "-4.5203",
+    TownLogisticsProfile: {
+      cluster_type: "Coastal_Residential",
+      logistics: {
+        security_gate_clearance: false,
+        vehicle_width_limit_meters: null,
+        parking_risk_level: "High",
+        low_emission_zone_active: true,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 7,
+      },
+      content_injects: {
+        provider_warning:
+          "Coastal roads and marina areas can be heavily congested during summer months.",
+        customer_reassurance:
+          "CostaTrades specialists allow extra travel time for coastal routes.",
+      },
+    },
+  },
 ];
 
 const RELATED_AREAS_BY_CLUSTER: Record<string, SubArea[]> = {
