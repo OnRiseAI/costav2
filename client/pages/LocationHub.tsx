@@ -1646,6 +1646,26 @@ export default function LocationHub() {
         </div>
       </section>
 
+      {isBanActive && (
+        <section className="py-8 bg-amber-50 border-y border-amber-200">
+          <div className="container-custom">
+            <div className="flex items-start gap-4 max-w-4xl mx-auto">
+              <AlertTriangle className="w-6 h-6 text-amber-600 flex-shrink-0" />
+              <div>
+                <h3 className="font-bold text-amber-800 mb-1">
+                  Seasonal Construction Restriction
+                </h3>
+                <p className="text-amber-700">
+                  Heavy construction and noise-generating work is restricted in{" "}
+                  {displayData.REGION_NAME} during{" "}
+                  {TownLogisticsProfile.seasonality.ban_months.join(" & ")}.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {relatedAreas.length > 0 && (
         <section className="py-16 bg-gray-50">
           <div className="container-custom">
