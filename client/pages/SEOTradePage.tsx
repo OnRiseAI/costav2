@@ -282,9 +282,9 @@ export default function SEOTradePage() {
                 Verified {tradeName} in {locationName}
               </h1>
               <p className="text-lg text-gray-200 mb-8 max-w-2xl font-light">
-                Hire vetted {tradeName.toLowerCase()} in{" "}
-                {locationName} for planned work, improvements and maintenance
-                with clear pricing and communication.
+                Hire vetted {tradeName.toLowerCase()} in {locationName} for
+                planned work, improvements and maintenance with clear pricing
+                and communication.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to={`/post-job?location=${locationSlug || ""}`}>
