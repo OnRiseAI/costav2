@@ -196,8 +196,8 @@ export default function SEOTradePage() {
     return (
       <div className="min-h-screen bg-white font-sans">
         <SEO
-          title={`Verified ${tradeName} Specialists in ${locationName} | CostaTrades`}
-          description={`Find vetted, insured, and local ${tradeName.toLowerCase()} specialists in ${locationName}. Compare quotes and see 2025 price guides.`}
+          title={`Verified ${tradeName} in ${locationName} | CostaTrades`}
+          description={`Find vetted, insured, and local ${tradeName.toLowerCase()} in ${locationName}. Compare quotes and see 2025 price guides.`}
           schema={{
             "@context": "https://schema.org",
             "@graph": [
@@ -279,10 +279,10 @@ export default function SEOTradePage() {
                 </span>
               </div>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-                Verified {tradeName} Specialists in {locationName}
+                Verified {tradeName} in {locationName}
               </h1>
               <p className="text-lg text-gray-200 mb-8 max-w-2xl font-light">
-                Hire vetted {tradeName.toLowerCase()} specialists in{" "}
+                Hire vetted {tradeName.toLowerCase()} in{" "}
                 {locationName} for planned work, improvements and maintenance
                 with clear pricing and communication.
               </p>
