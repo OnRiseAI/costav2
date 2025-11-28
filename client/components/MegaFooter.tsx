@@ -59,16 +59,16 @@ export function MegaFooter() {
       ],
     },
     {
-    	  title: "LOCAL AREAS",
-    	  links: [
-    	    { name: "Puerto Banus", href: "/locations/puerto-banus" },
-    	    { name: "Nueva Andalucia", href: "/locations/nueva-andalucia" },
-    	    { name: "San Pedro", href: "/locations/san-pedro" },
-    	    { name: "La Cala", href: "/locations/la-cala-de-mijas" },
-    	    { name: "Calahonda", href: "/locations/calahonda" },
-    	    { name: "Elviria", href: "/locations/elviria" },
-    	  ],
-    	},
+      title: "LOCAL AREAS",
+      links: [
+        { name: "Puerto Banus", href: "/locations/puerto-banus" },
+        { name: "Nueva Andalucia", href: "/locations/nueva-andalucia" },
+        { name: "San Pedro", href: "/locations/san-pedro" },
+        { name: "La Cala", href: "/locations/la-cala-de-mijas" },
+        { name: "Calahonda", href: "/locations/calahonda" },
+        { name: "Elviria", href: "/locations/elviria" },
+      ],
+    },
     {
       title: "URGENT HELP",
       links: [
