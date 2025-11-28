@@ -1,62 +1,95 @@
-let urls = [];
-  const today = new Date().toISOString().split("T")[0];
+import 'dotenv/config';
+import { createClient } from '@supabase/supabase-js';
+import fs from 'fs';
+import path from 'path';
 
-  // 2. Add Static Pages
-  const staticPaths = [
-    "/", "/home", "/how-it-works", "/verification-promise", "/why-us", 
-    "/faq", "/cost-guides", "/holiday-homes", "/landlords", "/about", 
-    "/contact", "/blog", "/join-as-tradesperson", "/login", "/post-job"
-  ];
+// --- CONFIGURATION ---
+const SUPABASE_URL = process.env.SUPABASE_URL;
+const SUPABASE_KEY = process.env.SUPABASE_ANON_KEY;
+const DOMAIN = 'https://www.costatrades.com';
 
-  staticPaths.forEach(p => {
-    urls.push({ 
-        loc: `${DOMAIN}${p}`, 
-        lastmod: today,
-        priority: '1.0' 
-    });
-  });
+if (!SUPABASE_URL || !SUPABASE_KEY) {
+  console.error('❌ Missing Supabase Keys in .env file.');
+  process.exit(1);
+}
 
-  // 3. Add Tier 1 & Tier 2 Pages (Hub Pages)
-  locations.forEach(loc => {
-    urls.push({
-      loc: `${DOMAIN}/locations/${loc.slug}`,
-      lastmod: today,
-      priority: '0.9'
-    });
-  });
+const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
-  // 4. Add Tier 3 Pages (Service Pages)
-  locations.forEach(loc => {
-    trades.forEach(trade => {
-      urls.push({
-        loc: `${DOMAIN}/locations/${loc.slug}/${trade.service_slug}`,
-        lastmod: today,
-        priority: '0.8'
-      });
-    });
-  });
+async function generateSitemap() {
+  console.log('🗺️  Fetching data from Supabase...');
 
-  // 5. Build XML String
-  const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map(u => `  <url>
-    <loc>${u.loc}</loc>
-    <lastmod>${u.lastmod}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>${u.priority}</priority>
-  </url>`).join('\n')}
-</urlset>`;
+  // Only fetch the minimal fields to avoid extra data
+  const { data: locations, error: locError } = await supabase
+    .from('location_profiles')
+    .select('slug');
 
-  // 6. Write to File
-  const outputPath = path.resolve('public', 'sitemap.xml'); 
-  
-  try {
-    fs.writeFileSync(outputPath, sitemapContent);
-    console.log(`✅ Sitemap generated with ${urls.length} URLs!`);
-    console.log(`📂 Saved to: ${outputPath}`);
-  } catch (err) {
-    console.error("❌ Could not save file. Make sure a 'public' folder exists.", err);
-  }
+  const { data: trades, error: tradeError } = await supabase
+    .from('trade_profiles')
+    .select('service_slug');
+
+  if (locError || tradeError) {
+    console.error('❌ Database Error:', locError || tradeError);
+    return;
+  }
+
+  const today = new Date().toISOString().split('T')[0];
+  const urls = [];
+
+  // Static pages
+  const staticPaths = [
+    '/',
+    '/home',
+    '/how-it-works',
+    '/verification-promise',
+    '/why-us',
+    '/faq',
+    '/cost-guides',
+    '/holiday-homes',
+    '/landlords',
+    '/about',
+    '/contact',
+    '/blog',
+    '/join-as-tradesperson',
+    '/login',
+    '/post-job'
+  ];
+
+  staticPaths.forEach((p) => {
+    urls.push({ loc: `${DOMAIN}${p}`, lastmod: today, priority: '1.0' });
+  });
+
+  // Locations (hub pages)
+  locations.forEach((loc) => {
+    urls.push({ loc: `${DOMAIN}/locations/${loc.slug}`, lastmod: today, priority: '0.9' });
+  });
+
+  // Location + service pages
+  locations.forEach((loc) => {
+    trades.forEach((trade) => {
+      urls.push({
+        loc: `${DOMAIN}/locations/${loc.slug}/${trade.service_slug}`,
+        lastmod: today,
+        priority: '0.8'
+      });
+    });
+  });
+
+  const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
+    .map(
+      (u) =>
+        `  <url>\n    <loc>${u.loc}</loc>\n    <lastmod>${u.lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>${u.priority}</priority>\n  </url>`
+    )
+    .join('\n')}\n</urlset>`;
+
+  const outputPath = path.resolve('public', 'sitemap.xml');
+
+  try {
+    fs.writeFileSync(outputPath, sitemapContent, 'utf8');
+    console.log(`✅ Sitemap generated with ${urls.length} URLs!`);
+    console.log(`📂 Saved to: ${outputPath}`);
+  } catch (err) {
+    console.error("❌ Could not save file. Make sure a 'public' folder exists.", err);
+  }
 }
 
 generateSitemap();
