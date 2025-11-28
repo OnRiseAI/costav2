@@ -164,6 +164,7 @@ const LOCATION_CONFIG: LocationData[] = [
       { name: "San Pedro", slug: "san-pedro" },
       { name: "Elviria", slug: "elviria" },
       { name: "Las Chapas", slug: "las-chapas" },
+      { name: "El Rosario", slug: "el-rosario" },
     ],
     LAT: "36.5099",
     LON: "-4.8858",
