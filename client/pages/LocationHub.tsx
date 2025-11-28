@@ -1522,18 +1522,28 @@ export default function LocationHub() {
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { title: "Emergency Plumber", slug: "emergency-plumber", icon: Droplets },
-              { title: "Emergency Electrician", slug: "emergency-electrician", icon: Zap },
-              { title: "Emergency Locksmith", slug: "emergency-locksmith", icon: Key },
+              {
+                title: "Emergency Plumber",
+                slug: "emergency-plumber",
+                icon: Droplets,
+              },
+              {
+                title: "Emergency Electrician",
+                slug: "emergency-electrician",
+                icon: Zap,
+              },
+              {
+                title: "Emergency Locksmith",
+                slug: "emergency-locksmith",
+                icon: Key,
+              },
             ].map((item) => (
               <Link
                 key={item.title}
                 to={`/locations/${displayData.region_slug}/${item.slug}`}
                 className="block"
               >
-                <Card
-                  className="p-6 border border-red-200 shadow-sm hover:shadow-md transition-all bg-white h-full relative overflow-hidden group"
-                >
+                <Card className="p-6 border border-red-200 shadow-sm hover:shadow-md transition-all bg-white h-full relative overflow-hidden group">
                   <div className="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
                     24/7
                   </div>
