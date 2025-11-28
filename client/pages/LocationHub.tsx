@@ -1386,6 +1386,32 @@ const LOCATION_CONFIG: LocationData[] = [
       },
     },
   },
+  {
+    REGION_NAME: "La Carihuela",
+    region_slug: "la-carihuela",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.6167",
+    LON: "-4.5050",
+    TownLogisticsProfile: {
+      cluster_type: "Coastal_Mixed",
+      logistics: {
+        security_gate_clearance: false,
+        vehicle_width_limit_meters: 2.0,
+        parking_risk_level: "High",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 6, // Inferred default
+      },
+      content_injects: {
+        provider_warning: "Extremely narrow beachfront streets.",
+        customer_reassurance: "Small vans assigned for tight access.",
+      },
+    },
+  },
 ];
 
 const RELATED_AREAS_BY_CLUSTER: Record<string, SubArea[]> = {
