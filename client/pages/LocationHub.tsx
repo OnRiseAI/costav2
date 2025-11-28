@@ -1440,21 +1440,23 @@ export default function LocationHub() {
         schema={schemaData}
       />
 
-      <section className="relative py-20 md:py-28 bg-[#0a1f44] text-white overflow-hidden">
+      <section className="relative py-24 md:py-32 overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-slate-900/85" />
+
         <div className="container-custom relative z-10">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Find Verified Specialists in {displayData.REGION_NAME}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white">
+              Find Verified Specialists in {displayData.REGION_NAME}.
             </h1>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl font-light">
-              Hire ID-verified plumbers, electricians, builders, handymen, and
-              home specialists across {displayData.REGION_NAME}. Every
-              specialist is insured, background-checked, and reviewed.
+            <p className="text-xl text-gray-300 mb-8 max-w-2xl font-light">
+              The trusted network for {displayData.REGION_NAME} homeowners.
             </p>
-            <Link to={`/post-job/results?area=${displayData.region_slug}`}>
+            <Link to={`/post-job?location=${displayData.region_slug}`}>
               <Button
                 size="lg"
-                className="bg-[#E31E24] hover:bg-[#C41218] text-white h-14 px-8 text-lg font-bold rounded-full shadow-lg hover:shadow-xl transition-all"
+                className="bg-[#E31E24] hover:bg-[#C41218] text-white h-14 px-8 text-lg font-bold rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5"
               >
                 Post a Job in {displayData.REGION_NAME}
               </Button>
@@ -1501,7 +1503,7 @@ export default function LocationHub() {
               <Link
                 key={cat.slug}
                 to={`/locations/${displayData.region_slug}/${cat.slug}`}
-                className="flex flex-col items-center p-6 rounded-xl border border-gray-100 hover:border-blue-100 hover:shadow-md transition-all text-center group bg-white"
+                className="flex flex-col items-center p-6 rounded-xl border border-gray-100 bg-white shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
               >
                 <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mb-3 group-hover:bg-[#0a1f44] group-hover:text-white transition-colors">
                   <cat.icon className="w-6 h-6" />
@@ -1513,18 +1515,61 @@ export default function LocationHub() {
         </div>
       </section>
 
+      <section className="py-16 bg-red-50">
+        <div className="container-custom">
+          <h2 className="text-3xl font-bold text-[#0a1f44] mb-8">
+            Emergency Help in {displayData.REGION_NAME}
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { title: "Emergency Plumber", slug: "emergency-plumber", icon: Droplets },
+              { title: "Emergency Electrician", slug: "emergency-electrician", icon: Zap },
+              { title: "Emergency Locksmith", slug: "emergency-locksmith", icon: Key },
+            ].map((item) => (
+              <Link
+                key={item.title}
+                to={`/locations/${displayData.region_slug}/${item.slug}`}
+                className="block"
+              >
+                <Card
+                  className="p-6 border border-red-200 shadow-sm hover:shadow-md transition-all bg-white h-full relative overflow-hidden group"
+                >
+                  <div className="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+                    24/7
+                  </div>
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 bg-red-50 text-red-600 rounded-full flex items-center justify-center group-hover:bg-red-600 group-hover:text-white transition-colors">
+                      <item.icon className="w-6 h-6" />
+                    </div>
+                    <h3 className="font-bold text-lg text-[#0a1f44]">
+                      {item.title}
+                    </h3>
+                  </div>
+                  <p className="text-gray-600 font-medium flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-500" />
+                    Available 24/7 - Verified - Fast Response
+                  </p>
+                </Card>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="py-16 bg-gray-50">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+          <div className="max-w-4xl mx-auto bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-gray-100">
             <h2 className="text-2xl font-bold text-[#0a1f44] mb-6 flex items-center gap-3">
-              <AlertTriangle className="w-6 h-6 text-amber-500" />
-              Local Home Issues in {displayData.REGION_NAME}
+              <AlertTriangle className="w-6 h-6 text-blue-600" />
+              Community Insights: {displayData.REGION_NAME}
             </h2>
             <ul className="space-y-4">
               {TownLogisticsProfile.logistics.vehicle_width_limit_meters !==
                 null && (
                 <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2.5 flex-shrink-0" />
+                  <div className="w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle className="w-4 h-4 text-blue-600" />
+                  </div>
                   <span className="text-gray-700">
                     Vehicle width limit of{" "}
                     {TownLogisticsProfile.logistics.vehicle_width_limit_meters}{" "}
@@ -1534,7 +1579,9 @@ export default function LocationHub() {
               )}
               {TownLogisticsProfile.logistics.parking_risk_level && (
                 <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2.5 flex-shrink-0" />
+                  <div className="w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle className="w-4 h-4 text-blue-600" />
+                  </div>
                   <span className="text-gray-700">
                     Parking risk level is{" "}
                     {TownLogisticsProfile.logistics.parking_risk_level}.
@@ -1543,7 +1590,9 @@ export default function LocationHub() {
               )}
               {TownLogisticsProfile.logistics.low_emission_zone_active && (
                 <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2.5 flex-shrink-0" />
+                  <div className="w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle className="w-4 h-4 text-blue-600" />
+                  </div>
                   <span className="text-gray-700">
                     Low emission zone rules apply in parts of this region.
                   </span>
@@ -1551,7 +1600,9 @@ export default function LocationHub() {
               )}
               {TownLogisticsProfile.content_injects.provider_warning && (
                 <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2.5 flex-shrink-0" />
+                  <div className="w-6 h-6 rounded-full bg-amber-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <AlertTriangle className="w-4 h-4 text-amber-600" />
+                  </div>
                   <span className="text-gray-700 font-medium text-amber-700">
                     {TownLogisticsProfile.content_injects.provider_warning}
                   </span>
@@ -1559,14 +1610,18 @@ export default function LocationHub() {
               )}
               {TownLogisticsProfile.content_injects.customer_reassurance && (
                 <li className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2.5 flex-shrink-0" />
+                  <div className="w-6 h-6 rounded-full bg-green-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle className="w-4 h-4 text-green-600" />
+                  </div>
                   <span className="text-gray-700 font-medium text-green-700">
                     {TownLogisticsProfile.content_injects.customer_reassurance}
                   </span>
                 </li>
               )}
               <li className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2.5 flex-shrink-0" />
+                <div className="w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <CheckCircle className="w-4 h-4 text-blue-600" />
+                </div>
                 <span className="text-gray-700">
                   {TownLogisticsProfile.seasonality.summer_construction_ban &&
                   hasBanMonths
@@ -1577,7 +1632,9 @@ export default function LocationHub() {
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2.5 flex-shrink-0" />
+                <div className="w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <CheckCircle className="w-4 h-4 text-blue-600" />
+                </div>
                 <span className="text-gray-700">
                   Noise sensitivity in this area is rated{" "}
                   {TownLogisticsProfile.seasonality.noise_sensitivity_score}/10,
@@ -1585,59 +1642,6 @@ export default function LocationHub() {
                 </span>
               </li>
             </ul>
-          </div>
-        </div>
-      </section>
-
-      {isBanActive && (
-        <section className="py-8 bg-amber-50 border-y border-amber-200">
-          <div className="container-custom">
-            <div className="flex items-start gap-4 max-w-4xl mx-auto">
-              <AlertTriangle className="w-6 h-6 text-amber-600 flex-shrink-0" />
-              <div>
-                <h3 className="font-bold text-amber-800 mb-1">
-                  Seasonal Construction Restriction
-                </h3>
-                <p className="text-amber-700">
-                  Heavy construction and noise-generating work is restricted in{" "}
-                  {displayData.REGION_NAME} during{" "}
-                  {TownLogisticsProfile.seasonality.ban_months.join(" & ")}.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
-      <section className="py-16 bg-white">
-        <div className="container-custom">
-          <h2 className="text-3xl font-bold text-[#0a1f44] mb-8">
-            Emergency Help in {displayData.REGION_NAME}
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { title: "Emergency Plumber", icon: Droplets },
-              { title: "Emergency Electrician", icon: Zap },
-              { title: "Emergency Locksmith", icon: Key },
-            ].map((item) => (
-              <Card
-                key={item.title}
-                className="p-6 border-l-4 border-l-red-500 shadow-sm hover:shadow-md transition-shadow"
-              >
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 bg-red-50 text-red-600 rounded-full flex items-center justify-center">
-                    <item.icon className="w-6 h-6" />
-                  </div>
-                  <h3 className="font-bold text-lg text-[#0a1f44]">
-                    {item.title}
-                  </h3>
-                </div>
-                <p className="text-gray-600 font-medium flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500" />
-                  Available 24/7 - Verified - Fast Response
-                </p>
-              </Card>
-            ))}
           </div>
         </div>
       </section>
