@@ -1359,6 +1359,33 @@ const LOCATION_CONFIG: LocationData[] = [
       },
     },
   },
+  {
+    REGION_NAME: "Torremolinos",
+    region_slug: "torremolinos",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.6206",
+    LON: "-4.4996",
+    TownLogisticsProfile: {
+      cluster_type: "Coastal_Mixed",
+      logistics: {
+        security_gate_clearance: false,
+        vehicle_width_limit_meters: null,
+        parking_risk_level: "High",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 6, // Inferred default
+      },
+      content_injects: {
+        provider_warning: "Busy tourist zones with pedestrian restrictions.",
+        customer_reassurance:
+          "We schedule visits to avoid peak pedestrian hours.",
+      },
+    },
+  },
 ];
 
 const RELATED_AREAS_BY_CLUSTER: Record<string, SubArea[]> = {
