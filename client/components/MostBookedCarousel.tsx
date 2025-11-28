@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export function MostBookedCarousel() {
   const bookedServices = [
     {
-      category: "Pool Maintenance",
+      category: "Pool Services",
       tag: "Popular this month",
       subtext: "Frequently booked in Marbella and Mijas",
       imageUrl:
@@ -28,7 +28,7 @@ export function MostBookedCarousel() {
       bgColor: "bg-yellow-50",
     },
     {
-      category: "Air Conditioning",
+      category: "Air Con",
       tag: "Trending",
       subtext: "Seasonal demand across the Costa del Sol",
       imageUrl:

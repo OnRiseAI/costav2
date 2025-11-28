@@ -26,7 +26,8 @@ type TradespersonApplication = {
   businessName?: string;
   website?: string;
   postcode?: string;
-  selectedAreas?: string[];
+  mainTown?: string;
+  radius?: string;
   yearsInBusiness?: string;
   businessType?: string;
   employeeRange?: string;
@@ -121,7 +122,7 @@ export default function TradespersonReview() {
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
       <SEO
-        title="Review & Submit Application | CostaTrades for Pros"
+        title="Submit Application | CostaTrades"
         description="Check your trade, business and contact details before submitting your specialist application to CostaTrades."
       />
       <TradespersonProgress currentStep={3} />
@@ -350,7 +351,7 @@ export default function TradespersonReview() {
                   </h2>
                 </div>
                 <div className="space-y-2">
-                  <div className="flex flex-col gap-1 border-b border-gray-50 pb-3">
+                  <div className="flex justify-between border-b border-gray-50 pb-2">
                     <span className="text-sm text-muted-foreground">
                       Postcode
                     </span>
@@ -358,27 +359,21 @@ export default function TradespersonReview() {
                       {formatValue(application?.postcode)}
                     </span>
                   </div>
-                  <div className="flex flex-col gap-1 pt-1">
+                  <div className="flex justify-between border-b border-gray-50 pb-2">
                     <span className="text-sm text-muted-foreground">
-                      Areas covered
+                      Main town
                     </span>
-                    <div className="flex flex-wrap gap-1.5 mt-1">
-                      {application?.selectedAreas &&
-                      application.selectedAreas.length > 0 ? (
-                        application.selectedAreas.map((area) => (
-                          <span
-                            key={area}
-                            className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
-                          >
-                            {area}
-                          </span>
-                        ))
-                      ) : (
-                        <span className="text-sm font-medium text-gray-900">
-                          Not provided
-                        </span>
-                      )}
-                    </div>
+                    <span className="text-sm font-medium text-gray-900">
+                      {formatValue(application?.mainTown)}
+                    </span>
+                  </div>
+                  <div className="flex justify-between pt-1">
+                    <span className="text-sm text-muted-foreground">
+                      Service radius
+                    </span>
+                    <span className="text-sm font-medium text-gray-900">
+                      {formatValue(application?.radius)}
+                    </span>
                   </div>
                 </div>
               </div>

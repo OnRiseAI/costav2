@@ -25,7 +25,7 @@ export function MegaFooter() {
         },
         { name: "AC Repair in Marbella", href: "/trades/ac-repair/marbella" },
         { name: "Builders in Marbella", href: "/trades/builder/marbella" },
-        { name: "Pool Maintenance", href: "/trades/pool-maintenance/marbella" },
+        { name: "Pool Services", href: "/trades/pool-maintenance/marbella" },
         { name: "Painters", href: "/trades/painter/marbella" },
         { name: "Locksmiths", href: "/trades/locksmith/marbella" },
         { name: "Handyman", href: "/trades/handyman/marbella" },
@@ -61,12 +61,12 @@ export function MegaFooter() {
     {
       title: "LOCAL AREAS",
       links: [
-        { name: "Puerto Banus", href: "/trades/plumber/puerto-banus" },
-        { name: "Nueva Andalucia", href: "/trades/plumber/nueva-andalucia" },
-        { name: "San Pedro", href: "/trades/plumber/san-pedro" },
-        { name: "La Cala", href: "/trades/plumber/la-cala" },
-        { name: "Calahonda", href: "/trades/plumber/calahonda" },
-        { name: "Elviria", href: "/trades/plumber/elviria" },
+        { name: "Puerto Banus", href: "/locations/puerto-banus" },
+        { name: "Nueva Andalucia", href: "/locations/nueva-andalucia" },
+        { name: "San Pedro", href: "/locations/san-pedro" },
+        { name: "La Cala", href: "/locations/la-cala-de-mijas" },
+        { name: "Calahonda", href: "/locations/calahonda" },
+        { name: "Elviria", href: "/locations/elviria" },
       ],
     },
     {

@@ -3,6 +3,8 @@ import { useEffect } from "react";
 interface SEOProps {
   title: string;
   description: string;
+  image?: string;
+  url?: string;
   schema?: object | string;
 }
 
@@ -16,21 +18,63 @@ function slugify(str: string) {
     .replace(/-+/g, "-");
 }
 
-export function SEO({ title, description, schema }: SEOProps) {
+function upsertMeta(
+  attribute: "name" | "property",
+  attributeValue: string,
+  content: string,
+) {
+  const selector = `meta[${attribute}="${attributeValue}"]`;
+  let element = document.querySelector(selector) as HTMLMetaElement | null;
+
+  if (!element) {
+    element = document.createElement("meta");
+    element.setAttribute(attribute, attributeValue);
+    document.head.appendChild(element);
+  }
+
+  element.setAttribute("content", content);
+}
+
+export function SEO({ title, description, image, url, schema }: SEOProps) {
   useEffect(() => {
-    // Update Title
+    if (typeof document === "undefined") return;
+
+    const canonical = url || window.location.href;
+    const ogImage = image || "/og-default.jpg";
+
     document.title = title;
-
-    // Update Meta Description
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement("meta");
-      metaDescription.setAttribute("name", "description");
-      document.head.appendChild(metaDescription);
+    const MAX_META = 155;
+    const truncatedDescription =
+      description && description.length > MAX_META
+        ? description.slice(0, MAX_META)
+        : description;
+    if (description && description.length > MAX_META) {
+      // eslint-disable-next-line no-console
+      console.warn(
+        `Meta description exceeded ${MAX_META} characters and was truncated.`,
+      );
     }
-    metaDescription.setAttribute("content", description);
+    upsertMeta("name", "description", truncatedDescription);
 
-    // Update JSON-LD Schema: create a uniquely identifiable script element per page
+    let linkCanonical = document.querySelector('link[rel="canonical"]');
+    if (!linkCanonical) {
+      linkCanonical = document.createElement("link");
+      linkCanonical.setAttribute("rel", "canonical");
+      document.head.appendChild(linkCanonical);
+    }
+    linkCanonical.setAttribute("href", canonical);
+
+    upsertMeta("property", "og:title", title);
+    upsertMeta("property", "og:description", description);
+    upsertMeta("property", "og:url", canonical);
+    upsertMeta("property", "og:type", "website");
+    upsertMeta("property", "og:image", ogImage);
+
+    upsertMeta("name", "twitter:card", "summary_large_image");
+    upsertMeta("name", "twitter:title", title);
+    upsertMeta("name", "twitter:description", description);
+    upsertMeta("name", "twitter:image", ogImage);
+
     if (schema) {
       try {
         const id = `ld-json-${slugify(title)}`;
@@ -46,16 +90,11 @@ export function SEO({ title, description, schema }: SEOProps) {
           typeof schema === "string" ? schema : JSON.stringify(schema);
         script.textContent = schemaContent;
       } catch (e) {
-        // If serialization fails, write a single JSON-LD to console for debugging
-        // but don't block rendering.
         // eslint-disable-next-line no-console
         console.warn("Failed to set JSON-LD schema", e);
       }
     }
-
-    // Note: we intentionally do not remove the script on unmount so that search bots
-    // crawling may still find the last applied schema if they land on the page.
-  }, [title, description, schema]);
+  }, [title, description, image, url, schema]);
 
   return null;
 }

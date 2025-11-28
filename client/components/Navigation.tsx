@@ -66,32 +66,15 @@ export function Navigation() {
                 )}
               </button>
               <Link to="/" className="hidden md:flex items-center">
-                <svg
-                  className="w-[48px] h-[48px]"
-                  viewBox="0 0 1024 1024"
-                  fill="none"
-                >
-                  <rect width="1024" height="1024" rx="226" fill="#1e40af" />
-                  <text
-                    x="512"
-                    y="560"
-                    fontFamily="Arial, sans-serif"
-                    fontSize="400"
-                    fontWeight="900"
-                    fill="white"
-                    textAnchor="middle"
-                    letterSpacing="-20"
-                  >
-                    CT
-                  </text>
-                  <path
-                    d="M 320 700 Q 420 680, 512 700 T 704 700"
-                    stroke="#f97316"
-                    strokeWidth="32"
-                    fill="none"
-                    strokeLinecap="round"
-                  />
-                </svg>
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2F688e3adc2cd64e55bc8c864b62a74a4a?format=webp&width=128"
+                  alt="CostaTrades logo"
+                  className="w-[48px] h-[48px] rounded-2xl"
+                  width="48"
+                  height="48"
+                  loading="eager"
+                  decoding="async"
+                />
               </Link>
             </div>
 

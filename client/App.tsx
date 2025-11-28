@@ -35,29 +35,40 @@ import HolidayHomesPage from "@/pages/HolidayHomesPage";
 import LandlordsPage from "@/pages/LandlordsPage";
 import SEOTradePage from "@/pages/SEOTradePage";
 import { CookieConsent } from "@/components/CookieConsent";
-import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import PlaceholderPage from "@/pages/PlaceholderPage";
 import ReviewTrade from "@/pages/ReviewTrade";
 import NotFound from "@/pages/NotFound";
 import SignupPage from "@/pages/SignupPage";
+import LocationHub from "@/pages/LocationHub";
 import "./global.css";
 
 function AppContent() {
+  console.log("AppContent rendering...");
   return (
     <>
       <ScrollToTop />
-      <GoogleAnalytics />
       <div className="flex flex-col min-h-screen">
         <Navigation />
         <main className="flex-1">
           <Routes>
             {/* Homepage */}
             <Route path="/" element={<Index />} />
-            <Route path="/home" element={<Index />} />
 
-            {/* SEO Trade Pages */}
+            {/* SEO Trade & Service Pages */}
             <Route path="/trades/:trade/:location" element={<SEOTradePage />} />
+            <Route
+              path="/locations/:location/emergency-:service"
+              element={<SEOTradePage />}
+            />
+            <Route
+              path="/locations/:location/:trade"
+              element={<SEOTradePage />}
+            />
             <Route path="/seo-template" element={<SEOTradePage />} />
+
+            {/* Location Hub - Regions & Sub-Regions */}
+            <Route path="/areas/:region" element={<LocationHub />} />
+            <Route path="/locations/:location" element={<LocationHub />} />
 
             {/* Trade Category Pages */}
             <Route path="/trades/:category" element={<TradeCategory />} />

@@ -663,7 +663,7 @@ export function CustomerDashboard() {
   return (
     <div className="min-h-screen bg-[#F9F9F9] font-sans pb-20">
       <SEO
-        title="My Dashboard | Manage Projects & Proposals"
+        title="My Dashboard | Manage Projects"
         description="Manage your home renovations, view proposals in your language, and message professionals directly. Control your projects from one secure dashboard."
       />
       {/* Mobile Header */}

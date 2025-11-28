@@ -10,12 +10,526 @@ import {
   CheckCircle2,
   Quote,
   ArrowRight,
+  AlertTriangle,
+  Droplets,
+  ArrowUpFromLine,
+  CloudRain,
+  FileText,
 } from "lucide-react";
 
 // Mock data for all blog posts
 const blogPosts = {
+  "stop-damp-mold-spain": {
+    title: "Stop Damp & Mold Spain: The 2025 Guide",
+    metaDescription:
+      "Damp or Mold in your Spanish villa? Diagnose Condensation vs. Rising Damp. See 2025 repair costs, chemical injection prices & legal rights.",
+    category: "Maintenance",
+    author: "Carlos Rodriguez",
+    authorRole: "Senior Surveyor",
+    date: "Nov 26, 2025",
+    readTime: "12 min read",
+    image:
+      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2940&auto=format&fit=crop",
+    keyTakeaways: [
+      "90% of mold on the Costa del Sol is Condensation caused by thermal bridging in uninsulated Spanish construction.",
+      "If you see white salts (Salitre) below 1 metre, you have Rising Damp—not condensation.",
+      "Bleach feeds mold by adding water; use fungicidal wash instead.",
+      "Structural damp from façades or foundations is the Community's responsibility under LPH law.",
+    ],
+    content: (
+      <>
+        {/* AEO Snippet */}
+        <div className="bg-blue-50 rounded-xl p-6 mb-8 border border-blue-100">
+          <h3 className="font-bold text-[#0a1f44] mb-2 text-lg">
+            Quick Verdict
+          </h3>
+          <p className="text-slate-700 leading-relaxed">
+            90% of mold issues on the Costa del Sol are{" "}
+            <strong>Condensation</strong> caused by 'Thermal Bridging' (lack of
+            insulation). However, if you see white salts (<em>Salitre</em>)
+            below 1 meter, you have <strong>Rising Damp</strong>. Bleach cleans
+            the mold, but only ventilation or DPC Injection cures the cause.
+          </p>
+        </div>
+
+        <p className="text-xl leading-relaxed text-slate-600 mb-8 font-sans font-light">
+          Damp is the silent destroyer of Spanish homes. Whether it's the black
+          spots in the bathroom or the peeling paint near the skirting boards,
+          ignoring it will only make it more expensive to fix.
+        </p>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6 text-2xl">
+          Step 1: Diagnosis – Condensation vs. Rising Damp
+        </h2>
+
+        <p className="mb-6 text-slate-700">
+          Before you spend a cent on treatments, you need to correctly identify
+          the type of damp. Misdiagnosis is common and expensive���many
+          homeowners spend thousands on DPC injection when the real problem is
+          simply condensation from poor ventilation.
+        </p>
+
+        <p className="mb-8 text-slate-700">
+          In Spanish construction (<em>Ladrillo</em>), lack of cavity wall
+          insulation creates <strong>'Thermal Bridges'</strong> (
+          <em>Puente Térmico</em>). This is why mold forms specifically on
+          concrete pillars and corners—these cold spots cause warm indoor air to
+          condense. Modern homes must follow the{" "}
+          <a
+            href="https://www.codigotecnico.org/pdf/Documentos/HS/DBHS.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            CTE Regulations
+          </a>{" "}
+          for ventilation, but older villas built before 2006 often lack these
+          essential airflow systems.
+        </p>
+
+        <div className="space-y-6 mb-12">
+          <div className="bg-slate-50 p-6 rounded-xl border-l-4 border-blue-500">
+            <h3 className="font-bold text-[#0a1f44] mb-3 text-lg">
+              1. Condensation (<em>Condensación</em>)
+            </h3>
+            <p className="text-slate-700 mb-3">
+              <strong>Visible Signs:</strong> Black mold spots on walls and
+              ceilings (especially in bathrooms and north-facing bedrooms),
+              steaming windows in the morning, musty odour, water droplets on
+              tiles and glass.
+            </p>
+            <p className="text-slate-700 mb-3">
+              <strong>The Science:</strong> Condensation forms when warm,
+              moisture-laden air meets a cold surface. Spanish homes with
+              single-glazed windows and uninsulated concrete frames create
+              perfect conditions. Every shower, every pot of boiling pasta, even
+              breathing, adds moisture to the air. If that moisture has nowhere
+              to escape, it settles on the coldest surfaces—typically exterior
+              walls and window frames.
+            </p>
+            <p className="text-slate-700">
+              <strong>Lifestyle Triggers:</strong> Drying clothes indoors,
+              running hot showers without ventilation, cooking without
+              extraction, or using portable gas heaters (which produce water
+              vapour as a by-product).
+            </p>
+          </div>
+
+          <div className="bg-slate-50 p-6 rounded-xl border-l-4 border-amber-500">
+            <h3 className="font-bold text-[#0a1f44] mb-3 text-lg">
+              2. Rising Damp (<em>Humedad por Capilaridad</em>)
+            </h3>
+            <p className="text-slate-700 mb-3">
+              <strong>Visible Signs:</strong> Horizontal tide marks typically up
+              to 1 metre high from floor level, peeling paint and crumbling
+              plaster near skirting boards, white crystalline salt deposits (
+              <em>salitre</em>), damp patches that worsen in wet weather but
+              never fully dry.
+            </p>
+            <p className="text-slate-700 mb-3">
+              <strong>The Science:</strong> Ground moisture rises through porous
+              building materials via capillary action—the same mechanism that
+              lets plants draw water upwards. Traditional Spanish bricks (
+              <em>ladrillo</em>) are particularly vulnerable because they were
+              often laid without an effective damp-proof course (DPC). As water
+              evaporates from the wall surface, it leaves behind mineral salts
+              which then attract more moisture, creating a vicious cycle.
+            </p>
+            <p className="text-slate-700">
+              <strong>Structural Cause:</strong> Failed or missing DPC
+              (horizontal waterproof barrier), high water table, defective
+              drainage around foundations, or breached membranes due to age.
+            </p>
+          </div>
+
+          <div className="bg-slate-50 p-6 rounded-xl border-l-4 border-red-500">
+            <h3 className="font-bold text-[#0a1f44] mb-3 text-lg">
+              3. Penetrating Damp (<em>Filtración</em>)
+            </h3>
+            <p className="text-slate-700 mb-3">
+              <strong>Visible Signs:</strong> Damp patches at any height on
+              walls (not just low down), staining that appears or worsens after
+              heavy rain, localised damage around windows, doors or roof
+              junctions, green algae growth on external walls.
+            </p>
+            <p className="text-slate-700 mb-3">
+              <strong>The Science:</strong> Unlike rising damp which is driven
+              by capillary action, penetrating damp is caused by water forcing
+              its way through defects in the building envelope. Spanish render (
+              <em>monocapa</em>) can crack over time due to thermal expansion,
+              creating pathways for rainwater to seep through.
+            </p>
+            <p className="text-slate-700">
+              <strong>Common Entry Points:</strong> Blocked or leaking gutters
+              and downpipes, cracked render or missing pointing, failed seals
+              around windows, damaged roof tiles, or poorly installed air
+              conditioning units.
+            </p>
+          </div>
+        </div>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6 text-2xl">
+          The Health Risk: Why Damp Isn't Just Cosmetic
+        </h2>
+
+        <p className="mb-4 text-slate-700">
+          Many homeowners treat mold as an aesthetic problem—an ugly stain to be
+          painted over. But prolonged exposure to damp conditions is a serious
+          health issue, particularly for children, elderly residents, and anyone
+          with existing respiratory conditions.
+        </p>
+
+        <p className="mb-6 text-slate-700">
+          According to the{" "}
+          <a
+            href="https://www.who.int/publications/i/item/9789289041683"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            WHO Guidelines for Indoor Air Quality
+          </a>
+          , persistent dampness is directly linked to increased risk of
+          respiratory infections, asthma, allergic rhinitis, and eczema. Mold
+          spores become airborne and are easily inhaled, triggering immune
+          responses even in otherwise healthy individuals.
+        </p>
+
+        <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-xl mb-8">
+          <h3 className="font-bold text-amber-900 mb-3 flex items-center gap-2">
+            <AlertTriangle className="w-5 h-5" />
+            Vulnerable Groups
+          </h3>
+          <ul className="space-y-2 text-slate-700 text-sm">
+            <li>
+              <strong>Infants and children:</strong> Developing immune systems
+              are more susceptible to mold-related illness.
+            </li>
+            <li>
+              <strong>Asthma sufferers:</strong> Mold spores are a known trigger
+              for asthma attacks and can worsen chronic symptoms.
+            </li>
+            <li>
+              <strong>Immunocompromised individuals:</strong> People undergoing
+              chemotherapy or with autoimmune conditions face higher infection
+              risk.
+            </li>
+            <li>
+              <strong>Elderly residents:</strong> Reduced lung capacity and
+              slower healing make older adults more vulnerable to complications.
+            </li>
+          </ul>
+        </div>
+
+        <p className="mb-8 text-slate-700">
+          If you or anyone in your household experiences persistent coughing,
+          wheezing, skin rashes, or frequent colds that improve when away from
+          the property, damp may be the underlying cause. In these cases,
+          treating the problem becomes a medical necessity, not just a
+          maintenance task.
+        </p>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6 text-2xl">
+          2025 Price Guide: Cost to Fix Damp in Malaga
+        </h2>
+
+        <div className="my-8 overflow-x-auto rounded-xl border border-slate-200 shadow-sm font-sans">
+          <table className="w-full text-left border-collapse">
+            <thead>
+              <tr className="bg-slate-50 border-b border-slate-200">
+                <th className="p-4 font-bold text-[#0a1f44]">Solution</th>
+                <th className="p-4 font-bold text-[#0a1f44]">Estimated Cost</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100 text-sm">
+              <tr className="even:bg-slate-50">
+                <td className="p-4 font-medium">Anti-Mold Painting</td>
+                <td className="p-4 text-slate-600">€12 - €18 / m��</td>
+              </tr>
+              <tr className="even:bg-slate-50">
+                <td className="p-4 font-medium">Dehumidifier Unit</td>
+                <td className="p-4 text-slate-600">€200 - €350</td>
+              </tr>
+              <tr className="even:bg-slate-50">
+                <td className="p-4 font-medium">Chemical Injection (DPC)</td>
+                <td className="p-4 text-slate-600">€80 - €120 / m</td>
+              </tr>
+              <tr className="even:bg-slate-50">
+                <td className="p-4 font-medium">Tanking (Waterproofing)</td>
+                <td className="p-4 text-slate-600">€60 - €100 / m²</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p className="mb-8 text-slate-600 text-sm">
+          <strong>Why do prices vary?</strong> Chemical injection (DPC) prices
+          depend heavily on wall thickness and accessibility. A standard 30 cm
+          brick wall requires significantly more fluid per linear metre than a
+          thin partition wall. Similarly, tanking costs fluctuate based on
+          whether the surface is smooth concrete or rough stone, and whether
+          scaffolding or basement access is required. Always request a site
+          visit for accurate pricing—quotes given over the phone are rarely
+          reliable.
+        </p>
+
+        {/* IN-CONTENT CTA */}
+        <div className="bg-slate-900 rounded-2xl p-8 my-12 text-center relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/20 rounded-full blur-3xl -mr-10 -mt-10"></div>
+          <div className="relative z-10">
+            <h3 className="text-2xl font-bold !text-white mb-3">
+              Need a professional opinion?
+            </h3>
+            <p className="!text-blue-100 mb-6">
+              Don't let mold spread. Get a free inspection from verified damp
+              proofing experts.
+            </p>
+            <Link to="/trades/builders">
+              <Button className="bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-6 rounded-xl text-lg">
+                Find Damp Proofing Experts{" "}
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6 text-2xl">
+          Who Pays? (Renters & Communities)
+        </h2>
+
+        <p className="mb-4 text-slate-700">
+          Damp problems in Spain are often complicated by legal questions of
+          responsibility—especially in rental properties and apartment
+          communities (<em>Comunidades de Propietarios</em>).
+        </p>
+
+        <h3 className="font-bold text-[#0a1f44] mb-3 text-lg">
+          Community of Owners (LPH)
+        </h3>
+        <p className="mb-6 text-slate-700">
+          Under the{" "}
+          <a
+            href="https://www.boe.es/buscar/act.php?id=BOE-A-1960-10906"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            Ley de Propiedad Horizontal
+          </a>{" "}
+          (Horizontal Property Law), structural damp originating from common
+          elements—such as the façade, foundations, or shared roofs—is the legal
+          responsibility of the <strong>Community of Owners</strong>, not
+          individual apartment owners. If rising damp is caused by a failed DPC
+          in the building's external walls, the community must approve and fund
+          the repair through shared fees (<em>cuotas</em>). However, damp caused
+          by internal issues within your unit (such as a leaking shower tray or
+          condensation from lack of ventilation) remains your responsibility.
+        </p>
+
+        <h3 className="font-bold text-[#0a1f44] mb-3 text-lg">
+          Rental Properties
+        </h3>
+        <p className="mb-8 text-slate-700">
+          Tenants are entitled to a habitable home free from structural defects.
+          If damp is caused by a building defect (failed waterproofing, broken
+          gutters, etc.), the <strong>landlord is responsible</strong> for the
+          repair. However, if the damp is caused by tenant behaviour—such as
+          refusing to ventilate, drying laundry indoors continuously, or
+          blocking air vents—the tenant may be liable. Document the issue with
+          photos and notify the landlord in writing (<em>burofax</em>) to
+          establish a paper trail.
+        </p>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6 text-2xl">
+          Case Study: Ground Floor Apartment in Calahonda
+        </h2>
+
+        <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 mb-8">
+          <h3 className="font-bold text-[#0a1f44] mb-3 text-lg">
+            Real-World Example
+          </h3>
+          <ul className="space-y-2 text-slate-800 text-sm mb-4">
+            <li>
+              <strong>Property:</strong> 2-bedroom ground-floor apartment, built
+              1998.
+            </li>
+            <li>
+              <strong>Problem:</strong> Persistent black mold behind wardrobes,
+              humidity readings of <strong>85%</strong> in the master bedroom,
+              musty smell throughout.
+            </li>
+            <li>
+              <strong>Initial Misdiagnosis:</strong> Owner was quoted €2,400 for
+              DPC injection by a "specialist" who never tested for rising damp.
+            </li>
+            <li>
+              <strong>Actual Cause:</strong> Condensation due to single-glazed
+              windows, no trickle vents, and concrete thermal bridging in
+              corners.
+            </li>
+          </ul>
+
+          <p className="text-slate-700 mb-3">
+            <strong>Solution Implemented:</strong>
+          </p>
+          <ul className="list-disc pl-5 space-y-1 text-slate-700 text-sm mb-4">
+            <li>Installed 3 trickle vents on bedroom windows (€180 total)</li>
+            <li>
+              Applied thermal ceramic paint (<em>Pintura Térmica</em>) to cold
+              corners (€220 for materials + labour)
+            </li>
+            <li>Purchased a small dehumidifier for the bedroom (€160)</li>
+          </ul>
+
+          <p className="text-slate-700 font-medium">
+            <strong>Result:</strong> Within 4 weeks, humidity dropped to{" "}
+            <strong>55%</strong>, mold stopped reappearing, and the musty smell
+            disappeared. <strong>Total cost: €560</strong>—a fraction of the
+            original quote.
+          </p>
+        </div>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-6 text-2xl">
+          3 Immediate DIY Fixes
+        </h2>
+        <p className="mb-6 text-slate-700">
+          While these steps won't cure structural damp, they can significantly
+          reduce condensation-related mold and buy you time while you arrange
+          professional assessment.
+        </p>
+
+        <ol className="list-decimal pl-5 space-y-6 marker:text-blue-500 text-slate-700">
+          <li>
+            <div>
+              <strong className="text-[#0a1f44] text-lg">
+                Improve Ventilation
+              </strong>
+              <p className="mt-2">
+                This is the single most effective DIY intervention for
+                condensation. Install <strong>trickle vents</strong> on window
+                frames to allow continuous background ventilation without losing
+                security or heat. For whole-house solutions, consider a{" "}
+                <strong>PIV (Positive Input Ventilation)</strong> unit installed
+                in the loft space, which gently pressurises the home with
+                filtered fresh air, forcing stale humid air out through natural
+                gaps. Cost: €150–€400 depending on system.
+              </p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong className="text-[#0a1f44] text-lg">
+                Use Fungicidal Wash (Not Bleach)
+              </strong>
+              <p className="mt-2 mb-3">
+                Many DIY guides recommend bleach, but this is problematic.
+                Bleach is mostly water—and water feeds mold. While it removes
+                surface staining temporarily, bleach cannot penetrate porous
+                materials like plaster or grout to kill the root structure (
+                <em>mycelium</em>). Within weeks, the mold returns.
+              </p>
+              <p className="mb-3">
+                <strong>Better solution:</strong> Use a proper{" "}
+                <strong>fungicidal wash</strong> (available at any{" "}
+                <em>ferretería</em> or DIY store). These contain biocides that
+                kill mold spores on contact and penetrate deeper into surfaces.
+                Apply with a spray bottle, leave for 15 minutes, then wipe
+                clean. Always wear gloves and ensure good ventilation.
+              </p>
+              <p className="text-sm text-slate-600">
+                <em>Important:</em> Fungicidal treatments only address the
+                symptom. If you don't fix the underlying moisture problem
+                (ventilation, leaks, thermal bridging), the mold will return.
+              </p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong className="text-[#0a1f44] text-lg">
+                Check and Clear Gutters
+              </strong>
+              <p className="mt-2">
+                Blocked gutters are one of the most common causes of penetrating
+                damp in Spanish homes. Leaves, pine needles, and dirt accumulate
+                quickly, especially after autumn storms. When gutters overflow,
+                water cascades down the façade, saturating render and eventually
+                penetrating through cracks. Inspect your gutters twice a
+                year—ideally before and after the rainy season—and clear any
+                debris. Check that downpipes are securely connected and
+                discharging water away from the building's foundations, not
+                straight into the ground next to the wall.
+              </p>
+            </div>
+          </li>
+        </ol>
+
+        <div className="bg-blue-50 rounded-xl p-6 mt-8 border border-blue-100">
+          <h3 className="font-bold text-[#0a1f44] mb-2">
+            When DIY Isn't Enough
+          </h3>
+          <p className="text-slate-700">
+            If you've tried ventilation improvements and the mold keeps coming
+            back, or if you see signs of rising damp (tide marks, salt
+            deposits), it's time to call a professional. Structural damp
+            requires specialist equipment—moisture meters, thermal imaging
+            cameras, and chemical treatments—that aren't available to DIYers.
+            Delaying professional intervention can lead to structural damage
+            costing tens of thousands to repair.
+          </p>
+        </div>
+      </>
+    ),
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "What causes damp in Spanish homes?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "The most common cause is condensation (90% of cases) due to thermal bridging in uninsulated Spanish construction (Ladrillo). Rising damp occurs when groundwater rises through porous walls due to a failed damp-proof course. Penetrating damp is caused by external water entering through cracks, leaking gutters, or damaged render.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How much does damp proofing cost in Malaga?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Chemical DPC injection costs €80-€120 per linear meter (varies by wall thickness). Tanking costs €60-€100 per m². Anti-mold paint costs €12-€18 per m². Dehumidifier units cost €200-€350. Always get a site visit for accurate pricing.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Does bleach kill mold permanently?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "No. Bleach is mostly water and cannot penetrate porous materials like plaster to kill mold roots (mycelium). Use a proper fungicidal wash instead, which contains biocides that kill spores and penetrate deeper into surfaces.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Who is responsible for damp in a Spanish apartment community?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Under the Ley de Propiedad Horizontal (LPH), structural damp from common elements like façades, foundations, or shared roofs is the Community of Owners' responsibility. Damp from issues within your unit (e.g., leaking shower, condensation) is your responsibility.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Is damp dangerous to health?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes. According to WHO guidelines, persistent dampness is directly linked to respiratory infections, asthma, allergic rhinitis, and eczema. Children, elderly residents, asthma sufferers, and immunocompromised individuals are particularly vulnerable to mold-related illness.",
+          },
+        },
+      ],
+    },
+  },
   "renovation-permits-andalucia-2025": {
     title: "The Ultimate Guide to Renovation Permits in Andalucia (2025)",
+    metaDescription:
+      "Renovation Permits in Andalucia (2025 Guide). Do you need a license? Learn the difference between Obra Mayor vs. Obra Menor to avoid fines.",
     category: "Legal/Permits",
     author: "Maria Gonzalez",
     authorRole: "Legal Consultant",
@@ -139,6 +653,8 @@ const blogPosts = {
   },
   "pool-water-update-2025": {
     title: "Costa del Sol Water Update 2025: Can I Finally Fill My Pool?",
+    metaDescription:
+      "2025 Pool Water Rules: Can you fill your pool on the Costa del Sol? Latest drought restrictions and refilling updates for homeowners.",
     category: "Maintenance",
     author: "Sarah Jenkins",
     authorRole: "Local News Editor",
@@ -246,6 +762,8 @@ const blogPosts = {
   },
   "new-rental-laws-2025": {
     title: "New Rental Laws April 2025: Can Your Neighbors Ban Your Airbnb?",
+    metaDescription:
+      "New Rental Laws Andalucia 2025: Tourist license changes and Airbnb crackdowns. What Costa del Sol property owners must know.",
     category: "Legal/Permits",
     author: "Antonio Ruiz",
     authorRole: "Property Lawyer",
@@ -369,6 +887,8 @@ const blogPosts = {
   },
   "renovating-older-villa-2025": {
     title: "Why Renovating an Older Villa is the Smartest Investment in 2025",
+    metaDescription:
+      "Renovating an older villa in Spain? Watch for these 2025 issues: dodgy rewiring, hidden damp, and outdated plumbing.",
     category: "Renovation",
     author: "Elena Costa",
     authorRole: "Real Estate Analyst",
@@ -476,7 +996,9 @@ const blogPosts = {
     ),
   },
   "malaga-hard-water-boiler": {
-    title: "The Silent Boiler Killer: Dealing with Malaga's Hard Water",
+    title: "Malaga Hard Water: Boiler & Softener Guide",
+    metaDescription:
+      "Malaga hard water destroying your boiler? The 2025 guide to Limescale, Descaling costs, and the best Water Softeners for the Costa del Sol.",
     category: "Maintenance",
     author: "David Miller",
     authorRole: "Senior Plumber",
@@ -649,7 +1171,9 @@ const blogPosts = {
     ),
   },
   "protecting-home-squatters-2025": {
-    title: "Protecting Your Holiday Home from 'Okupas' (Squatters) in 2025",
+    title: "Protect Home from Okupas: 2025 Guide",
+    metaDescription:
+      "Protect your Spanish home from Okupas. 2025 Guide: Best anti-snap locks, alarm systems & legal eviction rules for non-resident owners.",
     category: "Legal/Permits",
     author: "James Wilson",
     authorRole: "Security Consultant",
@@ -834,6 +1358,511 @@ const blogPosts = {
       </>
     ),
   },
+  "solar-panels-costa-del-sol-roi": {
+    title: "Solar Power Costa del Sol: 2025 ROI Guide",
+    metaDescription:
+      "Is Solar worth it in Andalucia? 2025 ROI Guide: Calculate savings, claim 40% NextGen grants & check IBI tax reductions for Malaga homeowners.",
+    category: "Cost Guides",
+    author: "Miguel Angel",
+    authorRole: "Energy Engineer",
+    date: "Updated Jan 2025",
+    readTime: "12 min read",
+    image:
+      "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=2942&auto=format&fit=crop",
+    keyTakeaways: [
+      "With electricity prices around ���0.25/kWh, most Costa del Sol homes see solar payback in 3-5 years.",
+      "The old 'Impuesto al Sol' (Sun Tax) was abolished in 2018 – modern systems are fully legal and incentivised.",
+      "Owners in communities (LPH) can usually install panels for personal use even if some neighbours disagree.",
+      "2025 grants and local tax discounts can cover up to 40% of installation costs for qualifying homes.",
+    ],
+    content: (
+      <>
+        {/* AEO / Verdict Snippet */}
+        <div className="bg-blue-50 rounded-xl p-6 mb-8 border border-blue-100">
+          <div className="text-sm text-slate-500 mb-2">
+            Updated Jan 2025 • 12 min read
+          </div>
+          <h2 className="font-bold text-[#0a1f44] mb-2 text-lg">
+            The Quick Verdict
+          </h2>
+          <p className="text-slate-700 leading-relaxed">
+            With <strong>3,200 hours of sun per year</strong>, the ROI for solar
+            in Malaga is typically <strong>3.5–5 years</strong>. Homeowners can
+            claim up to <strong>40% deductions on IRPF</strong> and get
+            <strong> 50% off IBI (Council Tax)</strong> in towns like Mijas and
+            Fuengirola.
+          </p>
+        </div>
+
+        <p className="text-xl leading-relaxed text-slate-600 mb-8 font-sans font-light">
+          The Costa del Sol sits on one of the best solar resources in Europe,
+          yet many homeowners still rely 100% on Endesa or Iberdrola for their
+          electricity. In 2025, with high grid prices and generous tax breaks,
+          well-designed solar systems have moved from "nice green upgrade" to a
+          <strong>serious financial investment</strong>.
+        </p>
+
+        <p className="mb-6">
+          This guide walks through the <strong>real Endesa bill math</strong>,
+          explains how the old <em>"Sun Tax"</em> disappeared, and shows you
+          what ROI to expect in 2025 – including a real case study from a villa
+          in Elviria.
+        </p>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-4 text-2xl">
+          The "Endesa" Problem
+        </h2>
+        <p className="mb-4">
+          Current electricity rates in Malaga typically fluctuate between
+          <strong> €0.20 and €0.30 per kWh</strong>, depending on your tariff
+          and time of day. For a villa with air conditioning, a heated pool and
+          regular year-round use, that quickly adds up to
+          <strong> €3,000–€6,000+ per year</strong>.
+        </p>
+        <p className="mb-4">
+          According to official{" "}
+          <a
+            href="https://re.jrc.ec.europa.eu/pvg_tools/en/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            PVGIS Data
+          </a>
+          , Malaga receives over
+          <strong> 1,700 kWh/m² of solar irradiation per year</strong>. That
+          means every square metre of well-oriented roof can generate far more
+          energy than it consumes in a typical Spanish home.
+        </p>
+        <ul className="list-disc pl-5 space-y-3 marker:text-blue-500 mb-6">
+          <li>
+            <strong>Potencia contratada (Power capacity):</strong> The fixed
+            charge for the maximum power (kW) your property can draw at any
+            time. Think of it as the size of your "pipe" to the grid. This is
+            charged per kW per day and <strong>does not disappear</strong>{" "}
+            completely with solar.
+          </li>
+          <li>
+            <strong>Consumo (Energy use):</strong> The variable part based on
+            how many kWh you consume each month. This is where solar has the
+            biggest impact.
+          </li>
+        </ul>
+
+        <div className="bg-slate-50 rounded-xl p-6 mb-8 border border-slate-200">
+          <h3 className="font-bold text-[#0a1f44] mb-3">
+            Example: Typical Endesa Bill on the Costa del Sol
+          </h3>
+          <ul className="space-y-2 text-slate-700 text-sm">
+            <li>
+              <strong>Potencia:</strong> 5.5 kW × ~€0.13/kW/day ≈{" "}
+              <strong>€22–€24 / month</strong>
+            </li>
+            <li>
+              <strong>Consumo:</strong> 400–600 kWh at ~€0.25/kWh ≈
+              <strong> €100–€150 / month</strong>
+            </li>
+            <li>
+              <strong>Other charges:</strong> taxes, meter rental, etc. ≈
+              <strong> €20–€30 / month</strong>
+            </li>
+          </ul>
+          <p className="mt-4 text-slate-700">
+            In other words,{" "}
+            <strong>60–70% of your bill is pure consumption</strong>. Solar
+            attacks this Consumo line directly by generating free daytime
+            electricity.
+          </p>
+        </div>
+
+        <h3 className="font-sans text-[#0a1f44] font-bold mt-10 mb-3 text-xl">
+          How Solar Shrinks the Consumo Line
+        </h3>
+        <p className="mb-4">
+          A 5 kW system on the Costa del Sol typically produces around
+          <strong> 7,500–8,500 kWh per year</strong>. If your home consumes
+          8,000–10,000 kWh annually, solar can easily cover
+          <strong> 60–80% of that usage</strong>.
+        </p>
+        <p className="mb-6">
+          That means your Consumo line – often €120–€180 per month for a
+          full-time villa – can drop to <strong>€20–€60</strong>. You will still
+          pay Potencia and taxes, but the heavy variable part is dramatically
+          reduced.
+        </p>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-4 text-2xl">
+          The Sun Tax Myth
+        </h2>
+        <p className="mb-4">
+          Many expats still believe Spain punishes solar owners with a special
+          tax, known as the <em>Impuesto al Sol</em> or "Sun Tax". This used to
+          be partly true for certain large installations under older
+          regulations.
+        </p>
+        <p className="mb-4">
+          <strong>Since 2018, that tax has been abolished.</strong> Royal Decree
+          15/2018 and subsequent regulations completely removed the Sun Tax and
+          simplified self-consumption rules. Today:
+        </p>
+        <ul className="list-disc pl-5 space-y-3 marker:text-blue-500 mb-6">
+          <li>
+            Residential systems under 100 kW do <strong>not</strong> pay any
+            extra fee for self-consumption.
+          </li>
+          <li>
+            You can connect your system legally with your supplier (Endesa,
+            Iberdrola, etc.) and receive <strong>bill credits</strong> for
+            surplus energy (<em>compensación de excedentes</em>).
+          </li>
+          <li>
+            There is <strong>no requirement</strong> to install an expensive
+            second meter just to be "taxed" on your own production.
+          </li>
+        </ul>
+        <p className="mb-6">
+          Any installer still mentioning the Sun Tax for residential systems is
+          either using outdated information or trying to scare you into making a
+          rushed decision. The "Sun Tax" was officially abolished in 2018 by{" "}
+          <a
+            href="https://www.boe.es/eli/es/rd/2019/04/05/244"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            Real Decreto 244/2019
+          </a>
+          , which guarantees your right to legal self-consumption and simplified
+          compensation for surplus energy.
+        </p>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-4 text-2xl">
+          3. Living in a Community (LPH): Can Neighbours Block Solar?
+        </h2>
+        <p className="mb-4">
+          If you own an apartment or townhouse in a{" "}
+          <em>Comunidad de Propietarios</em>, the roof is usually a{" "}
+          <strong>common element</strong>
+          regulated by Spain's Horizontal Property Law (
+          <em>Ley de Propiedad Horizontal</em>, LPH).
+        </p>
+        <p className="mb-4">
+          The law was updated to make energy-efficiency works easier. In most
+          cases:
+        </p>
+        <ul className="list-disc pl-5 space-y-3 marker:text-blue-500 mb-6">
+          <li>
+            For <strong>individual self-consumption</strong> (panels that only
+            feed your apartment), communities cannot simply block you because a
+            few neighbours "don't like the look".
+          </li>
+          <li>
+            The community must allow access to common roofs, provided the
+            installation is safe, respects technical limits and does not
+            seriously affect the building's structure or other owners.
+          </li>
+          <li>
+            A majority vote is usually required to formalise the use of common
+            space and the distribution of any surplus production.
+          </li>
+        </ul>
+        <p className="mb-6 text-sm text-slate-600">
+          <strong>Important:</strong> Every building has its own statutes and
+          layout. Always ask your administrator and, if needed, a specialist
+          lawyer before signing an installation contract. But in broad terms, if
+          you are installing panels <strong>for your own use</strong>, Spanish
+          law is now on your side.
+        </p>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-4 text-2xl">
+          Case Study: 4-Bed Villa in Mijas
+        </h2>
+        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 mb-8">
+          <h3 className="font-bold text-[#0a1f44] mb-3 text-lg">
+            Real Numbers from a Mijas Family Home
+          </h3>
+          <ul className="space-y-2 text-slate-800 text-sm">
+            <li>
+              <strong>Property:</strong> 4-bedroom villa used as a main
+              residence.
+            </li>
+            <li>
+              <strong>System:</strong> 5 kW inverter with battery storage.
+            </li>
+            <li>
+              <strong>Net Cost (after grant):</strong> €8,000.
+            </li>
+            <li>
+              <strong>Annual Saving on Bills:</strong> approximately
+              <strong> €3,660 per year</strong>.
+            </li>
+            <li>
+              <strong>Simple Payback:</strong> around
+              <strong> 2.1 years</strong>.
+            </li>
+          </ul>
+          <p className="mt-4 text-slate-700">
+            After the payback point, the owners effectively generate thousands
+            of euros of electricity every year for the remaining life of the
+            system, with only minor maintenance costs.
+          </p>
+        </div>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-4 text-2xl">
+          2025 IBI Reductions in Malaga
+        </h2>
+        <p className="mb-4">
+          Each Town Hall sets its own rules, but the following table summarises
+          typical <strong>IBI discounts</strong> currently available for
+          certified residential solar systems in parts of Malaga province:
+        </p>
+
+        <div className="my-8 overflow-x-auto rounded-xl border border-slate-200 shadow-sm font-sans">
+          <table className="w-full text-left border-collapse text-sm">
+            <thead>
+              <tr className="bg-slate-50 border-b border-slate-200">
+                <th className="p-4 font-bold text-[#0a1f44]">Municipality</th>
+                <th className="p-4 font-bold text-[#0a1f44]">
+                  Typical IBI Discount
+                </th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100">
+              <tr className="even:bg-slate-50">
+                <td className="p-4 font-medium">Marbella</td>
+                <td className="p-4">25% discount for 5 years</td>
+              </tr>
+              <tr className="even:bg-slate-50">
+                <td className="p-4 font-medium">Mijas</td>
+                <td className="p-4">50% discount for 3 years</td>
+              </tr>
+              <tr className="even:bg-slate-50">
+                <td className="p-4 font-medium">Fuengirola</td>
+                <td className="p-4">50% discount for 3 years</td>
+              </tr>
+              <tr className="even:bg-slate-50">
+                <td className="p-4 font-medium">Malaga City</td>
+                <td className="p-4">15% discount for 3 years</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p className="mb-8 text-sm text-slate-600">
+          These figures change over time and may depend on system size and
+          administrative deadlines, so always confirm the current ordinance with
+          your local <em>Ayuntamiento</em> before signing a contract.
+        </p>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-4 text-2xl">
+          The 3 Hidden Savings (2025 Tax Rules)
+        </h2>
+        <p className="mb-4">
+          The headline saving is obvious: lower monthly bills. But in 2025 there
+          are <strong>three additional layers of savings</strong> available to
+          many Costa del Sol homeowners:
+        </p>
+        <ol className="list-decimal pl-5 space-y-3 marker:text-blue-500 mb-6">
+          <li>
+            <strong>NextGen / Regional Grants:</strong> You can apply for
+            subsidies covering up to{" "}
+            <strong>40% of the installation cost</strong>
+            via the{" "}
+            <a
+              href="https://www.agenciaandaluzadelaenergia.es/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:underline"
+            >
+              Agencia Andaluza de la Energía
+            </a>
+            . These programmes open in waves and are often handled directly by
+            reputable installers.
+          </li>
+          <li>
+            <strong>IRPF Deductions:</strong> Certain energy-efficiency works
+            allow you to deduct up to{" "}
+            <strong>€3,000 from your income tax (IRPF)</strong> over several
+            years, provided the works are properly certified and reduce your
+            primary energy consumption.
+          </li>
+          <li>
+            <strong>Local IBI / ICIO Discounts:</strong> Many municipalities
+            offer reduced <em>Impuesto sobre Bienes Inmuebles</em> (IBI) and
+            reduced <em>ICIO</em> construction tax for solar projects, directly
+            cutting your annual running costs.
+          </li>
+        </ol>
+
+        <p className="mb-8">
+          When you layer these incentives on top of bill savings, it is common
+          to see <strong>effective payback times drop below 4 years</strong> for
+          full-time residences.
+        </p>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-4 text-2xl">
+          7. Do You Need a Battery? (Especially for Holiday Homes)
+        </h2>
+        <p className="mb-4">
+          Batteries are no longer a niche add-on, but they are not mandatory for
+          a good ROI. Whether you need one depends mainly on how you use the
+          property:
+        </p>
+        <ul className="list-disc pl-5 space-y-3 marker:text-blue-500 mb-6">
+          <li>
+            <strong>Full-time homes:</strong> A battery usually makes sense,
+            shifting excess daytime production into the evening when AC, cooking
+            and lighting demand is highest.
+          </li>
+          <li>
+            <strong>Holiday homes:</strong> If the property is often empty, you
+            may prefer a{" "}
+            <strong>simple grid-tied system without battery</strong>
+            and rely on surplus compensation instead.
+          </li>
+          <li>
+            <strong>Rental villas:</strong> Batteries can smooth out guest
+            consumption and protect you from peak pricing.
+          </li>
+        </ul>
+
+        <p className="mb-8">
+          For many occasional-use homes, it is smarter to start without a
+          battery and add one later once you have 12 months of real production
+          data.
+        </p>
+
+        <h2 className="font-sans text-[#0a1f44] font-bold mt-12 mb-4 text-2xl">
+          8. Frequently Asked Questions (2025)
+        </h2>
+
+        <div className="space-y-6 mb-12">
+          <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
+            <h3 className="font-bold text-[#0a1f44] mb-2 text-lg">
+              Do I need a battery for a holiday home?
+            </h3>
+            <p className="text-slate-700">
+              Not necessarily. If your Costa del Sol property is empty for long
+              stretches, a battery may not charge and discharge efficiently
+              enough to justify the cost. A standard grid-tied system without
+              storage still reduces your bills when you are there and lets you
+              benefit from surplus compensation the rest of the year. Many
+              owners choose to <strong>add a battery later</strong> once they
+              see real usage patterns.
+            </p>
+          </div>
+
+          <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
+            <h3 className="font-bold text-[#0a1f44] mb-2 text-lg">
+              How do I claim the IBI tax reduction in Marbella?
+            </h3>
+            <p className="text-slate-700">
+              Marbella Town Hall currently offers IBI discounts for certified
+              solar installations, but you must{" "}
+              <strong>apply proactively</strong>. After your system is legalised
+              and registered, your installer or gestor should provide the
+              documentation. You then submit the application at the{" "}
+              <em>Oficina de Atención al Contribuyente</em>
+              (tax office) or via the online <em>Sede Electrónica</em>, usually
+              before <strong>31 December</strong> for the discount to apply to
+              the following year's bill.
+            </p>
+          </div>
+        </div>
+
+        <div className="my-12">
+          <div className="relative max-w-5xl mx-auto">
+            <div className="absolute -inset-x-6 -inset-y-4 bg-gradient-to-r from-blue-500/15 via-sky-400/10 to-emerald-400/10 blur-3xl" />
+
+            <div className="relative rounded-[28px] bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border border-slate-800/80 shadow-xl md:shadow-[0_28px_70px_rgba(15,23,42,0.85)] px-6 py-9 md:px-12 md:py-12 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+              <div className="absolute right-4 top-4 hidden md:flex items-center gap-2 text-[11px] font-medium text-slate-300">
+                <span className="inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span>Updated 2025 data</span>
+              </div>
+
+              <div className="relative max-w-xl">
+                <p className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/70 border border-slate-700 text-[11px] font-semibold tracking-wide uppercase !text-slate-200 mb-4">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                  Solar ROI check • Costa del Sol
+                </p>
+
+                <h3 className="text-2xl md:text-3xl font-extrabold !text-white mb-3 leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,0.9)]">
+                  Ready to see your own ROI?
+                </h3>
+                <p className="!text-white mb-6 text-sm md:text-base leading-relaxed">
+                  Describe your property once and get tailored proposals from
+                  vetted solar installers who understand Endesa bills, community
+                  rules and 2025 grants on the Costa del Sol.
+                </p>
+
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-[11px] sm:text-xs !text-white">
+                  <div className="rounded-2xl bg-slate-900/70 border border-slate-800 px-3 py-3">
+                    <div className="text-[10px] uppercase tracking-wide text-slate-300 mb-1">
+                      Typical Payback
+                    </div>
+                    <div className="text-sm font-semibold text-emerald-400">
+                      3.5–5 years
+                    </div>
+                  </div>
+                  <div className="rounded-2xl bg-slate-900/70 border border-slate-800 px-3 py-3">
+                    <div className="text-[10px] uppercase tracking-wide text-slate-300 mb-1">
+                      Grants
+                    </div>
+                    <div className="text-sm font-semibold text-sky-300">
+                      Up to 40% cost
+                    </div>
+                  </div>
+                  <div className="rounded-2xl bg-slate-900/70 border border-slate-800 px-3 py-3 hidden sm:block">
+                    <div className="text-[10px] uppercase tracking-wide text-slate-300 mb-1">
+                      IBI Discounts
+                    </div>
+                    <div className="text-sm font-semibold text-indigo-300">
+                      Up to 50% off
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative flex flex-col items-stretch md:items-end gap-3 min-w-[220px]">
+                <Link to="/post-job" className="w-full md:w-auto">
+                  <Button className="w-full md:w-auto bg-blue-500 hover:bg-blue-400 text-white font-semibold md:font-bold px-7 md:px-9 py-4 md:py-5 rounded-2xl text-sm md:text-lg shadow-[0_18px_45px_rgba(37,99,235,0.7)] flex items-center justify-center gap-2">
+                    <span>Request Solar Quotes</span>
+                    <ArrowRight className="w-5 h-5" />
+                  </Button>
+                </Link>
+                <p className="text-[11px] text-slate-300 mt-1 md:mt-2 max-w-xs text-right">
+                  100% free service. We only match you with vetted installers
+                  who work regularly across Malaga and the Costa del Sol.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </>
+    ),
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Do I need a battery for a holiday home?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Most holiday homes on the Costa del Sol do not strictly need a battery. A standard grid-tied system still reduces bills when occupied and uses surplus compensation when empty. Many owners add a battery later once they understand their usage patterns.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How do I claim the IBI tax reduction in Marbella?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "After your solar installation is legalised, your installer or gestor should provide the documentation confirming it. You then submit an application for the IBI reduction at Marbella's tax office or via the Sede Electrónica, normally before 31 December so the discount applies to the next tax year.",
+          },
+        },
+      ],
+    },
+  },
   "bathroom-reform-permit": {
     title: "Licencia de Obra Menor: Do You Need One for a Bathroom Reform?",
     category: "Legal/Permits",
@@ -919,14 +1948,26 @@ export default function BlogPostPage() {
   return (
     <div className="min-h-screen bg-white font-sans selection:bg-blue-100 selection:text-blue-900">
       <SEO
-        title={`${post.title} | CostaTrades Blog`}
-        description={`In-depth ${post.category.toLowerCase()} advice for Costa del Sol homeowners. Detailed guidance from CostaTrades experts on ${post.title}.`}
+        title={`${post.title} | CostaTrades`}
+        description={
+          post.metaDescription ||
+          `In-depth ${post.category.toLowerCase()} advice for Costa del Sol homeowners. Detailed guidance from CostaTrades experts on ${post.title}.`
+        }
+        url={`https://costatrades.com/blog/${slug}`}
+        schema={
+          // @ts-ignore
+          post.faqSchema ? JSON.stringify(post.faqSchema) : undefined
+        }
       />
       {/* Article Header */}
       <header className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         {/* Background Image with Parallax-like feel */}
         <div className="absolute inset-0 z-0">
-          <img src={post.image} alt="" className="w-full h-full object-cover" />
+          <img
+            src={post.image}
+            alt={post.title}
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0a1f44]/70 via-[#0a1f44]/60 to-[#0a1f44]/90"></div>
         </div>
 
@@ -1121,24 +2162,28 @@ export default function BlogPostPage() {
                 <Link
                   to={`/blog/${slug}`}
                   key={i}
-                  className="bg-white rounded-[2rem] overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-500 group cursor-pointer block hover:-translate-y-2"
+                  className="group cursor-pointer block hover:-translate-y-2 transition-all duration-500"
                 >
-                  <div className="h-56 bg-slate-200 relative overflow-hidden">
-                    <img
-                      src={p.image}
-                      alt={p.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-[#0a1f44] text-xs font-bold px-3 py-1 rounded-full shadow-sm">
-                      {p.category}
+                  <div className="bg-slate-950 rounded-[2rem] overflow-hidden border border-slate-800/80 shadow-[0_18px_45px_rgba(15,23,42,0.85)] group-hover:border-sky-500/50">
+                    <div className="h-56 relative overflow-hidden">
+                      <img
+                        src={p.image}
+                        alt={p.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-slate-900/30 to-transparent" />
+                      <div className="absolute top-4 left-4 bg-slate-900/80 border border-slate-700/80 text-slate-50 text-xs font-semibold px-3 py-1.5 rounded-full shadow-sm">
+                        {p.category}
+                      </div>
                     </div>
-                  </div>
-                  <div className="p-8">
-                    <h4 className="font-bold text-[#0a1f44] text-lg mb-3 group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug">
-                      {p.title}
-                    </h4>
-                    <div className="flex items-center text-sm text-slate-400 mt-4 font-medium">
-                      <Clock className="w-4 h-4 mr-1.5" /> {p.readTime}
+                    <div className="p-7 flex flex-col gap-3">
+                      <h4 className="font-bold text-white text-lg leading-snug line-clamp-2 group-hover:text-sky-300 transition-colors">
+                        {p.title}
+                      </h4>
+                      <div className="flex items-center text-xs font-medium text-slate-300/90 gap-2">
+                        <Clock className="w-4 h-4 text-sky-300" />
+                        <span>{p.readTime}</span>
+                      </div>
                     </div>
                   </div>
                 </Link>

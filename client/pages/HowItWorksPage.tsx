@@ -74,7 +74,7 @@ export default function HowItWorksPage() {
 
         <div className="container-custom relative z-10">
           <SEO
-            title="How it Works | Hire International Pros Safely"
+            title="How It Works | CostaTrades"
             description="Post a job in your language and get proposals from multilingual experts. The safe, fast, and verified way to hire professionals on the Costa del Sol."
           />
           <div className="grid lg:grid-cols-2 gap-16 items-center">

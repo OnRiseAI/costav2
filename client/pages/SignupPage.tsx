@@ -448,11 +448,9 @@ export default function SignupPage() {
                             Painters & Decorators
                           </option>
                           <option value="pool-maintenance">
-                            Pool Maintenance
+                            Pool Services
                           </option>
-                          <option value="air-conditioning">
-                            Air Conditioning
-                          </option>
+                          <option value="air-conditioning">Air Con</option>
                           <option value="locksmiths">Locksmiths</option>
                           <option value="gardeners">Gardeners</option>
                         </select>

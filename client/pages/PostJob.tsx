@@ -49,6 +49,7 @@ import { SEO } from "@/components/SEO";
 import { extractTradeAndLocation } from "@/lib/searchParser";
 import { SEARCH_PLACEHOLDERS } from "@/data/searchPlaceholders";
 import { useTypewriterPlaceholder } from "@/hooks/useTypewriterPlaceholder";
+import { townGroups, allTowns } from "@/data/towns";
 
 const categories = [
   {
@@ -88,14 +89,14 @@ const categories = [
   },
   {
     slug: "pool-maintenance",
-    name: "Pool Maintenance",
+    name: "Pool Services",
     icon: Droplets,
     color: "text-cyan-600",
     bg: "bg-cyan-50",
   },
   {
     slug: "air-conditioning",
-    name: "Air Conditioning",
+    name: "Air Con",
     icon: Snowflake,
     color: "text-sky-600",
     bg: "bg-sky-50",
@@ -135,6 +136,7 @@ export default function PostJob() {
     searchParams.get("option") || "",
   );
   const [openCombobox, setOpenCombobox] = useState(false);
+  const [townSearch, setTownSearch] = useState("");
   const typewriterPlaceholder = useTypewriterPlaceholder(SEARCH_PLACEHOLDERS, {
     typeSpeed: 80,
     deleteSpeed: 40,
@@ -146,21 +148,22 @@ export default function PostJob() {
     const locationFromParam =
       searchParams.get("location") || searchParams.get("postcode") || "";
 
-    if (!option) {
-      return;
+    // Ensure we update state if params exist
+    if (option) {
+      setSearchQuery(option);
     }
-
-    setSearchQuery(option);
-
-    const combinedQuery = locationFromParam
-      ? `${option} ${locationFromParam}`
-      : option;
 
     if (locationFromParam) {
       setPostcode(locationFromParam);
     }
 
-    handleHeroSearch(combinedQuery);
+    // Only trigger search if we have parameters
+    if (option || locationFromParam) {
+      const combinedQuery = locationFromParam
+        ? `${option || ""} ${locationFromParam}`
+        : option || "";
+      handleHeroSearch(combinedQuery);
+    }
   }, [searchParams]);
 
   const handleCategorySelect = (categorySlug: string) => {
@@ -174,25 +177,13 @@ export default function PostJob() {
     setStep(2);
   };
 
-  const towns = [
-    "Marbella",
-    "Estepona",
-    "Mijas",
-    "Fuengirola",
-    "Málaga",
-    "Benalmádena",
-    "Torremolinos",
-    "Nerja",
-    "Benahavís",
-    "Ronda",
-    "Casares",
-    "Manilva",
-    "San Pedro Alcántara",
-    "La Cala de Mijas",
-  ];
+  const towns = allTowns;
 
-  const handleHeroSearch = (overrideQuery?: string) => {
-    const queryToUse = overrideQuery ?? searchQuery;
+  const handleHeroSearch = (overrideQuery?: string | any) => {
+    const queryToUse =
+      typeof overrideQuery === "string" ? overrideQuery : searchQuery;
+    if (typeof queryToUse !== "string") return;
+
     const trimmed = queryToUse.trim();
     if (!trimmed) return;
 
@@ -340,7 +331,7 @@ export default function PostJob() {
                 className="flex-1 min-w-0 h-14 text-lg text-gray-900 placeholder:text-gray-400 focus:outline-none bg-transparent transition-opacity duration-500"
               />
               <button
-                onClick={handleHeroSearch}
+                onClick={() => handleHeroSearch()}
                 className="bg-[#0a1f44] text-white px-8 h-14 rounded-full font-bold text-lg hover:bg-blue-900 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center flex-shrink-0"
               >
                 Search
@@ -474,7 +465,13 @@ export default function PostJob() {
             {step === 2 && (
               <div className="space-y-6 py-4">
                 <div className="relative">
-                  <Popover open={openCombobox} onOpenChange={setOpenCombobox}>
+                  <Popover
+                    open={openCombobox}
+                    onOpenChange={(open) => {
+                      setOpenCombobox(open);
+                      if (!open) setTownSearch("");
+                    }}
+                  >
                     <PopoverTrigger asChild>
                       <Button
                         variant="outline"
@@ -496,41 +493,47 @@ export default function PostJob() {
                       </Button>
                     </PopoverTrigger>
                     <PopoverContent className="w-[var(--radix-popover-trigger-width)] p-0">
-                      <Command>
-                        <CommandInput placeholder="Search town..." />
+                      <Command shouldFilter={true}>
+                        <CommandInput
+                          placeholder="Search town..."
+                          value={townSearch}
+                          onValueChange={setTownSearch}
+                        />
                         <CommandList>
                           <CommandEmpty>No town found.</CommandEmpty>
-                          <CommandGroup>
-                            {towns.map((town) => (
-                              <CommandItem
-                                key={town}
-                                value={town}
-                                onSelect={(currentValue) => {
-                                  // We use the original town name for display/state
-                                  // cmdk returns the value lowercased if not specified otherwise,
-                                  // but here we want to set the state to the proper casing from our list
-                                  setPostcode(
-                                    currentValue.toLowerCase() ===
-                                      postcode.toLowerCase()
-                                      ? ""
-                                      : town,
-                                  );
-                                  setOpenCombobox(false);
-                                }}
-                              >
-                                <Check
-                                  className={cn(
-                                    "mr-2 h-4 w-4",
-                                    postcode.toLowerCase() ===
-                                      town.toLowerCase()
-                                      ? "opacity-100"
-                                      : "opacity-0",
-                                  )}
-                                />
-                                {town}
-                              </CommandItem>
-                            ))}
-                          </CommandGroup>
+                          {Object.entries(townGroups).map(([group, towns]) => (
+                            <CommandGroup key={group} heading={group}>
+                              {towns.map((town) => (
+                                <CommandItem
+                                  key={town}
+                                  value={town}
+                                  onSelect={(currentValue) => {
+                                    // cmdk returns the value lowercased if not specified otherwise
+                                    // We want to use the original town name
+                                    setPostcode(
+                                      currentValue.toLowerCase() ===
+                                        postcode.toLowerCase()
+                                        ? ""
+                                        : town,
+                                    );
+                                    setOpenCombobox(false);
+                                    setTownSearch("");
+                                  }}
+                                >
+                                  <Check
+                                    className={cn(
+                                      "mr-2 h-4 w-4",
+                                      postcode.toLowerCase() ===
+                                        town.toLowerCase()
+                                        ? "opacity-100"
+                                        : "opacity-0",
+                                    )}
+                                  />
+                                  {town}
+                                </CommandItem>
+                              ))}
+                            </CommandGroup>
+                          ))}
                         </CommandList>
                       </Command>
                     </PopoverContent>

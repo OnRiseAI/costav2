@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { SEO } from "@/components/SEO";
@@ -41,6 +41,13 @@ export default function PostJobResults() {
   const [timing, setTiming] = useState("flexible");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [quoteSentSuccess, setQuoteSentSuccess] = useState(false);
+
+  // Scroll to top when the quote form view is shown (e.g. on mobile)
+  useEffect(() => {
+    if (showQuoteForm && typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }
+  }, [showQuoteForm]);
 
   // Phone Modal State
   const [phoneModalOpen, setPhoneModalOpen] = useState(false);

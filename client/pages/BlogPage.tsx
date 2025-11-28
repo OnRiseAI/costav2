@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { SEO } from "@/components/SEO";
@@ -98,9 +99,78 @@ const recentPosts = [
     readTime: "6 min read",
     slug: "protecting-home-squatters-2025",
   },
+  {
+    id: 7,
+    title: "How to Stop Damp & Mold in Your Spanish Home (2025 Guide)",
+    excerpt:
+      "Learn how to diagnose condensation vs rising damp, what it costs to fix in Malaga, and when to call a damp proofing specialist.",
+    image:
+      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2940&auto=format&fit=crop",
+    category: "Maintenance",
+    readTime: "5 min read",
+    slug: "stop-damp-mold-spain",
+  },
+  {
+    id: 8,
+    title: "Is Solar Power Worth It on the Costa del Sol? (2025 Data)",
+    excerpt:
+      "With electricity at around €0.25/kWh and new 2025 grants, solar on the Costa del Sol can pay for itself in as little as 3–5 years.",
+    image:
+      "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=2942&auto=format&fit=crop",
+    category: "Cost Guides",
+    readTime: "12 min read",
+    slug: "solar-panels-costa-del-sol-roi",
+  },
+  {
+    id: 9,
+    title: "Licencia de Obra Menor: Do You Need One for a Bathroom Reform?",
+    excerpt:
+      "Even simple bathroom reforms can require paperwork. Learn when a 'Declaración Responsable' is enough and how to avoid fines.",
+    image:
+      "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?q=80&w=2940&auto=format&fit=crop",
+    category: "Legal/Permits",
+    readTime: "4 min read",
+    slug: "bathroom-reform-permit",
+  },
+  {
+    id: 10,
+    title: "The Ultimate Guide to Renovation Permits in Andalucia (2025)",
+    excerpt:
+      "Understand the difference between Obra Mayor and Obra Menor, permit costs, and how to avoid stop-work orders.",
+    image:
+      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2831&auto=format&fit=crop",
+    category: "Legal/Permits",
+    readTime: "8 min read",
+    slug: "renovation-permits-andalucia-2025",
+  },
 ];
 
+const PAGE_SIZE = 3;
+
 export default function BlogPage() {
+  const [activeCategory, setActiveCategory] = useState<string>("All");
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+
+  const filteredPosts =
+    activeCategory === "All"
+      ? recentPosts
+      : recentPosts.filter((post) => post.category === activeCategory);
+
+  const visiblePosts = filteredPosts.slice(0, visibleCount);
+
+  const handleLoadMore = () => {
+    setVisibleCount((prev) =>
+      prev + PAGE_SIZE >= filteredPosts.length
+        ? filteredPosts.length
+        : prev + PAGE_SIZE,
+    );
+  };
+
+  const handleCategoryClick = (category: string) => {
+    setActiveCategory(category);
+    setVisibleCount(PAGE_SIZE);
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 font-sans selection:bg-blue-100 selection:text-blue-900">
       <SEO
@@ -160,9 +230,9 @@ export default function BlogPage() {
       <div className="container-custom max-w-7xl mx-auto px-4 py-16 -mt-20 relative z-20">
         {/* Featured Article */}
         <Link to={`/blog/${featuredPost.slug}`} className="block group mb-20">
-          <div className="bg-white rounded-[2.5rem] shadow-2xl shadow-blue-900/10 border border-white/50 overflow-hidden grid lg:grid-cols-2 gap-0 hover:shadow-blue-900/20 transition-all duration-500 transform hover:-translate-y-1">
+          <div className="bg-slate-950 text-white rounded-[2.5rem] shadow-[0_28px_70px_rgba(15,23,42,0.9)] border border-slate-800/80 overflow-hidden grid lg:grid-cols-2 gap-0 hover:border-sky-500/40 hover:shadow-[0_32px_80px_rgba(56,189,248,0.45)] transition-all duration-500 transform hover:-translate-y-1">
             <div className="relative h-72 lg:h-auto overflow-hidden">
-              <div className="absolute top-6 left-6 z-10 bg-white/90 backdrop-blur-md text-[#0a1f44] text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider shadow-lg flex items-center gap-2">
+              <div className="absolute top-6 left-6 z-10 bg-slate-950/80 backdrop-blur-md text-slate-50 text-xs font-semibold px-4 py-2 rounded-full uppercase tracking-wider shadow-lg flex items-center gap-2 border border-slate-700/80">
                 <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
                 Must Read
               </div>
@@ -171,15 +241,15 @@ export default function BlogPage() {
                 alt={featuredPost.title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent lg:hidden"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/40 to-transparent"></div>
             </div>
             <div className="p-8 md:p-12 lg:p-16 flex flex-col justify-center relative">
               <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
                 <Sparkles className="w-40 h-40 text-blue-600" />
               </div>
 
-              <div className="flex items-center gap-4 text-sm text-slate-500 mb-6 font-medium">
-                <span className="text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
+              <div className="flex items-center gap-4 text-sm text-slate-300 mb-6 font-medium">
+                <span className="text-sky-200 bg-slate-900/70 border border-slate-700 px-3 py-1 rounded-full">
                   {featuredPost.category}
                 </span>
                 <span className="w-1 h-1 bg-slate-300 rounded-full"></span>
@@ -188,13 +258,13 @@ export default function BlogPage() {
                 </span>
               </div>
 
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0a1f44] mb-6 leading-[1.1] group-hover:text-blue-700 transition-colors">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-[1.1] group-hover:text-sky-300 transition-colors">
                 {featuredPost.title}
               </h2>
-              <p className="text-slate-600 text-lg mb-8 leading-relaxed line-clamp-3">
+              <p className="text-slate-200/90 text-lg mb-8 leading-relaxed line-clamp-3">
                 {featuredPost.excerpt}
               </p>
-              <div className="flex items-center text-blue-600 font-bold text-lg group-hover:translate-x-2 transition-transform duration-300">
+              <div className="flex items-center text-sky-300 font-semibold text-lg group-hover:translate-x-2 transition-transform duration-300">
                 Read Article <ArrowRight className="w-5 h-5 ml-2" />
               </div>
             </div>
@@ -204,11 +274,13 @@ export default function BlogPage() {
         {/* Categories */}
         <div className="mb-12">
           <div className="flex flex-wrap justify-center gap-3">
-            {categories.map((cat, idx) => (
+            {categories.map((cat) => (
               <button
-                key={idx}
+                key={cat}
+                type="button"
+                onClick={() => handleCategoryClick(cat)}
                 className={`px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 ${
-                  idx === 0
+                  activeCategory === cat
                     ? "bg-[#0a1f44] text-white shadow-lg shadow-blue-900/20 ring-4 ring-blue-500/10"
                     : "bg-white text-slate-600 border border-slate-200 hover:border-blue-300 hover:text-blue-600 hover:shadow-md"
                 }`}
@@ -221,11 +293,11 @@ export default function BlogPage() {
 
         {/* The Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-          {recentPosts.map((post) => (
+          {visiblePosts.map((post) => (
             <Link
               to={`/blog/${post.slug}`}
               key={post.id}
-              className="group flex flex-col bg-white rounded-[2rem] border border-slate-100 overflow-hidden hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-500 hover:-translate-y-2"
+              className="group flex flex-col rounded-[2rem] border border-slate-800/80 bg-slate-950 text-white overflow-hidden shadow-[0_22px_55px_rgba(15,23,42,0.9)] hover:border-sky-500/50 hover:shadow-[0_28px_70px_rgba(56,189,248,0.5)] transition-all duration-500 hover:-translate-y-2"
             >
               <div className="relative h-64 overflow-hidden">
                 <img
@@ -233,13 +305,13 @@ export default function BlogPage() {
                   alt={post.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
-                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-[#0a1f44] text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+                <div className="absolute top-4 left-4 bg-slate-950/85 backdrop-blur-sm text-slate-50 text-xs font-semibold px-3 py-1.5 rounded-full shadow-sm border border-slate-700/80">
                   {post.category}
                 </div>
               </div>
               <div className="p-8 flex-1 flex flex-col">
-                <div className="flex items-center gap-3 text-xs font-medium text-slate-400 mb-4">
+                <div className="flex items-center gap-3 text-xs font-medium text-slate-300 mb-4">
                   <span className="flex items-center gap-1">
                     <Calendar className="w-3.5 h-3.5" /> Nov 15, 2025
                   </span>
@@ -248,13 +320,13 @@ export default function BlogPage() {
                     <Clock className="w-3.5 h-3.5" /> {post.readTime}
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-[#0a1f44] mb-3 leading-snug group-hover:text-blue-600 transition-colors">
+                <h3 className="text-xl font-bold text-white mb-3 leading-snug group-hover:text-sky-300 transition-colors">
                   {post.title}
                 </h3>
-                <p className="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-3 flex-1">
+                <p className="text-slate-300 text-sm leading-relaxed mb-6 line-clamp-3 flex-1">
                   {post.excerpt}
                 </p>
-                <div className="flex items-center text-sm font-bold text-blue-600 mt-auto pt-6 border-t border-slate-50 group-hover:border-blue-50 transition-colors">
+                <div className="flex items-center text-sm font-semibold text-sky-300 mt-auto pt-6 border-t border-slate-800/80 group-hover:border-sky-500/40 transition-colors">
                   Read More{" "}
                   <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -263,15 +335,18 @@ export default function BlogPage() {
           ))}
         </div>
 
-        <div className="mt-20 text-center">
-          <Button
-            variant="outline"
-            size="lg"
-            className="px-10 py-6 rounded-full border-slate-200 text-slate-600 hover:text-[#0a1f44] hover:border-[#0a1f44] hover:bg-white text-lg font-medium transition-all duration-300"
-          >
-            Load More Articles
-          </Button>
-        </div>
+        {visibleCount < filteredPosts.length && (
+          <div className="mt-20 text-center">
+            <Button
+              variant="outline"
+              size="lg"
+              className="px-10 py-6 rounded-full border-slate-200 text-slate-600 hover:text-[#0a1f44] hover:border-[#0a1f44] hover:bg-white text-lg font-medium transition-all duration-300"
+              onClick={handleLoadMore}
+            >
+              Load More Articles
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );

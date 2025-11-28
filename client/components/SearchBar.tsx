@@ -1,100 +1,85 @@
 import { Search } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Button } from "@/components/ui/button";
-import { saveRecentSearch } from "@/components/RecentSearches";
+import { useTypewriterPlaceholder } from "@/hooks/useTypewriterPlaceholder";
+import { SEARCH_PLACEHOLDERS } from "@/data/searchPlaceholders";
 
 interface SearchBarProps {
   variant?: "hero" | "compact";
 }
 
 export function SearchBar({ variant = "hero" }: SearchBarProps) {
-  const [trade, setTrade] = useState("");
-  const [location, setLocation] = useState("");
-  const [placeholderIndex, setPlaceholderIndex] = useState(0);
+  const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
   const { t } = useLanguage();
 
-  const jobExamples = [
-    "Pool Maintenance",
-    "Electrician",
-    "Plumber",
-    "Air Conditioning",
-    "Builder",
-    "Painter & Decorator",
-    "Locksmith",
-    "Gardener",
-    "Pest Control",
-    "Property Maintenance",
-  ];
+  const typewriterPlaceholder = useTypewriterPlaceholder(SEARCH_PLACEHOLDERS, {
+    typeSpeed: 80,
+    deleteSpeed: 40,
+    pauseMs: 2000,
+  });
 
-  useEffect(() => {
-    if (variant === "hero") {
-      const interval = setInterval(() => {
-        setPlaceholderIndex((prev) => (prev + 1) % jobExamples.length);
-      }, 2500);
-      return () => clearInterval(interval);
-    }
-  }, [variant]);
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    // Save to recent searches
-    if (trade) {
-      saveRecentSearch(trade, location);
-    }
+  const handleSearch = (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
 
     const params = new URLSearchParams();
-    if (trade) params.set("option", trade);
-    if (location) params.set("postcode", location);
+    if (searchQuery) params.set("option", searchQuery);
     navigate(`/post-job?${params.toString()}`);
   };
 
   const isHero = variant === "hero";
 
+  if (isHero) {
+    return (
+      <div className="relative max-w-2xl mx-auto group">
+        <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-20 group-hover:opacity-40 blur transition duration-500"></div>
+        <div className="relative bg-white rounded-full shadow-2xl flex items-center p-2 transition-transform duration-300 hover:scale-[1.01]">
+          <div className="hidden md:block pl-6 pr-4 text-gray-400 flex-shrink-0">
+            <Search className="h-6 w-6" />
+          </div>
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+            placeholder={
+              typewriterPlaceholder || "Villa Renovation in Marbella"
+            }
+            className="flex-1 min-w-0 h-14 text-lg text-gray-900 placeholder:text-gray-400 focus:outline-none bg-transparent transition-opacity duration-500"
+          />
+          <button
+            onClick={() => handleSearch()}
+            className="bg-[#0a1f44] text-white h-12 w-12 md:w-auto md:px-8 md:h-14 rounded-full font-bold text-lg hover:bg-blue-900 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center flex-shrink-0 mr-1 md:mr-0"
+            aria-label="Search"
+          >
+            <Search className="h-5 w-5 md:hidden" />
+            <span className="hidden md:inline">Search</span>
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <form onSubmit={handleSearch} className="w-full">
-      <div
-        className={`flex flex-col ${isHero ? "md:flex-row gap-4" : "sm:flex-row gap-2"}`}
-      >
+      <div className="flex flex-col sm:flex-row gap-2">
         <div className="flex-1 relative group">
           <input
             type="text"
-            value={trade}
-            onChange={(e) => setTrade(e.target.value)}
-            placeholder={
-              isHero
-                ? jobExamples[placeholderIndex]
-                : t("hero.searchPlaceholder")
-            }
-            className={`w-full px-4 border-2 border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-foreground placeholder:text-muted-foreground group-hover:border-primary/50 transition-all duration-300 ${
-              isHero ? "py-4 text-lg placeholder:font-medium" : "py-3"
-            }`}
-            style={isHero ? { transition: "all 0.3s ease-in-out" } : {}}
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder={t("hero.searchPlaceholder")}
+            className="w-full px-4 py-3 border-2 border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-foreground placeholder:text-muted-foreground group-hover:border-primary/50 transition-all duration-300"
           />
         </div>
-        {!isHero && (
-          <div className="flex-1 group">
-            <input
-              type="text"
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-              placeholder={t("hero.locationPlaceholder")}
-              className={`w-full px-4 border-2 border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-foreground placeholder:text-muted-foreground group-hover:border-primary/50 transition-all duration-300 ${
-                isHero ? "py-4 text-lg" : "py-3"
-              }`}
-            />
-          </div>
-        )}
-        <Button
+        <button
           type="submit"
-          className={`bg-accent hover:bg-accent/90 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 ${isHero ? "py-6 px-8 text-lg" : "px-6"}`}
+          className="bg-accent hover:bg-accent/90 shadow-lg hover:shadow-xl transition-all duration-300 px-6 flex items-center justify-center rounded-lg text-white font-medium"
         >
-          <Search className={`${isHero ? "mr-2 h-5 w-5" : "mr-2 h-4 w-4"}`} />
+          <Search className="mr-2 h-4 w-4" />
           {t("hero.searchButton")}
-        </Button>
+        </button>
       </div>
     </form>
   );

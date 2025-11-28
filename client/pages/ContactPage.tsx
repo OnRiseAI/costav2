@@ -53,7 +53,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
       <SEO
-        title="Contact Us | CostaTrades"
+        title="Contact CostaTrades"
         description="Need help? Contact our support team in Marbella. We are here to assist homeowners and professionals 7 days a week with your account or project."
       />
 
@@ -321,7 +321,7 @@ export default function ContactPage() {
                       <br />
                       Office 4-6, 29604 Marbella
                       <br />
-                      Málaga, Spain
+                      Malaga, Spain
                     </p>
                   </div>
                 </div>

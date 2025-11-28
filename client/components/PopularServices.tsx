@@ -26,7 +26,7 @@ export function PopularServices() {
     },
     {
       icon: Wind,
-      heading: "Air Conditioning",
+      heading: "Air Con",
       text: "Install, service or repair your AC",
       slug: "air-conditioning",
       color: "text-cyan-600",
@@ -56,7 +56,7 @@ export function PopularServices() {
     },
     {
       icon: Droplets,
-      heading: "Pool Maintenance",
+      heading: "Pool Services",
       text: "Cleaning, repair and seasonal care",
       slug: "pool-maintenance",
       color: "text-emerald-600",

@@ -4,6 +4,10 @@ import { useLocation } from "react-router-dom";
 const GA_ID = "G-RLGDMWEMCQ";
 
 function isProdHost() {
+  return false;
+}
+
+function _unused() {
   if (typeof window === "undefined") return false;
   const host = window.location.hostname;
   return host === "www.costatrades.com" || host === "costatrades.com";

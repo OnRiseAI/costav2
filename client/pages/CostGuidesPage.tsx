@@ -18,7 +18,7 @@ export default function CostGuidesPage() {
     {
       service: "Electrician (Rewire 2-Bed)",
       low: "€3,000",
-      high: "���5,000",
+      high: "€5,000",
       avg: "€4,200",
     },
     {
@@ -84,8 +84,8 @@ export default function CostGuidesPage() {
   return (
     <div className="min-h-screen bg-slate-50 font-sans">
       <SEO
-        title="2025 Trade Price Guide | Costa del Sol Costs"
-        description="Explore average prices for plumbers, electricians, builders and more across Marbella, Estepona and Mijas. Plan your renovation budget with real Costa del Sol market data."
+        title="2025 Trade Price Guide | Costa del Sol"
+        description="2025 Costa del Sol Price Guides. How much should you pay for builders, plumbers, and painters? Avoid the 'tourist tax' with real market rates."
       />
       {/* 1. Hero & Summary */}
       <section className="relative py-20 md:py-28 px-4 text-center overflow-hidden bg-[#0a1f44] text-white">
@@ -300,7 +300,7 @@ export default function CostGuidesPage() {
                     Luxury Renovation
                   </div>
                   <div className="text-3xl font-bold mb-2">
-                    €1,500+
+                    ��1,500+
                     <span className="text-lg text-blue-300 font-normal">
                       /m²
                     </span>

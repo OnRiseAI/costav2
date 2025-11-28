@@ -32,12 +32,21 @@ async function generateSitemap() {
   let urls = [];
   const today = new Date().toISOString().split("T")[0];
 
+<<<<<<< HEAD
   // 2. Add Static Pages
   const staticPaths = [
     "/", "/home", "/how-it-works", "/verification-promise", "/why-us", 
     "/faq", "/cost-guides", "/holiday-homes", "/landlords", "/about", 
     "/contact", "/blog", "/join-as-tradesperson", "/login", "/post-job"
   ];
+=======
+  const sitemapEntries = Array.from(urls)
+    .sort()
+    .map((p) => {
+      return `  <url>\n    <loc>${SITE_URL.replace(/\/$/, "")}${p}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.8</priority>\n  </url>`;
+    })
+    .join("\n");
+>>>>>>> ccb822c44ad287ca725a286cf1b53a67691d656c
 
   staticPaths.forEach(p => {
     urls.push({ 
