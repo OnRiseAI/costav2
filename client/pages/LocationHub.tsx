@@ -1333,6 +1333,32 @@ const LOCATION_CONFIG: LocationData[] = [
       },
     },
   },
+  {
+    REGION_NAME: "Benalmadena Costa",
+    region_slug: "benalmadena-costa",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.5936",
+    LON: "-4.5262",
+    TownLogisticsProfile: {
+      cluster_type: "Coastal_Mixed",
+      logistics: {
+        security_gate_clearance: false,
+        vehicle_width_limit_meters: null,
+        parking_risk_level: "High",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 6, // Inferred default
+      },
+      content_injects: {
+        provider_warning: "Coastal road traffic heavy in summer.",
+        customer_reassurance: "We optimise routes to ensure punctual arrival.",
+      },
+    },
+  },
 ];
 
 const RELATED_AREAS_BY_CLUSTER: Record<string, SubArea[]> = {
