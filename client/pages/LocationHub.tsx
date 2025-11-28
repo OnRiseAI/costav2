@@ -1527,10 +1527,19 @@ export default function LocationHub() {
 
   if (locationProfile) {
     const subAreasFromDb: SubArea[] = Array.isArray(locationProfile.sub_areas)
-      ? locationProfile.sub_areas.map((slug) => ({
-          slug,
-          name: formatRegionNameFromSlug(slug),
-        }))
+      ? locationProfile.sub_areas.map((raw) => {
+          const trimmed = typeof raw === "string" ? raw.trim() : String(raw);
+
+          let slug = trimmed.toLowerCase().replace(/\s+/g, "-");
+          if (trimmed === "San Pedro de Alcantara") {
+            slug = "san-pedro";
+          }
+
+          return {
+            slug,
+            name: trimmed,
+          };
+        })
       : [];
 
     displayData = {
