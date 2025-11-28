@@ -1442,8 +1442,8 @@ export default function LocationHub() {
 
       <section className="relative py-24 md:py-32 overflow-hidden">
         {/* Background Image with Overlay */}
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center" />
-        <div className="absolute inset-0 bg-slate-900/85" />
+        <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/5359370/pexels-photo-5359370.jpeg')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-slate-900/70" />
 
         <div className="container-custom relative z-10">
           <div className="max-w-3xl">
