@@ -1280,6 +1280,33 @@ const LOCATION_CONFIG: LocationData[] = [
       },
     },
   },
+  {
+    REGION_NAME: "Benalmadena Pueblo",
+    region_slug: "benalmadena-pueblo",
+    CURRENT_DATE: "2025-11-27",
+    SUB_AREAS: [],
+    LAT: "36.5958",
+    LON: "-4.5539",
+    TownLogisticsProfile: {
+      cluster_type: "Coastal_Mixed",
+      logistics: {
+        security_gate_clearance: false,
+        vehicle_width_limit_meters: 2.1,
+        parking_risk_level: "Medium",
+        low_emission_zone_active: false,
+      },
+      seasonality: {
+        summer_construction_ban: false,
+        ban_months: [],
+        noise_sensitivity_score: 6, // Inferred default
+      },
+      content_injects: {
+        provider_warning: "Traditional village streets are narrow and winding.",
+        customer_reassurance:
+          "We assign appropriately sized vehicles for village access.",
+      },
+    },
+  },
 ];
 
 const RELATED_AREAS_BY_CLUSTER: Record<string, SubArea[]> = {
@@ -1321,6 +1348,11 @@ const RELATED_AREAS_BY_CLUSTER: Record<string, SubArea[]> = {
     { name: "Sotogrande Costa", slug: "sotogrande-costa" },
     { name: "San Roque Club", slug: "san-roque-club" },
     { name: "La Reserva", slug: "la-reserva" },
+  ],
+  Coastal_Mixed: [
+    { name: "Benalmadena Area", slug: "benalmadena-area" },
+    { name: "Mijas Pueblo", slug: "mijas-pueblo" },
+    { name: "Mijas Costa", slug: "mijas-costa" },
   ],
 };
 
